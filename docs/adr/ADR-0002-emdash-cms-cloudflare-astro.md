@@ -36,6 +36,9 @@ Adotar o **EmDash CMS** (`@emdash-cms`) integrado nativamente ao **Astro** e à 
     - **Copywriting & Merchandising Automático:** Geração e atualização autônoma de descrições persuavidas em Portable Text, SEO JSON-LD e taxonomias diretamente nas coleções EmDash via protocolo MCP.
     - **Evolução de Schema sem Downtime:** Criação agêntica de novas coleções no `.emdash/seed.json` e aplicação via `emdash seed --on-conflict=update`.
     - **Sentinela de Estoque & SEO:** Auditoria contínua de integridade do catálogo, detecção de baixa disponibilidade e otimização de metadados sem interrupção do serviço.
+13. **Módulos & Plugins Customizados Soberanos (Afiliados, Revenda, Comissões & Bling ERP):**
+    - **Módulo de Afiliados, Revenda & Comissões:** Coleção nativa `affiliates` e `commissions` no D1 com rastreamento por sessão/cookie, tabelas de comissão por nível, portal de autosserviço para revendedores e liquidação via Pix.
+    - **Integração Nativa Bling ERP (NFe & Estoque):** Sincronização bi-direcional em tempo real de produtos/estoque e emissão automática de Nota Fiscal Eletrônica (NFe) via webhook pós-pagamento (`order.paid` -> API v3 do Bling ERP).
 
 ### Mapeamento de Tags do Knowledge Graph (Qdrant `:6352`)
 - **`tag=casosex`**: Governança, SOP v3.0, Constituição e ADRs.
@@ -96,3 +99,4 @@ npx emdash seed .emdash/seed.json --validate
 - Operação automatizada por agentes de IA via servidor MCP nativo (`/_emdash/api/mcp`).
 - Isolamento estrito de permissões (Least Privilege) impedindo que extensões acessem recursos não declarados.
 - Capacidade de copywriting, merchandising, evolução de schemas e auditorias de SEO executadas autonomamente pelo Co-Piloto Antigravity.
+- Ecossistema de rede de Afiliados, Revendedores B2B com gestão de comissões e automação fiscal/estoque via Bling ERP NFe sem depender de plugins terceiros pagos.
