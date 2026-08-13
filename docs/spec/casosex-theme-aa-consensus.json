@@ -1,7 +1,7 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "title": "CASOSEX Custom Theme Jury AA Consensus Specification (2026+)",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "project": "CASOSEX",
   "author": "Jeferson Amorim (Founder) & Antigravity (AI Architect)",
   "date": "2026-08-13",
@@ -16,20 +16,28 @@
   "stack_standards": {
     "core_framework": "Astro 5.x (Islands Architecture & Server-First)",
     "ui_islands": "React 19 (Server Components + Client Hydration)",
-    "styling": "Tailwind CSS v4 + Vanilla CSS Custom Tokens",
+    "styling": "Tailwind CSS v4 + Container Queries + Fluid Typography",
     "icons": "Lucide React (Tree-shaken & Inline SVG)",
     "motion_engine": "Framer Motion / Motion v12 (Pin Motion, Layout, ScrollProgress)",
     "smooth_scroll": "Lenis Smooth Scroll v1.x (Native Physics)",
-    "view_transitions": "Astro Native ViewTransitions API (Page morphing without JS bloat)",
+    "view_transitions": "Astro Native ViewTransitions API",
+    "layout_architecture": {
+      "bento_grid_system": "Asymmetric multi-span grids (col-span-1 md:col-span-2 lg:col-span-3) for hero products, category features, and promo tiles",
+      "mobile_first_ux": "App-like native navigation bar at bottom (sticky mobile dock), full-screen sheet drawers for cart/filters, 48px+ touch targets, snap-x swipeable carousels",
+      "fluid_rhythm_spacing": "Section padding using responsive scales (py-12 md:py-20 lg:py-28), clamp() typography, and subtle ambient section dividers"
+    },
     "design_tokens": {
       "glassmorphism": {
         "ultra_thin": "bg-white/10 dark:bg-black/20 backdrop-blur-md border border-white/15 dark:border-white/10",
         "card_liquid": "bg-neutral-900/60 backdrop-blur-xl border border-white/10 shadow-2xl rounded-2xl",
-        "sticky_nav": "bg-neutral-950/80 backdrop-blur-2xl border-b border-neutral-800/80"
+        "sticky_nav": "bg-neutral-950/80 backdrop-blur-2xl border-b border-neutral-800/80",
+        "mobile_dock": "fixed bottom-4 left-4 right-4 z-50 bg-neutral-900/85 backdrop-blur-2xl border border-white/15 rounded-full px-6 py-3 shadow-2xl md:hidden"
       },
       "typography": {
         "heading_font": "Outfit / Plus Jakarta Sans",
-        "body_font": "Inter / System Sans"
+        "body_font": "Inter / System Sans",
+        "fluid_title": "clamp(1.75rem, 4vw + 1rem, 3.5rem)",
+        "fluid_hero": "clamp(2.5rem, 6vw + 1rem, 5rem)"
       },
       "color_palette": {
         "primary_accent": "#E11D48",
@@ -76,6 +84,24 @@
       "id": "AA-06",
       "name": "Conexão Direta Kernel EmDash",
       "description": "Dados consumidos exclusivamente de getEmDashCollection() com validação TypeScript sem rotas intermediárias desnecessárias.",
+      "mandatory": true
+    },
+    {
+      "id": "AA-07",
+      "name": "Bento Grid Architecture 2026+",
+      "description": "Exibição de lançamentos e destaques em Bento Grids assimétricos responsivos (1 coluna no mobile -> 2 colunas no tablet -> Bento 4 colunas no desktop).",
+      "mandatory": true
+    },
+    {
+      "id": "AA-08",
+      "name": "Ritmo de Espaçamento & Fluid Typography",
+      "description": "Padding vertical rítmico entre seções (py-12 no mobile, py-28 no desktop) e tamanhos de fonte fluidos usando clamp().",
+      "mandatory": true
+    },
+    {
+      "id": "AA-09",
+      "name": "UX Mobile-First Diferenciada (Native Feel)",
+      "description": "Navegação por Dock Inferior flutuante no mobile, gavetas interativas (Sheet Drawers), touch targets de 48px+ e carrosséis com CSS scroll-snap.",
       "mandatory": true
     }
   ]
