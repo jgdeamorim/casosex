@@ -1,7 +1,7 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "title": "CASOSEX Custom Theme Jury AA Consensus Specification (2026+)",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "project": "CASOSEX",
   "author": "Jeferson Amorim (Founder) & Antigravity (AI Architect)",
   "date": "2026-08-13",
@@ -25,6 +25,26 @@
       "bento_grid_system": "Asymmetric multi-span grids (col-span-1 md:col-span-2 lg:col-span-3) for hero products, category features, and promo tiles",
       "mobile_first_ux": "App-like native navigation bar at bottom (sticky mobile dock), full-screen sheet drawers for cart/filters, 48px+ touch targets, snap-x swipeable carousels",
       "fluid_rhythm_spacing": "Section padding using responsive scales (py-12 md:py-20 lg:py-28), clamp() typography, and subtle ambient section dividers"
+    },
+    "neuromarketing_and_color_psychology": {
+      "framework_name": "Erotic Luxury & Privacy-First Psychographics",
+      "color_psychology_tokens": {
+        "obsidian_depth": "#09090B (Sofisticação, mistério e sensação de ambiente reservado)",
+        "crimson_accent": "#E11D48 (Paixão, energia e atração sem vulgaridade)",
+        "bordeaux_luxury": "#881337 (Elegância sensual e toque aveludado)",
+        "warm_gold_trust": "#D97706 (Selo de qualidade, discrição e garantia VIP)",
+        "glass_overlay": "rgba(255, 255, 255, 0.08) (Profundidade e elegância moderna)"
+      },
+      "intent_driven_curation_sections": [
+        "1. Top Notification Bar: 'Embalagem 100% Discreta · Nome neutro no cartão · Entrega Rápida'",
+        "2. Hero Storytelling: Banner imersivo com Bento Grid de experiências e botão de Ação Sensorial",
+        "3. Intent-Driven Navigation: Seções por Objetivo ('Para Casais', 'Autocuidado', 'Primeira Vez', 'Intensifique')",
+        "4. High-Trust Badges Grid: Selos de Silicone Médico Hipoalergênico, IPX7 À Prova D'água e Phthalate Free",
+        "5. Bento Grid Destaques: Vitrine de Lançamentos com Vídeo Loop Silencioso e Quick Add ao Carrinho",
+        "6. Stealth Anonymous Reviews: Avaliações verificadas de clientes com anonimato total garantido",
+        "7. Educational & Wellness Hub: Mini-artigos em Rich Text sobre bem-estar e saúde íntima",
+        "8. Privacy Calculator: Simulação de Frete Discreto e Pontos de Retirada/Lockers"
+      ]
     },
     "design_tokens": {
       "glassmorphism": {
@@ -102,6 +122,12 @@
       "id": "AA-09",
       "name": "UX Mobile-First Diferenciada (Native Feel)",
       "description": "Navegação por Dock Inferior flutuante no mobile, gavetas interativas (Sheet Drawers), touch targets de 48px+ e carrosséis com CSS scroll-snap.",
+      "mandatory": true
+    },
+    {
+      "id": "AA-10",
+      "name": "Neuromarketing Sensorial & Privacy-First UX",
+      "description": "Psicologia de cores Erotic Luxury (Obsidian, Crimson, Bordeaux, Warm Gold), navegação orientada a intenção/desejo e gatilhos de discrição absoluta no topo e no checkout.",
       "mandatory": true
     }
   ]

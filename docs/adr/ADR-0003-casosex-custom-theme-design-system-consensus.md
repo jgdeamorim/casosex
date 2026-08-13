@@ -32,7 +32,15 @@ Formalizar o arquivo de consenso [`docs/spec/casosex-theme-aa-consensus.json`](f
 - **UX Mobile-First (Native Feel):** Dock de navegação flutuante inferior no mobile (`fixed bottom-4 left-4 right-4 z-50`), gavetas deslizantes (Sheet Drawers), touch targets de 48px+ e carrosséis com `scroll-snap-x`.
 - **Ritmo de Espaçamento & Tipografia Fluida:** Espaçamento vertical cadenciado (`py-12 md:py-20 lg:py-28`) e tamanhos de título escalados com CSS `clamp()`.
 
-### 3. Matriz de Critérios Rígidos do Jury AA (`casosex-theme-aa-consensus.json`)
+### 3. Neuromarketing Sensorial & Psicologia das Cores (`Erotic Luxury & Privacy-First`)
+- **Obsidian Depth (`#09090B`):** Fundo escuro imersivo transmitindo sofisticação, mistério e ambiente privado reservado.
+- **Crimson Accent (`#E11D48`):** Vermelho vibrante controlado para atração visual e botões de conversão sem vulgaridade.
+- **Bordeaux Luxury (`#881337`):** Tom vinho profundo transmitindo elegância, intimidade e toque aveludado.
+- **Warm Gold Trust (`#D97706`):** Selos de garantia, discrição e atestado de qualidade dos materiais.
+- **Gatilho da Discrição Absoluta (Top Notification):** Barra fixa informando *"Embalagem 100% Discreta · Nome neutro na fatura · Entrega rápida"*.
+- **Navegação por Intenção & Desejo:** Categorização por jornada do cliente (*"Para Casais"*, *"Autocuidado & Bem-Estar"*, *"Primeira Experiência"*, *"Intensifique o Prazer"*).
+
+### 4. Matriz de Critérios Rígidos do Jury AA (`casosex-theme-aa-consensus.json`)
 1. **AA-01 (Zero JS Bloatware):** Componentes estáticos em `.astro` puro; hidratação atômica no React apenas quando visíveis na viewport (`client:visible`).
 2. **AA-02 (Liquid Glass & Depth Layering):** Uso estruturado de desfoque de fundo e bordas semi-transparentes para profundidade tridimensional.
 3. **AA-03 (Pin Motion & Scroll Pinning):** Animações vinculadas ao scroll para apresentar recursos e variações de produto sem poluição de layout.
@@ -42,6 +50,7 @@ Formalizar o arquivo de consenso [`docs/spec/casosex-theme-aa-consensus.json`](f
 7. **AA-07 (Bento Grid Architecture 2026+):** Exibição em mosaicos assimétricos responsivos para destaques e lançamentos.
 8. **AA-08 (Ritmo de Espaçamento & Fluid Typography):** Cadência vertical padronizada e títulos com escala fluida via `clamp()`.
 9. **AA-09 (UX Mobile-First Diferenciada):** Experiência estilo App nativo com dock inferior flutuante, gavetas de carrinho/filtro e alvos de toque de 48px+.
+10. **AA-10 (Neuromarketing Sensorial & Privacy-First UX):** Paleta Erotic Luxury, curadoria orientada a intenção/desejo e selos visuais de transparência e discrição absoluta.
 
 ---
 
@@ -59,7 +68,7 @@ Formalizar o arquivo de consenso [`docs/spec/casosex-theme-aa-consensus.json`](f
 
 ## Consequências
 
-- Garantia de que a implementação do tema customizado seguirá regras imutáveis de consenso técnico, estético e de ergonomia mobile.
+- Garantia de que a implementação do tema customizado seguirá regras imutáveis de consenso técnico, estético, ergonômico e neuromarketing.
 - Experiência fluida e estilo aplicativo nativo no smartphone sem precisar empacotar um app nativo separado.
+- Experiência de compra elegante, discreta e altamente persuasiva no segmento de e-commerce de luxo/bem-estar íntimo.
 - Eliminação total de código sujo, prevenindo degradação de performance ao longo do tempo.
-- Experiência de compra imersiva, moderna e visualmente impactante no mercado brasileiro.
