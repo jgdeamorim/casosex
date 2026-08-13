@@ -32,6 +32,10 @@ Adotar o **EmDash CMS** (`@emdash-cms`) integrado nativamente ao **Astro** e à 
     - Manifest estático de capabilities por plugin (`content:read`, `network:fetch` com allowlist).
     - Formato Rich Text em **Portable Text** em vez de HTML bruto, permitindo renderização limpa e segura em múltiplos canais.
     - Suporte nativo ao plugin **DashCommerce** (`@dashcommerce/core`) para catálogo, estoque e cupons.
+12. **Operação Agêntica Co-Piloto (AI-Native Merchandising & CI/CD):**
+    - **Copywriting & Merchandising Automático:** Geração e atualização autônoma de descrições persuavidas em Portable Text, SEO JSON-LD e taxonomias diretamente nas coleções EmDash via protocolo MCP.
+    - **Evolução de Schema sem Downtime:** Criação agêntica de novas coleções no `.emdash/seed.json` e aplicação via `emdash seed --on-conflict=update`.
+    - **Sentinela de Estoque & SEO:** Auditoria contínua de integridade do catálogo, detecção de baixa disponibilidade e otimização de metadados sem interrupção do serviço.
 
 ### Mapeamento de Tags do Knowledge Graph (Qdrant `:6352`)
 - **`tag=casosex`**: Governança, SOP v3.0, Constituição e ADRs.
@@ -91,3 +95,4 @@ npx emdash seed .emdash/seed.json --validate
 - Suporte nativo a Pix (QR Code) e Checkout Pro no Brasil via Mercado Pago sem custos adicionais de plataforma, operando no Plano Gratuito Cloudflare ($0/mês).
 - Operação automatizada por agentes de IA via servidor MCP nativo (`/_emdash/api/mcp`).
 - Isolamento estrito de permissões (Least Privilege) impedindo que extensões acessem recursos não declarados.
+- Capacidade de copywriting, merchandising, evolução de schemas e auditorias de SEO executadas autonomamente pelo Co-Piloto Antigravity.
