@@ -52,6 +52,7 @@ Efetivar o **EmDash** (`@emdash-cms`) não apenas como um gerenciador de posts, 
 - **`tag=astro-commerce`**: Componentes UI e Design System do tema E-Commerce.
 - **`tag=dashcommerce-docs`**: Especificações oficiais da documentação do DashCommerce.
 - **`tag=dashcommerce`**: Estrutura e pacotes do código-fonte local do DashCommerce (`packages/core`).
+- **`tag=shopo-react`**: Suíte de 30 módulos de referência UI/UX do tema ThemeForest Shopo (React + Tailwind CSS).
 
 ```typescript
 // astro.config.mjs
