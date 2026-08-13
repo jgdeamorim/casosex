@@ -22,6 +22,14 @@ Adotar o **EmDash CMS** (`@emdash-cms`) integrado nativamente ao **Astro** e à 
 4. **Admin Cockpit:** Interface administrativa integrada construída em React (`@astrojs/react` + `emdash/astro`).
 6. **Seeding & Bootstrap Determinístico (`.emdash/seed.json`):** Versionar no Git toda a estrutura de tabelas, taxonomias, menus e configurações iniciais de produtos via `.emdash/seed.json` para auto-discovery e provisionamento automático no boot do Cloudflare D1.
 7. **Camada de Tema & Componentes UI E-Commerce (`astro-ecommerce-main`):** Utilizar a arquitetura de componentes do `self-essentials/astro-ecommerce-main` (70+ componentes UI em Astro/React) alimentados pelas consultas de dados e collections do EmDash CMS no Cloudflare D1.
+8. **Motor de Checkout & Carrinho Headless (`Snipcart v3`):** Integrar o SDK do Snipcart v3 no Astro para gerenciar a sessão do comprador, carrinho dinâmico e checkout seguro com validação de preços server-side (Crawler Validation).
+
+### Mapeamento de Tags do Knowledge Graph (Qdrant `:6352`)
+- **`tag=casosex`**: Governança, SOP v3.0, Constituição e ADRs.
+- **`tag=emdash-docs`**: Especificações do Emdash ADE e Monorepo Nx.
+- **`tag=astro-docs`**: Framework Core Astro 5.x, Islands e Collections.
+- **`tag=snipcart-docs`**: SDK, Atributos HTML e Webhooks do Snipcart v3.
+- **`tag=astro-commerce`**: Componentes UI e Design System do tema E-Commerce.
 
 ```typescript
 // astro.config.mjs
@@ -63,3 +71,4 @@ npx emdash seed .emdash/seed.json --validate
 - Conteúdo fortemente tipado e integrado às páginas estáticas/SSR do Astro.
 - Bootstrap determinístico do banco Cloudflare D1 no primeiro boot via `.emdash/seed.json`.
 - Aceleração de UI/UX com 70+ componentes de e-commerce (`astro-ecommerce-main`) desacoplados da camada de dados do EmDash.
+- Processamento de checkout seguro e headless via Snipcart v3 com preços validados e protegidos contra fraudes.
