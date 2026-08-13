@@ -1,7 +1,7 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "title": "CASOSEX Custom Theme Jury AA Consensus Specification (2026+)",
-  "version": "1.2.0",
+  "version": "1.3.0",
   "project": "CASOSEX",
   "author": "Jeferson Amorim (Founder) & Antigravity (AI Architect)",
   "date": "2026-08-13",
@@ -20,11 +20,13 @@
     "icons": "Lucide React (Tree-shaken & Inline SVG)",
     "motion_engine": "Framer Motion / Motion v12 (Pin Motion, Layout, ScrollProgress)",
     "smooth_scroll": "Lenis Smooth Scroll v1.x (Native Physics)",
-    "view_transitions": "Astro Native ViewTransitions API",
+    "view_transitions": "Astro Native ViewTransitions API + Speculation Rules API",
+    "mobile_haptics": "Web Haptics API (navigator.vibrate) for interactive touch feedback",
     "layout_architecture": {
       "bento_grid_system": "Asymmetric multi-span grids (col-span-1 md:col-span-2 lg:col-span-3) for hero products, category features, and promo tiles",
       "mobile_first_ux": "App-like native navigation bar at bottom (sticky mobile dock), full-screen sheet drawers for cart/filters, 48px+ touch targets, snap-x swipeable carousels",
-      "fluid_rhythm_spacing": "Section padding using responsive scales (py-12 md:py-20 lg:py-28), clamp() typography, and subtle ambient section dividers"
+      "fluid_rhythm_spacing": "Section padding using responsive scales (py-12 md:py-20 lg:py-28), clamp() typography, and subtle ambient section dividers",
+      "container_queries": "@container queries for self-responsive component polymorphism across B2C, B2B wholesale, and affiliate portals"
     },
     "neuromarketing_and_color_psychology": {
       "framework_name": "Erotic Luxury & Privacy-First Psychographics",
@@ -127,7 +129,25 @@
     {
       "id": "AA-10",
       "name": "Neuromarketing Sensorial & Privacy-First UX",
-      "description": "Psicologia de cores Erotic Luxury (Obsidian, Crimson, Bordeaux, Warm Gold), navegação orientada a intenção/desejo e gatilhos de discrição absoluta no topo e no checkout.",
+      "description": "Paleta Erotic Luxury, curadoria orientada a intenção/desejo e selos visuais de transparência e discrição absoluta.",
+      "mandatory": true
+    },
+    {
+      "id": "AA-11",
+      "name": "Sub-50ms Speculation Rules & View Transitions",
+      "description": "Prefetching preditivo de páginas na memória do navegador antes do clique e transições nativas de página estilo App sem peso de SPA.",
+      "mandatory": true
+    },
+    {
+      "id": "AA-12",
+      "name": "Container Queries & Multi-Context Polymorphism",
+      "description": "Componentes auto-responsivos via @container ajustando seu layout pelo espaço disponível e adaptando atributos para B2C, B2B e Afiliados.",
+      "mandatory": true
+    },
+    {
+      "id": "AA-13",
+      "name": "Web Haptics API & Touch Physics",
+      "description": "Resposta de micro-vibração tátil no smartphone ao adicionar ao carrinho ou copiar chave Pix, combinada com física de rolagem Lenis.",
       "mandatory": true
     }
   ]

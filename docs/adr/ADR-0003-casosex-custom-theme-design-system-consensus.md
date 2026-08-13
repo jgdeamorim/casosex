@@ -40,7 +40,14 @@ Formalizar o arquivo de consenso [`docs/spec/casosex-theme-aa-consensus.json`](f
 - **Gatilho da Discrição Absoluta (Top Notification):** Barra fixa informando *"Embalagem 100% Discreta · Nome neutro na fatura · Entrega rápida"*.
 - **Navegação por Intenção & Desejo:** Categorização por jornada do cliente (*"Para Casais"*, *"Autocuidado & Bem-Estar"*, *"Primeira Experiência"*, *"Intensifique o Prazer"*).
 
-### 4. Matriz de Critérios Rígidos do Jury AA (`casosex-theme-aa-consensus.json`)
+### 4. Técnicas de Engenharia PWA 3.0 & Mobile-First 2026+
+- **Sub-50ms Speculation Rules API:** Pré-carregamento preditivo em memória da próxima página antes do clique, eliminando a percepção de carregamento.
+- **Astro Native View Transitions:** Animação de morphing de tela direto no navegador (fade/slide nativo do sistema operacional) com 0 KB de JS extra.
+- **Container Queries (`@container`):** Componentes auto-responsivos que ajustam seu layout com base no tamanho do seu próprio container pai (sidebar, Bento Grid 1/3 ou Hero), eliminando dependência rígida de `@media`.
+- **Web Haptics API (`navigator.vibrate`):** Micro-vibração tátil suave no smartphone durante interações cruciais (Adicionar ao Carrinho, Copiar Chave Pix, Seleção de Variação).
+- **Multi-Context Polymorphism:** Um único componente de catálogo adaptando sua interface de acordo com o papel do visitante (B2C Cliente, B2B Atacado ou Afiliado) via `RenderContext`.
+
+### 5. Matriz de Critérios Rígidos do Jury AA (`casosex-theme-aa-consensus.json`)
 1. **AA-01 (Zero JS Bloatware):** Componentes estáticos em `.astro` puro; hidratação atômica no React apenas quando visíveis na viewport (`client:visible`).
 2. **AA-02 (Liquid Glass & Depth Layering):** Uso estruturado de desfoque de fundo e bordas semi-transparentes para profundidade tridimensional.
 3. **AA-03 (Pin Motion & Scroll Pinning):** Animações vinculadas ao scroll para apresentar recursos e variações de produto sem poluição de layout.
@@ -51,6 +58,9 @@ Formalizar o arquivo de consenso [`docs/spec/casosex-theme-aa-consensus.json`](f
 8. **AA-08 (Ritmo de Espaçamento & Fluid Typography):** Cadência vertical padronizada e títulos com escala fluida via `clamp()`.
 9. **AA-09 (UX Mobile-First Diferenciada):** Experiência estilo App nativo com dock inferior flutuante, gavetas de carrinho/filtro e alvos de toque de 48px+.
 10. **AA-10 (Neuromarketing Sensorial & Privacy-First UX):** Paleta Erotic Luxury, curadoria orientada a intenção/desejo e selos visuais de transparência e discrição absoluta.
+11. **AA-11 (Sub-50ms Speculation Rules & View Transitions):** Prefetching preditivo em memória e transições de tela nativas sem peso de SPA.
+12. **AA-12 (Container Queries & Multi-Context Polymorphism):** Componentes auto-responsivos via @container e adaptação polimórfica para B2C, B2B e Afiliados.
+13. **AA-13 (Web Haptics API & Touch Physics):** Resposta de micro-vibração tátil no smartphone em ações de conversão e física de rolagem Lenis.
 
 ---
 
