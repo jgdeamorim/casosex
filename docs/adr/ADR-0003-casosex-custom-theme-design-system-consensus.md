@@ -47,7 +47,16 @@ Formalizar o arquivo de consenso [`docs/spec/casosex-theme-aa-consensus.json`](f
 - **Web Haptics API (`navigator.vibrate`):** Micro-vibração tátil suave no smartphone durante interações cruciais (Adicionar ao Carrinho, Copiar Chave Pix, Seleção de Variação).
 - **Multi-Context Polymorphism:** Um único componente de catálogo adaptando sua interface de acordo com o papel do visitante (B2C Cliente, B2B Atacado ou Afiliado) via `RenderContext`.
 
-### 5. Matriz de Critérios Rígidos do Jury AA (`casosex-theme-aa-consensus.json`)
+### 5. Padrões de Alta Conversão do E-Commerce Brasileiro (UX & Micro-Interações)
+- **Gatilho de Desconto no Pix (`Pix OFF`):** Badges visuais de destaque ("5% ou 10% OFF no Pix") ao lado do preço principal nos cards e na visualização rápida.
+- **Vendas pelo WhatsApp (`1-Click Conversion`):** Botão nativo de "Comprar pelo WhatsApp" com mensagem pré-formatada direta para o produto desejado.
+- **Efeitos de Mouseover em Cards de Produto:**
+  - **Image Flip:** Transição suave (300ms) para a imagem secundária (ângulo interno, embalagem ou em uso) ao passar o mouse.
+  - **Scale Zoom:** Expansão sutil da foto (`scale-105`) com contêiner recortado.
+  - **Quick Add Slide-Up:** Botão "Adicionar ao Carrinho" deslizando com efeito glassmorphism no hover.
+- **Top Announcement Bar:** Carrossel rotativo no topo informando Frete Grátis, Parcelamento e Embalagem Discreta.
+
+### 6. Matriz de Critérios Rígidos do Jury AA (`casosex-theme-aa-consensus.json`)
 1. **AA-01 (Zero JS Bloatware):** Componentes estáticos em `.astro` puro; hidratação atômica no React apenas quando visíveis na viewport (`client:visible`).
 2. **AA-02 (Liquid Glass & Depth Layering):** Uso estruturado de desfoque de fundo e bordas semi-transparentes para profundidade tridimensional.
 3. **AA-03 (Pin Motion & Scroll Pinning):** Animações vinculadas ao scroll para apresentar recursos e variações de produto sem poluição de layout.
@@ -61,6 +70,7 @@ Formalizar o arquivo de consenso [`docs/spec/casosex-theme-aa-consensus.json`](f
 11. **AA-11 (Sub-50ms Speculation Rules & View Transitions):** Prefetching preditivo em memória e transições de tela nativas sem peso de SPA.
 12. **AA-12 (Container Queries & Multi-Context Polymorphism):** Componentes auto-responsivos via @container e adaptação polimórfica para B2C, B2B e Afiliados.
 13. **AA-13 (Web Haptics API & Touch Physics):** Resposta de micro-vibração tátil no smartphone em ações de conversão e física de rolagem Lenis.
+14. **AA-14 (Padrões de Alta Conversão do E-Commerce Brasileiro):** Destaque ostensivo de Pix com desconto, botão de Comprar pelo WhatsApp com 1-clique e Image Flip no mouseover dos produtos.
 
 ---
 
