@@ -27,13 +27,20 @@ Adotar o **EmDash CMS** (`@emdash-cms`) integrado nativamente ao **Astro** e à 
    - **Plano Gratuito Cloudflare ($0/mês):** Execução do EmDash CMS com plugins In-Process (`plugins: [...]`), desativando o bloco `"worker_loaders"` no `wrangler.jsonc` para operar dentro das cotas gratuitas (5M leituras/dia no D1 e 5GB no R2).
    - **Mercado Pago Pix & Checkout Pro:** Processamento de pagamentos locais via Server Endpoints do Astro (`src/pages/api/checkout/pix.ts`) utilizando o SDK oficial `@mercadopago/sdk-node` e webhooks de notificação instantânea (`src/pages/api/webhooks/mercadopago.ts`).
    - **Preços em Centavos:** Armazenamento de valores monetários como inteiros em centavos no `.emdash/seed.json` (`8990` = R$ 89,90) para prevenir erros de precisão decimal.
+10. **Servidor MCP Nativo (`/_emdash/api/mcp`):** Utilização da interface MCP embutida para permitir que agentes de IA (Antigravity) gerenciem conteúdo, schemas e catálogo com autorização e auditabilidade.
+11. **Modelo de Segurança Least Privilege & Portable Text:**
+    - Manifest estático de capabilities por plugin (`content:read`, `network:fetch` com allowlist).
+    - Formato Rich Text em **Portable Text** em vez de HTML bruto, permitindo renderização limpa e segura em múltiplos canais.
+    - Suporte nativo ao plugin **DashCommerce** (`@dashcommerce/core`) para catálogo, estoque e cupons.
 
 ### Mapeamento de Tags do Knowledge Graph (Qdrant `:6352`)
 - **`tag=casosex`**: Governança, SOP v3.0, Constituição e ADRs.
-- **`tag=emdash-docs`**: Especificações do Emdash ADE e Monorepo Nx.
+- **`tag=emdash-docs`**: Especificações do Emdash ADE, Monorepo Nx e MCP Server.
 - **`tag=astro-docs`**: Framework Core Astro 5.x, Islands e Collections.
 - **`tag=snipcart-docs`**: SDK, Atributos HTML e Webhooks do Snipcart v3.
 - **`tag=astro-commerce`**: Componentes UI e Design System do tema E-Commerce.
+- **`tag=dashcommerce-docs`**: Especificações oficiais da documentação do DashCommerce.
+- **`tag=dashcommerce`**: Estrutura e pacotes do código-fonte local do DashCommerce (`packages/core`).
 
 ```typescript
 // astro.config.mjs
@@ -42,6 +49,7 @@ import cloudflare from "@astrojs/cloudflare";
 import react from "@astrojs/react";
 import emdash from "emdash/astro";
 import { d1, r2 } from "@emdash-cms/cloudflare";
+import { dashcommerce } from "@dashcommerce/core";
 
 export default defineConfig({
 	output: "server",
@@ -51,6 +59,7 @@ export default defineConfig({
 		emdash({
 			database: d1({ binding: "DB" }),
 			storage: r2({ binding: "MEDIA" }),
+			plugins: [dashcommerce()],
 		}),
 	],
 });
@@ -62,7 +71,10 @@ export default defineConfig({
 mkdir -p .emdash
 npx emdash export-seed --with-content > .emdash/seed.json
 
-# Validar integridade do schema antes do deploy
+# Mesclar schemas do DashCommerce no seed
+bunx dashcommerce-merge-seed --with-demo-catalog
+
+# Validar e aplicar integridade do schema
 npx emdash seed .emdash/seed.json --validate
 ```
 
@@ -77,3 +89,5 @@ npx emdash seed .emdash/seed.json --validate
 - Aceleração de UI/UX com 70+ componentes de e-commerce (`astro-ecommerce-main`) desacoplados da camada de dados do EmDash.
 - Processamento de checkout seguro e headless via Snipcart v3 com preços validados e protegidos contra fraudes.
 - Suporte nativo a Pix (QR Code) e Checkout Pro no Brasil via Mercado Pago sem custos adicionais de plataforma, operando no Plano Gratuito Cloudflare ($0/mês).
+- Operação automatizada por agentes de IA via servidor MCP nativo (`/_emdash/api/mcp`).
+- Isolamento estrito de permissões (Least Privilege) impedindo que extensões acessem recursos não declarados.
