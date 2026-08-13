@@ -1,0 +1,82 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "CASOSEX Custom Theme Jury AA Consensus Specification (2026+)",
+  "version": "1.0.0",
+  "project": "CASOSEX",
+  "author": "Jeferson Amorim (Founder) & Antigravity (AI Architect)",
+  "date": "2026-08-13",
+  "target_performance": {
+    "google_pagespeed_mobile_min": 98,
+    "google_pagespeed_desktop_min": 100,
+    "ttfb_edge_max_ms": 200,
+    "cls_max": 0.01,
+    "inp_max_ms": 50,
+    "lcp_max_ms": 1200
+  },
+  "stack_standards": {
+    "core_framework": "Astro 5.x (Islands Architecture & Server-First)",
+    "ui_islands": "React 19 (Server Components + Client Hydration)",
+    "styling": "Tailwind CSS v4 + Vanilla CSS Custom Tokens",
+    "icons": "Lucide React (Tree-shaken & Inline SVG)",
+    "motion_engine": "Framer Motion / Motion v12 (Pin Motion, Layout, ScrollProgress)",
+    "smooth_scroll": "Lenis Smooth Scroll v1.x (Native Physics)",
+    "view_transitions": "Astro Native ViewTransitions API (Page morphing without JS bloat)",
+    "design_tokens": {
+      "glassmorphism": {
+        "ultra_thin": "bg-white/10 dark:bg-black/20 backdrop-blur-md border border-white/15 dark:border-white/10",
+        "card_liquid": "bg-neutral-900/60 backdrop-blur-xl border border-white/10 shadow-2xl rounded-2xl",
+        "sticky_nav": "bg-neutral-950/80 backdrop-blur-2xl border-b border-neutral-800/80"
+      },
+      "typography": {
+        "heading_font": "Outfit / Plus Jakarta Sans",
+        "body_font": "Inter / System Sans"
+      },
+      "color_palette": {
+        "primary_accent": "#E11D48",
+        "primary_hover": "#F43F5E",
+        "secondary_accent": "#881337",
+        "dark_bg": "#09090B",
+        "dark_card": "#18181B",
+        "glass_border": "rgba(255, 255, 255, 0.12)"
+      }
+    }
+  },
+  "jury_aa_criteria": [
+    {
+      "id": "AA-01",
+      "name": "Zero JS Bloatware & Strict Hydration",
+      "description": "Componentes estáticos devem usar .astro puro. Componentes interativos só hidratam com client:visible ou client:idle.",
+      "mandatory": true
+    },
+    {
+      "id": "AA-02",
+      "name": "Liquid Glass & Depth Layering",
+      "description": "Uso de backdrop-blur-(sm|md|lg) com bordas semi-transparentes (white/10) e sombreamento multicamadas (shadow-2xl).",
+      "mandatory": true
+    },
+    {
+      "id": "AA-03",
+      "name": "Pin Motion & Scroll Storytelling",
+      "description": "Uso de Framer Motion / Motion (useScroll, useTransform) para travamento suave de seções de produto (Sticky Pin) durante o scroll.",
+      "mandatory": true
+    },
+    {
+      "id": "AA-04",
+      "name": "Micro-interações de Alta Conversão",
+      "description": "Feedback háptico visual em botões 'Adicionar ao Carrinho', seletores de cor/tamanho com transição layout animate layoutId e previews 3D/Zoom.",
+      "mandatory": true
+    },
+    {
+      "id": "AA-05",
+      "name": "Acessibilidade Total (WCAG 2.1 AA)",
+      "description": "Contraste de cor minimo 4.5:1, suporte total a navegação por teclado, rótulos aria-label e suporte a prefers-reduced-motion.",
+      "mandatory": true
+    },
+    {
+      "id": "AA-06",
+      "name": "Conexão Direta Kernel EmDash",
+      "description": "Dados consumidos exclusivamente de getEmDashCollection() com validação TypeScript sem rotas intermediárias desnecessárias.",
+      "mandatory": true
+    }
+  ]
+}
