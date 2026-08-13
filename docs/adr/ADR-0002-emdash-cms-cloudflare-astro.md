@@ -43,6 +43,12 @@ Efetivar o **EmDash** (`@emdash-cms`) não apenas como um gerenciador de posts, 
     - **Design System Autoral:** Desenvolvimento de um tema 100% exclusivo sob medida para a marca CASOSEX utilizando a fundação do Astro 5.x + React 19 + Tailwind CSS, extraindo componentes de alta conversão do `astro-ecommerce-main`.
     - **Zero JS Bloatware:** Hydration seletiva (Islands Architecture) para garantir pontuação 98-100 no Google PageSpeed Mobile e TTFB < 200ms.
     - **Integração Nível Kernel:** Consumo direto das coleções da Base de Controle Geral (`getEmDashCollection`) com segurança de tipos end-to-end (TypeScript).
+15. **Absorção de Motores & Padrões de Elite do Ecossistema Adsentice:**
+    - **Cache Determinístico BLAKE3 KV:** Renderização e consulta de coleções em 0ms servidas do cache de borda (Edge KV) sem consultas repetitivas ao D1.
+    - **Dynamic Composer & RenderContext Engine:** Composição dinâmica de seções da Home diretamente pelo EmDash CMS sem alterar o código do frontend.
+    - **Co-Piloto de Atendimento & Vendas Discretas no WhatsApp:** Integração de botões flutuantes WACTA (WhatsApp Call to Action) com mensagens anônimas pré-formatadas para matar dúvidas de compra.
+    - **Motor de Recompra Automática (Commerce Intel):** Lembretes preditivos para itens consumíveis (lubrificantes, géis, óleos) gerando receita recorrente com checkout de 1-clique.
+    - **Checkout Pix Transparente In-Modal:** Exibição do QR Code Pix e cópia-e-cola diretamente em modal glassmorphism com confirmação via webhook em < 2 segundos.
 
 ### Mapeamento de Tags do Knowledge Graph (Qdrant `:6352`)
 - **`tag=casosex`**: Governança, SOP v3.0, Constituição e ADRs.
@@ -106,3 +112,4 @@ npx emdash seed .emdash/seed.json --validate
 - Capacidade de copywriting, merchandising, evolução de schemas e auditorias de SEO executadas autonomamente pelo Co-Piloto Antigravity.
 - Ecossistema de rede de Afiliados, Revendedores B2B com gestão de comissões e automação fiscal/estoque via Bling ERP NFe sem depender de plugins terceiros pagos.
 - Tema visual autoral, exclusivo e hiper-veloz sob medida para o CASOSEX, totalmente integrado à Base de Controle Geral.
+- Absorção dos 5 motores de inteligência Adsentice (BLAKE3 KV, Dynamic Composer, WhatsApp Copilot, Recompra Automática e Pix In-Modal < 2s).
