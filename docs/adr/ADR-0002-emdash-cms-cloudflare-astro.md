@@ -23,6 +23,10 @@ Adotar o **EmDash CMS** (`@emdash-cms`) integrado nativamente ao **Astro** e à 
 6. **Seeding & Bootstrap Determinístico (`.emdash/seed.json`):** Versionar no Git toda a estrutura de tabelas, taxonomias, menus e configurações iniciais de produtos via `.emdash/seed.json` para auto-discovery e provisionamento automático no boot do Cloudflare D1.
 7. **Camada de Tema & Componentes UI E-Commerce (`astro-ecommerce-main`):** Utilizar a arquitetura de componentes do `self-essentials/astro-ecommerce-main` (70+ componentes UI em Astro/React) alimentados pelas consultas de dados e collections do EmDash CMS no Cloudflare D1.
 8. **Motor de Checkout & Carrinho Headless (`Snipcart v3`):** Integrar o SDK do Snipcart v3 no Astro para gerenciar a sessão do comprador, carrinho dinâmico e checkout seguro com validação de preços server-side (Crawler Validation).
+9. **Pagamento Brasil via Mercado Pago (Pix + Checkout Pro) & Plano Gratuito Cloudflare ($0/mês):**
+   - **Plano Gratuito Cloudflare ($0/mês):** Execução do EmDash CMS com plugins In-Process (`plugins: [...]`), desativando o bloco `"worker_loaders"` no `wrangler.jsonc` para operar dentro das cotas gratuitas (5M leituras/dia no D1 e 5GB no R2).
+   - **Mercado Pago Pix & Checkout Pro:** Processamento de pagamentos locais via Server Endpoints do Astro (`src/pages/api/checkout/pix.ts`) utilizando o SDK oficial `@mercadopago/sdk-node` e webhooks de notificação instantânea (`src/pages/api/webhooks/mercadopago.ts`).
+   - **Preços em Centavos:** Armazenamento de valores monetários como inteiros em centavos no `.emdash/seed.json` (`8990` = R$ 89,90) para prevenir erros de precisão decimal.
 
 ### Mapeamento de Tags do Knowledge Graph (Qdrant `:6352`)
 - **`tag=casosex`**: Governança, SOP v3.0, Constituição e ADRs.
@@ -72,3 +76,4 @@ npx emdash seed .emdash/seed.json --validate
 - Bootstrap determinístico do banco Cloudflare D1 no primeiro boot via `.emdash/seed.json`.
 - Aceleração de UI/UX com 70+ componentes de e-commerce (`astro-ecommerce-main`) desacoplados da camada de dados do EmDash.
 - Processamento de checkout seguro e headless via Snipcart v3 com preços validados e protegidos contra fraudes.
+- Suporte nativo a Pix (QR Code) e Checkout Pro no Brasil via Mercado Pago sem custos adicionais de plataforma, operando no Plano Gratuito Cloudflare ($0/mês).
