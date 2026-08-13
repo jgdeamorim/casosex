@@ -1,4 +1,4 @@
-# ADR-0002: Adção do EmDash CMS (Astro + Cloudflare D1/R2) para a Arquitetura CASOSEX
+# ADR-0002: EmDash como Base de Controle Geral (Business Control Plane & Sovereign OS) do CASOSEX
 
 - **Status:** Accepted
 - **Data:** 2026-08-13
@@ -8,13 +8,13 @@
 
 ## Contexto
 
-O projeto **CASOSEX** necessita de uma camada de gestão de conteúdo estruturado, catálogo de produtos e gerenciamento de mídia de altíssima performance, com custo próximo a $0 de infraestrutura e execução serverless na borda.
+O projeto **CASOSEX** exige mais do que um simples CMS de publicação de conteúdo. Ele necessita de uma **Base de Controle Geral (Business Control Plane & Sovereign OS)** capaz de orquestrar a operação inteira do negócio na borda (edge): catálogo, estoque, pedidos, checkout, faturamento fiscal (Bling ERP NFe), rede de afiliados, revendedores B2B, comissões e auditoria por IA — tudo executando com latência ultrabaixa, custo mínimo de infraestrutura e soberania total de dados.
 
 ---
 
 ## Decisão
 
-Adotar o **EmDash CMS** (`@emdash-cms`) integrado nativamente ao **Astro** e à infraestrutura da **Cloudflare**:
+Efetivar o **EmDash** (`@emdash-cms`) não apenas como um gerenciador de posts, mas como a **Base de Controle Geral (Business Control Plane & Sovereign OS)** do CASOSEX, integrado nativamente ao **Astro** e à infraestrutura da **Cloudflare**:
 
 1. **Framework Core:** Astro 5.x (`output: "server"`, adapter `@astrojs/cloudflare`).
 2. **Banco de Dados Relacional:** Cloudflare D1 (`binding: "DB"`), mapeando schemas estruturados diretamente para tabelas SQL nativas.
