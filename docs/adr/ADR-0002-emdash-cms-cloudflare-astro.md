@@ -21,6 +21,7 @@ Adotar o **EmDash CMS** (`@emdash-cms`) integrado nativamente ao **Astro** e à 
 3. **Armazenamento de Mídia & Imagens:** Cloudflare R2 (`binding: "MEDIA"`), sem custos de egresso.
 4. **Admin Cockpit:** Interface administrativa integrada construída em React (`@astrojs/react` + `emdash/astro`).
 6. **Seeding & Bootstrap Determinístico (`.emdash/seed.json`):** Versionar no Git toda a estrutura de tabelas, taxonomias, menus e configurações iniciais de produtos via `.emdash/seed.json` para auto-discovery e provisionamento automático no boot do Cloudflare D1.
+7. **Camada de Tema & Componentes UI E-Commerce (`astro-ecommerce-main`):** Utilizar a arquitetura de componentes do `self-essentials/astro-ecommerce-main` (70+ componentes UI em Astro/React) alimentados pelas consultas de dados e collections do EmDash CMS no Cloudflare D1.
 
 ```typescript
 // astro.config.mjs
@@ -61,3 +62,4 @@ npx emdash seed .emdash/seed.json --validate
 - Zero dependência de servidores pesados Node.js/PHP ou bancos de dados tradicionais caros.
 - Conteúdo fortemente tipado e integrado às páginas estáticas/SSR do Astro.
 - Bootstrap determinístico do banco Cloudflare D1 no primeiro boot via `.emdash/seed.json`.
+- Aceleração de UI/UX com 70+ componentes de e-commerce (`astro-ecommerce-main`) desacoplados da camada de dados do EmDash.
