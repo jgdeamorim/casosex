@@ -39,6 +39,10 @@ Efetivar o **EmDash** (`@emdash-cms`) não apenas como um gerenciador de posts, 
 13. **Módulos & Plugins Customizados Soberanos (Afiliados, Revenda, Comissões & Bling ERP):**
     - **Módulo de Afiliados, Revenda & Comissões:** Coleção nativa `affiliates` e `commissions` no D1 com rastreamento por sessão/cookie, tabelas de comissão por nível, portal de autosserviço para revendedores e liquidação via Pix.
     - **Integração Nativa Bling ERP (NFe & Estoque):** Sincronização bi-direcional em tempo real de produtos/estoque e emissão automática de Nota Fiscal Eletrônica (NFe) via webhook pós-pagamento (`order.paid` -> API v3 do Bling ERP).
+14. **Tema Exclusivo e Sob Medida CASOSEX (Custom UI/UX Architecture):**
+    - **Design System Autoral:** Desenvolvimento de um tema 100% exclusivo sob medida para a marca CASOSEX utilizando a fundação do Astro 5.x + React 19 + Tailwind CSS, extraindo componentes de alta conversão do `astro-ecommerce-main`.
+    - **Zero JS Bloatware:** Hydration seletiva (Islands Architecture) para garantir pontuação 98-100 no Google PageSpeed Mobile e TTFB < 200ms.
+    - **Integração Nível Kernel:** Consumo direto das coleções da Base de Controle Geral (`getEmDashCollection`) com segurança de tipos end-to-end (TypeScript).
 
 ### Mapeamento de Tags do Knowledge Graph (Qdrant `:6352`)
 - **`tag=casosex`**: Governança, SOP v3.0, Constituição e ADRs.
@@ -100,3 +104,4 @@ npx emdash seed .emdash/seed.json --validate
 - Isolamento estrito de permissões (Least Privilege) impedindo que extensões acessem recursos não declarados.
 - Capacidade de copywriting, merchandising, evolução de schemas e auditorias de SEO executadas autonomamente pelo Co-Piloto Antigravity.
 - Ecossistema de rede de Afiliados, Revendedores B2B com gestão de comissões e automação fiscal/estoque via Bling ERP NFe sem depender de plugins terceiros pagos.
+- Tema visual autoral, exclusivo e hiper-veloz sob medida para o CASOSEX, totalmente integrado à Base de Controle Geral.
