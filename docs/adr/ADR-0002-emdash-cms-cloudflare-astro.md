@@ -20,7 +20,7 @@ Adotar o **EmDash CMS** (`@emdash-cms`) integrado nativamente ao **Astro** e à 
 2. **Banco de Dados Relacional:** Cloudflare D1 (`binding: "DB"`), mapeando schemas estruturados diretamente para tabelas SQL nativas.
 3. **Armazenamento de Mídia & Imagens:** Cloudflare R2 (`binding: "MEDIA"`), sem custos de egresso.
 4. **Admin Cockpit:** Interface administrativa integrada construída em React (`@astrojs/react` + `emdash/astro`).
-5. **Plugins em Isolates:** Arquitetura de plugins em sandbox executando em Cloudflare Isolates.
+6. **Seeding & Bootstrap Determinístico (`.emdash/seed.json`):** Versionar no Git toda a estrutura de tabelas, taxonomias, menus e configurações iniciais de produtos via `.emdash/seed.json` para auto-discovery e provisionamento automático no boot do Cloudflare D1.
 
 ```typescript
 // astro.config.mjs
@@ -43,6 +43,16 @@ export default defineConfig({
 });
 ```
 
+### Protocolo de Seeding CLI
+```bash
+# Exportar banco e estrutura para o arquivo de seed
+mkdir -p .emdash
+npx emdash export-seed --with-content > .emdash/seed.json
+
+# Validar integridade do schema antes do deploy
+npx emdash seed .emdash/seed.json --validate
+```
+
 ---
 
 ## Consequências
@@ -50,3 +60,4 @@ export default defineConfig({
 - Desempenho de borda (edge) com latência mínima para os clientes do CASOSEX.
 - Zero dependência de servidores pesados Node.js/PHP ou bancos de dados tradicionais caros.
 - Conteúdo fortemente tipado e integrado às páginas estáticas/SSR do Astro.
+- Bootstrap determinístico do banco Cloudflare D1 no primeiro boot via `.emdash/seed.json`.
