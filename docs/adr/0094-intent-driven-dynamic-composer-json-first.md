@@ -22,54 +22,46 @@ Esta arquitetura apresenta falhas estruturais críticas no ecossistema Adsentice
 
 ### 0.2 O Princípio Intent-Driven Universal
 A ADR-0094 ratifica a inversão soberana e **universal** de modelo para **qualquer superfície ou tipo de conteúdo**:
-$$\text{Intent Prompt / Briefing (BLUE)} \xrightarrow[\text{Especificação Consensus JSON}]{\text{Surface Consensus AA}} \text{RenderContext (JSON Universal)} \xrightarrow[\text{Cego / < 2ms}]{\text{TechniqueRenderers (GREEN)}} \text{UI/UX Soberana}$$
+$$\text{Intent Prompt + Variante (BLUE)} \xrightarrow[\text{Resolução Polimórfica}]{\text{Matriz Específica de Slots}} \text{RenderContext (JSON Universal)} \xrightarrow[\text{Cego / < 2ms}]{\text{TechniqueRenderers (GREEN)}} \text{UI/UX Soberana}$$
 
 ---
 
-## §1 · Generalização Universal & O Padrão Canônico de Especificação de Superfície
+## §1 · Generalização Universal, Matrizes por Variante & O Padrão Canônico de Especificação
 
-> ⚠️ **Invariante de Arquitetura**: A matriz estabelecida na **ADR-0003** e no especificação **`casosex-theme-aa-consensus.json`** serve como o **Modelo Canônico Espetacular** para a especificação técnica de QUALQUER superfície ou item da Família Warp (S0 a S21).
+> ⚠️ **Invariante de Arquitetura**: A matriz estabelecida na **ADR-0003** e no `casosex-theme-aa-consensus.json` é a especificação canônica para a variante **Home de E-Commerce (S13)**. Para outras páginas, tais como **Landing Pages Comerciais por Nicho** (ex: `variante=delivery`, `variante=odonto`, `variante=saas`), a matriz de slots dinâmicos e sessões se adapta polimorficamente à chamada específica.
 
 ### 1.1 Cobertura de Superfícies do Ecossistema (S0 a S21)
 
 | Família de Superfícies | IDs | Exemplo de Aplicação Intent-Driven |
 | :--- | :--- | :--- |
-| **Superfícies de Conversão & Audit** | `S10`, `S11` | Raio-X Diagnóstico, Landing Pages Comerciais por Nicho (Sentinela R$197). |
+| **Superfícies de Conversão & Audit** | `S10`, `S11` | Raio-X Diagnóstico, Landing Pages Comerciais por Nicho (`variante=delivery`, `variante=odonto`). |
 | **Superfícies de Conteúdo & Blog** | `S7`, `S12` | Artigos de Blog dinâmicos, Central de Documentação, Guias Locais SEO. |
-| **Superfícies de E-Commerce & Catalogs** | `S13` | Catálogo Dinâmico de Produtos/Serviços, Checkout Modal Sicredi Pix. |
+| **Superfícies de E-Commerce & Catalogs** | `S13` | Catálogo Dinâmico, Home de E-Commerce (Matriz 10 Slots Curva ABC). |
 | **Superfícies de Gestão & Cockpits** | `S0`..`S6`, `S8`, `S9` | Painel Administrativo, Cockpit CRM de Leads, Monitor Sentinela ao Vivo. |
 | **Superfícies Operacionais Swarm** | `S14`..`S21` | Cockpits de Agentes Autônomos, Analytics Avançado de Conversão. |
 
-### 1.2 O Schema Canônico de Especificação de Superfície (`Surface Consensus Specification JSON`)
-Cada item/superfície da Família Warp possui um arquivo de especificação e consenso de qualidade padronizado (baseado no `casosex-theme-aa-consensus.json`), contendo 4 blocos obrigatórios:
+### 1.2 Resolução Polimórfica de Slots por Variante (`Polymorphic Slot Matrix per Variant`)
+Quando o sistema recebe uma chamada para uma superfície, o **Especialista da Camada BLUE** resolve a matriz de slots dinâmicos conforme a variante solicitada:
 
-```json
-{
-  "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "title": "Warp Surface Consensus Specification Schema (2026+)",
-  "surface_id": "S13",
-  "version": "1.8.0",
-  "target_performance": {
-    "google_pagespeed_mobile_min": 98,
-    "ttfb_edge_max_ms": 200,
-    "cls_max": 0.01
-  },
-  "brand_dna_and_tokens": {
-    "brand_positioning": "Erotic Luxury / Enterprise SMB",
-    "tailwind_v4_theme_tokens": { "obsidian": "#09090B", "accent": "#E11D48" }
-  },
-  "strategic_dynamic_slots_matrix": [
-    { "slot_id": "slot_1", "name": "Top Stealth Bar & Discretion", "priority": "high" },
-    { "slot_id": "slot_2", "name": "Bento Hero & Curva A Products", "priority": "high" },
-    { "slot_id": "slot_10", "name": "Footer Privacy FAQ & Guarantees", "priority": "medium" }
-  ],
-  "jury_aa_criteria": [
-    { "id": "AA-01", "name": "Zero JS Bloatware & Strict Hydration", "mandatory": true },
-    { "id": "AA-02", "name": "Liquid Glass & Depth Layering", "mandatory": true },
-    { "id": "AA-03", "name": "Pin Motion & Scroll Storytelling", "mandatory": true }
-  ]
-}
-```
+#### Exemplo A: Variante Home E-Commerce (`S13` / `variante=ecommerce_home`)
+- **Slot 1**: Top Stealth Bar (Anestesia da Vergonha & Discrição).
+- **Slot 2**: Bento Hero (Produtos Curva A - 80% Faturamento).
+- **Slot 3**: Matriz por Intenção & Desejo (Curva B).
+- **Slot 4**: Vitrine de Giro Rápido (Pix 10% OFF).
+- **Slot 10**: Footer Privacy FAQ & Garantias.
+
+#### Exemplo B: Variante Landing Page Delivery (`S11` / `variante=delivery`)
+- **Slot 1**: Hero Impact com Destaque para Tempo de Entrega e Retenção de Pedidos Pix.
+- **Slot 2**: Calculadora Interativa de Perda de Faturamento por Pedidos Atrasados.
+- **Slot 3**: Matriz de Evidências Locais (GMB / Meta Ads no Nicho de Gastronomia).
+- **Slot 4**: Tabela Comparativa de Planos (Sentinela R$197 vs Escala R$997).
+- **Slot 5**: CTA de Ativação Instantânea com Modal Pix.
+
+#### Exemplo C: Variante Landing Page Odontologia (`S11` / `variante=odonto`)
+- **Slot 1**: Hero com Arquétipo de Autoridade e Confiança do Paciente.
+- **Slot 2**: Radar de Avaliações sem Resposta no Google Meu Negócio.
+- **Slot 3**: Prova Social com Depoimentos Anônimos Verificados.
+- **Slot 4**: CTA de Agendamento Direto via WhatsApp 1-Clique.
 
 ---
 
@@ -79,16 +71,16 @@ Em vez de abrir um editor visual (Gutenberg/Elementor) e arrastar blocos manualm
 
 ### 2.1 As 5 Etapas da Sequência de Geração de Conteúdo
 
-1. **Etapa I: Captura do Intent Prompt (Briefing Inicial)**:
-   - O criador (Founder, Editor ou Agente Autônomo) submete o prompt com o objetivo da página e diretrizes.
-2. **Etapa II: Decomposição na Matriz de Slots Estratégicos**:
-   - O Especialista da Superfície lê o `Surface Consensus Specification JSON` e seleciona os slots dinâmicos apropriados (ex: `Curva A`, `Pain Exposure`, `Privacy Bar`).
+1. **Etapa I: Captura do Intent Prompt & Parâmetro de Variante**:
+   - O criador submete o prompt informando o objetivo e a variante (ex: `landingpage?variante=delivery`).
+2. **Etapa II: Seleção da Matriz Polimórfica de Slots**:
+   - O Especialista da Superfície lê a variante e seleciona a sequência exata de slots dinâmicos para aquele nicho.
 3. **Etapa III: Atribuição de Facetas Semânticas 7D (`VocabResolver`)**:
-   - Para cada slot definido na Etapa II, o resolvedor calcula o tom (`tone`), o arquétipo (`archetype`), a densidade (`density`) e a técnica de layout visual (`layoutTechniqueFacets`).
+   - Calcula o tom (`tone`), o arquétipo (`archetype`), a densidade (`density`) e a técnica de layout (`layoutTechniqueFacets`).
 4. **Etapa IV: Síntese de Conteúdo & Copywriting (DeepSeek / Qwen $0)**:
    - Gera os títulos, subtítulos, textos em Markdown e métricas específicos de cada slot em pt-BR limpo.
 5. **Etapa V: Validação Jury AA & Emissão do `RenderContext` JSON**:
-   - Submete o JSON ao portão de qualidade Jury AA (checando se atinge score >= 0.85 contra as regras `AA-01`..`AA-18`) e envia para o Renderizador Cego GREEN (< 2ms).
+   - Submete o JSON ao portão de qualidade Jury AA (score >= 0.85 contra as regras `AA-01`..`AA-18`) e envia para o Renderizador Cego GREEN (< 2ms).
 
 ---
 
@@ -101,7 +93,7 @@ O `RenderContext` (JSON puro) é o contrato imutável e autossuficiente emitido 
 O motor de renderização GREEN (`composer-core.ts` e renderizadores folha) opera como uma função matemática pura: $f(\text{RenderContext}) \to \text{HTML/JSX}$ em menos de 2ms.
 
 ### 3.3 Doutrina III — Desacoplamento Sagrado BLUE / GREEN (ADR-0036 & ADR-0084)
-- **Camada BLUE**: Executa a inteligência de autoria, validação Jury AA e consulta o `Surface Consensus Specification JSON`.
+- **Camada BLUE**: Executa a inteligência de autoria, resolve a variante polimórfica de slots e valida o JSON no Jury AA.
 - **Camada GREEN**: Renderiza o HTML puro com CSS nativo e zero hydration bloat.
 
 ---
@@ -110,10 +102,10 @@ O motor de renderização GREEN (`composer-core.ts` e renderizadores folha) oper
 
 | Módulo | Caminho Canônico | Responsabilidade Principal | Camada |
 | :--- | :--- | :--- | :--- |
-| **`vocab-resolver.ts`** | `packages/warp/src/tokens/vocab-resolver.ts` | Resolve as 7 Dimensões de `VocabFacets` e mapeia instruções em slots estratégicos. | BLUE |
-| **`tokens-unifier.ts`** | `packages/warp/src/tokens/tokens-unifier.ts` | Unifica tokens do `Surface Consensus Specification JSON` em tokens CSS. | BLUE |
+| **`vocab-resolver.ts`** | `packages/warp/src/tokens/vocab-resolver.ts` | Resolve as 7 Dimensões de `VocabFacets` e resolve a matriz polimórfica por variante. | BLUE |
+| **`tokens-unifier.ts`** | `packages/warp/src/tokens/tokens-unifier.ts` | Unifica os tokens de design do nicho/marca em variáveis CSS semânticas. | BLUE |
 | **`4-composer.ts`** | `packages/warp/src/4-composer.ts` | Executa o Especialista da Superfície e valida o JSON no Jury AA. | BLUE |
-| **`composer-core.ts`** | `packages/warp/src/composer-core.ts` | Motor GREEN Universal. Contém a biblioteca de `TechniqueRenderers` para qualquer página. | GREEN |
+| **`composer-core.ts`** | `packages/warp/src/composer-core.ts` | Motor GREEN Universal. Contém a biblioteca de `TechniqueRenderers` para qualquer variante. | GREEN |
 
 ---
 
@@ -128,8 +120,8 @@ O motor de renderização GREEN (`composer-core.ts` e renderizadores folha) oper
 
 | Métrica / Critério | Padrão Anterior (Acoplado/Visual) | Padrão Soberano ADR-0094 (Intent-Driven) |
 | :--- | :--- | :--- |
-| **Base de Especificação** | ❌ Sem especificações formais por superfície | **✅ Modelo Canônico `Consensus JSON`** (`ADR-0003`) |
-| **Matriz de Slots Estratégicos** | ❌ Hardcoded em arquivos `.astro` | **✅ Dinâmica & Regida por Curva A/B/C e Neuromarketing** |
+| **Suporte a Variantes de Nicho** | ❌ Templates rígidos idênticos | **✅ Resolução Polimórfica Dinâmica por Nicho (`variante=delivery`, etc.)** |
+| **Matriz de Slots Estratégicos** | ❌ Hardcoded em arquivos `.astro` | **✅ Dinâmica & Adaptada para E-Commerce, LPs e Blogs** |
 | **Validação de Qualidade** | ❌ Manual e sem métrica auditada | **✅ Portão Automático Jury AA** (Critérios `AA-01`..`AA-18`) |
 | **Tempo de Renderização (GREEN)** | ~180ms - 800ms | **< 2ms** (Sub-milissegundo) |
 | **Custo Edge** | ❌ Elevado | **R$ 0,00** (Cloudflare Free Tier) |
