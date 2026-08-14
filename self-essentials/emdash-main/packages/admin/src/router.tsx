@@ -30,6 +30,7 @@ import {
 	type ContentListSort,
 	type ContentStatusFilter,
 } from "./components/ContentList";
+import { AdminModuleErrorBoundary } from "./components/AdminModuleErrorBoundary";
 import { ContentTypeEditor } from "./components/ContentTypeEditor";
 import { ContentTypeList } from "./components/ContentTypeList";
 import { Dashboard } from "./components/Dashboard";
@@ -2081,12 +2082,15 @@ function PluginPage() {
 	// Get plugin page component from context (trusted plugins with React)
 	const PluginComponent = usePluginPage(pluginId, pagePath);
 
-	if (PluginComponent) {
-		return <PluginComponent />;
-	}
-
-	// No React component — fall back to Block Kit rendering
-	return <SandboxedPluginPage pluginId={pluginId} page={pagePath} />;
+	return (
+		<AdminModuleErrorBoundary moduleName={`Plugin: ${pluginId}`}>
+			{PluginComponent ? (
+				<PluginComponent />
+			) : (
+				<SandboxedPluginPage pluginId={pluginId} page={pagePath} />
+			)}
+		</AdminModuleErrorBoundary>
+	);
 }
 
 // Catch-all 404 route

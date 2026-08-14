@@ -24,3 +24,6 @@ export { EditorHeader, type EditorHeaderProps } from "./EditorHeader";
 export * from "./auth";
 export { LoginPage } from "./LoginPage";
 export { SetupWizard } from "./SetupWizard";
+
+// Error Boundaries
+export { AdminModuleErrorBoundary } from "./AdminModuleErrorBoundary";
