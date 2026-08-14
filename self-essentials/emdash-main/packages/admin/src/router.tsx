@@ -27,10 +27,8 @@ import {
 	ContentList,
 	EMPTY_DATE_FILTER,
 	type ContentDateFilter,
-	type ContentListSort,
-	type ContentStatusFilter,
 } from "./components/ContentList";
-import { AdminModuleErrorBoundary } from "./components/AdminModuleErrorBoundary";
+import { AdminModuleErrorBoundary, RouteErrorFallback } from "./components/AdminModuleErrorBoundary";
 import { ContentTypeEditor } from "./components/ContentTypeEditor";
 import { ContentTypeList } from "./components/ContentTypeList";
 import { Dashboard } from "./components/Dashboard";
@@ -207,6 +205,7 @@ function patchAutosaveQueries(
 // Create a base root route without Shell for setup
 const baseRootRoute = createRootRouteWithContext<RouterContext>()({
 	component: () => <Outlet />,
+	errorComponent: RouteErrorFallback,
 });
 
 // Setup route (standalone, no Shell)
@@ -214,6 +213,7 @@ const setupRoute = createRoute({
 	getParentRoute: () => baseRootRoute,
 	path: "/setup",
 	component: SetupWizard,
+	errorComponent: RouteErrorFallback,
 });
 
 // Login route (standalone, no Shell)
@@ -221,6 +221,7 @@ const loginRoute = createRoute({
 	getParentRoute: () => baseRootRoute,
 	path: "/login",
 	component: LoginPageWrapper,
+	errorComponent: RouteErrorFallback,
 });
 
 function LoginPageWrapper() {
@@ -235,6 +236,7 @@ const signupRoute = createRoute({
 	getParentRoute: () => baseRootRoute,
 	path: "/signup",
 	component: SignupPage,
+	errorComponent: RouteErrorFallback,
 });
 
 // Invite accept route (standalone, no Shell)
@@ -242,6 +244,7 @@ const inviteAcceptRoute = createRoute({
 	getParentRoute: () => baseRootRoute,
 	path: "/invite/accept",
 	component: InviteAcceptPage,
+	errorComponent: RouteErrorFallback,
 	validateSearch: (search: Record<string, unknown>) => ({
 		token: typeof search.token === "string" ? search.token : undefined,
 	}),
@@ -252,6 +255,7 @@ const deviceRoute = createRoute({
 	getParentRoute: () => baseRootRoute,
 	path: "/device",
 	component: DeviceAuthorizePage,
+	errorComponent: RouteErrorFallback,
 });
 
 // Layout route with Shell wrapper for admin pages (pathless - matches all admin routes)
@@ -259,6 +263,7 @@ const adminLayoutRoute = createRoute({
 	getParentRoute: () => baseRootRoute,
 	id: "_admin",
 	component: RootComponent,
+	errorComponent: RouteErrorFallback,
 });
 
 // Isomorphic requestIdleCallback polyfill
@@ -289,7 +294,9 @@ function RootComponent() {
 	// Plugin admin components are passed via props and available through PluginAdminContext
 	return (
 		<Shell manifest={manifest}>
-			<Outlet />
+			<AdminModuleErrorBoundary moduleName="Admin Outlet Segment">
+				<Outlet />
+			</AdminModuleErrorBoundary>
 		</Shell>
 	);
 }
