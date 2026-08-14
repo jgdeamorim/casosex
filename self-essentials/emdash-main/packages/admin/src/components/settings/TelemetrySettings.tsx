@@ -8,7 +8,7 @@
 import { Button } from "@cloudflare/kumo";
 import { useLingui } from "@lingui/react/macro";
 import {
-	Activity,
+	Pulse,
 	Radio,
 	ShieldCheck,
 	WarningCircle,
@@ -234,7 +234,7 @@ export function TelemetrySettings() {
 							</div>
 							<div className="rounded-lg border border-kumo-line p-3">
 								<div className="flex items-center gap-2 text-kumo-default font-semibold text-sm">
-									<Activity className="h-4 w-4 text-emerald-500" />
+									<Pulse className="h-4 w-4 text-emerald-500" />
 									{t`BLAKE3 Schema Fingerprint`}
 								</div>
 								<p className="mt-1 text-xs text-kumo-subtle">

@@ -12,7 +12,7 @@ import {
 	DownloadSimple,
 	CaretDown,
 	Cpu,
-	Activity,
+	Pulse,
 } from "@phosphor-icons/react";
 import { useQuery } from "@tanstack/react-query";
 import * as React from "react";
@@ -96,7 +96,7 @@ export function Settings() {
 					/>
 					<SettingsNavRow
 						to="/settings/telemetry"
-						icon={<Activity className="h-5 w-5" />}
+						icon={<Pulse className="h-5 w-5" />}
 						title={t`Telemetry & Observability`}
 						description={t`DevTools bridge connection, real-time error logs, and system health`}
 					/>
