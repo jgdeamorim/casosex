@@ -22,13 +22,13 @@ Esta arquitetura apresenta falhas estruturais críticas no ecossistema Adsentice
 
 ### 0.2 O Princípio Intent-Driven Universal
 A ADR-0094 ratifica a inversão soberana e **universal** de modelo para **qualquer superfície ou tipo de conteúdo**:
-$$\text{Intent Prompt / Briefing (BLUE)} \xrightarrow[\text{Sequência de Transmutação}]{\text{Pipeline 5 Etapas}} \text{RenderContext (JSON Universal)} \xrightarrow[\text{Cego / < 2ms}]{\text{TechniqueRenderers (GREEN)}} \text{UI/UX Soberana}$$
+$$\text{Intent Prompt / Briefing (BLUE)} \xrightarrow[\text{Especificação Consensus JSON}]{\text{Surface Consensus AA}} \text{RenderContext (JSON Universal)} \xrightarrow[\text{Cego / < 2ms}]{\text{TechniqueRenderers (GREEN)}} \text{UI/UX Soberana}$$
 
 ---
 
-## §1 · Generalização Universal: Das 22 Superfícies Warp ao Conteúdo Dinâmico
+## §1 · Generalização Universal & O Padrão Canônico de Especificação de Superfície
 
-> ⚠️ **Invariante de Arquitetura**: A superfície **S10 (Raio-X Diagnóstico)** é apenas a primeira implementação-piloto do Intent-Driven Composer. O motor especificado nesta ADR é **100% agnóstico e universal**, capaz de gerar **qualquer página, post de blog, landing page comercial, catálogo de produtos ou dashboard**.
+> ⚠️ **Invariante de Arquitetura**: A matriz estabelecida na **ADR-0003** e no especificação **`casosex-theme-aa-consensus.json`** serve como o **Modelo Canônico Espetacular** para a especificação técnica de QUALQUER superfície ou item da Família Warp (S0 a S21).
 
 ### 1.1 Cobertura de Superfícies do Ecossistema (S0 a S21)
 
@@ -40,6 +40,37 @@ $$\text{Intent Prompt / Briefing (BLUE)} \xrightarrow[\text{Sequência de Transm
 | **Superfícies de Gestão & Cockpits** | `S0`..`S6`, `S8`, `S9` | Painel Administrativo, Cockpit CRM de Leads, Monitor Sentinela ao Vivo. |
 | **Superfícies Operacionais Swarm** | `S14`..`S21` | Cockpits de Agentes Autônomos, Analytics Avançado de Conversão. |
 
+### 1.2 O Schema Canônico de Especificação de Superfície (`Surface Consensus Specification JSON`)
+Cada item/superfície da Família Warp possui um arquivo de especificação e consenso de qualidade padronizado (baseado no `casosex-theme-aa-consensus.json`), contendo 4 blocos obrigatórios:
+
+```json
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Warp Surface Consensus Specification Schema (2026+)",
+  "surface_id": "S13",
+  "version": "1.8.0",
+  "target_performance": {
+    "google_pagespeed_mobile_min": 98,
+    "ttfb_edge_max_ms": 200,
+    "cls_max": 0.01
+  },
+  "brand_dna_and_tokens": {
+    "brand_positioning": "Erotic Luxury / Enterprise SMB",
+    "tailwind_v4_theme_tokens": { "obsidian": "#09090B", "accent": "#E11D48" }
+  },
+  "strategic_dynamic_slots_matrix": [
+    { "slot_id": "slot_1", "name": "Top Stealth Bar & Discretion", "priority": "high" },
+    { "slot_id": "slot_2", "name": "Bento Hero & Curva A Products", "priority": "high" },
+    { "slot_id": "slot_10", "name": "Footer Privacy FAQ & Guarantees", "priority": "medium" }
+  ],
+  "jury_aa_criteria": [
+    { "id": "AA-01", "name": "Zero JS Bloatware & Strict Hydration", "mandatory": true },
+    { "id": "AA-02", "name": "Liquid Glass & Depth Layering", "mandatory": true },
+    { "id": "AA-03", "name": "Pin Motion & Scroll Storytelling", "mandatory": true }
+  ]
+}
+```
+
 ---
 
 ## §2 · O Workflow de Autoria Soberano: Do Intent-Prompt às Sequências de JSON (`Authoring Intent Pipeline`)
@@ -49,248 +80,64 @@ Em vez de abrir um editor visual (Gutenberg/Elementor) e arrastar blocos manualm
 ### 2.1 As 5 Etapas da Sequência de Geração de Conteúdo
 
 1. **Etapa I: Captura do Intent Prompt (Briefing Inicial)**:
-   - O criador (Founder, Editor ou Agente Autônomo) submete o prompt com o objetivo da página, o público e as diretrizes principais.
-2. **Etapa II: Decomposição da Estrutura de Slots**:
-   - O Especialista da Superfície analisa o prompt e determina a sequência ideal de blocos visuais necessários (ex: `hero` ──► `bento_grid` ──► `testimonials` ──► `cta`).
+   - O criador (Founder, Editor ou Agente Autônomo) submete o prompt com o objetivo da página e diretrizes.
+2. **Etapa II: Decomposição na Matriz de Slots Estratégicos**:
+   - O Especialista da Superfície lê o `Surface Consensus Specification JSON` e seleciona os slots dinâmicos apropriados (ex: `Curva A`, `Pain Exposure`, `Privacy Bar`).
 3. **Etapa III: Atribuição de Facetas Semânticas 7D (`VocabResolver`)**:
    - Para cada slot definido na Etapa II, o resolvedor calcula o tom (`tone`), o arquétipo (`archetype`), a densidade (`density`) e a técnica de layout visual (`layoutTechniqueFacets`).
 4. **Etapa IV: Síntese de Conteúdo & Copywriting (DeepSeek / Qwen $0)**:
-   - Gera os títulos, subtítulos, textos em Markdown e métricas específicos de cada slot em pt-BR limpo e persuasivo.
-5. **Etapa V: Emissão & Validação do `RenderContext` JSON**:
-   - Consolida todo o resultado no contrato `RenderContextSchema` e envia para a renderização GREEN em tempo sub-milissegundo (< 2ms).
+   - Gera os títulos, subtítulos, textos em Markdown e métricas específicos de cada slot em pt-BR limpo.
+5. **Etapa V: Validação Jury AA & Emissão do `RenderContext` JSON**:
+   - Submete o JSON ao portão de qualidade Jury AA (checando se atinge score >= 0.85 contra as regras `AA-01`..`AA-18`) e envia para o Renderizador Cego GREEN (< 2ms).
 
 ---
 
 ## §3 · As 6 Doutrinas Fundamentais do Intent-Driven Composer
 
 ### 3.1 Doutrina I — O RenderContext como Única Fonte da Verdade
-O `RenderContext` (JSON puro) é o contrato imutável e autossuficiente emitido pela sequência de autoria que descreve a totalidade da página. O renderizador não faz suposições nem consulta dados externos; se um dado não está no `RenderContext`, ele não é exibido.
+O `RenderContext` (JSON puro) é o contrato imutável e autossuficiente emitido pela sequência de autoria que descreve a totalidade da página. O renderizador não faz suposições nem consulta dados externos.
 
 ### 3.2 Doutrina II — Cegueira Absoluta da Camada GREEN (Blind Renderer)
-O motor de renderização GREEN (`composer-core.ts` e renderizadores folha):
-- **Isolamento de Negócio**: Não lê variáveis de ambiente, não consulta o estado financeiro do tenant, não sabe o preço dos planos (R$197 vs R$497).
-- **Isolamento de IO/Rede**: Zero chamadas HTTP (`fetch`), zero consultas Redis ou Postgres durante o passe de renderização.
-- **Execução Pura e Síncrona**: Opera como uma função matemática pura: $f(\text{RenderContext}) \to \text{HTML/JSX}$.
+O motor de renderização GREEN (`composer-core.ts` e renderizadores folha) opera como uma função matemática pura: $f(\text{RenderContext}) \to \text{HTML/JSX}$ em menos de 2ms.
 
 ### 3.3 Doutrina III — Desacoplamento Sagrado BLUE / GREEN (ADR-0036 & ADR-0084)
-- **Camada BLUE (Inteligência & Pipeline de Autoria)**:
-  Responde pelo processamento pesado, transmutação do Intent Prompt nas 5 Etapas de JSONs, mineração de sinais e cálculo do BOA Score.
-- **Camada GREEN (Apresentação & Layout)**:
-  Aplicação síncrona em TypeScript/React/Tailwind v4. Transforma o `RenderContext` em elementos visuais limpos e responsivos.
-
-### 3.4 Doutrina IV — As 7 Dimensões de `VocabFacets` (ADR-0080)
-A resolução semântica do slot é regida por 7 facetas multidimensionais calculadas no `vocab-resolver.ts`:
-1. **`intentKind`**: Função do slot (`diagnostic_reveal`, `gap_exposure`, `value_proposition`, `editorial_content`, `product_showcase`, `conversion_cta`).
-2. **`archetype`**: Tom da persona narradora (`authority_analyst`, `direct_challenger`, `empathetic_guide`).
-3. **`tone`**: Tonalidade emocional (`urgent`, `analytical`, `reassuring`, `exclusive`).
-4. **`density`**: Densidade de informação visual (`minimal`, `compact`, `detailed`, `editorial`).
-5. **`emotionValence`**: Carga de valência Afetiva BOA (`high_tension`, `problem_agitation`, `solution_relief`).
-6. **`visualCognition`**: Padrão de escaneabilidade (`scannable_grid`, `hero_focal`, `contrast_card`).
-7. **`layoutTechniqueFacets`** *(7ª Dimensão - ADR-0080)*: A técnica exata de renderização (`bento_grid`, `split_hero`, `feature_matrix`, `interactive_calculator`, `scroll_pin_sequence`, `article_stream`, `product_grid`).
-
-### 3.5 Doutrina V — Estilização Estrita por Tokens (`deriveStylesheet`)
-- Proibido o uso de cores hexadecimais hardcodadas (ex: `#FF0000`) em arquivos `.tsx` / `.ts`.
-- O `deriveStylesheet(brandDNA)` injeta o mapa de variáveis CSS semânticas (`var(--color-primary)`, `var(--color-surface)`, `var(--radius-card)`) no container raiz da superfície.
-
-### 3.6 Doutrina VI — Cache Determinístico BLAKE3 (ADR-0062)
-Todo `RenderContext` gerado tem seu hash calculated via algoritmo **BLAKE3** combinando: `hash(tenantId + brandDnaHash + intentHash)`.
-- O resultado compilado é indexado no Redis sob a chave `adsentice:kv:blake3:<hash>`.
-- Requisições subsequentes para a mesma intenção ignoram a Camada BLUE e entregam a renderização GREEN em tempo inferior a 1ms.
+- **Camada BLUE**: Executa a inteligência de autoria, validação Jury AA e consulta o `Surface Consensus Specification JSON`.
+- **Camada GREEN**: Renderiza o HTML puro com CSS nativo e zero hydration bloat.
 
 ---
 
 ## §4 · Especificação Completa dos Módulos da Arquitetura
 
-### 4.1 Estrutura de Arquivos e Responsabilidades (Módulo a Módulo)
-
 | Módulo | Caminho Canônico | Responsabilidade Principal | Camada |
 | :--- | :--- | :--- | :--- |
-| **`vocab-resolver.ts`** | `packages/warp/src/tokens/vocab-resolver.ts` | Resolve as 7 Dimensões de `VocabFacets` e mapeia instruções do Intent Prompt em seleções de layout. | BLUE |
-| **`tokens-unifier.ts`** | `packages/warp/src/tokens/tokens-unifier.ts` | Unifica tokens Materio, OpenDesign e paletas de clientes em tokens semânticos. | BLUE |
-| **`derive-stylesheet.ts`** | `packages/warp/src/tokens/derive-stylesheet.ts` | Converte os tokens unificados no mapa de variáveis CSS da folha de estilo. | BLUE/GREEN |
-| **`4-composer.ts`** | `packages/warp/src/4-composer.ts` | Executa a sequência de 5 Etapas do Intent Prompt e emite o `RenderContext`. | BLUE |
+| **`vocab-resolver.ts`** | `packages/warp/src/tokens/vocab-resolver.ts` | Resolve as 7 Dimensões de `VocabFacets` e mapeia instruções em slots estratégicos. | BLUE |
+| **`tokens-unifier.ts`** | `packages/warp/src/tokens/tokens-unifier.ts` | Unifica tokens do `Surface Consensus Specification JSON` em tokens CSS. | BLUE |
+| **`4-composer.ts`** | `packages/warp/src/4-composer.ts` | Executa o Especialista da Superfície e valida o JSON no Jury AA. | BLUE |
 | **`composer-core.ts`** | `packages/warp/src/composer-core.ts` | Motor GREEN Universal. Contém a biblioteca de `TechniqueRenderers` para qualquer página. | GREEN |
-| **`warp-composer.ts`** | `apps/web/src/lib/warp-composer.ts` | Fachada de integração universal que conecta a requisição de qualquer rota ao pipeline BLUE ──► GREEN. | PIPELINE |
 
 ---
 
-## §5 · Contratos de Interface Universal & Schemas TypeScript
+## §5 · Compilação SWC (Rust) & Deploy Cloudflare Edge Workers/Pages
 
-```typescript
-/**
- * @file RenderContextSchema.ts
- * Contrato Universal da Arquitetura Intent-Driven (ADR-0094)
- */
-
-export type IntentKind =
-  | "hero_impact"
-  | "diagnostic_reveal"
-  | "gap_exposure"
-  | "solution_matrix"
-  | "editorial_content"
-  | "product_showcase"
-  | "social_proof"
-  | "conversion_cta"
-  | "faq_accordion";
-
-export type LayoutTechniqueFacet =
-  | "split_hero"
-  | "bento_grid"
-  | "metric_cards_row"
-  | "comparison_table"
-  | "article_stream"
-  | "product_grid"
-  | "stack_list"
-  | "interactive_calculator"
-  | "timeline_steps"
-  | "scroll_pin_sequence"
-  | "sticky_conversion_bar";
-
-export interface VocabFacets7D {
-  intentKind: IntentKind;
-  archetype: "authority_analyst" | "direct_challenger" | "empathetic_guide";
-  tone: "urgent" | "analytical" | "reassuring" | "exclusive";
-  density: "minimal" | "compact" | "detailed" | "editorial";
-  emotionValence: "high_tension" | "problem_agitation" | "solution_relief";
-  visualCognition: "scannable_grid" | "hero_focal" | "contrast_card";
-  layoutTechniqueFacets: LayoutTechniqueFacet;
-}
-
-export interface RenderSlotIntent {
-  slotId: string;
-  order: number;
-  facets: VocabFacets7D;
-  motionAttributes?: {
-    type: "pin-sequence" | "count-up" | "fade-slide" | "morph-target";
-    stage?: string;
-    stepCount?: number;
-  };
-  payload: {
-    title: string;
-    subtitle?: string;
-    description?: string;
-    bodyContentMd?: string;
-    badgeText?: string;
-    highlights?: string[];
-    metrics?: Array<{
-      label: string;
-      value: string;
-      unit?: string;
-      impact: "negative" | "neutral" | "positive";
-    }>;
-    primaryCta?: {
-      label: string;
-      href: string;
-      variant: "solid" | "outline" | "glow";
-    };
-  };
-}
-
-export interface RenderContext {
-  surfaceId: string; // Ex: "S0", "S7", "S10", "S11", "S12", "CUSTOM"
-  tenantId: string;
-  brandDnaHash: string;
-  intentHash: string;
-  stylesheet: Record<string, string>;
-  slots: RenderSlotIntent[];
-  meta: {
-    generatedAt: string;
-    composerVersion: string;
-    boaScore?: number;
-    llmCostUsd?: number;
-  };
-}
-```
+- O compilador **SWC (Rust)** transpila o motor GREEN em um bundle Web-Standard de **`< 50 KB`**.
+- Operação em **Cold Start < 1ms** no Cloudflare Edge com custo **R$ 0,00 por página** (Free Tier).
 
 ---
 
-## §6 · Pipeline de Execução Executável em 4 Fases
-
-```
-[ FASE 1: AUTHORING INTENT PIPELINE (BLUE) ]
-   ├── Captura do Intent Prompt (Ideia/Briefing do Criador)
-   ├── Sequência em 5 Etapas (Decomposição ──► Vocab 7D ──► Copywriting)
-   └── Retorna: RenderContext (JSON Universal)
-            │
-            ▼
-[ FASE 2: SCHEMA VALIDATION ]
-   ├── Valida JSON contra RenderContextSchema
-   ├── Executa Guard Clauses de Segurança
-   └── Se Inválido ──► Fallback Determinístico
-            │
-            ▼
-[ FASE 3: BLIND RENDERER (GREEN) ]
-   ├── Injeta Stylesheet (var(--color-*))
-   ├── Mapeia slots para TechniqueRenderers
-   └── Retorna: HTML / JSX Síncrono (< 2ms)
-            │
-            ▼
-[ FASE 4: BLAKE3 KV PERSISTENCE ]
-   ├── Hash(tenant + brand + intent)
-   └── SET Redis adsentice:kv:blake3:<hash>
-```
-
----
-
-## §7 · Realimentação Afetiva OODA-BOA (`BOA Computational Affect Loop`)
-
-O composer integra o estado vivo do ciclo de afeto computacional **BOA (`adsentice:boa:score`)**:
-1. O BLUE lê o score BOA do tenant no Redis (porta `:6396`).
-2. Se o estado BOA indicar alta criticidade operática, o BLUE injeta automaticamente `emotionValence: "high_tension"` e ajusta o tom no `RenderContext`.
-3. O GREEN (Renderizador Cego) consome essa diretriz sem saber o motivo de fundo, aplicando variações visuais de destaque.
-
----
-
-## §8 · Fallback Glass-Box & Tolerância a Falhas Zero-500
-
-Para garantir disponibilidade soberana sem exceções não tratadas:
-1. **Fallback por Timeout LLM**: Se a chamada ao DeepSeek exceder 2500ms, o BLUE encerra a requisição externa e aciona o gerador local de regras determinísticas em TypeScript ($0).
-2. **Garantia de Não-Interrupção (Zero 500)**: O `warp-composer.ts` envolve a execução BLUE em um bloco de proteção. Se o JSON do `RenderContext` falhar na validação, o sistema injeta um `RenderContext` mínimo estático pré-compilado.
-3. **Invariante de Renderização**: A camada GREEN **nunca gera erro 500**; ela renderiza o payload fornecido ou o fallback determinístico em `< 2ms`.
-
----
-
-## §9 · Isolamento de Corpora & Proteção de PII (Corpus A vs B vs C)
-
-Em conformidade com a arquitetura de corpora do Adsentice:
-- **Corpus A (Self / Adsentice Core)**: Código-fonte, ADRs, componentes e tokens de design.
-- **Corpus B (Tenant / Cliente)**: Dados sensíveis e identificáveis do negócio local (PII, faturamento, contatos).
-- **Corpus C (Tooling)**: MCPs, parsers e scrapers.
-
----
-
-## §10 · Compilação SWC (Rust) & Deploy Cloudflare Edge Workers/Pages
-
-### 10.1 Compilação SWC (Rust) para V8 Isolates
-- O compilador **SWC (Rust)** transpila a Camada GREEN (`composer-core.ts` + `TechniqueRenderers`) em um bundle Web-Standard de **`< 50 KB`**.
-
-### 10.2 Economia Extrema de Infraestrutura & Cloudflare Free Tier ($0/mês)
-- **Workers Free Tier** (100k req/dia), **Pages Free Tier** (deploys ilimitados), **R2 Vault** (10GB) e **KV Edge** (100k leituras) garantem **R$ 0,00 de custo marginal por página ou post**.
-
----
-
-## §11 · Consequências, Garantias & Métricas de Sucesso
+## §6 · Consequências, Garantias & Métricas de Sucesso
 
 | Métrica / Critério | Padrão Anterior (Acoplado/Visual) | Padrão Soberano ADR-0094 (Intent-Driven) |
 | :--- | :--- | :--- |
-| **Workflow de Autoria** | ❌ Arrasto manual de blocos (Gutenberg/Elementor) | **✅ Intent Prompt Pipeline em 5 Etapas** (Prompt ──► JSONs) |
-| **Arquitetura de Briefing** | ❌ Edição manual em GUI | **✅ Briefing em 4 Camadas** (`open-design` ──► `RenderContext`) |
-| **Especialistas por Superfície** | ❌ Inexistente (Código monolítico) | **✅ Sim** (`S10_SPECIALIST`, `S11_SPECIALIST`, etc.) |
-| **Escopo de Páginas / Conteúdo** | ❌ Limitado a temas/templates fixos | **✅ Universal** (Qualquer superfície S0..S21 ou post) |
+| **Base de Especificação** | ❌ Sem especificações formais por superfície | **✅ Modelo Canônico `Consensus JSON`** (`ADR-0003`) |
+| **Matriz de Slots Estratégicos** | ❌ Hardcoded em arquivos `.astro` | **✅ Dinâmica & Regida por Curva A/B/C e Neuromarketing** |
+| **Validação de Qualidade** | ❌ Manual e sem métrica auditada | **✅ Portão Automático Jury AA** (Critérios `AA-01`..`AA-18`) |
 | **Tempo de Renderização (GREEN)** | ~180ms - 800ms | **< 2ms** (Sub-milissegundo) |
-| **Custo de Infraestrutura Edge** | ❌ Elevado (Instâncias dedicadas) | **R$ 0,00** (Maximização Cloudflare Free Tier) |
-| **Deploy na Cloudflare Edge** | ❌ Incompatível (Dep. Node/Admin) | **✅ 100% Nativo** (SWC Bundle < 50 KB) |
-| **Garantia de Zero Hardcode** | ❌ Não (slots fixos em código) | **✅ Sim** (100% via `RenderContext`) |
-| **Animações (Motion Overhead)** | ❌ 35+ KB (Framer Motion React) | **✅ 0 KB npm** (`dct-motion` data-attributes) |
-| **Tolerância a Falhas (Zero 500)** | ❌ Média (Risco de quebra de bundle/API) | **✅ 100%** (Fallback Glass-Box síncrono) |
-| **Proteção de PII & Corpora** | ❌ Fraca (Dados misturados em DB) | **✅ Estrita** (Sanitização A/B/C no payload) |
-| **Compatibilidade com Agentes de IA** | ❌ Não (Exigia cliques no admin) | **✅ Sim** (Emissão nativa de JSON) |
-| **Consistência de Brand DNA** | ❌ Média (Risco de estilos ad-hoc) | **✅ Total** (Regido por `deriveStylesheet`) |
+| **Custo Edge** | ❌ Elevado | **R$ 0,00** (Cloudflare Free Tier) |
 
 ---
 
-## §12 · Ratificação de Governança (`SOP v3.0`)
+## §7 · Ratificação de Governança (`SOP v3.0`)
 
-1. **Testabilidade**: Todo `TechniqueRenderer` em `composer-core.ts` deve possuir teste unitário validando renderização cega com `RenderContext` mockado.
+1. **Testabilidade**: Todo `TechniqueRenderer` em `composer-core.ts` deve possuir teste unitário.
 2. **Commit Automático (Doutrina #3)**: Alterações nesta arquitetura exigem `git add` + `git commit` imediato por feature.
 3. **Auditoria de Custo (Doutrina #4)**: LLMs atuam apenas na Fase 1 (BLUE) com spend-cap de $0.0005/chamada. A Fase 3 (GREEN) custa $0.00.
