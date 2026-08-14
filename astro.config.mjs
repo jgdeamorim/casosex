@@ -4,7 +4,7 @@ import { defineConfig } from "astro/config";
 import emdash, { local } from "emdash/astro";
 import { sqlite } from "emdash/db";
 
-import { dashcommerce } from "./self-essentials/dashcommerce-main/packages/core/src/index.ts";
+import { dashcommerce } from "./self-essentials/dashcommerce-main/packages/core/dist/index.js";
 
 import path from "node:path";
 
