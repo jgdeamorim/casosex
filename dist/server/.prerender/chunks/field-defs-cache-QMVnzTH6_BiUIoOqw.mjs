@@ -1,0 +1,481 @@
+import { a as sql } from "./migrator_BiAfLowp.mjs";
+import { b as validateIdentifier, r as __exportAll } from "./runner-BsI18UgP_CTLRmh7U.mjs";
+import { t as after } from "./after-B1IIdH3Y_D2PBgJNO.mjs";
+import { n as getRequestContext } from "./request-context_K9BAblf6.mjs";
+import { n as ulid } from "./node_BucsvNi-.mjs";
+import { t as withTransaction } from "./transaction-D0FOsb3X_huCh3mhl.mjs";
+import { r as requestCached } from "./request-cache-BSUptuJR_D0VqgZlt.mjs";
+import { i as RESERVED_BYLINE_FIELD_SLUGS, t as BYLINE_FIELD_TYPES } from "./types-o7xo7VgH_Bdv_7eeq.mjs";
+//#region self-essentials/emdash-main/packages/core/dist/init-lock-DJkX6Hto.mjs
+function createInitLock() {
+	return {
+		ownerStartedAt: null,
+		generation: 0
+	};
+}
+var DEFAULT_DEADLINE_MS = 15e3;
+var DEFAULT_POLL_MS = 50;
+var MAX_WAIT_HEADROOM_MS = 15e3;
+function sleep(ms) {
+	return new Promise((resolve) => setTimeout(resolve, ms));
+}
+/**
+* Return the cached value if present, otherwise initialize it under the
+* lock. `init` is responsible for storing the value so that `getCached`
+* returns it on subsequent calls — waiters re-check `getCached` after the
+* owner finishes rather than sharing the owner's promise.
+*
+* `init` receives an `isCurrentClaim` predicate and must gate its cache
+* publication on it: a slow init that was reclaimed past the deadline
+* must not overwrite the value published by the reclaimer (for the
+* runtime singleton that would orphan the reclaimer's active cron
+* scheduler). A losing init should also tear down any side resources it
+* started, since its result will never be published.
+*/
+async function initWithLock(lock, getCached, init, options) {
+	const deadlineMs = options?.deadlineMs ?? DEFAULT_DEADLINE_MS;
+	const pollMs = options?.pollMs ?? DEFAULT_POLL_MS;
+	const maxWaitMs = options?.maxWaitMs ?? deadlineMs + MAX_WAIT_HEADROOM_MS;
+	const waitStart = Date.now();
+	for (;;) {
+		const cached = getCached();
+		if (cached !== null && cached !== void 0) return cached;
+		const ownerStartedAt = lock.ownerStartedAt;
+		if (ownerStartedAt === null || Date.now() - ownerStartedAt > deadlineMs) {
+			lock.generation += 1;
+			const claim = lock.generation;
+			lock.ownerStartedAt = Date.now();
+			try {
+				const isCurrentClaim = () => lock.generation === claim;
+				const initPromise = Promise.resolve().then(() => init(isCurrentClaim));
+				options?.anchor?.(initPromise.then(() => void 0, () => void 0));
+				return await initPromise;
+			} finally {
+				if (lock.generation === claim) lock.ownerStartedAt = null;
+			}
+		}
+		if (Date.now() - waitStart > maxWaitMs) throw new Error(`initWithLock: timed out after ${maxWaitMs}ms waiting for initialization`);
+		await sleep(pollMs);
+	}
+}
+//#endregion
+//#region self-essentials/emdash-main/packages/core/dist/byline-registry-BCuOp4UF.mjs
+var RESERVED_SET = new Set(RESERVED_BYLINE_FIELD_SLUGS);
+var TYPE_SET = new Set(BYLINE_FIELD_TYPES);
+var VERSION_KEY = "byline_fields_version";
+/** Hard cap on the choices array for a `select`-type field. */
+var MAX_SELECT_OPTIONS = 200;
+/** Hard cap on a slug — mirrors `SchemaRegistry.validateSlug`. */
+var MAX_SLUG_LENGTH = 63;
+/** Hard cap on a label. Bigger than slugs because labels are display strings. */
+var MAX_LABEL_LENGTH = 200;
+/**
+* Error thrown for byline-schema validation failures. Mirrors
+* `SchemaError` in `registry.ts` so the admin API layer can map a small
+* set of codes to HTTP statuses without inspecting messages.
+*
+* Codes:
+* - `INVALID_SLUG`      — slug fails identifier rules or length cap
+* - `RESERVED_SLUG`     — slug collides with a fixed `_emdash_bylines` column
+* - `INVALID_TYPE`      — type is not one of the five v1 field types
+* - `INVALID_LABEL`     — label missing or exceeds length cap
+* - `INVALID_VALIDATION` — validation payload malformed (e.g. `select` with
+*                          no `options`, duplicates in `options`)
+* - `FIELD_EXISTS`      — slug already registered
+* - `FIELD_NOT_FOUND`   — slug not registered
+* - `TRANSLATABLE_LOCKED` — attempt to flip `translatable` while stored
+*                          values reference the field
+* - `REORDER_MISMATCH`  — reorder input doesn't match the registered set
+*/
+var BylineSchemaError = class extends Error {
+	constructor(message, code, details) {
+		super(message);
+		this.code = code;
+		this.details = details;
+		this.name = "BylineSchemaError";
+	}
+};
+/**
+* Registry for byline custom fields (Discussion #1174).
+*
+* Owns CRUD over `_emdash_byline_fields` and the
+* `options.byline_fields_version` counter that drives cache
+* invalidation in `bylines/field-defs-cache.ts`.
+*
+* **Dirty-bit bookend.** Every mutation runs `markVersionDirty` before
+* the schema write and `markVersionClean` after, as standalone writes
+* (not inside `withTransaction`) so concurrent isolates observe the
+* dirty mark *before* the mutation lands. Parity carries meaning:
+* odd = mutation in flight or crashed mid-flight, even = stable.
+* The cache bypasses the global holder while odd.
+*
+* `markVersionDirty` is parity-aware (idempotent on odd) so a
+* crashed prior attempt doesn't invert the bit.
+* `markVersionClean` always advances to a new even value (+2 from
+* even, +1 from odd) so concurrent mutators can't collapse on the
+* same key and pin a stale cache snapshot. Idempotent-retry exits
+* (`FIELD_EXISTS` / `FIELD_NOT_FOUND` / no-op update) call
+* `markVersionClean` too — same code path doubles as crash recovery
+* and false-clean recovery.
+*
+* The residual race: a reader caching between two concurrent
+* `markVersionClean` calls sees a partial-set snapshot until the
+* second clean lands. Bounded by the inter-clean window (~ms).
+* Schema mutations are admin-only and rare; acceptable for now.
+* A CAS-on-bump or dialect-specific lock is tracked as follow-up.
+*
+* **`deleteField` cascade.** Migration 041 already declares
+* `ON DELETE CASCADE` on both value tables. The explicit deletes
+* here are defense-in-depth against FK-pragma misconfig and mirror
+* `BylineRepository.delete`'s app-level cascade for the bylines
+* domain.
+*
+* Reserved-slug rejection runs at the API layer (zod) *and* here so
+* non-HTTP callers (seeds, scripts) can't bypass the check.
+*/
+var BylineSchemaRegistry = class {
+	constructor(db) {
+		this.db = db;
+	}
+	async listFields() {
+		return (await this.db.selectFrom("_emdash_byline_fields").selectAll().orderBy("sort_order", "asc").orderBy("created_at", "asc").execute()).map((row) => mapFieldRow(row));
+	}
+	async getField(slug) {
+		const row = await this.db.selectFrom("_emdash_byline_fields").selectAll().where("slug", "=", slug).executeTakeFirst();
+		return row ? mapFieldRow(row) : null;
+	}
+	async getFieldById(id) {
+		const row = await this.db.selectFrom("_emdash_byline_fields").selectAll().where("id", "=", id).executeTakeFirst();
+		return row ? mapFieldRow(row) : null;
+	}
+	async createField(input) {
+		this.validateSlug(input.slug);
+		this.validateLabel(input.label);
+		this.validateType(input.type);
+		const validation = this.normaliseValidation(input.type, input.validation ?? null);
+		if (await this.getField(input.slug)) {
+			await this.markVersionClean();
+			throw new BylineSchemaError(`Byline field "${input.slug}" already exists`, "FIELD_EXISTS", { slug: input.slug });
+		}
+		const id = ulid();
+		const sortOrder = input.sortOrder ?? await this.nextSortOrder();
+		await this.markVersionDirty();
+		await withTransaction(this.db, async (trx) => {
+			await trx.insertInto("_emdash_byline_fields").values({
+				id,
+				slug: input.slug,
+				label: input.label,
+				type: input.type,
+				required: input.required ? 1 : 0,
+				translatable: input.translatable === false ? 0 : 1,
+				validation: validation ? JSON.stringify(validation) : null,
+				sort_order: sortOrder
+			}).execute();
+		});
+		await this.markVersionClean();
+		const created = await this.getFieldById(id);
+		if (!created) throw new BylineSchemaError("Failed to load created field", "FIELD_NOT_FOUND", { id });
+		return created;
+	}
+	async updateField(slug, input) {
+		const field = await this.getField(slug);
+		if (!field) {
+			await this.markVersionClean();
+			throw new BylineSchemaError(`Byline field "${slug}" not found`, "FIELD_NOT_FOUND", { slug });
+		}
+		const updates = {};
+		if (input.label !== void 0) {
+			this.validateLabel(input.label);
+			updates.label = input.label;
+		}
+		if (input.required !== void 0) updates.required = input.required ? 1 : 0;
+		if (input.validation !== void 0) {
+			const validation = this.normaliseValidation(field.type, input.validation);
+			updates.validation = validation ? JSON.stringify(validation) : null;
+		}
+		if (input.translatable !== void 0 && input.translatable !== field.translatable) {
+			const usage = await this.countFieldValues(field.id);
+			if (usage > 0) throw new BylineSchemaError(`Cannot change "translatable" on field "${slug}" while ${usage} value row(s) exist. Delete the values (or the field) and re-create with the new setting.`, "TRANSLATABLE_LOCKED", {
+				slug,
+				valueCount: usage
+			});
+			updates.translatable = input.translatable ? 1 : 0;
+		}
+		if (input.sortOrder !== void 0) updates.sort_order = input.sortOrder;
+		if (Object.keys(updates).length === 0) {
+			await this.markVersionClean();
+			return field;
+		}
+		updates.updated_at = (/* @__PURE__ */ new Date()).toISOString();
+		await this.markVersionDirty();
+		await withTransaction(this.db, async (trx) => {
+			await trx.updateTable("_emdash_byline_fields").set(updates).where("id", "=", field.id).execute();
+		});
+		await this.markVersionClean();
+		const updated = await this.getFieldById(field.id);
+		if (!updated) throw new BylineSchemaError("Failed to load updated field", "FIELD_NOT_FOUND", { slug });
+		return updated;
+	}
+	async deleteField(slug) {
+		const field = await this.getField(slug);
+		if (!field) {
+			await this.markVersionClean();
+			throw new BylineSchemaError(`Byline field "${slug}" not found`, "FIELD_NOT_FOUND", { slug });
+		}
+		await this.markVersionDirty();
+		await withTransaction(this.db, async (trx) => {
+			await trx.deleteFrom("_emdash_byline_field_values").where("field_id", "=", field.id).execute();
+			await trx.deleteFrom("_emdash_byline_field_group_values").where("field_id", "=", field.id).execute();
+			await trx.deleteFrom("_emdash_byline_fields").where("id", "=", field.id).execute();
+		});
+		await this.markVersionClean();
+	}
+	/**
+	* Reorder fields by slug. The input must be the *exact* set of
+	* currently registered slugs — no adds, no drops, no duplicates. This
+	* keeps the operation invertible (any reorder is followed by a reverse
+	* reorder) and removes a class of "did I forget a field?" bugs at the
+	* API layer.
+	*/
+	async reorderFields(slugs) {
+		if (new Set(slugs).size !== slugs.length) throw new BylineSchemaError("Reorder input contains duplicate slugs", "REORDER_MISMATCH", { slugs });
+		const registeredSlugs = (await this.listFields()).map((f) => f.slug).toSorted();
+		const inputSlugs = slugs.toSorted();
+		if (registeredSlugs.length !== inputSlugs.length) throw new BylineSchemaError(`Reorder input has ${inputSlugs.length} slug(s); ${registeredSlugs.length} registered`, "REORDER_MISMATCH", {
+			registered: registeredSlugs,
+			input: inputSlugs
+		});
+		for (let i = 0; i < registeredSlugs.length; i++) if (registeredSlugs[i] !== inputSlugs[i]) throw new BylineSchemaError("Reorder input does not match the registered field set", "REORDER_MISMATCH", {
+			registered: registeredSlugs,
+			input: inputSlugs
+		});
+		const now = (/* @__PURE__ */ new Date()).toISOString();
+		await this.markVersionDirty();
+		await withTransaction(this.db, async (trx) => {
+			for (let i = 0; i < slugs.length; i++) {
+				const slug = slugs[i];
+				if (slug === void 0) continue;
+				await trx.updateTable("_emdash_byline_fields").set({
+					sort_order: i,
+					updated_at: now
+				}).where("slug", "=", slug).execute();
+			}
+		});
+		await this.markVersionClean();
+	}
+	/**
+	* Per-table usage counts for a field, plus the sum. Backs the
+	* destructive-delete confirm dialog in the admin UI (Phase 5).
+	*
+	* Both counts are surfaced separately for diagnostic value: a
+	* non-zero count on the table that doesn't match the field's current
+	* `translatable` flag indicates historical drift (e.g. a flip from
+	* an older code path). Today the registry rejects such flips with
+	* `TRANSLATABLE_LOCKED`, so any drift originates pre-Phase-2.
+	*
+	* Throws `FIELD_NOT_FOUND` when the slug doesn't resolve — callers
+	* shouldn't get back zero counts for a missing field.
+	*/
+	async getFieldUsage(slug) {
+		const field = await this.getField(slug);
+		if (!field) throw new BylineSchemaError(`Byline field "${slug}" not found`, "FIELD_NOT_FOUND", { slug });
+		const tr = await this.db.selectFrom("_emdash_byline_field_values").select(({ fn }) => [fn.count("field_id").as("count")]).where("field_id", "=", field.id).executeTakeFirst();
+		const grp = await this.db.selectFrom("_emdash_byline_field_group_values").select(({ fn }) => [fn.count("field_id").as("count")]).where("field_id", "=", field.id).executeTakeFirst();
+		const translatableValueCount = Number(tr?.count ?? 0);
+		const groupValueCount = Number(grp?.count ?? 0);
+		return {
+			translatableValueCount,
+			groupValueCount,
+			totalAffectedRows: translatableValueCount + groupValueCount
+		};
+	}
+	/**
+	* Read the persisted version counter. Used by the field-defs cache
+	* (Phase 3) to detect invalidation. Returns `0` when the row is
+	* missing — covers the "tests that didn't run migration 041" case
+	* without throwing.
+	*/
+	async getVersion() {
+		const row = await this.db.selectFrom("options").select("value").where("name", "=", VERSION_KEY).executeTakeFirst();
+		if (!row) return 0;
+		const parsed = Number.parseInt(row.value, 10);
+		return Number.isFinite(parsed) ? parsed : 0;
+	}
+	/**
+	* Force the version counter to an odd integer ("dirty"). Idempotent
+	* on odd so a crashed prior attempt can't invert parity. Upsert (not
+	* UPDATE) so a missing row still flips parity — `getVersion` returns
+	* 0 on missing, which is even, so a bare UPDATE would leave the
+	* cache pinned on a stale snapshot. See the class JSDoc.
+	*
+	* `options.value` qualified: PG's `ON CONFLICT DO UPDATE` puts both
+	* the target and `EXCLUDED.value` in scope; bare `value` is ambiguous.
+	*/
+	async markVersionDirty() {
+		await sql`
+			INSERT INTO options (name, value)
+			VALUES (${VERSION_KEY}, '1')
+			ON CONFLICT(name) DO UPDATE SET value = CASE
+				WHEN CAST(options.value AS INTEGER) % 2 = 0
+					THEN CAST(CAST(options.value AS INTEGER) + 1 AS TEXT)
+				ELSE options.value
+			END
+		`.execute(this.db);
+	}
+	/**
+	* Force the version counter to a **new** even integer (+2 from even,
+	* +1 from odd). Always-advance — never a no-op — so two concurrent
+	* mutators can't collapse on the same even key and pin a stale cache
+	* snapshot. See the class JSDoc for the concurrent-collapse rationale.
+	*
+	* `options.value` qualified — see `markVersionDirty`.
+	*/
+	async markVersionClean() {
+		await sql`
+			INSERT INTO options (name, value)
+			VALUES (${VERSION_KEY}, '2')
+			ON CONFLICT(name) DO UPDATE SET value = CASE
+				WHEN CAST(options.value AS INTEGER) % 2 = 0
+					THEN CAST(CAST(options.value AS INTEGER) + 2 AS TEXT)
+				ELSE CAST(CAST(options.value AS INTEGER) + 1 AS TEXT)
+			END
+		`.execute(this.db);
+	}
+	async nextSortOrder() {
+		const max = (await this.db.selectFrom("_emdash_byline_fields").select(({ fn }) => [fn.max("sort_order").as("max")]).executeTakeFirst())?.max ?? null;
+		return max === null ? 0 : max + 1;
+	}
+	async countFieldValues(fieldId) {
+		const tr = await this.db.selectFrom("_emdash_byline_field_values").select(({ fn }) => [fn.count("field_id").as("count")]).where("field_id", "=", fieldId).executeTakeFirst();
+		const grp = await this.db.selectFrom("_emdash_byline_field_group_values").select(({ fn }) => [fn.count("field_id").as("count")]).where("field_id", "=", fieldId).executeTakeFirst();
+		return Number(tr?.count ?? 0) + Number(grp?.count ?? 0);
+	}
+	validateSlug(slug) {
+		if (!slug || typeof slug !== "string") throw new BylineSchemaError("Byline field slug is required", "INVALID_SLUG", { slug });
+		if (slug.length > MAX_SLUG_LENGTH) throw new BylineSchemaError(`Byline field slug must be ${MAX_SLUG_LENGTH} characters or less`, "INVALID_SLUG", { slug });
+		try {
+			validateIdentifier(slug, "byline field slug");
+		} catch (error) {
+			throw new BylineSchemaError(error instanceof Error ? error.message : "Invalid byline field slug", "INVALID_SLUG", { slug });
+		}
+		if (RESERVED_SET.has(slug)) throw new BylineSchemaError(`Byline field slug "${slug}" is reserved`, "RESERVED_SLUG", { slug });
+	}
+	validateLabel(label) {
+		if (!label || typeof label !== "string") throw new BylineSchemaError("Byline field label is required", "INVALID_LABEL", { label });
+		if (label.length > MAX_LABEL_LENGTH) throw new BylineSchemaError(`Byline field label must be ${MAX_LABEL_LENGTH} characters or less`, "INVALID_LABEL", { length: label.length });
+	}
+	validateType(type) {
+		if (!TYPE_SET.has(type)) throw new BylineSchemaError(`Byline field type "${type}" is not supported. Valid types: ${[...TYPE_SET].join(", ")}`, "INVALID_TYPE", { type });
+	}
+	/**
+	* Normalise + validate a validation payload for a given field type.
+	*
+	* - `select`: `options` is required, must be a non-empty array of unique
+	*   non-empty strings, capped at `MAX_SELECT_OPTIONS`.
+	* - any other type: `options` is silently dropped if present (a future
+	*   field type might use it, but v1 doesn't).
+	*
+	* Returns `null` when the resulting validation object is empty, so the
+	* storage column stays NULL rather than carrying `'{}'`.
+	*/
+	normaliseValidation(type, validation) {
+		if (type === "select") {
+			const options = validation?.options;
+			if (!Array.isArray(options) || options.length === 0) throw new BylineSchemaError(`Byline field of type "select" requires non-empty "validation.options"`, "INVALID_VALIDATION", { type });
+			if (options.length > MAX_SELECT_OPTIONS) throw new BylineSchemaError(`Byline field "select" cannot have more than ${MAX_SELECT_OPTIONS} options`, "INVALID_VALIDATION", { count: options.length });
+			const seen = /* @__PURE__ */ new Set();
+			for (const option of options) {
+				if (typeof option !== "string" || option.length === 0) throw new BylineSchemaError(`Byline field "select" options must be non-empty strings`, "INVALID_VALIDATION", { option });
+				if (seen.has(option)) throw new BylineSchemaError(`Byline field "select" options must be unique`, "INVALID_VALIDATION", { option });
+				seen.add(option);
+			}
+			return { options };
+		}
+		if (validation == null) return null;
+		const { options: _drop, ...rest } = validation;
+		return Object.keys(rest).length === 0 ? null : rest;
+	}
+};
+function mapFieldRow(row) {
+	return {
+		id: row.id,
+		slug: row.slug,
+		label: row.label,
+		type: row.type,
+		required: row.required === 1,
+		translatable: row.translatable === 1,
+		validation: row.validation ? JSON.parse(row.validation) : null,
+		sortOrder: row.sort_order,
+		createdAt: row.created_at,
+		updatedAt: row.updated_at
+	};
+}
+//#endregion
+//#region self-essentials/emdash-main/packages/core/dist/field-defs-cache-QMVnzTH6.mjs
+var field_defs_cache_exports = /* @__PURE__ */ __exportAll({ getBylineFieldDefs: () => getBylineFieldDefs });
+var HOLDER_KEY = Symbol.for("emdash:byline-field-defs");
+var g = globalThis;
+var holder = g[HOLDER_KEY] ?? (() => {
+	const h = {
+		value: null,
+		hasValue: false,
+		cachedVersion: -1,
+		lock: createInitLock()
+	};
+	g[HOLDER_KEY] = h;
+	return h;
+})();
+var REQUEST_CACHE_KEY_VERSION = "byline-fields-version";
+var REQUEST_CACHE_KEY_DEFS_PREFIX = "byline-field-defs:";
+/**
+* Reclaim window for the single-flight lock: if an owner holds it past
+* this without publishing (e.g. its request was cancelled and the
+* anchored fetch hasn't completed yet), the next reader reclaims and
+* refetches. `listFields` is a single fast SELECT, so this only needs to
+* cover a genuinely slow/stranded query. Mutable solely so tests can
+* shorten it; production never changes it.
+*/
+var reclaimDeadlineMs = 1e4;
+/**
+* Read the persisted `options.byline_fields_version` counter. Cached for
+* the duration of the current request via `requestCached`. Returns `0`
+* when the row is missing (matches `BylineSchemaRegistry.getVersion`).
+*/
+async function getBylineFieldsVersion(db) {
+	return requestCached(REQUEST_CACHE_KEY_VERSION, () => new BylineSchemaRegistry(db).getVersion());
+}
+/**
+* Resolve registered byline custom-field definitions. Two-tier cache:
+* per-request via `requestCached`, then per-isolate via the global
+* holder.
+*
+* The global holder is bypassed for isolated requests (playground / DO
+* preview, which point at a divergent schema) and for dirty versions
+* (odd counter — see `BylineSchemaRegistry`'s class JSDoc — indicates
+* an in-flight or crashed mutation). Both bypass paths still hit the
+* per-request cache, so a single render dedupes within itself.
+*
+* Always returns an array. Empty = no custom fields registered.
+*/
+async function getBylineFieldDefs(db) {
+	const isolated = getRequestContext()?.dbIsIsolated === true;
+	const version = await getBylineFieldsVersion(db);
+	const dirty = version % 2 !== 0;
+	return requestCached(`${REQUEST_CACHE_KEY_DEFS_PREFIX}${version}`, async () => {
+		if (isolated || dirty) return new BylineSchemaRegistry(db).listFields();
+		return initWithLock(holder.lock, () => holder.hasValue && holder.cachedVersion === version ? holder.value : null, (isCurrentClaim) => (async () => {
+			const defs = await new BylineSchemaRegistry(db).listFields();
+			if (isCurrentClaim() && version >= holder.cachedVersion) {
+				holder.value = defs;
+				holder.hasValue = true;
+				holder.cachedVersion = version;
+			}
+			return defs;
+		})(), {
+			deadlineMs: reclaimDeadlineMs,
+			anchor: (promise) => after(() => promise)
+		});
+	});
+}
+//#endregion
+export { initWithLock as i, getBylineFieldDefs as n, createInitLock as r, field_defs_cache_exports as t };

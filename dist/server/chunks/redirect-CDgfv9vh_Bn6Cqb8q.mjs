@@ -1,0 +1,15 @@
+//#region self-essentials/emdash-main/packages/core/dist/redirect-CDgfv9vh.mjs
+/**
+* Validate that a redirect URL is a safe local path.
+*
+* Rejects:
+* - Protocol-relative URLs (`//evil.com`)
+* - Backslash bypass (`/\evil.com` — browsers normalize `\` to `/` in Location headers)
+* - Absolute URLs (`https://evil.com`)
+* - Empty / nullish values
+*/
+function isSafeRedirect(url) {
+	return typeof url === "string" && url.startsWith("/") && !url.startsWith("//") && !url.includes("\\");
+}
+//#endregion
+export { isSafeRedirect as t };
