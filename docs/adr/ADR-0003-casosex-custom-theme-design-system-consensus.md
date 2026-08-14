@@ -68,7 +68,11 @@ Formalizar o arquivo de consenso [`docs/spec/casosex-theme-aa-consensus.json`](f
 - **Widget de Chat Nativo (In-Page Glassmorphism):** Interface de atendimento discreto embutida na própria loja (sem abrir o WhatsApp de imediato).
 - **Troca de Valor de Cupom por Lead WhatsApp:** O Widget identifica hesitação e aborda o cliente oferecendo um **Cupom Secreto de 5% OFF**. Ao preencher o número do WhatsApp no Widget, o cupom é liberado na tela instantaneamente e enviado por mensagem automatizada para o WhatsApp do cliente.
 
-### 8. Matriz de Critérios Rígidos do Jury AA (`casosex-theme-aa-consensus.json`)
+### 8. Arquitetura de Conteúdo Soberano (Blog SSG) vs. Isenção de Feeds Externos
+- **Portal de Autocuidado & SEO Orgânico (Blog SSG):** Renderização 100% estática via Astro Content Collections (`src/content/blog/`) para posicionamento orgânico no Google em buscas de alta intenção ("guia do primeiro toy", "como usar vibrador de sucção").
+- **Proibição de Feeds Dinâmicos de Redes Sociais (Anti-Leak & Performance):** Feeds externos (Instagram Widgets/iFrames) são proibidos na home para evitar fuga de tráfego, rastreadores pesados do Meta e quebra visual em caso de shadowban. Substituído por cards estáticos de prova social e link discreto para a rede oficial.
+
+### 9. Matriz de Critérios Rígidos do Jury AA (`casosex-theme-aa-consensus.json`)
 1. **AA-01 (Zero JS Bloatware):** Componentes estáticos em `.astro` puro; hidratação atômica no React apenas quando visíveis na viewport (`client:visible`).
 2. **AA-02 (Liquid Glass & Depth Layering):** Uso estruturado de desfoque de fundo e bordas semi-transparentes para profundidade tridimensional.
 3. **AA-03 (Pin Motion & Scroll Pinning):** Animações vinculadas ao scroll para apresentar recursos e variações de produto sem poluição de layout.
@@ -85,6 +89,7 @@ Formalizar o arquivo de consenso [`docs/spec/casosex-theme-aa-consensus.json`](f
 14. **AA-14 (Padrões de Alta Conversão do E-Commerce Brasileiro):** Destaque ostensivo de Pix com desconto, botão de Comprar pelo WhatsApp com 1-clique e Image Flip no mouseover dos produtos.
 15. **AA-15 (Arquitetura de 10 Slots Inteligentes & Curva ABC):** Distribuição dinâmica de inventário por curva de receita (A/B/C) combinada com eliminadores de objeção moral (Anestesia da Vergonha).
 16. **AA-16 (Telemetria de Intenção & Widget de Chat Nativo por Cupom WhatsApp):** Mapeamento comportamental acionando o Widget discreto In-Page, que concede Cupom Secreto de 5% OFF em troca da captação do número do WhatsApp do cliente.
+17. **AA-17 (Blog SSG de Autocuidado vs Isenção de Feeds Externos de Redes Sociais):** Presença de Blog SSG para dominância orgânica no Google (SEO) e proibição de widgets/iFrames externos de redes sociais para preservar performance e retenção de tráfego.
 
 ---
 
