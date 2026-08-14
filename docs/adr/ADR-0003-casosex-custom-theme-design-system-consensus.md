@@ -62,7 +62,12 @@ Formalizar o arquivo de consenso [`docs/spec/casosex-theme-aa-consensus.json`](f
 - **Curva C (5% Faturamento / Add-On):** Higienizadores de toys, preservativos e acessórios de nicho recomendados via checkout de 1-clique.
 - **Desarmamento da Vergonha (Shame Reduction):** Anestesia moral e de privacidade assegurada nos Slots 1 (Top Stealth Bar), Slot 9 (Reviews Anônimos Verificados) e Slot 10 (Footer FAQ de Privacidade).
 
-### 7. Matriz de Critérios Rígidos do Jury AA (`casosex-theme-aa-consensus.json`)
+### 7. Engine de Telemetria de Intenção em Tempo Real & Copiloto WhatsApp Discreto
+- **Behavioral Telemetry (Beacon Async):** Leitura de `scroll_depth`, `time_on_page`, `hover_category` e `exit_intent` sem impactar o PageSpeed (<2KB JS via `navigator.sendBeacon`).
+- **Score de Intenção & Hesitação (0-100):** Cálculo em tempo real no cliente para distinguir entre *Hesitação Financeira* (Preço/Pix) e *Hesitação de Privacidade* (Embalagem/Nome no Cartão).
+- **Abordagem Reativa & Discreta via WhatsApp:** Disparo de mini-card acolhedor com gatilho de 1-clique para o WhatsApp do atendimento/vendedor contendo a mensagem pré-formatada do produto desejado e cupom de 5% OFF no Pix.
+
+### 8. Matriz de Critérios Rígidos do Jury AA (`casosex-theme-aa-consensus.json`)
 1. **AA-01 (Zero JS Bloatware):** Componentes estáticos em `.astro` puro; hidratação atômica no React apenas quando visíveis na viewport (`client:visible`).
 2. **AA-02 (Liquid Glass & Depth Layering):** Uso estruturado de desfoque de fundo e bordas semi-transparentes para profundidade tridimensional.
 3. **AA-03 (Pin Motion & Scroll Pinning):** Animações vinculadas ao scroll para apresentar recursos e variações de produto sem poluição de layout.
@@ -78,6 +83,7 @@ Formalizar o arquivo de consenso [`docs/spec/casosex-theme-aa-consensus.json`](f
 13. **AA-13 (Web Haptics API & Touch Physics):** Resposta de micro-vibração tátil no smartphone em ações de conversão e física de rolagem Lenis.
 14. **AA-14 (Padrões de Alta Conversão do E-Commerce Brasileiro):** Destaque ostensivo de Pix com desconto, botão de Comprar pelo WhatsApp com 1-clique e Image Flip no mouseover dos produtos.
 15. **AA-15 (Arquitetura de 10 Slots Inteligentes & Curva ABC):** Distribuição dinâmica de inventário por curva de receita (A/B/C) combinada com eliminadores de objeção moral (Anestesia da Vergonha).
+16. **AA-16 (Engine de Telemetria de Intenção & Copiloto WhatsApp Discreto):** Mapeamento comportamental em tempo real (scroll, tempo, hesitação) acionando ofertas contextuais e atendimento acolhedor no WhatsApp em 1-clique.
 
 ---
 
