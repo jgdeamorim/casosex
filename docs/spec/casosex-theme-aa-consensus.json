@@ -1,7 +1,7 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "title": "CASOSEX Custom Theme Jury AA Consensus Specification (2026+)",
-  "version": "1.6.0",
+  "version": "1.6.1",
   "project": "CASOSEX",
   "author": "Jeferson Amorim (Founder) & Antigravity (AI Architect)",
   "date": "2026-08-13",
@@ -32,7 +32,7 @@
         "price_and_pix_hesitation_triggers"
       ],
       "intent_score_calculation": "Score dinâmico de hesitação (0-100) diferenciando Hesitação Financeira vs Hesitação de Privacidade",
-      "whatsapp_stealth_copilot": "Disparo reativo de mini-card discreto no cliente com mensagem pré-formatada de 1-clique para o WhatsApp"
+      "in_page_stealth_chat_widget": "Widget nativo com glassmorphic overlay na página concedendo Cupom de 5% OFF em tempo real ao capturar o WhatsApp do cliente"
     },
     "abc_curve_inventory_and_10_smart_slots": {
       "curva_a_80_percent_revenue": "Vibradores de alta tecnologia, sugadores Air-Pulse e Lubrificantes Premium alocados nos Slots 2, 4 e 6",
@@ -152,8 +152,8 @@
     },
     {
       "id": "AA-16",
-      "name": "Engine de Telemetria de Intenção & Copiloto WhatsApp Discreto",
-      "description": "Mapeamento comportamental em tempo real (scroll, tempo, hesitação) acionando ofertas contextuais e atendimento acolhedor no WhatsApp em 1-clique.",
+      "name": "Telemetria de Intenção & Widget de Chat Nativo por Cupom WhatsApp",
+      "description": "Mapeamento comportamental acionando o Widget discreto In-Page, que concede Cupom Secreto de 5% OFF em troca da captação do número do WhatsApp do cliente.",
       "mandatory": true
     }
   ]
