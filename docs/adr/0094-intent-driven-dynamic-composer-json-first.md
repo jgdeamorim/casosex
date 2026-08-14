@@ -22,7 +22,7 @@ Esta arquitetura apresenta falhas estruturais críticas no ecossistema Adsentice
 
 ### 0.2 O Princípio Intent-Driven Universal
 A ADR-0094 ratifica a inversão soberana e **universal** de modelo para **qualquer superfície ou tipo de conteúdo**:
-$$\text{Sinais do Cliente / Intenção + LLM (BLUE)} \xrightarrow[\text{Sub-segundo}]{\text{VocabResolver 7D}} \text{RenderContext (JSON Universal)} \xrightarrow[\text{Cego / < 2ms}]{\text{TechniqueRenderers (GREEN)}} \text{UI/UX Soberana}$$
+$$\text{Briefing / Sinais (BLUE)} \xrightarrow[\text{Especialista da Superfície}]{\text{Pipeline 4 Camadas}} \text{RenderContext (JSON Universal)} \xrightarrow[\text{Cego / < 2ms}]{\text{TechniqueRenderers (GREEN)}} \text{UI/UX Soberana}$$
 
 ---
 
@@ -42,24 +42,61 @@ $$\text{Sinais do Cliente / Intenção + LLM (BLUE)} \xrightarrow[\text{Sub-segu
 
 ---
 
-## §2 · As 6 Doutrinas Fundamentais do Intent-Driven Composer
+## §2 · Especialistas de Superfície & O Pipeline de Briefing em 4 Camadas (`Surface Briefing Pipeline`)
 
-### 2.1 Doutrina I — O RenderContext como Única Fonte da Verdade
-O `RenderContext` (JSON puro) é o contrato imutável e autossuficiente que descreve a totalidade da página (seja ela um post de blog, um produto ou um Raio-X). O renderizador não faz suposições nem consulta dados externos; se um dado não está no `RenderContext`, ele não é exibido.
+Cada superfície da Família Warp possui um **Especialista Dedicado na Camada BLUE** (`S10_SPECIALIST`, `S11_SPECIALIST`, `S7_POST_SPECIALIST`, etc.).
 
-### 2.2 Doutrina II — Cegueira Absoluta da Camada GREEN (Blind Renderer)
+Quando o Founder ou um Agente de IA (`open-design` / `claude-design`) submete instruções ou um briefing de conteúdo nos mínimos detalhes, esse briefing é processado pelo especialista da superfície através de **4 Camadas Estritas**:
+
+```
+[ Briefing do Founder / Agente (open-design / claude-design) ]
+                          │
+                          ▼
+ ┌────────────────────────────────────────────────────────┐
+ │ CAMADA 1: ESTRATÉGIA & POSICIONAMENTO                  │
+ │ Define metas de conversão, arquétipo e persona.        │
+ ├────────────────────────────────────────────────────────┤
+ │ CAMADA 2: INTELIGÊNCIA & SINAIS AUDITADOS               │
+ │ Injeta lacunas do cliente, BOA Score e dados sanitizados│
+ ├────────────────────────────────────────────────────────┤
+ │ CAMADA 3: COMPOSIÇÃO SEMÂNTICA & MOTION (VocabFacets) │
+ │ Resolve as 7D de VocabFacets e atributos dct-motion.   │
+ ├────────────────────────────────────────────────────────┤
+ │ CAMADA 4: BRAND DNA & DESIGN SYSTEM TOKENS            │
+ │ Injeta a paleta Materio / OpenDesign via deriveStyle   │
+ └────────────────────────────────────────────────────────┘
+                          │
+                          ▼ (Emissão Determinística)
+           [ RenderContext JSON da Superfície ]
+```
+
+### 2.1 Detalhamento das 4 Camadas de Transmutação do Briefing
+
+1. **Camada 1 (Estratégia)**: Mapeia a intenção comercial do briefing em papéis de conversão (`intentKind`: `gap_exposure`, `solution_matrix`, `conversion_cta`).
+2. **Camada 2 (Inteligência)**: Injeta evidências reais mineradas (avaliações sem resposta no GMB, ausência de cardápio Pix) sem expor PII sensível.
+3. **Camada 3 (Composição 7D)**: Traduz os pedidos visuais do briefing nas **7 Dimensões de `VocabFacets`** e seleciona a técnica de layout (`layoutTechniqueFacets`: `bento_grid`, `scroll_pin_sequence`, `split_hero`).
+4. **Camada 4 (Brand DNA Tokens)**: Garante conformidade estrita com o Design System. Transforma pedidos de estilo no mapa de tokens semânticos (`deriveStylesheet`).
+
+---
+
+## §3 · As 6 Doutrinas Fundamentais do Intent-Driven Composer
+
+### 3.1 Doutrina I — O RenderContext como Única Fonte da Verdade
+O `RenderContext` (JSON puro) é o contrato imutável e autossuficiente emitido pelo Especialista da Superfície que descreve a totalidade da página. O renderizador não faz suposições nem consulta dados externos; se um dado não está no `RenderContext`, ele não é exibido.
+
+### 3.2 Doutrina II — Cegueira Absoluta da Camada GREEN (Blind Renderer)
 O motor de renderização GREEN (`composer-core.ts` e renderizadores folha):
 - **Isolamento de Negócio**: Não lê variáveis de ambiente, não consulta o estado financeiro do tenant, não sabe o preço dos planos (R$197 vs R$497).
 - **Isolamento de IO/Rede**: Zero chamadas HTTP (`fetch`), zero consultas Redis ou Postgres durante o passe de renderização.
 - **Execução Pura e Síncrona**: Opera como uma função matemática pura: $f(\text{RenderContext}) \to \text{HTML/JSX}$.
 
-### 2.3 Doutrina III — Desacoplamento Sagrado BLUE / GREEN (ADR-0036 & ADR-0084)
-- **Camada BLUE (Inteligência & Estratégia)**:
-  Responde pelo processamento pesado, invocação do DeepSeek (cost-capped), mineração de sinais GMB/Meta, cálculo do afeto computacional BOA e orquestração de slots. Produz o `RenderContext`.
+### 3.3 Doutrina III — Desacoplamento Sagrado BLUE / GREEN (ADR-0036 & ADR-0084)
+- **Camada BLUE (Especialistas & Briefing Pipeline)**:
+  Responde pelo processamento pesado, invocação de agentes `open-design`, mineração de sinais, cálculo do BOA Score e transmutação do briefing no `RenderContext`.
 - **Camada GREEN (Apresentação & Layout)**:
   Aplicação síncrona em TypeScript/React/Tailwind v4. Transforma o `RenderContext` em elementos visuais limpos e responsivos.
 
-### 2.4 Doutrina IV — As 7 Dimensões de `VocabFacets` (ADR-0080)
+### 3.4 Doutrina IV — As 7 Dimensões de `VocabFacets` (ADR-0080)
 A resolução semântica do slot é regida por 7 facetas multidimensionais calculadas no `vocab-resolver.ts`:
 1. **`intentKind`**: Função do slot (`diagnostic_reveal`, `gap_exposure`, `value_proposition`, `editorial_content`, `product_showcase`, `conversion_cta`).
 2. **`archetype`**: Tom da persona narradora (`authority_analyst`, `direct_challenger`, `empathetic_guide`).
@@ -69,33 +106,33 @@ A resolução semântica do slot é regida por 7 facetas multidimensionais calcu
 6. **`visualCognition`**: Padrão de escaneabilidade (`scannable_grid`, `hero_focal`, `contrast_card`).
 7. **`layoutTechniqueFacets`** *(7ª Dimensão - ADR-0080)*: A técnica exata de renderização (`bento_grid`, `split_hero`, `feature_matrix`, `interactive_calculator`, `scroll_pin_sequence`, `article_stream`, `product_grid`).
 
-### 2.5 Doutrina V — Estilização Estrita por Tokens (`deriveStylesheet`)
+### 3.5 Doutrina V — Estilização Estrita por Tokens (`deriveStylesheet`)
 - Proibido o uso de cores hexadecimais hardcodadas (ex: `#FF0000`) em arquivos `.tsx` / `.ts`.
 - O `deriveStylesheet(brandDNA)` injeta o mapa de variáveis CSS semânticas (`var(--color-primary)`, `var(--color-surface)`, `var(--radius-card)`) no container raiz da superfície.
 
-### 2.6 Doutrina VI — Cache Determinístico BLAKE3 (ADR-0062)
+### 3.6 Doutrina VI — Cache Determinístico BLAKE3 (ADR-0062)
 Todo `RenderContext` gerado tem seu hash calculado via algoritmo **BLAKE3** combinando: `hash(tenantId + brandDnaHash + intentHash)`.
 - O resultado compilado é indexado no Redis sob a chave `adsentice:kv:blake3:<hash>`.
 - Requisições subsequentes para a mesma intenção ignoram a Camada BLUE e entregam a renderização GREEN em tempo inferior a 1ms.
 
 ---
 
-## §3 · Especificação Completa dos Módulos da Arquitetura
+## §4 · Especificação Completa dos Módulos da Arquitetura
 
-### 3.1 Estrutura de Arquivos e Responsabilidades (Módulo a Módulo)
+### 4.1 Estrutura de Arquivos e Responsabilidades (Módulo a Módulo)
 
 | Módulo | Caminho Canônico | Responsabilidade Principal | Camada |
 | :--- | :--- | :--- | :--- |
-| **`vocab-resolver.ts`** | `packages/warp/src/tokens/vocab-resolver.ts` | Resolve as 7 Dimensões de `VocabFacets` e mapeia intenções brutas em seleções de layout. | BLUE |
+| **`vocab-resolver.ts`** | `packages/warp/src/tokens/vocab-resolver.ts` | Resolve as 7 Dimensões de `VocabFacets` e mapeia instruções de briefing em seleções de layout. | BLUE |
 | **`tokens-unifier.ts`** | `packages/warp/src/tokens/tokens-unifier.ts` | Unifica tokens Materio, OpenDesign e paletas de clientes em tokens semânticos. | BLUE |
 | **`derive-stylesheet.ts`** | `packages/warp/src/tokens/derive-stylesheet.ts` | Converte os tokens unificados no mapa de variáveis CSS da folha de estilo. | BLUE/GREEN |
-| **`4-composer.ts`** | `packages/warp/src/4-composer.ts` | Executa o especialista da superfície (ex: `S10_SPECIALIST`, `S11_SPECIALIST`, `S7_POST_SPECIALIST`) e emite o `RenderContext`. | BLUE |
+| **`4-composer.ts`** | `packages/warp/src/4-composer.ts` | Contém os Especialistas de Superfície (`S10_SPECIALIST`, `S11_SPECIALIST`, `S7_SPECIALIST`, etc.) e emite o `RenderContext`. | BLUE |
 | **`composer-core.ts`** | `packages/warp/src/composer-core.ts` | Motor GREEN Universal. Contém a biblioteca de `TechniqueRenderers` para qualquer página. | GREEN |
 | **`warp-composer.ts`** | `apps/web/src/lib/warp-composer.ts` | Fachada de integração universal que conecta a requisição de qualquer rota ao pipeline BLUE ──► GREEN. | PIPELINE |
 
 ---
 
-## §4 · Contratos de Interface Universal & Schemas TypeScript
+## §5 · Contratos de Interface Universal & Schemas TypeScript
 
 ```typescript
 /**
@@ -185,41 +222,12 @@ export interface RenderContext {
 
 ---
 
-## §5 · Integração de Motion Declarativo (`dct-motion v1.4`)
-
-Para garantir uma experiência de ponta em qualquer superfície (landing pages, artigos ou catálogos), a renderização de animações é regida pelo motor soberano **`dct-motion` (ADR-0081)**:
-
-### 5.1 Princípio de Animação por Atributos (`data-motion`)
-Zero dependências de pacotes React pesados. O `dct-motion.js` opera fora da árvore do React via `requestAnimationFrame` e `IntersectionObserver`, utilizando atributos HTML declarativos emitidos pelo `composer-core.ts`:
-
-1. **`data-motion="pin-sequence"` (Scroll Pin Motion)**:
-   - Trava o palco da viewport (`position: sticky`) durante o scroll em landing pages ou apresentações interativas de produtos.
-2. **`data-motion="count-up"`**:
-   - Anima contadores numéricos de métricas e KPIs.
-3. **`data-motion="morph-target"` (`morphSlot(el, newHTML)`)**:
-   - Executa a transição limpa de conteúdo sem re-renderização de React.
-
----
-
-## §6 · Biblioteca Universal de TechniqueRenderers (GREEN)
-
-O `composer-core.ts` monta qualquer página usando renderizadores de técnica desacoplados:
-
-1. **`renderSplitHero`**: Hero com destaque visual e CTA principal.
-2. **`renderBentoGrid`**: Grid assimétrico estilo Apple para recursos, evidências ou posts recomendados.
-3. **`renderArticleStream`**: Renderizador de conteúdo editorial/blog limpo com tipografia responsiva.
-4. **`renderProductGrid`**: Grid de produtos e planos comerciais com modais de checkout.
-5. **`renderScrollPinSequence`**: Sequência animada com fixação de palco e etapas interativas.
-6. **`renderComparisonTable`**: Tabela comparativa de planos (R$197 vs R$497 vs R$997).
-
----
-
-## §7 · Pipeline de Execução Executável em 4 Fases
+## §6 · Pipeline de Execução Executável em 4 Fases
 
 ```
-[ FASE 1: STRATEGIST (BLUE) ]
-   ├── Processa Intenção / Conteúdo / Sinais
-   ├── Invocação LLM DeepSeek ($0.0005) ou Regra Estática
+[ FASE 1: BRIEFING & STRATEGIST (BLUE) ]
+   ├── Briefing do Founder / Agente (open-design)
+   ├── Processamento no Especialista da Superfície (4 Camadas)
    ├── VocabResolver (Gera Facetas 7D)
    └── Retorna: RenderContext (JSON Universal)
             │
@@ -243,7 +251,7 @@ O `composer-core.ts` monta qualquer página usando renderizadores de técnica de
 
 ---
 
-## §8 · Realimentação Afetiva OODA-BOA (`BOA Computational Affect Loop`)
+## §7 · Realimentação Afetiva OODA-BOA (`BOA Computational Affect Loop`)
 
 O composer integra o estado vivo do ciclo de afeto computacional **BOA (`adsentice:boa:score`)**:
 1. O BLUE lê o score BOA do tenant no Redis (porta `:6396`).
@@ -252,7 +260,7 @@ O composer integra o estado vivo do ciclo de afeto computacional **BOA (`adsenti
 
 ---
 
-## §9 · Fallback Glass-Box & Tolerância a Falhas Zero-500
+## §8 · Fallback Glass-Box & Tolerância a Falhas Zero-500
 
 Para garantir disponibilidade soberana sem exceções não tratadas:
 1. **Fallback por Timeout LLM**: Se a chamada ao DeepSeek exceder 2500ms, o BLUE encerra a requisição externa e aciona o gerador local de regras determinísticas em TypeScript ($0).
@@ -261,7 +269,7 @@ Para garantir disponibilidade soberana sem exceções não tratadas:
 
 ---
 
-## §10 · Isolamento de Corpora & Proteção de PII (Corpus A vs B vs C)
+## §9 · Isolamento de Corpora & Proteção de PII (Corpus A vs B vs C)
 
 Em conformidade com a arquitetura de corpora do Adsentice:
 - **Corpus A (Self / Adsentice Core)**: Código-fonte, ADRs, componentes e tokens de design.
@@ -270,20 +278,22 @@ Em conformidade com a arquitetura de corpora do Adsentice:
 
 ---
 
-## §11 · Compilação SWC (Rust) & Deploy Cloudflare Edge Workers/Pages
+## §10 · Compilação SWC (Rust) & Deploy Cloudflare Edge Workers/Pages
 
-### 11.1 Compilação SWC (Rust) para V8 Isolates
+### 10.1 Compilação SWC (Rust) para V8 Isolates
 - O compilador **SWC (Rust)** transpila a Camada GREEN (`composer-core.ts` + `TechniqueRenderers`) em um bundle Web-Standard de **`< 50 KB`**.
 
-### 11.2 Economia Extrema de Infraestrutura & Cloudflare Free Tier ($0/mês)
+### 10.2 Economia Extrema de Infraestrutura & Cloudflare Free Tier ($0/mês)
 - **Workers Free Tier** (100k req/dia), **Pages Free Tier** (deploys ilimitados), **R2 Vault** (10GB) e **KV Edge** (100k leituras) garantem **R$ 0,00 de custo marginal por página ou post**.
 
 ---
 
-## §12 · Consequências, Garantias & Métricas de Sucesso
+## §11 · Consequências, Garantias & Métricas de Sucesso
 
 | Métrica / Critério | Padrão Anterior (Acoplado/Visual) | Padrão Soberano ADR-0094 (Intent-Driven) |
 | :--- | :--- | :--- |
+| **Arquitetura de Briefing** | ❌ Edição manual em GUI | **✅ Briefing em 4 Camadas** (`open-design` ──► `RenderContext`) |
+| **Especialistas por Superfície** | ❌ Inexistente (Código monolítico) | **✅ Sim** (`S10_SPECIALIST`, `S11_SPECIALIST`, etc.) |
 | **Escopo de Páginas / Conteúdo** | ❌ Limitado a temas/templates fixos | **✅ Universal** (Qualquer superfície S0..S21 ou post) |
 | **Tempo de Renderização (GREEN)** | ~180ms - 800ms | **< 2ms** (Sub-milissegundo) |
 | **Custo de Infraestrutura Edge** | ❌ Elevado (Instâncias dedicadas) | **R$ 0,00** (Maximização Cloudflare Free Tier) |
@@ -297,7 +307,7 @@ Em conformidade com a arquitetura de corpora do Adsentice:
 
 ---
 
-## §13 · Ratificação de Governança (`SOP v3.0`)
+## §12 · Ratificação de Governança (`SOP v3.0`)
 
 1. **Testabilidade**: Todo `TechniqueRenderer` em `composer-core.ts` deve possuir teste unitário validando renderização cega com `RenderContext` mockado.
 2. **Commit Automático (Doutrina #3)**: Alterações nesta arquitetura exigem `git add` + `git commit` imediato por feature.
