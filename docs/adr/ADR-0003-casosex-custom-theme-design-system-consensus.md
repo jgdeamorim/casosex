@@ -56,7 +56,13 @@ Formalizar o arquivo de consenso [`docs/spec/casosex-theme-aa-consensus.json`](f
   - **Quick Add Slide-Up:** Botão "Adicionar ao Carrinho" deslizando com efeito glassmorphism no hover.
 - **Top Announcement Bar:** Carrossel rotativo no topo informando Frete Grátis, Parcelamento e Embalagem Discreta.
 
-### 6. Matriz de Critérios Rígidos do Jury AA (`casosex-theme-aa-consensus.json`)
+### 6. Arquitetura de 10 Slots Inteligentes & Matriz Curva ABC
+- **Curva A (80% Faturamento):** Vibradores de alta tecnologia, sugadores de ar e lubrificantes premium posicionados no Bento Hero (Slot 2), Vitrine de Giro Rápido (Slot 4) e Cronômetro de Ofertas (Slot 6).
+- **Curva B (15% Faturamento / Cross-Sell):** Lingeries de luxo, algemas/kits BDSM suaves e géis sensoriais dispostos na Matriz por Intenção (Slot 3), Quiz de Desejo (Slot 5) e Vitrine Sensual (Slot 8).
+- **Curva C (5% Faturamento / Add-On):** Higienizadores de toys, preservativos e acessórios de nicho recomendados via checkout de 1-clique.
+- **Desarmamento da Vergonha (Shame Reduction):** Anestesia moral e de privacidade assegurada nos Slots 1 (Top Stealth Bar), Slot 9 (Reviews Anônimos Verificados) e Slot 10 (Footer FAQ de Privacidade).
+
+### 7. Matriz de Critérios Rígidos do Jury AA (`casosex-theme-aa-consensus.json`)
 1. **AA-01 (Zero JS Bloatware):** Componentes estáticos em `.astro` puro; hidratação atômica no React apenas quando visíveis na viewport (`client:visible`).
 2. **AA-02 (Liquid Glass & Depth Layering):** Uso estruturado de desfoque de fundo e bordas semi-transparentes para profundidade tridimensional.
 3. **AA-03 (Pin Motion & Scroll Pinning):** Animações vinculadas ao scroll para apresentar recursos e variações de produto sem poluição de layout.
@@ -71,6 +77,7 @@ Formalizar o arquivo de consenso [`docs/spec/casosex-theme-aa-consensus.json`](f
 12. **AA-12 (Container Queries & Multi-Context Polymorphism):** Componentes auto-responsivos via @container e adaptação polimórfica para B2C, B2B e Afiliados.
 13. **AA-13 (Web Haptics API & Touch Physics):** Resposta de micro-vibração tátil no smartphone em ações de conversão e física de rolagem Lenis.
 14. **AA-14 (Padrões de Alta Conversão do E-Commerce Brasileiro):** Destaque ostensivo de Pix com desconto, botão de Comprar pelo WhatsApp com 1-clique e Image Flip no mouseover dos produtos.
+15. **AA-15 (Arquitetura de 10 Slots Inteligentes & Curva ABC):** Distribuição dinâmica de inventário por curva de receita (A/B/C) combinada com eliminadores de objeção moral (Anestesia da Vergonha).
 
 ---
 

@@ -1,7 +1,7 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "title": "CASOSEX Custom Theme Jury AA Consensus Specification (2026+)",
-  "version": "1.4.0",
+  "version": "1.5.0",
   "project": "CASOSEX",
   "author": "Jeferson Amorim (Founder) & Antigravity (AI Architect)",
   "date": "2026-08-13",
@@ -28,6 +28,24 @@
       "fluid_rhythm_spacing": "Section padding using responsive scales (py-12 md:py-20 lg:py-28), clamp() typography, and subtle ambient section dividers",
       "container_queries": "@container queries for self-responsive component polymorphism across B2C, B2B wholesale, and affiliate portals"
     },
+    "abc_curve_inventory_and_10_smart_slots": {
+      "curva_a_80_percent_revenue": "Vibradores de alta tecnologia, sugadores Air-Pulse e Lubrificantes Premium alocados nos Slots 2, 4 e 6",
+      "curva_b_15_percent_revenue": "Lingeries sensuais, BDSM suave, Velas e Géis com sensações dispostos nos Slots 3, 5 e 8",
+      "curva_c_5_percent_revenue": "Higienizadores de toys, preservativos e itens de nicho dispostos como recomendação de 1-clique no carrinho",
+      "shame_reduction_privacy_system": "Anestesia moral de discrição absoluta nos Slots 1 (Top Stealth Bar), 9 (Reviews Anônimos) e 10 (Footer FAQ de Privacidade)",
+      "dynamic_composer_slots": [
+        "Slot 1: Top Stealth Announcement (Embalagem 100% Discreta + Nome Neutro na Fatura)",
+        "Slot 2: Hero Bento Grid Neuromarketing (Vídeo Loop + Campeão Curva A)",
+        "Slot 3: Intent-Driven Matrix (Navegação por Intenção: Casais, Autocuidado, Primeira Vez)",
+        "Slot 4: Vitrine Curva A (Os Mais Desejados do Brasil + Image Flip no Hover + WhatsApp 1-Click)",
+        "Slot 5: Quiz Interativo / Guias de Desejo (Captação + Combo Curva A/B)",
+        "Slot 6: Vitrine de Cronômetro de Ofertas (FOMO Escassez Real + Desconto Pix)",
+        "Slot 7: Vídeo Imersivo & Demonstração Sensorial (Silicone Médico + IPX7)",
+        "Slot 8: Vitrine Curva B (Lingeries & Sensações com Quick View Modal)",
+        "Slot 9: Stealth Reviews Anônimos (Validação Verificada sem Nome)",
+        "Slot 10: Footer Anestésico & FAQ de Privacidade (Quebra de Medos Finais)"
+      ]
+    },
     "brazilian_ecommerce_ux_patterns": {
       "pix_discount_badge": "Badge verde flutuante de preço à vista com Pix ('5% ou 10% OFF no Pix') com destaque imediato nos cards e no checkout",
       "whatsapp_1click_conversion": "Botão de 'Comprar / Tirar Dúvidas pelo WhatsApp' com mensagem anônima pré-formatada para atração imediata",
@@ -46,38 +64,6 @@
         "bordeaux_luxury": "#881337 (Elegância sensual e toque aveludado)",
         "warm_gold_trust": "#D97706 (Selo de qualidade, discrição e garantia VIP)",
         "glass_overlay": "rgba(255, 255, 255, 0.08) (Profundidade e elegância moderna)"
-      },
-      "intent_driven_curation_sections": [
-        "1. Top Notification Bar: 'Embalagem 100% Discreta · Nome neutro no cartão · Entrega Rápida'",
-        "2. Hero Storytelling: Banner imersivo com Bento Grid de experiências e botão de Ação Sensorial",
-        "3. Intent-Driven Navigation: Seções por Objetivo ('Para Casais', 'Autocuidado', 'Primeira Vez', 'Intensifique')",
-        "4. High-Trust Badges Grid: Selos de Silicone Médico Hipoalergênico, IPX7 À Prova D'água e Phthalate Free",
-        "5. Bento Grid Destaques: Vitrine de Lançamentos com Vídeo Loop Silencioso e Quick Add ao Carrinho",
-        "6. Stealth Anonymous Reviews: Avaliações verificadas de clientes com anonimato total garantido",
-        "7. Educational & Wellness Hub: Mini-artigos em Rich Text sobre bem-estar e saúde íntima",
-        "8. Privacy Calculator: Simulação de Frete Discreto e Pontos de Retirada/Lockers"
-      ]
-    },
-    "design_tokens": {
-      "glassmorphism": {
-        "ultra_thin": "bg-white/10 dark:bg-black/20 backdrop-blur-md border border-white/15 dark:border-white/10",
-        "card_liquid": "bg-neutral-900/60 backdrop-blur-xl border border-white/10 shadow-2xl rounded-2xl",
-        "sticky_nav": "bg-neutral-950/80 backdrop-blur-2xl border-b border-neutral-800/80",
-        "mobile_dock": "fixed bottom-4 left-4 right-4 z-50 bg-neutral-900/85 backdrop-blur-2xl border border-white/15 rounded-full px-6 py-3 shadow-2xl md:hidden"
-      },
-      "typography": {
-        "heading_font": "Outfit / Plus Jakarta Sans",
-        "body_font": "Inter / System Sans",
-        "fluid_title": "clamp(1.75rem, 4vw + 1rem, 3.5rem)",
-        "fluid_hero": "clamp(2.5rem, 6vw + 1rem, 5rem)"
-      },
-      "color_palette": {
-        "primary_accent": "#E11D48",
-        "primary_hover": "#F43F5E",
-        "secondary_accent": "#881337",
-        "dark_bg": "#09090B",
-        "dark_card": "#18181B",
-        "glass_border": "rgba(255, 255, 255, 0.12)"
       }
     }
   },
@@ -163,7 +149,13 @@
     {
       "id": "AA-14",
       "name": "Padrões de Alta Conversão do E-Commerce Brasileiro",
-      "description": "Destaque visual ostensivo de Desconto no Pix em cards e checkout, botão de Comprar pelo WhatsApp com 1-clique e Image Flip no mouseover dos produtos.",
+      "description": "Destaque ostensivo de Pix com desconto, botão de Comprar pelo WhatsApp com 1-clique e Image Flip no mouseover dos produtos.",
+      "mandatory": true
+    },
+    {
+      "id": "AA-15",
+      "name": "Arquitetura de 10 Slots Inteligentes & Curva ABC",
+      "description": "Distribuição dinâmica de inventário por curva de receita (A/B/C) combinada com eliminadores de objeção moral (Anestesia da Vergonha).",
       "mandatory": true
     }
   ]
