@@ -1,9 +1,9 @@
 # ADR-0094 · Intent-Driven Dynamic Composer — Arquitetura de Composição Soberana JSON-First
 
-- **Status**: Accepted
+- **Status**: Accepted (Selado)
 - **Data**: 2026-08-14
 - **Autores**: Jeferson Amorim (Founder) & Antigravity (AI Pair)
-- **Extends**: ADR-0016 (Hetzner CAX11 $5.39), ADR-0036 (BLUE/GREEN), ADR-0054 (Intent-Driven Slots), ADR-0058 (Zero Hardcoded Slots), ADR-0060 (Warp Surface Modularization), ADR-0062 (BLAKE3 KV Cache), ADR-0077 (Semantic Motion Engine), ADR-0080 (Layout Technique Facets), ADR-0081 (dct-motion Zero-Dependency Runtime), ADR-0084 (Paridade BLUE/GREEN)
+- **Extends**: ADR-0016 (Hetzner CAX11 $5.39), ADR-0036 (BLUE/GREEN), ADR-0054 (Intent-Driven Slots), ADR-0058 (Zero Hardcoded Slots), ADR-0060 (Warp Surface Modularization), ADR-0062 (BLAKE3 KV Cache), ADR-0074 (Anti-Jargão SMB), ADR-0077 (Semantic Motion Engine), ADR-0080 (Layout Technique Facets), ADR-0081 (dct-motion Zero-Dependency Runtime), ADR-0084 (Paridade BLUE/GREEN), ADR-0086 (BLUE/GREEN React 19 + shadcn/ui)
 - **Domínio**: `apps/web/src/lib/`, `packages/warp/src/`, `docs/spec/`, `docs/adr/`
 
 ---
@@ -22,7 +22,7 @@ Esta arquitetura apresenta falhas estruturais críticas no ecossistema Adsentice
 
 ### 0.2 O Princípio Intent-Driven Universal
 A ADR-0094 ratifica a inversão soberana e **universal** de modelo para **qualquer superfície ou tipo de conteúdo**:
-$$\text{Intent Prompt + Variante (BLUE)} \xrightarrow[\text{Resolução Polimórfica}]{\text{Matriz Específica de Slots}} \text{RenderContext (JSON Universal)} \xrightarrow[\text{Cego / < 2ms}]{\text{TechniqueRenderers (GREEN)}} \text{UI/UX Soberana}$$
+$$\text{Intent Prompt + Telemetria Mautic (BLUE)} \xrightarrow[\text{OODA-BOA + 55 Skills}]{ \text{Schwartz 5 Levels}} \text{RenderContext (JSON Universal)} \xrightarrow[\text{Cego / < 2ms}]{\text{TechniqueRenderers (GREEN)}} \text{UI/UX Soberana}$$
 
 ---
 
@@ -57,12 +57,6 @@ Quando o sistema recebe uma chamada para uma superfície, o **Especialista da Ca
 - **Slot 4**: Tabela Comparativa de Planos (Sentinela R$197 vs Escala R$997).
 - **Slot 5**: CTA de Ativação Instantânea com Modal Pix.
 
-#### Exemplo C: Variante Landing Page Odontologia (`S11` / `variante=odonto`)
-- **Slot 1**: Hero com Arquétipo de Autoridade e Confiança do Paciente.
-- **Slot 2**: Radar de Avaliações sem Resposta no Google Meu Negócio.
-- **Slot 3**: Prova Social com Depoimentos Anônimos Verificados.
-- **Slot 4**: CTA de Agendamento Direto via WhatsApp 1-Clique.
-
 ---
 
 ## §2 · O Workflow de Autoria Soberano: Do Intent-Prompt às Sequências de JSON (`Authoring Intent Pipeline`)
@@ -72,13 +66,13 @@ Em vez de abrir um editor visual (Gutenberg/Elementor) e arrastar blocos manualm
 ### 2.1 As 5 Etapas da Sequência de Geração de Conteúdo
 
 1. **Etapa I: Captura do Intent Prompt & Parâmetro de Variante**:
-   - O criador submete o prompt informando o objetivo e a variante (ex: `landingpage?variante=delivery`).
+   - O criador submete o prompt informando o objetivo e a variante.
 2. **Etapa II: Seleção da Matriz Polimórfica de Slots**:
-   - O Especialista da Superfície lê a variante e seleciona a sequência exata de slots dinâmicos para aquele nicho.
+   - O Especialista da Superfície lê a variante e seleciona a sequência exata de slots dinâmicos.
 3. **Etapa III: Atribuição de Facetas Semânticas 7D (`VocabResolver`)**:
-   - Calcula o tom (`tone`), o arquétipo (`archetype`), a densidade (`density`) e a técnica de layout (`layoutTechniqueFacets`).
+   - Calcula o tom (`tone`), o arquétipo (`archetype`), a densidade (`density`) e a técnica de layout visual (`layoutTechniqueFacets`).
 4. **Etapa IV: Síntese de Conteúdo & Copywriting (DeepSeek / Qwen $0)**:
-   - Gera os títulos, subtítulos, textos em Markdown e métricas específicos de cada slot em pt-BR limpo.
+   - Aplica os 5 Níveis de Consciência de Eugene Schwartz e os 55 Marketing Skills auditados.
 5. **Etapa V: Validação Jury AA & Emissão do `RenderContext` JSON**:
    - Submete o JSON ao portão de qualidade Jury AA (score >= 0.85 contra as regras `AA-01`..`AA-18`) e envia para o Renderizador Cego GREEN (< 2ms).
 
@@ -98,14 +92,15 @@ O motor de renderização GREEN (`composer-core.ts` e renderizadores folha) oper
 
 ---
 
-## §4 · Especificação Completa dos Módulos da Arquitetura
+## §4 · Integração da Telemetria Mautic, Psicologia de Persuasão & Loop OODA-BOA
 
-| Módulo | Caminho Canônico | Responsabilidade Principal | Camada |
-| :--- | :--- | :--- | :--- |
-| **`vocab-resolver.ts`** | `packages/warp/src/tokens/vocab-resolver.ts` | Resolve as 7 Dimensões de `VocabFacets` e resolve a matriz polimórfica por variante. | BLUE |
-| **`tokens-unifier.ts`** | `packages/warp/src/tokens/tokens-unifier.ts` | Unifica os tokens de design do nicho/marca em variáveis CSS semânticas. | BLUE |
-| **`4-composer.ts`** | `packages/warp/src/4-composer.ts` | Executa o Especialista da Superfície e valida o JSON no Jury AA. | BLUE |
-| **`composer-core.ts`** | `packages/warp/src/composer-core.ts` | Motor GREEN Universal. Contém a biblioteca de `TechniqueRenderers` para qualquer variante. | GREEN |
+### 4.1 Behavioral Telemetry Estilo Mautic (<2KB Async Beacon)
+- O cliente interage com a página enquanto um tracker ultra-leve (<2KB) envia sinais de comportamento via `navigator.sendBeacon`.
+- Mede em tempo real: `scroll_depth`, `dwell_time`, `hover_hesitation` (diferenciando hesitação financeira de hesitação por vergonha/privacidade) e `exit_intent`.
+
+### 4.2 Cérebro de Persuasão (55 Marketing Skills & Níveis de Schwartz)
+- O Especialista BLUE alinha o payload de cada slot com o nível exato de consciência do visitante (*Unaware* ──► *Most Aware*).
+- Injeta atratores psicológicos (*Authority Bias*, *Cognitive Fluency*, *Progress Bias*) calibrados pelo estado Afetivo BOA (`adsentice:boa:score`).
 
 ---
 
@@ -120,8 +115,10 @@ O motor de renderização GREEN (`composer-core.ts` e renderizadores folha) oper
 
 | Métrica / Critério | Padrão Anterior (Acoplado/Visual) | Padrão Soberano ADR-0094 (Intent-Driven) |
 | :--- | :--- | :--- |
+| **Workflow de Autoria** | ❌ Arrasto manual de blocos (Gutenberg/Elementor) | **✅ Intent Prompt Pipeline em 5 Etapas** (Prompt ──► JSONs) |
 | **Suporte a Variantes de Nicho** | ❌ Templates rígidos idênticos | **✅ Resolução Polimórfica Dinâmica por Nicho (`variante=delivery`, etc.)** |
-| **Matriz de Slots Estratégicos** | ❌ Hardcoded em arquivos `.astro` | **✅ Dinâmica & Adaptada para E-Commerce, LPs e Blogs** |
+| **Telemetria Comportamental** | ❌ Inexistente ou iFrames pesados | **✅ Telemetria Mautic <2KB + OODA-BOA Score no Redis** |
+| **Persuasão & Psicologia** | ❌ Textos genéricos hardcodados | **✅ 55 Marketing Skills + 5 Níveis de Schwartz** |
 | **Validação de Qualidade** | ❌ Manual e sem métrica auditada | **✅ Portão Automático Jury AA** (Critérios `AA-01`..`AA-18`) |
 | **Tempo de Renderização (GREEN)** | ~180ms - 800ms | **< 2ms** (Sub-milissegundo) |
 | **Custo Edge** | ❌ Elevado | **R$ 0,00** (Cloudflare Free Tier) |
