@@ -61,13 +61,19 @@ export function TelemetrySettings() {
 	const checkDevToolsBridge = React.useCallback(async () => {
 		setCheckingBridge(true);
 		try {
-			// Ping bridge server
+			const controller = new AbortController();
+			const timeoutId = setTimeout(() => controller.abort(), 1500);
+
+			// Ping bridge server with timeout
 			const res = await fetch("http://localhost:9091/push-log", {
 				method: "OPTIONS",
+				signal: controller.signal,
 			}).catch(() => null);
 
+			clearTimeout(timeoutId);
+
 			setBridgeStatus({
-				online: Boolean(res || true), // Bridge listening on 9091
+				online: Boolean(res),
 				port: 9091,
 				lastPing: new Date().toLocaleTimeString(),
 			});
