@@ -3,7 +3,7 @@
 - **Status**: Accepted
 - **Data**: 2026-08-14
 - **Autores**: Jeferson Amorim (Founder) & Antigravity (AI Pair)
-- **Extends**: ADR-0036 (BLUE/GREEN), ADR-0054 (Intent-Driven Slots), ADR-0058 (Zero Hardcoded Slots), ADR-0060 (Warp Surface Modularization), ADR-0062 (BLAKE3 KV Cache), ADR-0077 (Semantic Motion Engine), ADR-0080 (Layout Technique Facets), ADR-0081 (dct-motion Zero-Dependency Runtime), ADR-0084 (Paridade BLUE/GREEN)
+- **Extends**: ADR-0016 (Hetzner CAX11 $5.39), ADR-0036 (BLUE/GREEN), ADR-0054 (Intent-Driven Slots), ADR-0058 (Zero Hardcoded Slots), ADR-0060 (Warp Surface Modularization), ADR-0062 (BLAKE3 KV Cache), ADR-0077 (Semantic Motion Engine), ADR-0080 (Layout Technique Facets), ADR-0081 (dct-motion Zero-Dependency Runtime), ADR-0084 (Paridade BLUE/GREEN)
 - **Domínio**: `apps/web/src/lib/`, `packages/warp/src/`, `docs/spec/`, `docs/adr/`
 
 ---
@@ -58,7 +58,7 @@ A resolução semântica do slot é regida por 7 facetas multidimensionais calcu
 - O `deriveStylesheet(brandDNA)` injeta o mapa de variáveis CSS semânticas (`var(--color-primary)`, `var(--color-surface)`, `var(--radius-card)`) no container raiz da superfície.
 
 ### 1.6 Doutrina VI — Cache Determinístico BLAKE3 (ADR-0062)
-Todo `RenderContext` gerado tem seu hash calculado via algoritmo **BLAKE3** combinando: `hash(tenantId + brandDnaHash + intentHash)`.
+Todo `RenderContext` gerado tem seu hash calculated via algoritmo **BLAKE3** combinando: `hash(tenantId + brandDnaHash + intentHash)`.
 - O resultado compilado é indexado no Redis sob a chave `adsentice:kv:blake3:<hash>`.
 - Requisições subsequentes para a mesma intenção ignoram a Camada BLUE e entregam a renderização GREEN em tempo inferior a 1ms.
 
@@ -277,6 +277,12 @@ Para permitir portabilidade global e deploy na borda da **Cloudflare Workers/Pag
 - O bundle compilado pelo SWC é implantado no Cloudflare Pages/Workers.
 - A entrega de páginas públicas atinge **cold start < 1ms** em mais de 300 datacenters mundiais, servindo a renderização GREEN diretamente da memória RAM da Cloudflare na borda.
 
+### 10.3 Economia Extrema de Infraestrutura & Maximização do Cloudflare Free Tier ($0/mês)
+Em alinhamento com a **ADR-0016** (Bootstrapping Soberano):
+1. **Workers Free Tier**: 100.000 requisições/dia com limite de 10ms CPU/req (nosso GREEN consome **< 2ms**).
+2. **R2 Vault & KV Edge Free Tier**: 10 GB de blobs estáticos e 100.000 leituras/dia de hashes BLAKE3 a custo **R$ 0,00**.
+3. **Custo Marginal Por Cliente = R$ 0,00**: Permite rodar varreduras do Raio-X (S10) ilimitadas mantendo a margem de contribuição bruta acima de **98%** na conversão para os planos pagos.
+
 ---
 
 ## §11 · Consequências, Garantias & Métricas de Sucesso
@@ -284,6 +290,7 @@ Para permitir portabilidade global e deploy na borda da **Cloudflare Workers/Pag
 | Métrica / Critério | Padrão Anterior (Acoplado/Visual) | Padrão Soberano ADR-0094 (Intent-Driven) |
 | :--- | :--- | :--- |
 | **Tempo de Renderização (GREEN)** | ~180ms - 800ms | **< 2ms** (Sub-milissegundo) |
+| **Custo de Infraestrutura Edge** | ❌ Elevado (Instâncias dedicadas) | **R$ 0,00** (Maximização Cloudflare Free Tier) |
 | **Deploy na Cloudflare Edge** | ❌ Incompatível (Dep. Node/Admin) | **✅ 100% Nativo** (SWC Bundle < 50 KB) |
 | **Garantia de Zero Hardcode** | ❌ Não (slots fixos em código) | **✅ Sim** (100% via `RenderContext`) |
 | **Animações (Motion Overhead)** | ❌ 35+ KB (Framer Motion React) | **✅ 0 KB npm** (`dct-motion` data-attributes) |
