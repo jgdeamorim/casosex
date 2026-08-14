@@ -1,14 +1,4 @@
 ---
-import { getMenu, getEmDashCollection, getSiteSettings } from "emdash";
-import {
-	WidgetArea,
-	EmDashHead,
-	EmDashBodyStart,
-	EmDashBodyEnd,
-} from "emdash/ui";
-import { createPublicPageContext } from "emdash/page";
-import { Font } from "astro:assets";
-import { resolveBlogSiteIdentity } from "../utils/site-identity";
 import "../styles/theme.css";
 
 interface Props {
@@ -38,31 +28,20 @@ const {
 	author,
 	content,
 } = Astro.props;
-const { siteTitle, siteTagline, siteLogo } = resolveBlogSiteIdentity(await getSiteSettings());
+const siteTitle = "CASOSEX";
+const siteTagline = "O Universo Sensual & Bem-Estar";
 const fullTitle = title.includes(siteTitle) ? title : `${title} — ${siteTitle}`;
 
-const menu = await getMenu("primary");
+const menu = {
+	items: [
+		{ label: "Home", url: "/" },
+		{ label: "Catálogo", url: "/shop" },
+		{ label: "Sobre", url: "/pages/about" },
+	],
+};
 
-const socialMenu = await getMenu("social");
-
-const { entries: pages } = await getEmDashCollection("pages");
-
-const pageCtx = createPublicPageContext({
-	Astro,
-	kind: content ? "content" : "custom",
-	pageType: type,
-	title: fullTitle,
-	pageTitle: pageTitle ?? title,
-	description,
-	canonical,
-	image,
-	content,
-	seo: { ogImage: image, robots },
-	articleMeta: { publishedTime, modifiedTime, author },
-	siteName: siteTitle,
-});
-
-const isLoggedIn = !!Astro.locals.user;
+const pages: Array<{ title: string; slug: string }> = [];
+const isLoggedIn = false;
 ---
 
 <!doctype html>
@@ -73,7 +52,6 @@ const isLoggedIn = !!Astro.locals.user;
 		{/* <Font cssVariable="--font-sans" preload /> */}
 		{/* <Font cssVariable="--font-mono" /> */}
 		<title>{fullTitle}</title>
-		<EmDashHead page={pageCtx} />
 		<script is:inline>
 			// Apply theme immediately to prevent flash
 			(function () {
@@ -89,14 +67,10 @@ const isLoggedIn = !!Astro.locals.user;
 		</script>
 	</head>
 	<body>
-		<EmDashBodyStart page={pageCtx} />
 		<header class="site-header">
 			<nav class="nav">
 				<a href="/" class="site-title">
-					{siteLogo
-						? <img src={siteLogo.url} alt={siteLogo.alt || siteTitle} class="site-logo-img" />
-						: siteTitle
-					}
+					{siteTitle}
 				</a>
 				<div class="nav-right">
 					<button type="button" class="nav-search-btn" data-search-trigger aria-label="Search">
