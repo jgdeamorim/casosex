@@ -12,11 +12,15 @@
       "types": "./dist/index.d.ts"
     },
     "./sandbox": {
+      "development": "./src/sandbox-entry.ts",
       "import": "./dist/sandbox-entry.js",
+      "default": "./dist/sandbox-entry.js",
       "types": "./dist/sandbox-entry.d.ts"
     },
     "./admin": {
+      "development": "./src/admin/entry.tsx",
       "import": "./dist/admin/entry.js",
+      "default": "./dist/admin/entry.js",
       "types": "./dist/admin/entry.d.ts"
     },
     "./astro": "./src/astro/index.ts",

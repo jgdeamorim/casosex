@@ -4,6 +4,7 @@ packages:
   - 'self-essentials/emdash-main/packages/plugins/*'
   - 'self-essentials/emdash-main/apps/*'
   - 'self-essentials/emdash-main/demos/*'
+  - 'self-essentials/dashcommerce-main/packages/*'
 
 allowBuilds:
   '@parcel/watcher': true
