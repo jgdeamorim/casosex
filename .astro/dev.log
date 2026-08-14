@@ -4,7 +4,7 @@
   [1m[36m— E M D A S H —[39m[22m  [2mv0.31.1[22m
    
 {"message":"connected.","label":"vite","level":"info"}
-{"message":"Generated 1ms","label":"types","level":"info"}
+{"message":"Generated 0ms","label":"types","level":"info"}
 {"message":"connected.","label":"vite","level":"info"}
 
   [2m›[22m Admin UI    [36mhttp://localhost:4321/_emdash/admin[39m
@@ -12,9 +12,192 @@
   [2m›[22m Dev bypass  [36mhttp://localhost:4321/_emdash/api/setup/dev-bypass?redirect=/_emdash/admin[39m
     [2mSkips passkey setup/auth and signs you in as a dev admin[22m
 
-{"message":" astro  v7.2.1 ready in 4471 ms\n┃ Local    http://localhost:4321/\n┃ Network  http://192.168.15.6:4321/\n           http://192.168.48.1:4321/\n           http://192.168.16.1:4321/\n           http://192.168.32.1:4321/\n           http://172.17.0.1:4321/\n           http://172.31.0.1:4321/","label":"SKIP_FORMAT","level":"info"}
+{"message":" astro  v7.2.1 ready in 3136 ms\n┃ Local    http://localhost:4321/\n┃ Network  http://192.168.15.6:4321/\n           http://192.168.48.1:4321/\n           http://192.168.16.1:4321/\n           http://192.168.32.1:4321/\n           http://172.17.0.1:4321/\n           http://172.31.0.1:4321/\n           http://172.19.0.1:4321/","label":"SKIP_FORMAT","level":"info"}
 {"message":"watching for file changes...","label":null,"level":"info"}
-{"message":"[optimizer] bundling dependencies...","label":"vite","level":"info"}
 {"message":"warning: \n/media/jeffer/5aab5a95-8290-d3f7-2e4f-8c27cc2d09a93/CASOSEX/self-essentials/emdash-main/packages/core/dist/astro/middleware.mjs\n919 |  \t\t\t\tif (existing) this.removePluginFromLists(pluginId);\n920 |  \t\t\t\ttry {\n921 |  ...ule = await import(`data:text/javascript;base64,${Buffer.from(bundle.backendCode).toString(\"base64\")}`);\n    |                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n922 |  \t\t\t\t\tconst adapted = adaptSandboxEntry(pluginModule.default ?? pluginModule, {\n923 |  \t\t\t\t\t\tid: bundle.manifest.id,\nThe above dynamic import cannot be analyzed by Vite.\nSee https://vite.dev/guide/features#dynamic-import for supported dynamic import formats. If this is intended to be left as-is, you can use the /* @vite-ignore */ comment inside the import() call to suppress this warning.\n\n  Plugin: vite:import-analysis\n  File: /media/jeffer/5aab5a95-8290-d3f7-2e4f-8c27cc2d09a93/CASOSEX/self-essentials/emdash-main/packages/core/dist/astro/middleware.mjs","label":"vite","level":"warn"}
 {"message":"warning: \n/media/jeffer/5aab5a95-8290-d3f7-2e4f-8c27cc2d09a93/CASOSEX/self-essentials/emdash-main/packages/core/dist/astro/middleware.mjs\n1311 |  \t\tconst plugins = [];\n1312 |  \t\tfor (const entry of entries) try {\n1313 |  \t\t\tconst pluginModule = await import(`data:text/javascript;base64,${Buffer.from(entry.code).toString(\"base64\")}`);\n     |                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n1314 |  \t\t\tconst pluginDef = pluginModule.default ?? pluginModule;\n1315 |  \t\t\tconst adminPages = entry.adminPages?.map((p) => ({\nThe above dynamic import cannot be analyzed by Vite.\nSee https://vite.dev/guide/features#dynamic-import for supported dynamic import formats. If this is intended to be left as-is, you can use the /* @vite-ignore */ comment inside the import() call to suppress this warning.\n\n  Plugin: vite:import-analysis\n  File: /media/jeffer/5aab5a95-8290-d3f7-2e4f-8c27cc2d09a93/CASOSEX/self-essentials/emdash-main/packages/core/dist/astro/middleware.mjs","label":"vite","level":"warn"}
 {"message":"warning: \n/media/jeffer/5aab5a95-8290-d3f7-2e4f-8c27cc2d09a93/CASOSEX/self-essentials/emdash-main/packages/core/dist/astro/middleware.mjs\n1504 |  \t\t\t\t\t\tsandboxedRouteMetaCache.set(plugin.pluginId, routeMeta);\n1505 |  \t\t\t\t\t}\n1506 |  ...ule = await import(`data:text/javascript;base64,${Buffer.from(bundle.backendCode).toString(\"base64\")}`);\n     |                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n1507 |  \t\t\t\t\tconst adapted = adaptSandboxEntry(pluginModule.default ?? pluginModule, {\n1508 |  \t\t\t\t\t\tid: bundle.manifest.id,\nThe above dynamic import cannot be analyzed by Vite.\nSee https://vite.dev/guide/features#dynamic-import for supported dynamic import formats. If this is intended to be left as-is, you can use the /* @vite-ignore */ comment inside the import() call to suppress this warning.\n\n  Plugin: vite:import-analysis\n  File: /media/jeffer/5aab5a95-8290-d3f7-2e4f-8c27cc2d09a93/CASOSEX/self-essentials/emdash-main/packages/core/dist/astro/middleware.mjs","label":"vite","level":"warn"}
+{"message":"[200] POST /_emdash/api/typegen 2833ms","label":null,"level":"info"}
+{"message":"[302] HEAD /_emdash/admin 645ms","label":null,"level":"info"}
+{"message":"[200] HEAD /_emdash/admin/login 1054ms","label":null,"level":"info"}
+{"message":"[200] /_emdash/admin/login 26ms","label":null,"level":"info"}
+{"message":"[vite:css][postcss] @import must precede all other statements (besides @charset or empty @layer)\n12 |  @source \"../node_modules/@cloudflare/kumo/dist/**/*.{js,jsx,ts,tsx}\";\n13 |  \n14 |  @import \"@cloudflare/kumo/styles\";\n   |  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n15 |  @import \"tailwindcss\";\n16 |  @plugin \"@tailwindcss/typography\";","label":"vite","level":"warn"}
+{"message":"[vite:css][postcss] @import must precede all other statements (besides @charset or empty @layer)\n13 |  \n14 |  @import \"@cloudflare/kumo/styles\";\n15 |  @import \"tailwindcss\";\n   |  ^^^^^^^^^^^^^^^^^^^^^^\n16 |  @plugin \"@tailwindcss/typography\";\n17 |  ","label":"vite","level":"warn"}
+{"message":"[200] /_emdash/admin/login 228ms","label":null,"level":"info"}
+{"message":"[200] /_emdash/api/auth/mode 14ms","label":null,"level":"info"}
+{"message":"[200] /_emdash/admin/login 299ms","label":null,"level":"info"}
+{"message":"[200] /_emdash/api/auth/mode 7ms","label":null,"level":"info"}
+{"message":"Configuration file added. Restarting...","label":null,"level":"info"}
+{"message":"Enabling sessions with filesystem storage","label":"@astrojs/node","level":"info"}
+
+
+  [1m[36m— E M D A S H —[39m[22m  [2mv0.31.1[22m
+   
+{"message":"changed tsconfig file detected: /media/jeffer/5aab5a95-8290-d3f7-2e4f-8c27cc2d09a93/CASOSEX/apps/warp-host/tsconfig.json - Clearing cache and forcing full-reload to ensure TypeScript is compiled with updated config values.","label":"vite","level":"info"}
+{"message":"program reload","label":"vite","level":"info"}
+{"message":"An error happened during full reload\nFailed to load url astro:server-app.js (resolved id: astro:server-app.js). Does the file exist?\nError: Failed to load url astro:server-app.js (resolved id: astro:server-app.js). Does the file exist?\n    at loadAndTransform (file:///media/jeffer/5aab5a95-8290-d3f7-2e4f-8c27cc2d09a93/CASOSEX/node_modules/.pnpm/vite@8.2.1_@types+node@24.10.13_esbuild@0.28.2_jiti@2.7.0_yaml@2.9.0/node_modules/vite/dist/node/chunks/node.js:20608:31)","label":"vite","level":"error"}
+{"message":"connected.","label":"vite","level":"info"}
+{"message":"connected.","label":"vite","level":"info"}
+
+  [2m›[22m Admin UI    [36mhttp://localhost:4321/_emdash/admin[39m
+  [2m›[22m MCP server  [36mhttp://localhost:4321/_emdash/api/mcp[39m
+  [2m›[22m Dev bypass  [36mhttp://localhost:4321/_emdash/api/setup/dev-bypass?redirect=/_emdash/admin[39m
+    [2mSkips passkey setup/auth and signs you in as a dev admin[22m
+
+{"message":"server restarted.","label":"vite","level":"info"}
+{"message":"warning: \n/media/jeffer/5aab5a95-8290-d3f7-2e4f-8c27cc2d09a93/CASOSEX/self-essentials/emdash-main/packages/core/dist/astro/middleware.mjs\n919 |  \t\t\t\tif (existing) this.removePluginFromLists(pluginId);\n920 |  \t\t\t\ttry {\n921 |  ...ule = await import(`data:text/javascript;base64,${Buffer.from(bundle.backendCode).toString(\"base64\")}`);\n    |                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n922 |  \t\t\t\t\tconst adapted = adaptSandboxEntry(pluginModule.default ?? pluginModule, {\n923 |  \t\t\t\t\t\tid: bundle.manifest.id,\nThe above dynamic import cannot be analyzed by Vite.\nSee https://vite.dev/guide/features#dynamic-import for supported dynamic import formats. If this is intended to be left as-is, you can use the /* @vite-ignore */ comment inside the import() call to suppress this warning.\n\n  Plugin: vite:import-analysis\n  File: /media/jeffer/5aab5a95-8290-d3f7-2e4f-8c27cc2d09a93/CASOSEX/self-essentials/emdash-main/packages/core/dist/astro/middleware.mjs","label":"vite","level":"warn"}
+{"message":"warning: \n/media/jeffer/5aab5a95-8290-d3f7-2e4f-8c27cc2d09a93/CASOSEX/self-essentials/emdash-main/packages/core/dist/astro/middleware.mjs\n1311 |  \t\tconst plugins = [];\n1312 |  \t\tfor (const entry of entries) try {\n1313 |  \t\t\tconst pluginModule = await import(`data:text/javascript;base64,${Buffer.from(entry.code).toString(\"base64\")}`);\n     |                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n1314 |  \t\t\tconst pluginDef = pluginModule.default ?? pluginModule;\n1315 |  \t\t\tconst adminPages = entry.adminPages?.map((p) => ({\nThe above dynamic import cannot be analyzed by Vite.\nSee https://vite.dev/guide/features#dynamic-import for supported dynamic import formats. If this is intended to be left as-is, you can use the /* @vite-ignore */ comment inside the import() call to suppress this warning.\n\n  Plugin: vite:import-analysis\n  File: /media/jeffer/5aab5a95-8290-d3f7-2e4f-8c27cc2d09a93/CASOSEX/self-essentials/emdash-main/packages/core/dist/astro/middleware.mjs","label":"vite","level":"warn"}
+{"message":"warning: \n/media/jeffer/5aab5a95-8290-d3f7-2e4f-8c27cc2d09a93/CASOSEX/self-essentials/emdash-main/packages/core/dist/astro/middleware.mjs\n1504 |  \t\t\t\t\t\tsandboxedRouteMetaCache.set(plugin.pluginId, routeMeta);\n1505 |  \t\t\t\t\t}\n1506 |  ...ule = await import(`data:text/javascript;base64,${Buffer.from(bundle.backendCode).toString(\"base64\")}`);\n     |                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n1507 |  \t\t\t\t\tconst adapted = adaptSandboxEntry(pluginModule.default ?? pluginModule, {\n1508 |  \t\t\t\t\t\tid: bundle.manifest.id,\nThe above dynamic import cannot be analyzed by Vite.\nSee https://vite.dev/guide/features#dynamic-import for supported dynamic import formats. If this is intended to be left as-is, you can use the /* @vite-ignore */ comment inside the import() call to suppress this warning.\n\n  Plugin: vite:import-analysis\n  File: /media/jeffer/5aab5a95-8290-d3f7-2e4f-8c27cc2d09a93/CASOSEX/self-essentials/emdash-main/packages/core/dist/astro/middleware.mjs","label":"vite","level":"warn"}
+{"message":"[200] POST /_emdash/api/typegen 2984ms","label":null,"level":"info"}
+{"message":"Configuration file updated. Restarting...","label":null,"level":"info"}
+{"message":"changed tsconfig file detected: /media/jeffer/5aab5a95-8290-d3f7-2e4f-8c27cc2d09a93/CASOSEX/apps/warp-host/tsconfig.json - Clearing cache and forcing full-reload to ensure TypeScript is compiled with updated config values.","label":"vite","level":"info"}
+{"message":"program reload","label":"vite","level":"info"}
+{"message":"Enabling sessions with filesystem storage","label":"@astrojs/node","level":"info"}
+
+
+  [1m[36m— E M D A S H —[39m[22m  [2mv0.31.1[22m
+   
+{"message":"An error happened during full reload\nFailed to load url astro:server-app.js (resolved id: astro:server-app.js). Does the file exist?\nError: Failed to load url astro:server-app.js (resolved id: astro:server-app.js). Does the file exist?\n    at loadAndTransform (file:///media/jeffer/5aab5a95-8290-d3f7-2e4f-8c27cc2d09a93/CASOSEX/node_modules/.pnpm/vite@8.2.1_@types+node@24.10.13_esbuild@0.28.2_jiti@2.7.0_yaml@2.9.0/node_modules/vite/dist/node/chunks/node.js:20608:31)","label":"vite","level":"error"}
+{"message":"connected.","label":"vite","level":"info"}
+{"message":"connected.","label":"vite","level":"info"}
+
+  [2m›[22m Admin UI    [36mhttp://localhost:4321/_emdash/admin[39m
+  [2m›[22m MCP server  [36mhttp://localhost:4321/_emdash/api/mcp[39m
+  [2m›[22m Dev bypass  [36mhttp://localhost:4321/_emdash/api/setup/dev-bypass?redirect=/_emdash/admin[39m
+    [2mSkips passkey setup/auth and signs you in as a dev admin[22m
+
+{"message":"server restarted.","label":"vite","level":"info"}
+{"message":"warning: \n/media/jeffer/5aab5a95-8290-d3f7-2e4f-8c27cc2d09a93/CASOSEX/self-essentials/emdash-main/packages/core/dist/astro/middleware.mjs\n919 |  \t\t\t\tif (existing) this.removePluginFromLists(pluginId);\n920 |  \t\t\t\ttry {\n921 |  ...ule = await import(`data:text/javascript;base64,${Buffer.from(bundle.backendCode).toString(\"base64\")}`);\n    |                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n922 |  \t\t\t\t\tconst adapted = adaptSandboxEntry(pluginModule.default ?? pluginModule, {\n923 |  \t\t\t\t\t\tid: bundle.manifest.id,\nThe above dynamic import cannot be analyzed by Vite.\nSee https://vite.dev/guide/features#dynamic-import for supported dynamic import formats. If this is intended to be left as-is, you can use the /* @vite-ignore */ comment inside the import() call to suppress this warning.\n\n  Plugin: vite:import-analysis\n  File: /media/jeffer/5aab5a95-8290-d3f7-2e4f-8c27cc2d09a93/CASOSEX/self-essentials/emdash-main/packages/core/dist/astro/middleware.mjs","label":"vite","level":"warn"}
+{"message":"warning: \n/media/jeffer/5aab5a95-8290-d3f7-2e4f-8c27cc2d09a93/CASOSEX/self-essentials/emdash-main/packages/core/dist/astro/middleware.mjs\n1311 |  \t\tconst plugins = [];\n1312 |  \t\tfor (const entry of entries) try {\n1313 |  \t\t\tconst pluginModule = await import(`data:text/javascript;base64,${Buffer.from(entry.code).toString(\"base64\")}`);\n     |                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n1314 |  \t\t\tconst pluginDef = pluginModule.default ?? pluginModule;\n1315 |  \t\t\tconst adminPages = entry.adminPages?.map((p) => ({\nThe above dynamic import cannot be analyzed by Vite.\nSee https://vite.dev/guide/features#dynamic-import for supported dynamic import formats. If this is intended to be left as-is, you can use the /* @vite-ignore */ comment inside the import() call to suppress this warning.\n\n  Plugin: vite:import-analysis\n  File: /media/jeffer/5aab5a95-8290-d3f7-2e4f-8c27cc2d09a93/CASOSEX/self-essentials/emdash-main/packages/core/dist/astro/middleware.mjs","label":"vite","level":"warn"}
+{"message":"warning: \n/media/jeffer/5aab5a95-8290-d3f7-2e4f-8c27cc2d09a93/CASOSEX/self-essentials/emdash-main/packages/core/dist/astro/middleware.mjs\n1504 |  \t\t\t\t\t\tsandboxedRouteMetaCache.set(plugin.pluginId, routeMeta);\n1505 |  \t\t\t\t\t}\n1506 |  ...ule = await import(`data:text/javascript;base64,${Buffer.from(bundle.backendCode).toString(\"base64\")}`);\n     |                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n1507 |  \t\t\t\t\tconst adapted = adaptSandboxEntry(pluginModule.default ?? pluginModule, {\n1508 |  \t\t\t\t\t\tid: bundle.manifest.id,\nThe above dynamic import cannot be analyzed by Vite.\nSee https://vite.dev/guide/features#dynamic-import for supported dynamic import formats. If this is intended to be left as-is, you can use the /* @vite-ignore */ comment inside the import() call to suppress this warning.\n\n  Plugin: vite:import-analysis\n  File: /media/jeffer/5aab5a95-8290-d3f7-2e4f-8c27cc2d09a93/CASOSEX/self-essentials/emdash-main/packages/core/dist/astro/middleware.mjs","label":"vite","level":"warn"}
+{"message":"[200] POST /_emdash/api/typegen 2764ms","label":null,"level":"info"}
+{"message":"[200] HEAD / 204ms","label":null,"level":"info"}
+{"message":"EmDashBodyEnd is not defined\n  Stack trace:\n    at eval (/media/jeffer/5aab5a95-8290-d3f7-2e4f-8c27cc2d09a93/CASOSEX/src/layouts/Base.astro:905:3)\n    [...] See full stack trace in the browser, or rerun with --verbose.","label":null,"level":"error"}
+{"message":"[200] /_emdash/admin/login 1564ms","label":null,"level":"info"}
+{"message":"[vite:css][postcss] @import must precede all other statements (besides @charset or empty @layer)\n12 |  @source \"../node_modules/@cloudflare/kumo/dist/**/*.{js,jsx,ts,tsx}\";\n13 |  \n14 |  @import \"@cloudflare/kumo/styles\";\n   |  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n15 |  @import \"tailwindcss\";\n16 |  @plugin \"@tailwindcss/typography\";","label":"vite","level":"warn"}
+{"message":"[vite:css][postcss] @import must precede all other statements (besides @charset or empty @layer)\n13 |  \n14 |  @import \"@cloudflare/kumo/styles\";\n15 |  @import \"tailwindcss\";\n   |  ^^^^^^^^^^^^^^^^^^^^^^\n16 |  @plugin \"@tailwindcss/typography\";\n17 |  ","label":"vite","level":"warn"}
+{"message":"[200] /_emdash/admin/login 37ms","label":null,"level":"info"}
+{"message":"[200] /_emdash/api/auth/mode 11ms","label":null,"level":"info"}
+{"message":"[200] /_emdash/admin/login 19ms","label":null,"level":"info"}
+{"message":"[200] /_emdash/api/auth/mode 6ms","label":null,"level":"info"}
+{"message":"Configuration file updated. Restarting...","label":null,"level":"info"}
+{"message":"changed tsconfig file detected: /media/jeffer/5aab5a95-8290-d3f7-2e4f-8c27cc2d09a93/CASOSEX/apps/warp-host/tsconfig.json - Clearing cache and forcing full-reload to ensure TypeScript is compiled with updated config values.","label":"vite","level":"info"}
+{"message":"program reload","label":"vite","level":"info"}
+{"message":"Enabling sessions with filesystem storage","label":"@astrojs/node","level":"info"}
+
+
+  [1m[36m— E M D A S H —[39m[22m  [2mv0.31.1[22m
+   
+{"message":"An error happened during full reload\nFailed to load url astro:server-app.js (resolved id: astro:server-app.js). Does the file exist?\nError: Failed to load url astro:server-app.js (resolved id: astro:server-app.js). Does the file exist?\n    at loadAndTransform (file:///media/jeffer/5aab5a95-8290-d3f7-2e4f-8c27cc2d09a93/CASOSEX/node_modules/.pnpm/vite@8.2.1_@types+node@24.10.13_esbuild@0.28.2_jiti@2.7.0_yaml@2.9.0/node_modules/vite/dist/node/chunks/node.js:20608:31)","label":"vite","level":"error"}
+{"message":"connected.","label":"vite","level":"info"}
+{"message":"connected.","label":"vite","level":"info"}
+
+  [2m›[22m Admin UI    [36mhttp://localhost:4321/_emdash/admin[39m
+  [2m›[22m MCP server  [36mhttp://localhost:4321/_emdash/api/mcp[39m
+  [2m›[22m Dev bypass  [36mhttp://localhost:4321/_emdash/api/setup/dev-bypass?redirect=/_emdash/admin[39m
+    [2mSkips passkey setup/auth and signs you in as a dev admin[22m
+
+{"message":"server restarted.","label":"vite","level":"info"}
+{"message":"warning: \n/media/jeffer/5aab5a95-8290-d3f7-2e4f-8c27cc2d09a93/CASOSEX/self-essentials/emdash-main/packages/core/dist/astro/middleware.mjs\n919 |  \t\t\t\tif (existing) this.removePluginFromLists(pluginId);\n920 |  \t\t\t\ttry {\n921 |  ...ule = await import(`data:text/javascript;base64,${Buffer.from(bundle.backendCode).toString(\"base64\")}`);\n    |                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n922 |  \t\t\t\t\tconst adapted = adaptSandboxEntry(pluginModule.default ?? pluginModule, {\n923 |  \t\t\t\t\t\tid: bundle.manifest.id,\nThe above dynamic import cannot be analyzed by Vite.\nSee https://vite.dev/guide/features#dynamic-import for supported dynamic import formats. If this is intended to be left as-is, you can use the /* @vite-ignore */ comment inside the import() call to suppress this warning.\n\n  Plugin: vite:import-analysis\n  File: /media/jeffer/5aab5a95-8290-d3f7-2e4f-8c27cc2d09a93/CASOSEX/self-essentials/emdash-main/packages/core/dist/astro/middleware.mjs","label":"vite","level":"warn"}
+{"message":"warning: \n/media/jeffer/5aab5a95-8290-d3f7-2e4f-8c27cc2d09a93/CASOSEX/self-essentials/emdash-main/packages/core/dist/astro/middleware.mjs\n1311 |  \t\tconst plugins = [];\n1312 |  \t\tfor (const entry of entries) try {\n1313 |  \t\t\tconst pluginModule = await import(`data:text/javascript;base64,${Buffer.from(entry.code).toString(\"base64\")}`);\n     |                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n1314 |  \t\t\tconst pluginDef = pluginModule.default ?? pluginModule;\n1315 |  \t\t\tconst adminPages = entry.adminPages?.map((p) => ({\nThe above dynamic import cannot be analyzed by Vite.\nSee https://vite.dev/guide/features#dynamic-import for supported dynamic import formats. If this is intended to be left as-is, you can use the /* @vite-ignore */ comment inside the import() call to suppress this warning.\n\n  Plugin: vite:import-analysis\n  File: /media/jeffer/5aab5a95-8290-d3f7-2e4f-8c27cc2d09a93/CASOSEX/self-essentials/emdash-main/packages/core/dist/astro/middleware.mjs","label":"vite","level":"warn"}
+{"message":"warning: \n/media/jeffer/5aab5a95-8290-d3f7-2e4f-8c27cc2d09a93/CASOSEX/self-essentials/emdash-main/packages/core/dist/astro/middleware.mjs\n1504 |  \t\t\t\t\t\tsandboxedRouteMetaCache.set(plugin.pluginId, routeMeta);\n1505 |  \t\t\t\t\t}\n1506 |  ...ule = await import(`data:text/javascript;base64,${Buffer.from(bundle.backendCode).toString(\"base64\")}`);\n     |                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n1507 |  \t\t\t\t\tconst adapted = adaptSandboxEntry(pluginModule.default ?? pluginModule, {\n1508 |  \t\t\t\t\t\tid: bundle.manifest.id,\nThe above dynamic import cannot be analyzed by Vite.\nSee https://vite.dev/guide/features#dynamic-import for supported dynamic import formats. If this is intended to be left as-is, you can use the /* @vite-ignore */ comment inside the import() call to suppress this warning.\n\n  Plugin: vite:import-analysis\n  File: /media/jeffer/5aab5a95-8290-d3f7-2e4f-8c27cc2d09a93/CASOSEX/self-essentials/emdash-main/packages/core/dist/astro/middleware.mjs","label":"vite","level":"warn"}
+{"message":"[200] POST /_emdash/api/typegen 3631ms","label":null,"level":"info"}
+{"message":"Configuration file updated. Restarting...","label":null,"level":"info"}
+{"message":"Enabling sessions with filesystem storage","label":"@astrojs/node","level":"info"}
+
+
+  [1m[36m— E M D A S H —[39m[22m  [2mv0.31.1[22m
+   
+{"message":"connected.","label":"vite","level":"info"}
+{"message":"connected.","label":"vite","level":"info"}
+
+  [2m›[22m Admin UI    [36mhttp://localhost:4321/_emdash/admin[39m
+  [2m›[22m MCP server  [36mhttp://localhost:4321/_emdash/api/mcp[39m
+  [2m›[22m Dev bypass  [36mhttp://localhost:4321/_emdash/api/setup/dev-bypass?redirect=/_emdash/admin[39m
+    [2mSkips passkey setup/auth and signs you in as a dev admin[22m
+
+{"message":"server restarted.","label":"vite","level":"info"}
+{"message":"warning: \n/media/jeffer/5aab5a95-8290-d3f7-2e4f-8c27cc2d09a93/CASOSEX/self-essentials/emdash-main/packages/core/dist/astro/middleware.mjs\n919 |  \t\t\t\tif (existing) this.removePluginFromLists(pluginId);\n920 |  \t\t\t\ttry {\n921 |  ...ule = await import(`data:text/javascript;base64,${Buffer.from(bundle.backendCode).toString(\"base64\")}`);\n    |                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n922 |  \t\t\t\t\tconst adapted = adaptSandboxEntry(pluginModule.default ?? pluginModule, {\n923 |  \t\t\t\t\t\tid: bundle.manifest.id,\nThe above dynamic import cannot be analyzed by Vite.\nSee https://vite.dev/guide/features#dynamic-import for supported dynamic import formats. If this is intended to be left as-is, you can use the /* @vite-ignore */ comment inside the import() call to suppress this warning.\n\n  Plugin: vite:import-analysis\n  File: /media/jeffer/5aab5a95-8290-d3f7-2e4f-8c27cc2d09a93/CASOSEX/self-essentials/emdash-main/packages/core/dist/astro/middleware.mjs","label":"vite","level":"warn"}
+{"message":"warning: \n/media/jeffer/5aab5a95-8290-d3f7-2e4f-8c27cc2d09a93/CASOSEX/self-essentials/emdash-main/packages/core/dist/astro/middleware.mjs\n1311 |  \t\tconst plugins = [];\n1312 |  \t\tfor (const entry of entries) try {\n1313 |  \t\t\tconst pluginModule = await import(`data:text/javascript;base64,${Buffer.from(entry.code).toString(\"base64\")}`);\n     |                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n1314 |  \t\t\tconst pluginDef = pluginModule.default ?? pluginModule;\n1315 |  \t\t\tconst adminPages = entry.adminPages?.map((p) => ({\nThe above dynamic import cannot be analyzed by Vite.\nSee https://vite.dev/guide/features#dynamic-import for supported dynamic import formats. If this is intended to be left as-is, you can use the /* @vite-ignore */ comment inside the import() call to suppress this warning.\n\n  Plugin: vite:import-analysis\n  File: /media/jeffer/5aab5a95-8290-d3f7-2e4f-8c27cc2d09a93/CASOSEX/self-essentials/emdash-main/packages/core/dist/astro/middleware.mjs","label":"vite","level":"warn"}
+{"message":"warning: \n/media/jeffer/5aab5a95-8290-d3f7-2e4f-8c27cc2d09a93/CASOSEX/self-essentials/emdash-main/packages/core/dist/astro/middleware.mjs\n1504 |  \t\t\t\t\t\tsandboxedRouteMetaCache.set(plugin.pluginId, routeMeta);\n1505 |  \t\t\t\t\t}\n1506 |  ...ule = await import(`data:text/javascript;base64,${Buffer.from(bundle.backendCode).toString(\"base64\")}`);\n     |                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n1507 |  \t\t\t\t\tconst adapted = adaptSandboxEntry(pluginModule.default ?? pluginModule, {\n1508 |  \t\t\t\t\t\tid: bundle.manifest.id,\nThe above dynamic import cannot be analyzed by Vite.\nSee https://vite.dev/guide/features#dynamic-import for supported dynamic import formats. If this is intended to be left as-is, you can use the /* @vite-ignore */ comment inside the import() call to suppress this warning.\n\n  Plugin: vite:import-analysis\n  File: /media/jeffer/5aab5a95-8290-d3f7-2e4f-8c27cc2d09a93/CASOSEX/self-essentials/emdash-main/packages/core/dist/astro/middleware.mjs","label":"vite","level":"warn"}
+{"message":"[200] POST /_emdash/api/typegen 8712ms","label":null,"level":"info"}
+{"message":"Configuration file updated. Restarting...","label":null,"level":"info"}
+{"message":"Enabling sessions with filesystem storage","label":"@astrojs/node","level":"info"}
+
+
+  [1m[36m— E M D A S H —[39m[22m  [2mv0.31.1[22m
+   
+{"message":"connected.","label":"vite","level":"info"}
+{"message":"connected.","label":"vite","level":"info"}
+
+  [2m›[22m Admin UI    [36mhttp://localhost:4321/_emdash/admin[39m
+  [2m›[22m MCP server  [36mhttp://localhost:4321/_emdash/api/mcp[39m
+  [2m›[22m Dev bypass  [36mhttp://localhost:4321/_emdash/api/setup/dev-bypass?redirect=/_emdash/admin[39m
+    [2mSkips passkey setup/auth and signs you in as a dev admin[22m
+
+{"message":"server restarted.","label":"vite","level":"info"}
+{"message":"warning: \n/media/jeffer/5aab5a95-8290-d3f7-2e4f-8c27cc2d09a93/CASOSEX/self-essentials/emdash-main/packages/core/dist/astro/middleware.mjs\n919 |  \t\t\t\tif (existing) this.removePluginFromLists(pluginId);\n920 |  \t\t\t\ttry {\n921 |  ...ule = await import(`data:text/javascript;base64,${Buffer.from(bundle.backendCode).toString(\"base64\")}`);\n    |                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n922 |  \t\t\t\t\tconst adapted = adaptSandboxEntry(pluginModule.default ?? pluginModule, {\n923 |  \t\t\t\t\t\tid: bundle.manifest.id,\nThe above dynamic import cannot be analyzed by Vite.\nSee https://vite.dev/guide/features#dynamic-import for supported dynamic import formats. If this is intended to be left as-is, you can use the /* @vite-ignore */ comment inside the import() call to suppress this warning.\n\n  Plugin: vite:import-analysis\n  File: /media/jeffer/5aab5a95-8290-d3f7-2e4f-8c27cc2d09a93/CASOSEX/self-essentials/emdash-main/packages/core/dist/astro/middleware.mjs","label":"vite","level":"warn"}
+{"message":"warning: \n/media/jeffer/5aab5a95-8290-d3f7-2e4f-8c27cc2d09a93/CASOSEX/self-essentials/emdash-main/packages/core/dist/astro/middleware.mjs\n1311 |  \t\tconst plugins = [];\n1312 |  \t\tfor (const entry of entries) try {\n1313 |  \t\t\tconst pluginModule = await import(`data:text/javascript;base64,${Buffer.from(entry.code).toString(\"base64\")}`);\n     |                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n1314 |  \t\t\tconst pluginDef = pluginModule.default ?? pluginModule;\n1315 |  \t\t\tconst adminPages = entry.adminPages?.map((p) => ({\nThe above dynamic import cannot be analyzed by Vite.\nSee https://vite.dev/guide/features#dynamic-import for supported dynamic import formats. If this is intended to be left as-is, you can use the /* @vite-ignore */ comment inside the import() call to suppress this warning.\n\n  Plugin: vite:import-analysis\n  File: /media/jeffer/5aab5a95-8290-d3f7-2e4f-8c27cc2d09a93/CASOSEX/self-essentials/emdash-main/packages/core/dist/astro/middleware.mjs","label":"vite","level":"warn"}
+{"message":"warning: \n/media/jeffer/5aab5a95-8290-d3f7-2e4f-8c27cc2d09a93/CASOSEX/self-essentials/emdash-main/packages/core/dist/astro/middleware.mjs\n1504 |  \t\t\t\t\t\tsandboxedRouteMetaCache.set(plugin.pluginId, routeMeta);\n1505 |  \t\t\t\t\t}\n1506 |  ...ule = await import(`data:text/javascript;base64,${Buffer.from(bundle.backendCode).toString(\"base64\")}`);\n     |                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n1507 |  \t\t\t\t\tconst adapted = adaptSandboxEntry(pluginModule.default ?? pluginModule, {\n1508 |  \t\t\t\t\t\tid: bundle.manifest.id,\nThe above dynamic import cannot be analyzed by Vite.\nSee https://vite.dev/guide/features#dynamic-import for supported dynamic import formats. If this is intended to be left as-is, you can use the /* @vite-ignore */ comment inside the import() call to suppress this warning.\n\n  Plugin: vite:import-analysis\n  File: /media/jeffer/5aab5a95-8290-d3f7-2e4f-8c27cc2d09a93/CASOSEX/self-essentials/emdash-main/packages/core/dist/astro/middleware.mjs","label":"vite","level":"warn"}
+{"message":"[200] POST /_emdash/api/typegen 5317ms","label":null,"level":"info"}
+{"message":"[200] /_emdash/admin/login 1313ms","label":null,"level":"info"}
+{"message":"[vite:css][postcss] @import must precede all other statements (besides @charset or empty @layer)\n12 |  @source \"../node_modules/@cloudflare/kumo/dist/**/*.{js,jsx,ts,tsx}\";\n13 |  \n14 |  @import \"@cloudflare/kumo/styles\";\n   |  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n15 |  @import \"tailwindcss\";\n16 |  @plugin \"@tailwindcss/typography\";","label":"vite","level":"warn"}
+{"message":"[vite:css][postcss] @import must precede all other statements (besides @charset or empty @layer)\n13 |  \n14 |  @import \"@cloudflare/kumo/styles\";\n15 |  @import \"tailwindcss\";\n   |  ^^^^^^^^^^^^^^^^^^^^^^\n16 |  @plugin \"@tailwindcss/typography\";\n17 |  ","label":"vite","level":"warn"}
+{"message":"[200] /_emdash/api/auth/mode 14ms","label":null,"level":"info"}
+{"message":"[200] /_emdash/admin/login 33ms","label":null,"level":"info"}
+{"message":"[200] /_emdash/api/auth/mode 15ms","label":null,"level":"info"}
+{"message":"[200] /_emdash/admin/login 18ms","label":null,"level":"info"}
+{"message":"[200] /_emdash/api/auth/mode 6ms","label":null,"level":"info"}
+{"message":"[404] /_emdash/ 87ms","label":null,"level":"info"}
+{"message":"EmDashBodyEnd is not defined\n  Stack trace:\n    at eval (/media/jeffer/5aab5a95-8290-d3f7-2e4f-8c27cc2d09a93/CASOSEX/src/layouts/Base.astro:905:3)\n    [...] See full stack trace in the browser, or rerun with --verbose.","label":null,"level":"error"}
+{"message":"EmDashBodyEnd is not defined\n  Stack trace:\n    at eval (/media/jeffer/5aab5a95-8290-d3f7-2e4f-8c27cc2d09a93/CASOSEX/src/layouts/Base.astro:905:3)\n    [...] See full stack trace in the browser, or rerun with --verbose.","label":null,"level":"error"}
+{"message":"[404] /_emdash/ 6ms","label":null,"level":"info"}
+{"message":"EmDashBodyEnd is not defined\n  Stack trace:\n    at eval (/media/jeffer/5aab5a95-8290-d3f7-2e4f-8c27cc2d09a93/CASOSEX/src/layouts/Base.astro:905:3)\n    [...] See full stack trace in the browser, or rerun with --verbose.","label":null,"level":"error"}
+{"message":"[404] /_emdash/setup 248ms","label":null,"level":"info"}
+{"message":"EmDashBodyEnd is not defined\n  Stack trace:\n    at eval (/media/jeffer/5aab5a95-8290-d3f7-2e4f-8c27cc2d09a93/CASOSEX/src/layouts/Base.astro:905:3)\n    [...] See full stack trace in the browser, or rerun with --verbose.","label":null,"level":"error"}
+{"message":"EmDashBodyEnd is not defined\n  Stack trace:\n    at eval (/media/jeffer/5aab5a95-8290-d3f7-2e4f-8c27cc2d09a93/CASOSEX/src/layouts/Base.astro:905:3)\n    [...] See full stack trace in the browser, or rerun with --verbose.","label":null,"level":"error"}
+{"message":"[404] /_emdash/setup 9ms","label":null,"level":"info"}
+{"message":"EmDashBodyEnd is not defined\n  Stack trace:\n    at eval (/media/jeffer/5aab5a95-8290-d3f7-2e4f-8c27cc2d09a93/CASOSEX/src/layouts/Base.astro:905:3)\n    [...] See full stack trace in the browser, or rerun with --verbose.","label":null,"level":"error"}
+{"message":"[404] /_emdash/setup 16ms","label":null,"level":"info"}
+{"message":"EmDashBodyEnd is not defined\n  Stack trace:\n    at eval (/media/jeffer/5aab5a95-8290-d3f7-2e4f-8c27cc2d09a93/CASOSEX/src/layouts/Base.astro:905:3)\n    [...] See full stack trace in the browser, or rerun with --verbose.","label":null,"level":"error"}
+{"message":"EmDashBodyEnd is not defined\n  Stack trace:\n    at eval (/media/jeffer/5aab5a95-8290-d3f7-2e4f-8c27cc2d09a93/CASOSEX/src/layouts/Base.astro:905:3)\n    [...] See full stack trace in the browser, or rerun with --verbose.","label":null,"level":"error"}
+{"message":"[404] /_emdash/setup 8ms","label":null,"level":"info"}
+{"message":"EmDashBodyEnd is not defined\n  Stack trace:\n    at eval (/media/jeffer/5aab5a95-8290-d3f7-2e4f-8c27cc2d09a93/CASOSEX/src/layouts/Base.astro:905:3)\n    [...] See full stack trace in the browser, or rerun with --verbose.","label":null,"level":"error"}
+{"message":"[302] /_emdash/admin 15ms","label":null,"level":"info"}
+{"message":"[200] /_emdash/admin/login 41ms","label":null,"level":"info"}
+{"message":"[200] /_emdash/api/auth/mode 25ms","label":null,"level":"info"}
+{"message":"[200] /_emdash/admin/setup 39ms","label":null,"level":"info"}
+{"message":"[401] /_emdash/api/manifest 25ms","label":null,"level":"info"}
+{"message":"[200] /_emdash/api/setup/status 20ms","label":null,"level":"info"}
+{"message":"[302] /_emdash/admin 13ms","label":null,"level":"info"}
+{"message":"[200] /_emdash/admin/login 35ms","label":null,"level":"info"}
+{"message":"[200] /_emdash/api/auth/mode 17ms","label":null,"level":"info"}
+{"message":"Configuration file updated. Restarting...","label":null,"level":"info"}
+{"message":"Enabling sessions with filesystem storage","label":"@astrojs/node","level":"info"}
+
+
+  [1m[36m— E M D A S H —[39m[22m  [2mv0.31.1[22m
+   
+{"message":"connected.","label":"vite","level":"info"}
+{"message":"connected.","label":"vite","level":"info"}
+
+  [2m›[22m Admin UI    [36mhttp://localhost:4321/_emdash/admin[39m
+  [2m›[22m MCP server  [36mhttp://localhost:4321/_emdash/api/mcp[39m
+  [2m›[22m Dev bypass  [36mhttp://localhost:4321/_emdash/api/setup/dev-bypass?redirect=/_emdash/admin[39m
+    [2mSkips passkey setup/auth and signs you in as a dev admin[22m
+
+{"message":"server restarted.","label":"vite","level":"info"}
+{"message":"warning: \n/media/jeffer/5aab5a95-8290-d3f7-2e4f-8c27cc2d09a93/CASOSEX/self-essentials/emdash-main/packages/core/dist/astro/middleware.mjs\n919 |  \t\t\t\tif (existing) this.removePluginFromLists(pluginId);\n920 |  \t\t\t\ttry {\n921 |  ...ule = await import(`data:text/javascript;base64,${Buffer.from(bundle.backendCode).toString(\"base64\")}`);\n    |                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n922 |  \t\t\t\t\tconst adapted = adaptSandboxEntry(pluginModule.default ?? pluginModule, {\n923 |  \t\t\t\t\t\tid: bundle.manifest.id,\nThe above dynamic import cannot be analyzed by Vite.\nSee https://vite.dev/guide/features#dynamic-import for supported dynamic import formats. If this is intended to be left as-is, you can use the /* @vite-ignore */ comment inside the import() call to suppress this warning.\n\n  Plugin: vite:import-analysis\n  File: /media/jeffer/5aab5a95-8290-d3f7-2e4f-8c27cc2d09a93/CASOSEX/self-essentials/emdash-main/packages/core/dist/astro/middleware.mjs","label":"vite","level":"warn"}
+{"message":"warning: \n/media/jeffer/5aab5a95-8290-d3f7-2e4f-8c27cc2d09a93/CASOSEX/self-essentials/emdash-main/packages/core/dist/astro/middleware.mjs\n1311 |  \t\tconst plugins = [];\n1312 |  \t\tfor (const entry of entries) try {\n1313 |  \t\t\tconst pluginModule = await import(`data:text/javascript;base64,${Buffer.from(entry.code).toString(\"base64\")}`);\n     |                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n1314 |  \t\t\tconst pluginDef = pluginModule.default ?? pluginModule;\n1315 |  \t\t\tconst adminPages = entry.adminPages?.map((p) => ({\nThe above dynamic import cannot be analyzed by Vite.\nSee https://vite.dev/guide/features#dynamic-import for supported dynamic import formats. If this is intended to be left as-is, you can use the /* @vite-ignore */ comment inside the import() call to suppress this warning.\n\n  Plugin: vite:import-analysis\n  File: /media/jeffer/5aab5a95-8290-d3f7-2e4f-8c27cc2d09a93/CASOSEX/self-essentials/emdash-main/packages/core/dist/astro/middleware.mjs","label":"vite","level":"warn"}
+{"message":"warning: \n/media/jeffer/5aab5a95-8290-d3f7-2e4f-8c27cc2d09a93/CASOSEX/self-essentials/emdash-main/packages/core/dist/astro/middleware.mjs\n1504 |  \t\t\t\t\t\tsandboxedRouteMetaCache.set(plugin.pluginId, routeMeta);\n1505 |  \t\t\t\t\t}\n1506 |  ...ule = await import(`data:text/javascript;base64,${Buffer.from(bundle.backendCode).toString(\"base64\")}`);\n     |                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n1507 |  \t\t\t\t\tconst adapted = adaptSandboxEntry(pluginModule.default ?? pluginModule, {\n1508 |  \t\t\t\t\t\tid: bundle.manifest.id,\nThe above dynamic import cannot be analyzed by Vite.\nSee https://vite.dev/guide/features#dynamic-import for supported dynamic import formats. If this is intended to be left as-is, you can use the /* @vite-ignore */ comment inside the import() call to suppress this warning.\n\n  Plugin: vite:import-analysis\n  File: /media/jeffer/5aab5a95-8290-d3f7-2e4f-8c27cc2d09a93/CASOSEX/self-essentials/emdash-main/packages/core/dist/astro/middleware.mjs","label":"vite","level":"warn"}
+{"message":"[200] POST /_emdash/api/typegen 5479ms","label":null,"level":"info"}
+{"message":"[200] /_emdash/admin/login 3789ms","label":null,"level":"info"}
+{"message":"[vite:css][postcss] @import must precede all other statements (besides @charset or empty @layer)\n12 |  @source \"../node_modules/@cloudflare/kumo/dist/**/*.{js,jsx,ts,tsx}\";\n13 |  \n14 |  @import \"@cloudflare/kumo/styles\";\n   |  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n15 |  @import \"tailwindcss\";\n16 |  @plugin \"@tailwindcss/typography\";","label":"vite","level":"warn"}
+{"message":"[vite:css][postcss] @import must precede all other statements (besides @charset or empty @layer)\n13 |  \n14 |  @import \"@cloudflare/kumo/styles\";\n15 |  @import \"tailwindcss\";\n   |  ^^^^^^^^^^^^^^^^^^^^^^\n16 |  @plugin \"@tailwindcss/typography\";\n17 |  ","label":"vite","level":"warn"}
+{"message":"[200] /_emdash/api/auth/mode 31ms","label":null,"level":"info"}
+{"message":"[200] /_emdash/admin/setup 214ms","label":null,"level":"info"}
+{"message":"[401] /_emdash/api/manifest 14ms","label":null,"level":"info"}
+{"message":"[200] /_emdash/api/setup/status 12ms","label":null,"level":"info"}
+{"message":"[302] /_emdash/admin 5ms","label":null,"level":"info"}
+{"message":"[200] /_emdash/admin/login 17ms","label":null,"level":"info"}
+{"message":"[200] /_emdash/api/auth/mode 9ms","label":null,"level":"info"}
