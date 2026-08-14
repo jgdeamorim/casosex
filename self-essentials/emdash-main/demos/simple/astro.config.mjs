@@ -16,6 +16,9 @@ export default defineConfig({
 		mode: "standalone",
 	}),
 	vite: {
+		ssr: {
+			noExternal: ["@dashcommerce/core"],
+		},
 		resolve: {
 			alias: {
 				"@dashcommerce/core/sandbox": path.resolve("../../../dashcommerce-main/packages/core/dist/sandbox-entry.js"),
