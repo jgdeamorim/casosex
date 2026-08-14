@@ -266,7 +266,7 @@ function RevenueCard({
 											flexWrap: "wrap",
 										}}
 									>
-										{Object.entries(s.currencies).map(([cc, amt]) => (
+										{Object.entries(s.currencies ?? {}).map(([cc, amt]) => (
 											<MoneyMinor key={cc} amount={amt as number} currency={cc} />
 										))}
 									</div>
@@ -291,7 +291,7 @@ function MrrCard() {
 		"admin/reports/mrr",
 		[],
 	);
-	const entries = data ? Object.entries(data.mrr) : [];
+	const entries = data?.mrr ? Object.entries(data.mrr) : [];
 	return (
 		<Card title="MRR (active subscriptions)">
 			{loading ? (
