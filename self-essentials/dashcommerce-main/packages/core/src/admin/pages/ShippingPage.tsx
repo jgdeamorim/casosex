@@ -93,8 +93,12 @@ export function ShippingPage() {
 	if (error) return <Alert type="error" title="Shipping unavailable">{error}</Alert>;
 	if (!data) return <Loading />;
 
+	const zones = Array.isArray(data?.zones) ? data.zones : [];
+	const methods = Array.isArray(data?.methods) ? data.methods : [];
+	const classes = Array.isArray(data?.classes) ? data.classes : [];
+
 	const methodsByZone = new Map<string, ShippingMethod[]>();
-	for (const m of data.methods) {
+	for (const m of methods) {
 		const arr = methodsByZone.get(m.zoneId) ?? [];
 		arr.push(m);
 		methodsByZone.set(m.zoneId, arr);
@@ -187,7 +191,7 @@ export function ShippingPage() {
 						Add zone
 					</Button>
 				</div>
-				{data.zones.length === 0 ? (
+				{zones.length === 0 ? (
 					<EmptyState
 						title="No shipping zones"
 						description="Create at least one zone so customers see shipping options at checkout."
@@ -199,7 +203,7 @@ export function ShippingPage() {
 					/>
 				) : (
 					<div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
-						{data.zones.map((zone) => (
+						{zones.map((zone) => (
 							<ZoneCard
 								key={zone.id}
 								zone={zone}
@@ -237,14 +241,14 @@ export function ShippingPage() {
 						Add class
 					</Button>
 				</div>
-				{data.classes.length === 0 ? (
+				{classes.length === 0 ? (
 					<EmptyState
 						title="No shipping classes"
 						description="Classes are optional — skip if all products ship the same way."
 					/>
 				) : (
 					<Table<ShippingClass>
-						data={data.classes}
+						data={classes}
 						getRowKey={(c) => c.id}
 						columns={[
 							{ key: "slug", header: "Slug", render: (c) => <code>{c.slug}</code> },
