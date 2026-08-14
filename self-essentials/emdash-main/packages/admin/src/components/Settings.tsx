@@ -80,56 +80,19 @@ export function Settings() {
 					</SettingsSection>
 				)}
 
-				<SettingsSection title={t`API Tokens`}>
+				<SettingsSection title={t`API & AI Integrations`}>
 					<SettingsNavRow
 						to="/settings/api-tokens"
 						icon={<Key className="h-5 w-5" />}
 						title={t`API Tokens`}
 						description={t`Create personal access tokens for programmatic API access`}
 					/>
-				</SettingsSection>
-
-				<SettingsSection title={t`MCP Server`}>
-					<div className="p-4 space-y-4">
-						<div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
-							<div className="flex items-center gap-3">
-								<span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-kumo-brand/10 text-kumo-brand" aria-hidden="true">
-									<Cpu className="h-5 w-5" />
-								</span>
-								<div>
-									<h3 className="text-base font-semibold leading-5 text-kumo-default">{t`Model Context Protocol (MCP)`}</h3>
-									<p className="mt-0.5 text-sm text-kumo-subtle">{t`Streamable HTTP endpoint for AI Agents and IDE integrations`}</p>
-								</div>
-							</div>
-							<div className="flex items-center gap-2 self-start sm:self-auto">
-								<span className="inline-flex items-center gap-1.5 rounded-full bg-emerald-500/10 px-3 py-1 text-xs font-medium text-emerald-600 dark:text-emerald-400 border border-emerald-500/20">
-									<span className="h-2 w-2 rounded-full bg-emerald-500 animate-pulse"></span>
-									{t`Active (52 Tools)`}
-								</span>
-							</div>
-						</div>
-
-						<div className="grid gap-2.5 rounded-lg border border-kumo-line bg-kumo-tint p-4 text-xs font-mono">
-							<div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1 pb-2 border-b border-kumo-line/60">
-								<span className="font-sans font-medium text-kumo-subtle">{t`Endpoint URL:`}</span>
-								<code className="bg-kumo-base px-2.5 py-1 rounded border border-kumo-line text-kumo-default font-semibold text-xs select-all">
-									/_emdash/api/mcp
-								</code>
-							</div>
-							<div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1">
-								<span className="font-sans font-medium text-kumo-subtle">{t`Transport Protocol:`}</span>
-								<span className="text-kumo-default font-mono">Streamable HTTP (JSON-RPC 2.0)</span>
-							</div>
-							<div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1">
-								<span className="font-sans font-medium text-kumo-subtle">{t`Authentication:`}</span>
-								<span className="text-kumo-default font-mono">Bearer Token (ec_pat_... / ec_oat_...)</span>
-							</div>
-							<div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1">
-								<span className="font-sans font-medium text-kumo-subtle">{t`Required Accept Header:`}</span>
-								<code className="text-kumo-default font-mono bg-kumo-base/60 px-1.5 py-0.5 rounded">application/json, text/event-stream</code>
-							</div>
-						</div>
-					</div>
+					<SettingsNavRow
+						to="/settings/mcp"
+						icon={<Cpu className="h-5 w-5" />}
+						title={t`MCP Server`}
+						description={t`Model Context Protocol endpoint details, capabilities, and tool registry`}
+					/>
 				</SettingsSection>
 
 				<SettingsSection title={t`Email Settings`}>
