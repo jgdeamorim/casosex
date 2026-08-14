@@ -1,6 +1,12 @@
 import React, { useState } from "react";
 
+/**
+ * 1:1 WordPress Famous 5-Minute Installer UI (wp-admin/install.php)
+ * Styled for EmDash Sovereign Auth Setup Step
+ */
 export function SetupStep({ onComplete }: { onComplete: () => void }) {
+	const [username, setUsername] = useState("admin");
+	const [email, setEmail] = useState("admin@adsentice.com");
 	const [password, setPassword] = useState("");
 	const [confirmPassword, setConfirmPassword] = useState("");
 	const [loading, setLoading] = useState(false);
@@ -9,7 +15,7 @@ export function SetupStep({ onComplete }: { onComplete: () => void }) {
 	const handleSubmit = async (e: React.FormEvent) => {
 		e.preventDefault();
 		if (password !== confirmPassword) {
-			setError("As senhas não coincidem.");
+			setError("As senhas não coincidem. Por favor, redigite a senha.");
 			return;
 		}
 		if (password.length < 6) {
@@ -24,12 +30,12 @@ export function SetupStep({ onComplete }: { onComplete: () => void }) {
 			const res = await fetch("/_emdash/api/auth/password/login", {
 				method: "POST",
 				headers: { "Content-Type": "application/json" },
-				body: JSON.stringify({ email: "admin@adsentice.com", password }),
+				body: JSON.stringify({ email, password }),
 			});
 
 			const data = await res.json();
 			if (!res.ok || !data.ok) {
-				throw new Error(data.error || "Falha ao definir a senha inicial.");
+				throw new Error(data.error || "Falha ao registrar credenciais de administração.");
 			}
 
 			onComplete();
@@ -41,59 +47,114 @@ export function SetupStep({ onComplete }: { onComplete: () => void }) {
 	};
 
 	return (
-		<div className="w-full max-w-[320px] mx-auto space-y-4">
-			<div className="text-center mb-4">
-				<h1 className="text-2xl font-normal text-[#1d2327] tracking-tight">EmDash</h1>
-				<p className="text-xs text-[#50575e] mt-1">Crie a sua senha de administrador</p>
+		<div className="w-full max-w-[560px] mx-auto py-6">
+			{/* WordPress Setup Header (Text only, no logo icon as requested) */}
+			<div className="text-center mb-6">
+				<h1 className="text-3xl font-normal text-[#1d2327] tracking-tight">EmDash</h1>
+				<p className="text-xs text-[#50575e] mt-1 font-medium">Assistente de Instalação Soberana (Estilo WordPress)</p>
 			</div>
 
-			{error && (
-				<div className="p-3 text-xs text-[#d63638] bg-[#fcf0f1] border-l-4 border-[#d63638] rounded-sm">
-					{error}
-				</div>
-			)}
-
-			<form onSubmit={handleSubmit} className="bg-white border border-[#c3c4c7] rounded-sm p-6 shadow-sm space-y-4">
+			{/* WordPress Installer Card Box */}
+			<div className="bg-white border border-[#c3c4c7] rounded-sm p-6 sm:p-8 shadow-sm space-y-6">
 				<div>
-					<label className="block text-xs font-normal text-[#1d2327] mb-1">
-						Nova Senha
-					</label>
-					<input
-						type="password"
-						required
-						value={password}
-						onChange={(e) => setPassword(e.target.value)}
-						placeholder="••••••••••••"
-						className="w-full h-10 px-3 text-sm bg-[#fcfcfc] border border-[#8c8f94] rounded-sm text-[#2c3338] focus:outline-none focus:border-[#2271b1] focus:ring-1 focus:ring-[#2271b1]"
-					/>
+					<h2 className="text-lg font-normal text-[#1d2327] border-b border-[#dcdcde] pb-3 mb-3">
+						Informações necessárias de administração
+					</h2>
+					<p className="text-xs text-[#50575e] leading-relaxed">
+						Por favor, defina os dados de acesso para a conta principal de administração do site. 
+						Guarde estas credenciais em local seguro.
+					</p>
 				</div>
 
-				<div>
-					<label className="block text-xs font-normal text-[#1d2327] mb-1">
-						Confirmar Senha
-					</label>
-					<input
-						type="password"
-						required
-						value={confirmPassword}
-						onChange={(e) => setConfirmPassword(e.target.value)}
-						placeholder="••••••••••••"
-						className="w-full h-10 px-3 text-sm bg-[#fcfcfc] border border-[#8c8f94] rounded-sm text-[#2c3338] focus:outline-none focus:border-[#2271b1] focus:ring-1 focus:ring-[#2271b1]"
-					/>
-				</div>
+				{error && (
+					<div className="p-3 text-xs text-[#1d2327] bg-[#fcf0f1] border-l-4 border-[#d63638] rounded-sm">
+						<strong>ERRO:</strong> {error}
+					</div>
+				)}
 
-				<button
-					type="submit"
-					disabled={loading}
-					className="w-full h-10 text-sm font-medium text-white bg-[#2271b1] hover:bg-[#135e96] active:bg-[#0a4b78] disabled:opacity-50 rounded-sm transition-colors cursor-pointer"
-				>
-					{loading ? "Finalizando..." : "Concluir Setup & Acessar"}
-				</button>
-			</form>
+				<form onSubmit={handleSubmit} className="space-y-5">
+					<div className="space-y-1.5">
+						<label className="block text-xs font-semibold text-[#1d2327]">
+							Nome de usuário
+						</label>
+						<input
+							type="text"
+							required
+							value={username}
+							onChange={(e) => setUsername(e.target.value)}
+							className="w-full h-10 px-3 text-sm bg-[#fcfcfc] border border-[#8c8f94] rounded-sm text-[#2c3338] focus:outline-none focus:border-[#2271b1] focus:ring-1 focus:ring-[#2271b1]"
+						/>
+						<p className="text-[11px] text-[#646970]">
+							Os nomes de usuário não podem ser alterados posteriormente.
+						</p>
+					</div>
+
+					<div className="space-y-1.5">
+						<label className="block text-xs font-semibold text-[#1d2327]">
+							Endereço de e-mail
+						</label>
+						<input
+							type="email"
+							required
+							value={email}
+							onChange={(e) => setEmail(e.target.value)}
+							className="w-full h-10 px-3 text-sm bg-[#fcfcfc] border border-[#8c8f94] rounded-sm text-[#2c3338] focus:outline-none focus:border-[#2271b1] focus:ring-1 focus:ring-[#2271b1]"
+						/>
+						<p className="text-[11px] text-[#646970]">
+							Verifique novamente o seu endereço de e-mail antes de continuar.
+						</p>
+					</div>
+
+					<div className="space-y-1.5">
+						<label className="block text-xs font-semibold text-[#1d2327]">
+							Senha do Administrador
+						</label>
+						<input
+							type="password"
+							required
+							value={password}
+							onChange={(e) => setPassword(e.target.value)}
+							placeholder="••••••••••••"
+							className="w-full h-10 px-3 text-sm bg-[#fcfcfc] border border-[#8c8f94] rounded-sm text-[#2c3338] focus:outline-none focus:border-[#2271b1] focus:ring-1 focus:ring-[#2271b1]"
+						/>
+					</div>
+
+					<div className="space-y-1.5">
+						<label className="block text-xs font-semibold text-[#1d2327]">
+							Confirmar Senha
+						</label>
+						<input
+							type="password"
+							required
+							value={confirmPassword}
+							onChange={(e) => setConfirmPassword(e.target.value)}
+							placeholder="••••••••••••"
+							className="w-full h-10 px-3 text-sm bg-[#fcfcfc] border border-[#8c8f94] rounded-sm text-[#2c3338] focus:outline-none focus:border-[#2271b1] focus:ring-1 focus:ring-[#2271b1]"
+						/>
+						<p className="text-[11px] text-[#646970]">
+							Importante: Você precisará desta senha para acessar o painel administrativo.
+						</p>
+					</div>
+
+					<div className="pt-4 border-t border-[#dcdcde] flex items-center justify-between">
+						<span className="text-xs text-[#50575e]">Passo 3 de 3 — Conclusão</span>
+						<button
+							type="submit"
+							disabled={loading}
+							className="h-10 px-5 text-sm font-medium text-white bg-[#2271b1] hover:bg-[#135e96] active:bg-[#0a4b78] disabled:opacity-50 rounded-sm transition-colors cursor-pointer shadow-sm flex items-center gap-2"
+						>
+							{loading ? "Instalando..." : "Instalar o EmDash →"}
+						</button>
+					</div>
+				</form>
+			</div>
 		</div>
 	);
 }
 
+/**
+ * 1:1 WordPress Classic Login UI Component (wp-login.php)
+ */
 export function LoginForm() {
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
