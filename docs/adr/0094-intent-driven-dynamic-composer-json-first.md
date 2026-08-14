@@ -188,7 +188,7 @@ O `S10-GREEN` monta a página utilizando 4 componentes estruturais de alta conve
 
 ### 5.1 Componente I: `S10HeroPinStage` (Pin Motion Viewport)
 - **Técnica**: `scroll_pin_sequence`.
-- **Comportamento**: Palco principal fixo onde o cabeçalho permanece imóvel enquanto os cartões de diagnóstico deslizam com efeito de profundidade e *blur* vítreo (*Glassmorphism*).
+- **Comportamento**: Palco principal fixo onde o cabeçalho permanece imóvel enquanto os cartões de diagnóstico deslizam com efeito de profundidade e *blur* vítreo (*Glassmorphic*).
 
 ### 5.2 Componente II: `S10ScoreRadar` (Dashboard de Saúde Digital)
 - **Técnica**: `metric_cards_row`.
@@ -233,20 +233,53 @@ O `S10-GREEN` monta a página utilizando 4 componentes estruturais de alta conve
 
 ---
 
-## §7 · Consequências, Garantias & Métricas de Sucesso
+## §7 · Realimentação Afetiva OODA-BOA (`BOA Computational Affect Loop`)
+
+O composer integra o estado vivo do ciclo de afeto computacional **BOA (`adsentice:boa:score`)**:
+1. O `S10-BLUE` lê o score BOA do tenant no Redis (porta `:6396`).
+2. Se o estado BOA indicar alta criticidade operática (ex: `valência < 0.40`), o BLUE injeta automaticamente `emotionValence: "high_tension"` e ajusta o tom para `urgent`.
+3. O `S10-GREEN` (Renderizador Cego) consome essa diretriz sem saber o motivo de fundo, aplicando variações visuais de alto contraste e destaque de alerta no `RenderContext`.
+
+---
+
+## §8 · Fallback Glass-Box & Tolerância a Falhas Zero-500
+
+Para garantir disponibilidade soberana sem exceções não tratadas:
+1. **Fallback por Timeout LLM**: Se a chamada ao DeepSeek exceder 2500ms, o `S10-BLUE` encerra a requisição externa e aciona o gerador local de regras determinísticas em TypeScript ($0).
+2. **Garantia de Não-Interrupção (Zero 500)**: O `warp-composer.ts` envolve a execução BLUE em um bloco de proteção. Se o JSON do `RenderContext` falhar na validação, o sistema injeta um `RenderContext` mínimo estático pré-compilado.
+3. **Invariante de Renderização**: A camada GREEN **nunca gera erro 500**; ela renderiza o payload fornecido ou o fallback determinístico em `< 2ms`.
+
+---
+
+## §9 · Isolamento de Corpora & Proteção de PII (Corpus A vs B vs C)
+
+Em conformidade com a arquitetura de corpora do Adsentice:
+- **Corpus A (Self / Adsentice Core)**: Código-fonte, ADRs, componentes e tokens de design.
+- **Corpus B (Tenant / Cliente)**: Dados sensíveis e identificáveis do negócio local (PII, faturamento, contatos).
+- **Corpus C (Tooling)**: MCPs, parsers e scrapers.
+
+**Regra de Sanitização no `RenderContext`**:
+1. O `RenderContext` gerado para a renderização pública (Corpus B) é sanitizado antes de qualquer persistência no cache BLAKE3.
+2. Nenhuma credencial, token OAuth2 ou PII privada é gravada nas chaves públicas do Redis.
+3. O hash BLAKE3 do cache utiliza apenas metadados anônimos de intenção e o `tenantId` encriptado.
+
+---
+
+## §10 · Consequências, Garantias & Métricas de Sucesso
 
 | Métrica / Critério | Padrão Anterior (Acoplado/Visual) | Padrão Soberano ADR-0094 (Intent-Driven) |
 | :--- | :--- | :--- |
 | **Tempo de Renderização (GREEN)** | ~180ms - 800ms | **< 2ms** (Sub-milissegundo) |
 | **Garantia de Zero Hardcode** | ❌ Não (slots fixos em código) | **✅ Sim** (100% via `RenderContext`) |
 | **Animações (Motion Overhead)** | ❌ 35+ KB (Framer Motion React) | **✅ 0 KB npm** (`dct-motion` data-attributes) |
+| **Tolerância a Falhas (Zero 500)** | ❌ Média (Risco de quebra de bundle/API) | **✅ 100%** (Fallback Glass-Box síncrono) |
+| **Proteção de PII & Corpora** | ❌ Fraca (Dados misturados em DB) | **✅ Estrita** (Sanitização A/B/C no payload) |
 | **Compatibilidade com Agentes de IA** | ❌ Não (Exigia cliques no admin) | **✅ Sim** (Emissão nativa de JSON) |
-| **Acoplamento de Dependências** | ❌ Alto (Conflitos ESM/Vite/Admin) | **✅ Nulo** (Renderizador Cego isolado) |
 | **Consistência de Brand DNA** | ❌ Média (Risco de estilos ad-hoc) | **✅ Total** (Regido por `deriveStylesheet`) |
 
 ---
 
-## §8 · Ratificação de Governança (`SOP v3.0`)
+## §11 · Ratificação de Governança (`SOP v3.0`)
 
 1. **Testabilidade**: Todo `TechniqueRenderer` em `composer-core.ts` deve possuir teste unitário validando renderização cega com `RenderContext` mockado.
 2. **Commit Automático (Doutrina #3)**: Alterações nesta arquitetura exigem `git add` + `git commit` imediato por feature.
