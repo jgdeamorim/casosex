@@ -15,11 +15,10 @@ export default defineConfig({
 	}),
 	vite: {
 		ssr: {
-			noExternal: ["@dashcommerce/core", /@dashcommerce/],
+			noExternal: ["@dashcommerce/core"],
 		},
 		resolve: {
 			alias: {
-				"@dashcommerce/core/astro": path.resolve("./self-essentials/dashcommerce-main/packages/core/src/astro/index.ts"),
 				"@dashcommerce/core/sandbox": path.resolve("./self-essentials/dashcommerce-main/packages/core/dist/sandbox-entry.js"),
 				"@dashcommerce/core/admin": path.resolve("./self-essentials/dashcommerce-main/packages/core/dist/admin/entry.js"),
 				"@dashcommerce/core": path.resolve("./self-essentials/dashcommerce-main/packages/core/dist/index.js"),
@@ -28,6 +27,9 @@ export default defineConfig({
 		server: {
 			fs: {
 				allow: ["/media/jeffer/5aab5a95-8290-d3f7-2e4f-8c27cc2d09a93/CASOSEX"],
+			},
+			watch: {
+				ignored: ["**/.pnpm-store/**", "**/node_modules/**"],
 			},
 		},
 	},
