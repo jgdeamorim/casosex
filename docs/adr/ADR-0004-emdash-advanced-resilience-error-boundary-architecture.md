@@ -1,4 +1,4 @@
-# ADR-0004: Arquitetura Avançada de Resiliência, Predictive Fingerprinting e Boundaries no EmDash Admin
+# ADR-0004: Arquitetura Avançada de Resiliência, Predictive Fingerprinting e Telemetria no EmDash Admin
 
 - **Status**: Aceito (Accepted)
 - **Data**: 2026-08-14
@@ -11,12 +11,13 @@
 
 O **EmDash Admin** opera como uma SPA React 19 de alta performance integrada a uma camada de servidor Astro (`admin.astro`) e roteada via **TanStack Router**. Módulos de e-commerce e plugins de terceiros (como o `dashcommerce`) executam fluxos assíncronos e processam payloads dinâmicos provenientes de APIs headless e SQLite.
 
-Em arquiteturas convencionais, exceções não tratadas em tempo de execução desconfazem a árvore de componentes React ("Tela Branca da Morte"). Além disso, tratativas baseadas apenas em Error Boundaries tradicionais são meramente **reativas** (capturam o erro apenas *após* a falhar ocorrer no cliente).
+Em arquiteturas convencionais, exceções não tratadas em tempo de execução desfazem a árvore de componentes React ("Tela Branca da Morte"). Além disso, tratativas baseadas apenas em Error Boundaries tradicionais são meramente **reativas** (capturam o erro apenas *após* a falha ocorrer no cliente).
 
-Para elevar o EmDash a um patamar enterprise soberano e auto-regenerativo (Self-Healing), esta ADR expande o sistema de resiliência incorporando:
+Para elevar o EmDash a um patamar enterprise soberano, observável e auto-regenerativo (Self-Healing), esta ADR expande o sistema de resiliência incorporando:
 1. **Mapeamento completo com Next.js App Router (React 19)**.
 2. **Verificação Estática de AST em Rust (SWC / Rolldown)**.
 3. **Detecção Preditiva por Fingerprinting de Schemas (BLAKE3 / SHA-256)**.
+4. **Módulo Soberano de Telemetria e Observabilidade (`/settings/telemetry`)**.
 
 ---
 
@@ -36,7 +37,7 @@ Para elevar o EmDash a um patamar enterprise soberano e auto-regenerativo (Self-
 
 ---
 
-## 3. Arquitetura "Double-Lock" & Fingerprinting Preditivo
+## 3. Arquitetura "Double-Lock", Fingerprinting Preditivo & Telemetria
 
 ```
 ┌────────────────────────────────────────────────────────────────────────┐
@@ -52,8 +53,8 @@ Para elevar o EmDash a um patamar enterprise soberano e auto-regenerativo (Self-
 │ CAMADA 2: AdminModuleErrorBoundary (Módulos & Plugins)                │
 │ └─ Isola rotas do DashCommerce (Reports, Shipping, Payouts, etc.)     │
 ├────────────────────────────────────────────────────────────────────────┤
-│ CAMADA 3: Component / Field Boundary (Widgets & Custom Fields)        │
-│ └─ Isola cards de gráficos, tabelas e campos de plugins.              │
+│ CAMADA 3: Módulo de Telemetria e Observabilidade (/settings/telemetry)│
+│ └─ Monitora DevTools Bridge, estatísticas MCP e exceções capturadas.  │
 └────────────────────────────────────────────────────────────────────────┘
 ```
 
@@ -70,9 +71,9 @@ Para elevar o EmDash a um patamar enterprise soberano e auto-regenerativo (Self-
 - O hash é comparado contra a tabela de assinaturas saudáveis no Redis (`adsentice:kv:blake3:{hash}`).
 - Se houver **Schema Drift** (ex: um array obrigatório veio nulo), o componente preditivo redireciona a interface para o modo de contingência **antes de acionar qualquer exceção no React**.
 
-### 3.3 Camada 1 & 2: Root e AdminModuleErrorBoundary (Runtime Container)
-- Se uma exceção inesperada ocorrer no cliente, o `AdminModuleErrorBoundary` captura o erro.
-- **Princípio de Não-Desmonte**: A `Sidebar` lateral e o `Header` continuam **100% ativos e interativos**. O operador navega livremente sem necessidade de recarregar a página (`F5`).
+### 3.3 Módulo de Telemetria e Observabilidade (`TelemetrySettings.tsx`)
+- Disponibilizado sob a rota `/settings/telemetry` na seção de **System & Telemetry** do EmDash Admin.
+- Exibe o status de saúde do **Chrome DevTools Bridge (`:9091`)**, feed em tempo real de exceções capturadas pelos Boundaries e telemetria de chamadas do servidor MCP nativo.
 
 ---
 
@@ -189,6 +190,6 @@ export class AdminModuleErrorBoundary extends React.Component<Props, State> {
 ## 6. Consequências e Medição de Sucesso
 
 1. **Self-Healing & Prevenção Antecipada**: O Fingerprinting Preditivo identifica e desvia de payloads anômalos antes de estourarem exceções no React.
-2. **Eliminação de Crashes Globais**: `0%` de telas brancas causadas por plugins ou APIs desatualizadas.
-3. **Preservação Total da Sessão**: Barra lateral e cabeçalho mantêm 100% de operabilidade.
+2. **Observabilidade Unificada**: Módulo `/settings/telemetry` disponibiliza monitoramento em tempo real do DevTools Bridge e MCP Server.
+3. **Eliminação de Crashes Globais**: `0%` de telas brancas causadas por plugins ou APIs desatualizadas.
 4. **Alinhamento Soberano (`medido=verdade`)**: A ADR sela a arquitetura preditiva e resiliência visual no Knowledge Graph do projeto.
