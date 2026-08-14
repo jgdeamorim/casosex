@@ -3,7 +3,7 @@
 - **Status**: Accepted
 - **Data**: 2026-08-14
 - **Autores**: Jeferson Amorim (Founder) & Antigravity (AI Pair)
-- **Extends**: ADR-0036 (BLUE/GREEN), ADR-0054 (Intent-Driven Slots), ADR-0058 (Zero Hardcoded Slots), ADR-0060 (Warp Surface Modularization), ADR-0062 (BLAKE3 KV Cache), ADR-0077 (Semantic Motion Engine), ADR-0080 (Layout Technique Facets), ADR-0084 (Paridade BLUE/GREEN)
+- **Extends**: ADR-0036 (BLUE/GREEN), ADR-0054 (Intent-Driven Slots), ADR-0058 (Zero Hardcoded Slots), ADR-0060 (Warp Surface Modularization), ADR-0062 (BLAKE3 KV Cache), ADR-0077 (Semantic Motion Engine), ADR-0080 (Layout Technique Facets), ADR-0081 (dct-motion Zero-Dependency Runtime), ADR-0084 (Paridade BLUE/GREEN)
 - **Domínio**: `apps/web/src/lib/`, `packages/warp/src/`, `docs/spec/`, `docs/adr/`
 
 ---
@@ -47,7 +47,7 @@ O motor de renderização GREEN (`composer-core.ts` e renderizadores folha):
 A resolução semântica do slot é regida por 7 facetas multidimensionais calculadas no `vocab-resolver.ts`:
 1. **`intentKind`**: Função de conversão do slot (`diagnostic_reveal`, `gap_exposure`, `value_proposition`, `social_proof`, `conversion_cta`).
 2. **`archetype`**: Tom da persona narradora (`authority_analyst`, `direct_challenger`, `empathetic_guide`).
-3. **`tone`**: Tonalidade afetiva (`urgent`, `analytical`, `reassuring`, `exclusive`).
+3. **`tone`**: Tonalidade emocional (`urgent`, `analytical`, `reassuring`, `exclusive`).
 4. **`density`**: Densidade de informação visual (`minimal`, `compact`, `detailed`, `editorial`).
 5. **`emotionValence`**: Carga de valência Afetiva BOA (`high_tension`, `problem_agitation`, `solution_relief`).
 6. **`visualCognition`**: Padrão de escaneabilidade (`scannable_grid`, `hero_focal`, `contrast_card`).
@@ -105,6 +105,7 @@ export type LayoutTechniqueFacet =
   | "stack_list"
   | "interactive_calculator"
   | "timeline_steps"
+  | "scroll_pin_sequence"
   | "sticky_conversion_bar";
 
 export interface VocabFacets7D {
@@ -121,6 +122,11 @@ export interface RenderSlotIntent {
   slotId: string;
   order: number;
   facets: VocabFacets7D;
+  motionAttributes?: {
+    type: "pin-sequence" | "count-up" | "fade-slide" | "morph-target";
+    stage?: string;
+    stepCount?: number;
+  };
   payload: {
     title: string;
     subtitle?: string;
@@ -159,14 +165,53 @@ export interface RenderContext {
 
 ---
 
-## §4 · Pipeline de Execução Executável em 4 Fases
+## §4 · Integração de Motion Declarativo (`dct-motion v1.4` & Pin Motion no S10)
+
+Para garantir uma experiência de ponta, imersiva e moderna na Superfície **S10 Raio-X Diagnóstico**, a renderização de animações é regida pelo motor soberano **`dct-motion` (ADR-0081)**:
+
+### 4.1 Princípio de Animação por Atributos (`data-motion`)
+Zero dependências de pacotes React pesados (ex: Framer Motion de >35 KB). O `dct-motion.js` opera fora da árvore do React via `requestAnimationFrame` e `IntersectionObserver`, utilizando atributos HTML declarativos emitidos pelo `composer-core.ts`:
+
+1. **`data-motion="pin-sequence"` (Scroll Pin Motion)**:
+   - Trava o palco da viewport (`position: sticky`) enquanto o usuário faz o scroll.
+   - Revela sequencialmente as 4 etapas da varredura do Raio-X (GMB ──► Meta ──► SEO ──► Conversão Pix) sem quebrar o fluxo de navegação nem gerar *Cumulative Layout Shift* (CLS).
+2. **`data-motion="count-up"`**:
+   - Anima os contadores numéricos (ex: Score de Saúde Digital de 0 a 87/100 e Perda de Faturamento Est.) com interpolação física fluida.
+3. **`data-motion="morph-target"` (`morphSlot(el, newHTML)`)**:
+   - Executa a transição limpa entre a revelação das vulnerabilidades do cliente e a apresentação da solução do plano **Sentinela (R$197/mês)**.
+
+---
+
+## §5 · Componentes de Ponta que Formam a Superfície S10
+
+O `S10-GREEN` monta a página utilizando 4 componentes estruturais de alta conversão:
+
+### 5.1 Componente I: `S10HeroPinStage` (Pin Motion Viewport)
+- **Técnica**: `scroll_pin_sequence`.
+- **Comportamento**: Palco principal fixo onde o cabeçalho permanece imóvel enquanto os cartões de diagnóstico deslizam com efeito de profundidade e *blur* vítreo (*Glassmorphism*).
+
+### 5.2 Componente II: `S10ScoreRadar` (Dashboard de Saúde Digital)
+- **Técnica**: `metric_cards_row`.
+- **Comportamento**: Exibe o radar visual com os 3 maiores gargalos do negócio local, destacando em vermelho as receitas perdidas e ativando os contadores animados `data-motion="count-up"`.
+
+### 5.3 Componente III: `S10GapMatrixBento` (Grid Bento Responsivo)
+- **Técnica**: `bento_grid`.
+- **Comportamento**: Grid assimétrico estilo Apple que agrupa as evidências auditadas (avaliações sem resposta, falta de menu digital Pix, site lento).
+
+### 5.4 Componente IV: `S10MorphingOfferCard` (Card de Ação Urgente)
+- **Técnica**: `sticky_conversion_bar`.
+- **Comportamento**: Card de conversão com temporizador sutil e botão de disparo direto para ativação do **Sentinela (R$197/mês)**.
+
+---
+
+## §6 · Pipeline de Execução Executável em 4 Fases
 
 ```
 [ FASE 1: STRATEGIST (BLUE) ]
    ├── Scrape & Audit Sinais GMB/Meta
    ├── Invocação LLM DeepSeek ($0.0005)
    ├── VocabResolver (Gera Facetas 7D)
-   └── Retorna: RenderContext (JSON)
+   └── Retorna: RenderContext (JSON com data-motion)
             │
             ▼
 [ FASE 2: SCHEMA VALIDATION ]
@@ -177,7 +222,7 @@ export interface RenderContext {
             ▼
 [ FASE 3: BLIND RENDERER (GREEN) ]
    ├── Injeta Stylesheet (var(--color-*))
-   ├── Mapeia slots para TechniqueRenderers
+   ├── Mapeia slots para TechniqueRenderers (Bento/Pin)
    └── Retorna: HTML / JSX Síncrono (< 2ms)
             │
             ▼
@@ -186,42 +231,22 @@ export interface RenderContext {
    └── SET Redis adsentice:kv:blake3:<hash>
 ```
 
-### Detalhamento das Fases
-
-#### Fase 1 — Estrategista & Inteligência (BLUE)
-- Executa a análise de lacunas (`detectGapSignals()`).
-- O resolvedor semântico (`vocab-resolver.ts`) mapeia os sinais em um conjunto de facetas 7D.
-- Emite o `RenderContext` completo em JSON puro.
-
-#### Fase 2 — Validação & Blind Guard
-- O `RenderContext` é submetido ao validador de schema.
-- Garante que campos obrigatórios (títulos, CTAs, técnicas de layout) estejam presentes.
-- Em caso de falha no LLM ou timeout, aciona o fallback determinístico sem interromper a renderização.
-
-#### Fase 3 — Renderização Cega (GREEN)
-- O `composer-core.ts` itera sobre o array de `slots`.
-- Seleciona o `TechniqueRenderer` correspondente à faceta `layoutTechniqueFacets` (ex: `renderBentoGrid()`, `renderSplitHero()`).
-- Injeta o `stylesheet` gerado por `deriveStylesheet()` no elemento contêiner `<div style={stylesheet}>`.
-
-#### Fase 4 — Persistência no Cache BLAKE3
-- O `RenderContext` e o HTML gerado são armazenados no Redis (`adsentice:kv:blake3:<hash>`).
-- Subsequentes requisições idênticas são servidas direto do cache RAM na porta `:6396`.
-
 ---
 
-## §5 · Consequências, Garantias & Métricas de Sucesso
+## §7 · Consequências, Garantias & Métricas de Sucesso
 
 | Métrica / Critério | Padrão Anterior (Acoplado/Visual) | Padrão Soberano ADR-0094 (Intent-Driven) |
 | :--- | :--- | :--- |
 | **Tempo de Renderização (GREEN)** | ~180ms - 800ms | **< 2ms** (Sub-milissegundo) |
 | **Garantia de Zero Hardcode** | ❌ Não (slots fixos em código) | **✅ Sim** (100% via `RenderContext`) |
+| **Animações (Motion Overhead)** | ❌ 35+ KB (Framer Motion React) | **✅ 0 KB npm** (`dct-motion` data-attributes) |
 | **Compatibilidade com Agentes de IA** | ❌ Não (Exigia cliques no admin) | **✅ Sim** (Emissão nativa de JSON) |
 | **Acoplamento de Dependências** | ❌ Alto (Conflitos ESM/Vite/Admin) | **✅ Nulo** (Renderizador Cego isolado) |
 | **Consistência de Brand DNA** | ❌ Média (Risco de estilos ad-hoc) | **✅ Total** (Regido por `deriveStylesheet`) |
 
 ---
 
-## §6 · Ratificação de Governança (`SOP v3.0`)
+## §8 · Ratificação de Governança (`SOP v3.0`)
 
 1. **Testabilidade**: Todo `TechniqueRenderer` em `composer-core.ts` deve possuir teste unitário validando renderização cega com `RenderContext` mockado.
 2. **Commit Automático (Doutrina #3)**: Alterações nesta arquitetura exigem `git add` + `git commit` imediato por feature.
