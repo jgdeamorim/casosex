@@ -18,14 +18,16 @@ export default defineConfig({
 			noExternal: ["@dashcommerce/core"],
 		},
 		resolve: {
-			alias: {
-				"@dashcommerce/core/sandbox": path.resolve("./self-essentials/dashcommerce-main/packages/core/dist/sandbox-entry.js"),
-				"@dashcommerce/core/admin": path.resolve("./self-essentials/dashcommerce-main/packages/core/dist/admin/entry.js"),
-				"@dashcommerce/core/astro/components": path.resolve("./self-essentials/dashcommerce-main/packages/core/src/astro/components"),
-				"@dashcommerce/core/astro/islands": path.resolve("./self-essentials/dashcommerce-main/packages/core/src/astro/islands"),
-				"@dashcommerce/core/astro": path.resolve("./self-essentials/dashcommerce-main/packages/core/src/astro/index.ts"),
-				"@dashcommerce/core": path.resolve("./self-essentials/dashcommerce-main/packages/core/dist/index.js"),
-			},
+			alias: [
+				{ find: /^@emdash-cms\/admin\/styles\.css/, replacement: path.resolve("./self-essentials/emdash-main/packages/admin/dist/styles.css") },
+				{ find: "@emdash-cms/admin", replacement: path.resolve("./self-essentials/emdash-main/packages/admin/dist/index.js") },
+				{ find: "@dashcommerce/core/sandbox", replacement: path.resolve("./self-essentials/dashcommerce-main/packages/core/dist/sandbox-entry.js") },
+				{ find: "@dashcommerce/core/admin", replacement: path.resolve("./self-essentials/dashcommerce-main/packages/core/dist/admin/entry.js") },
+				{ find: "@dashcommerce/core/astro/components", replacement: path.resolve("./self-essentials/dashcommerce-main/packages/core/src/astro/components") },
+				{ find: "@dashcommerce/core/astro/islands", replacement: path.resolve("./self-essentials/dashcommerce-main/packages/core/src/astro/islands") },
+				{ find: "@dashcommerce/core/astro", replacement: path.resolve("./self-essentials/dashcommerce-main/packages/core/src/astro/index.ts") },
+				{ find: "@dashcommerce/core", replacement: path.resolve("./self-essentials/dashcommerce-main/packages/core/dist/index.js") },
+			],
 		},
 		server: {
 			fs: {
