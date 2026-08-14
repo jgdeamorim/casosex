@@ -265,11 +265,26 @@ Em conformidade com a arquitetura de corpora do Adsentice:
 
 ---
 
-## §10 · Consequências, Garantias & Métricas de Sucesso
+## §10 · Compilação SWC (Rust) & Deploy Cloudflare Edge Workers/Pages
+
+Para permitir portabilidade global e deploy na borda da **Cloudflare Workers/Pages**:
+
+### 10.1 Compilação SWC (Rust) para V8 Isolates
+1. **Stripping de Tipos & DCE**: O compilador **SWC (Rust)** transpila a Camada GREEN (`composer-core.ts` + `TechniqueRenderers`) eliminando todo o código morto e emitindo um bundle de JavaScript puro Web-Standard (< 50 KB).
+2. **Zero Dependência de Node.js**: Como a Camada GREEN é cega e síncrona, ela não faz chamadas a APIs de sistema operacional (`fs`, `child_process`, `net`), tornando-se 100% compatível com a V8 da Cloudflare.
+
+### 10.2 Deploy com Cold Start < 1ms
+- O bundle compilado pelo SWC é implantado no Cloudflare Pages/Workers.
+- A entrega de páginas públicas atinge **cold start < 1ms** em mais de 300 datacenters mundiais, servindo a renderização GREEN diretamente da memória RAM da Cloudflare na borda.
+
+---
+
+## §11 · Consequências, Garantias & Métricas de Sucesso
 
 | Métrica / Critério | Padrão Anterior (Acoplado/Visual) | Padrão Soberano ADR-0094 (Intent-Driven) |
 | :--- | :--- | :--- |
 | **Tempo de Renderização (GREEN)** | ~180ms - 800ms | **< 2ms** (Sub-milissegundo) |
+| **Deploy na Cloudflare Edge** | ❌ Incompatível (Dep. Node/Admin) | **✅ 100% Nativo** (SWC Bundle < 50 KB) |
 | **Garantia de Zero Hardcode** | ❌ Não (slots fixos em código) | **✅ Sim** (100% via `RenderContext`) |
 | **Animações (Motion Overhead)** | ❌ 35+ KB (Framer Motion React) | **✅ 0 KB npm** (`dct-motion` data-attributes) |
 | **Tolerância a Falhas (Zero 500)** | ❌ Média (Risco de quebra de bundle/API) | **✅ 100%** (Fallback Glass-Box síncrono) |
@@ -279,7 +294,7 @@ Em conformidade com a arquitetura de corpora do Adsentice:
 
 ---
 
-## §11 · Ratificação de Governança (`SOP v3.0`)
+## §12 · Ratificação de Governança (`SOP v3.0`)
 
 1. **Testabilidade**: Todo `TechniqueRenderer` em `composer-core.ts` deve possuir teste unitário validando renderização cega com `RenderContext` mockado.
 2. **Commit Automático (Doutrina #3)**: Alterações nesta arquitetura exigem `git add` + `git commit` imediato por feature.
