@@ -22,7 +22,7 @@ Esta arquitetura apresenta falhas estruturais críticas no ecossistema Adsentice
 
 ### 0.2 O Princípio Intent-Driven Universal
 A ADR-0094 ratifica a inversão soberana e **universal** de modelo para **qualquer superfície ou tipo de conteúdo**:
-$$\text{Briefing / Sinais (BLUE)} \xrightarrow[\text{Especialista da Superfície}]{\text{Pipeline 4 Camadas}} \text{RenderContext (JSON Universal)} \xrightarrow[\text{Cego / < 2ms}]{\text{TechniqueRenderers (GREEN)}} \text{UI/UX Soberana}$$
+$$\text{Intent Prompt / Briefing (BLUE)} \xrightarrow[\text{Sequência de Transmutação}]{\text{Pipeline 5 Etapas}} \text{RenderContext (JSON Universal)} \xrightarrow[\text{Cego / < 2ms}]{\text{TechniqueRenderers (GREEN)}} \text{UI/UX Soberana}$$
 
 ---
 
@@ -42,47 +42,29 @@ $$\text{Briefing / Sinais (BLUE)} \xrightarrow[\text{Especialista da Superfície
 
 ---
 
-## §2 · Especialistas de Superfície & O Pipeline de Briefing em 4 Camadas (`Surface Briefing Pipeline`)
+## §2 · O Workflow de Autoria Soberano: Do Intent-Prompt às Sequências de JSON (`Authoring Intent Pipeline`)
 
-Cada superfície da Família Warp possui um **Especialista Dedicado na Camada BLUE** (`S10_SPECIALIST`, `S11_SPECIALIST`, `S7_POST_SPECIALIST`, etc.).
+Em vez de abrir um editor visual (Gutenberg/Elementor) e arrastar blocos manualmente, a criação de **qualquer novo item (página, post, produto ou landing page)** ocorre através de um **Prompt de Intenção (Intent Prompt)** que dispara uma sequência encadeada de 5 etapas determinísticas na Camada BLUE:
 
-Quando o Founder ou um Agente de IA (`open-design` / `claude-design`) submete instruções ou um briefing de conteúdo nos mínimos detalhes, esse briefing é processado pelo especialista da superfície através de **4 Camadas Estritas**:
+### 2.1 As 5 Etapas da Sequência de Geração de Conteúdo
 
-```
-[ Briefing do Founder / Agente (open-design / claude-design) ]
-                          │
-                          ▼
- ┌────────────────────────────────────────────────────────┐
- │ CAMADA 1: ESTRATÉGIA & POSICIONAMENTO                  │
- │ Define metas de conversão, arquétipo e persona.        │
- ├────────────────────────────────────────────────────────┤
- │ CAMADA 2: INTELIGÊNCIA & SINAIS AUDITADOS               │
- │ Injeta lacunas do cliente, BOA Score e dados sanitizados│
- ├────────────────────────────────────────────────────────┤
- │ CAMADA 3: COMPOSIÇÃO SEMÂNTICA & MOTION (VocabFacets) │
- │ Resolve as 7D de VocabFacets e atributos dct-motion.   │
- ├────────────────────────────────────────────────────────┤
- │ CAMADA 4: BRAND DNA & DESIGN SYSTEM TOKENS            │
- │ Injeta a paleta Materio / OpenDesign via deriveStyle   │
- └────────────────────────────────────────────────────────┘
-                          │
-                          ▼ (Emissão Determinística)
-           [ RenderContext JSON da Superfície ]
-```
-
-### 2.1 Detalhamento das 4 Camadas de Transmutação do Briefing
-
-1. **Camada 1 (Estratégia)**: Mapeia a intenção comercial do briefing em papéis de conversão (`intentKind`: `gap_exposure`, `solution_matrix`, `conversion_cta`).
-2. **Camada 2 (Inteligência)**: Injeta evidências reais mineradas (avaliações sem resposta no GMB, ausência de cardápio Pix) sem expor PII sensível.
-3. **Camada 3 (Composição 7D)**: Traduz os pedidos visuais do briefing nas **7 Dimensões de `VocabFacets`** e seleciona a técnica de layout (`layoutTechniqueFacets`: `bento_grid`, `scroll_pin_sequence`, `split_hero`).
-4. **Camada 4 (Brand DNA Tokens)**: Garante conformidade estrita com o Design System. Transforma pedidos de estilo no mapa de tokens semânticos (`deriveStylesheet`).
+1. **Etapa I: Captura do Intent Prompt (Briefing Inicial)**:
+   - O criador (Founder, Editor ou Agente Autônomo) submete o prompt com o objetivo da página, o público e as diretrizes principais.
+2. **Etapa II: Decomposição da Estrutura de Slots**:
+   - O Especialista da Superfície analisa o prompt e determina a sequência ideal de blocos visuais necessários (ex: `hero` ──► `bento_grid` ──► `testimonials` ──► `cta`).
+3. **Etapa III: Atribuição de Facetas Semânticas 7D (`VocabResolver`)**:
+   - Para cada slot definido na Etapa II, o resolvedor calcula o tom (`tone`), o arquétipo (`archetype`), a densidade (`density`) e a técnica de layout visual (`layoutTechniqueFacets`).
+4. **Etapa IV: Síntese de Conteúdo & Copywriting (DeepSeek / Qwen $0)**:
+   - Gera os títulos, subtítulos, textos em Markdown e métricas específicos de cada slot em pt-BR limpo e persuasivo.
+5. **Etapa V: Emissão & Validação do `RenderContext` JSON**:
+   - Consolida todo o resultado no contrato `RenderContextSchema` e envia para a renderização GREEN em tempo sub-milissegundo (< 2ms).
 
 ---
 
 ## §3 · As 6 Doutrinas Fundamentais do Intent-Driven Composer
 
 ### 3.1 Doutrina I — O RenderContext como Única Fonte da Verdade
-O `RenderContext` (JSON puro) é o contrato imutável e autossuficiente emitido pelo Especialista da Superfície que descreve a totalidade da página. O renderizador não faz suposições nem consulta dados externos; se um dado não está no `RenderContext`, ele não é exibido.
+O `RenderContext` (JSON puro) é o contrato imutável e autossuficiente emitido pela sequência de autoria que descreve a totalidade da página. O renderizador não faz suposições nem consulta dados externos; se um dado não está no `RenderContext`, ele não é exibido.
 
 ### 3.2 Doutrina II — Cegueira Absoluta da Camada GREEN (Blind Renderer)
 O motor de renderização GREEN (`composer-core.ts` e renderizadores folha):
@@ -91,8 +73,8 @@ O motor de renderização GREEN (`composer-core.ts` e renderizadores folha):
 - **Execução Pura e Síncrona**: Opera como uma função matemática pura: $f(\text{RenderContext}) \to \text{HTML/JSX}$.
 
 ### 3.3 Doutrina III — Desacoplamento Sagrado BLUE / GREEN (ADR-0036 & ADR-0084)
-- **Camada BLUE (Especialistas & Briefing Pipeline)**:
-  Responde pelo processamento pesado, invocação de agentes `open-design`, mineração de sinais, cálculo do BOA Score e transmutação do briefing no `RenderContext`.
+- **Camada BLUE (Inteligência & Pipeline de Autoria)**:
+  Responde pelo processamento pesado, transmutação do Intent Prompt nas 5 Etapas de JSONs, mineração de sinais e cálculo do BOA Score.
 - **Camada GREEN (Apresentação & Layout)**:
   Aplicação síncrona em TypeScript/React/Tailwind v4. Transforma o `RenderContext` em elementos visuais limpos e responsivos.
 
@@ -111,7 +93,7 @@ A resolução semântica do slot é regida por 7 facetas multidimensionais calcu
 - O `deriveStylesheet(brandDNA)` injeta o mapa de variáveis CSS semânticas (`var(--color-primary)`, `var(--color-surface)`, `var(--radius-card)`) no container raiz da superfície.
 
 ### 3.6 Doutrina VI — Cache Determinístico BLAKE3 (ADR-0062)
-Todo `RenderContext` gerado tem seu hash calculado via algoritmo **BLAKE3** combinando: `hash(tenantId + brandDnaHash + intentHash)`.
+Todo `RenderContext` gerado tem seu hash calculated via algoritmo **BLAKE3** combinando: `hash(tenantId + brandDnaHash + intentHash)`.
 - O resultado compilado é indexado no Redis sob a chave `adsentice:kv:blake3:<hash>`.
 - Requisições subsequentes para a mesma intenção ignoram a Camada BLUE e entregam a renderização GREEN em tempo inferior a 1ms.
 
@@ -123,10 +105,10 @@ Todo `RenderContext` gerado tem seu hash calculado via algoritmo **BLAKE3** comb
 
 | Módulo | Caminho Canônico | Responsabilidade Principal | Camada |
 | :--- | :--- | :--- | :--- |
-| **`vocab-resolver.ts`** | `packages/warp/src/tokens/vocab-resolver.ts` | Resolve as 7 Dimensões de `VocabFacets` e mapeia instruções de briefing em seleções de layout. | BLUE |
+| **`vocab-resolver.ts`** | `packages/warp/src/tokens/vocab-resolver.ts` | Resolve as 7 Dimensões de `VocabFacets` e mapeia instruções do Intent Prompt em seleções de layout. | BLUE |
 | **`tokens-unifier.ts`** | `packages/warp/src/tokens/tokens-unifier.ts` | Unifica tokens Materio, OpenDesign e paletas de clientes em tokens semânticos. | BLUE |
 | **`derive-stylesheet.ts`** | `packages/warp/src/tokens/derive-stylesheet.ts` | Converte os tokens unificados no mapa de variáveis CSS da folha de estilo. | BLUE/GREEN |
-| **`4-composer.ts`** | `packages/warp/src/4-composer.ts` | Contém os Especialistas de Superfície (`S10_SPECIALIST`, `S11_SPECIALIST`, `S7_SPECIALIST`, etc.) e emite o `RenderContext`. | BLUE |
+| **`4-composer.ts`** | `packages/warp/src/4-composer.ts` | Executa a sequência de 5 Etapas do Intent Prompt e emite o `RenderContext`. | BLUE |
 | **`composer-core.ts`** | `packages/warp/src/composer-core.ts` | Motor GREEN Universal. Contém a biblioteca de `TechniqueRenderers` para qualquer página. | GREEN |
 | **`warp-composer.ts`** | `apps/web/src/lib/warp-composer.ts` | Fachada de integração universal que conecta a requisição de qualquer rota ao pipeline BLUE ──► GREEN. | PIPELINE |
 
@@ -225,10 +207,9 @@ export interface RenderContext {
 ## §6 · Pipeline de Execução Executável em 4 Fases
 
 ```
-[ FASE 1: BRIEFING & STRATEGIST (BLUE) ]
-   ├── Briefing do Founder / Agente (open-design)
-   ├── Processamento no Especialista da Superfície (4 Camadas)
-   ├── VocabResolver (Gera Facetas 7D)
+[ FASE 1: AUTHORING INTENT PIPELINE (BLUE) ]
+   ├── Captura do Intent Prompt (Ideia/Briefing do Criador)
+   ├── Sequência em 5 Etapas (Decomposição ──► Vocab 7D ──► Copywriting)
    └── Retorna: RenderContext (JSON Universal)
             │
             ▼
@@ -292,6 +273,7 @@ Em conformidade com a arquitetura de corpora do Adsentice:
 
 | Métrica / Critério | Padrão Anterior (Acoplado/Visual) | Padrão Soberano ADR-0094 (Intent-Driven) |
 | :--- | :--- | :--- |
+| **Workflow de Autoria** | ❌ Arrasto manual de blocos (Gutenberg/Elementor) | **✅ Intent Prompt Pipeline em 5 Etapas** (Prompt ──► JSONs) |
 | **Arquitetura de Briefing** | ❌ Edição manual em GUI | **✅ Briefing em 4 Camadas** (`open-design` ──► `RenderContext`) |
 | **Especialistas por Superfície** | ❌ Inexistente (Código monolítico) | **✅ Sim** (`S10_SPECIALIST`, `S11_SPECIALIST`, etc.) |
 | **Escopo de Páginas / Conteúdo** | ❌ Limitado a temas/templates fixos | **✅ Universal** (Qualquer superfície S0..S21 ou post) |
