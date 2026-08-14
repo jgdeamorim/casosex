@@ -72,7 +72,18 @@ Formalizar o arquivo de consenso [`docs/spec/casosex-theme-aa-consensus.json`](f
 - **Portal de Autocuidado & SEO Orgânico (Blog SSG):** Renderização 100% estática via Astro Content Collections (`src/content/blog/`) para posicionamento orgânico no Google em buscas de alta intenção ("guia do primeiro toy", "como usar vibrador de sucção").
 - **Proibição de Feeds Dinâmicos de Redes Sociais (Anti-Leak & Performance):** Feeds externos (Instagram Widgets/iFrames) são proibidos na home para evitar fuga de tráfego, rastreadores pesados do Meta e quebra visual em caso de shadowban. Substituído por cards estáticos de prova social e link discreto para a rede oficial.
 
-### 9. Matriz de Critérios Rígidos do Jury AA (`casosex-theme-aa-consensus.json`)
+### 9. Especificação Oficial do Brand DNA, Design System & Tokens Tailwind CSS v4
+- **Brand DNA:** Erotic Luxury & High-End Sensual Lifestyle. Tom de voz sofisticado, inclusivo, discreto e empoderador.
+- **Paleta Psicológica Erotic Luxury:**
+  - `Obsidian Nocturne (#09090B)`: Fundo principal de atmosfera privativa e boutique fechada.
+  - `Passion Crimson (#E11D48)`: Tom carmim de desejo refinado e botões de ação principal.
+  - `Warm Gold Trust (#D97706)`: Selos de garantia VIP, avaliações e discrição total.
+  - `Emerald Pix (#10B981)`: Gatilho de conversão e recompensa à vista no Pix.
+  - `Liquid Glass Overlay (rgba 255,255,255,0.05 / border 0.12)`: Profundidade e materialismo moderno.
+- **Tipografia:** `Outfit` (Headings/Display) + `Plus Jakarta Sans` (Body/Interface).
+- **Motion Tokens:** Transições snappy (`cubic-bezier(0.2,0,0,1)`) e fluid (`cubic-bezier(0.3,0,0,1)`).
+
+### 10. Matriz de Critérios Rígidos do Jury AA (`casosex-theme-aa-consensus.json`)
 1. **AA-01 (Zero JS Bloatware):** Componentes estáticos em `.astro` puro; hidratação atômica no React apenas quando visíveis na viewport (`client:visible`).
 2. **AA-02 (Liquid Glass & Depth Layering):** Uso estruturado de desfoque de fundo e bordas semi-transparentes para profundidade tridimensional.
 3. **AA-03 (Pin Motion & Scroll Pinning):** Animações vinculadas ao scroll para apresentar recursos e variações de produto sem poluição de layout.
@@ -90,6 +101,7 @@ Formalizar o arquivo de consenso [`docs/spec/casosex-theme-aa-consensus.json`](f
 15. **AA-15 (Arquitetura de 10 Slots Inteligentes & Curva ABC):** Distribuição dinâmica de inventário por curva de receita (A/B/C) combinada com eliminadores de objeção moral (Anestesia da Vergonha).
 16. **AA-16 (Telemetria de Intenção & Widget de Chat Nativo por Cupom WhatsApp):** Mapeamento comportamental acionando o Widget discreto In-Page, que concede Cupom Secreto de 5% OFF em troca da captação do número do WhatsApp do cliente.
 17. **AA-17 (Blog SSG de Autocuidado vs Isenção de Feeds Externos de Redes Sociais):** Presença de Blog SSG para dominância orgânica no Google (SEO) e proibição de widgets/iFrames externos de redes sociais para preservar performance e retenção de tráfego.
+18. **AA-18 (Oficialização de Brand DNA, Design System Erotic Luxury & Tokens Tailwind v4):** Padronização técnica dos tokens em `@theme` CSS (Obsidian, Crimson, Warm Gold, Pix, Outfit e Plus Jakarta Sans) e especificação canônica em JSON.
 
 ---
 

@@ -1,0 +1,47 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "CASOSEX Brand DNA & Design System Specification (2026+)",
+  "version": "1.0.0",
+  "project": "CASOSEX",
+  "author": "Jeferson Amorim (Founder) & Antigravity (AI Architect)",
+  "date": "2026-08-13",
+  "brand_dna": {
+    "positioning": "Erotic Luxury & High-End Sensual Lifestyle (SMB Brasil)",
+    "tone_of_voice": "Sophisticated, Inclusive, Discrete & Empowering",
+    "core_tagline": "Zero Constrangimento. Sigilo Absoluto. Prazer Sem Tabus.",
+    "visual_vibe": "Ateliê de Luxo Privado & Perfumaria Fina",
+    "privacy_guarantee": "Embalagem 100% Neutra sem identificação externa + Nome Genérico na Fatura"
+  },
+  "design_tokens_tailwind_v4": {
+    "colors": {
+      "obsidian_950": "#09090B",
+      "obsidian_900": "#121215",
+      "obsidian_800": "#1C1C21",
+      "crimson_600": "#E11D48",
+      "crimson_500": "#F43F5E",
+      "bordeaux_900": "#881337",
+      "warm_gold_500": "#D97706",
+      "warm_gold_400": "#F59E0B",
+      "emerald_pix_500": "#10B981",
+      "emerald_pix_400": "#34D399",
+      "glass_overlay": "rgba(255, 255, 255, 0.05)",
+      "glass_border": "rgba(255, 255, 255, 0.12)",
+      "glass_hover": "rgba(255, 255, 255, 0.18)"
+    },
+    "typography": {
+      "font_display": "Outfit, sans-serif",
+      "font_body": "Plus Jakarta Sans, sans-serif",
+      "fluid_scales": {
+        "text_fluid_hero": "clamp(2.25rem, 5vw, 4.5rem)",
+        "text_fluid_h1": "clamp(1.75rem, 3.5vw, 3rem)",
+        "text_fluid_h2": "clamp(1.35rem, 2.5vw, 2.25rem)"
+      }
+    },
+    "motion": {
+      "ease_snappy": "cubic-bezier(0.2, 0, 0, 1)",
+      "ease_fluid": "cubic-bezier(0.3, 0, 0, 1)",
+      "duration_hover_ms": 300,
+      "duration_slide_ms": 500
+    }
+  }
+}

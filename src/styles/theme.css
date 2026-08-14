@@ -1,0 +1,40 @@
+@import "tailwindcss";
+
+/* ==========================================================================
+   CASOSEX Sovereign Theme - Tailwind CSS v4 Design Tokens
+   Brand DNA: Erotic Luxury & High-End Sensual Lifestyle
+   Consensus Criteria: Jury AA v1.8.0 (AA-01 -> AA-18)
+   ========================================================================== */
+
+@theme {
+  /* 🖤 BASE DE PROFUNDIDADE (OBSIDIAN NOCTURNE) */
+  --color-obsidian-950: #09090B;
+  --color-obsidian-900: #121215;
+  --color-obsidian-800: #1C1C21;
+
+  /* 🌹 COR DE DESTAQUE & AÇÃO (PASSION CRIMSON) */
+  --color-crimson-600: #E11D48;
+  --color-crimson-500: #F43F5E;
+  --color-bordeaux-900: #881337;
+
+  /* ✨ GARANTIA & DISCRIÇÃO (WARM GOLD TRUST) */
+  --color-gold-500: #D97706;
+  --color-gold-400: #F59E0B;
+
+  /* 🟢 GATILHO DE CONVERSÃO PIX (EMERALD CASH) */
+  --color-pix-500: #10B981;
+  --color-pix-400: #34D399;
+
+  /* 💎 LIQUID GLASS & ELEVAÇÕES (MATERIAIS EROTIC LUXURY) */
+  --color-glass-overlay: rgba(255, 255, 255, 0.05);
+  --color-glass-border: rgba(255, 255, 255, 0.12);
+  --color-glass-hover: rgba(255, 255, 255, 0.18);
+
+  /* ✍️ TIPOGRAFIA DE PRESTÍGIO */
+  --font-display: "Outfit", sans-serif;
+  --font-body: "Plus Jakarta Sans", sans-serif;
+
+  /* 🪄 MOTION EASES */
+  --ease-snappy: cubic-bezier(0.2, 0, 0, 1);
+  --ease-fluid: cubic-bezier(0.3, 0, 0, 1);
+}
