@@ -27,3 +27,6 @@ export { SetupWizard } from "./SetupWizard";
 
 // Error Boundaries
 export { AdminModuleErrorBoundary } from "./AdminModuleErrorBoundary";
+
+// Settings
+export { TelemetrySettings } from "./settings/TelemetrySettings";

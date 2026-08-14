@@ -57,6 +57,7 @@ import { BackupSettings } from "./components/settings/BackupSettings";
 import { EmailSettings } from "./components/settings/EmailSettings";
 import { GeneralSettings } from "./components/settings/GeneralSettings";
 import { McpSettings } from "./components/settings/McpSettings";
+import { TelemetrySettings } from "./components/settings/TelemetrySettings";
 import { SecuritySettings } from "./components/settings/SecuritySettings";
 import { SeoSettings } from "./components/settings/SeoSettings";
 import { SocialSettings } from "./components/settings/SocialSettings";
@@ -1576,6 +1577,13 @@ const mcpSettingsRoute = createRoute({
 	component: McpSettings,
 });
 
+// Telemetry settings route
+const telemetrySettingsRoute = createRoute({
+	getParentRoute: () => adminLayoutRoute,
+	path: "/settings/telemetry",
+	component: TelemetrySettings,
+});
+
 // Email settings route
 const emailSettingsRoute = createRoute({
 	getParentRoute: () => adminLayoutRoute,
@@ -2136,6 +2144,7 @@ const adminRoutes = adminLayoutRoute.addChildren([
 	allowedDomainsSettingsRoute,
 	apiTokenSettingsRoute,
 	mcpSettingsRoute,
+	telemetrySettingsRoute,
 	emailSettingsRoute,
 	backupSettingsRoute,
 	wordpressImportRoute,
