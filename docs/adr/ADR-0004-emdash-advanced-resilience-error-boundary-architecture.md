@@ -1,4 +1,4 @@
-# ADR-0004: Arquitetura Avançada de Resiliência e Boundaries de Erro no EmDash Admin (Mapeamento Next.js App Router)
+# ADR-0004: Arquitetura Avançada de Resiliência, Predictive Fingerprinting e Boundaries no EmDash Admin
 
 - **Status**: Aceito (Accepted)
 - **Data**: 2026-08-14
@@ -11,27 +11,16 @@
 
 O **EmDash Admin** opera como uma SPA React 19 de alta performance integrada a uma camada de servidor Astro (`admin.astro`) e roteada via **TanStack Router**. Módulos de e-commerce e plugins de terceiros (como o `dashcommerce`) executam fluxos assíncronos e processam payloads dinâmicos provenientes de APIs headless e SQLite.
 
-Em arquiteturas tradicionais de SPA, uma única exceção não tratada em tempo de execução dentro de um componente filho causa o desmonte (*unmounting*) de toda a árvore de componentes do React, resultando no famigerado crash global ("Tela Branca da Morte" ou a mensagem genérica `Something went wrong!`).
+Em arquiteturas convencionais, exceções não tratadas em tempo de execução desconfazem a árvore de componentes React ("Tela Branca da Morte"). Além disso, tratativas baseadas apenas em Error Boundaries tradicionais são meramente **reativas** (capturam o erro apenas *após* a falhar ocorrer no cliente).
 
-Inspirando-se nos padrões de **Resilience & Error Boundaries do Next.js (App Router)** consultados via MCP Context7, esta ADR define a arquitetura exaustiva de contenção de falhas e isolamento de estado do EmDash Admin.
+Para elevar o EmDash a um patamar enterprise soberano e auto-regenerativo (Self-Healing), esta ADR expande o sistema de resiliência incorporando:
+1. **Mapeamento completo com Next.js App Router (React 19)**.
+2. **Verificação Estática de AST em Rust (SWC / Rolldown)**.
+3. **Detecção Preditiva por Fingerprinting de Schemas (BLAKE3 / SHA-256)**.
 
 ---
 
 ## 2. Anatomia Exaustiva dos Boundaries no Next.js (App Router) vs EmDash
-
-No Next.js App Router, cada pasta de rota gera uma árvore de ordenação implícita:
-
-```
-<Layout>
-  <ErrorBoundary fallback={<Error />}>
-    <Suspense fallback={<Loading />}>
-      <ErrorBoundary fallback={<NotFound />}>
-        <Page />
-      </ErrorBoundary>
-    </Suspense>
-  </ErrorBoundary>
-</Layout>
-```
 
 ### Mapeamento De-Para: Next.js vs EmDash Admin
 
@@ -47,10 +36,16 @@ No Next.js App Router, cada pasta de rota gera uma árvore de ordenação implí
 
 ---
 
-## 3. As 3 Camadas de Resiliência do EmDash
+## 3. Arquitetura "Double-Lock" & Fingerprinting Preditivo
 
 ```
 ┌────────────────────────────────────────────────────────────────────────┐
+│ CAMADA 0: Verificação Estática de AST em Rust (Compilador SWC/Rolldown) │
+│ └─ Impede códigos malformados ou regras de JSX inválidas no build.    │
+├────────────────────────────────────────────────────────────────────────┤
+│ CAMADA PREDITIVA: Fingerprint de Schema BLAKE3 / SHA-256 (Pré-Render) │
+│ └─ Detecta Schema Drift e payloads anômalos no Redis antes do React.  │
+├────────────────────────────────────────────────────────────────────────┤
 │ CAMADA 1: Root Router Boundary (TanStack Router Root & Admin Layout)  │
 │ └─ Garante a permanência do Shell, Sidebar e Autenticação.            │
 ├────────────────────────────────────────────────────────────────────────┤
@@ -62,34 +57,36 @@ No Next.js App Router, cada pasta de rota gera uma árvore de ordenação implí
 └────────────────────────────────────────────────────────────────────────┘
 ```
 
-### 3.1 Camada 1: Root Router Boundary (`adminLayoutRoute`)
-- Envolve a aplicação como um todo.
-- Se ocorrer um erro cataclísmico na inicialização de manifestos, o `ErrorScreen` exibe uma mensagem amigável com um botão de recarga sem perder o estado de sessão local.
+### 3.1 Camada 0: Trava Estática via Compiladores Rust (SWC / Rolldown)
+- O pipeline de build do EmDash utiliza `tsdown` (potencializado por **Rolldown em Rust**) e SWC.
+- A AST do código é validada em tempo de compilação.
+- Erros de parsing, tipos primitivos `any` e estruturas de JSX inválidas são barrados antes da publicação.
 
-### 3.2 Camada 2: AdminModuleErrorBoundary (Plugin & Subpage Level)
-- Envolve o contêiner principal das páginas de plugins (`/plugins/$pluginId/*`) e telas de configuração.
-- **Princípio de Não-Desmonte**: Se a página `ReportsPage` do `dashcommerce` falhar devido a um dado nulo ou inacessível da API, a `Sidebar` lateral e o `Header` continuam **100% ativos e interativos**.
-- O operador pode navegar livremente para a página de produtos ou configurações sem recarregar o navegador (`F5`).
+### 3.2 Camada Preditiva: Fingerprint de Schemas (BLAKE3 / SHA-256 - ADR-0062)
+- Antes de entregar os dados da API para o componente React renderizar, o sistema calcula o hash determinístico da estrutura do payload:
+  ```text
+  SchemaFingerprint = BLAKE3( canonicalize(Object.keys(payload)) )
+  ```
+- O hash é comparado contra a tabela de assinaturas saudáveis no Redis (`adsentice:kv:blake3:{hash}`).
+- Se houver **Schema Drift** (ex: um array obrigatório veio nulo), o componente preditivo redireciona a interface para o modo de contingência **antes de acionar qualquer exceção no React**.
 
-### 3.3 Camada 3: Component & Field Boundary (`PluginFieldErrorBoundary`)
-- Protege widgets individuais de dashboard, gráficos e campos customizados registrados por plugins.
-- Se o widget de "Gráfico de Vendas" quebrar, ele exibe um aviso sutil local, enquanto o widget de "Pedidos Recentes" ao lado continua funcionando normalmente.
+### 3.3 Camada 1 & 2: Root e AdminModuleErrorBoundary (Runtime Container)
+- Se uma exceção inesperada ocorrer no cliente, o `AdminModuleErrorBoundary` captura o erro.
+- **Princípio de Não-Desmonte**: A `Sidebar` lateral e o `Header` continuam **100% ativos e interativos**. O operador navega livremente sem necessidade de recarregar a página (`F5`).
 
 ---
 
 ## 4. O Padrão de UX e Mecanismo de Recuperação (`Reset / React.startTransition`)
 
-Seguindo os padrões do Next.js e o sistema de design **Kumo UI**:
-
 1. **Sem Popups Bloqueantes**: Erros de renderização nunca devem emitir `alert()` nativo ou modais intrusivos.
 2. **Indicador Visual Sutil**:
    - Exibição de um cartão de contingência limpo com borda de aviso sutil (`border-kumo-danger/30`).
-   - Badge com status animado sutil (`● Isolated Fallback`).
+   - Badge com status animado sutil (`● Isolated Fallback` / `● Schema Drift`).
 3. **Recuperação Transicional sem Reload**:
    - A prop/método de reset executa uma transição não-bloqueante via `React.startTransition()` combinada com a invalidação de queries do TanStack Query (`queryClient.resetQueries()`).
-   - Isso permite tentar re-renderizar o componente do zero assim que a causa do erro (ex: conexão de rede) for reestabelecida.
+   - Isso permite tentar re-renderizar o componente assim que a causa raiz for saneada.
 4. **Telemetria via DevTools Bridge**:
-   - Todo erro capturado por um Boundary emite automaticamente um payload JSON para o servidor de monitoramento `http://localhost:9091/push-log` (Chrome DevTools Bridge), registrando o módulo, a URL e a stack trace para auditoria em tempo real sem depender de screenshots.
+   - Erros de runtime e anomalias de fingerprint emitem automaticamente payloads JSON para o servidor de monitoramento `http://localhost:9091/push-log` (Chrome DevTools Bridge).
 
 ---
 
@@ -191,7 +188,7 @@ export class AdminModuleErrorBoundary extends React.Component<Props, State> {
 
 ## 6. Consequências e Medição de Sucesso
 
-1. **Eliminação de Crashes Globais**: `0%` de telas brancas causadas por exceções em plugins.
-2. **Preservação do Shell**: A barra lateral e o cabeçalho mantêm a integridade de 100% da sessão.
-3. **Observabilidade em Tempo Real**: Telemetria automática de exceções reportada ao DevTools Bridge (`:9091`).
-4. **Alinhamento com a Regra `medido=verdade`**: A ADR fundamenta todas as implementações no repositório.
+1. **Self-Healing & Prevenção Antecipada**: O Fingerprinting Preditivo identifica e desvia de payloads anômalos antes de estourarem exceções no React.
+2. **Eliminação de Crashes Globais**: `0%` de telas brancas causadas por plugins ou APIs desatualizadas.
+3. **Preservação Total da Sessão**: Barra lateral e cabeçalho mantêm 100% de operabilidade.
+4. **Alinhamento Soberano (`medido=verdade`)**: A ADR sela a arquitetura preditiva e resiliência visual no Knowledge Graph do projeto.
