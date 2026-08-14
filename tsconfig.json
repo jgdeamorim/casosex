@@ -1,14 +1,4 @@
 {
-  "extends": "astro/tsconfigs/strict",
-  "compilerOptions": {
-    "target": "ES2022",
-    "module": "ESNext",
-    "moduleResolution": "Bundler",
-    "jsx": "react-jsx",
-    "jsxImportSource": "react",
-    "baseUrl": ".",
-    "paths": {
-      "@/*": ["src/*"]
-    }
-  }
+	"extends": "astro/tsconfigs/strict",
+	"include": ["src", ".astro/types.d.ts", "emdash-env.d.ts", "worker-configuration.d.ts"]
 }

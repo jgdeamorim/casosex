@@ -2,16 +2,21 @@ FROM node:22-slim
 
 WORKDIR /app
 
-# Instala glibc e utilitários
-RUN apt-get update && apt-get install -y --no-install-recommends curl libc6 && rm -rf /var/lib/apt/lists/*
+# Instala git e pnpm
+RUN apt-get update && apt-get install -y --no-install-recommends curl git && rm -rf /var/lib/apt/lists/*
+RUN npm install -g pnpm
 
-COPY package*.json ./
+COPY package*.json pnpm-workspace.yaml ./
+COPY self-essentials ./self-essentials
 
-RUN npm install
+# Instala dependências do monorepo
+RUN pnpm install --no-frozen-lockfile
+
+# Compila os pacotes core do EmDash
+RUN pnpm --filter "./self-essentials/emdash-main/packages/**" build
 
 COPY . .
 
 EXPOSE 4321
 
-# Garante que as dependências binárias fiquem prontas
-CMD ["npm", "run", "dev"]
+CMD ["pnpm", "dev"]

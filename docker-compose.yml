@@ -1,22 +1,23 @@
-name: casosex-sovereign-os
-
 services:
   casosex-web:
-    container_name: casosex-web
     build:
       context: .
       dockerfile: Dockerfile.dev
+    container_name: casosex-web
     ports:
       - "4321:4321"
     environment:
       - NODE_ENV=development
       - PORT=4321
       - HOST=0.0.0.0
+      - WRANGLER_SEND_METRICS=false
+      - CI=true
+    volumes:
+      - .:/app
+      - /app/node_modules
+      - /app/self-essentials/emdash-main/node_modules
+    restart: unless-stopped
     deploy:
       resources:
         limits:
-          cpus: '1.0'
-          memory: 512M
-        reservations:
-          memory: 256M
-    restart: unless-stopped
+          memory: 2048M
