@@ -1,33 +1,38 @@
 {
-  "name": "casosex-sovereign-os",
+  "name": "@emdash-cms/demo-cloudflare",
+  "version": "0.0.3",
+  "private": true,
   "type": "module",
-  "version": "1.0.0",
   "scripts": {
-    "dev": "astro dev --host 0.0.0.0 --port 4321",
-    "start": "astro dev --host 0.0.0.0 --port 4321",
-    "build": "astro check && astro build",
+    "dev": "astro dev --host 0.0.0.0 --port 4321 --force",
+    "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "typecheck": "astro check"
   },
   "dependencies": {
-    "@astrojs/cloudflare": "^12.0.0",
-    "@astrojs/react": "^4.2.0",
-    "@tailwindcss/vite": "^4.0.0",
-    "astro": "^5.2.0",
-    "clsx": "^2.1.1",
-    "framer-motion": "^12.0.0",
-    "lenis": "^1.1.18",
-    "lucide-react": "^0.474.0",
-    "react": "^19.0.0",
-    "react-dom": "^19.0.0",
-    "tailwind-merge": "^3.0.0",
-    "tailwindcss": "^4.0.0"
+    "@astrojs/cloudflare": "catalog:",
+    "@astrojs/node": "catalog:",
+    "@astrojs/react": "catalog:",
+    "@cloudflare/ai-search-snippet": "^0.0.40",
+    "@emdash-cms/cloudflare": "workspace:*",
+    "@emdash-cms/plugin-forms": "workspace:*",
+    "@emdash-cms/plugin-webhook-notifier": "workspace:*",
+    "@emdash-cms/plugin-cli": "workspace:*",
+    "@tanstack/react-query": "catalog:",
+    "@tanstack/react-router": "catalog:",
+    "emdash": "workspace:*",
+    "react": "catalog:",
+    "react-dom": "catalog:"
   },
   "devDependencies": {
-    "@astrojs/check": "^0.9.4",
-    "@types/node": "^22.10.0",
-    "@types/react": "^19.0.0",
-    "@types/react-dom": "^19.0.0",
-    "typescript": "^5.7.3"
-  }
+    "@astrojs/check": "catalog:",
+    "@cloudflare/workers-types": "catalog:",
+    "@types/node": "catalog:",
+    "astro": "catalog:",
+    "wrangler": "catalog:"
+  },
+  "emdash": {
+    "seed": "seed/seed.json"
+  },
+  "packageManager": "pnpm@10.33.2+sha512.a90faf6feeab71ad6c6e57f94e0fe1a12f5dcc22cd754db40ae9593eb6a3e0b6b12e3540218bb37ae083404b1f2ce6db2a4121e979829b4aff94b99f49da1cf8"
 }

@@ -1,20 +1,30 @@
-import { defineConfig } from 'astro/config';
-import react from '@astrojs/react';
-import cloudflare from '@astrojs/cloudflare';
-import tailwindcss from '@tailwindcss/vite';
+import node from "@astrojs/node";
+import react from "@astrojs/react";
+import { defineConfig } from "astro/config";
+import emdash, { local } from "emdash/astro";
+import { sqlite } from "emdash/db";
 
-// https://astro.build/config
 export default defineConfig({
-  output: 'server',
-  adapter: cloudflare({
-    imageService: 'cloudflare',
-  }),
-  integrations: [react()],
-  vite: {
-    plugins: [tailwindcss()],
-  },
-  server: {
-    host: '0.0.0.0',
-    port: 4321,
-  },
+	output: "server",
+	adapter: node({
+		mode: "standalone",
+	}),
+	i18n: {
+		defaultLocale: "pt-BR",
+		locales: ["pt-BR", "en"],
+		fallback: {
+			en: "pt-BR",
+		},
+	},
+	integrations: [
+		react(),
+		emdash({
+			database: sqlite({ url: "file:./data.db" }),
+			storage: local({
+				directory: "./uploads",
+				baseUrl: "/_emdash/api/media/file",
+			}),
+		}),
+	],
+	devToolbar: { enabled: false },
 });
