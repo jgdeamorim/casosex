@@ -1,6 +1,6 @@
 # ADR-0094 · Intent-Driven Dynamic Composer — Arquitetura de Composição Soberana JSON-First
 
-- **Status**: Accepted (Selado)
+- **Status**: Accepted (Selado v1.1.0)
 - **Data**: 2026-08-14
 - **Autores**: Jeferson Amorim (Founder) & Antigravity (AI Pair)
 - **Extends**: ADR-0016 (Hetzner CAX11 $5.39), ADR-0036 (BLUE/GREEN), ADR-0054 (Intent-Driven Slots), ADR-0058 (Zero Hardcoded Slots), ADR-0060 (Warp Surface Modularization), ADR-0062 (BLAKE3 KV Cache), ADR-0074 (Anti-Jargão SMB), ADR-0077 (Semantic Motion Engine), ADR-0080 (Layout Technique Facets), ADR-0081 (dct-motion Zero-Dependency Runtime), ADR-0084 (Paridade BLUE/GREEN), ADR-0086 (BLUE/GREEN React 19 + shadcn/ui)
@@ -22,7 +22,11 @@ Esta arquitetura apresenta falhas estruturais críticas no ecossistema Adsentice
 
 ### 0.2 O Princípio Intent-Driven Universal
 A ADR-0094 ratifica a inversão soberana e **universal** de modelo para **qualquer superfície ou tipo de conteúdo**:
-$$\text{Intent Prompt + Telemetria Mautic (BLUE)} \xrightarrow[\text{OODA-BOA + 55 Skills}]{ \text{Schwartz 5 Levels}} \text{RenderContext (JSON Universal)} \xrightarrow[\text{Cego / < 2ms}]{\text{TechniqueRenderers (GREEN)}} \text{UI/UX Soberana}$$
+$$\text{Intent Prompt + Telemetria Mautic (BLUE)} \xrightarrow[\text{OODA-BOA + 55 Skills}]{\text{Schwartz 5 Levels}} \text{RenderContext (JSON Universal)} \xrightarrow[\text{Cego / < 2ms}]{\text{TechniqueRenderers (GREEN)}} \text{UI/UX Soberana}$$
+
+### 0.3 O Papel Host do Astro 5.x & O EmDash/DashCommerce Headless
+- **Astro 5.x como Roteador e Compilador HTTP de Borda**: O Astro atua exclusivamente como o servidor HTTP minimalista (Zero JS Client por padrão), recebendo requisições e delegando a compilação do HTML ao `warp-composer.ts`.
+- **EmDash + DashCommerce como Módulos Headless de Coleções**: O EmDash e o DashCommerce deixam de rodar interfaces administrativas visuais acopladas e funcionam estritamente como conectores e provedores de coleções de dados (`getEmDashCollection`), entregando JSON puro para o Intent-Driven Composer.
 
 ---
 
@@ -117,6 +121,7 @@ O motor de renderização GREEN (`composer-core.ts` e renderizadores folha) oper
 | :--- | :--- | :--- |
 | **Workflow de Autoria** | ❌ Arrasto manual de blocos (Gutenberg/Elementor) | **✅ Intent Prompt Pipeline em 5 Etapas** (Prompt ──► JSONs) |
 | **Suporte a Variantes de Nicho** | ❌ Templates rígidos idênticos | **✅ Resolução Polimórfica Dinâmica por Nicho (`variante=delivery`, etc.)** |
+| **Arquitetura de Borda (Host)** | ❌ Monólito acoplado em banco | **✅ Astro 5.x como Compilador HTTP + EmDash Headless** |
 | **Telemetria Comportamental** | ❌ Inexistente ou iFrames pesados | **✅ Telemetria Mautic <2KB + OODA-BOA Score no Redis** |
 | **Persuasão & Psicologia** | ❌ Textos genéricos hardcodados | **✅ 55 Marketing Skills + 5 Níveis de Schwartz** |
 | **Validação de Qualidade** | ❌ Manual e sem métrica auditada | **✅ Portão Automático Jury AA** (Critérios `AA-01`..`AA-18`) |
