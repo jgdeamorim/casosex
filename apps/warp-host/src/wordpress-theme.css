@@ -1,0 +1,70 @@
+/* WordPress 1:1 Sovereign Theme Overrides for EmDash Setup & Admin */
+:root {
+  --background: 220 13% 97%; /* #f0f0f1 */
+  --card: 0 0% 100%; /* #ffffff */
+  --card-foreground: 210 14% 13%; /* #1d2327 */
+  --popover: 0 0% 100%;
+  --popover-foreground: 210 14% 13%;
+  --primary: 207 70% 41%; /* #2271b1 (WP Blue) */
+  --primary-foreground: 0 0% 100%; /* #ffffff */
+  --secondary: 220 13% 95%; /* #f6f7f7 */
+  --secondary-foreground: 210 14% 13%;
+  --muted: 220 13% 95%;
+  --muted-foreground: 210 9% 38%; /* #50575e */
+  --accent: 207 70% 41%;
+  --accent-foreground: 0 0% 100%;
+  --destructive: 359 69% 52%; /* #d63638 */
+  --destructive-foreground: 0 0% 100%;
+  --border: 220 5% 77%; /* #c3c4c7 */
+  --input: 220 4% 56%; /* #8c8f94 */
+  --ring: 207 70% 41%; /* #2271b1 */
+  --radius: 0.25rem; /* 4px (WP classic radius) */
+}
+
+/* Global Background and Typography */
+body {
+  background-color: #f0f0f1 !important;
+  color: #1d2327 !important;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif !important;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Container Cards */
+.bg-card, [class*="bg-background"], [class*="bg-popover"] {
+  border-radius: 4px !important;
+}
+
+/* WordPress Input Controls */
+input[type="text"], input[type="email"], input[type="password"], textarea, select {
+  border: 1px solid #8c8f94 !important;
+  border-radius: 4px !important;
+  background-color: #fcfcfc !important;
+  color: #2c3338 !important;
+}
+
+input:focus, textarea:focus, select:focus {
+  border-color: #2271b1 !important;
+  box-shadow: 0 0 0 1px #2271b1 !important;
+  outline: none !important;
+}
+
+/* WordPress Primary Buttons */
+button[type="submit"], [class*="bg-primary"] {
+  background-color: #2271b1 !important;
+  color: #ffffff !important;
+  border-radius: 4px !important;
+  font-weight: 500 !important;
+}
+
+button[type="submit"]:hover, [class*="bg-primary"]:hover {
+  background-color: #135e96 !important;
+}
+
+/* Labels and Helper Texts */
+label {
+  color: #1d2327 !important;
+}
+
+.text-muted-foreground {
+  color: #50575e !important;
+}
