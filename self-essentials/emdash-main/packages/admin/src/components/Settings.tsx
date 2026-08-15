@@ -8,11 +8,10 @@ import {
 	Globe,
 	GlobeSimple,
 	Key,
+	Cpu,
 	Envelope,
 	DownloadSimple,
 	CaretDown,
-	Cpu,
-	Pulse,
 } from "@phosphor-icons/react";
 import { useQuery } from "@tanstack/react-query";
 import * as React from "react";
@@ -81,24 +80,21 @@ export function Settings() {
 					</SettingsSection>
 				)}
 
-				<SettingsSection title={t`API & AI Integrations`}>
+				<SettingsSection title={t`API Tokens`}>
 					<SettingsNavRow
 						to="/settings/api-tokens"
 						icon={<Key className="h-5 w-5" />}
 						title={t`API Tokens`}
 						description={t`Create personal access tokens for programmatic API access`}
 					/>
+				</SettingsSection>
+
+				<SettingsSection title="Servidor MCP">
 					<SettingsNavRow
 						to="/settings/mcp"
 						icon={<Cpu className="h-5 w-5" />}
-						title={t`MCP Server`}
-						description={t`Model Context Protocol endpoint details, capabilities, and tool registry`}
-					/>
-					<SettingsNavRow
-						to="/settings/telemetry"
-						icon={<Pulse className="h-5 w-5" />}
-						title={t`Telemetry & Observability`}
-						description={t`DevTools bridge connection, real-time error logs, and system health`}
+						title="Servidor MCP"
+						description="Governança e Cockpit de Agentes de IA do EmDash OS"
 					/>
 				</SettingsSection>
 

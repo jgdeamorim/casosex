@@ -1,0 +1,17 @@
+{
+	"$schema": "https://emdash.dev/schemas/plugin.json",
+	"id": "@emdash-cms/plugin-mcp-server",
+	"version": "0.1.0",
+	"name": "Dash-MCP-Server",
+	"description": "Servidor e Cockpit MCP Soberano para o EmDash Admin OS",
+	"capabilities": [
+		"read:content",
+		"write:content",
+		"read:users",
+		"network:fetch"
+	],
+	"allowedHosts": [
+		"localhost",
+		"*.adsentice.com.br"
+	]
+}

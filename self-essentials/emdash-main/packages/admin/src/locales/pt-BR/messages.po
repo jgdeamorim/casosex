@@ -8854,3 +8854,13 @@ msgstr "Seu ID ou usuário do canal do YouTube"
 #: packages/admin/src/components/settings/SocialSettings.tsx:179
 msgid "YouTube"
 msgstr "YouTube"
+
+#: packages/admin/src/components/Settings.tsx:92
+#: packages/admin/src/components/Settings.tsx:96
+msgid "MCP Server"
+msgstr "Servidor MCP"
+
+#: packages/admin/src/components/Settings.tsx:97
+msgid "Manage AI agent tools, JSON-RPC protocol endpoint, and MCP access keys"
+msgstr "Gerencie ferramentas de agentes IA, endpoint do protocolo JSON-RPC e chaves de acesso MCP"
+

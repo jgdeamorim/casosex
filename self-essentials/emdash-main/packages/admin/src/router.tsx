@@ -30,7 +30,6 @@ import {
 	type ContentListSort,
 	type ContentStatusFilter,
 } from "./components/ContentList";
-import { AdminModuleErrorBoundary } from "./components/AdminModuleErrorBoundary";
 import { ContentTypeEditor } from "./components/ContentTypeEditor";
 import { ContentTypeList } from "./components/ContentTypeList";
 import { Dashboard } from "./components/Dashboard";
@@ -49,6 +48,7 @@ import { RegistryBrowse } from "./components/RegistryBrowse";
 import { RegistryPluginDetail } from "./components/RegistryPluginDetail";
 import { SandboxedPluginPage } from "./components/SandboxedPluginPage";
 import { SectionEditor } from "./components/SectionEditor";
+import McpServerAdminPage from "@adsentice/emdash-plugins/mcp-server/admin";
 import { Sections } from "./components/Sections";
 import { Settings } from "./components/Settings";
 import { AllowedDomainsSettings } from "./components/settings/AllowedDomainsSettings";
@@ -56,8 +56,6 @@ import { ApiTokenSettings } from "./components/settings/ApiTokenSettings";
 import { BackupSettings } from "./components/settings/BackupSettings";
 import { EmailSettings } from "./components/settings/EmailSettings";
 import { GeneralSettings } from "./components/settings/GeneralSettings";
-import { McpSettings } from "./components/settings/McpSettings";
-import { TelemetrySettings } from "./components/settings/TelemetrySettings";
 import { SecuritySettings } from "./components/settings/SecuritySettings";
 import { SeoSettings } from "./components/settings/SeoSettings";
 import { SocialSettings } from "./components/settings/SocialSettings";
@@ -1570,18 +1568,11 @@ const apiTokenSettingsRoute = createRoute({
 	component: ApiTokenSettings,
 });
 
-// MCP settings route
+// MCP Server settings route
 const mcpSettingsRoute = createRoute({
 	getParentRoute: () => adminLayoutRoute,
 	path: "/settings/mcp",
-	component: McpSettings,
-});
-
-// Telemetry settings route
-const telemetrySettingsRoute = createRoute({
-	getParentRoute: () => adminLayoutRoute,
-	path: "/settings/telemetry",
-	component: TelemetrySettings,
+	component: McpServerAdminPage,
 });
 
 // Email settings route
@@ -2090,15 +2081,12 @@ function PluginPage() {
 	// Get plugin page component from context (trusted plugins with React)
 	const PluginComponent = usePluginPage(pluginId, pagePath);
 
-	return (
-		<AdminModuleErrorBoundary moduleName={`Plugin: ${pluginId}`}>
-			{PluginComponent ? (
-				<PluginComponent />
-			) : (
-				<SandboxedPluginPage pluginId={pluginId} page={pagePath} />
-			)}
-		</AdminModuleErrorBoundary>
-	);
+	if (PluginComponent) {
+		return <PluginComponent />;
+	}
+
+	// No React component — fall back to Block Kit rendering
+	return <SandboxedPluginPage pluginId={pluginId} page={pagePath} />;
 }
 
 // Catch-all 404 route
@@ -2144,7 +2132,6 @@ const adminRoutes = adminLayoutRoute.addChildren([
 	allowedDomainsSettingsRoute,
 	apiTokenSettingsRoute,
 	mcpSettingsRoute,
-	telemetrySettingsRoute,
 	emailSettingsRoute,
 	backupSettingsRoute,
 	wordpressImportRoute,
