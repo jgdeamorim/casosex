@@ -2,7 +2,7 @@
 
 - **Status:** ACEITO (Discovery Phase Standard)
 - **Data:** 2026-08-25
-- **Versão:** 1.0.0
+- **Versão:** 1.1.0
 - **Escopo:** Protocolo de Transição de Brainstorm Técnico para Decisões Arquiteturais (ADRs) e Especificações SDD (Spec-Kit)
 
 ---
@@ -42,6 +42,7 @@ Durante as sessões de Brainstorm e Briefing Técnico, toda afirmação produzid
 | Tag | Definição | Destino Arquitetural |
 | :--- | :--- | :--- |
 | `[FACT]` | Verdade empírica comprovada (`medido=verdade`) | Documentação / Specs |
+| `[CONSTRAINT]` | Restrição técnica/orçamentária/legal não-negociável | Limite Inviolável nos ADRs |
 | `[INFERENCE]` | Dedução lógica baseada em evidências do sistema | Raciocínio de Discovery |
 | `[OPTION]` | Candidato técnico sob avaliação comparativa | Matriz de Decisão no PLAN |
 | `[TRADE-OFF]` | Análise de prós e contras (Custo vs Complexidade vs Perf) | Avaliação em ADRs |
