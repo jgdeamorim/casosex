@@ -275,11 +275,11 @@
     /* VIP Access Form */
     .vip-card {
       width: 100%;
-      max-width: 540px;
+      max-width: 560px;
       background: var(--surface-glass);
       border: 1px solid var(--surface-glass-border);
       border-radius: var(--radius-xl);
-      padding: 30px 24px;
+      padding: 32px 26px;
       backdrop-filter: blur(32px);
       -webkit-backdrop-filter: blur(32px);
       box-shadow: 0 20px 50px rgba(0,0,0,0.45);
@@ -287,20 +287,21 @@
     }
     .vip-card h3 {
       font-family: 'Playfair Display', serif;
-      font-size: 1.25rem;
+      font-size: 1.35rem;
       font-weight: 700;
       margin-bottom: 6px;
       color: var(--accent-gold-light);
     }
     .vip-card p {
-      font-size: 0.86rem;
+      font-size: 0.88rem;
       color: var(--text-muted);
-      margin-bottom: 20px;
+      margin-bottom: 22px;
+      line-height: 1.5;
     }
     .vip-form {
       display: flex;
       flex-direction: column;
-      gap: 10px;
+      gap: 12px;
     }
     @media (min-width: 540px) {
       .vip-form { flex-direction: row; }
@@ -336,6 +337,98 @@
       white-space: nowrap;
     }
     .btn-submit-vip:active { transform: scale(0.96); }
+
+    /* WhatsApp Divider & Action Buttons */
+    .vip-divider {
+      display: flex;
+      align-items: center;
+      margin: 22px 0 18px 0;
+      color: var(--text-muted);
+      font-size: 0.76rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      font-weight: 600;
+    }
+    .vip-divider::before, .vip-divider::after {
+      content: "";
+      flex: 1;
+      height: 1px;
+      background: rgba(255, 255, 255, 0.1);
+    }
+    .vip-divider span { padding: 0 12px; }
+
+    .btn-whatsapp-group {
+      width: 100%;
+      padding: 14px 20px;
+      background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+      border: none;
+      border-radius: var(--radius-pill);
+      color: #FFFFFF;
+      font-size: 0.92rem;
+      font-weight: 700;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      min-height: 50px;
+      box-shadow: 0 8px 25px rgba(37, 211, 102, 0.3);
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      cursor: pointer;
+    }
+    .btn-whatsapp-group:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 30px rgba(37, 211, 102, 0.45);
+    }
+    .btn-whatsapp-group:active { transform: scale(0.97); }
+
+    .greeting-box {
+      margin-top: 16px;
+      padding: 16px;
+      background: rgba(18, 140, 126, 0.12);
+      border: 1px solid rgba(37, 211, 102, 0.3);
+      border-radius: var(--radius-lg);
+      text-align: left;
+    }
+    .greeting-title {
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: #25D366;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .greeting-text {
+      font-size: 0.84rem;
+      color: #E2D7CE;
+      line-height: 1.45;
+      font-style: italic;
+      background: rgba(0,0,0,0.3);
+      padding: 10px 12px;
+      border-radius: 8px;
+      border-left: 3px solid #25D366;
+      margin-bottom: 10px;
+    }
+    .greeting-action-row {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    .btn-copy-greeting {
+      padding: 8px 14px;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.18);
+      border-radius: var(--radius-pill);
+      color: var(--text-main);
+      font-size: 0.78rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    .btn-copy-greeting:hover { background: rgba(255,255,255,0.15); }
 
     /* Footer */
     footer {
@@ -430,16 +523,51 @@
       </div>
     </div>
 
-    <!-- VIP Early Access -->
+    <!-- VIP Early Access & WhatsApp Group Integration -->
     <div class="vip-card">
       <h3>Convite VIP para Parceiros B2B</h3>
       <p>Cadastre-se previamente para obter prioridade no catálogo de lançamentos e tabela exclusiva de fábrica.</p>
+
+      <!-- VIP Pre-Registration Form -->
       <form class="vip-form" onsubmit="handleVipSubmit(event)">
-        <input type="email" id="vip-email" class="vip-input" placeholder="Seu e-mail corporativo ou WhatsApp" required inputmode="email">
+        <input type="text" id="vip-email" class="vip-input" placeholder="Seu e-mail corporativo ou WhatsApp" required>
         <button type="submit" class="btn-submit-vip" id="vip-btn">Garantir Acesso VIP</button>
       </form>
-      <div id="vip-feedback" style="display:none; margin-top:14px; font-size:0.9rem; color:#30D158; font-weight:600;">
-        ✨ Convite VIP garantido com sucesso! Entraremos em contato prioritário.
+
+      <div id="vip-feedback" style="display:none; margin-top:14px; font-size:0.9rem; color:#30D158; font-weight:600; text-align:center;">
+        ✨ Convite VIP cadastrado! Entre no grupo de administradores abaixo para receber as novidades em primeira mão:
+      </div>
+
+      <!-- Divider -->
+      <div class="vip-divider">
+        <span>OU ACESSE O GRUPO OFICIAL DE ADMINS</span>
+      </div>
+
+      <!-- WhatsApp VIP Group Direct CTA Button -->
+      <a href="https://chat.whatsapp.com/IFZwYz8EXCLLUodeFN8HDC?s=sh&p=a&ilr=1" target="_blank" rel="noopener noreferrer" class="btn-whatsapp-group">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l.399.637-1.152 4.211 4.314-1.131.582.35zm11.233-6.273c-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414-.074-.124-.272-.198-.57-.347z"/>
+        </svg>
+        <span>Entrar no Grupo VIP do WhatsApp</span>
+      </a>
+
+      <!-- Quick Greeting Generator Box -->
+      <div class="greeting-box">
+        <div class="greeting-title">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+          Mensagem Inicial Sugerida aos Admins
+        </div>
+        <div class="greeting-text" id="greeting-template">
+          “Olá Admins da Volúpia B2B! ✦ Sou lojista/parceiro no segmento de Sexual Wellness. Acabo de me cadastrar para o Grupo VIP e solicito acesso à tabela exclusiva de fábrica e novidades de lançamento.”
+        </div>
+        <div class="greeting-action-row">
+          <button type="button" class="btn-copy-greeting" onclick="copyGreeting()">
+            📋 Copiar Saudação
+          </button>
+          <button type="button" class="btn-copy-greeting" onclick="openWhatsAppWithGreeting()" style="background:rgba(37,211,102,0.2); border-color:rgba(37,211,102,0.4); color:#25D366;">
+            💬 Abrir com Saudação
+          </button>
+        </div>
       </div>
     </div>
   </main>
@@ -483,13 +611,37 @@
     function handleVipSubmit(e) {
       e.preventDefault();
       const btn = document.getElementById("vip-btn");
+      const input = document.getElementById("vip-email");
+      const userVal = input.value.trim();
+
       btn.innerText = "Processando...";
       btn.disabled = true;
+
       setTimeout(() => {
         btn.style.display = "none";
-        document.getElementById("vip-email").style.display = "none";
+        input.style.display = "none";
         document.getElementById("vip-feedback").style.display = "block";
-      }, 800);
+        
+        // Update greeting text with user's info if available
+        if (userVal) {
+          const customGreeting = `“Olá Admins da Volúpia B2B! ✦ Sou parceiro (${userVal}). Acabo de me cadastrar para o Grupo VIP e solicito acesso à tabela exclusiva de fábrica e ao catálogo de lançamentos.”`;
+          document.getElementById("greeting-template").innerText = customGreeting;
+        }
+      }, 700);
+    }
+
+    function copyGreeting() {
+      const text = document.getElementById("greeting-template").innerText.replace(/“|”/g, '');
+      navigator.clipboard.writeText(text).then(() => {
+        alert("📋 Saudação copiada! Você pode colar diretamente ao entrar no grupo ou falar com os admins.");
+      }).catch(() => {
+        alert("Texto para cópia:\n\n" + text);
+      });
+    }
+
+    function openWhatsAppWithGreeting() {
+      const groupLink = "https://chat.whatsapp.com/IFZwYz8EXCLLUodeFN8HDC?s=sh&p=a&ilr=1";
+      window.open(groupLink, '_blank');
     }
   </script>
 </body>
