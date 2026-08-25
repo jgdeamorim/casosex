@@ -426,6 +426,14 @@
     }
 
     /* Supplier Table & Homologation Form */
+    .table-scroll-container {
+      max-height: 480px;
+      overflow-y: auto;
+      overflow-x: auto;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      background: var(--surface);
+    }
     .suppliers-table {
       width: 100%;
       border-collapse: collapse;
@@ -442,6 +450,17 @@
       text-transform: uppercase;
       font-size: 0.7rem;
       letter-spacing: 0.05em;
+      position: sticky;
+      top: 0;
+      background: var(--surface);
+      z-index: 5;
+    }
+    .suppliers-table tbody tr {
+      cursor: pointer;
+      transition: background 0.15s ease;
+    }
+    .suppliers-table tbody tr:hover {
+      background: rgba(249, 96, 63, 0.12);
     }
 
     .badge-status {
@@ -825,7 +844,7 @@
             <span style="font-size:0.75rem; color:var(--text-muted)">Ação Rápida WhatsApp</span>
           </div>
 
-          <div style="overflow-x:auto;">
+          <div class="table-scroll-container">
             <table class="suppliers-table">
               <thead>
                 <tr>
@@ -989,6 +1008,7 @@
     }
 
     let markersLayer = null;
+    let markerMap = {};
 
     /* Initialize Leaflet Map with Pins & Auto-Fit Bounds */
     function initLeafletMap(selectedPolo = 'TODOS') {
@@ -1007,6 +1027,7 @@
         map.removeLayer(markersLayer);
       }
 
+      markerMap = {};
       const markersGroup = L.featureGroup();
 
       const filteredList = suppliersList.filter(sup => {
@@ -1044,6 +1065,9 @@
         `;
         marker.bindPopup(popupContent);
         markersGroup.addLayer(marker);
+
+        const key = sup.id || sup.place_id;
+        if (key) markerMap[key] = marker;
       });
 
       markersLayer = markersGroup;
@@ -1058,18 +1082,27 @@
 
     function filterMapByPolo(polo) {
       initLeafletMap(polo);
+      renderSuppliersTable(polo);
     }
 
-    function renderSuppliersTable() {
+    function renderSuppliersTable(selectedPolo = 'TODOS') {
       const tbody = document.getElementById('suppliers-table-body');
+      if (!tbody) return;
       tbody.innerHTML = '';
 
-      suppliersList.forEach(sup => {
+      const filteredList = suppliersList.filter(sup => {
+        if (selectedPolo === 'SP') return sup.state === 'SP' || (sup.city && sup.city.includes('São Paulo')) || (sup.address && sup.address.includes('SP'));
+        if (selectedPolo === 'RJ') return sup.state === 'RJ' || (sup.city && (sup.city.includes('Rio') || sup.city.includes('Caxias') || sup.city.includes('Niterói')));
+        return true;
+      });
+
+      filteredList.forEach(sup => {
         const tr = document.createElement('tr');
+        tr.title = 'Clique para ver e focar no mapa 📍';
         tr.innerHTML = `
           <td>
             <strong style="color:var(--text-main);">${sup.name}</strong><br/>
-            <span style="color:var(--text-muted); font-size:0.75rem;">${sup.city}</span>
+            <span style="color:var(--text-muted); font-size:0.75rem;">📍 ${sup.city} (${sup.state || 'BR'})</span>
           </td>
           <td>${sup.category}</td>
           <td><span class="badge-status ${sup.status}">${sup.status}</span></td>
@@ -1077,6 +1110,28 @@
             <a href="https://wa.me/${sup.whatsapp}?text=Ol%C3%A1!%20Solicito%20tabela%20B2B" target="_blank" style="color:#25D366; text-decoration:none; font-weight:700;">💬 Cotação</a>
           </td>
         `;
+
+        // Interatividade 1-Clique: Tabela ➔ Voa e foca no Mapa
+        tr.addEventListener('click', (e) => {
+          if (e.target.tagName === 'A' || e.target.closest('a')) return;
+          const lat = parseFloat(sup.latitude || sup.lat);
+          const lng = parseFloat(sup.longitude || sup.lng);
+          if (isNaN(lat) || isNaN(lng)) return;
+
+          if (map) {
+            const mapEl = document.getElementById('leaflet-map');
+            if (mapEl) mapEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            
+            map.flyTo([lat, lng], 15, { animate: true, duration: 1.2 });
+            
+            const key = sup.id || sup.place_id;
+            const marker = markerMap[key];
+            if (marker) {
+              setTimeout(() => marker.openPopup(), 400);
+            }
+          }
+        });
+
         tbody.appendChild(tr);
       });
     }
