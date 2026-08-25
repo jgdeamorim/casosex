@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Volúpia | Brand DNA Book</title>
+    <style>
+        :root {
+            --bg: #0c0a0b;
+            --card: #161214;
+            --border: #2e2428;
+            --rose: #e11d48;
+            --rose-soft: #fb7185;
+            --gold: #d4a373;
+            --gold-light: #f5d0a9;
+            --text: #faf7f5;
+            --muted: #a89b9b;
+            --white: #ffffff;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+            font-size: 15.5px;
+        }
+        .container { max-width: 920px; margin: 0 auto; padding: 50px 28px 90px; }
+
+        /* Cover */
+        .cover {
+            text-align: center;
+            padding: 80px 20px 70px;
+            border-bottom: 1px solid var(--border);
+            margin-bottom: 50px;
+            background: radial-gradient(ellipse at center, #1a1215 0%, var(--bg) 70%);
+        }
+        .cover .brand {
+            font-size: 3.2rem;
+            font-weight: 300;
+            letter-spacing: 12px;
+            color: var(--gold-light);
+            margin-bottom: 8px;
+        }
+        .cover .sub {
+            font-size: 0.95rem;
+            letter-spacing: 6px;
+            color: var(--rose-soft);
+            text-transform: uppercase;
+            margin-bottom: 28px;
+        }
+        .cover .tagline {
+            font-size: 1.25rem;
+            font-weight: 400;
+            color: var(--muted);
+            font-style: italic;
+            max-width: 480px;
+            margin: 0 auto;
+        }
+        .cover .meta {
+            margin-top: 40px;
+            font-size: 0.85rem;
+            color: var(--muted);
+            letter-spacing: 1px;
+        }
+
+        /* Sections */
+        section { margin-bottom: 55px; }
+        h2 {
+            font-size: 1.35rem;
+            font-weight: 600;
+            color: var(--gold-light);
+            margin-bottom: 18px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid var(--border);
+            letter-spacing: 0.5px;
+        }
+        h3 {
+            font-size: 1.05rem;
+            font-weight: 600;
+            color: var(--rose-soft);
+            margin: 26px 0 12px;
+        }
+        p { margin-bottom: 14px; color: #e8e0e0; }
+        ul, ol { margin: 12px 0 16px 22px; color: #e8e0e0; }
+        li { margin-bottom: 7px; }
+
+        .card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 22px 24px;
+            margin: 16px 0;
+        }
+        .card.highlight {
+            border-color: var(--rose);
+            background: linear-gradient(145deg, #1f1216, #161214);
+        }
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            margin: 18px 0;
+        }
+        @media (max-width: 680px) { .grid-2 { grid-template-columns: 1fr; } }
+
+        .pillar {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 18px;
+            text-align: center;
+        }
+        .pillar .icon { font-size: 1.6rem; margin-bottom: 8px; }
+        .pillar h4 { font-size: 0.95rem; color: var(--gold-light); margin-bottom: 6px; }
+        .pillar p { font-size: 0.88rem; color: var(--muted); margin: 0; }
+
+        .voice-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin: 16px 0;
+        }
+        .voice-item {
+            padding: 14px 16px;
+            border-radius: 8px;
+            font-size: 0.9rem;
+        }
+        .voice-item.yes { background: #13241a; border: 1px solid #1e3d2a; }
+        .voice-item.no { background: #241313; border: 1px solid #3d1e1e; }
+        .voice-item strong { display: block; margin-bottom: 4px; font-size: 0.82rem; text-transform: uppercase; letter-spacing: 0.5px; }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 16px 0 22px;
+            font-size: 0.9rem;
+        }
+        th, td {
+            padding: 11px 14px;
+            text-align: left;
+            border-bottom: 1px solid var(--border);
+        }
+        th {
+            background: #1c1518;
+            color: var(--gold);
+            font-weight: 600;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.4px;
+        }
+        tr:hover td { background: #1a1416; }
+
+        .quote {
+            font-size: 1.15rem;
+            font-style: italic;
+            color: var(--gold-light);
+            text-align: center;
+            padding: 28px 20px;
+            border-left: 3px solid var(--rose);
+            background: var(--card);
+            margin: 24px 0;
+            border-radius: 0 10px 10px 0;
+        }
+
+        .manifesto {
+            background: linear-gradient(145deg, #1f1216, #161214);
+            border: 1px solid var(--rose);
+            border-radius: 14px;
+            padding: 32px 28px;
+            margin: 24px 0;
+        }
+        .manifesto p {
+            font-size: 1.05rem;
+            line-height: 1.8;
+            color: #f0e8e8;
+        }
+
+        footer {
+            margin-top: 60px;
+            padding-top: 24px;
+            border-top: 1px solid var(--border);
+            text-align: center;
+            font-size: 0.85rem;
+            color: var(--muted);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+
+        <!-- COVER -->
+        <div class="cover">
+            <div class="brand">VOLÚPIA</div>
+            <div class="sub">Brand DNA Book</div>
+            <div class="tagline">“Desperte seus sentidos”</div>
+            <div class="meta">volupia.com.br &nbsp;·&nbsp; Sexual Wellness &nbsp;·&nbsp; Brasil 2026</div>
+        </div>
+
+        <!-- 1. ESSÊNCIA -->
+        <section>
+            <h2>1. Essência da Marca</h2>
+            
+            <div class="quote">
+                Volúpia é o prazer que se sente com todos os sentidos despertos.<br>
+                Não é excesso. É presença.
+            </div>
+
+            <p>
+                <strong>Volúpia</strong> vem do latim <em>Volupia</em> — a deusa romana do prazer dos sentidos. 
+                Não se trata de luxúria desenfreada, mas do deleite consciente, da experiência sensorial elevada e da intimidade vivida com intensidade e elegância.
+            </p>
+
+            <div class="card highlight">
+                <p style="margin:0; font-size:1.1rem; color:var(--gold-light);">
+                    <strong>Essência em uma frase:</strong><br>
+                    O prazer sensorial sofisticado que transforma a intimidade em experiência.
+                </p>
+            </div>
+        </section>
+
+        <!-- 2. PROPÓSITO & MISSÃO -->
+        <section>
+            <h2>2. Propósito, Missão e Visão</h2>
+
+            <div class="grid-2">
+                <div class="card">
+                    <h3 style="margin-top:0; color:var(--rose-soft);">Propósito</h3>
+                    <p style="margin:0;">Despertar nas pessoas a coragem de sentir mais — com consciência, beleza e liberdade.</p>
+                </div>
+                <div class="card">
+                    <h3 style="margin-top:0; color:var(--rose-soft);">Missão</h3>
+                    <p style="margin:0;">Oferecer produtos e experiências de prazer de alta qualidade, com discrição absoluta e linguagem que respeita a inteligência emocional do consumidor.</p>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3 style="margin-top:0; color:var(--rose-soft);">Visão</h3>
+                <p style="margin:0;">Ser a referência brasileira em sexual wellness sofisticado — a marca que as pessoas recomendam quando querem qualidade, elegância e confiança.</p>
+            </div>
+        </section>
+
+        <!-- 3. ARQUÉTIPOS -->
+        <section>
+            <h2>3. Arquétipos</h2>
+            
+            <p>Volúpia opera principalmente sob dois arquétipos complementares:</p>
+
+            <div class="grid-2">
+                <div class="card">
+                    <h3 style="margin-top:0;">O Amante</h3>
+                    <p>Paixão, sensualidade, conexão profunda e desejo. É o coração emocional da marca. Volúpia não vende produtos — vende a possibilidade de sentir e ser sentido.</p>
+                </div>
+                <div class="card">
+                    <h3 style="margin-top:0;">O Explorador</h3>
+                    <p>Descoberta, liberdade e expansão dos sentidos. Convida o cliente a sair do automático e explorar novas camadas de prazer e intimidade.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. PILARES -->
+        <section>
+            <h2>4. Pilares da Marca</h2>
+
+            <div class="grid-2" style="grid-template-columns: 1fr 1fr 1fr 1fr;">
+                <div class="pillar">
+                    <div class="icon">✦</div>
+                    <h4>Sensualidade</h4>
+                    <p>Prazer vivido com presença e sofisticação</p>
+                </div>
+                <div class="pillar">
+                    <div class="icon">◈</div>
+                    <h4>Discrição</h4>
+                    <p>Privacidade absoluta em cada detalhe</p>
+                </div>
+                <div class="pillar">
+                    <div class="icon">✧</div>
+                    <h4>Descoberta</h4>
+                    <p>Convidar à exploração sem julgamento</p>
+                </div>
+                <div class="pillar">
+                    <div class="icon">❖</div>
+                    <h4>Qualidade</h4>
+                    <p>Curadoria rigorosa e produtos body-safe</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. PERSONALIDADE -->
+        <section>
+            <h2>5. Personalidade da Marca</h2>
+
+            <p>Volúpia é como uma mulher elegante, segura e generosa com o conhecimento. Ela não grita. Ela convida.</p>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>É</th>
+                        <th>Não é</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Sensual e sofisticada</td>
+                        <td>Vulgar ou explícita demais</td>
+                    </tr>
+                    <tr>
+                        <td>Acolhedora e segura</td>
+                        <td>Julgadora ou moralista</td>
+                    </tr>
+                    <tr>
+                        <td>Direta e inteligente</td>
+                        <td>Infantilizada ou “fofinha”</td>
+                    </tr>
+                    <tr>
+                        <td>Provocante com classe</td>
+                        <td>Provocante por provocação</td>
+                    </tr>
+                    <tr>
+                        <td>Feminina e inclusiva</td>
+                        <td>Exclusivamente para um gênero</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- 6. TOM DE VOZ -->
+        <section>
+            <h2>6. Tom de Voz</h2>
+
+            <p>O tom de Volúpia é <strong>elegante, presente e provocante com inteligência</strong>.</p>
+
+            <div class="voice-grid">
+                <div class="voice-item yes">
+                    <strong style="color:var(--success);">Usamos</strong>
+                    Linguagem sensorial, metáforas sutis, convites, afirmações de liberdade, cuidado e qualidade.
+                </div>
+                <div class="voice-item no">
+                    <strong style="color:#ff6b6b;">Evitamos</strong>
+                    Gírias vulgares, humor de baixo nível, pressão de venda agressiva, linguagem infantil ou excessivamente técnica.
+                </div>
+            </div>
+
+            <h3>Exemplos de voz</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Situação</th>
+                        <th>Como Volúpia fala</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Produto novo</td>
+                        <td>“Uma nova forma de sentir. Feito para quem já sabe que prazer também é arte.”</td>
+                    </tr>
+                    <tr>
+                        <td>Discrição</td>
+                        <td>“Chega em caixa neutra. Nem o porteiro precisa saber.”</td>
+                    </tr>
+                    <tr>
+                        <td>Educação</td>
+                        <td>“Conhecer o próprio corpo é o primeiro ato de liberdade.”</td>
+                    </tr>
+                    <tr>
+                        <td>Convite</td>
+                        <td>“Desperte. Explore. Permita-se.”</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- 7. MANIFESTO -->
+        <section>
+            <h2>7. Manifesto</h2>
+
+            <div class="manifesto">
+                <p>
+                    Acreditamos que o prazer não precisa ser escondido nem justificado.<br><br>
+                    Ele pode ser elegante. Pode ser consciente. Pode ser compartilhado ou solitário.<br>
+                    Pode ser descoberta, reencontro ou simplesmente presença.<br><br>
+                    Na Volúpia, não vendemos objetos.<br>
+                    Oferecemos caminhos para sentir mais — com segurança, beleza e liberdade.<br><br>
+                    Porque despertar os sentidos é um ato de coragem.<br>
+                    E o prazer, quando vivido com consciência, é uma forma de estar vivo.
+                </p>
+            </div>
+        </section>
+
+        <!-- 8. POSICIONAMENTO -->
+        <section>
+            <h2>8. Posicionamento de Mercado</h2>
+
+            <div class="card highlight">
+                <p style="margin:0;">
+                    <strong>Volúpia</strong> não é apenas mais um sex shop.<br>
+                    É uma marca de <strong>Sexual Wellness</strong> que combina sofisticação, discrição e curadoria de qualidade para quem busca viver a intimidade com mais presença e menos tabu.
+                </p>
+            </div>
+
+            <h3>Território de marca</h3>
+            <ul>
+                <li><strong>Categoria:</strong> Sexual Wellness / Prazer Inteligente</li>
+                <li><strong>Público prioritário:</strong> Mulheres 26–42 anos e casais que valorizam qualidade e discrição</li>
+                <li><strong>Diferenciação:</strong> Elegância + Sensorialidade + Confiança</li>
+                <li><strong>Promessa funcional:</strong> Produtos body-safe, entrega 100% discreta, curadoria cuidadosa</li>
+                <li><strong>Promessa emocional:</strong> Permissão para sentir mais, com beleza e segurança</li>
+            </ul>
+        </section>
+
+        <!-- 9. DIFERENCIAÇÃO -->
+        <section>
+            <h2>9. Como se diferenciar no mercado</h2>
+
+            <p>Como já existem outras operações usando o nome Volúpia, a diferenciação precisa ser clara e consistente:</p>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Dimensão</th>
+                        <th>Como Volúpia se diferencia</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Visual</td>
+                        <td>Identidade sofisticada, rosa metálico + dourado, tipografia elegante. Longe do visual “preto e vermelho genérico”.</td>
+                    </tr>
+                    <tr>
+                        <td>Tom de voz</td>
+                        <td>Nunca vulgar. Sempre sensorial e inteligente.</td>
+                    </tr>
+                    <tr>
+                        <td>Conteúdo</td>
+                        <td>Educação sexual de qualidade + storytelling + guias de descoberta.</td>
+                    </tr>
+                    <tr>
+                        <td>Experiência</td>
+                        <td>Discrição absoluta (embalagem, fatura, comunicação) + atendimento humanizado.</td>
+                    </tr>
+                    <tr>
+                        <td>Posicionamento</td>
+                        <td>Sexual Wellness premium, não apenas “sex shop tradicional”.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- 10. DIRETRIZES VISUAIS -->
+        <section>
+            <h2>10. Diretrizes Visuais (resumo)</h2>
+
+            <div class="grid-2">
+                <div class="card">
+                    <h3 style="margin-top:0;">Cores principais</h3>
+                    <ul style="margin:8px 0 0 16px; font-size:0.9rem;">
+                        <li>Rosa metálico / Magenta profundo (#e11d48 / #fb7185)</li>
+                        <li>Dourado champagne (#d4a373 / #f5d0a9)</li>
+                        <li>Preto profundo (#0c0a0b)</li>
+                        <li>Off-white para textos longos</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h3 style="margin-top:0;">Estilo visual</h3>
+                    <ul style="margin:8px 0 0 16px; font-size:0.9rem;">
+                        <li>Elegante e sensorial</li>
+                        <li>Uso generoso de espaço negativo</li>
+                        <li>Fotografias com iluminação quente e intimista</li>
+                        <li>Evitar excesso de vermelho “gritante” e imagens genéricas</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- 11. APLICAÇÕES -->
+        <section>
+            <h2>11. Aplicações práticas do Brand DNA</h2>
+
+            <h3>No site</h3>
+            <ul>
+                <li>Headline principal: “Desperte seus sentidos”</li>
+                <li>Subheadline: “Prazer com elegância, discrição e qualidade”</li>
+                <li>Categorias com linguagem sensorial (ex: “Para sentir mais”, “Para explorar juntos”)</li>
+            </ul>
+
+            <h3>Nas redes</h3>
+            <ul>
+                <li>Conteúdo educativo + sensorial (não apenas produto)</li>
+                <li>Tom de conversa próxima, mas nunca vulgar</li>
+                <li>Stories com dicas, bastidores de curadoria e depoimentos reais</li>
+            </ul>
+
+            <h3>No atendimento</h3>
+            <ul>
+                <li>Sempre discreto e acolhedor</li>
+                <li>Nunca pressionar</li>
+                <li>Usar a linguagem da marca mesmo no WhatsApp</li>
+            </ul>
+        </section>
+
+        <!-- 12. RESUMO EXECUTIVO -->
+        <section>
+            <h2>12. Resumo Executivo do Brand DNA</h2>
+
+            <div class="card highlight">
+                <table style="margin:0;">
+                    <tr>
+                        <td style="border:none; width:140px; color:var(--muted);">Nome</td>
+                        <td style="border:none;"><strong>Volúpia</strong></td>
+                    </tr>
+                    <tr>
+                        <td style="border:none; color:var(--muted);">Domínio</td>
+                        <td style="border:none;">volupia.com.br</td>
+                    </tr>
+                    <tr>
+                        <td style="border:none; color:var(--muted);">Essência</td>
+                        <td style="border:none;">Prazer sensorial sofisticado</td>
+                    </tr>
+                    <tr>
+                        <td style="border:none; color:var(--muted);">Tagline</td>
+                        <td style="border:none;">Desperte seus sentidos</td>
+                    </tr>
+                    <tr>
+                        <td style="border:none; color:var(--muted);">Arquétipos</td>
+                        <td style="border:none;">Amante + Explorador</td>
+                    </tr>
+                    <tr>
+                        <td style="border:none; color:var(--muted);">Pilares</td>
+                        <td style="border:none;">Sensualidade · Discrição · Descoberta · Qualidade</td>
+                    </tr>
+                    <tr>
+                        <td style="border:none; color:var(--muted);">Tom</td>
+                        <td style="border:none;">Elegante, presente, provocante com inteligência</td>
+                    </tr>
+                    <tr>
+                        <td style="border:none; color:var(--muted);">Posicionamento</td>
+                        <td style="border:none;">Sexual Wellness premium com alma brasileira</td>
+                    </tr>
+                </table>
+            </div>
+        </section>
+
+        <footer>
+            Volúpia Brand DNA Book &nbsp;·&nbsp; Documento estratégico de marca<br>
+            Criado para orientar todas as decisões de comunicação, produto e experiência.
+        </footer>
+    </div>
+</body>
+</html>

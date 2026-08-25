@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tese Crítica | Análise de Domínios para Volúpia</title>
+    <style>
+        :root {
+            --bg: #0c0a0b;
+            --card: #161214;
+            --border: #2e2428;
+            --rose: #e11d48;
+            --rose-soft: #fb7185;
+            --gold: #d4a373;
+            --gold-light: #f5d0a9;
+            --text: #faf7f5;
+            --muted: #a89b9b;
+            --success: #30d158;
+            --warning: #ff9f0a;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+            font-size: 15.5px;
+        }
+        .container { max-width: 920px; margin: 0 auto; padding: 48px 26px 80px; }
+
+        header {
+            text-align: center;
+            padding-bottom: 36px;
+            border-bottom: 1px solid var(--border);
+            margin-bottom: 42px;
+        }
+        .badge {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--rose), #be123c);
+            color: #fff;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 1.2px;
+            padding: 5px 14px;
+            border-radius: 4px;
+            text-transform: uppercase;
+            margin-bottom: 16px;
+        }
+        h1 {
+            font-size: 1.85rem;
+            font-weight: 650;
+            color: var(--gold-light);
+            margin-bottom: 10px;
+            letter-spacing: -0.3px;
+        }
+        .subtitle {
+            color: var(--muted);
+            font-size: 1.02rem;
+            max-width: 620px;
+            margin: 0 auto;
+        }
+        .meta {
+            margin-top: 20px;
+            font-size: 0.85rem;
+            color: var(--muted);
+        }
+
+        section { margin-bottom: 48px; }
+        h2 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--gold-light);
+            margin-bottom: 16px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid var(--border);
+        }
+        h3 {
+            font-size: 1.08rem;
+            font-weight: 600;
+            color: var(--rose-soft);
+            margin: 22px 0 12px;
+        }
+        p { margin-bottom: 13px; color: #e8e0e0; }
+
+        .card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 22px;
+            margin: 16px 0;
+        }
+        .card.highlight {
+            border-color: var(--rose);
+            background: linear-gradient(145deg, #1f1216, #161214);
+        }
+        .card.winner {
+            border-color: var(--gold);
+            background: linear-gradient(145deg, #1a1610, #161214);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 14px 0 20px;
+            font-size: 0.9rem;
+        }
+        th, td {
+            padding: 11px 13px;
+            text-align: left;
+            border-bottom: 1px solid var(--border);
+        }
+        th {
+            background: #1c1518;
+            color: var(--gold);
+            font-weight: 600;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.4px;
+        }
+        tr:hover td { background: #1a1416; }
+
+        .score {
+            font-weight: 700;
+            font-size: 1.1rem;
+        }
+        .score.high { color: var(--success); }
+        .score.mid { color: var(--warning); }
+        .score.low { color: #ff6b6b; }
+
+        .rank-table td:first-child {
+            font-weight: 700;
+            color: var(--gold);
+            width: 50px;
+        }
+
+        .callout {
+            background: #1c1518;
+            border-left: 4px solid var(--gold);
+            padding: 16px 20px;
+            margin: 20px 0;
+            border-radius: 0 8px 8px 0;
+        }
+        .callout.warning { border-left-color: var(--warning); }
+        .callout.rose { border-left-color: var(--rose); }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            margin: 16px 0;
+        }
+        @media (max-width: 680px) { .grid-2 { grid-template-columns: 1fr; } }
+
+        .pros-cons {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 14px;
+            margin: 14px 0;
+        }
+        @media (max-width: 600px) { .pros-cons { grid-template-columns: 1fr; } }
+        .pros, .cons {
+            padding: 16px;
+            border-radius: 10px;
+            font-size: 0.9rem;
+        }
+        .pros { background: #13241a; border: 1px solid #1e3d2a; }
+        .cons { background: #241313; border: 1px solid #3d1e1e; }
+        .pros h4, .cons h4 {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 8px;
+        }
+        .pros h4 { color: var(--success); }
+        .cons h4 { color: #ff6b6b; }
+        .pros ul, .cons ul { margin: 0 0 0 16px; }
+        .pros li, .cons li { margin-bottom: 5px; color: #e0e0e0; }
+
+        footer {
+            margin-top: 50px;
+            padding-top: 22px;
+            border-top: 1px solid var(--border);
+            text-align: center;
+            font-size: 0.85rem;
+            color: var(--muted);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+
+        <header>
+            <div class="badge">Tese Crítica Estratégica</div>
+            <h1>Análise de Benefícios e Riscos<br>dos Domínios para Volúpia</h1>
+            <p class="subtitle">
+                Avaliação técnica e de branding das opções de domínio disponíveis, alinhada ao Brand DNA da marca.
+            </p>
+            <div class="meta">volupia.com.br indisponível &nbsp;·&nbsp; Agosto 2026</div>
+        </header>
+
+        <!-- Contexto -->
+        <section>
+            <h2>1. Contexto da Decisão</h2>
+            <p>
+                O domínio ideal <strong>volupia.com.br</strong> não está disponível. 
+                Diante disso, foram avaliadas quatro alternativas reais e acessíveis, considerando:
+            </p>
+            <ul style="margin:12px 0 16px 22px; color:#e8e0e0;">
+                <li>Confiança do consumidor brasileiro</li>
+                <li>Alinhamento com o Brand DNA (elegância + sensualidade sofisticada)</li>
+                <li>Memorabilidade e facilidade de comunicação</li>
+                <li>Percepção premium</li>
+                <li>Risco de diluição frente a outras Volúpias existentes</li>
+                <li>Custo-benefício</li>
+            </ul>
+        </section>
+
+        <!-- Análise individual -->
+        <section>
+            <h2>2. Análise Individual dos Domínios</h2>
+
+            <!-- usevolupia -->
+            <div class="card">
+                <h3 style="margin-top:0; color:var(--gold-light);">usevolupia.com.br — R$ 40,00</h3>
+                
+                <div class="pros-cons">
+                    <div class="pros">
+                        <h4>Benefícios</h4>
+                        <ul>
+                            <li>Extensão .com.br transmite alta confiança no Brasil</li>
+                            <li>Prefixo “use” funciona como convite sutil</li>
+                            <li>Fácil de falar e lembrar</li>
+                            <li>Bom para anúncios e comunicação oral</li>
+                            <li>Diferencia das outras Volúpias regionais</li>
+                        </ul>
+                    </div>
+                    <div class="cons">
+                        <h4>Críticas / Riscos</h4>
+                        <ul>
+                            <li>O prefixo enfraquece a força do nome puro “Volúpia”</li>
+                            <li>Parece mais “loja que vende” do que a própria marca</li>
+                            <li>Percepção premium fica mediana</li>
+                            <li>Menos elegante que um domínio limpo</li>
+                        </ul>
+                    </div>
+                </div>
+                <p style="margin-top:12px; font-size:0.92rem;">
+                    <strong>Nota geral:</strong> <span class="score mid">8.1 / 10</span> — Mais segura para conversão no público brasileiro, porém não é a mais sofisticada.
+                </p>
+            </div>
+
+            <!-- volupia.store -->
+            <div class="card winner">
+                <h3 style="margin-top:0; color:var(--gold-light);">volupia.store — US$ 43</h3>
+                
+                <div class="pros-cons">
+                    <div class="pros">
+                        <h4>Benefícios</h4>
+                        <ul>
+                            <li>Nome limpo e elegante (melhor alinhamento com o DNA)</li>
+                            <li>Extensão .store comunica e-commerce de forma moderna</li>
+                            <li>Alta percepção premium</li>
+                            <li>Fácil de memorizar e comunicar</li>
+                            <li>Diferencia bem das Volúpias tradicionais</li>
+                        </ul>
+                    </div>
+                    <div class="cons">
+                        <h4>Críticas / Riscos</h4>
+                        <ul>
+                            <li>Extensão ainda menos familiar que .com.br para parte do público</li>
+                            <li>Pode exigir um pouco mais de educação no início</li>
+                            <li>Custo um pouco mais alto</li>
+                        </ul>
+                    </div>
+                </div>
+                <p style="margin-top:12px; font-size:0.92rem;">
+                    <strong>Nota geral:</strong> <span class="score high">8.7 / 10</span> — Melhor equilíbrio entre elegância, modernidade e clareza. Opção recomendada como domínio principal.
+                </p>
+            </div>
+
+            <!-- volupia.shop -->
+            <div class="card">
+                <h3 style="margin-top:0; color:var(--gold-light);">volupia.shop — US$ 31</h3>
+                
+                <div class="pros-cons">
+                    <div class="pros">
+                        <h4>Benefícios</h4>
+                        <ul>
+                            <li>Nome limpo e direto</li>
+                            <li>Extensão clara e bem compreendida</li>
+                            <li>Bom custo-benefício</li>
+                            <li>Fácil de falar e anunciar</li>
+                            <li>Baixo risco de diluição</li>
+                        </ul>
+                    </div>
+                    <div class="cons">
+                        <h4>Críticas / Riscos</h4>
+                        <ul>
+                            <li>Soa um pouco mais “comercial” que .store</li>
+                            <li>Percepção premium ligeiramente inferior</li>
+                            <li>Menos diferenciada em relação a outras lojas</li>
+                        </ul>
+                    </div>
+                </div>
+                <p style="margin-top:12px; font-size:0.92rem;">
+                    <strong>Nota geral:</strong> <span class="score mid">8.0 / 10</span> — Sólida e mais barata. Perde por pouco para volupia.store em sofisticação.
+                </p>
+            </div>
+
+            <!-- volupia.love -->
+            <div class="card">
+                <h3 style="margin-top:0; color:var(--gold-light);">volupia.love — US$ 21</h3>
+                
+                <div class="pros-cons">
+                    <div class="pros">
+                        <h4>Benefícios</h4>
+                        <ul>
+                            <li>Alinhamento emocional forte com o DNA da marca</li>
+                            <li>Diferenciada e memorável</li>
+                            <li>Custo baixo</li>
+                            <li>Única e distintiva</li>
+                        </ul>
+                    </div>
+                    <div class="cons">
+                        <h4>Críticas / Riscos</h4>
+                        <ul>
+                            <li>Extensão pouco comum no Brasil</li>
+                            <li>Pode gerar estranhamento e reduzir confiança</li>
+                            <li>Parece mais conceitual/romântica do que comercial</li>
+                            <li>Risco de menor conversão em loja virtual</li>
+                        </ul>
+                    </div>
+                </div>
+                <p style="margin-top:12px; font-size:0.92rem;">
+                    <strong>Nota geral:</strong> <span class="score low">6.8 / 10</span> — Interessante como domínio secundário ou campanha. Não recomendada como principal.
+                </p>
+            </div>
+        </section>
+
+        <!-- Ranking -->
+        <section>
+            <h2>3. Ranking Estratégico Final</h2>
+
+            <table class="rank-table">
+                <thead>
+                    <tr>
+                        <th>Posição</th>
+                        <th>Domínio</th>
+                        <th>Nota</th>
+                        <th>Quando escolher</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1º</td>
+                        <td><strong>volupia.store</strong></td>
+                        <td><span class="score high">8.7</span></td>
+                        <td>Melhor equilíbrio entre elegância, modernidade e clareza</td>
+                    </tr>
+                    <tr>
+                        <td>2º</td>
+                        <td><strong>usevolupia.com.br</strong></td>
+                        <td><span class="score mid">8.1</span></td>
+                        <td>Prioridade máxima em confiança do consumidor brasileiro</td>
+                    </tr>
+                    <tr>
+                        <td>3º</td>
+                        <td><strong>volupia.shop</strong></td>
+                        <td><span class="score mid">8.0</span></td>
+                        <td>Boa alternativa mais econômica ao .store</td>
+                    </tr>
+                    <tr>
+                        <td>4º</td>
+                        <td><strong>volupia.love</strong></td>
+                        <td><span class="score low">6.8</span></td>
+                        <td>Apenas como domínio secundário ou campanha</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- Recomendação -->
+        <section>
+            <h2>4. Recomendação Final</h2>
+
+            <div class="card winner">
+                <h3 style="margin-top:0; color:var(--gold-light);">Estratégia ideal de portfólio</h3>
+                <p style="margin-bottom:12px;"><strong>Domínio principal:</strong> <code>volupia.store</code></p>
+                <p style="margin-bottom:12px;"><strong>Domínio de proteção / confiança:</strong> <code>usevolupia.com.br</code></p>
+                
+                <p style="margin-top:16px; margin-bottom:8px;"><strong>Por que essa combinação?</strong></p>
+                <ul style="margin:0 0 0 18px;">
+                    <li><code>volupia.store</code> carrega o Brand DNA com elegância e modernidade.</li>
+                    <li>O <code>.com.br</code> serve como âncora de confiança e proteção de marca no Brasil.</li>
+                    <li>Permite comunicar a marca de forma limpa e ainda oferecer segurança ao consumidor brasileiro.</li>
+                    <li>Reduz risco de confusão com outras Volúpias já existentes.</li>
+                </ul>
+            </div>
+
+            <div class="callout warning">
+                <strong>Evite</strong> usar apenas <code>volupia.love</code> como domínio principal de uma loja virtual que precisa gerar conversão e confiança rápida.
+            </div>
+        </section>
+
+        <!-- Resumo executivo -->
+        <section>
+            <h2>5. Resumo Executivo</h2>
+
+            <div class="card highlight">
+                <table style="margin:0;">
+                    <tr>
+                        <td style="border:none; width:180px; color:var(--muted);">Melhor opção isolada</td>
+                        <td style="border:none;"><strong>volupia.store</strong></td>
+                    </tr>
+                    <tr>
+                        <td style="border:none; color:var(--muted);">Mais segura para o BR</td>
+                        <td style="border:none;"><strong>usevolupia.com.br</strong></td>
+                    </tr>
+                    <tr>
+                        <td style="border:none; color:var(--muted);">Melhor custo-benefício</td>
+                        <td style="border:none;"><strong>volupia.shop</strong></td>
+                    </tr>
+                    <tr>
+                        <td style="border:none; color:var(--muted);">Apenas secundário</td>
+                        <td style="border:none;"><strong>volupia.love</strong></td>
+                    </tr>
+                    <tr>
+                        <td style="border:none; color:var(--muted);">Estratégia recomendada</td>
+                        <td style="border:none;"><strong>volupia.store + usevolupia.com.br</strong></td>
+                    </tr>
+                </table>
+            </div>
+        </section>
+
+        <footer>
+            Tese Crítica — Análise de Domínios para Volúpia<br>
+            Documento estratégico alinhado ao Brand DNA da marca · Agosto 2026
+        </footer>
+    </div>
+</body>
+</html>

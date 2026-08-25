@@ -4,13 +4,13 @@ WORKDIR /app
 
 # Instala pacotes mínimos do Alpine
 RUN apk add --no-cache git curl
-RUN npm install -g pnpm
+RUN npm install -g pnpm@9
 
 COPY package*.json pnpm-workspace.yaml ./
 COPY self-essentials ./self-essentials
 
 # Instala dependências do monorepo
-RUN pnpm install --no-frozen-lockfile
+RUN pnpm install --no-frozen-lockfile --ignore-scripts
 
 COPY . .
 

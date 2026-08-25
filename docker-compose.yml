@@ -5,7 +5,7 @@ services:
       dockerfile: Dockerfile.dev
     container_name: casosex-web
     ports:
-      - "4321:4321"
+      - "8086:4321"
     environment:
       - NODE_ENV=development
       - PORT=4321
