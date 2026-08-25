@@ -4,8 +4,8 @@ export async function onRequest(context) {
 
   if (host.includes("app.usevolupia.com.br")) {
     if (url.pathname === "/" || url.pathname === "/index.html") {
-      const adminUrl = new URL("/admin", context.request.url);
-      return Response.redirect(adminUrl.toString(), 302);
+      const loginUrl = new URL("/login", context.request.url);
+      return Response.redirect(loginUrl.toString(), 302);
     }
   }
 
