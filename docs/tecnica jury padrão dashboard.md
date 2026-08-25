@@ -1,229 +1,344 @@
-# ADR-0001: Padrão Arquitetural Enterprise Sovereign para Dashboards & Cockpits (v1.0)
+# ADR-0001: Arquitetura 360° v2.0 — Enterprise Mobile-First Dashboard Standard
 
-- **Status:** ACEITO (Accepted)
+- **Status:** ACEITO (Accepted & Frozen)
+- **Versão:** 2.0.0
 - **Data:** 2026-08-25
-- **Autor:** Jeferson Amorim & Antigravity Senior Architecture Team
-- **Domínio:** Plataforma, UI/UX, API, Segurança, Observabilidade & Governança
-- **Repositório Target:** Monorepo Enterprise / CASOSEX / Adsentice
+- **Autor:** Jeferson Amorim & Antigravity Enterprise Architecture Board
+- **Escopo:** Plataforma Enterprise, UI/UX Mobile-First, APIs, Segurança (OWASP ASVS 5.0), Data Engine, Observabilidade, Testes & Governança Monorepo
+- **Repositório Target:** `CASOSEX` / `Adsentice` Monorepo (`apps/web`, `apps/api`, `packages/ui`, `packages/contracts`, `packages/tokens`)
 
 ---
 
-## 1. Contexto & Motivação
+## 1. Visão Geral & Manifesto dos 12 Domínios Arquiteturais
 
-Cockpits e Dashboards de missão crítica exigem mais do que componentes visuais atraentes. Eles demandam uma **arquitetura de plataforma resiliente, auditável, acessível, segura e de baixíssima latência**.
-
-Este Architecture Decision Record (ADR v1.0) consolida a especificação técnica normativa soberana para desenvolvimento de cockpits e dashboards enterprise, alinhando a experiência do usuário (UI/UX) à governança rigorosa de backend, segurança de dados e observabilidade distribuída.
-
----
-
-## 2. Topologia Geral de Plataforma & Fluxo de Dados
-
-A arquitetura adota a estratégia **Schema-First (Contract-First)** onde o contrato Zod / OpenAPI 3.1 é a fonte única da verdade (Single Source of Truth), desacoplando a evolução do frontend e backend enquanto garante validação estrita em runtime.
+Este documento define o **Padrão Soberano v2.0** para desenvolvimento de Cockpits e Dashboards operacionais de classe Enterprise. A arquitetura migra de uma especificação focada em frontend para uma **Plataforma Digital de Alta Criticidade (OWASP ASVS 5.0 Level 2/3)** baseada em 12 domínios fundamentais:
 
 ```text
-                    ┌──────────────────────────┐
-                    │     OpenAPI 3.1 / Zod    │
-                    │   Single Source of Truth │
-                    └────────────┬─────────────┘
-                                 │
-             ┌───────────────────┴───────────────────┐
-             ▼                                       ▼
-     ┌─────────────────┐                     ┌─────────────────┐
-     │ Backend         │                     │ Frontend        │
-     │ Hono / Node.js  │                     │ React 19 / Vite │
-     │                 │                     │                 │
-     │ Validation      │                     │ TanStack Query  │
-     │ Auth/RBAC/ABAC  │                     │ Suspense        │
-     │ Observability   │                     │ A11y Components │
-     └────────┬────────┘                     └────────┬────────┘
-              │                                       │
-              ▼                                       ▼
-       ┌─────────────┐                       ┌────────────────┐
-       │ Redis       │                       │ Design System  │
-       │ Cache (L2)  │                       │ OKLCH / Bento  │
-       └──────┬──────┘                       │ Container Qs   │
-              │                              └────────────────┘
-              ▼
-       ┌─────────────┐
-       │ PostgreSQL  │
-       │ Primary DB  │
-       └─────────────┘
+┌────────────────────────────────────────────────────────────────────────────────────────┐
+│                        ENTEPRISE DASHBOARD PLATFORM (v2.0)                             │
+├───────────────────┬───────────────────┬───────────────────┬────────────────────────────┤
+│ 01. Accessibility │ 02. Design Tokens │ 03. Mobile UX 360 │ 04. Contracts (OpenAPI 3.1)│
+├───────────────────┼───────────────────┼───────────────────┼────────────────────────────┤
+│ 05. Data & State  │ 06. Real-time Eng │ 07. Offline-First │ 08. Performance (RUM)      │
+├───────────────────┼───────────────────┼───────────────────┼────────────────────────────┤
+│ 09. ASVS Security │ 10. Observability │ 11. Data Viz System│ 12. Quality Gate (QA/CI)   │
+└───────────────────┴───────────────────┴───────────────────┴────────────────────────────┘
 ```
 
 ---
 
-## 3. Contratos de API & Governança de Esquema
+## 🏛️ DOMÍNIO 01: Acessibilidade (A11y) & Modelo Trimodal de Interação
 
-### 3.1 Governança Single Source of Truth
+A acessibilidade é construída sobre o **WCAG 2.2 Level AA** como baseline legal e técnico incondicional, incorporando os 3 modelos de interação simultâneos por componente:
+
+### 1.1 Modelo Trimodal por Componente (Touch / Keyboard / AT)
 ```text
-Schema (Zod) ──► OpenAPI 3.1 Spec ──► TypeScript Types & Client API ──► Runtime Validation
+                            ┌─────────────────────────────────┐
+                            │    Componente de UI Sovereign   │
+                            └────────────────┬────────────────┘
+                                             │
+             ┌───────────────────────────────┼───────────────────────────────┐
+             ▼                               ▼                               ▼
+    ┌─────────────────┐             ┌─────────────────┐             ┌─────────────────┐
+    │ 1. Touch Model  │             │ 2. Keybd Model  │             │ 3. Assistive Tech│
+    │ • Tap           │             │ • Tab / Shift+Tab│            │ • Semantics HTML│
+    │ • Swipe / Sheet │             │ • Arrow Navigation│           │ • ARIA States   │
+    │ • Long Press    │             │ • Enter / Space │             │ • Live Regions  │
+    │ • Target >= 44px│             │ • Escape        │             │ • Screen Summary│
+    └─────────────────┘             └─────────────────┘             └─────────────────┘
 ```
 
-### 3.2 Envelope de Resposta como União Discriminada
-Evita-se a ambiguidade de cascas de API com atributos opcionais conflitantes. A resposta da API é obrigatoriamente modelada como uma **União Discriminada estrita**:
+### 1.2 Regras Normativas W3C
+- **Target Size (SC 2.5.8 vs Design Standard):** WCAG 2.2 exige $24 \times 24\text{px}$ como limite normativo. O padrão interno do Design System exige **$44 \times 44\text{px}$** para todos os elementos interativos touch.
+- **Contraste (WCAG + APCA):** Contraste normativo WCAG 2.2 AA (mínimo de 4.5:1 para texto normal, 3:1 para grandes textos e UI). APCA (Advanced Perceptual Contrast Algorithm) é utilizado na validação de paletas OKLCH.
+- **Tabelas vs ARIA Grid:** Tabelas de dados utilizam HTML5 semântico nativo (`<table>`, `<caption>`, `<thead>`, `<tbody>`, `<th scope="col|row">`, `aria-sort`). `role="grid"` é reservado exclusivamente para matrizes bidimensionais editáveis com foco controlado por teclado.
 
+---
+
+## 🎨 DOMÍNIO 02: Design System & Arquitetura de Tokens (Design Token Engine)
+
+Nenhum estilo é declarado ad-hoc. Toda a interface é gerada a partir da árvore tricotômica de tokens:
+
+```text
+Design Tokens
+├── Foundations (Primitive Tokens): Raw Values (OKLCH, Pixels, Ms)
+├── Semantic Tokens: Propósito no contexto (bg-surface-primary, text-danger)
+└── Component Tokens: Específicos por componente (button-primary-bg)
+```
+
+### 2.1 Matriz de Tokens da Plataforma
+```ts
+export const DesignTokens = {
+  color: {
+    primitive: {
+      coral500: 'oklch(0.65 0.22 260)',
+      neutral900: 'oklch(0.18 0.02 260)',
+      neutral50: 'oklch(0.98 0.005 260)',
+    },
+    semantic: {
+      brandPrimary: 'var(--coral500)',
+      surfaceBackground: 'var(--neutral50)',
+      textPrimary: 'var(--neutral900)',
+      focusRing: 'oklch(0.65 0.22 260 / 0.8)',
+    }
+  },
+  spacing: {
+    xs: '0.25rem', sm: '0.5rem', md: '1rem', lg: '1.5rem', xl: '2rem',
+  },
+  radius: {
+    sm: '0.375rem', md: '0.75rem', lg: '1.25rem', full: '9999px',
+  },
+  motion: {
+    durationFast: '150ms', durationNormal: '250ms', durationSlow: '400ms',
+    easingStandard: 'cubic-bezier(0.2, 0.0, 0, 1.0)',
+  },
+  zIndex: {
+    base: 0, dropdown: 1000, sticky: 1100, drawer: 1200, modal: 1300, toast: 1400, tooltip: 1500,
+  }
+} as const;
+```
+
+---
+
+## 📱 DOMÍNIO 03: UX Mobile-First 360° (Interaction-First Model)
+
+Invertemos a prioridade: o design não encolhe do desktop para o mobile. O modelo de interação nasce no touch e se compõe até o desktop:
+
+```text
+Mobile Interaction Model ──► Tablet Adaptation ──► Desktop Grid Composition
+```
+
+### 3.1 Padrões Obrigatórios de Mobile UX
+- **Dynamic Viewports:** Uso estrito de `dvh` (Dynamic Viewport Height), `svh` e `lvh` eliminando quebras causadas por barras de endereço nativas em iOS/Android.
+- **Safe Area Insets:** Todo o contêiner inferior implementa `padding-bottom: env(safe-area-inset-bottom)`.
+- **Bottom Navigation Dock & Drawers:** Ações primárias ancoradas no alcance do polegar. Modais desktop convertem-se automaticamente em **Bottom Sheets** deslizáveis com gestos no mobile.
+- **Scroll Restoration & Gesture Management:** Isolamento de gestos de pull-to-refresh nativos versus scroll de gráficos interativos.
+
+---
+
+## 📜 DOMÍNIO 04: API & Contratos Fim a Fim (OpenAPI 3.1 + Zod)
+
+### 4.1 Schema-First Pipeline
+```text
+Schema Zod ──► Spec OpenAPI 3.1 ──► Type Generation ──► HTTP Client ──► Runtime Guard
+```
+
+### 4.2 Modelo de Resposta Padrão (União Discriminada)
 ```ts
 export interface ApiMeta {
   timestamp: string;
   correlationId: string;
   requestId: string;
   version: string;
-  pagination?: {
-    page: number;
-    pageSize: number;
-    totalRecords: number;
-    hasMore: boolean;
-  };
+  pagination?: { page: number; pageSize: number; totalRecords: number; hasMore: boolean; };
 }
 
-export interface ApiError {
-  code: string;
-  message: string;
-  details?: Record<string, unknown>;
-}
-
-// União Discriminada Estrita: Sucesso ou Erro são mutuamente exclusivos
 export type ApiResponse<T> =
-  | {
-      success: true;
-      data: T;
-      meta: ApiMeta;
-      error?: never;
-    }
-  | {
-      success: false;
-      data?: never;
-      meta: ApiMeta;
-      error: ApiError;
-    };
+  | { success: true; data: T; meta: ApiMeta; error?: never }
+  | { success: false; data?: never; meta: ApiMeta; error: { code: string; message: string; details?: unknown } };
 ```
 
 ---
 
-## 4. Camada de Cache & Fluxo de Dados End-to-End
+## 🗄️ DOMÍNIO 05: Data Engine & Gestão de Estado
 
-O cache de cliente e o cache de backend possuem responsabilidades claramente segregadas. O Redis atua exclusivamente como camada de aceleração de repositório no backend, enquanto o TanStack Query gerencia o estado de servidor no cliente:
+Segregação estrita entre Estado de Servidor, Estado Local e Cache:
 
 ```text
-[ Browser ] ──► TanStack Query (Client L1 Cache) ──► [ API Hono ] ──► Service / Repository ──► Redis (Backend L2 Cache) ──► [ PostgreSQL DB ]
+Data Layer
+├── Server State: TanStack Query v5 (Suspense, Query Invalidation)
+├── Offline Storage: IndexedDB via Dexie.js (Persistência L1 no Browser)
+├── Repository Cache: Redis :6396 (Aceleração L2 no Backend)
+└── Primary DB: PostgreSQL (Fonte da Verdade)
 ```
 
-### 4.1 Reconciliação e Reavaliação Otimista (Optimistic UI)
-- A alteração otimista é definida como **atualização síncrona local de estado antes da confirmação do servidor**.
-- **Fluxo:** `onMutate` (Aplica estado local temporário e salva snapshot) $\rightarrow$ `onError` (Executa rollback automático para snapshot em falha) $\rightarrow$ `onSettled` (Invalida query para reconciliação final com o banco de dados).
+### 5.1 Reconciliação e Resiliência de Mutações
+Mutações locais ocorrem de forma **síncrona otimista** (`onMutate`), salvando um snapshot no IndexedDB. Em caso de falha de rede, a mutação é enfileirada com chave de idempotência (`Idempotency-Key: UUIDv4`).
 
 ---
 
-## 5. UI/UX, Layout & Design System Engine
+## ⚡ DOMÍNIO 06: Motor Real-time & Event Dispatcher
 
-### 5.1 Layout Bento Grid Assimétrico de 12 Colunas
-Organização modular responsiva utilizando CSS Grid nativo com 12 colunas e vãos (gaps) calculados:
+Dashboards operacionais exigem atualizações vivas sem estouro de consumo de conexões:
 
-```css
-.bento-dashboard-grid {
-  display: grid;
-  grid-template-columns: repeat(12, minmax(0, 1fr));
-  gap: 1.25rem;
-  width: 100%;
-}
-
-.widget-hero       { grid-column: span 8; grid-row: span 2; }
-.widget-kpi-stack  { grid-column: span 4; grid-row: span 2; }
-.widget-feed       { grid-column: span 6; grid-row: span 1; }
-.widget-full       { grid-column: span 12; }
-
-@media (max-width: 1024px) {
-  .bento-dashboard-grid > * { grid-column: span 12 !important; }
-}
+```text
+                          ┌───────────────────────────┐
+                          │     REAL-TIME ENGINE      │
+                          └─────────────┬─────────────┘
+                                        │
+             ┌──────────────────────────┼──────────────────────────┐
+             ▼                          ▼                          ▼
+      ┌──────────────┐           ┌──────────────┐           ┌──────────────┐
+      │     SSE      │           │  WebSocket   │           │ Smart Poll   │
+      │ (Default /   │           │ (Bi-directional│          │ (Fallback /  │
+      │ Push Unidirec)│          │ Dashboard)   │           │ Low Net)     │
+      └──────┬───────┘           └──────┬───────┘           └──────┬───────┘
+             │                          │                          │
+             └──────────────────────────┼──────────────────────────┘
+                                        ▼
+                           ┌──────────────────────────┐
+                           │ Event Dispatcher Router  │
+                           └────────────┬─────────────┘
+                                        ▼
+                           ┌──────────────────────────┐
+                           │ TanStack Query Invalid.  │
+                           └──────────────────────────┘
 ```
 
-### 5.2 Responsive Layouts via CSS Container Queries (`@container`)
-Componentes de widgets reagem à largura do seu recipiente pai, viabilizando reutilização modular pura em qualquer posição da grade.
-
-### 5.3 Estratégia de Animação & Motion
-- **Micro-interações triviais (hovers, fades, dialogs):** Executadas via CSS Transitions/Animations nativas e Web Animations API (WAAPI) para zero custo de JS bundle.
-- **Animações complexas (FLIP layout morphing, timelines encadeadas, drag & drop):** Reservadas exclusivamente para o GSAP (carregado sob demanda).
+- **Resiliência de Conexão:** Heartbeat a cada $15\text{s}$, reconexão com **Exponential Backoff com Jitter**, desduplicação de eventos por `sequenceId`.
 
 ---
 
-## 6. Acessibilidade (A11y) & Padrões W3C Normativos
+## 📲 DOMÍNIO 07: Arquitetura Offline-First & Sincronização
 
-### 6.1 Baseline Normativo: WCAG 2.2 Level AA
-- O baseline obrigatório de conformidade do produto é o **WCAG 2.2 Nível AA**.
-- Critérios do Nível AAA são aplicados de forma seletiva apenas quando tecnicamente viáveis para a experiência do usuário.
+```text
+[ ONLINE STATE ] ──► Fetch API ──► TanStack Query ──► Persist in IndexedDB ──► Render UI
+                                                            │
+[ OFFLINE STATE ] ──► Read IndexedDB ──► Render UI ──► Queue Mutations (IndexedDB)
+                                                                 │
+[ BACK ONLINE ] ──► Flush Queue ──► Sync Server ──► Reconcile Conflicts (CRDT / Last-Write-Wins)
+```
 
-### 6.2 Padrão de Contraste Visual
-- **WCAG 2.2 AA (Normativo):** Razão mínima de **4.5:1** para texto normal e **3:1** para texto grande/componentes de interface.
-- **APCA (Advanced Perceptual Contrast Algorithm):** Utilizado como ferramenta complementar de design engineering para refinamento de legibilidade em temas escuros/claros OKLCH.
-
-### 6.3 Target Size (Tamanho de Alvo de Toque)
-- **WCAG 2.2 SC 2.5.8 (Mínimo Normativo):** 24×24 CSS px como limite de conformidade legal.
-- **Padrão Interno de Elite (Design Policy):** **44×44 CSS px** como diretriz padrão para componentes touch e botões de alta frequência em mobile/desktop.
-
-### 6.4 Semântica HTML vs ARIA Grid
-- **Tabelas de Dados Padrão:** Utilizam HTML5 semântico nativo (`<table>`, `<caption>`, `<thead>`, `<tbody>`, `<th scope="col|row">`, `aria-sort`).
-- **`role="grid"`:** Reservado **estritamente** para planilhas editáveis ou matrizes altamente interativas com navegação bidimensional por setas do teclado.
+- **Estratégias de Cache no Service Worker:** `Stale-While-Revalidate` para assets estáticos e `Network-First com Fallback para IndexedDB` para chamadas de dados operacionais.
 
 ---
 
-## 7. Metas de Performance & Web Vitals (Níveis de Service Level)
+## 📊 DOMÍNIO 08: Metas de Performance RUM (Real User Monitoring)
 
-Para evitar que metas de laboratório engessem a operação em redes/dispositivos reais, dividimos os indicadores em três faixas operacionais:
+A performance é avaliada no campo (P75 Real User Monitoring) e no laboratório (CI Gate):
 
-| Métrica Core Web Vital | SLO Recomendado (P75 RUM) | Target de Elite (P95 Lab) | Limite de Regressão (CI/CD Gate) |
+| Indicador Web Vital | Target Operacional (P75 RUM) | Elite Standard (P95 Lab) | Limite de Regressão (CI Gate) |
 | :--- | :---: | :---: | :---: |
-| **LCP (Largest Contentful Paint)** | `< 2.0s` | `< 1.2s` | `> 2.5s` |
-| **INP (Interaction to Next Paint)** | `< 100ms` | `< 50ms` | `> 200ms` |
-| **CLS (Cumulative Layout Shift)** | `< 0.05` | `0.00` | `> 0.10` |
-| **FID / TBT (Total Blocking Time)** | `< 200ms` | `< 50ms` | `> 300ms` |
+| **LCP (Largest Contentful Paint)** | $\le 2.5\text{s}$ | $\le 1.5\text{s}$ | $> 2.5\text{s}$ |
+| **INP (Interaction to Next Paint)** | $\le 200\text{ms}$ | $\le 100\text{ms}$ | $> 200\text{ms}$ |
+| **CLS (Cumulative Layout Shift)** | $\le 0.10$ | $\le 0.05$ | $> 0.10$ |
+| **TTFB (Time to First Byte)** | $\le 800\text{ms}$ | $\le 300\text{ms}$ | $> 1200\text{ms}$ |
 
 ---
 
-## 8. Camada 7: Segurança Enterprise (Security Protocol)
+## 🛡️ DOMÍNIO 09: Arquitetura de Segurança (OWASP ASVS 5.0 Level 2/3)
 
-1. **Autenticação & Sessões:** OpenID Connect (OIDC) / OAuth 2.0 com tokens JWT de vida curta em cookies `HttpOnly`, `SameSite=Strict`, `Secure`.
-2. **Autorização Granular (RBAC + ABAC):** Controle de acesso baseado em papéis (Role-Based Access Control) e atributos da requisição (Attribute-Based Access Control) aplicados nas bordas de serviço.
-3. **Content Security Policy (CSP):** Cabeçalhos estritos bloqueando scripts inline não assinados (`nonce-based CSP`).
-4. **Proteção Anti-CSRF & Rate Limiting:** Tokens Anti-CSRF em operações mutativas e Rate Limiting distribuído no Redis por IP/Tenant ID.
-5. **Sanitização de Input/Output:** Validação incondicional na borda com Zod para prevenção de XSS e Injection attacks.
-6. **Audit Trail Imutável:** Registro append-only de ações administrativas com identificadores do usuário, IP, timestamp e payload sanitizado.
-
----
-
-## 9. Camada 8: Observabilidade Distribuída (OpenTelemetry)
-
-A plataforma instrumenta rastreamento distribuído fim a fim através do **OpenTelemetry**:
+A segurança da plataforma é aderente ao padrão **OWASP Application Security Verification Standard (ASVS 5.0)**:
 
 ```text
-[ Request ] ──► Header (x-correlation-id / traceparent) ──► Frontend ──► API ──► DB Query
+┌─────────────────────────────────────────────────────────────────────────┐
+│                    SECURITY ARCHITECTURE (ASVS 5.0)                     │
+├──────────────────────────┬──────────────────────────┬───────────────────┤
+│ Auth & Sessions          │ Access Control & RBAC    │ Data Protection   │
+│ • OAuth 2.1 / OIDC       │ • Granular Permissions   │ • AES-GCM-256     │
+│ • JWT em HttpOnly Cookie │ • Tenant Isolation       │ • TLS 1.3 Strict  │
+│ • Refresh Token Rotate   │ • ABAC (Attributes)      │ • Zero PII Leakage│
+├──────────────────────────┼──────────────────────────┼───────────────────┤
+│ Application Protection   │ API & Input Security     │ Resilience        │
+│ • Nonce-based CSP        │ • Strict Zod Validation  │ • Rate Limit Redis│
+│ • Anti-CSRF Token        │ • Parameterized Queries  │ • Threat Modeling │
+│ • HSTS & Security Headers│ • Audit Trail Imutável   │ • Supply-Chain Scan│
+└──────────────────────────┴──────────────────────────┴───────────────────┘
 ```
 
-- **Logs Estruturados (JSON):** Todos os logs incluem obrigatoriamente `correlationId`, `requestId`, `tenantId` e `userId`.
-- **Métricas:** Emissão de métricas RED (Rate, Errors, Duration) por endpoint e por componente de dashboard.
-- **Traces:** Spans integrados rastreando desde o clique do usuário no React até a consulta SQL/Redis no repositório.
+### 9.1 Multi-Tenancy & Isolamento de Dados
+```text
+User ──► Organization ──► Tenant ──► Workspace ──► Role ──► Permissions (View, Create, Update, Delete, Export, Admin)
+```
+- **Isolamento no Banco:** Todas as queries SQL injetam incondicionalmente o `tenant_id` derivado do token JWT validado no backend (Row-Level Security ou filtro obrigatório na camada de repositório).
 
 ---
 
-## 10. Camada 9: Pipeline de Testes & Governança de Qualidade
+## 👁️ DOMÍNIO 10: Observabilidade Distribuída & RUM (OpenTelemetry)
 
 ```text
-Unit Tests (Vitest) ──► Integration (Testing Library) ──► Contract Tests (OpenAPI) ──► A11y (axe-core) ──► E2E (Playwright) ──► Perf (Lighthouse CI)
+                               OpenTelemetry Collector
+                                          │
+            ┌─────────────────────────────┼─────────────────────────────┐
+            ▼                             ▼                             ▼
+   ┌──────────────────┐          ┌──────────────────┐          ┌──────────────────┐
+   │ Structured Logs  │          │ Metrics & RED    │          │ Traces & Spans   │
+   │ (JSON + Context) │          │ (Rate/Errors/Dur)│          │ (End-to-End Flow)│
+   └────────┬─────────┘          └────────┬─────────┘          └────────┬─────────┘
+            │                             │                             │
+            └─────────────────────────────┼─────────────────────────────┘
+                                          ▼
+                      Trace Context Injector (correlationId)
 ```
 
-1. **Unit & Integration:** Testes de hooks e componentes isolados via Vitest e Testing Library.
-2. **Contract Verification:** Validação automatizada garantindo que a API atende 100% da especificação OpenAPI 3.1.
-3. **Accessibility Audits:** Testes estáticos via `eslint-plugin-jsx-a11y` e dinâmicos via `axe-core` / `@axe-core/playwright`.
-4. **E2E & Visual Regression:** Cenários críticos de negócio executados no Playwright em navegadores Chromium/Webkit/Firefox.
-5. **Performance Gates:** Testes de regressão no CI/CD bloqueando deploys que estourem os Limites de Regressão de Web Vitals.
+- **Campos Obrigatórios em Logs & Spans:** `correlationId`, `requestId`, `tenantId`, `userId`, `environment`, `deviceType`.
+- **Real User Monitoring (RUM):** Captura em tempo real de exceções JS não tratadas (`window.onerror`), rejeições de promises e métricas `web-vitals` enviadas em background via `navigator.sendBeacon`.
 
 ---
 
-## 11. Conclusão & Próximos Passos de Implantação
+## 📈 DOMÍNIO 11: Sistema de Visualização de Dados (Data Viz System)
 
-Este dossiê fica oficialmente congelado como **ADR-0001 (v1.0)**. 
+### 11.1 Componentes e Equivalente Acessível Obrigatório
+Todo gráfico interativo possui **obrigatoriamente** uma tabela acessível equivalente ou sumário descritivo para leitores de tela:
 
-### Roteiro de Execução Recomendado:
-1. **Estrutura de Monorepo (pnpm workspaces / Turborepo):** `apps/web`, `apps/api`, `packages/contracts`, `packages/ui`.
-2. **Gerador de Contrato:** Compilação do `packages/contracts` emitindo `openapi.json` e tipos TypeScript.
-3. **Setup do Design System:** Base de tokens OKLCH + utilitários CSS Container Queries + primitivos de acessibilidade.
-4. **Pipelines de CI/CD:** Automação dos testes de contrato, acessibilidade e regressão de performance.
+```tsx
+export function AccessibleAreaChart({ data, title }: { data: ChartPoint[]; title: string }) {
+  return (
+    <div role="region" aria-label={title}>
+      {/* Componente Gráfico Visuall */}
+      <AreaChartVisual data={data} aria-hidden="true" />
+
+      {/* Fallback Acessível para Assistive Technologies */}
+      <details className="sr-only focus-within:not-sr-only">
+        <summary>Ver tabela de dados acessível para {title}</summary>
+        <table>
+          <caption>{title}</caption>
+          <thead><tr><th>Data</th><th>Valor</th></tr></thead>
+          <tbody>
+            {data.map((pt) => (
+              <tr key={pt.x}><td>{pt.x}</td><td>{pt.y}</td></tr>
+            ))}
+          </tbody>
+        </table>
+      </details>
+    </div>
+  );
+}
+```
+
+- **Regras Visuais:** Decodificação independente de cor (uso de hachuras/padrões além da cor), tooltips navegáveis por teclado e suporte ao modo `prefers-reduced-motion`.
+
+---
+
+## 🧪 DOMÍNIO 12: Quality Gate & Pipeline de Testes (QA 360°)
+
+```text
+                  ┌────────────────────────────────────────┐
+                  │          QUALITY GATE PIPELINE         │
+                  └───────────────────┬────────────────────┘
+                                      │
+ ┌──────────────┬──────────────┬──────┴───────┬──────────────┬──────────────┐
+ ▼              ▼              ▼              ▼              ▼              ▼
+Unit (Vitest) Integration   Contract Spec   A11y (axe)    Visual Regr.   E2E & Perf
+(Components)  (Testing Lib) (OpenAPI 3.1)   (WCAG AA)     (Playwright)   (Lighthouse)
+```
+
+---
+
+## 🌐 DOMÍNIOS TRANSVERSAIS
+
+### A. Internacionalização (i18n & l10n)
+- Uso nativo da API `Intl` do JavaScript para todas as formatações:
+  - `Intl.NumberFormat(locale, { style: 'currency', currency })`
+  - `Intl.DateTimeFormat(locale, { dateStyle: 'full' })`
+  - `Intl.RelativeTimeFormat(locale, { numeric: 'auto' })`
+- Suporte a idiomas `pt-BR`, `en-US`, `es` e layouts RTL (Right-to-Left) via CSS Logical Properties (`margin-inline-start`, `padding-block-end`).
+
+### B. Monorepo Architecture & Definition of Done (DoD)
+- **Estrutura de Pastas:**
+  ```text
+  apps/
+    ├── web/           # React 19 + Vite (Frontend Cockpit)
+    └── api/           # Hono / Node.js (Backend Enterprise)
+  packages/
+    ├── ui/            # Design System (Tokens + Accessible Components)
+    ├── contracts/     # Single Source of Truth (Zod + OpenAPI 3.1)
+    └── config/        # ESLint, TypeScript, Tailwind Configs
+  ```
+- **Definition of Done (DoD):**
+  1. Contrato Zod/OpenAPI validado e sem divergências.
+  2. Cobertura de testes de unidade e integração $\ge 85\%$.
+  3. Validação de acessibilidade `axe-core` sem nenhum erro Crítico ou Grave.
+  4. Web Vitals dentro dos limites de regressão no Lighthouse CI.
+  5. Checklist de Segurança OWASP ASVS 5.0 verificado.
+  6. Git commit assinado com rastreabilidade de issue/feature.
