@@ -382,54 +382,6 @@
     }
     .btn-whatsapp-group:active { transform: scale(0.97); }
 
-    .greeting-box {
-      margin-top: 16px;
-      padding: 16px;
-      background: rgba(18, 140, 126, 0.12);
-      border: 1px solid rgba(37, 211, 102, 0.3);
-      border-radius: var(--radius-lg);
-      text-align: left;
-    }
-    .greeting-title {
-      font-size: 0.82rem;
-      font-weight: 700;
-      color: #25D366;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      margin-bottom: 6px;
-      display: flex;
-      align-items: center;
-      gap: 6px;
-    }
-    .greeting-text {
-      font-size: 0.84rem;
-      color: #E2D7CE;
-      line-height: 1.45;
-      font-style: italic;
-      background: rgba(0,0,0,0.3);
-      padding: 10px 12px;
-      border-radius: 8px;
-      border-left: 3px solid #25D366;
-      margin-bottom: 10px;
-    }
-    .greeting-action-row {
-      display: flex;
-      gap: 8px;
-      flex-wrap: wrap;
-    }
-    .btn-copy-greeting {
-      padding: 8px 14px;
-      background: rgba(255,255,255,0.08);
-      border: 1px solid rgba(255,255,255,0.18);
-      border-radius: var(--radius-pill);
-      color: var(--text-main);
-      font-size: 0.78rem;
-      font-weight: 600;
-      cursor: pointer;
-      transition: all 0.2s ease;
-    }
-    .btn-copy-greeting:hover { background: rgba(255,255,255,0.15); }
-
     /* Footer */
     footer {
       width: 100%;
@@ -550,25 +502,6 @@
         </svg>
         <span>Entrar no Grupo VIP do WhatsApp</span>
       </a>
-
-      <!-- Quick Greeting Generator Box -->
-      <div class="greeting-box">
-        <div class="greeting-title">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
-          Mensagem Inicial Sugerida aos Admins
-        </div>
-        <div class="greeting-text" id="greeting-template">
-          “Olá Admins da Volúpia B2B! ✦ Sou lojista/parceiro no segmento de Sexual Wellness. Acabo de me cadastrar para o Grupo VIP e solicito acesso à tabela exclusiva de fábrica e novidades de lançamento.”
-        </div>
-        <div class="greeting-action-row">
-          <button type="button" class="btn-copy-greeting" onclick="copyGreeting()">
-            📋 Copiar Saudação
-          </button>
-          <button type="button" class="btn-copy-greeting" onclick="openWhatsAppWithGreeting()" style="background:rgba(37,211,102,0.2); border-color:rgba(37,211,102,0.4); color:#25D366;">
-            💬 Abrir com Saudação
-          </button>
-        </div>
-      </div>
     </div>
   </main>
 
@@ -578,6 +511,9 @@
   </footer>
 
   <script>
+    // Pre-filled admin greeting template (Internal Code Ref):
+    // "Olá Admins da Volúpia B2B! ✦ Sou lojista/parceiro no segmento de Sexual Wellness. Acabo de me cadastrar para o Grupo VIP e solicito acesso à tabela exclusiva de fábrica e novidades de lançamento."
+
     // 15-Day Countdown Logic
     const targetDate = new Date();
     targetDate.setDate(targetDate.getDate() + 15);
@@ -612,7 +548,6 @@
       e.preventDefault();
       const btn = document.getElementById("vip-btn");
       const input = document.getElementById("vip-email");
-      const userVal = input.value.trim();
 
       btn.innerText = "Processando...";
       btn.disabled = true;
@@ -621,27 +556,7 @@
         btn.style.display = "none";
         input.style.display = "none";
         document.getElementById("vip-feedback").style.display = "block";
-        
-        // Update greeting text with user's info if available
-        if (userVal) {
-          const customGreeting = `“Olá Admins da Volúpia B2B! ✦ Sou parceiro (${userVal}). Acabo de me cadastrar para o Grupo VIP e solicito acesso à tabela exclusiva de fábrica e ao catálogo de lançamentos.”`;
-          document.getElementById("greeting-template").innerText = customGreeting;
-        }
       }, 700);
-    }
-
-    function copyGreeting() {
-      const text = document.getElementById("greeting-template").innerText.replace(/“|”/g, '');
-      navigator.clipboard.writeText(text).then(() => {
-        alert("📋 Saudação copiada! Você pode colar diretamente ao entrar no grupo ou falar com os admins.");
-      }).catch(() => {
-        alert("Texto para cópia:\n\n" + text);
-      });
-    }
-
-    function openWhatsAppWithGreeting() {
-      const groupLink = "https://chat.whatsapp.com/IFZwYz8EXCLLUodeFN8HDC?s=sh&p=a&ilr=1";
-      window.open(groupLink, '_blank');
     }
   </script>
 </body>
