@@ -890,67 +890,10 @@
 
   <script>
     // Global Suppliers Data
-    let suppliersList = [
-      {
-        id: "sup_001",
-        name: "Intt Cosméticos Eróticos",
-        category: "Fabricante",
-        city: "São Cristóvão (RJ)",
-        lat: -22.8985,
-        lng: -43.2231,
-        whatsapp: "5521988991100",
-        gmb: "https://maps.google.com/?q=-22.8985,-43.2231",
-        status: "HOMOLOGADO"
-      },
-      {
-        id: "sup_002",
-        name: "Sexy Fantasy Fluminense",
-        category: "Distribuidor",
-        city: "Duque de Caxias (RJ)",
-        lat: -22.7850,
-        lng: -43.3120,
-        whatsapp: "5521971234455",
-        gmb: "https://maps.google.com/?q=-22.7850,-43.3120",
-        status: "HOMOLOGADO"
-      },
-      {
-        id: "sup_003",
-        name: "Feiticeira Cosméticos",
-        category: "Fabricante",
-        city: "Niterói (RJ)",
-        lat: -22.8870,
-        lng: -43.1250,
-        whatsapp: "5521998877665",
-        gmb: "https://maps.google.com/?q=-22.8870,-43.1250",
-        status: "VISITA_PENDENTE"
-      },
-      {
-        id: "sup_004",
-        name: "Soft Love Indústria",
-        category: "Fabricante",
-        city: "Tijuca (RJ)",
-        lat: -22.9230,
-        lng: -43.2380,
-        whatsapp: "5521987654321",
-        gmb: "https://maps.google.com/?q=-22.9230,-43.2380",
-        status: "PROSPECCAO"
-      },
-      {
-        id: "sup_005",
-        name: "Lovert Lingerie Sensual",
-        category: "Atacadista",
-        city: "Madureira (RJ)",
-        lat: -22.8710,
-        lng: -43.3360,
-        whatsapp: "5521995544332",
-        gmb: "https://maps.google.com/?q=-22.8710,-43.3360",
-        status: "VISITA_PENDENTE"
-      }
-    ];
-
+    let suppliersList = [];
     let map = null;
 
-    window.addEventListener('DOMContentLoaded', () => {
+    window.addEventListener('DOMContentLoaded', async () => {
       // Check Admin Session
       const sessionStr = localStorage.getItem('volupia_admin_session');
       if (sessionStr) {
@@ -961,9 +904,40 @@
         } catch(e) { void e; }
       }
 
+      await loadSuppliersData();
+    });
+
+    async function loadSuppliersData() {
+      try {
+        const resp = await fetch('/suppliers.json');
+        if (resp.ok) {
+          suppliersList = await resp.json();
+        }
+      } catch(e) {
+        console.warn('Fallback para fornecedores locais', e);
+      }
+
+      // Update KPI Counter
+      const kpiElem = document.getElementById('kpi-suppliers-count');
+      if (kpiElem && suppliersList.length > 0) {
+        kpiElem.innerText = suppliersList.length;
+      }
+
+      // Update Dossier Select Options
+      const selectElem = document.getElementById('dossier-supplier-select');
+      if (selectElem && suppliersList.length > 0) {
+        selectElem.innerHTML = '';
+        suppliersList.forEach(sup => {
+          const opt = document.createElement('option');
+          opt.value = sup.id;
+          opt.innerText = `${sup.name} (${sup.city || 'RJ/SP'}) - [${sup.status}]`;
+          selectElem.appendChild(opt);
+        });
+      }
+
       initLeafletMap();
       renderSuppliersTable();
-    });
+    }
 
     function toggleSidebar() {
       document.getElementById('sidebar').classList.toggle('open');
@@ -1028,7 +1002,11 @@
           iconSize: [16, 16]
         });
 
-        const marker = L.marker([sup.lat, sup.lng], { icon: customIcon }).addTo(map);
+        const lat = sup.latitude || sup.lat || -22.9068;
+        const lng = sup.longitude || sup.lng || -43.1729;
+        const gmbUrl = sup.gmb_url || sup.gmb || `https://maps.google.com/?q=${lat},${lng}`;
+
+        const marker = L.marker([lat, lng], { icon: customIcon }).addTo(map);
 
         const popupContent = `
           <div style="font-family:'Plus Jakarta Sans',sans-serif; padding:4px;">
@@ -1036,7 +1014,7 @@
             <span style="font-size:0.78rem; color:#6b635b;">${sup.category} • ${sup.city}</span><br/>
             <span class="badge-status ${sup.status}" style="margin-top:4px;">${sup.status}</span><br/><br/>
             <a href="https://wa.me/${sup.whatsapp}?text=Ol%C3%A1%20${encodeURIComponent(sup.name)}%2C%20falo%20da%20Vol%C3%BApia%20B2B!" target="_blank" style="color:#25D366; font-weight:700; text-decoration:none; font-size:0.8rem;">💬 Abrir WhatsApp</a> | 
-            <a href="${sup.gmb}" target="_blank" style="color:#3B82F6; font-weight:700; text-decoration:none; font-size:0.8rem;">📍 Ver Pin GMB</a>
+            <a href="${gmbUrl}" target="_blank" style="color:#3B82F6; font-weight:700; text-decoration:none; font-size:0.8rem;">📍 Ver Pin GMB</a>
           </div>
         `;
         marker.bindPopup(popupContent);
