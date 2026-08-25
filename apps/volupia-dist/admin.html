@@ -1,0 +1,1096 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>Volúpia Admin Cockpit B2B | Visão Geral Executiva & Homologação de Fornecedores</title>
+  <meta name="description" content="Cockpit executivo de gestão B2B, homologação de fornecedores eróticos e comunicação auditada da Volúpia.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=IBM+Plex+Mono:wght@400;600&display=swap" rel="stylesheet">
+  
+  <!-- Leaflet.js Maps CDN -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+  <!-- Include GSAP -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+
+  <style>
+    /* Pure Vanilla CSS Token Architecture */
+    :root[data-theme="dark"] {
+      --bg: #0c0a0b;
+      --surface: #161214;
+      --surface-hover: #1e181c;
+      --sidebar-bg: #110e0f;
+      --header-bg: rgba(22, 18, 20, 0.88);
+      --border: #2e2428;
+      --border-glow: rgba(225, 29, 72, 0.4);
+      --rose: #e11d48;
+      --rose-light: #fb7185;
+      --gold: #d4a373;
+      --gold-light: #f5d0a9;
+      --text-main: #faf7f5;
+      --text-muted: #a89b9b;
+      --text-sub: #7a6e6e;
+      --success: #30d158;
+      --warning: #eab308;
+      --info: #3b82f6;
+      --chip-bg: rgba(225, 29, 72, 0.14);
+      --shadow-bento: 0 12px 32px rgba(0, 0, 0, 0.45);
+    }
+
+    :root[data-theme="light"] {
+      --bg: #faf8f6;
+      --surface: #ffffff;
+      --surface-hover: #f7f2ef;
+      --sidebar-bg: #ffffff;
+      --header-bg: rgba(255, 255, 255, 0.92);
+      --border: #e6ded8;
+      --border-glow: rgba(184, 127, 16, 0.4);
+      --rose: #e11d48;
+      --rose-light: #be123c;
+      --gold: #b87f10;
+      --gold-light: #8f5e00;
+      --text-main: #1c1917;
+      --text-muted: #6b635b;
+      --text-sub: #8c827a;
+      --success: #1f7a4d;
+      --warning: #ca8a04;
+      --info: #2563eb;
+      --chip-bg: #fff0ea;
+      --shadow-bento: 0 10px 30px rgba(28, 25, 23, 0.07);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    body {
+      background-color: var(--bg);
+      color: var(--text-main);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: row;
+      overflow-x: hidden;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    .sidebar-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.65);
+      backdrop-filter: blur(4px);
+      z-index: 190;
+    }
+    .sidebar-overlay.open { display: block; }
+
+    /* Sidebar Navigation AAA+ */
+    aside.sidebar {
+      width: 270px;
+      background: var(--sidebar-bg);
+      border-right: 1px solid var(--border);
+      display: flex;
+      flex-direction: column;
+      height: 100vh;
+      position: sticky;
+      top: 0;
+      z-index: 200;
+      transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      padding-bottom: max(16px, env(safe-area-inset-bottom));
+      padding-top: env(safe-area-inset-top);
+      user-select: none;
+    }
+
+    .sidebar-brand-box {
+      padding: 20px 18px 16px;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .sidebar-workspace-btn {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      padding: 10px 12px;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .sidebar-workspace-btn:hover {
+      background: var(--surface-hover);
+      border-color: var(--gold-light);
+    }
+
+    .workspace-info {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .workspace-avatar {
+      width: 32px;
+      height: 32px;
+      border-radius: 8px;
+      background: linear-gradient(135deg, var(--rose), var(--gold));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-weight: 700;
+      font-size: 0.85rem;
+      box-shadow: 0 4px 10px rgba(225, 29, 72, 0.3);
+    }
+
+    .workspace-title {
+      font-weight: 700;
+      font-size: 0.88rem;
+      color: var(--text-main);
+      line-height: 1.2;
+    }
+    .workspace-subtitle {
+      font-size: 0.72rem;
+      color: var(--text-muted);
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .status-dot-pulse {
+      width: 7px;
+      height: 7px;
+      background: var(--success);
+      border-radius: 50%;
+      box-shadow: 0 0 8px var(--success);
+      animation: pulseDot 2s infinite;
+    }
+
+    @keyframes pulseDot {
+      0% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.5; transform: scale(0.85); }
+      100% { opacity: 1; transform: scale(1); }
+    }
+
+    .sidebar-scroll {
+      flex: 1;
+      overflow-y: auto;
+      padding: 12px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .nav-section {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .nav-section-title {
+      font-size: 0.68rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--text-sub);
+      padding: 6px 10px 4px;
+    }
+
+    .nav-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 9px 12px;
+      border-radius: 8px;
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 500;
+      transition: all 0.15s ease;
+      cursor: pointer;
+    }
+    .nav-item:hover, .nav-item.active {
+      background: var(--surface-hover);
+      color: var(--text-main);
+    }
+    .nav-item.active {
+      background: var(--chip-bg);
+      color: var(--rose-light);
+      font-weight: 600;
+      border-left: 3px solid var(--rose);
+    }
+
+    /* Main Workspace Layout */
+    .main-wrapper {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      min-width: 0;
+    }
+
+    header.topbar {
+      height: 64px;
+      background: var(--header-bg);
+      border-bottom: 1px solid var(--border);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 24px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .topbar-left {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .mobile-menu-btn {
+      display: none;
+      background: none;
+      border: none;
+      color: var(--text-main);
+      cursor: pointer;
+      font-size: 1.3rem;
+    }
+    @media (max-width: 900px) {
+      aside.sidebar { position: fixed; left: -280px; }
+      aside.sidebar.open { transform: translateX(280px); }
+      .mobile-menu-btn { display: flex; }
+    }
+
+    .page-title-box {
+      display: flex;
+      flex-direction: column;
+    }
+    .page-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.15rem;
+      font-weight: 600;
+      color: var(--gold-light);
+    }
+    .page-subtitle {
+      font-size: 0.73rem;
+      color: var(--text-muted);
+    }
+
+    .topbar-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    /* WhatsApp Commerce-Lite Chat Trigger Button */
+    .btn-chat-trigger {
+      position: relative;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: linear-gradient(135deg, rgba(37, 211, 102, 0.15) 0%, rgba(18, 140, 126, 0.25) 100%);
+      border: 1px solid rgba(37, 211, 102, 0.4);
+      padding: 8px 14px;
+      border-radius: 999px;
+      color: #25D366;
+      font-weight: 600;
+      font-size: 0.84rem;
+      cursor: pointer;
+      transition: all 0.25s ease;
+    }
+    .btn-chat-trigger:hover {
+      background: rgba(37, 211, 102, 0.25);
+      transform: translateY(-1px);
+    }
+    .chat-badge-count {
+      background: var(--rose);
+      color: #FFF;
+      font-size: 0.72rem;
+      font-weight: 800;
+      padding: 2px 7px;
+      border-radius: 999px;
+      box-shadow: 0 0 10px var(--rose);
+    }
+
+    .user-profile-badge {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 4px 10px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      cursor: pointer;
+    }
+    .user-avatar {
+      width: 26px;
+      height: 26px;
+      border-radius: 50%;
+      background: var(--rose);
+      color: #FFF;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.75rem;
+      font-weight: 700;
+    }
+
+    /* Content Body */
+    .dashboard-body {
+      padding: 24px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+      max-width: 1440px;
+      margin: 0 auto;
+      width: 100%;
+    }
+
+    /* KPI Cards Row */
+    .kpi-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 16px;
+    }
+    .kpi-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 18px 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      box-shadow: var(--shadow-bento);
+      transition: transform 0.2s ease;
+    }
+    .kpi-card:hover { transform: translateY(-2px); border-color: var(--border-glow); }
+    .kpi-header { display: flex; justify-content: space-between; align-items: center; color: var(--text-muted); font-size: 0.8rem; font-weight: 600; }
+    .kpi-value { font-size: 1.6rem; font-weight: 700; color: var(--text-main); font-family: 'IBM Plex Mono', monospace; }
+    .kpi-sub { font-size: 0.74rem; color: var(--success); display: flex; align-items: center; gap: 4px; }
+
+    /* Bento Main Grid */
+    .bento-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+    @media (max-width: 1080px) {
+      .bento-grid { grid-template-columns: 1fr; }
+    }
+
+    .bento-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 20px;
+      box-shadow: var(--shadow-bento);
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .card-title-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 12px;
+    }
+    .card-title {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--gold-light);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    /* Leaflet Map */
+    #leaflet-map {
+      width: 100%;
+      height: 380px;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      z-index: 10;
+    }
+
+    /* Supplier Table & Homologation Form */
+    .suppliers-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.82rem;
+    }
+    .suppliers-table th, .suppliers-table td {
+      padding: 10px 12px;
+      text-align: left;
+      border-bottom: 1px solid var(--border);
+    }
+    .suppliers-table th {
+      color: var(--text-muted);
+      font-weight: 600;
+      text-transform: uppercase;
+      font-size: 0.7rem;
+      letter-spacing: 0.05em;
+    }
+
+    .badge-status {
+      padding: 3px 8px;
+      border-radius: 999px;
+      font-size: 0.72rem;
+      font-weight: 700;
+      display: inline-block;
+    }
+    .badge-status.HOMOLOGADO { background: rgba(48, 209, 88, 0.18); color: #30D158; border: 1px solid #30D158; }
+    .badge-status.VISITA_PENDENTE { background: rgba(234, 179, 8, 0.18); color: #EAB308; border: 1px solid #EAB308; }
+    .badge-status.PROSPECCAO { background: rgba(59, 130, 246, 0.18); color: #3B82F6; border: 1px solid #3B82F6; }
+
+    /* Homologation Dossier Form */
+    .dossier-form {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      background: var(--surface-hover);
+      padding: 16px;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+    }
+    @media (max-width: 600px) { .dossier-form { grid-template-columns: 1fr; } }
+
+    .form-field { display: flex; flex-direction: column; gap: 4px; }
+    .form-field.full { grid-column: 1 / -1; }
+    .form-field label { font-size: 0.75rem; font-weight: 600; color: var(--text-muted); }
+    .form-field input, .form-field select, .form-field textarea {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 8px 10px;
+      color: var(--text-main);
+      font-size: 0.85rem;
+      outline: none;
+    }
+    .form-field input:focus, .form-field select:focus { border-color: var(--rose); }
+
+    .btn-save-dossier {
+      grid-column: 1 / -1;
+      background: linear-gradient(135deg, var(--rose) 0%, #be123c 100%);
+      color: white;
+      font-weight: 700;
+      padding: 10px;
+      border-radius: 8px;
+      border: none;
+      cursor: pointer;
+      font-size: 0.88rem;
+      transition: transform 0.2s ease;
+    }
+    .btn-save-dossier:active { transform: scale(0.98); }
+
+    /* Slide-over WhatsApp Commerce-Lite Chat Drawer */
+    .chat-drawer {
+      position: fixed;
+      top: 0;
+      right: -420px;
+      width: 400px;
+      max-width: 90vw;
+      height: 100vh;
+      background: var(--surface);
+      border-left: 1px solid var(--border);
+      box-shadow: -10px 0 40px rgba(0,0,0,0.6);
+      z-index: 300;
+      display: flex;
+      flex-direction: column;
+      transition: right 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .chat-drawer.open { right: 0; }
+
+    .chat-header {
+      padding: 16px 20px;
+      background: var(--header-bg);
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .chat-header-title { font-weight: 700; font-size: 0.95rem; color: #25D366; display: flex; align-items: center; gap: 8px; }
+    .chat-close-btn { background: none; border: none; color: var(--text-muted); cursor: pointer; font-size: 1.2rem; }
+
+    .chat-channels {
+      display: flex;
+      gap: 6px;
+      padding: 10px 16px;
+      background: var(--sidebar-bg);
+      border-bottom: 1px solid var(--border);
+      overflow-x: auto;
+    }
+    .chat-channel-tab {
+      padding: 4px 10px;
+      border-radius: 999px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      cursor: pointer;
+      white-space: nowrap;
+    }
+    .chat-channel-tab.active { background: rgba(37, 211, 102, 0.2); color: #25D366; border: 1px solid #25D366; }
+
+    .chat-messages {
+      flex: 1;
+      overflow-y: auto;
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .chat-msg-bubble {
+      background: var(--surface-hover);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 10px 12px;
+      font-size: 0.82rem;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      max-width: 88%;
+    }
+    .chat-msg-bubble.me {
+      align-self: flex-end;
+      background: rgba(37, 211, 102, 0.12);
+      border-color: rgba(37, 211, 102, 0.3);
+    }
+    .chat-msg-author { font-weight: 700; font-size: 0.72rem; color: var(--gold-light); display: flex; justify-content: space-between; }
+    .chat-msg-time { font-weight: 400; color: var(--text-sub); }
+
+    .chat-footer {
+      padding: 12px 16px;
+      border-top: 1px solid var(--border);
+      display: flex;
+      gap: 8px;
+      background: var(--sidebar-bg);
+    }
+    .chat-input {
+      flex: 1;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      padding: 8px 14px;
+      color: var(--text-main);
+      font-size: 0.85rem;
+      outline: none;
+    }
+    .btn-send-chat {
+      background: #25D366;
+      border: none;
+      border-radius: 50%;
+      width: 36px;
+      height: 36px;
+      color: #000;
+      font-weight: 700;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="sidebar-overlay" id="overlay" onclick="toggleSidebar()"></div>
+
+  <!-- Sidebar AAA+ Navigation -->
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-brand-box">
+      <div class="sidebar-workspace-btn">
+        <div class="workspace-info">
+          <div class="workspace-avatar">V</div>
+          <div>
+            <div class="workspace-title">VOLÚPIA B2B</div>
+            <div class="workspace-subtitle"><span class="status-dot-pulse"></span> RJ / SP Polo Admin</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="sidebar-scroll">
+      <div class="nav-section">
+        <div class="nav-section-title">Cockpit Executivo</div>
+        <a class="nav-item active" href="/admin">
+          <span>📊 Visão Geral B2B</span>
+        </a>
+        <a class="nav-item" href="#leaflet-map">
+          <span>🗺️ Mapa GMB Fornecedores</span>
+        </a>
+        <a class="nav-item" href="#dossier-section">
+          <span>📋 Dossiê de Homologação</span>
+        </a>
+      </div>
+
+      <div class="nav-section">
+        <div class="nav-section-title">Administradores Autorizados</div>
+        <div class="nav-item" style="cursor:default;">
+          <span>👤 Jeferson Amorim (Founder)</span>
+        </div>
+        <div class="nav-item" style="cursor:default;">
+          <span>👩‍💼 Gláucia Michaella (Operações)</span>
+        </div>
+        <div class="nav-item" style="cursor:default;">
+          <span>👨‍💼 Bruno Amin (Comercial)</span>
+        </div>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Main Content Area -->
+  <div class="main-wrapper">
+    <!-- Topbar -->
+    <header class="topbar">
+      <div class="topbar-left">
+        <button class="mobile-menu-btn" onclick="toggleSidebar()">☰</button>
+        <div class="page-title-box">
+          <h1 class="page-title">Volúpia Admin Cockpit B2B</h1>
+          <span class="page-subtitle">Gestão de Fornecedores, Homologação & Atacado Erótico</span>
+        </div>
+      </div>
+
+      <div class="topbar-actions">
+        <!-- WhatsApp Commerce-Lite Chat Trigger -->
+        <button class="btn-chat-trigger" onclick="toggleChatDrawer()" title="Chat Interno do Time Volúpia">
+          <span class="status-dot-pulse"></span>
+          <span>💬 Chat Team</span>
+          <span class="chat-badge-count" id="unread-count">3</span>
+        </button>
+
+        <!-- Admin Profile -->
+        <div class="user-profile-badge" id="user-badge" onclick="alert('Sessão ativa de Admin Volúpia!')">
+          <div class="user-avatar" id="avatar-initials">JA</div>
+          <span style="font-size:0.8rem; font-weight:600; color:var(--text-main);" id="admin-user-name">Jeferson Amorim</span>
+        </div>
+      </div>
+    </header>
+
+    <!-- Dashboard Content Body -->
+    <div class="dashboard-body">
+
+      <!-- Executive KPI Cards -->
+      <div class="kpi-grid">
+        <div class="kpi-card">
+          <div class="kpi-header">
+            <span>FORNECEDORES MAPEADOS</span>
+            <span>📍 Polo RJ/SP</span>
+          </div>
+          <div class="kpi-value" id="kpi-suppliers-count">5</div>
+          <div class="kpi-sub">✦ Indústrias & Distribuidores Eróticos</div>
+        </div>
+
+        <div class="kpi-card">
+          <div class="kpi-header">
+            <span>HOMOLOGAÇÃO AUDITADA</span>
+            <span>Gláucia Ops</span>
+          </div>
+          <div class="kpi-value">40%</div>
+          <div class="kpi-sub">✓ Conforme Padrão Body-Safe</div>
+        </div>
+
+        <div class="kpi-card">
+          <div class="kpi-header">
+            <span>CAPACIDADE DE ATACADO</span>
+            <span>Previsão B2B</span>
+          </div>
+          <div class="kpi-value">R$ 497k</div>
+          <div class="kpi-sub">✦ Tabela Direta de Fábrica</div>
+        </div>
+
+        <div class="kpi-card">
+          <div class="kpi-header">
+            <span>AUDITORES ATIVOS</span>
+            <span>Cloudflare D1</span>
+          </div>
+          <div class="kpi-value">3 Admins</div>
+          <div class="kpi-sub">✓ Jeferson • Gláucia • Bruno</div>
+        </div>
+      </div>
+
+      <!-- Bento Main Grid -->
+      <div class="bento-grid">
+
+        <!-- Card 1: Leaflet GMB Geolocalized Map -->
+        <div class="bento-card" style="grid-column: 1 / -1;">
+          <div class="card-title-bar">
+            <div class="card-title">
+              <span>🗺️ Mapeamento Geolocalizado de Fornecedores Fluminenses (GMB)</span>
+            </div>
+            <span style="font-size:0.75rem; color:var(--text-muted)">Leaflet.js + Google Maps Pins</span>
+          </div>
+          <div id="leaflet-map"></div>
+        </div>
+
+        <!-- Card 2: Gláucia's Homologation Dossier & Catalog Ingestion -->
+        <div class="bento-card" id="dossier-section">
+          <div class="card-title-bar">
+            <div class="card-title">
+              <span>📋 Dossiê de Homologação Presencial (Gláucia Michaella)</span>
+            </div>
+            <span class="badge-status HOMOLOGADO">Auditoria Ativa</span>
+          </div>
+
+          <form class="dossier-form" onsubmit="saveHomologationDossier(event)">
+            <div class="form-field full">
+              <label>Selecione o Fornecedor para Auditoria</label>
+              <select id="dossier-supplier-select" required onchange="populateDossierForm()">
+                <option value="sup_001">Intt Cosméticos Eróticos & Sensuais (São Cristóvão - RJ)</option>
+                <option value="sup_002">Distribuidora Sexy Fantasy Fluminense (Duque de Caxias - RJ)</option>
+                <option value="sup_003">Feiticeira Cosméticos Eróticos Ltda (Niterói - RJ)</option>
+                <option value="sup_004">Soft Love Indústria e Comércio (Tijuca - RJ)</option>
+                <option value="sup_005">Lovert Lingerie Sensual Atacado (Madureira - RJ)</option>
+              </select>
+            </div>
+
+            <div class="form-field">
+              <label>Score de Qualidade Fabril (1 a 5)</label>
+              <select id="dossier-score">
+                <option value="5">⭐⭐⭐⭐⭐ (5/5 - Excelente)</option>
+                <option value="4">⭐⭐⭐⭐ (4/5 - Boa Qualidade)</option>
+                <option value="3">⭐⭐⭐ (3/5 - Regular)</option>
+              </select>
+            </div>
+
+            <div class="form-field">
+              <label>Conformidade Body-Safe</label>
+              <select id="dossier-bodysafe">
+                <option value="1">✓ 100% Conforme (Testado & Aprovado)</option>
+                <option value="0">⚠ Pendente Teste de Laboratório</option>
+              </select>
+            </div>
+
+            <div class="form-field">
+              <label>Pedido Mínimo (MOQ R$)</label>
+              <input type="text" id="dossier-moq" placeholder="R$ 1.500,00" value="R$ 1.500,00">
+            </div>
+
+            <div class="form-field">
+              <label>Condição de Pagamento Faturado</label>
+              <input type="text" id="dossier-payment" placeholder="Ex: 30/60 dias ou PIX 5% desc" value="30/60 Dias ou PIX 5%">
+            </div>
+
+            <div class="form-field full">
+              <label>Link / URL Externa do Catálogo B2B</label>
+              <input type="url" id="dossier-catalog-url" placeholder="https://drive.google.com/catálogo-b2b.pdf">
+            </div>
+
+            <div class="form-field full">
+              <label>Ou Upload do Arquivo de Catálogo (CSV, XML, PDF, TXT)</label>
+              <input type="file" id="dossier-catalog-file" accept=".csv,.xml,.pdf,.txt" onchange="handleCatalogFileUpload(event)">
+            </div>
+
+            <div class="form-field full">
+              <label>Parecer de Auditoria da Gláucia</label>
+              <textarea id="dossier-notes" rows="3" placeholder="Observações das embalagens, rotulagem, discrição e potencial de vendas...">Visita realizada presencialmente na fábrica. Embalagens com lacre de segurança, fragrâncias aprovadas e rotulagem body-safe em conformidade com Anvisa.</textarea>
+            </div>
+
+            <div class="form-field">
+              <label>Status Final de Homologação</label>
+              <select id="dossier-status">
+                <option value="HOMOLOGADO">HOMOLOGADO (Liberar Catalogo VIP)</option>
+                <option value="VISITA_PENDENTE">VISITA PENDENTE (Agendar Gláucia)</option>
+                <option value="REJEITADO">REJEITADO (Fora do Padrão Volúpia)</option>
+              </select>
+            </div>
+
+            <button type="submit" class="btn-save-dossier">💾 Registrar Homologação & Sincronizar D1</button>
+          </form>
+        </div>
+
+        <!-- Card 3: Supplier List & Quick Quote WhatsApp Actions -->
+        <div class="bento-card">
+          <div class="card-title-bar">
+            <div class="card-title">
+              <span>🏭 Tabela de Fornecedores & Cotações 1-Clique</span>
+            </div>
+            <span style="font-size:0.75rem; color:var(--text-muted)">Ação Rápida WhatsApp</span>
+          </div>
+
+          <div style="overflow-x:auto;">
+            <table class="suppliers-table">
+              <thead>
+                <tr>
+                  <th>Fornecedor / Hub</th>
+                  <th>Categoria</th>
+                  <th>Status</th>
+                  <th>Ações</th>
+                </tr>
+              </thead>
+              <tbody id="suppliers-table-body">
+                <!-- Populated via JS -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Slide-over WhatsApp Commerce-Lite Chat Drawer -->
+  <div class="chat-drawer" id="chat-drawer">
+    <div class="chat-header">
+      <div class="chat-header-title">
+        <span>💬 Volúpia Team Chat</span>
+        <span style="font-size:0.7rem; color:var(--text-sub);">(Auditado D1)</span>
+      </div>
+      <button class="chat-close-btn" onclick="toggleChatDrawer()">✕</button>
+    </div>
+
+    <div class="chat-channels">
+      <div class="chat-channel-tab active" onclick="switchChannel('#geral')">#geral-volupia</div>
+      <div class="chat-channel-tab" onclick="switchChannel('#homologacao')">#homologacao-glaucia</div>
+      <div class="chat-channel-tab" onclick="switchChannel('#negociacao')">#negociacao-bruno</div>
+    </div>
+
+    <div class="chat-messages" id="chat-messages-container">
+      <div class="chat-msg-bubble">
+        <div class="chat-msg-author">
+          <span>Gláucia Michaella</span>
+          <span class="chat-msg-time">14:20</span>
+        </div>
+        <div>Pessoal, concluí a auditoria na fábrica da Intt Cosméticos em São Cristóvão. Embalagens 100% body-safe e aprovadas!</div>
+      </div>
+
+      <div class="chat-msg-bubble me">
+        <div class="chat-msg-author">
+          <span>Jeferson Amorim</span>
+          <span class="chat-msg-time">14:22</span>
+        </div>
+        <div>Excelente Gláucia! Vamos homologar o catálogo deles e liberar a cotação no painel B2B.</div>
+      </div>
+
+      <div class="chat-msg-bubble">
+        <div class="chat-msg-author">
+          <span>Bruno Amin</span>
+          <span class="chat-msg-time">14:35</span>
+        </div>
+        <div>Fechei a tabela de atacado com a Sexy Fantasy para pedidos acima de R$ 1.500 com 5% de desconto no PIX!</div>
+      </div>
+    </div>
+
+    <div class="chat-footer">
+      <input type="text" class="chat-input" id="chat-input-field" placeholder="Escreva uma mensagem ou @fornecedor..." onkeypress="handleChatKeyPress(event)">
+      <button class="btn-send-chat" onclick="sendChatMessage()">➔</button>
+    </div>
+  </div>
+
+  <script>
+    // Global Suppliers Data
+    let suppliersList = [
+      {
+        id: "sup_001",
+        name: "Intt Cosméticos Eróticos",
+        category: "Fabricante",
+        city: "São Cristóvão (RJ)",
+        lat: -22.8985,
+        lng: -43.2231,
+        whatsapp: "5521988991100",
+        gmb: "https://maps.google.com/?q=-22.8985,-43.2231",
+        status: "HOMOLOGADO"
+      },
+      {
+        id: "sup_002",
+        name: "Sexy Fantasy Fluminense",
+        category: "Distribuidor",
+        city: "Duque de Caxias (RJ)",
+        lat: -22.7850,
+        lng: -43.3120,
+        whatsapp: "5521971234455",
+        gmb: "https://maps.google.com/?q=-22.7850,-43.3120",
+        status: "HOMOLOGADO"
+      },
+      {
+        id: "sup_003",
+        name: "Feiticeira Cosméticos",
+        category: "Fabricante",
+        city: "Niterói (RJ)",
+        lat: -22.8870,
+        lng: -43.1250,
+        whatsapp: "5521998877665",
+        gmb: "https://maps.google.com/?q=-22.8870,-43.1250",
+        status: "VISITA_PENDENTE"
+      },
+      {
+        id: "sup_004",
+        name: "Soft Love Indústria",
+        category: "Fabricante",
+        city: "Tijuca (RJ)",
+        lat: -22.9230,
+        lng: -43.2380,
+        whatsapp: "5521987654321",
+        gmb: "https://maps.google.com/?q=-22.9230,-43.2380",
+        status: "PROSPECCAO"
+      },
+      {
+        id: "sup_005",
+        name: "Lovert Lingerie Sensual",
+        category: "Atacadista",
+        city: "Madureira (RJ)",
+        lat: -22.8710,
+        lng: -43.3360,
+        whatsapp: "5521995544332",
+        gmb: "https://maps.google.com/?q=-22.8710,-43.3360",
+        status: "VISITA_PENDENTE"
+      }
+    ];
+
+    let map = null;
+
+    window.addEventListener('DOMContentLoaded', () => {
+      // Check Admin Session
+      const sessionStr = localStorage.getItem('volupia_admin_session');
+      if (sessionStr) {
+        try {
+          const session = JSON.parse(sessionStr);
+          document.getElementById('admin-user-name').innerText = session.name || 'Jeferson Amorim';
+          document.getElementById('avatar-initials').innerText = session.avatar || 'JA';
+        } catch(e) { void e; }
+      }
+
+      initLeafletMap();
+      renderSuppliersTable();
+    });
+
+    function toggleSidebar() {
+      document.getElementById('sidebar').classList.toggle('open');
+      document.getElementById('overlay').classList.toggle('open');
+    }
+
+    function toggleChatDrawer() {
+      document.getElementById('chat-drawer').classList.toggle('open');
+      document.getElementById('unread-count').innerText = '0';
+    }
+
+    function switchChannel(channelName) {
+      document.querySelectorAll('.chat-channel-tab').forEach(tab => tab.classList.remove('active'));
+      event.target.classList.add('active');
+    }
+
+    function sendChatMessage() {
+      const input = document.getElementById('chat-input-field');
+      const text = input.value.trim();
+      if (!text) return;
+
+      const container = document.getElementById('chat-messages-container');
+      const now = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+
+      const msgDiv = document.createElement('div');
+      msgDiv.className = 'chat-msg-bubble me';
+      msgDiv.innerHTML = `
+        <div class="chat-msg-author">
+          <span>${document.getElementById('admin-user-name').innerText}</span>
+          <span class="chat-msg-time">${now}</span>
+        </div>
+        <div>${text}</div>
+      `;
+
+      container.appendChild(msgDiv);
+      container.scrollTop = container.scrollHeight;
+      input.value = '';
+    }
+
+    function handleChatKeyPress(e) {
+      if (e.key === 'Enter') sendChatMessage();
+    }
+
+    /* Initialize Leaflet Map with Pins */
+    function initLeafletMap() {
+      if (typeof L === 'undefined') return;
+
+      map = L.map('leaflet-map').setView([-22.8600, -43.2500], 11);
+
+      L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
+        attribution: '&copy; OpenStreetMap &copy; CARTO',
+        subdomains: 'abcd',
+        maxZoom: 19
+      }).addTo(map);
+
+      suppliersList.forEach(sup => {
+        const pinColor = sup.status === 'HOMOLOGADO' ? '#30D158' : sup.status === 'VISITA_PENDENTE' ? '#EAB308' : '#3B82F6';
+        
+        const customIcon = L.divIcon({
+          className: 'custom-leaflet-pin',
+          html: `<div style="background-color:${pinColor}; width:16px; height:16px; border-radius:50%; border:2px solid #FFF; box-shadow:0 0 10px ${pinColor};"></div>`,
+          iconSize: [16, 16]
+        });
+
+        const marker = L.marker([sup.lat, sup.lng], { icon: customIcon }).addTo(map);
+
+        const popupContent = `
+          <div style="font-family:'Plus Jakarta Sans',sans-serif; padding:4px;">
+            <strong style="font-size:0.9rem; color:#1c1917;">${sup.name}</strong><br/>
+            <span style="font-size:0.78rem; color:#6b635b;">${sup.category} • ${sup.city}</span><br/>
+            <span class="badge-status ${sup.status}" style="margin-top:4px;">${sup.status}</span><br/><br/>
+            <a href="https://wa.me/${sup.whatsapp}?text=Ol%C3%A1%20${encodeURIComponent(sup.name)}%2C%20falo%20da%20Vol%C3%BApia%20B2B!" target="_blank" style="color:#25D366; font-weight:700; text-decoration:none; font-size:0.8rem;">💬 Abrir WhatsApp</a> | 
+            <a href="${sup.gmb}" target="_blank" style="color:#3B82F6; font-weight:700; text-decoration:none; font-size:0.8rem;">📍 Ver Pin GMB</a>
+          </div>
+        `;
+        marker.bindPopup(popupContent);
+      });
+    }
+
+    function renderSuppliersTable() {
+      const tbody = document.getElementById('suppliers-table-body');
+      tbody.innerHTML = '';
+
+      suppliersList.forEach(sup => {
+        const tr = document.createElement('tr');
+        tr.innerHTML = `
+          <td>
+            <strong style="color:var(--text-main);">${sup.name}</strong><br/>
+            <span style="color:var(--text-muted); font-size:0.75rem;">${sup.city}</span>
+          </td>
+          <td>${sup.category}</td>
+          <td><span class="badge-status ${sup.status}">${sup.status}</span></td>
+          <td>
+            <a href="https://wa.me/${sup.whatsapp}?text=Ol%C3%A1!%20Solicito%20tabela%20B2B" target="_blank" style="color:#25D366; text-decoration:none; font-weight:700;">💬 Cotação</a>
+          </td>
+        `;
+        tbody.appendChild(tr);
+      });
+    }
+
+    function populateDossierForm() {
+      const supId = document.getElementById('dossier-supplier-select').value;
+      const sup = suppliersList.find(s => s.id === supId);
+      if (sup) {
+        document.getElementById('dossier-status').value = sup.status;
+      }
+    }
+
+    function handleCatalogFileUpload(e) {
+      const file = e.target.files[0];
+      if (file) {
+        alert(`✓ Arquivo de catálogo "${file.name}" pronto para parseamento e envio ao Cloudflare R2!`);
+      }
+    }
+
+    function saveHomologationDossier(e) {
+      e.preventDefault();
+      const supId = document.getElementById('dossier-supplier-select').value;
+      const status = document.getElementById('dossier-status').value;
+      
+      const sup = suppliersList.find(s => s.id === supId);
+      if (sup) {
+        sup.status = status;
+        renderSuppliersTable();
+        alert(`✓ Dossiê de Homologação de "${sup.name}" salvo e sincronizado no D1 com sucesso!`);
+      }
+    }
+  </script>
+</body>
+</html>

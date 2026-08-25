@@ -1,1 +1,4 @@
+/admin /admin.html 200
+/volupia_team_dashboard /admin.html 301
+/volupia_team_dashboard.html /admin.html 301
 /app /login 302
