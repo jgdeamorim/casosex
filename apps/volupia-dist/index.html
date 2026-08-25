@@ -248,29 +248,47 @@
       font-weight: 600;
     }
 
-    /* BRAND PILLARS ROW */
+    /* BRAND PILLARS ROW (Restored from commit a086734ea) */
     .pillars-grid {
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 12px;
+      grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+      gap: 14px;
       width: 100%;
       max-width: 760px;
       margin-bottom: 38px;
-    }
-    @media (max-width: 640px) {
-      .pillars-grid { grid-template-columns: 1fr 1fr; }
     }
     .pillar-card {
       background: var(--surface-glass);
       border: 1px solid var(--surface-glass-border);
       border-radius: var(--radius-md);
-      padding: 16px 10px;
+      padding: 18px 14px;
       backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
       text-align: center;
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
     }
-    .pillar-card .icon { font-size: 1.3rem; color: var(--accent-rose-soft); margin-bottom: 6px; }
-    .pillar-card h4 { font-size: 0.88rem; color: var(--accent-gold-light); margin-bottom: 4px; font-weight: 600; }
-    .pillar-card p { font-size: 0.78rem; color: var(--text-muted); line-height: 1.35; }
+    .pillar-card:hover {
+      transform: translateY(-2px);
+      border-color: var(--accent-rose-soft);
+      box-shadow: 0 8px 24px rgba(225, 29, 72, 0.15);
+    }
+    .pillar-card .icon {
+      font-size: 1.6rem;
+      color: var(--accent-rose-soft);
+      margin-bottom: 8px;
+      line-height: 1;
+    }
+    .pillar-card h4 {
+      font-size: 0.95rem;
+      color: var(--accent-gold-light);
+      margin-bottom: 6px;
+      font-weight: 600;
+    }
+    .pillar-card p {
+      font-size: 0.84rem;
+      color: var(--text-muted);
+      line-height: 1.4;
+    }
 
     /* VIP Access Form */
     .vip-card {
