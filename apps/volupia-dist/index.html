@@ -1,496 +1,625 @@
 <!DOCTYPE html>
-<html lang="pt-BR" data-theme="dark">
+<html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
-  <title>Volúpia | Desperte Seus Sentidos — Sexual Wellness B2B</title>
-  <meta name="description" content="Volúpia — O prazer sensorial sofisticado que transforma a intimidade em experiência. Lançamento oficial em breve.">
-  <meta name="theme-color" content="#0d0a0f">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <title>Volúpia | Sexual Wellness B2B</title>
+    <style>
+        :root {
+            --bg: #0c0a0b;
+            --card: #161214;
+            --border: #2e2428;
+            --rose: #e11d48;
+            --rose-soft: #fb7185;
+            --gold: #d4a373;
+            --gold-light: #f5d0a9;
+            --text: #faf7f5;
+            --muted: #a89b9b;
+            --white: #ffffff;
+            --success: #30d158;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+            font-size: 15.5px;
+            min-height: 100vh;
+        }
+        .container { max-width: 920px; margin: 0 auto; padding: 30px 20px 90px; }
 
-  <!-- Typography & Icons -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  
-  <style>
-    :root {
-      --bg-gradient: radial-gradient(circle at 50% 20%, #211322 0%, #0d0a0f 70%, #050406 100%);
-      --surface-glass: rgba(28, 20, 30, 0.72);
-      --surface-glass-border: rgba(212, 163, 115, 0.28);
-      --text-main: #FAF7F5;
-      --text-muted: #A89B9B;
-      --accent-gold: #D4A373;
-      --accent-gold-light: #F5D0A9;
-      --accent-rose: #E11D48;
-      --accent-rose-soft: #FB7185;
-      --accent-coral: #F9603F;
-      --glow-rose: rgba(225, 29, 72, 0.28);
-      --glow-gold: rgba(212, 163, 115, 0.22);
-      --radius-xl: 28px;
-      --radius-lg: 20px;
-      --radius-md: 14px;
-      --radius-pill: 9999px;
-    }
+        /* Top Bar */
+        .top-nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 16px 0;
+            border-bottom: 1px solid var(--border);
+            margin-bottom: 30px;
+        }
+        .top-nav-brand {
+            font-size: 1.2rem;
+            letter-spacing: 6px;
+            color: var(--gold-light);
+            text-decoration: none;
+            font-weight: 600;
+        }
+        .btn-portal {
+            background: var(--card);
+            border: 1px solid var(--border);
+            color: var(--gold-light);
+            text-decoration: none;
+            padding: 8px 16px;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            min-height: 44px;
+            transition: all 0.2s;
+        }
+        .btn-portal:hover {
+            border-color: var(--rose);
+            color: var(--white);
+        }
 
-    [data-theme="light"] {
-      --bg-gradient: radial-gradient(circle at 50% 20%, #FFF5ED 0%, #F3E5D8 70%, #E7D7C8 100%);
-      --surface-glass: rgba(255, 255, 255, 0.85);
-      --surface-glass-border: rgba(212, 163, 115, 0.45);
-      --text-main: #1C161E;
-      --text-muted: #6E6262;
-      --glow-rose: rgba(225, 29, 72, 0.14);
-      --glow-gold: rgba(212, 163, 115, 0.35);
-    }
+        /* Cover */
+        .cover {
+            text-align: center;
+            padding: 60px 20px 50px;
+            border-bottom: 1px solid var(--border);
+            margin-bottom: 50px;
+            background: radial-gradient(ellipse at center, #1a1215 0%, var(--bg) 70%);
+            border-radius: 16px;
+        }
+        .cover .brand {
+            font-size: clamp(2.4rem, 6vw, 3.4rem);
+            font-weight: 300;
+            letter-spacing: 12px;
+            color: var(--gold-light);
+            margin-bottom: 8px;
+        }
+        .cover .sub {
+            font-size: 0.95rem;
+            letter-spacing: 6px;
+            color: var(--rose-soft);
+            text-transform: uppercase;
+            margin-bottom: 24px;
+        }
+        .cover .tagline {
+            font-size: clamp(1.1rem, 3vw, 1.35rem);
+            font-weight: 400;
+            color: var(--muted);
+            font-style: italic;
+            max-width: 520px;
+            margin: 0 auto 28px;
+        }
+        .cover .meta {
+            font-size: 0.85rem;
+            color: var(--muted);
+            letter-spacing: 1px;
+        }
 
-    * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Plus Jakarta Sans', sans-serif; -webkit-tap-highlight-color: transparent; }
-    
-    html, body {
-      width: 100%;
-      height: 100%;
-      overflow-x: hidden;
-    }
+        /* Countdown & VIP */
+        .timer-box {
+            margin: 32px auto 20px;
+            max-width: 520px;
+        }
+        .timer-title {
+            font-size: 0.78rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: var(--gold);
+            margin-bottom: 14px;
+            font-weight: 600;
+        }
+        .timer-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+        }
+        .timer-card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            padding: 14px 6px;
+            border-radius: 10px;
+        }
+        .timer-card .val {
+            font-size: clamp(1.5rem, 4vw, 2.2rem);
+            font-weight: 700;
+            color: var(--text);
+            line-height: 1;
+        }
+        .timer-card .unit {
+            font-size: 0.68rem;
+            color: var(--muted);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 4px;
+        }
 
-    body {
-      background: var(--bg-gradient);
-      color: var(--text-main);
-      min-height: 100vh;
-      min-height: 100dvh;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: space-between;
-      position: relative;
-    }
+        .vip-box {
+            margin: 28px auto 0;
+            max-width: 480px;
+            background: var(--card);
+            border: 1px solid var(--border);
+            padding: 22px;
+            border-radius: 12px;
+            text-align: left;
+        }
+        .vip-box h4 {
+            color: var(--gold-light);
+            margin-bottom: 4px;
+            font-size: 0.98rem;
+            font-weight: 600;
+        }
+        .vip-box p {
+            font-size: 0.84rem;
+            color: var(--muted);
+            margin-bottom: 14px;
+        }
+        .vip-form {
+            display: flex;
+            gap: 8px;
+        }
+        @media (max-width: 480px) {
+            .vip-form { flex-direction: column; }
+        }
+        .vip-input {
+            flex: 1;
+            padding: 12px 14px;
+            background: #0c0a0b;
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            color: #fff;
+            font-size: 0.88rem;
+            outline: none;
+            min-height: 44px;
+        }
+        .vip-input:focus { border-color: var(--rose); }
+        .btn-vip {
+            padding: 12px 20px;
+            background: var(--rose);
+            border: none;
+            border-radius: 6px;
+            color: #fff;
+            font-weight: 600;
+            font-size: 0.88rem;
+            cursor: pointer;
+            min-height: 44px;
+            white-space: nowrap;
+        }
 
-    /* Ambient Blur FX */
-    .ambient-blur-1 {
-      position: fixed;
-      top: -12%;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 650px;
-      height: 650px;
-      background: radial-gradient(circle, var(--glow-rose) 0%, rgba(0,0,0,0) 70%);
-      border-radius: 50%;
-      pointer-events: none;
-      filter: blur(90px);
-      z-index: 0;
-    }
-    .ambient-blur-2 {
-      position: fixed;
-      bottom: 5%;
-      right: -5%;
-      width: 500px;
-      height: 500px;
-      background: radial-gradient(circle, var(--glow-gold) 0%, rgba(0,0,0,0) 70%);
-      border-radius: 50%;
-      pointer-events: none;
-      filter: blur(90px);
-      z-index: 0;
-    }
+        /* Sections */
+        section { margin-bottom: 55px; }
+        h2 {
+            font-size: 1.35rem;
+            font-weight: 600;
+            color: var(--gold-light);
+            margin-bottom: 18px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid var(--border);
+            letter-spacing: 0.5px;
+        }
+        h3 {
+            font-size: 1.05rem;
+            font-weight: 600;
+            color: var(--rose-soft);
+            margin: 26px 0 12px;
+        }
+        p { margin-bottom: 14px; color: #e8e0e0; }
+        ul, ol { margin: 12px 0 16px 22px; color: #e8e0e0; }
+        li { margin-bottom: 7px; }
 
-    /* Header */
-    header {
-      width: 100%;
-      max-width: 1200px;
-      padding: max(18px, env(safe-area-inset-top)) 24px 16px 24px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      position: relative;
-      z-index: 10;
-    }
-    .brand-logo {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(1.5rem, 4vw, 1.9rem);
-      font-weight: 700;
-      letter-spacing: 0.14em;
-      background: linear-gradient(135deg, #FFFFFF 30%, var(--accent-gold) 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      text-transform: uppercase;
-      text-decoration: none;
-    }
-    .btn-login-header {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 10px 20px;
-      min-height: 44px;
-      background: var(--surface-glass);
-      border: 1px solid var(--surface-glass-border);
-      border-radius: var(--radius-pill);
-      color: var(--text-main);
-      text-decoration: none;
-      font-size: 0.85rem;
-      font-weight: 600;
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
-      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-    }
-    .btn-login-header:active { transform: scale(0.96); }
+        .card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 22px 24px;
+            margin: 16px 0;
+        }
+        .card.highlight {
+            border-color: var(--rose);
+            background: linear-gradient(145deg, #1f1216, #161214);
+        }
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            margin: 18px 0;
+        }
+        @media (max-width: 680px) { .grid-2 { grid-template-columns: 1fr; } }
 
-    /* Main Hero Area */
-    main {
-      width: 100%;
-      max-width: 900px;
-      padding: 20px 24px 50px 24px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
-      position: relative;
-      z-index: 10;
-    }
+        .pillar {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 18px;
+            text-align: center;
+        }
+        .pillar .icon { font-size: 1.6rem; margin-bottom: 8px; color: var(--rose-soft); }
+        .pillar h4 { font-size: 0.95rem; color: var(--gold-light); margin-bottom: 6px; }
+        .pillar p { font-size: 0.88rem; color: var(--muted); margin: 0; }
 
-    .status-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 8px 18px;
-      background: rgba(225, 29, 72, 0.12);
-      border: 1px solid rgba(225, 29, 72, 0.35);
-      border-radius: var(--radius-pill);
-      font-size: 0.82rem;
-      font-weight: 600;
-      color: var(--accent-rose-soft);
-      margin-bottom: 20px;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-    }
-    .status-badge span.pulse-dot {
-      width: 8px;
-      height: 8px;
-      background-color: var(--accent-rose);
-      border-radius: 50%;
-      box-shadow: 0 0 12px var(--accent-rose);
-      animation: pulse 1.8s infinite;
-    }
-    @keyframes pulse {
-      0% { transform: scale(0.95); opacity: 0.8; }
-      50% { transform: scale(1.35); opacity: 1; box-shadow: 0 0 20px var(--accent-rose); }
-      100% { transform: scale(0.95); opacity: 0.8; }
-    }
+        .voice-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin: 16px 0;
+        }
+        @media (max-width: 680px) { .voice-grid { grid-template-columns: 1fr; } }
+        .voice-item {
+            padding: 14px 16px;
+            border-radius: 8px;
+            font-size: 0.9rem;
+        }
+        .voice-item.yes { background: #13241a; border: 1px solid #1e3d2a; }
+        .voice-item.no { background: #241313; border: 1px solid #3d1e1e; }
+        .voice-item strong { display: block; margin-bottom: 4px; font-size: 0.82rem; text-transform: uppercase; letter-spacing: 0.5px; }
 
-    h1.hero-title {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(2.4rem, 6.5vw, 4rem);
-      line-height: 1.12;
-      font-weight: 700;
-      margin-bottom: 8px;
-      background: linear-gradient(180deg, #FFFFFF 0%, #E2D7CE 60%, var(--accent-gold) 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 16px 0 22px;
+            font-size: 0.9rem;
+        }
+        th, td {
+            padding: 11px 14px;
+            text-align: left;
+            border-bottom: 1px solid var(--border);
+        }
+        th {
+            background: #1c1518;
+            color: var(--gold);
+            font-weight: 600;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.4px;
+        }
+        tr:hover td { background: #1a1416; }
 
-    .hero-tagline-quote {
-      font-family: 'Playfair Display', serif;
-      font-style: italic;
-      font-size: clamp(1.2rem, 3.2vw, 1.5rem);
-      color: var(--accent-gold-light);
-      margin-bottom: 20px;
-    }
+        .quote {
+            font-size: 1.15rem;
+            font-style: italic;
+            color: var(--gold-light);
+            text-align: center;
+            padding: 28px 20px;
+            border-left: 3px solid var(--rose);
+            background: var(--card);
+            margin: 24px 0;
+            border-radius: 0 10px 10px 0;
+        }
 
-    p.hero-subtitle {
-      font-size: clamp(0.95rem, 2.4vw, 1.12rem);
-      color: var(--text-muted);
-      max-width: 680px;
-      line-height: 1.65;
-      margin-bottom: 36px;
-      font-weight: 400;
-    }
+        .manifesto {
+            background: linear-gradient(145deg, #1f1216, #161214);
+            border: 1px solid var(--rose);
+            border-radius: 14px;
+            padding: 32px 28px;
+            margin: 24px 0;
+        }
+        .manifesto p {
+            font-size: 1.05rem;
+            line-height: 1.8;
+            color: #f0e8e8;
+        }
 
-    /* 15-DAY COUNTDOWN TIMER GRID */
-    .timer-container {
-      margin-bottom: 40px;
-      width: 100%;
-      max-width: 680px;
-    }
-    .timer-label {
-      font-size: 0.82rem;
-      text-transform: uppercase;
-      letter-spacing: 0.15em;
-      color: var(--accent-gold);
-      margin-bottom: 14px;
-      font-weight: 600;
-    }
-    .timer-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 12px;
-    }
-    .timer-card {
-      background: var(--surface-glass);
-      border: 1px solid var(--surface-glass-border);
-      border-radius: var(--radius-lg);
-      padding: 18px 8px;
-      backdrop-filter: blur(24px);
-      -webkit-backdrop-filter: blur(24px);
-      box-shadow: 0 16px 40px rgba(0,0,0,0.35);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-    }
-    .timer-val {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(1.8rem, 5vw, 3rem);
-      font-weight: 700;
-      color: var(--text-main);
-      line-height: 1;
-      margin-bottom: 4px;
-    }
-    .timer-unit {
-      font-size: 0.72rem;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      color: var(--text-muted);
-      font-weight: 600;
-    }
-
-    /* BRAND PILLARS ROW */
-    .pillars-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 12px;
-      width: 100%;
-      max-width: 760px;
-      margin-bottom: 38px;
-    }
-    @media (max-width: 640px) {
-      .pillars-grid { grid-template-columns: 1fr 1fr; }
-    }
-    .pillar-card {
-      background: var(--surface-glass);
-      border: 1px solid var(--surface-glass-border);
-      border-radius: var(--radius-md);
-      padding: 16px 10px;
-      backdrop-filter: blur(16px);
-      text-align: center;
-    }
-    .pillar-card .icon { font-size: 1.3rem; color: var(--accent-rose-soft); margin-bottom: 6px; }
-    .pillar-card h4 { font-size: 0.88rem; color: var(--accent-gold-light); margin-bottom: 4px; font-weight: 600; }
-    .pillar-card p { font-size: 0.78rem; color: var(--text-muted); line-height: 1.35; }
-
-    /* VIP Access Form */
-    .vip-card {
-      width: 100%;
-      max-width: 540px;
-      background: var(--surface-glass);
-      border: 1px solid var(--surface-glass-border);
-      border-radius: var(--radius-xl);
-      padding: 30px 24px;
-      backdrop-filter: blur(32px);
-      -webkit-backdrop-filter: blur(32px);
-      box-shadow: 0 20px 50px rgba(0,0,0,0.45);
-      margin-bottom: 20px;
-    }
-    .vip-card h3 {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.25rem;
-      font-weight: 700;
-      margin-bottom: 6px;
-      color: var(--accent-gold-light);
-    }
-    .vip-card p {
-      font-size: 0.86rem;
-      color: var(--text-muted);
-      margin-bottom: 20px;
-    }
-    .vip-form {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-    }
-    @media (min-width: 540px) {
-      .vip-form { flex-direction: row; }
-    }
-    .vip-input {
-      flex: 1;
-      padding: 14px 18px;
-      background: rgba(10, 8, 12, 0.65);
-      border: 1px solid rgba(255, 255, 255, 0.12);
-      border-radius: var(--radius-pill);
-      color: #FFF;
-      font-size: 0.92rem;
-      outline: none;
-      transition: all 0.3s ease;
-      min-height: 48px;
-    }
-    .vip-input:focus {
-      border-color: var(--accent-rose);
-      box-shadow: 0 0 0 3px var(--glow-rose);
-    }
-    .btn-submit-vip {
-      padding: 14px 24px;
-      background: linear-gradient(135deg, var(--accent-rose) 0%, var(--accent-coral) 100%);
-      border: none;
-      border-radius: var(--radius-pill);
-      color: #FFF;
-      font-size: 0.92rem;
-      font-weight: 700;
-      cursor: pointer;
-      min-height: 48px;
-      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-      box-shadow: 0 8px 24px var(--glow-rose);
-      white-space: nowrap;
-    }
-    .btn-submit-vip:active { transform: scale(0.96); }
-
-    /* Footer */
-    footer {
-      width: 100%;
-      padding: 22px 20px max(22px, env(safe-area-inset-bottom)) 20px;
-      text-align: center;
-      font-size: 0.8rem;
-      color: var(--text-muted);
-      border-top: 1px solid rgba(255,255,255,0.06);
-      position: relative;
-      z-index: 10;
-    }
-
-    @media (max-width: 480px) {
-      .timer-grid { gap: 8px; }
-      .timer-card { padding: 14px 4px; }
-    }
-  </style>
+        footer {
+            margin-top: 60px;
+            padding-top: 24px;
+            border-top: 1px solid var(--border);
+            text-align: center;
+            font-size: 0.85rem;
+            color: var(--muted);
+        }
+    </style>
 </head>
 <body>
+    <div class="container">
 
-  <div class="ambient-blur-1"></div>
-  <div class="ambient-blur-2"></div>
+        <!-- TOP BAR NAV -->
+        <nav class="top-nav">
+            <a href="https://usevolupia.com.br" class="top-nav-brand">VOLÚPIA</a>
+            <a href="https://app.usevolupia.com.br/login.html" class="btn-portal">
+                🔑 Portal B2B
+            </a>
+        </nav>
 
-  <!-- Header -->
-  <header>
-    <a href="https://usevolupia.com.br" class="brand-logo">VOLÚPIA</a>
-    <a href="https://app.usevolupia.com.br/login.html" class="btn-login-header">
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"/><polyline points="10 17 15 12 10 7"/><line x1="15" y1="12" x2="3" y2="12"/></svg>
-      Área de Membros B2B
-    </a>
-  </header>
+        <!-- COVER -->
+        <div class="cover">
+            <div class="brand">VOLÚPIA</div>
+            <div class="sub">Sexual Wellness & B2B</div>
+            <div class="tagline">“Desperte seus sentidos”</div>
+            <div class="meta">volupia.com.br &nbsp;·&nbsp; Lançamento Oficial em 15 Dias &nbsp;·&nbsp; Brasil 2026</div>
 
-  <!-- Hero Main -->
-  <main>
-    <div class="status-badge">
-      <span class="pulse-dot"></span>
-      Lançamento Oficial em 15 Dias
+            <!-- 15-DAY COUNTDOWN -->
+            <div class="timer-box">
+                <div class="timer-title">Contagem Regressiva para Abertura dos Cadastros</div>
+                <div class="timer-grid">
+                    <div class="timer-card">
+                        <div class="val" id="days">15</div>
+                        <div class="unit">Dias</div>
+                    </div>
+                    <div class="timer-card">
+                        <div class="val" id="hours">00</div>
+                        <div class="unit">Horas</div>
+                    </div>
+                    <div class="timer-card">
+                        <div class="val" id="minutes">00</div>
+                        <div class="unit">Minutos</div>
+                    </div>
+                    <div class="timer-card">
+                        <div class="val" id="seconds">00</div>
+                        <div class="unit">Segundos</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- VIP FORM -->
+            <div class="vip-box">
+                <h4>Garantir Convite VIP Prioritário</h4>
+                <p>Receba a tabela de fábrica em primeira mão e prioridade de estoque.</p>
+                <form class="vip-form" onsubmit="handleVipSubmit(event)">
+                    <input type="email" id="vip-email" class="vip-input" placeholder="Seu e-mail ou WhatsApp" required inputmode="email">
+                    <button type="submit" id="vip-btn" class="btn-vip">Garantir Acesso</button>
+                </form>
+                <div id="vip-feedback" style="display:none; margin-top:10px; color:var(--success); font-size:0.85rem; font-weight:600;">
+                    ✨ Convite VIP garantido com sucesso!
+                </div>
+            </div>
+        </div>
+
+        <!-- 1. ESSÊNCIA -->
+        <section>
+            <h2>1. Essência da Marca</h2>
+            
+            <div class="quote">
+                Volúpia é o prazer que se sente com todos os sentidos despertos.<br>
+                Não é excesso. É presença.
+            </div>
+
+            <p>
+                <strong>Volúpia</strong> vem do latim <em>Volupia</em> — a deusa romana do prazer dos sentidos. 
+                Não se trata de luxúria desenfreada, mas do deleite consciente, da experiência sensorial elevada e da intimidade vivida com intensidade e elegância.
+            </p>
+
+            <div class="card highlight">
+                <p style="margin:0; font-size:1.1rem; color:var(--gold-light);">
+                    <strong>Essência em uma frase:</strong><br>
+                    O prazer sensorial sofisticado que transforma a intimidade em experiência.
+                </p>
+            </div>
+        </section>
+
+        <!-- 2. PROPÓSITO & MISSÃO -->
+        <section>
+            <h2>2. Propósito, Missão e Visão</h2>
+
+            <div class="grid-2">
+                <div class="card">
+                    <h3 style="margin-top:0; color:var(--rose-soft);">Propósito</h3>
+                    <p style="margin:0;">Despertar nas pessoas a coragem de sentir mais — com consciência, beleza e liberdade.</p>
+                </div>
+                <div class="card">
+                    <h3 style="margin-top:0; color:var(--rose-soft);">Missão</h3>
+                    <p style="margin:0;">Oferecer produtos e experiências de prazer de alta qualidade, com discrição absoluta e linguagem que respeita a inteligência emocional do consumidor.</p>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3 style="margin-top:0; color:var(--rose-soft);">Visão</h3>
+                <p style="margin:0;">Ser a referência brasileira em sexual wellness sofisticado — a marca que as pessoas recomendam quando querem qualidade, elegância e confiança.</p>
+            </div>
+        </section>
+
+        <!-- 3. ARQUÉTIPOS -->
+        <section>
+            <h2>3. Arquétipos</h2>
+            
+            <p>Volúpia opera principalmente sob dois arquétipos complementares:</p>
+
+            <div class="grid-2">
+                <div class="card">
+                    <h3 style="margin-top:0;">O Amante</h3>
+                    <p>Paixão, sensualidade, conexão profunda e desejo. É o coração emocional da marca. Volúpia não vende produtos — vende a possibilidade de sentir e ser sentido.</p>
+                </div>
+                <div class="card">
+                    <h3 style="margin-top:0;">O Explorador</h3>
+                    <p>Descoberta, liberdade e expansão dos sentidos. Convida o cliente a sair do automático e explorar novas camadas de prazer e intimidade.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. PILARES -->
+        <section>
+            <h2>4. Pilares da Marca</h2>
+
+            <div class="grid-2" style="grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));">
+                <div class="pillar">
+                    <div class="icon">✦</div>
+                    <h4>Sensualidade</h4>
+                    <p>Prazer vivido com presença e sofisticação</p>
+                </div>
+                <div class="pillar">
+                    <div class="icon">◈</div>
+                    <h4>Discrição</h4>
+                    <p>Privacidade absoluta em cada detalhe</p>
+                </div>
+                <div class="pillar">
+                    <div class="icon">✧</div>
+                    <h4>Descoberta</h4>
+                    <p>Convidar à exploração sem julgamento</p>
+                </div>
+                <div class="pillar">
+                    <div class="icon">❖</div>
+                    <h4>Qualidade</h4>
+                    <p>Curadoria rigorosa e produtos body-safe</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. PERSONALIDADE -->
+        <section>
+            <h2>5. Personalidade da Marca</h2>
+
+            <p>Volúpia é como uma mulher elegante, segura e generosa com o conhecimento. Ela não grita. Ela convida.</p>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>É</th>
+                        <th>Não é</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Sensual e sofisticada</td>
+                        <td>Vulgar ou explícita demais</td>
+                    </tr>
+                    <tr>
+                        <td>Acolhedora e segura</td>
+                        <td>Julgadora ou moralista</td>
+                    </tr>
+                    <tr>
+                        <td>Direta e inteligente</td>
+                        <td>Infantilizada ou “fofinha”</td>
+                    </tr>
+                    <tr>
+                        <td>Provocante com classe</td>
+                        <td>Provocante por provocação</td>
+                    </tr>
+                    <tr>
+                        <td>Feminina e inclusiva</td>
+                        <td>Exclusivamente para um gênero</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- 6. TOM DE VOZ -->
+        <section>
+            <h2>6. Tom de Voz</h2>
+
+            <p>O tom de Volúpia é <strong>elegante, presente e provocante com inteligência</strong>.</p>
+
+            <div class="voice-grid">
+                <div class="voice-item yes">
+                    <strong style="color:var(--success);">Usamos</strong>
+                    Linguagem sensorial, metáforas sutis, convites, afirmações de liberdade, cuidado e qualidade.
+                </div>
+                <div class="voice-item no">
+                    <strong style="color:#ff6b6b;">Evitamos</strong>
+                    Gírias vulgares, humor de baixo nível, pressão de venda agressiva, linguagem infantil ou excessivamente técnica.
+                </div>
+            </div>
+
+            <h3>Exemplos de voz</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Situação</th>
+                        <th>Como Volúpia fala</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Produto novo</td>
+                        <td>“Uma nova forma de sentir. Feito para quem já sabe que prazer também é arte.”</td>
+                    </tr>
+                    <tr>
+                        <td>Discrição</td>
+                        <td>“Chega em caixa neutra. Nem o porteiro precisa saber.”</td>
+                    </tr>
+                    <tr>
+                        <td>Educação</td>
+                        <td>“Conhecer o próprio corpo é o primeiro ato de liberdade.”</td>
+                    </tr>
+                    <tr>
+                        <td>Convite</td>
+                        <td>“Desperte. Explore. Permita-se.”</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- 7. MANIFESTO -->
+        <section>
+            <h2>7. Manifesto</h2>
+
+            <div class="manifesto">
+                <p>
+                    Acreditamos que o prazer não precisa ser escondido nem justificado.<br><br>
+                    Ele pode ser elegante. Pode ser consciente. Pode ser compartilhado ou solitário.<br>
+                    Pode ser descoberta, reencontro ou simplesmente presença.<br><br>
+                    Na Volúpia, não vendemos objetos.<br>
+                    Oferecemos caminhos para sentir mais — com segurança, beleza e liberdade.<br><br>
+                    Porque despertar os sentidos é um ato de coragem.<br>
+                    E o prazer, quando vivido com consciência, é uma forma de estar vivo.
+                </p>
+            </div>
+        </section>
+
+        <!-- 8. POSICIONAMENTO -->
+        <section>
+            <h2>8. Posicionamento de Mercado</h2>
+
+            <div class="card highlight">
+                <p style="margin:0;">
+                    <strong>Volúpia</strong> não é apenas mais um sex shop.<br>
+                    É uma marca de <strong>Sexual Wellness</strong> que combina sofisticação, discrição e curadoria de qualidade para quem busca viver a intimidade com mais presença e menos tabu.
+                </p>
+            </div>
+        </section>
+
+        <footer>
+            Volúpia OS &nbsp;·&nbsp; Sexual Wellness B2B &nbsp;·&nbsp; Brasil 2026<br>
+            Documento de Identidade e Plataforma Oficial.
+        </footer>
     </div>
 
-    <h1 class="hero-title">VOLÚPIA</h1>
-    <div class="hero-tagline-quote">“Desperte seus sentidos”</div>
+    <script>
+        // 15-Day Countdown Logic
+        const targetDate = new Date();
+        targetDate.setDate(targetDate.getDate() + 15);
 
-    <p class="hero-subtitle">
-      O prazer sensorial sofisticado que transforma a intimidade em experiência. Estamos construindo a infraestrutura B2B definitiva para lojistas e distribuidores do mercado de Sexual Wellness no Brasil.
-    </p>
+        function updateCountdown() {
+            const now = new Date().getTime();
+            const distance = targetDate.getTime() - now;
 
-    <!-- 15-DAY COUNTDOWN TIMER -->
-    <div class="timer-container">
-      <div class="timer-label">Contagem Regressiva para a Abertura</div>
-      <div class="timer-grid">
-        <div class="timer-card">
-          <div class="timer-val" id="days">15</div>
-          <div class="timer-unit">Dias</div>
-        </div>
-        <div class="timer-card">
-          <div class="timer-val" id="hours">00</div>
-          <div class="timer-unit">Horas</div>
-        </div>
-        <div class="timer-card">
-          <div class="timer-val" id="minutes">00</div>
-          <div class="timer-unit">Minutos</div>
-        </div>
-        <div class="timer-card">
-          <div class="timer-val" id="seconds">00</div>
-          <div class="timer-unit">Segundos</div>
-        </div>
-      </div>
-    </div>
+            if (distance < 0) {
+                document.getElementById("days").innerText = "00";
+                document.getElementById("hours").innerText = "00";
+                document.getElementById("minutes").innerText = "00";
+                document.getElementById("seconds").innerText = "00";
+                return;
+            }
 
-    <!-- BRAND PILLARS -->
-    <div class="pillars-grid">
-      <div class="pillar-card">
-        <div class="icon">✦</div>
-        <h4>Sensualidade</h4>
-        <p>Prazer vivido com presença e sofisticação</p>
-      </div>
-      <div class="pillar-card">
-        <div class="icon">◈</div>
-        <h4>Discrição</h4>
-        <p>Privacidade absoluta em cada detalhe</p>
-      </div>
-      <div class="pillar-card">
-        <div class="icon">✧</div>
-        <h4>Descoberta</h4>
-        <p>Exploração livre sem julgamentos</p>
-      </div>
-      <div class="pillar-card">
-        <div class="icon">❖</div>
-        <h4>Qualidade</h4>
-        <p>Curadoria rigorosa body-safe</p>
-      </div>
-    </div>
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-    <!-- VIP Early Access -->
-    <div class="vip-card">
-      <h3>Convite VIP para Parceiros B2B</h3>
-      <p>Cadastre-se previamente para obter prioridade no catálogo de lançamentos e tabela exclusiva de fábrica.</p>
-      <form class="vip-form" onsubmit="handleVipSubmit(event)">
-        <input type="email" id="vip-email" class="vip-input" placeholder="Seu e-mail corporativo ou WhatsApp" required inputmode="email">
-        <button type="submit" class="btn-submit-vip" id="vip-btn">Garantir Acesso VIP</button>
-      </form>
-      <div id="vip-feedback" style="display:none; margin-top:14px; font-size:0.9rem; color:#30D158; font-weight:600;">
-        ✨ Convite VIP garantido com sucesso! Entraremos em contato prioritário.
-      </div>
-    </div>
-  </main>
+            document.getElementById("days").innerText = String(days).padStart(2, '0');
+            document.getElementById("hours").innerText = String(hours).padStart(2, '0');
+            document.getElementById("minutes").innerText = String(minutes).padStart(2, '0');
+            document.getElementById("seconds").innerText = String(seconds).padStart(2, '0');
+        }
 
-  <!-- Footer -->
-  <footer>
-    Volúpia OS &nbsp;·&nbsp; Sexual Wellness B2B &nbsp;·&nbsp; Brasil 2026
-  </footer>
+        setInterval(updateCountdown, 1000);
+        updateCountdown();
 
-  <script>
-    // 15-Day Countdown Logic
-    const targetDate = new Date();
-    targetDate.setDate(targetDate.getDate() + 15);
-
-    function updateCountdown() {
-      const now = new Date().getTime();
-      const distance = targetDate.getTime() - now;
-
-      if (distance < 0) {
-        document.getElementById("days").innerText = "00";
-        document.getElementById("hours").innerText = "00";
-        document.getElementById("minutes").innerText = "00";
-        document.getElementById("seconds").innerText = "00";
-        return;
-      }
-
-      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-      document.getElementById("days").innerText = String(days).padStart(2, '0');
-      document.getElementById("hours").innerText = String(hours).padStart(2, '0');
-      document.getElementById("minutes").innerText = String(minutes).padStart(2, '0');
-      document.getElementById("seconds").innerText = String(seconds).padStart(2, '0');
-    }
-
-    setInterval(updateCountdown, 1000);
-    updateCountdown();
-
-    function handleVipSubmit(e) {
-      e.preventDefault();
-      const btn = document.getElementById("vip-btn");
-      btn.innerText = "Processando...";
-      btn.disabled = true;
-      setTimeout(() => {
-        btn.style.display = "none";
-        document.getElementById("vip-email").style.display = "none";
-        document.getElementById("vip-feedback").style.display = "block";
-      }, 800);
-    }
-  </script>
+        function handleVipSubmit(e) {
+            e.preventDefault();
+            const btn = document.getElementById("vip-btn");
+            btn.innerText = "Garantindo...";
+            btn.disabled = true;
+            setTimeout(() => {
+                btn.style.display = "none";
+                document.getElementById("vip-email").style.display = "none";
+                document.getElementById("vip-feedback").style.display = "block";
+            }, 600);
+        }
+    </script>
 </body>
 </html>
