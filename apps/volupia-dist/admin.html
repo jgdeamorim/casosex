@@ -726,9 +726,16 @@
         <div class="bento-card" style="grid-column: 1 / -1;">
           <div class="card-title-bar">
             <div class="card-title">
-              <span>🗺️ Mapeamento Geolocalizado de Fornecedores Fluminenses (GMB)</span>
+              <span>🗺️ Mapeamento Geolocalizado de Fornecedores B2B (Polo RJ & SP - GMB)</span>
             </div>
-            <span style="font-size:0.75rem; color:var(--text-muted)">Leaflet.js + Google Maps Pins</span>
+            <div style="display:flex; align-items:center; gap:10px;">
+              <select id="map-polo-filter" onchange="filterMapByPolo(this.value)" style="background:var(--bg); color:var(--text-main); border:1px solid var(--border); border-radius:8px; padding:6px 10px; font-size:0.8rem; font-weight:600; cursor:pointer;">
+                <option value="TODOS">🌐 Todos os Polos (405 Fornecedores)</option>
+                <option value="SP">📍 Polo São Paulo & ABC Paulista (370+ Pins)</option>
+                <option value="RJ">📍 Polo Rio de Janeiro & Baixada (30+ Pins)</option>
+              </select>
+              <span style="font-size:0.75rem; color:var(--text-muted)">Leaflet.js + GMB Pins Medidos</span>
+            </div>
           </div>
           <div id="leaflet-map"></div>
         </div>
@@ -981,44 +988,76 @@
       if (e.key === 'Enter') sendChatMessage();
     }
 
-    /* Initialize Leaflet Map with Pins */
-    function initLeafletMap() {
+    let markersLayer = null;
+
+    /* Initialize Leaflet Map with Pins & Auto-Fit Bounds */
+    function initLeafletMap(selectedPolo = 'TODOS') {
       if (typeof L === 'undefined') return;
 
-      map = L.map('leaflet-map').setView([-22.8600, -43.2500], 11);
+      if (!map) {
+        map = L.map('leaflet-map');
+        L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
+          attribution: '&copy; OpenStreetMap &copy; CARTO',
+          subdomains: 'abcd',
+          maxZoom: 19
+        }).addTo(map);
+      }
 
-      L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
-        attribution: '&copy; OpenStreetMap &copy; CARTO',
-        subdomains: 'abcd',
-        maxZoom: 19
-      }).addTo(map);
+      if (markersLayer) {
+        map.removeLayer(markersLayer);
+      }
 
-      suppliersList.forEach(sup => {
+      const markersGroup = L.featureGroup();
+
+      const filteredList = suppliersList.filter(sup => {
+        if (selectedPolo === 'SP') return sup.state === 'SP' || (sup.city && sup.city.includes('São Paulo')) || (sup.address && sup.address.includes('SP'));
+        if (selectedPolo === 'RJ') return sup.state === 'RJ' || (sup.city && (sup.city.includes('Rio') || sup.city.includes('Caxias') || sup.city.includes('Niterói')));
+        return true;
+      });
+
+      filteredList.forEach(sup => {
         const pinColor = sup.status === 'HOMOLOGADO' ? '#30D158' : sup.status === 'VISITA_PENDENTE' ? '#EAB308' : '#3B82F6';
         
         const customIcon = L.divIcon({
           className: 'custom-leaflet-pin',
-          html: `<div style="background-color:${pinColor}; width:16px; height:16px; border-radius:50%; border:2px solid #FFF; box-shadow:0 0 10px ${pinColor};"></div>`,
-          iconSize: [16, 16]
+          html: `<div style="background-color:${pinColor}; width:14px; height:14px; border-radius:50%; border:2px solid #FFF; box-shadow:0 0 8px ${pinColor};"></div>`,
+          iconSize: [14, 14]
         });
 
-        const lat = sup.latitude || sup.lat || -22.9068;
-        const lng = sup.longitude || sup.lng || -43.1729;
+        const lat = parseFloat(sup.latitude || sup.lat);
+        const lng = parseFloat(sup.longitude || sup.lng);
+        if (isNaN(lat) || isNaN(lng)) return;
+
         const gmbUrl = sup.gmb_url || sup.gmb || `https://maps.google.com/?q=${lat},${lng}`;
 
-        const marker = L.marker([lat, lng], { icon: customIcon }).addTo(map);
+        const marker = L.marker([lat, lng], { icon: customIcon });
 
         const popupContent = `
           <div style="font-family:'Plus Jakarta Sans',sans-serif; padding:4px;">
-            <strong style="font-size:0.9rem; color:#1c1917;">${sup.name}</strong><br/>
-            <span style="font-size:0.78rem; color:#6b635b;">${sup.category} • ${sup.city}</span><br/>
+            <strong style="font-size:0.88rem; color:#1c1917;">${sup.name}</strong><br/>
+            <span style="font-size:0.78rem; color:#6b635b;">${sup.category} • ${sup.city || 'Polo B2B'}</span><br/>
+            <span style="font-size:0.74rem; color:#444;">📍 ${sup.address || ''}</span><br/>
             <span class="badge-status ${sup.status}" style="margin-top:4px;">${sup.status}</span><br/><br/>
-            <a href="https://wa.me/${sup.whatsapp}?text=Ol%C3%A1%20${encodeURIComponent(sup.name)}%2C%20falo%20da%20Vol%C3%BApia%20B2B!" target="_blank" style="color:#25D366; font-weight:700; text-decoration:none; font-size:0.8rem;">💬 Abrir WhatsApp</a> | 
-            <a href="${gmbUrl}" target="_blank" style="color:#3B82F6; font-weight:700; text-decoration:none; font-size:0.8rem;">📍 Ver Pin GMB</a>
+            <a href="https://wa.me/${sup.whatsapp}?text=Ol%C3%A1%20${encodeURIComponent(sup.name)}%2C%20falo%20da%20Vol%C3%BApia%20B2B!" target="_blank" style="color:#25D366; font-weight:700; text-decoration:none; font-size:0.8rem;">💬 WhatsApp (${sup.phone || 'N/D'})</a> | 
+            <a href="${gmbUrl}" target="_blank" style="color:#3B82F6; font-weight:700; text-decoration:none; font-size:0.8rem;">📍 GMB Pin</a>
           </div>
         `;
         marker.bindPopup(popupContent);
+        markersGroup.addLayer(marker);
       });
+
+      markersLayer = markersGroup;
+      markersLayer.addTo(map);
+
+      if (filteredList.length > 0 && markersGroup.getBounds().isValid()) {
+        map.fitBounds(markersGroup.getBounds().pad(0.08));
+      } else {
+        map.setView([-23.5505, -46.6333], 10);
+      }
+    }
+
+    function filterMapByPolo(polo) {
+      initLeafletMap(polo);
     }
 
     function renderSuppliersTable() {
