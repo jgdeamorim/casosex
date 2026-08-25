@@ -45,9 +45,13 @@ The workspace is organized into:
 - `packages/contracts`: Zod / OpenAPI Shared Schemas.
 - `packages/tokens`: OKLCH Color Space & Motion Design Tokens.
 
+### Article X: Dynamic Skill Invocation Alert Protocol
+Whenever a task in the 5-Step Workflow requires specialized domain execution (e.g. `dashboard-builder`, `frontend-a11y`, `d3-visualization`, `spec-kit`, `context7`), the system MUST emit an explicit **Skill Trigger Alert** (`> [!NOTE] 🔮 Skill Invoked: <skill-id>`), verify/register the skill in `.antigravity/skills/index.yaml`, and activate its domain instructions into the execution context.
+
 ---
 
 ## 📜 Governance Rules
 
 1. **Sovereign Pyramid Hierarchy**: Security (ASVS 5.0) > Requirements > ADRs > Contracts > Tokens > Specs > Grounding (Context7) > Skills > Code > Agent Heuristics.
 2. **Amendments**: Modifying this constitution requires formal approval from the Founder (Jeferson Amorim) and an updated version number.
+
