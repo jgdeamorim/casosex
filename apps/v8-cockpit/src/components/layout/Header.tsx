@@ -29,7 +29,7 @@ export function Header(): React.ReactElement {
               key={polo}
               type="button"
               onClick={() => setSelectedPolo(polo)}
-              className={`px-3 py-1 rounded-lg font-bold transition-all whitespace-nowrap focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#e11d48] ${
+              className={`px-3 py-2 min-h-[44px] rounded-lg font-bold transition-all whitespace-nowrap focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#e11d48] ${
                 selectedPolo === polo
                   ? 'bg-[#e11d48] text-white shadow-md shadow-[#e11d48]/20 border border-[#e11d48]/50'
                   : 'text-[#a39b94] hover:text-[#faf7f5] hover:bg-[#221c1f]'
@@ -57,7 +57,7 @@ export function Header(): React.ReactElement {
               type="button"
               onClick={() => setUserRole(role as UserRole)}
               aria-pressed={userSession.role === role}
-              className={`px-2.5 py-1 rounded-lg font-bold transition-all whitespace-nowrap focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#e11d48] ${
+              className={`px-2.5 py-2 min-h-[44px] rounded-lg font-bold transition-all whitespace-nowrap focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#e11d48] ${
                 userSession.role === role
                   ? 'bg-[#e11d48] text-white shadow-sm border border-[#e11d48]/50'
                   : 'text-[#a39b94] hover:text-[#faf7f5] hover:bg-[#221c1f]'
@@ -72,7 +72,7 @@ export function Header(): React.ReactElement {
         <button
           type="button"
           onClick={() => setIsLoginOpen(true)}
-          className="flex items-center gap-2 pl-3 border-l border-white/10 hover:opacity-80 transition-opacity text-left shrink-0 whitespace-nowrap focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#e11d48]"
+          className="flex items-center gap-2 pl-3 min-h-[44px] border-l border-white/10 hover:opacity-80 transition-opacity text-left shrink-0 whitespace-nowrap focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#e11d48]"
           title="Trocar perfil de demonstração"
         >
           <div className="w-8 h-8 rounded-full bg-[#221c1f] border border-white/10 flex items-center justify-center font-bold text-xs text-[#faf7f5] shrink-0">
@@ -91,7 +91,7 @@ export function Header(): React.ReactElement {
           type="button"
           onClick={toggleChat}
           aria-label="Abrir ou fechar chat da equipe"
-          className="relative p-2.5 rounded-xl bg-[#161214] border border-white/10 text-[#faf7f5] hover:border-[#e11d48]/50 transition-all shrink-0 whitespace-nowrap focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#e11d48]"
+          className="relative p-2.5 min-h-[44px] rounded-xl bg-[#161214] border border-white/10 text-[#faf7f5] hover:border-[#e11d48]/50 transition-all shrink-0 whitespace-nowrap focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#e11d48]"
           title="Abrir Chat da Equipe"
         >
           <svg className="w-5 h-5 text-[#a39b94] hover:text-[#faf7f5]" fill="none" stroke="currentColor" viewBox="0 0 24 24">

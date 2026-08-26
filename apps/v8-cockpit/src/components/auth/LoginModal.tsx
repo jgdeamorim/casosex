@@ -36,7 +36,7 @@ export function LoginModal({ isOpen, onClose }: LoginModalProps): React.ReactEle
         <button
           type="button"
           onClick={onClose}
-          className="w-full text-center text-xs text-[#a39b94] hover:text-[#faf7f5] transition-colors py-2 whitespace-nowrap shrink-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#e11d48] rounded-xl"
+          className="w-full text-center text-xs text-[#a39b94] hover:text-[#faf7f5] transition-colors py-2.5 min-h-[44px] whitespace-nowrap shrink-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#e11d48] rounded-xl"
         >
           Fechar
         </button>
