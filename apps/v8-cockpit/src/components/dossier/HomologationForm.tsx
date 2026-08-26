@@ -94,7 +94,7 @@ export function HomologationForm(): React.ReactElement {
           <h2 className="text-xl font-bold text-[#f5d0a9] font-serif-luxury">{selectedSupplier.name}</h2>
           <p className="text-xs text-[#a39b94] font-medium">{selectedSupplier.category} — {selectedSupplier.city}, {selectedSupplier.state}</p>
         </div>
-        <div className="flex flex-col items-end gap-1">
+        <div className="flex flex-row items-center gap-2">
           <span role="status" className={`badge-status ${status} inline-flex items-center`}>
             <span className="w-2 h-2 rounded-full bg-current animate-pulse inline-block mr-1.5" />
             {statusLabel(status)}

@@ -1,8 +1,8 @@
 {
-  "scan_timestamp": "2026-08-26T17:17:51Z",
+  "scan_timestamp": "2026-08-26T17:21:13Z",
   "scanned_files": 29,
-  "oxlint_elapsed_ms": 2186.43,
-  "ast_jury_elapsed_ms": 2193.03,
+  "oxlint_elapsed_ms": 2702.65,
+  "ast_jury_elapsed_ms": 2713.96,
   "total_findings": 0,
   "findings": []
 }
