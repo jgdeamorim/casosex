@@ -50,12 +50,23 @@ export function MobileDossierView(): React.ReactElement {
       <div className="space-y-4 animate-in fade-in duration-300">
         {/* Fila de Auditoria se houver pendentes */}
         {pendingVisits.length > 0 && (
-          <div className="p-4 rounded-3xl bg-[#161214]/95 border border-amber-500/30 space-y-2.5 shadow-xl">
+          <div className="p-3.5 rounded-2xl bg-[#161214]/90 border border-amber-500/20 space-y-2 shadow-xl backdrop-blur-xl">
             <div className="flex items-center justify-between">
-              <span className="text-[11px] font-black uppercase text-amber-400 tracking-wider flex items-center gap-1.5">
-                <span className="w-2 h-2 rounded-full bg-amber-400 animate-ping" />
-                Fila de Auditoria • Visita Pendente ({pendingVisits.length})
-              </span>
+              <div className="flex items-center gap-1.5">
+                <svg
+                  className="w-3.5 h-3.5 text-amber-400 animate-pulse shrink-0"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M15 19l-7-7 7-7" />
+                </svg>
+                <span className="text-[10px] font-black uppercase text-amber-400 tracking-wider flex items-center gap-1.5">
+                  <span className="w-2 h-2 rounded-full bg-amber-400 animate-ping" />
+                  Fila de Auditoria • Visita Pendente ({pendingVisits.length})
+                </span>
+              </div>
+              <span className="text-[9px] text-stone-500 font-mono tracking-tight">rolagem lateral →</span>
             </div>
             <div className="flex items-center gap-2 overflow-x-auto pb-1 no-scrollbar">
               {pendingVisits.map((sup) => (
@@ -120,14 +131,25 @@ export function MobileDossierView(): React.ReactElement {
 
   return (
     <section className="space-y-4 animate-in fade-in duration-300">
-      {/* Fila de Auditoria de Visitas Pendentes (Visual Glass Minimalista) */}
+      {/* Card 1: Fila de Auditoria de Visitas Pendentes (Glass Clean + Setinha do lado esquerdo piscando) */}
       {pendingVisits.length > 0 && (
         <div className="p-3.5 rounded-2xl bg-[#161214]/90 border border-amber-500/20 space-y-2 shadow-xl backdrop-blur-xl">
           <div className="flex items-center justify-between">
-            <span className="text-[10px] font-black uppercase text-amber-400 tracking-wider flex items-center gap-1.5">
-              <span className="w-2 h-2 rounded-full bg-amber-400 animate-ping" />
-              Fila de Auditoria ({pendingVisits.length} Pendente{pendingVisits.length > 1 ? 's' : ''})
-            </span>
+            <div className="flex items-center gap-1.5">
+              <svg
+                className="w-3.5 h-3.5 text-amber-400 animate-pulse shrink-0"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M15 19l-7-7 7-7" />
+              </svg>
+              <span className="text-[10px] font-black uppercase text-amber-400 tracking-wider flex items-center gap-1.5">
+                <span className="w-2 h-2 rounded-full bg-amber-400 animate-ping" />
+                Fila de Auditoria ({pendingVisits.length} Pendente{pendingVisits.length > 1 ? 's' : ''})
+              </span>
+            </div>
+            <span className="text-[9px] text-stone-500 font-mono tracking-tight">rolagem lateral →</span>
           </div>
           <div className="flex items-center gap-2 overflow-x-auto pb-1 no-scrollbar">
             {pendingVisits.map((sup) => {
@@ -152,83 +174,73 @@ export function MobileDossierView(): React.ReactElement {
         </div>
       )}
 
-      {/* Header do Dossiê com Visual Liquid Glass 2026+ e Polo Dinâmico */}
-      <div className="p-4 rounded-3xl bg-[#161214]/90 backdrop-blur-xl border border-stone-800 flex items-center justify-between shadow-xl">
-        <div className="min-w-0 pr-2">
-          <div className="flex items-center gap-2">
-            <span className="text-[10px] font-extrabold uppercase text-rose-400 tracking-wider">
-              Laudo Técnico • Polo {selectedSupplier.city} ({selectedSupplier.state})
-            </span>
-            <span
-              className={`px-2 py-0.5 rounded-full text-[9px] font-extrabold border ${
-                selectedSupplier.status === 'HOMOLOGADO'
-                  ? 'bg-emerald-500/20 text-emerald-400 border-emerald-500/30'
-                  : selectedSupplier.status === 'VISITA_PENDENTE'
-                  ? 'bg-amber-500/20 text-amber-400 border-amber-500/30'
-                  : selectedSupplier.status === 'REJEITADO'
-                  ? 'bg-rose-500/20 text-rose-400 border-rose-500/30'
-                  : 'bg-stone-500/20 text-stone-300 border-stone-500/30'
+      {/* Card 2 & 3 UNIFICADOS: Header do Dossiê + Decisão Rápida (sem ícone de Score solto) */}
+      <div className="p-3.5 rounded-2xl bg-[#161214]/90 backdrop-blur-xl border border-stone-800 space-y-3 shadow-xl">
+        <div className="flex items-center justify-between gap-2">
+          <div className="min-w-0 flex-1">
+            <div className="flex items-center gap-2 flex-wrap">
+              <span className="text-[10px] font-extrabold uppercase text-rose-400 tracking-wider">
+                Laudo Técnico • Polo {selectedSupplier.city} ({selectedSupplier.state})
+              </span>
+              <span
+                className={`px-2 py-0.5 rounded-full text-[9px] font-extrabold border ${
+                  selectedSupplier.status === 'HOMOLOGADO'
+                    ? 'bg-emerald-500/20 text-emerald-400 border-emerald-500/30'
+                    : selectedSupplier.status === 'VISITA_PENDENTE'
+                    ? 'bg-amber-500/20 text-amber-400 border-amber-500/30'
+                    : selectedSupplier.status === 'REJEITADO'
+                    ? 'bg-rose-500/20 text-rose-400 border-rose-500/30'
+                    : 'bg-stone-500/20 text-stone-300 border-stone-500/30'
+                }`}
+              >
+                {selectedSupplier.status.replace('_', ' ')}
+              </span>
+              {selectedSupplier.rating && (
+                <span className="px-1.5 py-0.5 rounded text-[9px] font-bold bg-amber-500/10 text-amber-400 border border-amber-500/20">
+                  ★ {selectedSupplier.rating} {selectedSupplier.reviews_count ? `(${selectedSupplier.reviews_count})` : ''}
+                </span>
+              )}
+            </div>
+            <h2 className="text-base font-black text-stone-100 truncate mt-0.5">
+              {selectedSupplier.name}
+            </h2>
+            <p className="text-xs text-stone-400 truncate">
+              {selectedSupplier.category} • {selectedSupplier.city}, {selectedSupplier.state}
+            </p>
+          </div>
+        </div>
+
+        {/* Decisão Rápida Integrada (Unida ao Header) */}
+        <div className="pt-2.5 border-t border-stone-800/80 flex items-center justify-between gap-2">
+          <span className="text-[9px] font-extrabold uppercase text-stone-400 tracking-wider">
+            Decisão Rápida:
+          </span>
+          <div className="flex items-center gap-1.5">
+            <button
+              type="button"
+              disabled={statusSaving}
+              onClick={() => handleStatusChange('REJEITADO')}
+              className={`py-1 px-2.5 rounded-lg text-[10px] font-extrabold border transition-all min-h-[32px] flex items-center gap-1 ${
+                selectedSupplier.status === 'REJEITADO'
+                  ? 'bg-rose-600 text-white border-rose-500 shadow-sm'
+                  : 'bg-rose-500/10 text-rose-400 border-rose-500/20 hover:bg-rose-500/20'
               }`}
             >
-              {selectedSupplier.status.replace('_', ' ')}
-            </span>
+              <span>Rejeitado</span>
+            </button>
+            <button
+              type="button"
+              disabled={statusSaving}
+              onClick={() => handleStatusChange('PROSPECCAO')}
+              className={`py-1 px-2.5 rounded-lg text-[10px] font-extrabold border transition-all min-h-[32px] flex items-center gap-1 ${
+                selectedSupplier.status === 'PROSPECCAO'
+                  ? 'bg-stone-700 text-white border-stone-600 shadow-sm'
+                  : 'bg-stone-800/80 text-stone-400 border-stone-700 hover:text-stone-200'
+              }`}
+            >
+              <span>Prospecção</span>
+            </button>
           </div>
-          <h2 className="text-base font-black text-stone-100 truncate mt-0.5">
-            {selectedSupplier.name}
-          </h2>
-          <p className="text-xs text-stone-400 truncate">
-            {selectedSupplier.category} • {selectedSupplier.city}, {selectedSupplier.state}
-          </p>
-        </div>
-        <div className="flex items-center gap-2 shrink-0">
-          {selectedSupplier.rating && (
-            <div className="px-2 py-1 rounded-xl bg-amber-500/10 border border-amber-500/20 flex flex-col items-center justify-center text-amber-400 shrink-0">
-              <span className="text-[8px] uppercase font-bold text-stone-400">GMB</span>
-              <span className="text-[11px] font-black flex items-center gap-0.5">
-                ★ {selectedSupplier.rating}
-                {selectedSupplier.reviews_count ? (
-                  <span className="text-[8px] text-stone-400 font-normal">({selectedSupplier.reviews_count})</span>
-                ) : null}
-              </span>
-            </div>
-          )}
-          <div className="w-11 h-11 rounded-2xl bg-gradient-to-br from-rose-500/20 to-rose-950/40 border border-rose-500/30 flex flex-col items-center justify-center text-rose-400 font-black shrink-0 shadow-lg">
-            <span className="text-[8px] uppercase font-bold text-stone-400">Score</span>
-            <span className="text-xs">{selectedSupplier.quality_score ?? 100}</span>
-          </div>
-        </div>
-      </div>
-
-      {/* Seletor de Ação Rápida de Auditoria */}
-      <div className="p-2.5 rounded-2xl bg-[#161214] border border-stone-800 flex items-center justify-between gap-2">
-        <span className="text-[9px] font-extrabold uppercase text-stone-400 tracking-wider">
-          Decisão Rápida:
-        </span>
-        <div className="flex items-center gap-1.5">
-          <button
-            type="button"
-            disabled={statusSaving}
-            onClick={() => handleStatusChange('REJEITADO')}
-            className={`py-1 px-2.5 rounded-lg text-[10px] font-extrabold border transition-all min-h-[32px] flex items-center gap-1 ${
-              selectedSupplier.status === 'REJEITADO'
-                ? 'bg-rose-600 text-white border-rose-500 shadow-sm'
-                : 'bg-rose-500/10 text-rose-400 border-rose-500/20 hover:bg-rose-500/20'
-            }`}
-          >
-            <span>Rejeitado</span>
-          </button>
-          <button
-            type="button"
-            disabled={statusSaving}
-            onClick={() => handleStatusChange('PROSPECCAO')}
-            className={`py-1 px-2.5 rounded-lg text-[10px] font-extrabold border transition-all min-h-[32px] flex items-center gap-1 ${
-              selectedSupplier.status === 'PROSPECCAO'
-                ? 'bg-stone-700 text-white border-stone-600 shadow-sm'
-                : 'bg-stone-800/80 text-stone-400 border-stone-700 hover:text-stone-200'
-            }`}
-          >
-            <span>Prospecção</span>
-          </button>
         </div>
       </div>
 
