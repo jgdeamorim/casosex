@@ -1,0 +1,31 @@
+spec_type: design-pattern-knowledge-layer-index
+version: 1.0.0
+authority_stack:
+  primary_b2b: IBM Carbon Design System (v11)
+  secondary_ui: Material Design 3
+  accessibility: WAI-ARIA Authoring Practices Guide (APG)
+  implementation: Tailwind CSS v4
+  retrieval: Context7 MCP Engine
+generated_at: 2026-08-26T17:16:30Z
+
+patterns:
+  - id: UI-PATTERN-DATA-TABLE
+    name: B2B High-Density Data Table
+    authority: IBM Carbon Design System
+    spec_file: docs/spec/design-patterns/data-table.yaml
+    categories: [data, tables, b2b]
+    applies_to: [SupplierTable.tsx, Table.tsx, DataGrid.tsx]
+
+  - id: UI-PATTERN-STATUS-INDICATOR
+    name: Status Badge & Pulse Indicator
+    authority: WAI-ARIA APG + IBM Carbon Tag
+    spec_file: docs/spec/design-patterns/status-indicator.yaml
+    categories: [feedback, status, tags]
+    applies_to: [badge, status-pill, status-tag]
+
+  - id: UI-PATTERN-FORM-HEADER
+    name: Form & Panel Header Alignment
+    authority: IBM Carbon Structured List / Form Header
+    spec_file: docs/spec/design-patterns/form-header.yaml
+    categories: [layout, forms, headers]
+    applies_to: [HomologationForm.tsx, CardHeader.tsx, FormHeader.tsx]

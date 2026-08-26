@@ -1,0 +1,25 @@
+pattern:
+  id: UI-PATTERN-STATUS-INDICATOR
+  name: Status Badge & Pulse Indicator Pattern
+  authority:
+    name: WAI-ARIA APG & Carbon Tag Component
+    url: https://carbondesignsystem.com/components/tag/usage/
+    retrieved_via: context7
+
+  principles:
+    - visual-indicator: status tags MUST combine a colored dot/pulse with descriptive text
+    - semantic-colors: status states mapped to HSL tokens (emerald=homologated, amber=pending, red=rejected, blue=prospecting)
+    - inline-alignment: status badge rendered with inline-flex items-center gap-1.5 rounded-full px-2.5 py-1 text-xs
+
+  accessibility:
+    contract: WAI-ARIA Status Role
+    role: status
+    aria_live: polite
+
+  jury_rules:
+    ast:
+      required_classes: [inline-flex, items-center, gap-1.5]
+    dom:
+      role_status: true
+    visual:
+      pulse_dot_present: true

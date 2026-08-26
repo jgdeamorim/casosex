@@ -92,7 +92,10 @@ export function SupplierTable(): React.ReactElement {
                 <div>
                   <div className="flex items-start justify-between gap-2 mb-2">
                     <h3 className="text-sm font-bold text-[#faf7f5] line-clamp-1">{sup.name}</h3>
-                    <span className={`badge-status text-[9px] ${sup.status}`}>{statusLabel(sup.status)}</span>
+                    <span role="status" className={`badge-status text-[9px] ${sup.status} inline-flex items-center`}>
+                      <span className="w-1.5 h-1.5 rounded-full bg-current animate-pulse inline-block mr-1" />
+                      {statusLabel(sup.status)}
+                    </span>
                   </div>
 
                   <p className="text-xs text-rose-400 font-medium mb-1">{sup.category}</p>
@@ -189,7 +192,10 @@ export function SupplierTable(): React.ReactElement {
                     <td className="py-3 px-4 text-[#a39b94] font-mono">{sup.city} - {sup.state}</td>
                     <td className="py-3 px-4">
                       <div className="flex items-center gap-2">
-                        <span className={`badge-status ${sup.status}`}>{statusLabel(sup.status)}</span>
+                        <span role="status" className={`badge-status ${sup.status} inline-flex items-center`}>
+                          <span className="w-1.5 h-1.5 rounded-full bg-current animate-pulse inline-block mr-1" />
+                          {statusLabel(sup.status)}
+                        </span>
                         {sup.status === 'HOMOLOGADO' && (
                           <span className="px-2 py-0.5 rounded text-[9px] font-bold bg-emerald-500/20 text-emerald-300 border border-emerald-500/30">
                             BINGO

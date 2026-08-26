@@ -1,0 +1,38 @@
+pattern:
+  id: UI-PATTERN-DATA-TABLE
+  name: IBM Carbon B2B Data Table Pattern
+  authority:
+    name: IBM Carbon Design System
+    url: https://carbondesignsystem.com/components/data-table/usage/
+    retrieved_via: context7
+
+  principles:
+    - visual-density: 5 density sizes (xs, sm, md, lg, xl)
+    - vertical-alignment: text cells centered vertically (items-center / align-middle)
+    - header-contrast: distinct header row styling (bg-muted/30, font-medium, tracking-wider)
+    - row-hover: interactive row highlight on hover for scanning efficiency
+
+  accessibility:
+    contract: WAI-ARIA Data Table APG
+    required_roles:
+      - role: table
+      - role: rowgroup
+      - role: row
+      - role: columnheader
+      - role: cell
+    keyboard_navigation: sorting and action triggerable via Enter/Space
+
+  responsive_contract:
+    desktop: horizontal scrolling container with min-w-[800px] and sticky headers
+    mobile: stacked card view or horizontal swipe container with scroll indicators
+
+  jury_rules:
+    ast:
+      required_elements: [table, thead, tbody, tr, th, td]
+      forbidden_wrapping: tr elements directly inside div without table role
+    dom:
+      aria_roles_present: true
+      focus_visible_on_headers: true
+    visual:
+      cell_clipping: false
+      row_height_consistency: true

@@ -97,7 +97,10 @@ export function SupplierMap(): React.ReactElement {
             <p style="font-size: 10px; font-weight: 700; color: #a39b94; text-transform: uppercase;">${supplier.category}</p>
             <h4 style="font-size: 13px; font-weight: 800; color: #faf7f5; margin: 2px 0;">${supplier.name}</h4>
             <p style="font-size: 11px; color: #a39b94; margin-bottom: 6px;">📍 ${supplier.city} - ${supplier.state}</p>
-            <span class="badge-status ${supplier.status}">${statusLabel(supplier.status)}</span>
+            <span role="status" class="badge-status ${supplier.status} inline-flex items-center">
+              <span class="w-1.5 h-1.5 rounded-full bg-current animate-pulse inline-block mr-1"></span>
+              ${statusLabel(supplier.status)}
+            </span>
           </div>
         `;
 

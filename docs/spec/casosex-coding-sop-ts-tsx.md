@@ -43,4 +43,21 @@ git add . && git commit -m "type: descrição"
 
 ---
 
-*v3.0 · CASOSEX · Especificação de SOP Técnica Integrada*
+## III. Governança Normativa de UI/UX — Júri B2B (ADR-0198 Refinada)
+
+> Fontes Normativas: IBM Carbon Design System (B2B Primary) · WAI-ARIA APG · Tailwind CSS v4
+
+1. **Descoberta via Context7**: Todo julgamento de padrão deve ser recuperado via Context7 a partir de especificações normativas formais (`docs/spec/design-patterns/*.yaml`).
+2. **Contrato de Alinhamento de Cabeçalhos (`UI-PATTERN-FORM-HEADER`)**:
+   - Cabeçalhos desktop (`>= 640px`) DEVEM alinhar título e badges de ação horizontalmente (`flex-row items-center justify-between`). É proibido empilhar badges com `flex-col items-end` em cabeçalhos principais desktop.
+3. **Contrato de Tabelas B2B High-Density (`UI-PATTERN-DATA-TABLE`)**:
+   - Segue padrão IBM Carbon (5 densidades, células verticalmente centralizadas `items-center` / `align-middle`, destaque de linha `hover:bg-muted/20`, acessibilidade `role="table"` e suporte a navegação por teclado).
+4. **Contrato de Indicadores de Status (`UI-PATTERN-STATUS-INDICATOR`)**:
+   - Badges de status DEVEM combinar indicador visual (dot de pulso `<span className="w-2 h-2 rounded-full animate-pulse" />`) com texto e `role="status"` WAI-ARIA.
+5. **Multi-Jury Enforcement**:
+   - **AST Jury** (sub-milissegundo no dev-loop) $\rightarrow$ **DOM/ARIA Jury** (pre-push/PR) $\rightarrow$ **Visual Jury** (PR/CI com Playwright).
+
+---
+
+*v3.2 · CASOSEX · Especificação de SOP Técnica & Governança Normativa B2B*
+

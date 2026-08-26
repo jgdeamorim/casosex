@@ -1,0 +1,21 @@
+pattern:
+  id: UI-PATTERN-FORM-HEADER
+  name: Form & Panel Header Alignment Pattern
+  authority:
+    name: IBM Carbon Form & Header Layout
+    url: https://carbondesignsystem.com/patterns/header-patterns/
+    retrieved_via: context7
+
+  principles:
+    - horizontal-hierarchy: header title and action badges aligned horizontally on desktop (flex flex-row items-center justify-between)
+    - responsive-stacking: stacked vertically ONLY when viewport width is below mobile breakpoint (< 640px)
+    - typography-scale: section title uses font-semibold text-lg tracking-tight
+
+  jury_rules:
+    ast:
+      desktop_alignment: flex-row items-center justify-between
+      forbidden_desktop_stacking: flex-col items-end (when viewport >= desktop)
+    dom:
+      heading_level: h2 or h3
+    visual:
+      badge_header_collision: false
