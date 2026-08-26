@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { RenderContextProvider } from './context/RenderContext';
 import { useDeviceFacet } from './facets/DeviceLayoutFacet';
 import { Header } from './components/layout/Header';
@@ -18,6 +18,19 @@ import { LoginView } from './components/auth/LoginView';
 function MainLayout(): React.ReactElement {
   const [activeTab, setActiveTab] = useState<string>('dashboard');
   const facet = useDeviceFacet();
+
+  useEffect(() => {
+    const savedTheme = localStorage.getItem('v8_theme');
+    if (savedTheme === 'light') {
+      document.documentElement.classList.remove('dark');
+      document.documentElement.classList.add('light-theme', 'light');
+      document.documentElement.setAttribute('data-theme', 'light');
+    } else if (savedTheme === 'dark') {
+      document.documentElement.classList.remove('light-theme', 'light');
+      document.documentElement.classList.add('dark');
+      document.documentElement.setAttribute('data-theme', 'dark');
+    }
+  }, []);
 
   const isMobileView = facet === 'mobile' || facet === 'smartwatch';
 

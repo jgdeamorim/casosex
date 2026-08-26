@@ -11,7 +11,14 @@ export function UserProfileModal({ onLogout }: UserProfileModalProps): React.Rea
   const { isProfileOpen, toggleProfile, userSession } = useRenderContext();
   const modalRef = useRef<HTMLDivElement | null>(null);
   const [isFullscreen, setIsFullscreen] = useState(false);
-  const [isDarkMode, setIsDarkMode] = useState(true);
+  const [isDarkMode, setIsDarkMode] = useState(() => {
+    if (typeof window !== 'undefined') {
+      const saved = localStorage.getItem('v8_theme');
+      if (saved) return saved === 'dark';
+      return document.documentElement.getAttribute('data-theme') !== 'light' && !document.documentElement.classList.contains('light-theme');
+    }
+    return true;
+  });
 
   useFocusTrap(modalRef, isProfileOpen, toggleProfile);
 
@@ -28,11 +35,15 @@ export function UserProfileModal({ onLogout }: UserProfileModalProps): React.Rea
     setIsDarkMode((prev) => {
       const next = !prev;
       if (next) {
-        document.documentElement.classList.remove('light-theme');
+        document.documentElement.classList.remove('light-theme', 'light');
+        document.documentElement.classList.add('dark');
         document.documentElement.setAttribute('data-theme', 'dark');
+        localStorage.setItem('v8_theme', 'dark');
       } else {
-        document.documentElement.classList.add('light-theme');
+        document.documentElement.classList.remove('dark');
+        document.documentElement.classList.add('light-theme', 'light');
         document.documentElement.setAttribute('data-theme', 'light');
+        localStorage.setItem('v8_theme', 'light');
       }
       return next;
     });

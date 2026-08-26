@@ -18,6 +18,7 @@ export function SupplierMap({ onSelectSupplier, suppliersList, className }: Supp
   const mapRef = useRef<HTMLDivElement | null>(null);
   const leafletMapRef = useRef<L.Map | null>(null);
   const markersRef = useRef<L.LayerGroup | null>(null);
+  const tileLayerRef = useRef<L.TileLayer | null>(null);
 
   const filteredSuppliers = suppliersList ?? filterSuppliers(suppliers, { polo: selectedPolo });
 
@@ -36,11 +37,17 @@ export function SupplierMap({ onSelectSupplier, suppliersList, className }: Supp
           keyboard: true
         });
 
-        L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/dark_all/{z}/{x}/{y}.png', {
+        const isLight = document.documentElement.getAttribute('data-theme') === 'light' || document.documentElement.classList.contains('light-theme');
+        const initialTileUrl = isLight
+          ? 'https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}.png'
+          : 'https://{s}.basemaps.cartocdn.com/rastertiles/dark_all/{z}/{x}/{y}.png';
+
+        const tileLayer = L.tileLayer(initialTileUrl, {
           attribution: '&copy; CartoDB &copy; OpenStreetMap',
           subdomains: 'abcd',
           maxZoom: 19
         }).addTo(map);
+        tileLayerRef.current = tileLayer;
 
         L.control.zoom({ position: 'bottomright' }).addTo(map);
 
@@ -60,8 +67,27 @@ export function SupplierMap({ onSelectSupplier, suppliersList, className }: Supp
       if (leafletMapRef.current) {
         leafletMapRef.current.remove();
         leafletMapRef.current = null;
+        tileLayerRef.current = null;
       }
     };
+  }, []);
+
+  useEffect(() => {
+    const observer = new MutationObserver(() => {
+      if (!tileLayerRef.current) return;
+      const isLightNow = document.documentElement.getAttribute('data-theme') === 'light' || document.documentElement.classList.contains('light-theme');
+      const newUrl = isLightNow
+        ? 'https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}.png'
+        : 'https://{s}.basemaps.cartocdn.com/rastertiles/dark_all/{z}/{x}/{y}.png';
+      tileLayerRef.current.setUrl(newUrl);
+    });
+
+    observer.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ['class', 'data-theme']
+    });
+
+    return () => observer.disconnect();
   }, []);
 
   useEffect(() => {

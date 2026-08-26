@@ -1,5 +1,7 @@
 @import "tailwindcss";
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 @layer base {
   :root {
     --bg-main: #0c0a0b;
@@ -14,12 +16,104 @@
     --glow-rose: rgba(225, 29, 72, 0.22);
     --glow-gold: rgba(212, 163, 115, 0.18);
   }
+
+  html.light-theme,
+  html.light,
+  [data-theme="light"] {
+    --bg-main: #f4f4f5;
+    --surface-card: #ffffff;
+    --surface-hover: #e4e4e7;
+    --border-subtle: #e4e4e7;
+    --text-primary: #18181b;
+    --text-muted: #71717a;
+    color-scheme: light;
+  }
 }
 
 body {
   background-color: var(--bg-main);
   color: var(--text-primary);
   font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+/* Light Theme Comprehensive Overrides */
+html.light-theme body,
+html.light body,
+[data-theme="light"] body {
+  background-color: #f4f4f5 !important;
+  color: #18181b !important;
+}
+
+html.light-theme header,
+html.light header,
+[data-theme="light"] header {
+  background-color: rgba(255, 255, 255, 0.95) !important;
+  border-color: #e4e4e7 !important;
+  color: #18181b !important;
+}
+
+html.light-theme .glass-panel,
+html.light .glass-panel,
+[data-theme="light"] .glass-panel {
+  background: rgba(255, 255, 255, 0.95) !important;
+  border-color: #e4e4e7 !important;
+  color: #18181b !important;
+}
+
+html.light-theme .glass-dock,
+html.light .glass-dock,
+[data-theme="light"] .glass-dock {
+  background: rgba(255, 255, 255, 0.95) !important;
+  border-top-color: #e4e4e7 !important;
+}
+
+html.light-theme div[class*="bg-[#161214]"],
+html.light-theme div[class*="bg-[#0c0a0b]"],
+html.light-theme div[class*="bg-[#0c0a0b]/90"],
+html.light-theme div[class*="bg-[#161214]/90"],
+html.light-theme div[class*="bg-stone-900"],
+html.light-theme div[class*="bg-stone-950"],
+html.light div[class*="bg-[#161214]"],
+html.light div[class*="bg-[#0c0a0b]"],
+html.light div[class*="bg-stone-900"],
+[data-theme="light"] div[class*="bg-[#161214]"],
+[data-theme="light"] div[class*="bg-[#0c0a0b]"],
+[data-theme="light"] div[class*="bg-stone-900"] {
+  background-color: #ffffff !important;
+  color: #18181b !important;
+  border-color: #e4e4e7 !important;
+}
+
+html.light-theme span[class*="text-stone-100"],
+html.light-theme span[class*="text-stone-200"],
+html.light-theme h1[class*="text-stone-100"],
+html.light-theme h2[class*="text-stone-100"],
+html.light-theme h3[class*="text-stone-100"],
+html.light-theme p[class*="text-stone-100"],
+html.light-theme p[class*="text-stone-200"],
+html.light span[class*="text-stone-100"],
+html.light span[class*="text-stone-200"],
+html.light h1[class*="text-stone-100"],
+html.light h2[class*="text-stone-100"],
+html.light h3[class*="text-stone-100"],
+[data-theme="light"] span[class*="text-stone-100"],
+[data-theme="light"] span[class*="text-stone-200"],
+[data-theme="light"] h1[class*="text-stone-100"],
+[data-theme="light"] h2[class*="text-stone-100"],
+[data-theme="light"] h3[class*="text-stone-100"] {
+  color: #18181b !important;
+}
+
+html.light-theme span[class*="text-stone-400"],
+html.light-theme span[class*="text-stone-500"],
+html.light-theme p[class*="text-stone-400"],
+html.light-theme p[class*="text-stone-500"],
+html.light span[class*="text-stone-400"],
+html.light p[class*="text-stone-400"],
+[data-theme="light"] span[class*="text-stone-400"],
+[data-theme="light"] p[class*="text-stone-400"] {
+  color: #52525b !important;
 }
 
 /* Ambient Lighting Orbs */

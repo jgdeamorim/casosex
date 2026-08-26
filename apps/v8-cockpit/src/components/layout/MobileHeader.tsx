@@ -23,27 +23,21 @@ export function MobileHeader(): React.ReactElement {
         <span className="text-[9px] text-stone-400 font-medium tracking-wide">Market Intel Cockpit</span>
       </div>
 
-      {/* Top Right: Card / Avatar de Perfil Modernizado (Glassmorphism & Glowing Ring) */}
+      {/* Top Right: Avatar de Perfil Minimalista */}
       <button
         type="button"
         onClick={handleProfileClick}
         aria-label="Abrir Perfil do Operador"
-        className="flex items-center space-x-2 pl-1.5 pr-3 py-1 rounded-full bg-stone-900/90 border border-stone-800/80 hover:border-rose-500/40 transition-all min-h-[44px] focus:outline-none focus:ring-2 focus:ring-rose-500/50 active:scale-95 shadow-lg shadow-black/40 backdrop-blur-xl"
+        className="flex items-center gap-2 p-1 focus:outline-none active:scale-95 transition-transform"
       >
-        <div className="relative">
-          <div className="w-8 h-8 rounded-full bg-gradient-to-tr from-rose-600 via-rose-500 to-amber-500 p-[1.5px] shadow-[0_0_10px_rgba(244,63,94,0.3)]">
-            <div className="w-full h-full rounded-full bg-stone-950 flex items-center justify-center text-xs font-black text-stone-100">
-              {userSession.avatar || 'JA'}
-            </div>
-          </div>
-          <span className="absolute bottom-0 right-0 w-2.5 h-2.5 rounded-full bg-emerald-500 ring-2 ring-stone-950 animate-pulse" />
+        <div className="w-8 h-8 rounded-full bg-rose-600 flex items-center justify-center text-xs font-black text-white shrink-0">
+          {userSession.avatar || 'JA'}
         </div>
-
         <div className="text-left hidden xs:block">
-          <span className="text-[11px] font-extrabold text-stone-100 block leading-tight truncate max-w-[70px]">
+          <span className="text-[11px] font-bold text-stone-200 block leading-tight truncate max-w-[80px]">
             {userSession.name.split(' ')[0]}
           </span>
-          <span className="text-[9px] font-black text-rose-400/90 block uppercase tracking-wider leading-none">
+          <span className="text-[9px] font-extrabold text-rose-400 block uppercase leading-none">
             {userSession.role}
           </span>
         </div>
