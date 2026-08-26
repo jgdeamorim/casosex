@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useRenderContext } from '../../context/RenderContext';
 import { triggerHapticFeedback } from '../../lib/pwa-helpers';
 
@@ -25,6 +25,20 @@ export function MobileDossierView(): React.ReactElement {
     catalogFileName: currentDossier?.catalogFileName || '',
     auditNotes: currentDossier?.auditNotes || 'Instalações fabris inspecionadas presencialmente. Capacidade produtiva de 50.000 un/mês confirmada.'
   });
+
+  // Re-sincroniza formData reativamente quando o fornecedor selecionado ou o dossiê carregado mudar
+  useEffect(() => {
+    if (selectedSupplier) {
+      setFormData({
+        anvisaBodySafe: currentDossier?.anvisaBodySafe ?? true,
+        moq: currentDossier?.moq || 'R$ 1.000,00',
+        paymentTerms: currentDossier?.paymentTerms || '30/60 dias no boleto faturado',
+        catalogUrl: currentDossier?.catalogUrl || '',
+        catalogFileName: currentDossier?.catalogFileName || '',
+        auditNotes: currentDossier?.auditNotes || 'Instalações fabris inspecionadas presencialmente. Capacidade produtiva de 50.000 un/mês confirmada.'
+      });
+    }
+  }, [selectedSupplier?.id, currentDossier]);
 
   const [saving, setSaving] = useState(false);
   const [message, setMessage] = useState<string | null>(null);
@@ -385,7 +399,7 @@ export function MobileDossierView(): React.ReactElement {
               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" />
               </svg>
-              <span>✓ Salvar & Homologar Dossiê</span>
+              <span>Salvar & Homologar Dossiê</span>
             </>
           )}
         </button>
