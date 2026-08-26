@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "tsc --noEmit && vite build && mkdir -p ../volupia-dist && cp -r dist/* ../volupia-dist/",
+    "build": "tsc --noEmit && vite build && rm -rf ../volupia-dist/* && cp -r dist/* ../volupia-dist/",
     "preview": "vite preview",
     "check": "tsc --noEmit"
   },
