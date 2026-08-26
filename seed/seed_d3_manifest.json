@@ -1,0 +1,32 @@
+{
+  "$schema": "https://adsentice.com/schemas/seed.v1.json",
+  "version": "1.0.0",
+  "project": "casosex-v8-cockpit",
+  "target_environment": "dev",
+  "assembly_rules": {
+    "zero_hardcode": true,
+    "intent_driven": true,
+    "ast_pruning": true,
+    "max_execution_ms": 2.0
+  },
+  "routes": [
+    {
+      "path": "/cockpit/suppliers",
+      "component_skeleton": "apps/v8-cockpit/src/App.tsx",
+      "data_sources": [
+        "d1://suppliers/status_overrides",
+        "d1://suppliers/homologation_dossiers"
+      ],
+      "render_mode": "edge_client_component"
+    }
+  ],
+  "blake3_payload_tiering": {
+    "hot_l1_mmap": [
+      "apps/v8-cockpit/src/types/index.ts",
+      "apps/v8-cockpit/src/lib/api.ts"
+    ],
+    "cold_l2_nvme": [
+      "data.db"
+    ]
+  }
+}
