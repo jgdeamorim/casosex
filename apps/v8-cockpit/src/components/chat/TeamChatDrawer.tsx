@@ -33,7 +33,7 @@ function loadRecentMessages(): StoredChatMessage[] {
 }
 
 export function TeamChatDrawer(): React.ReactElement | null {
-  const { isChatOpen, toggleChat, userSession } = useRenderContext();
+  const { isChatOpen, toggleChat, userSession, clearChannelUnread, unreadByChannel } = useRenderContext();
   const drawerRef = useRef<HTMLDivElement | null>(null);
   const [activeChannel, setActiveChannel] = useState<'#geral-volupia' | '#homologacao-glaucia' | '#negociacao-bruno'>('#geral-volupia');
 
@@ -70,6 +70,7 @@ export function TeamChatDrawer(): React.ReactElement | null {
       return updated;
     });
     setInputText('');
+    clearChannelUnread(activeChannel);
   };
 
   const channelMessages = messages.filter((m) => m.channel === activeChannel);
@@ -82,7 +83,7 @@ export function TeamChatDrawer(): React.ReactElement | null {
       aria-label="Chat interno da equipe"
       className="fixed inset-x-0 top-[calc(3.5rem+env(safe-area-inset-top,0px))] bottom-[calc(4.5rem+env(safe-area-inset-bottom,0px))] z-30 bg-[#0c0a0b]/95 backdrop-blur-2xl animate-in slide-in-from-bottom duration-200 flex flex-col border-t border-b border-stone-800 shadow-2xl"
     >
-      {/* Header do Chat WhatsApp B2B com Status Online e Badge de Retencao 30 dias */}
+      {/* Header do Chat WhatsApp B2B com Status Online */}
       <div className="p-3.5 border-b border-stone-800 flex items-center justify-between bg-[#161214]/90 backdrop-blur-md shrink-0">
         <div className="flex items-center space-x-3">
           <div className="w-10 h-10 rounded-2xl bg-gradient-to-tr from-emerald-600 to-emerald-400 flex items-center justify-center text-white text-lg shadow-md shadow-emerald-500/20 shrink-0 font-black">
@@ -94,9 +95,6 @@ export function TeamChatDrawer(): React.ReactElement | null {
                 Interchat Team B2B
               </h3>
               <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
-              <span className="px-1.5 py-0.5 rounded text-[8px] font-mono font-bold bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
-                Histórico (30 dias)
-              </span>
             </div>
             <p className="text-[10px] text-stone-400 truncate">
               Canais Diretos de Negociação & Auditoria Volúpia
@@ -119,25 +117,32 @@ export function TeamChatDrawer(): React.ReactElement | null {
         </button>
       </div>
 
-      {/* Channel Switcher */}
+      {/* Channel Switcher com Alerta por Tag */}
       <div className="flex border-b border-stone-800/80 bg-[#120e10] text-[11px] font-bold shrink-0">
         {(['#geral-volupia', '#homologacao-glaucia', '#negociacao-bruno'] as const).map((ch) => {
           const isSelected = activeChannel === ch;
           const displayTitle = ch === '#geral-volupia' ? '# Geral' : ch === '#homologacao-glaucia' ? '# Auditoria' : '# Negociação';
+          const channelUnread = unreadByChannel[ch] || 0;
           return (
             <button
               key={ch}
               onClick={() => {
                 triggerHapticFeedback(4);
                 setActiveChannel(ch);
+                clearChannelUnread(ch);
               }}
-              className={`flex-1 py-2.5 px-2 text-center transition-all whitespace-nowrap min-h-[44px] flex items-center justify-center font-extrabold ${
+              className={`flex-1 py-2.5 px-2 text-center transition-all whitespace-nowrap min-h-[44px] flex items-center justify-center gap-1.5 font-extrabold ${
                 isSelected
                   ? 'text-emerald-400 border-b-2 border-emerald-500 bg-stone-900/60'
                   : 'text-stone-400 hover:text-stone-200'
               }`}
             >
-              {displayTitle}
+              <span>{displayTitle}</span>
+              {channelUnread > 0 && (
+                <span className="px-1.5 py-0.2 rounded-full text-[9px] font-extrabold bg-rose-500 text-white animate-pulse">
+                  {channelUnread}
+                </span>
+              )}
             </button>
           );
         })}
@@ -163,12 +168,16 @@ export function TeamChatDrawer(): React.ReactElement | null {
         ))}
       </div>
 
-      {/* Input Form do WhatsApp B2B */}
+      {/* Input Form do WhatsApp B2B - Diminui alerta de unread da tag ativa ao focar e teclar */}
       <form onSubmit={handleSendMessage} className="p-3 border-t border-stone-800 bg-[#161214] flex items-center gap-2 shrink-0">
         <input
           type="text"
           value={inputText}
-          onChange={(e) => setInputText(e.target.value)}
+          onFocus={() => clearChannelUnread(activeChannel)}
+          onChange={(e) => {
+            setInputText(e.target.value);
+            clearChannelUnread(activeChannel);
+          }}
           placeholder={`Enviar mensagem em ${activeChannel}...`}
           className="flex-1 px-4 py-3 rounded-2xl bg-stone-900 border border-stone-800 text-xs text-stone-100 placeholder-stone-500 focus:outline-none focus:border-emerald-500 min-h-[48px]"
         />

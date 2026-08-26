@@ -231,14 +231,14 @@ export function MobileDossierView(): React.ReactElement {
             <button
               type="button"
               disabled={statusSaving}
-              onClick={() => handleStatusChange('PROSPECCAO')}
+              onClick={() => handleStatusChange('PROSPECTADO')}
               className={`py-1 px-2.5 rounded-lg text-[10px] font-extrabold border transition-all min-h-[32px] flex items-center gap-1 ${
-                selectedSupplier.status === 'PROSPECCAO'
-                  ? 'bg-stone-700 text-white border-stone-600 shadow-sm'
+                selectedSupplier.status === 'PROSPECTADO'
+                  ? 'bg-indigo-700 text-white border-indigo-600 shadow-sm'
                   : 'bg-stone-800/80 text-stone-400 border-stone-700 hover:text-stone-200'
               }`}
             >
-              <span>Prospecção</span>
+              <span>Prospectado</span>
             </button>
           </div>
         </div>

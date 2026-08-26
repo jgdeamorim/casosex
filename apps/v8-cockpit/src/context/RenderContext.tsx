@@ -34,6 +34,8 @@ interface RenderContextType {
   isProfileOpen: boolean;
   toggleProfile: () => void;
   unreadCount: number;
+  unreadByChannel: Record<string, number>;
+  clearChannelUnread: (channel: string) => void;
   clearUnread: () => void;
   isLoading: boolean;
   loadError: string | null;
@@ -65,8 +67,36 @@ export function RenderContextProvider({ children }: { children: React.ReactNode 
   const [selectedPolo, setSelectedPolo] = useState<'TODOS' | 'SP' | 'RJ'>('TODOS');
   const [isChatOpen, setIsChatOpen] = useState<boolean>(false);
   const [isProfileOpen, setIsProfileOpen] = useState<boolean>(false);
-  const [unreadCount, setUnreadCount] = useState<number>(3);
+  const [unreadByChannel, setUnreadByChannel] = useState<Record<string, number>>({
+    '#geral-volupia': 1,
+    '#homologacao-glaucia': 1,
+    '#negociacao-bruno': 1
+  });
 
+  const unreadCount = Object.values(unreadByChannel).reduce((acc, val) => acc + val, 0);
+
+  const clearChannelUnread = useCallback((channel: string): void => {
+    setUnreadByChannel(prev => {
+      if (!prev[channel]) return prev;
+      return { ...prev, [channel]: 0 };
+    });
+  }, []);
+
+  const clearUnread = useCallback((): void => {
+    setUnreadByChannel({
+      '#geral-volupia': 0,
+      '#homologacao-glaucia': 0,
+      '#negociacao-bruno': 0
+    });
+  }, []);
+
+  const toggleChat = useCallback((): void => {
+    setIsChatOpen(prev => !prev);
+  }, []);
+
+  const toggleProfile = useCallback((): void => {
+    setIsProfileOpen(prev => !prev);
+  }, []);
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [loadError, setLoadError] = useState<string | null>(null);
   const [statusSaving, setStatusSaving] = useState<boolean>(false);
@@ -230,22 +260,6 @@ export function RenderContextProvider({ children }: { children: React.ReactNode 
     []
   );
 
-  const toggleChat = useCallback((): void => {
-    setIsChatOpen(prev => {
-      const next = !prev;
-      if (next) setUnreadCount(0);
-      return next;
-    });
-  }, []);
-
-  const toggleProfile = useCallback((): void => {
-    setIsProfileOpen(prev => !prev);
-  }, []);
-
-  const clearUnread = useCallback((): void => {
-    setUnreadCount(0);
-  }, []);
-
   return (
     <RenderContext.Provider
       value={{
@@ -261,6 +275,8 @@ export function RenderContextProvider({ children }: { children: React.ReactNode 
         isProfileOpen,
         toggleProfile,
         unreadCount,
+        unreadByChannel,
+        clearChannelUnread,
         clearUnread,
         isLoading,
         loadError,
