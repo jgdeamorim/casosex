@@ -12,6 +12,7 @@ import os
 import sys
 import time
 from http.server import HTTPServer, BaseHTTPRequestHandler
+import urllib.request
 from urllib.request import Request, urlopen
 from urllib.error import HTTPError, URLError
 import redis
@@ -30,6 +31,10 @@ def compute_blake3(data: bytes) -> str:
         return blake3(data).hexdigest()
     return hashlib.sha256(data).hexdigest()
 
+class NoRedirectHandler(urllib.request.HTTPRedirectHandler):
+    def redirect_request(self, req, fp, code, msg, headers, newurl):
+        return None  # Não segue redirecionamento automaticamente
+
 class SovereignProxyHandler(BaseHTTPRequestHandler):
     r_client = None
 
@@ -43,11 +48,11 @@ class SovereignProxyHandler(BaseHTTPRequestHandler):
         return cls.r_client if cls.r_client else None
 
     def log_message(self, format, *args):
-        # Silencia logs padrão do HTTP server para manter terminal limpo
+        # Desativa o log padrão simples para usar o nosso logger colorido de alta visibilidade
         pass
 
     def do_HEAD(self):
-        self.do_GET()
+        self.proxy_request("HEAD")
 
     def do_POST(self):
         self.proxy_request("POST")
@@ -72,6 +77,9 @@ class SovereignProxyHandler(BaseHTTPRequestHandler):
         url = f"{UPSTREAM_URL}{self.path}"
         r = self.get_redis()
 
+        cookie_req = self.headers.get("Cookie", "")
+        print(f"🔍 [ROUTER LIVE LOG] {method} {self.path} | Cookie in: {cookie_req[:40] if cookie_req else 'Nenhum'}")
+
         # Fast-Path BLAKE3 Cache check para estáticos em GET
         is_static = method == "GET" and (self.path.startswith("/_astro/") or self.path.endswith((".css", ".js", ".png", ".jpg", ".svg", ".ico")))
         cache_key = f"adsentice:dev:cache:static:{self.path}" if is_static else None
@@ -80,6 +88,7 @@ class SovereignProxyHandler(BaseHTTPRequestHandler):
             cached_val = r.get(cache_key)
             if cached_val:
                 ttft_ms = (time.time() - t0) * 1000
+                print(f"⚡ [FAST-PATH BLAKE3] {method} {self.path} ({ttft_ms:.3f} ms)")
                 self.send_response(200)
                 self.send_header("X-Antigravity-FastPath", "HIT-BLAKE3")
                 self.send_header("X-TTFT-Latency-Ms", f"{ttft_ms:.3f}")
@@ -88,54 +97,72 @@ class SovereignProxyHandler(BaseHTTPRequestHandler):
                 self.wfile.write(cached_val)
                 return
 
-        # Upstream fetch com repasse de Host e payload body
+        # Configura Opener sem auto-redirect para repassar 302/Set-Cookie perfeitamente
+        opener = urllib.request.build_opener(NoRedirectHandler())
+
         try:
             body_data = None
             content_length = int(self.headers.get("Content-Length", 0))
             if content_length > 0:
                 body_data = self.rfile.read(content_length)
 
-            req_headers = {k: v for k, v in self.headers.items()}
+            req_headers = {k: v for k, v in self.headers.items() if k.lower() not in ["content-length"]}
             req_headers["Host"] = self.headers.get("Host", "localhost:2727")
             req_headers["X-Forwarded-Host"] = self.headers.get("Host", "localhost:2727")
             req_headers["X-Forwarded-Proto"] = "http"
 
             req = Request(url, data=body_data, headers=req_headers, method=method)
-            with urlopen(req, timeout=15) as resp:
+            
+            try:
+                resp = opener.open(req, timeout=15)
                 status = resp.status
+                resp_headers = resp.headers
                 resp_body = resp.read()
-                content_type = resp.headers.get("Content-Type", "text/html; charset=utf-8")
+            except HTTPError as e:
+                status = e.code
+                resp_headers = e.headers
+                resp_body = e.read()
 
-                ttft_ms = (time.time() - t0) * 1000
+            ttft_ms = (time.time() - t0) * 1000
+            set_cookie = resp_headers.get("Set-Cookie", "")
+            location = resp_headers.get("Location", "")
 
-                self.send_response(status)
-                self.send_header("Content-Type", content_type)
-                self.send_header("X-Antigravity-Router", "Sovereign-L7-Proxy")
-                self.send_header("X-TTFT-Latency-Ms", f"{ttft_ms:.3f}")
-                self.end_headers()
-                if method != "HEAD":
-                    self.wfile.write(resp_body)
+            print(f"  └─> [UPSTREAM RESP] {status} ({ttft_ms:.3f} ms) | Set-Cookie: {set_cookie[:40] if set_cookie else 'Nenhum'} | Location: {location}")
 
-                # Armazena em cache se for estático
-                if cache_key and r and status == 200:
-                    r.setex(cache_key, 3600, resp_body)
+            self.send_response(status)
+            
+            # Encaminha TODOS os cabeçalhos de resposta do upstream para o navegador
+            for hk, hv in resp_headers.items():
+                if hk.lower() not in ["transfer-encoding", "content-length"]:
+                    self.send_header(hk, hv)
 
-                # Telemetria no Redis
-                if r:
-                    telemetry = {
-                        "method": method,
-                        "path": self.path,
-                        "status": status,
-                        "ttft_ms": round(ttft_ms, 3),
-                        "timestamp": time.time()
-                    }
-                    r.set("adsentice:router:telemetry:2727", json.dumps(telemetry))
-
-        except HTTPError as e:
-            self.send_response(e.code)
+            self.send_header("X-Antigravity-Router", "Sovereign-L7-Proxy")
+            self.send_header("X-TTFT-Latency-Ms", f"{ttft_ms:.3f}")
             self.end_headers()
-            self.wfile.write(e.read())
+
+            if method != "HEAD" and resp_body:
+                self.wfile.write(resp_body)
+
+            # Armazena em cache se for estático
+            if cache_key and r and status == 200:
+                r.setex(cache_key, 3600, resp_body)
+
+            # Telemetria ao vivo no Redis
+            if r:
+                telemetry = {
+                    "method": method,
+                    "path": self.path,
+                    "status": status,
+                    "ttft_ms": round(ttft_ms, 3),
+                    "cookie_in": bool(cookie_req),
+                    "set_cookie_out": bool(set_cookie),
+                    "timestamp": time.time()
+                }
+                r.set("adsentice:router:telemetry:2727", json.dumps(telemetry))
+                r.publish("adsentice:router:logs:live", json.dumps(telemetry))
+
         except URLError as e:
+            print(f"❌ [ROUTER ERROR] Upstream indisponível: {e}")
             self.send_response(502)
             self.end_headers()
             self.wfile.write(f"Bad Gateway: Upstream container offline ({e})".encode())
