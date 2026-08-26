@@ -3,9 +3,9 @@
 # Global Source: /home/jeffer/.gemini/antigravity/skills
 
 project: CASOSEX
-version: 3.3.0
-system: Sovereign Spec-Driven AI Engineering System (SS-AES v3.3)
-description: Index de habilidades ativas mapeadas da biblioteca central Antigravity ativadas para o Cockpit V8
+version: 3.4.0
+system: Sovereign Spec-Driven AI Engineering System (SS-AES v3.4)
+description: Index de habilidades ativas mapeadas da biblioteca central Antigravity ativadas para o Cockpit V8 Multi-Viewport & Mobile-First
 
 governance_skills:
   - id: spec-kit
@@ -86,6 +86,12 @@ frontend_experience_skills:
     name: Accessible Component Architecture
     path: /home/jeffer/.gemini/antigravity/skills/shadcn-ui/SKILL.md
     role: Padrões de componentes shadcn/ui com acessibilidade nativa
+    status: active
+
+  - id: platform-design
+    name: Multi-Platform & Device Facets Design
+    path: /home/jeffer/.gemini/antigravity/skills/platform-design/SKILL.md
+    role: Diretrizes de design responsivo para Smartwatch, Mobile, Tablet, Desktop e Ultrawide (ADR-0197)
     status: active
 
 quality_assurance_skills:
