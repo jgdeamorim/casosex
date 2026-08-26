@@ -32,3 +32,14 @@ motion_highlights:
   xml_anims_count: 561
   motion_layouts_found: 8
   bottom_sheets_found: 82
+
+ultra_meta_synthesis:
+  svg_vector_drawables: 792
+  webp_assets: 150
+  png_assets: 51
+  layout_routes_count: 4308
+  user_action_triggers: 0
+  artifacts_generated:
+    - "assets-catalog.yaml"
+    - "component-routes-metadata.yaml"
+    - "interactive-states-actions.yaml"

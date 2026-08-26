@@ -1,0 +1,278 @@
+# Component Route Trees & End-to-End Execution Metadata
+metadata:
+  title: Mobile AppShell Component Routes & Action Metadata
+  total_layout_routes: 4308
+  total_action_triggers: 0
+
+component_hierarchies:
+  app_shell_root:
+    type: "CoordinatorLayout + DrawerLayout"
+    top_bar: "AppBarLayout (48px Top Actions Bar)"
+    content_area: "ViewPager2 / RecyclerView Carousel Snap"
+    bottom_dock: "BottomGlassDock (64px, blur 16px)"
+    drawer_layer: "BottomSheetBehavior (radius 24px)"
+
+interactive_user_action_triggers:
+[]
+
+layout_routes_metadata_sample:
+[
+  {
+    "layout_file": "card_drawer_additional_information.xml",
+    "root_widget": "ConstraintLayout",
+    "total_widgets": 4,
+    "widgets_types": [
+      "AppCompatImageView",
+      "ConstraintLayout",
+      "AppCompatTextView"
+    ],
+    "interactive_elements_count": 0
+  },
+  {
+    "layout_file": "addresses_scrollable_view.xml",
+    "root_widget": "ScrollView",
+    "total_widgets": 2,
+    "widgets_types": [
+      "LinearLayout",
+      "ScrollView"
+    ],
+    "interactive_elements_count": 0
+  },
+  {
+    "layout_file": "rcm_carrousel_portrait_card.xml",
+    "root_widget": "LinearLayout",
+    "total_widgets": 18,
+    "widgets_types": [
+      "TextView",
+      "FrameLayout",
+      "LinearLayout",
+      "View",
+      "CardView",
+      "HighlightView",
+      "ImageView",
+      "LabelView",
+      "CanvasImageView"
+    ],
+    "interactive_elements_count": 1
+  },
+  {
+    "layout_file": "wallet_home_scoring_widget.xml",
+    "root_widget": "ConstraintLayout",
+    "total_widgets": 9,
+    "widgets_types": [
+      "CardView",
+      "ImageView",
+      "ActionableConstraintLayout",
+      "ConstraintLayout",
+      "AndesTextView"
+    ],
+    "interactive_elements_count": 1
+  },
+  {
+    "layout_file": "multiplayer_commons_cw_contact_row.xml",
+    "root_widget": "ConstraintLayout",
+    "total_widgets": 10,
+    "widgets_types": [
+      "AndesTextView",
+      "AndesBadgePill",
+      "FrameLayout",
+      "LinearLayout",
+      "AndesCheckbox",
+      "ConstraintLayout",
+      "AndesThumbnail",
+      "ImageView"
+    ],
+    "interactive_elements_count": 0
+  },
+  {
+    "layout_file": "atc_inputstepper.xml",
+    "root_widget": "ConstraintLayout",
+    "total_widgets": 7,
+    "widgets_types": [
+      "ImageButton",
+      "LinearLayout",
+      "AndesProgressIndicatorIndeterminate",
+      "ConstraintLayout",
+      "AndesTextView"
+    ],
+    "interactive_elements_count": 2
+  },
+  {
+    "layout_file": "fragment_ld_api_compatibility.xml",
+    "root_widget": "RelativeLayout",
+    "total_widgets": 8,
+    "widgets_types": [
+      "AndesButton",
+      "RelativeLayout",
+      "FrameLayout",
+      "CanvasImageView",
+      "ConstraintLayout",
+      "AndesTextView"
+    ],
+    "interactive_elements_count": 2
+  },
+  {
+    "layout_file": "moneyout_transfer_amount_activity_mco.xml",
+    "root_widget": "ConstraintLayout",
+    "total_widgets": 11,
+    "widgets_types": [
+      "TextView",
+      "AndesButton",
+      "CheckBox",
+      "ScrollView",
+      "WarningMessage",
+      "LinearLayout",
+      "AndesTextfield",
+      "AppCompatImageView",
+      "ConstraintLayout",
+      "MoneyOutAmount"
+    ],
+    "interactive_elements_count": 1
+  },
+  {
+    "layout_file": "cash_rails_ui_component_message.xml",
+    "root_widget": "FrameLayout",
+    "total_widgets": 2,
+    "widgets_types": [
+      "FrameLayout",
+      "AndesMessage"
+    ],
+    "interactive_elements_count": 0
+  },
+  {
+    "layout_file": "multiwidget_widgets_rotation_pill_widget.xml",
+    "root_widget": "merge",
+    "total_widgets": 2,
+    "widgets_types": [
+      "FrameLayout",
+      "merge"
+    ],
+    "interactive_elements_count": 0
+  },
+  {
+    "layout_file": "radio_column_end_null_5children.xml",
+    "root_widget": "RadioGroup",
+    "total_widgets": 6,
+    "widgets_types": [
+      "RadioGroup",
+      "include"
+    ],
+    "interactive_elements_count": 0
+  },
+  {
+    "layout_file": "rcm_carousel_portrait_card.xml",
+    "root_widget": "LinearLayout",
+    "total_widgets": 45,
+    "widgets_types": [
+      "TextView",
+      "HighlightNewShippingView",
+      "AndesMoneyAmount",
+      "HighlightMelicoinView",
+      "FrameLayout",
+      "FlexboxLayout",
+      "LinearLayout",
+      "View",
+      "CardView",
+      "HighlightView"
+    ],
+    "interactive_elements_count": 1
+  },
+  {
+    "layout_file": "px_split_payment_method_installment_item.xml",
+    "root_widget": "ConstraintLayout",
+    "total_widgets": 8,
+    "widgets_types": [
+      "View",
+      "ConstraintLayout",
+      "RadioButton",
+      "MPTextView"
+    ],
+    "interactive_elements_count": 1
+  },
+  {
+    "layout_file": "loyalty_ui_components_widget_level_offers_item.xml",
+    "root_widget": "LinearLayout",
+    "total_widgets": 8,
+    "widgets_types": [
+      "TextView",
+      "LinearLayout",
+      "View",
+      "ConstraintLayout",
+      "ImageView"
+    ],
+    "interactive_elements_count": 0
+  },
+  {
+    "layout_file": "dami_ui_components_operation_detail.xml",
+    "root_widget": "ConstraintLayout",
+    "total_widgets": 6,
+    "widgets_types": [
+      "ConstraintLayout",
+      "AndesTextView",
+      "FrameLayout",
+      "CanvasImageView"
+    ],
+    "interactive_elements_count": 0
+  },
+  {
+    "layout_file": "credits_ui_components_action_content_layout.xml",
+    "root_widget": "merge",
+    "total_widgets": 7,
+    "widgets_types": [
+      "LinearLayout",
+      "AndesButton",
+      "AndesTextView",
+      "merge"
+    ],
+    "interactive_elements_count": 2
+  },
+  {
+    "layout_file": "prepaid_holder_data_row.xml",
+    "root_widget": "ConstraintLayout",
+    "total_widgets": 8,
+    "widgets_types": [
+      "GenericImageView",
+      "AndesBadgePill",
+      "ImageView",
+      "ConstraintLayout",
+      "AndesTextView"
+    ],
+    "interactive_elements_count": 0
+  },
+  {
+    "layout_file": "debit_credit_cards_eng_components_carousel_flox_layout.xml",
+    "root_widget": "ConstraintLayout",
+    "total_widgets": 4,
+    "widgets_types": [
+      "TextView",
+      "ConstraintLayout",
+      "CarouselView",
+      "ScrollIndicatorView"
+    ],
+    "interactive_elements_count": 0
+  },
+  {
+    "layout_file": "advertising_adn_cards_list_layout.xml",
+    "root_widget": "CardView",
+    "total_widgets": 8,
+    "widgets_types": [
+      "PictureComponent",
+      "LinearLayout",
+      "View",
+      "CardView",
+      "BookmarkComponent"
+    ],
+    "interactive_elements_count": 2
+  },
+  {
+    "layout_file": "column_center_horizontal_null_1children.xml",
+    "root_widget": "LinearLayout",
+    "total_widgets": 2,
+    "widgets_types": [
+      "LinearLayout",
+      "include"
+    ],
+    "interactive_elements_count": 0
+  }
+]
+
