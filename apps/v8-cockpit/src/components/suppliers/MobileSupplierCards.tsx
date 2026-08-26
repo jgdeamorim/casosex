@@ -123,10 +123,17 @@ export function MobileSupplierCards(): React.ReactElement {
   const longPressTimerRef = React.useRef<ReturnType<typeof setTimeout> | null>(null);
   const isLongPressRef = React.useRef<boolean>(false);
   const touchHandledRef = React.useRef<boolean>(false);
+  const touchStartPosRef = React.useRef<{ x: number; y: number } | null>(null);
 
-  const startPress = (sup: Supplier): void => {
+  const startPress = (sup: Supplier, clientX?: number, clientY?: number): void => {
+    // Apenas prospecções são alteradas via long-press 3s para VISITA_PENDENTE
+    if (sup.status !== 'PROSPECCAO') return;
+
     isLongPressRef.current = false;
     setPressingId(sup.id);
+    if (clientX !== undefined && clientY !== undefined) {
+      touchStartPosRef.current = { x: clientX, y: clientY };
+    }
     triggerHapticFeedback(4);
 
     if (longPressTimerRef.current) {
@@ -135,30 +142,49 @@ export function MobileSupplierCards(): React.ReactElement {
 
     longPressTimerRef.current = setTimeout(() => {
       isLongPressRef.current = true;
-      triggerHapticFeedback(15);
+      triggerHapticFeedback(20);
       updateSupplierStatus(sup.id, 'VISITA_PENDENTE');
       selectSupplier(sup);
       setPressingId(null);
-      setPressToast(`Fábrica "${sup.name}" enviada para Auditoria (VISITA-PENDENTE)!`);
-      setTimeout(() => setPressToast(null), 4000);
+      setPressToast(`✓ Fábrica "${sup.name}" atualizada ao vivo para VISITA-PENDENTE!`);
+      setTimeout(() => {
+        setPressToast(null);
+        isLongPressRef.current = false;
+      }, 4000);
     }, 3000);
   };
 
-  const handleTouchStart = (sup: Supplier): void => {
+  const handleTouchStart = (sup: Supplier, e: React.TouchEvent): void => {
     touchHandledRef.current = true;
-    startPress(sup);
+    const t = e.touches[0];
+    startPress(sup, t?.clientX, t?.clientY);
   };
 
-  const handleMouseDown = (sup: Supplier): void => {
+  const handleTouchMove = (e: React.TouchEvent): void => {
+    if (!touchStartPosRef.current || !longPressTimerRef.current) return;
+    const t = e.touches[0];
+    if (!t) return;
+    const dx = Math.abs(t.clientX - touchStartPosRef.current.x);
+    const dy = Math.abs(t.clientY - touchStartPosRef.current.y);
+    if (dx > 15 || dy > 15) {
+      cancelPress();
+    }
+  };
+
+  const handleMouseDown = (sup: Supplier, e: React.MouseEvent): void => {
     if (touchHandledRef.current) return;
-    startPress(sup);
+    startPress(sup, e.clientX, e.clientY);
   };
 
   const cancelPress = (): void => {
+    if (isLongPressRef.current) {
+      return;
+    }
     if (longPressTimerRef.current) {
       clearTimeout(longPressTimerRef.current);
       longPressTimerRef.current = null;
     }
+    touchStartPosRef.current = null;
     setPressingId(null);
     setTimeout(() => {
       touchHandledRef.current = false;
@@ -385,10 +411,11 @@ export function MobileSupplierCards(): React.ReactElement {
                   <div
                     key={sup.id}
                     onClick={() => handleCardClickWithLongPress(sup)}
-                    onTouchStart={() => handleTouchStart(sup)}
+                    onTouchStart={(e) => handleTouchStart(sup, e)}
+                    onTouchMove={handleTouchMove}
                     onTouchEnd={cancelPress}
                     onTouchCancel={cancelPress}
-                    onMouseDown={() => handleMouseDown(sup)}
+                    onMouseDown={(e) => handleMouseDown(sup, e)}
                     onMouseUp={cancelPress}
                     onMouseLeave={cancelPress}
                     className={`p-4 rounded-2xl border transition-all cursor-pointer bg-[#161214]/90 relative overflow-hidden select-none ${

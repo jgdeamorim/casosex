@@ -23,21 +23,23 @@ export function MobileHeader(): React.ReactElement {
         <span className="text-[9px] text-stone-400 font-medium tracking-wide">Market Intel Cockpit</span>
       </div>
 
-      {/* Top Right: Avatar de Perfil Minimalista */}
+      {/* Top Right: Avatar de Perfil Ultra-Moderno 2026+ (sem bento box, sem bolinha verde) */}
       <button
         type="button"
         onClick={handleProfileClick}
         aria-label="Abrir Perfil do Operador"
-        className="flex items-center gap-2 p-1 focus:outline-none active:scale-95 transition-transform"
+        className="flex items-center gap-2.5 p-1 rounded-full hover:bg-stone-800/40 focus:outline-none active:scale-95 transition-all"
       >
-        <div className="w-8 h-8 rounded-full bg-rose-600 flex items-center justify-center text-xs font-black text-white shrink-0">
-          {userSession.avatar || 'JA'}
+        <div className="w-8 h-8 rounded-full p-[1.5px] bg-gradient-to-tr from-rose-500 via-rose-600 to-amber-500 shadow-[0_0_12px_rgba(225,29,72,0.35)] shrink-0">
+          <div className="w-full h-full rounded-full bg-stone-950 flex items-center justify-center text-[11px] font-black text-stone-100 tracking-tighter">
+            {userSession.avatar || 'JA'}
+          </div>
         </div>
         <div className="text-left hidden xs:block">
-          <span className="text-[11px] font-bold text-stone-200 block leading-tight truncate max-w-[80px]">
+          <span className="text-xs font-bold text-stone-100 block leading-tight truncate max-w-[85px]">
             {userSession.name.split(' ')[0]}
           </span>
-          <span className="text-[9px] font-extrabold text-rose-400 block uppercase leading-none">
+          <span className="text-[9px] font-black text-rose-400 block uppercase tracking-wider leading-none">
             {userSession.role}
           </span>
         </div>
