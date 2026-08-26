@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useSyncExternalStore } from 'react';
 import type { DeviceFacet } from '../types';
 
 export function resolveDeviceFacet(width: number): DeviceFacet {
@@ -9,21 +9,22 @@ export function resolveDeviceFacet(width: number): DeviceFacet {
   return 'ultrawide';
 }
 
-export function useDeviceFacet(): DeviceFacet {
-  const [facet, setFacet] = useState<DeviceFacet>(() => {
-    if (typeof window !== 'undefined') {
-      return resolveDeviceFacet(window.innerWidth);
-    }
-    return 'desktop';
-  });
-
-  useEffect(() => {
-    function handleResize(): void {
-      setFacet(resolveDeviceFacet(window.innerWidth));
-    }
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
-  }, []);
-
-  return facet;
+function subscribe(callback: () => void): () => void {
+  if (typeof window === 'undefined') return () => {};
+  window.addEventListener('resize', callback);
+  return () => window.removeEventListener('resize', callback);
 }
+
+function getSnapshot(): DeviceFacet {
+  if (typeof window === 'undefined') return 'desktop';
+  return resolveDeviceFacet(window.innerWidth);
+}
+
+function getServerSnapshot(): DeviceFacet {
+  return 'desktop';
+}
+
+export function useDeviceFacet(): DeviceFacet {
+  return useSyncExternalStore(subscribe, getSnapshot, getServerSnapshot);
+}
+

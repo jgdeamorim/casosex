@@ -19,7 +19,11 @@ export function BottomGlassDock({ activeTab, setActiveTab }: BottomGlassDockProp
   ];
 
   return (
-    <div className="md:hidden fixed bottom-0 left-0 right-0 z-40 glass-dock p-2 px-4 flex items-center justify-around border-t border-white/10" role="navigation" aria-label="Navegação móvel">
+    <div 
+      className="md:hidden fixed bottom-0 left-0 right-0 z-40 glass-dock px-3 pt-2 pb-[calc(0.5rem+env(safe-area-inset-bottom,0px))] flex items-center justify-around border-t border-white/10 backdrop-blur-xl bg-[#161214]/90 shadow-2xl" 
+      role="navigation" 
+      aria-label="Navegação móvel"
+    >
       {dockItems.map(item => {
         const isAllowed = canAccessTab(userSession.role, item.id);
         const isActive = activeTab === item.id;
@@ -32,16 +36,19 @@ export function BottomGlassDock({ activeTab, setActiveTab }: BottomGlassDockProp
             type="button"
             onClick={() => setActiveTab(item.id)}
             aria-current={isActive ? 'page' : undefined}
-            className={`flex flex-col items-center gap-1 p-2.5 rounded-xl text-[10px] font-bold transition-all ${
+            className={`relative min-h-[48px] min-w-[48px] flex flex-col items-center justify-center gap-0.5 px-3 py-1.5 rounded-xl text-[11px] font-semibold tracking-wide transition-all active:scale-95 ${
               isActive
-                ? 'text-[#e11d48] scale-105'
-                : 'text-[#a39b94] hover:text-[#faf7f5]'
+                ? 'text-rose-500 font-bold'
+                : 'text-stone-400 hover:text-stone-200'
             }`}
           >
-            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d={item.icon} />
+            <svg className={`w-5 h-5 transition-transform ${isActive ? 'scale-110 text-rose-500' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={isActive ? 2.5 : 2} d={item.icon} />
             </svg>
-            {item.label}
+            <span>{item.label}</span>
+            {isActive && (
+              <span className="absolute bottom-0 w-8 h-1 bg-rose-500 rounded-full shadow-[0_0_8px_rgba(244,63,94,0.8)]" />
+            )}
           </button>
         );
       })}

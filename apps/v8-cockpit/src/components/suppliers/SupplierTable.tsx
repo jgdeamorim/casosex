@@ -66,8 +66,77 @@ export function SupplierTable(): React.ReactElement {
         </div>
       </div>
 
-      {/* Table Container */}
-      <div className="overflow-x-auto max-h-[500px] overflow-y-auto rounded-xl border border-white/10">
+      {/* Mobile Snap Carousel View (< md) */}
+      <div className="md:hidden flex gap-4 overflow-x-auto snap-x snap-mandatory pb-4 pt-2 -mx-2 px-2 scrollbar-none">
+        {filteredSuppliers.length === 0 ? (
+          <div className="w-full py-8 text-center text-[#a39b94] text-xs">
+            Nenhum fornecedor encontrado para os filtros selecionados.
+          </div>
+        ) : (
+          filteredSuppliers.map(sup => {
+            const isSelected = selectedSupplier?.id === sup.id;
+            const waLink = generateWhatsAppLink(sup);
+            return (
+              <div
+                key={sup.id}
+                onClick={() => {
+                  selectSupplier(sup);
+                  document.getElementById('supplier-map-container')?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                }}
+                className={`snap-center shrink-0 w-[280px] p-4 rounded-2xl border transition-all active:scale-95 cursor-pointer flex flex-col justify-between ${
+                  isSelected
+                    ? 'bg-[#e11d48]/20 border-rose-500 shadow-lg shadow-rose-500/20'
+                    : 'bg-[#161214] border-white/10 hover:border-white/20'
+                }`}
+              >
+                <div>
+                  <div className="flex items-start justify-between gap-2 mb-2">
+                    <h3 className="text-sm font-bold text-[#faf7f5] line-clamp-1">{sup.name}</h3>
+                    <span className={`badge-status text-[9px] ${sup.status}`}>{statusLabel(sup.status)}</span>
+                  </div>
+
+                  <p className="text-xs text-rose-400 font-medium mb-1">{sup.category}</p>
+                  <p className="text-[11px] text-[#a39b94] font-mono mb-3">{sup.city} - {sup.state}</p>
+
+                  {/* B2B Badges auditáveis */}
+                  <div className="flex flex-wrap gap-1 mb-4">
+                    {sup.status === 'HOMOLOGADO' && (
+                      <span className="px-2 py-0.5 rounded-full text-[9px] font-extrabold bg-emerald-500/20 text-emerald-300 border border-emerald-500/40">
+                        ✓ BINGO
+                      </span>
+                    )}
+                    <span className="px-2 py-0.5 rounded-full text-[9px] font-extrabold bg-amber-500/20 text-amber-300 border border-amber-500/40">
+                      ★ MARGEM DOURADA
+                    </span>
+                    <span className="px-2 py-0.5 rounded-full text-[9px] font-extrabold bg-purple-500/20 text-purple-300 border border-purple-500/40">
+                      ⚡ PRONTA ENTREGA
+                    </span>
+                  </div>
+                </div>
+
+                <div>
+                  {waLink ? (
+                    <a
+                      href={waLink}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="w-full inline-flex items-center justify-center gap-1.5 min-h-[44px] py-2 px-4 rounded-xl bg-[#30d158]/20 hover:bg-[#30d158]/30 border border-[#30d158]/40 text-[#30d158] font-bold text-xs transition-all active:scale-95"
+                      onClick={e => e.stopPropagation()}
+                    >
+                      💬 Cotar WhatsApp
+                    </a>
+                  ) : (
+                    <span className="block text-center text-[#a39b94] text-xs py-2">Sem contato cadastrado</span>
+                  )}
+                </div>
+              </div>
+            );
+          })
+        )}
+      </div>
+
+      {/* Desktop Table View (>= md) */}
+      <div className="hidden md:block overflow-x-auto max-h-[500px] overflow-y-auto rounded-xl border border-white/10">
         <table className="w-full text-left text-xs">
           <thead className="bg-[#0c0a0b] text-[#a39b94] font-bold uppercase text-[10px] tracking-wider sticky top-0 z-10 border-b border-white/10">
             <tr>
@@ -119,7 +188,14 @@ export function SupplierTable(): React.ReactElement {
                     <td className="py-3 px-4 text-[#a39b94] font-medium">{sup.category}</td>
                     <td className="py-3 px-4 text-[#a39b94] font-mono">{sup.city} - {sup.state}</td>
                     <td className="py-3 px-4">
-                      <span className={`badge-status ${sup.status}`}>{statusLabel(sup.status)}</span>
+                      <div className="flex items-center gap-2">
+                        <span className={`badge-status ${sup.status}`}>{statusLabel(sup.status)}</span>
+                        {sup.status === 'HOMOLOGADO' && (
+                          <span className="px-2 py-0.5 rounded text-[9px] font-bold bg-emerald-500/20 text-emerald-300 border border-emerald-500/30">
+                            BINGO
+                          </span>
+                        )}
+                      </div>
                     </td>
                     <td className="py-3 px-4 text-right">
                       {waLink ? (
