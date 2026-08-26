@@ -118,8 +118,56 @@ export function MobileSupplierCards(): React.ReactElement {
     updateSupplierStatus(supId, statusCycle[nextIdx]);
   };
 
+  const [pressingId, setPressingId] = useState<string | null>(null);
+  const [pressToast, setPressToast] = useState<string | null>(null);
+  const longPressTimerRef = React.useRef<ReturnType<typeof setTimeout> | null>(null);
+  const isLongPressRef = React.useRef<boolean>(false);
+
+  const startPress = (sup: Supplier): void => {
+    isLongPressRef.current = false;
+    setPressingId(sup.id);
+    triggerHapticFeedback(4);
+
+    if (longPressTimerRef.current) {
+      clearTimeout(longPressTimerRef.current);
+    }
+
+    longPressTimerRef.current = setTimeout(() => {
+      isLongPressRef.current = true;
+      triggerHapticFeedback(15);
+      updateSupplierStatus(sup.id, 'VISITA_PENDENTE');
+      selectSupplier(sup);
+      setPressingId(null);
+      setPressToast(`Fábrica "${sup.name}" enviada para Auditoria (VISITA-PENDENTE)!`);
+      setTimeout(() => setPressToast(null), 4000);
+    }, 3000);
+  };
+
+  const cancelPress = (): void => {
+    if (longPressTimerRef.current) {
+      clearTimeout(longPressTimerRef.current);
+      longPressTimerRef.current = null;
+    }
+    setPressingId(null);
+  };
+
+  const handleCardClickWithLongPress = (sup: Supplier): void => {
+    if (isLongPressRef.current) {
+      isLongPressRef.current = false;
+      return;
+    }
+    handleCardClick(sup);
+  };
+
   return (
     <section className="space-y-3" aria-label="Cartões de Fornecedores Polos B2B">
+      {/* Toast Notification de Transição de Status Long Press */}
+      {pressToast && (
+        <div className="p-3.5 rounded-2xl bg-amber-500/20 border border-amber-500/40 text-amber-300 text-xs font-black text-center shadow-2xl animate-in fade-in slide-in-from-top duration-300 flex items-center justify-center gap-2">
+          <span className="w-2.5 h-2.5 rounded-full bg-amber-400 animate-ping" />
+          <span>{pressToast}</span>
+        </div>
+      )}
       {/* Top Menu Header Compacto: py-1 (5px top/bottom) com Título + Contador e Toggle Mapa Radar/Lista */}
       <div className="flex items-center justify-between py-[5px] mb-[5px] px-1">
         <h2 className="text-xs font-black uppercase tracking-wider text-stone-300 flex items-center gap-1.5">
@@ -317,13 +365,37 @@ export function MobileSupplierCards(): React.ReactElement {
               {filtered.map((sup) => {
                 const badge = getStatusBadge(sup.status);
                 const isUserAllowed = canUpdateStatus(userSession.role);
+                const isPressing = pressingId === sup.id;
 
                 return (
                   <div
                     key={sup.id}
-                    onClick={() => handleCardClick(sup)}
-                    className="p-4 rounded-2xl border transition-all cursor-pointer bg-[#161214]/90 border-stone-800/80 hover:border-stone-700 active:scale-[0.98]"
+                    onClick={() => handleCardClickWithLongPress(sup)}
+                    onTouchStart={() => startPress(sup)}
+                    onTouchEnd={cancelPress}
+                    onTouchCancel={cancelPress}
+                    onMouseDown={() => startPress(sup)}
+                    onMouseUp={cancelPress}
+                    onMouseLeave={cancelPress}
+                    className={`p-4 rounded-2xl border transition-all cursor-pointer bg-[#161214]/90 relative overflow-hidden select-none ${
+                      isPressing
+                        ? 'border-amber-500/80 shadow-amber-500/10 shadow-xl scale-[0.99]'
+                        : 'border-stone-800/80 hover:border-stone-700 active:scale-[0.98]'
+                    }`}
                   >
+                    {/* Barra de Progresso do Long Press (3 Segundos) */}
+                    {isPressing && (
+                      <div className="absolute top-0 left-0 right-0 h-1.5 bg-stone-800 overflow-hidden z-20">
+                        <div className="h-full bg-gradient-to-r from-amber-500 to-rose-500 animate-[progress_3000ms_linear_forwards]" />
+                      </div>
+                    )}
+
+                    {isPressing && (
+                      <div className="absolute top-2 right-2 z-20 px-2 py-0.5 rounded-full text-[9px] font-black bg-amber-500/20 text-amber-300 border border-amber-500/40 animate-pulse">
+                        Segure 3s para VISITA-PENDENTE
+                      </div>
+                    )}
+
                     <div className="flex items-start justify-between gap-2">
                       <div className="space-y-1 min-w-0">
                         <span className="text-[10px] font-extrabold text-stone-500 uppercase tracking-widest block">
