@@ -1,9 +1,5 @@
 packages:
   - '.'
-  - 'self-essentials/emdash/packages/*'
-  - 'self-essentials/emdash/packages/plugins/*'
-  - 'self-essentials/emdash/apps/*'
-  - 'self-essentials/emdash/demos/*'
   - 'self-essentials/dashcommerce-main/packages/*'
 
 allowBuilds:
