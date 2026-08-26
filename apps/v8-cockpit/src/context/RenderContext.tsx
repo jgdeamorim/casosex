@@ -132,7 +132,8 @@ export function RenderContextProvider({ children }: { children: React.ReactNode 
       }));
       setSuppliers(merged);
       if (merged.length > 0) {
-        setSelectedSupplier(prev => prev ?? merged[0]);
+        const defaultSelected = merged.find(s => s.status === 'VISITA_PENDENTE') ?? merged[0];
+        setSelectedSupplier(prev => prev ?? defaultSelected);
       }
 
       // Sincroniza pendências acumuladas em segundo plano se a API responder

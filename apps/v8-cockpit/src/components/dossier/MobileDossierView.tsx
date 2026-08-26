@@ -54,9 +54,22 @@ export function MobileDossierView(): React.ReactElement {
   const handleStatusChange = (newStatus: typeof suppliers[0]['status']): void => {
     if (!selectedSupplier) return;
     triggerHapticFeedback(8);
-    updateSupplierStatus(selectedSupplier.id, newStatus);
-    setMessage(`✓ Status alterado para ${newStatus} com sucesso!`);
-    setTimeout(() => setMessage(null), 3000);
+    const currentId = selectedSupplier.id;
+    const currentName = selectedSupplier.name;
+
+    updateSupplierStatus(currentId, newStatus);
+
+    // Auto-avança para o próximo lead na Fila de Auditoria (VISITA_PENDENTE)
+    const remainingPending = suppliers.filter((s) => s.status === 'VISITA_PENDENTE' && s.id !== currentId);
+    const nextSupplier = remainingPending.length > 0 ? remainingPending[0] : null;
+    selectSupplier(nextSupplier);
+
+    setMessage(
+      nextSupplier
+        ? `✓ Status de "${currentName}" alterado para ${newStatus}. Próximo lead selecionado (${nextSupplier.name}).`
+        : `✓ Status de "${currentName}" alterado para ${newStatus}. Fila de auditoria concluída!`
+    );
+    setTimeout(() => setMessage(null), 4000);
   };
 
   if (!selectedSupplier) {
@@ -134,9 +147,22 @@ export function MobileDossierView(): React.ReactElement {
     });
 
     if (ok) {
-      updateSupplierStatus(selectedSupplier.id, 'HOMOLOGADO');
-      setMessage('✓ Dossiê Salvo e Fornecedor HOMOLOGADO no Cloudflare D1!');
-      setTimeout(() => setMessage(null), 3000);
+      const currentId = selectedSupplier.id;
+      const currentName = selectedSupplier.name;
+
+      updateSupplierStatus(currentId, 'HOMOLOGADO');
+
+      // Auto-avança para o próximo lead restante na Fila de Auditoria (VISITA_PENDENTE)
+      const remainingPending = suppliers.filter((s) => s.status === 'VISITA_PENDENTE' && s.id !== currentId);
+      const nextSupplier = remainingPending.length > 0 ? remainingPending[0] : null;
+      selectSupplier(nextSupplier);
+
+      setMessage(
+        nextSupplier
+          ? `✓ Dossiê Salvo & "${currentName}" HOMOLOGADO. Próximo lead selecionado (${nextSupplier.name}).`
+          : `✓ Dossiê Salvo & "${currentName}" HOMOLOGADO. Fila de auditoria concluída!`
+      );
+      setTimeout(() => setMessage(null), 4000);
     } else {
       setMessage('✕ Falha ao salvar no Cloudflare D1.');
     }
