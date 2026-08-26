@@ -1,0 +1,55 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "engine_version": "1.0.0",
+  "adr_reference": "ADR-0195",
+  "description": "Seed declarativo de 5 screen_model para orquestração de viewports soberana",
+  "screens": [
+    {
+      "model": "smartwatch",
+      "min_width": 0,
+      "max_width": 359,
+      "touch_optimized": true,
+      "layout_mode": "CompactSingleCard",
+      "primary_panel": "polo_kpi_micro"
+    },
+    {
+      "model": "mobile",
+      "min_width": 360,
+      "max_width": 767,
+      "touch_optimized": true,
+      "layout_mode": "MobileAppFirstShell",
+      "dock_enabled": true,
+      "primary_panel": "supplier_map_mobile"
+    },
+    {
+      "model": "tablet",
+      "min_width": 768,
+      "max_width": 1023,
+      "touch_optimized": true,
+      "layout_mode": "SplitMasterDetailCompact",
+      "sidebar_collapsible": true,
+      "primary_panel": "supplier_grid_tablet"
+    },
+    {
+      "model": "desktop",
+      "min_width": 1024,
+      "max_width": 1919,
+      "touch_optimized": false,
+      "layout_mode": "MultiPanelGridStation",
+      "sidebar_expanded": true,
+      "map_isolate_layer": true,
+      "primary_panel": "dashboard_station"
+    },
+    {
+      "model": "ultra-screen",
+      "min_width": 1920,
+      "max_width": 9999,
+      "touch_optimized": false,
+      "layout_mode": "UltrawideMultiMonitorStation",
+      "sidebar_expanded": true,
+      "map_isolate_layer": true,
+      "dual_dossier_panel": true,
+      "primary_panel": "ultrawide_command_center"
+    }
+  ]
+}

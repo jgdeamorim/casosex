@@ -1,0 +1,56 @@
+{
+  "spec_type": "master-desktop-design-system",
+  "version": "3.0.0",
+  "doctrine": "medido=verdade",
+  "generated_at": "2026-08-26T16:45:00Z",
+  "target": "CASOSEX Volúpia Cockpit V8",
+  "metadata": {
+    "title": "Sovereign Desktop Master Design System JSON Export",
+    "author": "Antigravity Agentic Engine",
+    "axioms": [
+      "AXA Axiom 13: Desktop é uma estação de trabalho multi-painel de alta densidade.",
+      "WCAG 2.2 AA: Hit areas >= 44px, contrast >= 7:1 APCA.",
+      "Z-Index Isolation: Stacking context estrito com isolate no mapa Leaflet."
+    ]
+  },
+  "routes": [
+    {
+      "id": "desktop_route_dashboard",
+      "path": "/dashboard",
+      "name": "Painel Principal - Visão Geral B2B",
+      "layout": "MultiPanelGrid"
+    },
+    {
+      "id": "desktop_route_suppliers",
+      "path": "/suppliers",
+      "name": "Rede de Fornecedores Homologados",
+      "layout": "SplitViewMasterDetail"
+    },
+    {
+      "id": "desktop_route_chat",
+      "path": "/chat",
+      "name": "Central de Cotações WhatsApp & Team Chat",
+      "layout": "DrawerPersistent"
+    }
+  ],
+  "tokens": {
+    "colors": {
+      "bg_canvas": "hsl(222, 47%, 6%)",
+      "primary_amber": "hsl(38, 92%, 50%)",
+      "status_success_green": "hsl(142, 71%, 45%)"
+    },
+    "z_index": {
+      "z_canvas": "z-0",
+      "z_map": "z-10 isolate",
+      "z_header": "z-40",
+      "z_drawers": "z-50",
+      "z_modals": "z-[100]"
+    }
+  },
+  "materials": [
+    { "id": "mat_badge_bingo_boleto", "label": "BINGO BOLETO", "color": "emerald" },
+    { "id": "mat_badge_margem_dourada", "label": "MARGEM DOURADA", "color": "amber" },
+    { "id": "mat_badge_pronta_entrega", "label": "PRONTA ENTREGA", "color": "blue" },
+    { "id": "mat_badge_apto_boleto", "label": "APTO BOLETO", "color": "purple" }
+  ]
+}

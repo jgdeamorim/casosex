@@ -1,0 +1,82 @@
+# Desktop Routes Metadata: Volúpia V8 Cockpit
+# Mapeamento completo de rotas, painéis e árvores de componentes para Mode Desktop
+metadata:
+  title: Sovereign Desktop Route & Panel Architecture
+  version: 3.0.0
+  target: CASOSEX Volúpia Cockpit V8
+
+routes:
+  - id: "desktop_route_dashboard"
+    path: "/dashboard"
+    name: "Painel Principal - Visão Geral B2B"
+    layout: "MultiPanelGrid"
+    viewports_supported: ["desktop", "ultra-screen"]
+    panels:
+      - id: "panel_header_b2b"
+        component: "Header"
+        z_index: "z-40"
+        position: "sticky top-0"
+      - id: "panel_polo_selector"
+        component: "SegmentedControlPolo"
+        z_index: "z-30"
+        states: ["TODOS", "SP", "RJ"]
+      - id: "panel_metrics_kpi"
+        component: "KpiGrid"
+        z_index: "z-20"
+        kpis: ["307 Fornecedores", "BINGO Boleto", "Margem Dourada", "Cotação Expressa"]
+      - id: "panel_supplier_map"
+        component: "SupplierMap"
+        z_index: "z-10 isolate"
+        leaflet_config:
+          tile_layer: "CartoDB Dark Matter"
+          zoom_level: 11
+          center_sp: [-23.5505, -46.6333]
+          center_rj: [-22.9068, -43.1729]
+
+  - id: "desktop_route_suppliers"
+    path: "/suppliers"
+    name: "Rede de Fornecedores Homologados"
+    layout: "SplitViewMasterDetail"
+    viewports_supported: ["desktop", "ultra-screen"]
+    panels:
+      - id: "panel_supplier_list"
+        component: "SupplierList"
+        z_index: "z-20"
+        filters: ["Status", "Polo", "Faturamento", "Prazo Entrega"]
+      - id: "panel_supplier_dossier"
+        component: "SupplierDossier"
+        z_index: "z-30"
+        features: ["Análise de Margem", "Simulador WhatsApp", "Extrato D1"]
+
+  - id: "desktop_route_chat"
+    path: "/chat"
+    name: "Central de Cotações WhatsApp & Team Chat"
+    layout: "DrawerPersistent"
+    viewports_supported: ["desktop", "ultra-screen"]
+    panels:
+      - id: "panel_team_chat_drawer"
+        component: "TeamChatDrawer"
+        z_index: "z-50"
+        position: "fixed right-0"
+
+  - id: "desktop_route_login"
+    path: "/login"
+    name: "Autenticação Lojista"
+    layout: "ModalCentered"
+    viewports_supported: ["desktop", "ultra-screen", "tablet", "mobile"]
+    panels:
+      - id: "panel_login_modal"
+        component: "LoginModal"
+        z_index: "z-[100]"
+
+components_tree_desktop:
+  core:
+    - "Header.tsx"
+    - "SegmentedControlPolo.tsx"
+    - "KpiGrid.tsx"
+    - "SupplierMap.tsx"
+    - "SupplierList.tsx"
+    - "SupplierDossier.tsx"
+    - "TeamChatDrawer.tsx"
+    - "LoginModal.tsx"
+    - "ResponsiveViewportEngine.tsx"

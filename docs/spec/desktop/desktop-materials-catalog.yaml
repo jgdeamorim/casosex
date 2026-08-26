@@ -1,0 +1,44 @@
+# Desktop Materials Catalog: Volúpia V8 Cockpit
+# Catálogo completo de @materials, Badges B2B, Selos de Homologação e Vetores SVGs Desktop
+metadata:
+  title: Sovereign Desktop @materials Catalog
+  version: 3.0.0
+  target: CASOSEX Volúpia Cockpit V8
+
+b2b_badges_materials:
+  - id: "mat_badge_bingo_boleto"
+    label: "BINGO BOLETO"
+    color: "emerald"
+    icon_svg: "<svg viewBox='0 0 24 24' fill='none' stroke='currentColor'><path stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M9 12l2 2 4-4m6 2a9 9 9 11-18 0 9 9 0 0118 0z'/></svg>"
+    description: "Fornecedor homologado com faturamento liberado via boleto bancário faturado 30/60 dias."
+
+  - id: "mat_badge_margem_dourada"
+    label: "MARGEM DOURADA"
+    color: "amber"
+    icon_svg: "<svg viewBox='0 0 24 24' fill='none' stroke='currentColor'><path stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M13 7h8m0 0v8m0-8l-8 8-4-4-6 6'/></svg>"
+    description: "Margem de lucro estimada acima de 65% na revenda de sex-shop local."
+
+  - id: "mat_badge_pronta_entrega"
+    label: "PRONTA ENTREGA"
+    color: "blue"
+    icon_svg: "<svg viewBox='0 0 24 24' fill='none' stroke='currentColor'><path stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M5 13l4 4L19 7'/></svg>"
+    description: "Despacho imediato em até 24h para o Polo SP ou Polo RJ."
+
+  - id: "mat_badge_apto_boleto"
+    label: "APTO BOLETO"
+    color: "purple"
+    icon_svg: "<svg viewBox='0 0 24 24' fill='none' stroke='currentColor'><path stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z'/></svg>"
+    description: "Limite de crédito pré-aprovado para faturamento."
+
+interactive_materials:
+  - id: "mat_button_whatsapp_quote"
+    label: "COTAÇÃO EXPRESSA WHATSAPP"
+    type: "CTA_Primary"
+    action: "open_whatsapp_direct"
+    style: "bg-emerald-600 hover:bg-emerald-500 text-white font-semibold text-xs px-4 py-2.5 rounded-lg shadow-lg hover:shadow-emerald-500/20 active:scale-95 transition-all whitespace-nowrap shrink-0"
+
+  - id: "mat_segmented_polo_switch"
+    label: "FILTRO DE POLO REGIONAL"
+    type: "SegmentedControl"
+    states: ["TODOS", "SP", "RJ"]
+    style: "inline-flex p-1 bg-slate-900/90 border border-slate-800 rounded-xl shadow-inner"

@@ -1,0 +1,46 @@
+# Desktop UI Tokens Specification: Volúpia V8 Cockpit
+# Matriz de Design Tokens, Stacking Context e Visual Standards em Vanilla CSS / Tailwind v4
+metadata:
+  title: Sovereign Desktop Design Tokens & Visual Tokens
+  version: 3.0.0
+  target: CASOSEX Volúpia Cockpit V8
+
+color_tokens:
+  bg_canvas: "hsl(222, 47%, 6%)"
+  bg_glass_card: "rgba(15, 23, 42, 0.75)"
+  bg_glass_card_border: "rgba(255, 255, 255, 0.12)"
+  primary_amber: "hsl(38, 92%, 50%)"
+  primary_amber_glow: "rgba(245, 158, 11, 0.25)"
+  status_success_green: "hsl(142, 71%, 45%)"
+  status_warning_yellow: "hsl(48, 96%, 53%)"
+  status_error_red: "hsl(0, 84%, 60%)"
+  text_heading: "hsl(210, 40%, 98%)"
+  text_body: "hsl(215, 20%, 75%)"
+  text_muted: "hsl(215, 16%, 47%)"
+
+typography_tokens:
+  font_sans: "'Outfit', 'Inter', system-ui, -apple-system, sans-serif"
+  font_mono: "'JetBrains Mono', 'Fira Code', monospace"
+  heading_1: "text-3xl font-bold tracking-tight"
+  heading_2: "text-2xl font-semibold tracking-tight"
+  body_regular: "text-sm font-normal leading-relaxed"
+  button_label: "text-xs font-semibold uppercase tracking-wider whitespace-nowrap shrink-0"
+
+z_index_stacking_matrix:
+  z_canvas: "z-0"
+  z_map_isolate: "z-10 isolate"
+  z_overlays_internal: "z-20"
+  z_dock_mobile: "z-30"
+  z_header: "z-40"
+  z_drawers: "z-50"
+  z_modals: "z-[100]"
+
+glassmorphism_tokens:
+  card_blur: "backdrop-blur-md"
+  panel_blur: "backdrop-blur-xl"
+  border_glow: "border border-slate-800/80 hover:border-amber-500/40 transition-all duration-200"
+
+usability_standards:
+  touch_hit_area_min: "44px"
+  wcag_contrast_ratio: "7:1 (APCA Compliant)"
+  button_wrap_prevention: "whitespace-nowrap shrink-0 inline-flex items-center justify-center"
