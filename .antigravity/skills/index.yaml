@@ -13,24 +13,28 @@ governance_skills:
     path: /home/jeffer/.gemini/antigravity/skills/spec-kit/SKILL.md
     role: Workflow de 6 estágios (Constitution -> Specify -> Clarify -> Plan -> Tasks -> Implement)
     status: active
+    claude_sync: true
 
   - id: casosex-dag
     name: CASOSEX Sovereign DAG Grounding
     path: /home/jeffer/.gemini/antigravity/skills/casosex-dag/SKILL.md
     role: Grounding semântico cross-KG e sincronização do ciclo OODA no Redis :6396
     status: active
+    claude_sync: true
 
   - id: ooda-boa-computational-affect
     name: OODA BOA Affect Engine
     path: /home/jeffer/.gemini/antigravity/skills/ooda-boa-computational-affect/SKILL.md
     role: Telemetria de afeto computacional e recalculo do BOA Score (atualmente 0.95)
     status: active
+    claude_sync: true
 
   - id: verification-loop
     name: Executable Verification Loop
     path: /home/jeffer/.gemini/antigravity/skills/verification-loop/SKILL.md
     role: Validação de portões de qualidade (TSC, Vitest, axe-core, Web Vitals)
     status: active
+    claude_sync: false
 
 architecture_skills:
   - id: adsentice-adga-refactor
@@ -38,18 +42,21 @@ architecture_skills:
     path: /home/jeffer/.gemini/antigravity/skills/adsentice-adga-refactor/SKILL.md
     role: Motor de refatoração cognitiva OODA integrado ao Context7 e SOP v3.0
     status: active
+    claude_sync: true
 
   - id: adsentice-blake3-kv-cache
     name: BLAKE3 Deterministic KV Cache
     path: /home/jeffer/.gemini/antigravity/skills/adsentice-blake3-kv-cache/SKILL.md
     role: Cache ultra-rápido de sínteses e hashes na camada Redis/redb
     status: active
+    claude_sync: true
 
   - id: content-hash-cache-pattern
     name: Content Hash Cache Pattern
     path: /home/jeffer/.gemini/antigravity/skills/content-hash-cache-pattern/SKILL.md
     role: Cache determinístico com SHA-256 e BLAKE3
     status: active
+    claude_sync: false
 
 frontend_experience_skills:
   - id: dashboard-builder
@@ -57,42 +64,49 @@ frontend_experience_skills:
     path: /home/jeffer/.gemini/antigravity/skills/dashboard-builder/SKILL.md
     role: Construção de dashboards Bento Grid (Desktop) e AppShell (Mobile-First)
     status: active
+    claude_sync: true
 
   - id: frontend-dev
     name: Full-Stack Frontend Engineering
     path: /home/jeffer/.gemini/antigravity/skills/frontend-dev/SKILL.md
     role: Componentes React 19 + Vite + Tailwind v4 + OKLCH Tokens
     status: active
+    claude_sync: false
 
   - id: frontend-patterns
     name: Frontend Development Patterns
     path: /home/jeffer/.gemini/antigravity/skills/frontend-patterns/SKILL.md
     role: Arquitetura de UI, React 19 hooks, gestão de estado e performance
     status: active
+    claude_sync: false
 
   - id: motion-ui
     name: Production UI Motion System
     path: /home/jeffer/.gemini/antigravity/skills/motion-ui/SKILL.md
     role: Animações de UI fluidas, dct-motion e micro-interações
     status: active
+    claude_sync: true
 
   - id: taste-skill
     name: High-Agency Frontend Taste
     path: /home/jeffer/.gemini/antigravity/skills/taste-skill/SKILL.md
     role: Design System de alta densidade visual, sem genérico (Anti AI Slop)
     status: active
+    claude_sync: true
 
   - id: shadcn-ui
     name: Accessible Component Architecture
     path: /home/jeffer/.gemini/antigravity/skills/shadcn-ui/SKILL.md
     role: Padrões de componentes shadcn/ui com acessibilidade nativa
     status: active
+    claude_sync: true
 
   - id: platform-design
     name: Multi-Platform & Device Facets Design
     path: /home/jeffer/.gemini/antigravity/skills/platform-design/SKILL.md
     role: Diretrizes de design responsivo para Smartwatch, Mobile, Tablet, Desktop e Ultrawide (ADR-0197)
     status: active
+    claude_sync: false
 
 quality_assurance_skills:
   - id: frontend-a11y
@@ -100,12 +114,14 @@ quality_assurance_skills:
     path: /home/jeffer/.gemini/antigravity/skills/frontend-a11y/SKILL.md
     role: Auditoria de acessibilidade trimodal (Contraste APCA/7:1, Touch 44px, Foco)
     status: active
+    claude_sync: true
 
   - id: web-perf
     name: Web Vitals & Performance Optimization
     path: /home/jeffer/.gemini/antigravity/skills/web-perf/SKILL.md
     role: Otimização de Core Web Vitals (LCP, CLS, INP) P75 target
     status: active
+    claude_sync: true
 
 grounding_servers:
   - mcp: context7
