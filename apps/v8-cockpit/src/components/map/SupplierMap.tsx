@@ -5,7 +5,14 @@ import { useRenderContext } from '../../context/RenderContext';
 import { filterSuppliers } from '../../lib/filterSuppliers';
 import { STATUS_META, statusLabel } from '../../lib/status';
 
-export function SupplierMap(): React.ReactElement {
+import type { Supplier } from '../../types';
+
+interface SupplierMapProps {
+  onSelectSupplier?: (supplier: Supplier) => void;
+  className?: string;
+}
+
+export function SupplierMap({ onSelectSupplier, className }: SupplierMapProps = {}): React.ReactElement {
   const { suppliers, selectedPolo, selectedSupplier, selectSupplier, isLoading } = useRenderContext();
   const mapRef = useRef<HTMLDivElement | null>(null);
   const leafletMapRef = useRef<L.Map | null>(null);
@@ -106,13 +113,18 @@ export function SupplierMap(): React.ReactElement {
         `;
 
         marker.bindPopup(popupContent);
-        marker.on('click', () => selectSupplier(supplier));
+        marker.on('click', () => {
+          selectSupplier(supplier);
+          if (onSelectSupplier) {
+            onSelectSupplier(supplier);
+          }
+        });
         markersRef.current?.addLayer(marker);
       });
     }
 
     void updateMarkers();
-  }, [filteredSuppliers, selectedSupplier, selectSupplier]);
+  }, [filteredSuppliers, selectedSupplier, selectSupplier, onSelectSupplier]);
 
   // Pan map when selectedSupplier changes
   useEffect(() => {
@@ -125,7 +137,7 @@ export function SupplierMap(): React.ReactElement {
   }, [selectedSupplier]);
 
   return (
-    <div id="supplier-map-container" className="relative rounded-2xl overflow-hidden glass-panel border border-white/10 h-[480px] shadow-2xl isolate z-10">
+    <div id="supplier-map-container" className={`relative rounded-2xl overflow-hidden glass-panel border border-white/10 h-[480px] shadow-2xl isolate z-10 ${className || ''}`}>
       <div className="absolute top-4 left-4 z-10 bg-[#0c0a0b]/90 backdrop-blur-md px-4 py-2.5 rounded-xl border border-white/10 text-xs flex flex-col sm:flex-row items-start sm:items-center gap-2 sm:gap-3 shadow-lg">
         <div>
           <span className="text-[9px] font-bold text-[#e11d48] uppercase tracking-wider block">✦ Radar de Polos B2B</span>

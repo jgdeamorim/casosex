@@ -3,6 +3,7 @@ import { useRenderContext } from '../../context/RenderContext';
 import type { Supplier, HomologationStatus } from '../../types';
 import { canUpdateStatus } from '../../auth/userRules';
 import { triggerHapticFeedback } from '../../lib/pwa-helpers';
+import { SupplierMap } from '../map/SupplierMap';
 
 export function MobileSupplierCards(): React.ReactElement {
   const {
@@ -14,6 +15,7 @@ export function MobileSupplierCards(): React.ReactElement {
     selectSupplier
   } = useRenderContext();
 
+  const [viewMode, setViewMode] = useState<'map' | 'list'>('map');
   const [activeModalSupplier, setActiveModalSupplier] = useState<Supplier | null>(null);
 
   const filtered = suppliers.filter((s) => {
@@ -66,68 +68,97 @@ export function MobileSupplierCards(): React.ReactElement {
           </svg>
           <span>Polos Industriais ({filtered.length})</span>
         </h2>
-        {selectedPolo !== 'TODOS' && (
-          <span className="text-[10px] font-bold text-rose-400 bg-rose-500/10 px-2 py-0.5 rounded-full border border-rose-500/20">
-            Polo {selectedPolo}
-          </span>
-        )}
+
+        {/* Alternador de Visão: Mapa Radar vs Lista */}
+        <div className="flex items-center p-1 rounded-xl bg-stone-900 border border-stone-800 text-[10px] font-bold">
+          <button
+            type="button"
+            onClick={() => setViewMode('map')}
+            className={`px-2.5 py-1 rounded-lg transition-all flex items-center gap-1 ${
+              viewMode === 'map'
+                ? 'bg-rose-600 text-white shadow-md'
+                : 'text-stone-400 hover:text-stone-200'
+            }`}
+          >
+            <span>🌐 Mapa Radar</span>
+          </button>
+          <button
+            type="button"
+            onClick={() => setViewMode('list')}
+            className={`px-2.5 py-1 rounded-lg transition-all flex items-center gap-1 ${
+              viewMode === 'list'
+                ? 'bg-rose-600 text-white shadow-md'
+                : 'text-stone-400 hover:text-stone-200'
+            }`}
+          >
+            <span>📋 Lista</span>
+          </button>
+        </div>
       </div>
 
-      {/* Lista de Cartões de Fornecedores */}
-      <div className="grid grid-cols-1 gap-3">
-        {filtered.map((sup) => {
-          const badge = getStatusBadge(sup.status);
-          const isUserAllowed = canUpdateStatus(userSession.role);
+      {/* Visão de Mapa Dark Interativo com CartoDB & Pins Coloridos por Status */}
+      {viewMode === 'map' && (
+        <div className="w-full h-[calc(100vh-14rem)] min-h-[460px] rounded-2xl overflow-hidden shadow-2xl border border-stone-800 relative">
+          <SupplierMap onSelectSupplier={handleCardClick} className="w-full h-full" />
+        </div>
+      )}
 
-          return (
-            <div
-              key={sup.id}
-              onClick={() => handleCardClick(sup)}
-              className="p-4 rounded-2xl border transition-all cursor-pointer bg-[#161214]/90 border-stone-800/80 hover:border-stone-700 active:scale-[0.98]"
-            >
-              <div className="flex items-start justify-between gap-2">
-                <div className="space-y-1 min-w-0">
-                  <span className="text-[10px] font-extrabold text-stone-500 uppercase tracking-widest block">
-                    {sup.category} • {sup.city}/{sup.state}
-                  </span>
-                  <h3 className="text-sm font-bold text-stone-100 truncate leading-snug">
-                    {sup.name}
-                  </h3>
-                  <p className="text-xs text-stone-400 truncate">
-                    {sup.address}
-                  </p>
+      {/* Visão de Lista de Cartões de Fornecedores */}
+      {viewMode === 'list' && (
+        <div className="grid grid-cols-1 gap-3">
+          {filtered.map((sup) => {
+            const badge = getStatusBadge(sup.status);
+            const isUserAllowed = canUpdateStatus(userSession.role);
+
+            return (
+              <div
+                key={sup.id}
+                onClick={() => handleCardClick(sup)}
+                className="p-4 rounded-2xl border transition-all cursor-pointer bg-[#161214]/90 border-stone-800/80 hover:border-stone-700 active:scale-[0.98]"
+              >
+                <div className="flex items-start justify-between gap-2">
+                  <div className="space-y-1 min-w-0">
+                    <span className="text-[10px] font-extrabold text-stone-500 uppercase tracking-widest block">
+                      {sup.category} • {sup.city}/{sup.state}
+                    </span>
+                    <h3 className="text-sm font-bold text-stone-100 truncate leading-snug">
+                      {sup.name}
+                    </h3>
+                    <p className="text-xs text-stone-400 truncate">
+                      {sup.address}
+                    </p>
+                  </div>
+
+                  <button
+                    type="button"
+                    disabled={!isUserAllowed || statusSaving}
+                    onClick={(e) => handleStatusClick(e, sup.id, sup.status)}
+                    className={`px-2.5 py-1 text-[10px] font-extrabold rounded-full border shrink-0 min-h-[36px] flex items-center gap-1 transition-transform ${badge.style}`}
+                  >
+                    <span>{badge.label}</span>
+                  </button>
                 </div>
 
-                <button
-                  type="button"
-                  disabled={!isUserAllowed || statusSaving}
-                  onClick={(e) => handleStatusClick(e, sup.id, sup.status)}
-                  className={`px-2.5 py-1 text-[10px] font-extrabold rounded-full border shrink-0 min-h-[36px] flex items-center gap-1 transition-transform ${badge.style}`}
-                >
-                  <span>{badge.label}</span>
-                </button>
-              </div>
-
-              <div className="mt-3 pt-2.5 border-t border-stone-800/60 flex items-center justify-between text-xs text-stone-400">
-                <div className="flex items-center space-x-1.5">
-                  <span className="text-amber-400 font-bold">★ {sup.rating ?? 5.0}</span>
-                  <span className="text-stone-500">Score: {sup.quality_score ?? 100}/100</span>
+                <div className="mt-3 pt-2.5 border-t border-stone-800/60 flex items-center justify-between text-xs text-stone-400">
+                  <div className="flex items-center space-x-1.5">
+                    <span className="text-amber-400 font-bold">★ {sup.rating ?? 5.0}</span>
+                    <span className="text-stone-500">Score: {sup.quality_score ?? 100}/100</span>
+                  </div>
+                  <span className="text-[10px] text-rose-400 font-bold underline">Ver Mapa & PopUp →</span>
                 </div>
-                <span className="text-[10px] text-rose-400 font-bold underline">Ver Mapa & PopUp →</span>
               </div>
-            </div>
-          );
-        })}
-      </div>
+            );
+          })}
+        </div>
+      )}
 
       {/* Modern PopUp Bottom-Sheet com Mini-Mapa & Mini-Card Calibrado (35% Bottom Offset) */}
       {activeModalSupplier && (
         <div
-          className="fixed inset-0 z-50 flex items-end sm:items-center justify-center p-0 sm:p-4 bg-black/80 backdrop-blur-md animate-in fade-in duration-200"
+          className="fixed inset-x-0 top-[calc(3.5rem+env(safe-area-inset-top,0px))] bottom-[calc(4.5rem+env(safe-area-inset-bottom,0px))] z-40 bg-[#161214] border-t border-b border-stone-800 flex flex-col animate-in slide-in-from-bottom duration-300 shadow-2xl overflow-hidden"
           role="dialog"
           aria-modal="true"
         >
-          <div className="w-full max-w-lg bg-[#161214] border border-stone-800 rounded-t-3xl sm:rounded-3xl shadow-2xl overflow-hidden flex flex-col h-[88vh] sm:h-[78vh] animate-in slide-in-from-bottom duration-300">
             {/* Header do PopUp com Botão de Fechar X Moderno */}
             <div className="p-4 border-b border-stone-800 flex items-center justify-between bg-[#0c0a0b]/90 backdrop-blur-md z-10 shrink-0">
               <div className="min-w-0 pr-2">
@@ -252,7 +283,6 @@ export function MobileSupplierCards(): React.ReactElement {
                 )}
               </div>
             </div>
-          </div>
         </div>
       )}
     </section>
