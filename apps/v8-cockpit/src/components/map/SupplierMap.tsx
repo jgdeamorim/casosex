@@ -1,3 +1,5 @@
+'use client';
+
 import React, { useEffect, useRef } from 'react';
 import { useRenderContext } from '../../context/RenderContext';
 import { filterSuppliers } from '../../lib/filterSuppliers';

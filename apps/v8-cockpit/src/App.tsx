@@ -1,3 +1,5 @@
+'use client';
+
 import React, { useState, useEffect } from 'react';
 import { RenderContextProvider, useRenderContext } from './context/RenderContext';
 import { useDeviceFacet } from './facets/DeviceLayoutFacet';

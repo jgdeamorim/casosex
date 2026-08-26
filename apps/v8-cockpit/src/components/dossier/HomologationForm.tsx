@@ -1,3 +1,5 @@
+'use client';
+
 import React, { useState, useEffect } from 'react';
 import { useRenderContext } from '../../context/RenderContext';
 import type { HomologationStatus } from '../../types';

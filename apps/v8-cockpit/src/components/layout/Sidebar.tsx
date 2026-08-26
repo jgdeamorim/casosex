@@ -1,3 +1,5 @@
+'use client';
+
 import React, { useEffect, useState } from 'react';
 import { useRenderContext } from '../../context/RenderContext';
 import { canAccessTab } from '../../auth/userRules';
