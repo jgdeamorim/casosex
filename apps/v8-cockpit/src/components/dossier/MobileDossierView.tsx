@@ -120,9 +120,9 @@ export function MobileDossierView(): React.ReactElement {
 
   return (
     <section className="space-y-4 animate-in fade-in duration-300">
-      {/* Fila de Auditoria de Visitas Pendentes */}
+      {/* Fila de Auditoria de Visitas Pendentes (Visual Glass Minimalista) */}
       {pendingVisits.length > 0 && (
-        <div className="p-3 rounded-2xl bg-[#161214]/95 border border-amber-500/30 space-y-2 shadow-lg backdrop-blur-md">
+        <div className="p-3.5 rounded-2xl bg-[#161214]/90 border border-amber-500/20 space-y-2 shadow-xl backdrop-blur-xl">
           <div className="flex items-center justify-between">
             <span className="text-[10px] font-black uppercase text-amber-400 tracking-wider flex items-center gap-1.5">
               <span className="w-2 h-2 rounded-full bg-amber-400 animate-ping" />
@@ -152,12 +152,12 @@ export function MobileDossierView(): React.ReactElement {
         </div>
       )}
 
-      {/* Header do Dossiê com Visual Liquid Glass 2026+ */}
+      {/* Header do Dossiê com Visual Liquid Glass 2026+ e Polo Dinâmico */}
       <div className="p-4 rounded-3xl bg-[#161214]/90 backdrop-blur-xl border border-stone-800 flex items-center justify-between shadow-xl">
         <div className="min-w-0 pr-2">
           <div className="flex items-center gap-2">
             <span className="text-[10px] font-extrabold uppercase text-rose-400 tracking-wider">
-              Laudo Técnico • Polo {selectedSupplier.state}
+              Laudo Técnico • Polo {selectedSupplier.city} ({selectedSupplier.state})
             </span>
             <span
               className={`px-2 py-0.5 rounded-full text-[9px] font-extrabold border ${
@@ -177,12 +177,25 @@ export function MobileDossierView(): React.ReactElement {
             {selectedSupplier.name}
           </h2>
           <p className="text-xs text-stone-400 truncate">
-            {selectedSupplier.category} • {selectedSupplier.city}
+            {selectedSupplier.category} • {selectedSupplier.city}, {selectedSupplier.state}
           </p>
         </div>
-        <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-rose-500/20 to-rose-950/40 border border-rose-500/30 flex flex-col items-center justify-center text-rose-400 font-black shrink-0 shadow-lg">
-          <span className="text-[9px] uppercase font-bold text-stone-400">Score</span>
-          <span className="text-sm">{selectedSupplier.quality_score ?? 100}</span>
+        <div className="flex items-center gap-2 shrink-0">
+          {selectedSupplier.rating && (
+            <div className="px-2 py-1 rounded-xl bg-amber-500/10 border border-amber-500/20 flex flex-col items-center justify-center text-amber-400 shrink-0">
+              <span className="text-[8px] uppercase font-bold text-stone-400">GMB</span>
+              <span className="text-[11px] font-black flex items-center gap-0.5">
+                ★ {selectedSupplier.rating}
+                {selectedSupplier.reviews_count ? (
+                  <span className="text-[8px] text-stone-400 font-normal">({selectedSupplier.reviews_count})</span>
+                ) : null}
+              </span>
+            </div>
+          )}
+          <div className="w-11 h-11 rounded-2xl bg-gradient-to-br from-rose-500/20 to-rose-950/40 border border-rose-500/30 flex flex-col items-center justify-center text-rose-400 font-black shrink-0 shadow-lg">
+            <span className="text-[8px] uppercase font-bold text-stone-400">Score</span>
+            <span className="text-xs">{selectedSupplier.quality_score ?? 100}</span>
+          </div>
         </div>
       </div>
 

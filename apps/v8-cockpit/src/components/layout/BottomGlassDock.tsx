@@ -30,6 +30,11 @@ export function BottomGlassDock({ activeTab, setActiveTab }: BottomGlassDockProp
 
         if (!isAllowed) return null;
 
+        const isTeam = item.id === 'team';
+        const activeTextClass = isTeam ? 'text-emerald-400 font-bold' : 'text-rose-500 font-bold';
+        const activeSvgClass = isTeam ? 'scale-110 text-emerald-400' : 'scale-110 text-rose-500';
+        const activeBarClass = isTeam ? 'bg-emerald-500 shadow-[0_0_8px_rgba(16,185,129,0.8)]' : 'bg-rose-500 shadow-[0_0_8px_rgba(244,63,94,0.8)]';
+
         return (
           <button
             key={item.id}
@@ -48,23 +53,23 @@ export function BottomGlassDock({ activeTab, setActiveTab }: BottomGlassDockProp
             aria-current={isActive ? 'page' : undefined}
             className={`relative min-h-[48px] min-w-[48px] flex flex-col items-center justify-center gap-0.5 px-3 py-1.5 rounded-xl text-[11px] font-semibold tracking-wide transition-all active:scale-95 ${
               isActive
-                ? 'text-rose-500 font-bold'
+                ? activeTextClass
                 : 'text-stone-400 hover:text-stone-200'
             }`}
           >
             <div className="relative">
-              <svg className={`w-5 h-5 transition-transform ${isActive ? 'scale-110 text-rose-500' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <svg className={`w-5 h-5 transition-transform ${isActive ? activeSvgClass : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={isActive ? 2.5 : 2} d={item.icon} />
               </svg>
               {item.id === 'team' && unreadCount > 0 && (
-                <span className="absolute -top-1.5 -right-2 px-1.5 py-0.2 rounded-full text-[9px] font-extrabold bg-rose-600 text-white shadow-sm shadow-rose-500/50">
+                <span className="absolute -top-1.5 -right-2 px-1.5 py-0.2 rounded-full text-[9px] font-extrabold bg-emerald-600 text-white shadow-sm shadow-emerald-500/50">
                   {unreadCount}
                 </span>
               )}
             </div>
             <span>{item.label}</span>
             {isActive && (
-              <span className="absolute bottom-0 w-8 h-1 bg-rose-500 rounded-full shadow-[0_0_8px_rgba(244,63,94,0.8)]" />
+              <span className={`absolute bottom-0 w-8 h-1 rounded-full ${activeBarClass}`} />
             )}
           </button>
         );

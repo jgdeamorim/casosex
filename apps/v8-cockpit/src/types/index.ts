@@ -30,6 +30,7 @@ export interface Supplier {
   gmb_url?: string;
   gmb?: string;
   rating?: number;
+  reviews_count?: number;
   quality_score?: number;
 }
 

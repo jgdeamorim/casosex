@@ -109,7 +109,7 @@ export function HomologationForm(): React.ReactElement {
           <div className="flex items-center gap-2 mb-1">
             <span className="text-[10px] font-bold text-[#e11d48] uppercase tracking-wider font-mono-kpi">✦ Dossiê de Homologação Presencial</span>
             <span className="text-[9px] px-2 py-0.5 rounded bg-white/5 border border-white/10 text-[#a39b94] font-mono">
-              POLO {selectedSupplier.state}
+              POLO {selectedSupplier.city.toUpperCase()} ({selectedSupplier.state})
             </span>
           </div>
           <h2 className="text-xl font-bold text-[#faf7f5]">{selectedSupplier.name}</h2>
