@@ -4,11 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Volúpia | Brand DNA Book</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg: #0c0a0b;
-            --card: #161214;
-            --border: #2e2428;
+            --bg-gradient: radial-gradient(circle at 50% 20%, #211322 0%, #0d0a0f 70%, #050406 100%);
+            --bg: #0d0a0f;
+            --card: rgba(28, 20, 30, 0.78);
+            --border: rgba(212, 163, 115, 0.28);
             --rose: #e11d48;
             --rose-soft: #fb7185;
             --gold: #d4a373;
@@ -16,45 +20,111 @@
             --text: #faf7f5;
             --muted: #a89b9b;
             --white: #ffffff;
+            --glow-rose: rgba(225, 29, 72, 0.28);
+            --glow-gold: rgba(212, 163, 115, 0.22);
+            --radius-xl: 28px;
+            --radius-lg: 16px;
+            --radius-pill: 9999px;
         }
-        * { margin: 0; padding: 0; box-sizing: border-box; }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Plus Jakarta Sans', sans-serif; }
         body {
-            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
-            background: var(--bg);
+            background: var(--bg-gradient);
             color: var(--text);
             line-height: 1.7;
             font-size: 15.5px;
+            min-height: 100vh;
+            position: relative;
         }
-        .container { max-width: 920px; margin: 0 auto; padding: 50px 28px 90px; }
+        
+        /* Ambient Blur FX (Referência Oficial Cloudflare Live) */
+        .ambient-blur-1 {
+            position: fixed;
+            top: -12%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 650px;
+            height: 650px;
+            background: radial-gradient(circle, var(--glow-rose) 0%, rgba(0,0,0,0) 70%);
+            border-radius: 50%;
+            pointer-events: none;
+            filter: blur(90px);
+            z-index: 0;
+        }
+        .ambient-blur-2 {
+            position: fixed;
+            bottom: 5%;
+            right: -5%;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, var(--glow-gold) 0%, rgba(0,0,0,0) 70%);
+            border-radius: 50%;
+            pointer-events: none;
+            filter: blur(90px);
+            z-index: 0;
+        }
+
+        .container { max-width: 920px; margin: 0 auto; padding: 50px 28px 90px; position: relative; z-index: 10; }
 
         /* Cover */
         .cover {
             text-align: center;
             padding: 80px 20px 70px;
-            border-bottom: 1px solid var(--border);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-xl);
             margin-bottom: 50px;
-            background: radial-gradient(ellipse at center, #1a1215 0%, var(--bg) 70%);
+            background: var(--card);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.45);
+        }
+        .status-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 18px;
+            background: rgba(225, 29, 72, 0.12);
+            border: 1px solid rgba(225, 29, 72, 0.35);
+            border-radius: var(--radius-pill);
+            font-size: 0.82rem;
+            font-weight: 600;
+            color: var(--rose-soft);
+            margin-bottom: 24px;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+        }
+        .status-badge span.pulse-dot {
+            width: 8px;
+            height: 8px;
+            background-color: var(--rose);
+            border-radius: 50%;
+            box-shadow: 0 0 12px var(--rose);
         }
         .cover .brand {
-            font-size: 3.2rem;
-            font-weight: 300;
-            letter-spacing: 12px;
-            color: var(--gold-light);
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.8rem, 6.5vw, 4.2rem);
+            font-weight: 700;
+            letter-spacing: 0.16em;
+            background: linear-gradient(180deg, #FFFFFF 0%, #E2D7CE 60%, var(--gold) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-transform: uppercase;
             margin-bottom: 8px;
         }
         .cover .sub {
-            font-size: 0.95rem;
-            letter-spacing: 6px;
-            color: var(--rose-soft);
+            font-size: 0.88rem;
+            font-weight: 600;
+            letter-spacing: 0.14em;
+            color: var(--gold-light);
             text-transform: uppercase;
-            margin-bottom: 28px;
+            margin-bottom: 24px;
         }
         .cover .tagline {
-            font-size: 1.25rem;
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(1.3rem, 3.5vw, 1.6rem);
             font-weight: 400;
-            color: var(--muted);
+            color: var(--gold-light);
             font-style: italic;
-            max-width: 480px;
+            max-width: 520px;
             margin: 0 auto;
         }
         .cover .meta {
@@ -67,7 +137,8 @@
         /* Sections */
         section { margin-bottom: 55px; }
         h2 {
-            font-size: 1.35rem;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.45rem;
             font-weight: 600;
             color: var(--gold-light);
             margin-bottom: 18px;
@@ -187,14 +258,21 @@
     </style>
 </head>
 <body>
+    <div class="ambient-blur-1"></div>
+    <div class="ambient-blur-2"></div>
+
     <div class="container">
 
         <!-- COVER -->
         <div class="cover">
+            <div class="status-badge">
+                <span class="pulse-dot"></span>
+                ✦ Sexual Wellness B2B &nbsp;·&nbsp; Guia de Marca Oficial
+            </div>
             <div class="brand">VOLÚPIA</div>
             <div class="sub">Brand DNA Book</div>
             <div class="tagline">“Desperte seus sentidos”</div>
-            <div class="meta">volupia.com.br &nbsp;·&nbsp; Sexual Wellness &nbsp;·&nbsp; Brasil 2026</div>
+            <div class="meta">usevolupia.com.br &nbsp;·&nbsp; app.usevolupia.com.br &nbsp;·&nbsp; Brasil 2026</div>
         </div>
 
         <!-- 1. ESSÊNCIA -->
@@ -446,27 +524,39 @@
             </table>
         </section>
 
-        <!-- 10. DIRETRIZES VISUAIS -->
+        <!-- 10. DIRETRIZES VISUAIS & LOGO OFICIAL -->
         <section>
-            <h2>10. Diretrizes Visuais (resumo)</h2>
+            <h2>10. Diretrizes Visuais & Logo Oficial</h2>
+
+            <div class="card highlight" style="text-align:center; padding: 36px 20px; margin-bottom: 24px;">
+                <div style="font-size:0.8rem; text-transform:uppercase; letter-spacing:0.12em; color:var(--rose-soft); margin-bottom:12px; font-weight:600;">
+                    Preview Oficial da Assinatura de Marca (Cloudflare Live)
+                </div>
+                <div style="font-family:'Playfair Display', serif; font-size: clamp(2.4rem, 6vw, 3.8rem); font-weight:700; letter-spacing:0.16em; background: linear-gradient(180deg, #FFFFFF 0%, #E2D7CE 60%, var(--gold) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; text-transform: uppercase; margin-bottom: 6px;">
+                    VOLÚPIA
+                </div>
+                <div style="font-family:'Playfair Display', serif; font-style:italic; color:var(--gold-light); font-size: 1.25rem;">
+                    “Desperte seus sentidos”
+                </div>
+            </div>
 
             <div class="grid-2">
                 <div class="card">
-                    <h3 style="margin-top:0;">Cores principais</h3>
+                    <h3 style="margin-top:0;">Especificação do Logo</h3>
                     <ul style="margin:8px 0 0 16px; font-size:0.9rem;">
-                        <li>Rosa metálico / Magenta profundo (#e11d48 / #fb7185)</li>
-                        <li>Dourado champagne (#d4a373 / #f5d0a9)</li>
-                        <li>Preto profundo (#0c0a0b)</li>
-                        <li>Off-white para textos longos</li>
+                        <li><strong>Tipografia do Logo:</strong> Playfair Display (Bold 700 / Caps)</li>
+                        <li><strong>Espaçamento entre letras:</strong> letter-spacing: 0.14em – 0.16em</li>
+                        <li><strong>Gradiente metálico:</strong> #FFFFFF (30%) → #E2D7CE (60%) → #D4A373 (100%)</li>
+                        <li><strong>Tagline Oficial:</strong> “Desperte seus sentidos” (Playfair Display Italic)</li>
                     </ul>
                 </div>
                 <div class="card">
-                    <h3 style="margin-top:0;">Estilo visual</h3>
+                    <h3 style="margin-top:0;">Paleta de Cores Oficial</h3>
                     <ul style="margin:8px 0 0 16px; font-size:0.9rem;">
-                        <li>Elegante e sensorial</li>
-                        <li>Uso generoso de espaço negativo</li>
-                        <li>Fotografias com iluminação quente e intimista</li>
-                        <li>Evitar excesso de vermelho “gritante” e imagens genéricas</li>
+                        <li><strong>Rosa Crimson:</strong> #E11D48 (Acentos) / #FB7185 (Glow suave)</li>
+                        <li><strong>Dourado Champagne:</strong> #D4A373 (Detalhes) / #F5D0A9 (Textos guias)</li>
+                        <li><strong>Obsidian Deep:</strong> #0D0A0F (Fundo radial)</li>
+                        <li><strong>Superfície Glass:</strong> rgba(28, 20, 30, 0.78) com blur(24px)</li>
                     </ul>
                 </div>
             </div>
