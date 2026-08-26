@@ -1,0 +1,10 @@
+name = "volupia-v8-cockpit"
+main = "worker/index.ts"
+compatibility_date = "2026-08-25"
+compatibility_flags = ["nodejs_compat"]
+
+[site]
+bucket = "./dist"
+
+[vars]
+ENVIRONMENT = "production"
