@@ -1,5 +1,12 @@
 ---
 import "../styles/theme.css";
+import {
+	WidgetArea,
+	EmDashHead,
+	EmDashBodyStart,
+	EmDashBodyEnd,
+} from "emdash/ui";
+import { createPublicPageContext } from "emdash/page";
 
 interface Props {
 	title: string;
@@ -32,6 +39,21 @@ const siteTitle = "CASOSEX";
 const siteTagline = "O Universo Sensual & Bem-Estar";
 const fullTitle = title.includes(siteTitle) ? title : `${title} — ${siteTitle}`;
 
+const pageCtx = createPublicPageContext({
+	Astro,
+	kind: content ? "content" : "custom",
+	pageType: type,
+	title: fullTitle,
+	pageTitle: pageTitle ?? title,
+	description,
+	canonical,
+	image,
+	content,
+	seo: { ogImage: image, robots },
+	articleMeta: { publishedTime, modifiedTime, author },
+	siteName: siteTitle,
+});
+
 const menu = {
 	items: [
 		{ label: "Home", url: "/" },
@@ -44,7 +66,6 @@ const pages: Array<{ title: string; slug: string }> = [];
 const isLoggedIn = false;
 const siteLogo: { url: string; alt?: string } | null = null;
 const socialMenu: { items: Array<{ label: string; url: string; target?: string }> } = { items: [] };
-const WidgetArea = (_props: Record<string, any>) => null;
 ---
 
 <!doctype html>
