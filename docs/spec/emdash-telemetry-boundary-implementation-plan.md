@@ -55,4 +55,4 @@ Criar o componente canônico de configurações respeitando os componentes do Ku
 
 ## 📦 Fase 5: Commit Automático & Auto-Ingestão de Memória (SELO)
 1. **Git Commit**: `git add . && git commit -m "feat(admin): implement Telemetry settings dashboard under ADR-0004"`
-2. **Ingestão no KG**: Persistir a decisão e o estado no `claude-memory` com tag `casosex`.
+2. **Ingestão no KG**: Persistir a decisão e o estado no `claude-memory` com tag `volupia` / `casosex`.

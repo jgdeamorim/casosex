@@ -1,3 +1,3 @@
-# CASOSEX · Especificações do Projeto
+# VOLÚPIA · Especificações do Projeto
 
-Este diretório contém os documentos de especificação técnica e funcional do projeto **CASOSEX**.
+Este diretório contém os documentos de especificação técnica e funcional do projeto **VOLÚPIA**.

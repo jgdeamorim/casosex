@@ -3,7 +3,7 @@
 metadata:
   title: Sovereign Desktop Design Tokens & Visual Tokens
   version: 3.0.0
-  target: CASOSEX Volúpia Cockpit V8
+  target: VOLÚPIA Cockpit V8
 
 color_tokens:
   bg_canvas: "hsl(222, 47%, 6%)"

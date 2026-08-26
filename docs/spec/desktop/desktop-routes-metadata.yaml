@@ -3,7 +3,7 @@
 metadata:
   title: Sovereign Desktop Route & Panel Architecture
   version: 3.0.0
-  target: CASOSEX Volúpia Cockpit V8
+  target: VOLÚPIA Cockpit V8
 
 routes:
   - id: "desktop_route_dashboard"

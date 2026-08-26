@@ -1,11 +1,11 @@
 # Master Index: Mode Desktop Specification (100% COMPLETE)
-# Governed by CASOSEX SS-AES v3.4 & AXA v3.2 Protocol
+# Governed by VOLÚPIA SS-AES v3.4 & AXA v3.2 Protocol
 metadata:
   title: Sovereign Desktop Design System Master Index
   version: 3.0.0 (100% DESKTOP PARITY COMPLETE)
   source: Volúpia V8 Cockpit Multi-Viewport Architecture (astro-emdash Standard)
   generated_at: 2026-08-26
-  target: CASOSEX Volúpia Cockpit V8 (app.usevolupia.com.br)
+  target: VOLÚPIA Cockpit V8 (app.usevolupia.com.br)
 
 architectural_axioms:
   axa_axiom_13: "Desktop não é uma versão esticada do Mobile. Desktop é uma estação de trabalho multi-painel de alta densidade."

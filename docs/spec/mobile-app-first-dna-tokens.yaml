@@ -3,7 +3,7 @@
 metadata:
   title: Mercado Pago Mobile AppShell DNA Tokens
   version: 1.0.0
-  target: CASOSEX Volúpia Cockpit V8 (mode:mobile-app-first)
+  target: VOLÚPIA Cockpit V8 (mode:mobile-app-first)
 mobile_app_first_patterns:
   top_actions:
     min_height_px: 48
@@ -20,7 +20,7 @@ mobile_app_first_patterns:
 extracted_stats:
   lottie_count: 21
   color_tokens_count: 2199
-casosex_volupia_mapped_tokens:
+volupia_mapped_tokens:
   background: '#0c0a0b'
   surface_card: '#161214'
   brand_accent_rose: '#e11d48'

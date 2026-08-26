@@ -1,20 +1,20 @@
-# CASOSEX · Coding SOP — TypeScript + Módulos Puros + UI
+# VOLÚPIA · Coding SOP — TypeScript + Módulos Puros + UI
 
 > ⚠️ **LEIA ANTES de editar qualquer componente (.tsx) OU módulo .ts.**
 > Fontes: SOP v3.0 Canônico + SWC Rules + TypeScript ESLint Canonical Rules
-> v3.0 · 2026-08-13 — Instanciação Soberana para o projeto CASOSEX
+> v3.0 · 2026-08-13 — Instanciação Soberana para o projeto VOLÚPIA
 
 ---
 
 ## I. Ciclo de Codificação (SOP v3.0)
 
 ```
-1. DAG (casosex-dag) → 2. Coda com regras → 3. Validate (tsc) → 4. Commit
+1. DAG (volupia-dag / casosex-dag) → 2. Coda com regras → 3. Validate (tsc) → 4. Commit
 ```
 
 ### 1. Pré-flight — DAG + Grounding
-Antes de codar, executar grounding no Qdrant/Filesystem via skill `/casosex-dag`:
-- Coleções: `casosex-self`, `casosex-conversation`, `casosex-memory` (tag=`casosex`)
+Antes de codar, executar grounding no Qdrant/Filesystem via skill `/volupia-dag` (ou `/casosex-dag`):
+- Coleções: `volupia-self` / `casosex-self`, `volupia-conversation` / `casosex-conversation`, `volupia-memory` / `casosex-memory` (tag=`volupia` / `casosex`)
 - Filesystem: Verificar `docs/spec/` e `docs/adr/`
 
 ### 2. Coda — Regras Canônicas
@@ -59,5 +59,5 @@ git add . && git commit -m "type: descrição"
 
 ---
 
-*v3.2 · CASOSEX · Especificação de SOP Técnica & Governança Normativa B2B*
+*v3.2 · VOLÚPIA · Especificação de SOP Técnica & Governança Normativa B2B*
 

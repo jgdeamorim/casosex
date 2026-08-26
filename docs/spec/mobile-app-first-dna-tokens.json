@@ -3,7 +3,7 @@
     "title": "Mercado Pago Mobile AppShell DNA Tokens Specification",
     "version": "1.0.0",
     "extracted_at": "2026-08-26",
-    "target": "CASOSEX Volúpia Cockpit V8 (mode:mobile-app-first)"
+    "target": "VOLÚPIA Cockpit V8 (mode:mobile-app-first)"
   },
   "mobile_app_first_patterns": {
     "top_actions": {
@@ -109,7 +109,7 @@
       "activation_color_background_overlay": "#99252537"
     }
   },
-  "casosex_volupia_mapped_tokens": {
+  "volupia_mapped_tokens": {
     "background_gradient": "radial-gradient(circle at 50% 20%, #211322 0%, #0d0a0f 70%, #050406 100%)",
     "background_obsidian": "#0d0a0f",
     "surface_glass": "rgba(28, 20, 30, 0.78)",
