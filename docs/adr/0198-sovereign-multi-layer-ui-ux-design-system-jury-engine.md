@@ -1,91 +1,183 @@
 # 🏛️ ADR-0198: Sovereign Multi-Layer UI/UX Design System Jury Engine
 
-* **Status:** Aceito (Accepted)
+* **Status:** Aceito com Refinamentos Arquiteturais (Accepted & Refined)
 * **Data:** 2026-08-26
 * **Autor:** Jeferson Amorim & Antigravity AI (Deepmind Pair)
 * **Contexto:** Governança Visual B2B, V8 Cockpit, ADR-0054 (Intent-Driven Dynamic Composer), ADR-0195 (Multi-Viewport Facets), SOP v3.2.
-* **Doutrina:** `medido=verdade` (Toda asserção visual ou estática possui fonte e evidência rastreável).
+* **Doutrina:** `medido=verdade` (Toda asserção visual ou estática possui fonte e evidência rastreável com proveniência).
 
 ---
 
 ## 1. Contexto e Problema
 
-O ecossistema V8 Cockpit evoluiu para dar suporte a múltiplos viewports (`smartwatch`, `mobile`, `tablet`, `desktop`, `ultra-screen`). No entanto, a validação de qualidade de interface era limitada a:
-1. Linters estáticos de código (`oxlint`, `tsc`) que analisam exclusivamente erros sintáticos e de tipagem, ignorando o significado semântico e estrutural de layouts CSS/Tailwind.
-2. Regras de verificação ad-hoc e locais (ex: barrar strings isoladas como `w-[1200px]`), gerando julgamentos arbitrários, frágeis e desconectados da ciência normativa de UI/UX.
+O ecossistema V8 Cockpit evoluiu para dar suporte a 5 viewports declarativos (`smartwatch`, `mobile`, `tablet`, `desktop`, `ultra-screen`). No entanto, a validação de qualidade de interface apresentava duas falhas conceituais graves:
+1. **Regras Lexicais Ad-Hoc**: Tentar proibir utilitários CSS isolados (ex: `flex-col items-end` ou `w-[1200px]`) sem levar em conta o papel semântico do componente e a responsividade contextual.
+2. **Equívoco de Autoridade**: Confundir ferramentas de busca/recuperação (ex: Context7) ou linguagens de implementação (ex: Tailwind CSS v4) com a autoridade normativa de design.
 
-A proliferação de padrões visuais desalinhados (ex: empilhamento vertical com `flex-col items-end` em cabeçalhos desktop) evidenciou a necessidade de um **mecanismo de governança estrutural soberano** fundamentado em documentação técnica oficial.
+A governança exigia uma separação estrita entre **Fontes Normativas (W3C/Carbon)**, **Recuperação de Documentação (Context7)**, **Política do Projeto (SOP)**, **Camada de Conhecimento** e **Enforcement Técnico (Multi-Jury)**.
 
 ---
 
-## 2. Decisão Arquitetural
+## 2. Decisão Arquitetural: A Pipeline de Governança Normativa em 6 Etapas
 
-Decidimos instituir a **Arquitetura de Governança Normativa em 3 Camadas** e o **Multi-Layer Jury Engine**, estruturados conforme o pipeline abaixo:
+Decidimos reestruturar a arquitetura de governança visual conforme a matriz abaixo:
 
 ```
-                       CONTEXT7
-                          │
-          ┌───────────────┴───────────────┐
-          │                               │
-   Design Systems                  UX/UI Patterns
-   (Material 3, Carbon, WAI-ARIA)  (Navigation, Status, Tables)
-          │                               │
-          └───────────────┬───────────────┘
-                          ▼
-            DESIGN PATTERN KNOWLEDGE LAYER
-          (Mapeamento Conceitual Normalizado)
-                          │
-                          ▼
-                      SOP / SPEC
-             (Política de Aceite do Projeto)
-                          │
-                          ▼
-              MULTI-LAYER JURY ENGINE
-      ┌───────────────────┼───────────────────┐
-      ▼                   ▼                   ▼
-  AST Jury            DOM / ARIA          Visual Jury
-(OXC / Python)       (Accessibility)     (Playwright Snapshot)
-      │                   │                   │
-      └───────────────────┼───────────────────┘
-                          ▼
-               GATE DE BUILD / CI DE ALTA CONFIANÇA
+                    ┌──────────────────────────┐
+                    │    NORMATIVE SOURCES     │
+                    │                          │
+                    │ W3C / WAI-ARIA APG       │
+                    │ IBM Carbon (B2B Primary) │
+                    │ Material 3 (Secondary)   │
+                    │ Tailwind v4 (Impl Vocab) │
+                    └────────────┬─────────────┘
+                                 │
+                                 ▼
+                    ┌──────────────────────────┐
+                    │ CONTEXT7 DISCOVERY       │
+                    │ PROTOCOL                 │
+                    │                          │
+                    │ resolver → retrieve     │
+                    │ evidence → provenance   │
+                    └────────────┬─────────────┘
+                                 │
+                                 ▼
+                    ┌──────────────────────────┐
+                    │ DESIGN PATTERN           │
+                    │ KNOWLEDGE LAYER          │
+                    │                          │
+                    │ patterns · components    │
+                    │ accessibility contracts  │
+                    └────────────┬─────────────┘
+                                 │
+                                 ▼
+                    ┌──────────────────────────┐
+                    │ SOP / PROJECT POLICY     │
+                    │                          │
+                    │ MUST / SHOULD / MAY      │
+                    │ severity · exceptions    │
+                    └────────────┬─────────────┘
+                                 │
+                    ┌────────────┴────────────┐
+                    ▼                         ▼
+             ┌─────────────┐          ┌──────────────┐
+             │ AST JURY    │          │ DOM/ARIA JURY │
+             │ OXC / Rust  │          │ Playwright    │
+             │ Python      │          │ ARIA Snapshot │
+             └──────┬──────┘          └───────┬──────┘
+                    │                         │
+                    └────────────┬────────────┘
+                                 ▼
+                       ┌──────────────────┐
+                       │ VISUAL JURY      │
+                       │ Playwright       │
+                       │ screenshot diff  │
+                       │ geometry/bounds  │
+                       └────────┬─────────┘
+                                ▼
+                       ┌──────────────────┐
+                       │ EVIDENCE REPORT  │
+                       │ PASS / WARN /    │
+                       │ FAIL (With Proof)│
+                       └──────────────────┘
 ```
 
-### 2.1 Protocolo de Descoberta Normativa via Context7
-É proibido realizar buscas genéricas de UI/UX. Todo julgamento de padrão deve seguir o algoritmo de 8 etapas:
-1. **Identificação do Padrão**: Mapear o componente para um padrão formal (`UI-PATTERN-STATUS-INDICATOR`, `UI-PATTERN-DATA-TABLE`, etc.).
-2. **Design System Relevante**: Identificar a norma primária (Material Design 3, Carbon, WAI-ARIA, Tailwind v4).
-3. **Resolução de Biblioteca no Context7**: Consultar a biblioteca correspondente no MCP `context7`.
-4. **Extração Conceitual**: Recuperar princípios normativos (*Proximity, Hierarchy, Affordance, Visual Density, Semantic Color*).
-5. **Knowledge Layer Storage**: Armazenar os princípios no schema YAML em `docs/spec/design-patterns/`.
-6. **Vinculação com SOP**: Declarar a política na SOP (`docs/spec/casosex-coding-sop-ts-tsx.md`).
-7. **Multi-Jury Enforcement**: Executar a verificação através dos 3 Júnis especializados.
-8. **Gate Decision**: Conceder `PASS`, `WARN` ou `FAIL`.
+---
+
+## 3. Matriz Soberana de Fontes Normativas (Governance Stack)
+
+```yaml
+design_system_governance:
+  primary:
+    name: IBM Carbon Design System
+    role: b2b_data_dense_interface # Padrão primário para data tables, alta densidade e operações B2B
+  secondary:
+    - name: Material Design 3 (Google)
+      role: general_ui_patterns
+  accessibility:
+    primary:
+      name: WAI-ARIA APG (Authoring Practices Guide)
+      role: interaction_semantics_keyboard_contracts
+  implementation:
+    primary:
+      name: Tailwind CSS v4
+      role: implementation_vocabulary # Representação CSS, NÃO princípio de UX
+  retrieval:
+    primary:
+      name: Context7 MCP
+      role: discovery_and_documentation_retrieval
+  verification:
+    engine: Playwright + OXC Rust Parser
+    role: rendered_ui_dom_aria_visual_validation
+```
 
 ---
 
-## 3. Divisão de Responsabilidades do Multi-Layer Jury Engine
+## 4. Divisão de Responsabilidades e Matriz de Frequência do Júri
 
-| Camada do Júri | Mecanismo / Ferramenta | Responsabilidade Medida (`medido=verdade`) | Tempo Target |
-| :--- | :--- | :--- | :--- |
-| **1. AST Jury** | `adsentice_v8_autodebug_bridge.py` + OXC Rust Parser | Estrutura JSX, papéis semânticos estáticos, composição, uso de tokens de design e violações sintáticas de layout. | **< 3ms** |
-| **2. DOM/ARIA Jury** | `auditory_usability_coverage.py` + JSDOM | Atributos `aria-*`, acessibilidade WCAG 2.2 AA, focabilidade, anéis de contraste estático e leitores de tela. | **< 50ms** |
-| **3. Visual Jury** | `visual_regression_jury.py` + Playwright Headless | Pixel diffing real, colisões visuais, overflow, densidade de dados e regressão nos 5 viewports declarativos. | **< 2.5s** |
-
----
-
-## 4. Consequências e Benefícios
-
-### Positivas:
-- **Eliminação de Regras Ad-Hoc**: O ecossistema deixa de aceitar "regras inventadas na hora" e passa a exigir fundamentação normativa via Context7.
-- **Rastreabilidade Total (`medido=verdade`)**: Toda rejeição de layout cita a fonte normativa (ex: WAI-ARIA Status Pattern, Material Design 3 Spacing).
-- **Sub-milissegundo no Dev Loop**: O AST Jury avalia o código localmente em sub-milissegundos durante a edição, enquanto o Visual Jury assegura a qualidade no gate de build.
-- **Resiliência Multi-Device**: Garantia estrita de alinhamento visual nos 5 `screen_model` declarativos (`smartwatch` a `ultra-screen`).
-
-### Requisitos Operacionais:
-- Todo novo padrão de interface deve ter seu schema correspondente cadastrado em `docs/spec/design-patterns/`.
-- O script `adsentice_v8_autodebug_bridge.py` deve ser continuamente alimentado pelos schemas da Design Pattern Knowledge Layer.
+| Camada do Júri | Mecanismo / Ferramenta | Responsabilidade Medida (`medido=verdade`) | Frequência de Execução | Latência Target |
+| :--- | :--- | :--- | :--- | :--- |
+| **1. AST Jury** | `adsentice_v8_autodebug_bridge.py` + OXC Rust | Validação sintática, tokens, papéis semânticos estáticos, composição de componentes. | **Dev Loop Local** (a cada save) | **< 3ms** |
+| **2. DOM/ARIA Jury** | `Playwright ARIA Assertions` (`toMatchAriaSnapshot`, `toHaveRole`, `toHaveAccessibleName`) | Contrato WAI-ARIA, árvore de acessibilidade, focabilidade por teclado e estilos computados. | **Pre-push / PR / CI** | **< 200ms** |
+| **3. Visual Jury** | `Playwright Visual Diffing` (`toHaveScreenshot`) + Bounding Box Geometry | Screenshot pixel diffing, colisões visuais de container, overflow e densidade em 5 viewports. | **PR / CI / Release** | **< 2.5s** |
 
 ---
 
-*ADR-0198 Aceita · CASOSEX Architecture Board · 2026-08-26*
+## 5. Contrato Semântico dos 5 Viewports Declarativos
+
+```yaml
+viewports:
+  smartwatch:
+    width: 280
+    height: 340
+    purpose: constrained_navigation_micro_display
+  mobile:
+    width: 390
+    height: 844
+    purpose: touch_primary_portrait
+  tablet:
+    width: 768
+    height: 1024
+    purpose: hybrid_touch_keyboard_dashboard
+  desktop:
+    width: 1440
+    height: 900
+    purpose: b2b_primary_high_density_workspace
+  ultra-screen:
+    width: 1920
+    height: 1080
+    purpose: multi_panel_command_center
+```
+
+---
+
+## 6. O Modelo de Evidência e Rastreabilidade (`Evidence Layer`)
+
+Toda rejeição do Júri gera uma estrutura auditável de evidência (`finding`), contendo:
+
+```json
+{
+  "finding_id": "JURY-UI-00421",
+  "pattern": "data-table/header",
+  "rule_id": "CARBON-DATATABLE-ROW-ALIGNMENT",
+  "source": {
+    "authority": "IBM Carbon Design System",
+    "document": "data-table/style",
+    "retrieved_via": "context7"
+  },
+  "evidence": {
+    "type": "normative_contract_violation",
+    "confidence": "HIGH"
+  },
+  "enforcement": {
+    "ast": "PASS",
+    "dom_aria": "PASS",
+    "visual": "FAIL"
+  },
+  "severity": "BLOCKING"
+}
+```
+
+---
+
+*ADR-0198 Aceita & Refinada · CASOSEX Architecture Board · 2026-08-26*
