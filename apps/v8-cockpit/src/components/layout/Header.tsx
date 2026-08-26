@@ -1,10 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useRenderContext } from '../../context/RenderContext';
 import { ROLE_CONFIGS } from '../../auth/userRules';
 import type { UserRole } from '../../types';
+import { LoginModal } from '../auth/LoginModal';
 
 export function Header(): React.ReactElement {
   const { userSession, setUserRole, selectedPolo, setSelectedPolo, toggleChat, unreadCount } = useRenderContext();
+  const [isLoginOpen, setIsLoginOpen] = useState<boolean>(false);
   const currentConfig = ROLE_CONFIGS[userSession.role];
 
   return (
@@ -56,8 +58,12 @@ export function Header(): React.ReactElement {
           ))}
         </div>
 
-        {/* Profile Pill */}
-        <div className="hidden sm:flex items-center gap-2 pl-3 border-l border-white/10">
+        {/* Profile Pill & Login Launcher */}
+        <button
+          onClick={() => setIsLoginOpen(true)}
+          className="hidden sm:flex items-center gap-2 pl-3 border-l border-white/10 hover:opacity-80 transition-opacity text-left"
+          title="Clique para Autenticar / Trocar Usuário por E-mail"
+        >
           <div className="w-8 h-8 rounded-full bg-[#221c1f] border border-white/10 flex items-center justify-center font-bold text-xs text-[#faf7f5]">
             {userSession.avatar}
           </div>
@@ -67,7 +73,7 @@ export function Header(): React.ReactElement {
               {currentConfig.title.split(' ')[0]}
             </span>
           </div>
-        </div>
+        </button>
 
         {/* Chat Toggle Button */}
         <button
@@ -85,6 +91,8 @@ export function Header(): React.ReactElement {
           )}
         </button>
       </div>
+
+      <LoginModal isOpen={isLoginOpen} onClose={() => setIsLoginOpen(false)} />
     </header>
   );
 }
