@@ -9,16 +9,17 @@ import type { Supplier } from '../../types';
 
 interface SupplierMapProps {
   onSelectSupplier?: (supplier: Supplier) => void;
+  suppliersList?: Supplier[];
   className?: string;
 }
 
-export function SupplierMap({ onSelectSupplier, className }: SupplierMapProps = {}): React.ReactElement {
+export function SupplierMap({ onSelectSupplier, suppliersList, className }: SupplierMapProps = {}): React.ReactElement {
   const { suppliers, selectedPolo, selectedSupplier, selectSupplier, isLoading } = useRenderContext();
   const mapRef = useRef<HTMLDivElement | null>(null);
   const leafletMapRef = useRef<L.Map | null>(null);
   const markersRef = useRef<L.LayerGroup | null>(null);
 
-  const filteredSuppliers = filterSuppliers(suppliers, { polo: selectedPolo });
+  const filteredSuppliers = suppliersList ?? filterSuppliers(suppliers, { polo: selectedPolo });
 
   useEffect(() => {
     if (!mapRef.current || leafletMapRef.current) return;
