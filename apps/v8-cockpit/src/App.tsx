@@ -36,27 +36,26 @@ function MainLayout(): React.ReactElement {
             </div>
           )}
 
-          {/* Main Dashboard / Bento Grid Tab */}
+          {/* Main Dashboard / Bento Grid Tab (Market Intel) */}
           {activeTab === 'dashboard' && (
             <div className="space-y-6">
+              {/* 1. 4 KPI Cards Grid */}
               <KPIGrid />
 
-              <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-                <div className="lg:col-span-2">
-                  <ScopeGuard tabName="map">
-                    <SupplierMap />
-                  </ScopeGuard>
-                </div>
-                <div className="lg:col-span-1">
-                  <ScopeGuard tabName="dossier">
-                    <HomologationForm />
-                  </ScopeGuard>
-                </div>
-              </div>
-
-              <ScopeGuard tabName="suppliers">
-                <SupplierTable />
+              {/* 2. 1 Coluna - Mapa de ponta a ponta (Left to Right) */}
+              <ScopeGuard tabName="map">
+                <SupplierMap />
               </ScopeGuard>
+
+              {/* 3. 2 Colunas - Coluna 1: Dossiê de Homologação & Compliance | Coluna 2: Tabela de Fornecedores */}
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 items-start">
+                <ScopeGuard tabName="dossier">
+                  <HomologationForm />
+                </ScopeGuard>
+                <ScopeGuard tabName="suppliers">
+                  <SupplierTable />
+                </ScopeGuard>
+              </div>
             </div>
           )}
 

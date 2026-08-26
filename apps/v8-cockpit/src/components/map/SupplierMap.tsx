@@ -28,9 +28,10 @@ export function SupplierMap(): React.ReactElement {
           keyboard: true
         });
 
-        L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
+        L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/dark_all/{z}/{x}/{y}.png', {
           attribution: '&copy; CartoDB &copy; OpenStreetMap',
-          maxZoom: 18
+          subdomains: 'abcd',
+          maxZoom: 19
         }).addTo(map);
 
         L.control.zoom({ position: 'bottomright' }).addTo(map);
