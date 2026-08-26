@@ -103,20 +103,24 @@ def chunk_text(text: str, max_chars: int = 800) -> list[str]:
     return chunks or [text[:max_chars]]
 
 def embed_batch(texts: list[str]) -> list[list[float]]:
-    """Vetoriza lote em 768d no Embed Server (:8081)."""
+    """Vetoriza lote em 768d no Embed Server (:8081) com 3 retentativas."""
     if not texts:
         return []
-    try:
-        req = Request(
-            f"{EMBED_URL}/embed",
-            data=json.dumps({"texts": texts}).encode(),
-            headers={"Content-Type": "application/json"}
-        )
-        resp = urlopen(req, timeout=120)
-        return json.loads(resp.read()).get("vectors", [])
-    except Exception as e:
-        print(f"  ⚠️ Erro ao vetorizar batch no embed server: {e}", file=sys.stderr)
-        return []
+    for attempt in range(3):
+        try:
+            req = Request(
+                f"{EMBED_URL}/embed",
+                data=json.dumps({"texts": texts}).encode(),
+                headers={"Content-Type": "application/json"}
+            )
+            resp = urlopen(req, timeout=30)
+            return json.loads(resp.read()).get("vectors", [])
+        except Exception as e:
+            if attempt < 2:
+                time.sleep(0.5 * (attempt + 1))
+            else:
+                print(f"  ⚠️ Erro no embed server (tentativa {attempt + 1}): {e}", file=sys.stderr)
+    return []
 
 def upsert_points(collection: str, points: list[dict]) -> int:
     """Insere pontos no Qdrant em 1 chamada HTTP."""
@@ -222,9 +226,11 @@ def main():
     files_to_process = []
 
     for root, dirs, files in os.walk(EMDASH_ROOT):
-        # Ignora node_modules, .git, .astro, pnpm-store
+        # Ignora node_modules, .git, .astro, pnpm-store, dist
         dirs[:] = [d for d in dirs if d not in {"node_modules", ".git", ".astro", ".pnpm-store", "dist"}]
         for f in files:
+            if f in {"pnpm-lock.yaml", "package-lock.json", "yarn.lock"}:
+                continue
             fp = Path(root) / f
             if fp.suffix.lower() in valid_exts or f in {"README.md", "Dockerfile", "package.json", "AGENTS.md"}:
                 files_to_process.append(fp)
