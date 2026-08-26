@@ -10,6 +10,9 @@ importers:
 
   apps/v8-cockpit:
     dependencies:
+      clsx:
+        specifier: ^2.1.1
+        version: 2.1.1
       hono:
         specifier: ^4.7.0
         version: 4.13.1
@@ -22,6 +25,9 @@ importers:
       react-dom:
         specifier: ^19.0.0
         version: 19.2.8(react@19.2.8)
+      tailwind-merge:
+        specifier: ^3.6.0
+        version: 3.6.0
     devDependencies:
       '@tailwindcss/vite':
         specifier: ^4.3.3

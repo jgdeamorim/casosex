@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { RenderContextProvider, useRenderContext } from './context/RenderContext';
 import { useDeviceFacet } from './facets/DeviceLayoutFacet';
 import { Header } from './components/layout/Header';
@@ -10,15 +10,24 @@ import { HomologationForm } from './components/dossier/HomologationForm';
 import { SupplierTable } from './components/suppliers/SupplierTable';
 import { TeamChatDrawer } from './components/chat/TeamChatDrawer';
 import { ScopeGuard } from './auth/ScopeGuard';
+import { LoginModal } from './components/auth/LoginModal';
+import { LoginView } from './components/auth/LoginView';
 
 function MainLayout(): React.ReactElement {
   const [activeTab, setActiveTab] = useState<string>('dashboard');
+  const [isLoginOpen, setIsLoginOpen] = useState<boolean>(false);
   const facet = useDeviceFacet();
   const { userSession } = useRenderContext();
 
+  useEffect(() => {
+    if (typeof window !== 'undefined' && window.location.pathname.includes('/login')) {
+      setActiveTab('login');
+    }
+  }, []);
+
   return (
     <div className="min-h-screen bg-[#0c0a0b] text-[#faf7f5] flex flex-col pb-20 md:pb-0">
-      <Header />
+      <Header onOpenLogin={() => setIsLoginOpen(true)} />
 
       <div className="flex flex-1">
         <Sidebar activeTab={activeTab} setActiveTab={setActiveTab} />
@@ -75,11 +84,17 @@ function MainLayout(): React.ReactElement {
               <SupplierTable />
             </ScopeGuard>
           )}
+
+          {/* Dedicated Login Portal Tab */}
+          {activeTab === 'login' && (
+            <LoginView onSuccess={() => setActiveTab('dashboard')} />
+          )}
         </main>
       </div>
 
       <BottomGlassDock activeTab={activeTab} setActiveTab={setActiveTab} />
       <TeamChatDrawer />
+      <LoginModal isOpen={isLoginOpen} onClose={() => setIsLoginOpen(false)} />
     </div>
   );
 }

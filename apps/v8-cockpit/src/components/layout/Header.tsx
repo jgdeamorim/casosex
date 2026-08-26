@@ -4,10 +4,22 @@ import { ROLE_CONFIGS } from '../../auth/userRules';
 import type { UserRole } from '../../types';
 import { LoginModal } from '../auth/LoginModal';
 
-export function Header(): React.ReactElement {
+interface HeaderProps {
+  onOpenLogin?: () => void;
+}
+
+export function Header({ onOpenLogin }: HeaderProps): React.ReactElement {
   const { userSession, setUserRole, selectedPolo, setSelectedPolo, toggleChat, unreadCount } = useRenderContext();
   const [isLoginOpen, setIsLoginOpen] = useState<boolean>(false);
   const currentConfig = ROLE_CONFIGS[userSession.role];
+
+  const handleTriggerLogin = (): void => {
+    if (onOpenLogin) {
+      onOpenLogin();
+    } else {
+      setIsLoginOpen(true);
+    }
+  };
 
   return (
     <header className="h-16 px-6 glass-panel border-b border-[#ffffff]/10 flex items-center justify-between sticky top-0 z-30">
