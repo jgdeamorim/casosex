@@ -31,8 +31,8 @@ EMBED_URL = os.getenv("EMBED_URL", "http://127.0.0.1:8081")
 COLLECTION_CONVERSATION = "casosex-conversation"
 COLLECTION_SELF = "casosex-self"
 EMBED_DIM = 768
-BATCH_SIZE = 8
-MAX_WORKERS = 1
+BATCH_SIZE = 64
+MAX_WORKERS = 8
 
 def blake3_hex(text: str) -> str:
     """Calcula hash BLAKE3 (ou SHA256 fallback) determinístico."""
