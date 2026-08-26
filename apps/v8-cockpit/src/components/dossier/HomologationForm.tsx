@@ -46,9 +46,9 @@ export function HomologationForm(): React.ReactElement {
     <div className="p-6 rounded-2xl glass-panel border border-white/10 relative overflow-hidden">
       <div className="flex items-center justify-between pb-4 mb-4 border-b border-white/10">
         <div>
-          <span className="text-[10px] font-bold text-[#e11d48] uppercase tracking-wider">Dossiê de Auditoria B2B</span>
-          <h2 className="text-lg font-bold text-[#faf7f5]">{selectedSupplier.name}</h2>
-          <p className="text-xs text-[#a39b94]">{selectedSupplier.category} — {selectedSupplier.city}, {selectedSupplier.state}</p>
+          <span className="text-[10px] font-bold text-[#e11d48] uppercase tracking-wider font-mono-kpi">✦ Dossiê de Auditoria B2B</span>
+          <h2 className="text-xl font-bold text-[#f5d0a9] font-serif-luxury">{selectedSupplier.name}</h2>
+          <p className="text-xs text-[#a39b94] font-medium">{selectedSupplier.category} — {selectedSupplier.city}, {selectedSupplier.state}</p>
         </div>
         <span className={`badge-status ${status}`}>{status.replace('_', ' ')}</span>
       </div>

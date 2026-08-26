@@ -94,7 +94,10 @@ export function SupplierTable(): React.ReactElement {
                 return (
                   <tr
                     key={sup.id}
-                    onClick={() => selectSupplier(sup)}
+                    onClick={() => {
+                      selectSupplier(sup);
+                      document.getElementById('supplier-map-container')?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    }}
                     className={`cursor-pointer transition-all ${
                       isSelected
                         ? 'bg-[#e11d48]/15 border-l-4 border-l-[#e11d48]'

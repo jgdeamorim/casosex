@@ -116,7 +116,7 @@ export function SupplierMap(): React.ReactElement {
   }, [selectedSupplier]);
 
   return (
-    <div className="relative rounded-2xl overflow-hidden glass-panel border border-white/10 h-[450px] shadow-2xl">
+    <div id="supplier-map-container" className="relative rounded-2xl overflow-hidden glass-panel border border-white/10 h-[450px] shadow-2xl">
       <div className="absolute top-4 left-4 z-10 bg-[#0c0a0b]/90 backdrop-blur-md p-3 rounded-xl border border-white/10 text-xs flex items-center gap-3">
         <span className="font-bold text-[#faf7f5]">Polo Ativo:</span>
         <span className="px-2 py-0.5 rounded bg-[#e11d48]/20 text-[#e11d48] font-bold border border-[#e11d48]/30">

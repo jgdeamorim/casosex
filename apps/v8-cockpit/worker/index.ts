@@ -41,16 +41,19 @@ app.all('/api/v8/wc/*', async (c) => {
   }
 });
 
-// Redirect / Rewrite legacy routes (/admin, /admin.html) to V8 Cockpit Root
-app.get('/admin*', (c) => {
-  const url = new URL(c.req.url);
-  url.pathname = '/';
-  return c.redirect(url.toString(), 301);
-});
-
-// HTMLRewriter for Edge User Rules & Facet Injection
+// HTMLRewriter for Edge User Rules & Facet Injection + SPA Fallback
 app.get('*', async (c) => {
-  const assetResp = c.env?.ASSETS ? await c.env.ASSETS.fetch(c.req.raw) : await fetch(c.req.raw);
+  let assetResp: Response | null = null;
+  if (c.env?.ASSETS) {
+    assetResp = await c.env.ASSETS.fetch(c.req.raw);
+    if (assetResp.status === 404) {
+      const indexReq = new Request(new URL('/index.html', c.req.url).toString(), c.req.raw);
+      assetResp = await c.env.ASSETS.fetch(indexReq);
+    }
+  } else {
+    assetResp = await fetch(c.req.raw);
+  }
+
   const userRole = c.req.header('X-Volupia-Role') || 'founder';
 
   const rewriter = new HTMLRewriter().on('body', {

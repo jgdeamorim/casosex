@@ -56,7 +56,7 @@ export function KPIGrid(): React.ReactElement {
               </svg>
             </div>
           </div>
-          <p className="text-2xl font-extrabold text-[#faf7f5] mb-1 font-mono tracking-tight">{kpi.value}</p>
+          <p className="text-2xl font-extrabold text-[#faf7f5] mb-1 font-mono-kpi tracking-tight">{kpi.value}</p>
           <span className="text-[10px] text-[#a39b94] font-medium">{kpi.subtext}</span>
         </div>
       ))}
