@@ -1,0 +1,20 @@
+# Motion & Animation Physics Specification (Mobile-App-First)
+metadata:
+  title: Motion & Spring Physics Tokens
+  xml_animations_count: 561
+
+physics_and_timing:
+  durations:
+    fast: 150ms
+    normal: 300ms
+    slow: 450ms
+  interpolators:
+    standard: "cubic-bezier(0.16, 1, 0.3, 1)" # Smooth iOS/Android deceleration
+    bounce_overshoot: "cubic-bezier(0.34, 1.56, 0.64, 1)"
+    fade_in_out: "ease-in-out"
+  gestures:
+    swipe_threshold_px: 60
+    drag_handle_dismiss_y_px: 120
+
+sample_motion_files:
+  anims: ['express_money_design_trans_no_move.xml', 'cardform_fake_out.xml', 'authchallenges_web_loading_fade_in.xml', 'cash_rails_ui_component_slide_up.xml', 'discounts_payers_fade_in.xml', 'hold.xml', 'core_slide_up_modal.xml', 'cardform_slide_right_out.xml', 'moneyout_amount_scale.xml', 'point_paymentflow_congrats_slide_up_fade_out.xml', 'nfcpayments_flows_left_to_right_transition.xml', 'slide_in_up_medium.xml', 'card_drawer_slide_up_in.xml', 'crypto_slide_first.xml', 'cardform_slide_right_to_left_out.xml', 'cards_engagement_flow_prepaid_slide_in_bottom.xml', 'cardform_slide_right_to_left_in.xml', 'design_bottom_sheet_slide_out.xml', 'accountrelationships_web_loading_fade_in.xml', 'glance_btn_radio_to_on_mtrl_ring_outer_path_animation.xml']

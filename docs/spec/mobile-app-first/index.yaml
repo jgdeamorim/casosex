@@ -1,0 +1,34 @@
+# Master Index: Mode Mobile-App-First Specification
+# Governed by CASOSEX SS-AES v3.4 & AXA v3.2 Protocol
+metadata:
+  title: Sovereign Mobile-App-First Design System & Architecture Index
+  version: 2.0.0
+  source: Mercado Pago APK Decompiled Analysis
+  generated_at: 2026-08-26
+  target: CASOSEX Volúpia Cockpit V8 (app.usevolupia.com.br)
+
+architectural_axioms:
+  axa_axiom_12: "Mobile não é um breakpoint responsivo do Desktop. Mobile é uma experiência de aplicação independente."
+  wcag_2_2_aa: "Touch targets >= 44px (48px top actions), APCA 7:1 contrast, useFocusTrap.ts active."
+  hydration_safety: "AXAResponsiveSwitch via useSyncExternalStore with matchMedia."
+
+synthesized_artifacts:
+  - file: "dimens-spacing.yaml"
+    summary: "5868 dimension tokens mapped to web rem/px scales (spacing, radius, touch targets, elevation)."
+  - file: "motion-animations.yaml"
+    summary: "561 XML motion transitions, interpolators, and 21 Lottie JSON keyframe micro-animations."
+  - file: "layout-components.yaml"
+    summary: "AppShell, Top Actions 48px, Bottom Glass Dock 64px (blur 16px), Carousel Snap 280px cards, BottomSheet radius 24px."
+
+dimension_highlights:
+  total_dimens_count: 5868
+  spacing_count: 2154
+  corner_radius_count: 240
+  touch_target_count: 1614
+  elevation_count: 117
+  font_sizes_count: 1144
+
+motion_highlights:
+  xml_anims_count: 561
+  motion_layouts_found: 8
+  bottom_sheets_found: 82
