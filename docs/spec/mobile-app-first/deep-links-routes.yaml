@@ -1,0 +1,74 @@
+# Deep Links & Screen Route Architecture
+metadata:
+  title: Mercado Pago Deep Links & Activity Screen Map
+  generated_at: 2026-08-26
+  target: CASOSEX Volúpia Cockpit V8 (app.usevolupia.com.br)
+
+summary_stats:
+  deep_links_count: 895
+  activity_screens_count: 1012
+
+core_screen_routes:
+  onboarding: "/onboarding"
+  dashboard: "/dashboard"
+  suppliers_catalog: "/suppliers"
+  kpis_overview: "/kpis"
+  privacy_settings: "/settings/privacy"
+
+sample_deep_links:
+[
+  "mercadopago://cards-nfc-wallets/onboarding-congrats",
+  "https://mp/v3/manual_price/calculator",
+  "@string/commons_deeplink_scheme://@string/commons_deeplink_host@string/commons_deeplink_feedback_path",
+  "@string/request_deeplink_scheme://@string/request_deeplink_host@string/request_card_onboarding_phyisical",
+  "mercadopago://credit-card-duedate",
+  "mercadopago://under_age/required/close",
+  "meli://ccap/remedy/tte",
+  "mercadopago://mplayer/user_identity_validated_redirect",
+  "mercadopago://my-money",
+  "mercadopago://proximity_marketplace/vip",
+  "mercadopago://crypto_transfer/contacts_list",
+  "mercadopago://ua_self_device/congrats",
+  "mercadopago://gadgets/pinned-shortcut",
+  "mercadopago://ua_self_device/end_step",
+  "mercadopago://credit-card-product-info",
+  "mercadopago://cash_rails/feedback/test",
+  "mercadopago_fcu://softpos_send_sms",
+  "@string/commons_deeplink_scheme://@string/commons_deeplink_host@string/commons_deeplink_congrats_full_screen",
+  "mercadopago://cash-rails/store-detail",
+  "mercadopago://portable-widget/v2",
+  "mercadopago://help",
+  "mercadopago://login-challenges/identification",
+  "https://consumer-credits-simulator",
+  "mercadopago://addresses/form",
+  "mercadopago://da_management/security-hub"
+]
+
+sample_activities:
+[
+  "ItemPageActivity",
+  "QrNativeCamActivity",
+  "FaceTecSessionActivity",
+  "SelectProductVariantActivity",
+  "StartupEntrypointActivity",
+  "LogoutGenericErrorActivity",
+  "SwapFlowLogoutActivity",
+  "PdfViewerProxyActivity",
+  "EditProductVariantActivity",
+  "CartActivity",
+  "KycUniversalLinkActivity",
+  "SoftPosNewPaymentActivity",
+  "ScreenLockChallengeActivity",
+  "CryptoSendMoneyActivity",
+  "NewPaymentActivity",
+  "BaseActivity",
+  "FeeFromActivity",
+  "ScanQRActivationRestyledActivity",
+  "SplashActivityAliasDefault",
+  "DataInputDisplayEditAliasActivity",
+  "RegisterDetailActivity",
+  "ForcedModalPermissionsRequesterActivity",
+  "ISScannerProxyActivity",
+  "RegistrationValveActivity",
+  "DeviceDetailActivity"
+]

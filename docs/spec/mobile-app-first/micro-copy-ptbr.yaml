@@ -1,0 +1,27 @@
+# Brazilian Portuguese Micro-Copy & CTA Tokens Catalog
+metadata:
+  title: PT-BR Onboarding & Commercial Micro-Copy Catalog
+  total_string_tokens: 8122
+
+micro_copy_highlights:
+  welcome_title: "Bem-vindo ao Cockpit Volúpia V8"
+  b2b_tagline: "Rede Homologada de 307 Fornecedores Eróticos verified"
+  privacy_kpi_label: "Modo Privacidade (KPIs Ocultos)"
+  polo_select_all: "Todos os Polos (SP + RJ)"
+  polo_sp: "Polo São Paulo (SP)"
+  polo_rj: "Polo Rio de Janeiro (RJ)"
+
+sample_ptbr_strings:
+{
+  "about_label": "Acerca de",
+  "accepted_cards_vales": "Vales",
+  "accepted_cards_vales_faq_link": "Que cartões eu posso aceitar com a Point?",
+  "acept_label": "Aceptar",
+  "activity_device_ota_update_ftu_title": "Atualize sua maquininha para ter cobranças mais seguras e reduzir estornos.",
+  "add_card_form_expire_date_hint": "Mes / Año",
+  "add_card_form_expire_date_input_label": "Válida hasta",
+  "add_card_form_number_input_label": "Número de tarjeta",
+  "add_card_of": "Tarjetas",
+  "add_other_card_of": "Otras tarjetas",
+  "address_helper_title": "Retenções nas suas cobranças"
+}

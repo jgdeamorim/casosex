@@ -1,0 +1,41 @@
+# Andes UI Component Specification Matrix
+# Mapped 1:1 to React 19 + Tailwind CSS v4 Components
+
+components:
+  AndesButton:
+    variants:
+      primary: "bg-rose-600 hover:bg-rose-500 text-white font-medium shadow-md active:scale-95 transition-all"
+      secondary: "bg-purple-900/40 hover:bg-purple-900/60 text-purple-200 border border-purple-500/30"
+      quiet: "bg-transparent hover:bg-white/10 text-stone-300"
+      transparent: "bg-transparent text-rose-400 hover:underline"
+    sizes:
+      large: "h-12 px-6 text-base rounded-xl"
+      medium: "h-11 px-4 text-sm rounded-lg"
+      small: "h-9 px-3 text-xs rounded-md"
+      micro: "h-7 px-2 text-[10px] rounded"
+
+  AndesCard:
+    variants:
+      glass: "bg-[#161214]/85 backdrop-blur-md border border-white/10 rounded-2xl shadow-xl"
+      flat: "bg-[#161214] border border-stone-800/80 rounded-xl"
+      outline: "bg-transparent border border-rose-500/30 rounded-xl"
+
+  AndesBadgePill:
+    variants:
+      bingo: "bg-emerald-500/20 text-emerald-400 border border-emerald-500/40 text-xs font-semibold px-2.5 py-0.5 rounded-full"
+      margem_dourada: "bg-amber-500/20 text-amber-300 border border-amber-500/40 text-xs font-semibold px-2.5 py-0.5 rounded-full"
+      pronta_entrega: "bg-purple-500/20 text-purple-300 border border-purple-500/40 text-xs font-semibold px-2.5 py-0.5 rounded-full"
+      apto_boleto: "bg-blue-500/20 text-blue-300 border border-blue-500/40 text-xs font-semibold px-2.5 py-0.5 rounded-full"
+
+  AndesMoneyAmount:
+    format:
+      currency_symbol: "R$"
+      display_style: "font-mono font-bold tracking-tight"
+      sensitive_mode_mask: "••••••••"
+
+  BottomGlassDock:
+    dock_specs:
+      min_height: "64px"
+      touch_target_min: "44px"
+      safe_area_padding: "env(safe-area-inset-bottom, 16px)"
+      blur: "backdrop-blur(16px)"
