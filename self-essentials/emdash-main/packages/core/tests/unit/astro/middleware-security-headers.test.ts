@@ -193,7 +193,7 @@ describe("astro middleware baseline security headers (issue #1393)", () => {
 		expect(response.headers.get("X-Content-Type-Options")).toBe("nosniff");
 		expect(response.headers.get("Referrer-Policy")).toBe("strict-origin-when-cross-origin");
 		expect(response.headers.get("Permissions-Policy")).toBe(
-			"camera=(), microphone=(), geolocation=(), payment=()",
+			"camera=(), microphone=(), geolocation=()",
 		);
 	});
 });

@@ -426,7 +426,7 @@ function finalizeResponse(
 		res.headers.set("Referrer-Policy", "strict-origin-when-cross-origin");
 	}
 	if (!res.headers.has("Permissions-Policy")) {
-		res.headers.set("Permissions-Policy", "camera=(), microphone=(), geolocation=(), payment=()");
+		res.headers.set("Permissions-Policy", "camera=(), microphone=(), geolocation=()");
 	}
 	if (!res.headers.has("Content-Security-Policy")) {
 		res.headers.set("X-Frame-Options", "SAMEORIGIN");
