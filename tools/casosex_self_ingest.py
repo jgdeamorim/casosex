@@ -138,6 +138,8 @@ def run_ingestion():
         (".specify/memory/constitution.md", COLLECTION_SELF, "constitution"),
     ]
 
+    for p in sorted(PROJECT_ROOT.glob("docs/conversation/**/*.md")):
+        targets.append((str(p.relative_to(PROJECT_ROOT)), COLLECTION_CONVERSATION, "conversation-log"))
     for p in sorted(PROJECT_ROOT.glob("docs/adr/**/*.md")):
         targets.append((str(p.relative_to(PROJECT_ROOT)), COLLECTION_SELF, "adr"))
     for p in sorted(PROJECT_ROOT.glob("docs/handoff/**/*.md")):
