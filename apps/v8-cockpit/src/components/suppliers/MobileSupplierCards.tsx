@@ -380,6 +380,8 @@ export function MobileSupplierCards(): React.ReactElement {
                     className={`p-4 rounded-2xl border transition-all cursor-pointer bg-[#161214]/90 relative overflow-hidden select-none ${
                       isPressing
                         ? 'border-amber-500/80 shadow-amber-500/10 shadow-xl scale-[0.99]'
+                        : sup.status === 'VISITA_PENDENTE'
+                        ? 'border-amber-500/50 shadow-[inset_0_0_12px_rgba(245,158,11,0.18)] shadow-amber-950/30'
                         : 'border-stone-800/80 hover:border-stone-700 active:scale-[0.98]'
                     }`}
                   >

@@ -104,17 +104,18 @@ export function MobileDossierView(): React.ReactElement {
       catalogUrl: formData.catalogUrl,
       catalogFileName: formData.catalogFileName,
       auditNotes: formData.auditNotes,
-      status: selectedSupplier.status,
+      status: 'HOMOLOGADO',
       auditorName: userSession.name
     });
 
-    setSaving(false);
     if (ok) {
-      setMessage('✓ Dossiê B2B Salvo e Sincronizado no Cloudflare D1!');
+      updateSupplierStatus(selectedSupplier.id, 'HOMOLOGADO');
+      setMessage('✓ Dossiê Salvo e Fornecedor HOMOLOGADO no Cloudflare D1!');
       setTimeout(() => setMessage(null), 3000);
     } else {
       setMessage('✕ Falha ao salvar no Cloudflare D1.');
     }
+    setSaving(false);
   };
 
   return (
@@ -185,44 +186,32 @@ export function MobileDossierView(): React.ReactElement {
         </div>
       </div>
 
-      {/* Seletor de Ação de Auditoria de Status */}
-      <div className="p-3 rounded-2xl bg-[#161214] border border-stone-800 space-y-2">
-        <label className="text-[10px] font-extrabold uppercase text-stone-400 tracking-wider block">
-          Decisão da Auditoria (Status V8)
-        </label>
-        <div className="grid grid-cols-3 gap-2">
-          <button
-            type="button"
-            disabled={statusSaving}
-            onClick={() => handleStatusChange('HOMOLOGADO')}
-            className={`py-2 px-2 rounded-xl text-xs font-black border transition-all flex items-center justify-center gap-1 ${
-              selectedSupplier.status === 'HOMOLOGADO'
-                ? 'bg-emerald-600 text-white border-emerald-500 shadow-md'
-                : 'bg-emerald-500/10 text-emerald-400 border-emerald-500/30 hover:bg-emerald-500/20'
-            }`}
-          >
-            <span>Homologar</span>
-          </button>
+      {/* Seletor de Ação Rápida de Auditoria */}
+      <div className="p-2.5 rounded-2xl bg-[#161214] border border-stone-800 flex items-center justify-between gap-2">
+        <span className="text-[9px] font-extrabold uppercase text-stone-400 tracking-wider">
+          Decisão Rápida:
+        </span>
+        <div className="flex items-center gap-1.5">
           <button
             type="button"
             disabled={statusSaving}
             onClick={() => handleStatusChange('REJEITADO')}
-            className={`py-2 px-2 rounded-xl text-xs font-black border transition-all flex items-center justify-center gap-1 ${
+            className={`py-1 px-2.5 rounded-lg text-[10px] font-extrabold border transition-all min-h-[32px] flex items-center gap-1 ${
               selectedSupplier.status === 'REJEITADO'
-                ? 'bg-rose-600 text-white border-rose-500 shadow-md'
-                : 'bg-rose-500/10 text-rose-400 border-rose-500/30 hover:bg-rose-500/20'
+                ? 'bg-rose-600 text-white border-rose-500 shadow-sm'
+                : 'bg-rose-500/10 text-rose-400 border-rose-500/20 hover:bg-rose-500/20'
             }`}
           >
-            <span>Rejeitar</span>
+            <span>Rejeitado</span>
           </button>
           <button
             type="button"
             disabled={statusSaving}
             onClick={() => handleStatusChange('PROSPECCAO')}
-            className={`py-2 px-2 rounded-xl text-xs font-black border transition-all flex items-center justify-center gap-1 ${
+            className={`py-1 px-2.5 rounded-lg text-[10px] font-extrabold border transition-all min-h-[32px] flex items-center gap-1 ${
               selectedSupplier.status === 'PROSPECCAO'
-                ? 'bg-stone-700 text-white border-stone-600 shadow-md'
-                : 'bg-stone-800/80 text-stone-300 border-stone-700 hover:bg-stone-700'
+                ? 'bg-stone-700 text-white border-stone-600 shadow-sm'
+                : 'bg-stone-800/80 text-stone-400 border-stone-700 hover:text-stone-200'
             }`}
           >
             <span>Prospecção</span>
@@ -358,20 +347,20 @@ export function MobileDossierView(): React.ReactElement {
           </div>
         )}
 
-        {/* Botão de Salvar Dossiê */}
+        {/* Botão de Salvar & Homologar Dossiê Soberano em Verde */}
         <button
           type="submit"
           disabled={saving || dossierLoading}
-          className="w-full py-4 px-4 rounded-2xl bg-rose-500 hover:bg-rose-600 text-white font-black text-xs transition-all shadow-lg shadow-rose-500/25 flex items-center justify-center space-x-2 min-h-[48px] active:scale-[0.99]"
+          className="w-full py-4 px-4 rounded-2xl bg-emerald-600 hover:bg-emerald-500 text-white font-black text-xs transition-all shadow-lg shadow-emerald-600/25 flex items-center justify-center space-x-2 min-h-[48px] active:scale-[0.99]"
         >
           {saving ? (
-            <span>Salvando Dossiê no D1...</span>
+            <span>Homologando & Salvando Dossiê no D1...</span>
           ) : (
             <>
               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" />
               </svg>
-              <span>Salvar Dossiê Soberano</span>
+              <span>✓ Salvar & Homologar Dossiê</span>
             </>
           )}
         </button>

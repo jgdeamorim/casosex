@@ -9,7 +9,7 @@ interface BottomGlassDockProps {
 }
 
 export function BottomGlassDock({ activeTab, setActiveTab }: BottomGlassDockProps): React.ReactElement {
-  const { userSession, toggleChat, unreadCount } = useRenderContext();
+  const { userSession, toggleChat, isChatOpen, unreadCount } = useRenderContext();
 
   const dockItems = [
     { id: 'dashboard', label: 'Intel', icon: 'M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z' },
@@ -39,6 +39,9 @@ export function BottomGlassDock({ activeTab, setActiveTab }: BottomGlassDockProp
               if (item.id === 'team') {
                 toggleChat();
               } else {
+                if (isChatOpen) {
+                  toggleChat();
+                }
                 setActiveTab(item.id);
               }
             }}

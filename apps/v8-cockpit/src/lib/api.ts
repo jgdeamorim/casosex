@@ -76,7 +76,8 @@ export async function fetchHealth(): Promise<boolean> {
   try {
     const resp = await fetch(`${API_BASE}/health`, { cache: 'no-store' });
     return resp.ok;
-  } catch {
+  } catch (e: unknown) {
+    void e;
     return false;
   }
 }

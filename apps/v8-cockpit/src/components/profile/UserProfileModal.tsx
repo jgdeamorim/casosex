@@ -25,7 +25,17 @@ export function UserProfileModal({ onLogout }: UserProfileModalProps): React.Rea
 
   const handleThemeToggle = (): void => {
     triggerHapticFeedback(6);
-    setIsDarkMode((prev) => !prev);
+    setIsDarkMode((prev) => {
+      const next = !prev;
+      if (next) {
+        document.documentElement.classList.remove('light-theme');
+        document.documentElement.setAttribute('data-theme', 'dark');
+      } else {
+        document.documentElement.classList.add('light-theme');
+        document.documentElement.setAttribute('data-theme', 'light');
+      }
+      return next;
+    });
   };
 
   const handleClose = (): void => {
@@ -143,24 +153,7 @@ export function UserProfileModal({ onLogout }: UserProfileModalProps): React.Rea
             </div>
           </div>
 
-          {/* Dados de Auditoria DAG & Estado Soberano */}
-          <div className="p-4 rounded-2xl bg-stone-900/30 border border-stone-800/80 space-y-2 text-xs">
-            <h5 className="text-[11px] font-black text-stone-400 uppercase tracking-wider">
-              Auditoria Soberana DAG & Redis
-            </h5>
-            <div className="flex justify-between text-stone-400">
-              <span>Status OODA:</span>
-              <span className="font-mono text-emerald-400 font-bold">ACT • v8-cockpit_atual</span>
-            </div>
-            <div className="flex justify-between text-stone-400">
-              <span>Catalog Ingested:</span>
-              <span className="font-mono text-stone-200 font-bold">307 Fornecedores B2B</span>
-            </div>
-            <div className="flex justify-between text-stone-400">
-              <span>Cloudflare Edge:</span>
-              <span className="font-mono text-rose-400 font-bold">&lt; 0.2ms latency</span>
-            </div>
-          </div>
+
 
           {/* Botão Sair / Logoff */}
           <button
