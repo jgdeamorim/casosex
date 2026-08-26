@@ -32,19 +32,22 @@ export function SupplierTable(): React.ReactElement {
 
   return (
     <div className="p-6 md:p-8 rounded-2xl glass-panel border border-white/10 flex flex-col justify-between h-full min-h-[560px] space-y-4">
-      {/* Header & Controls */}
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-3 border-b border-white/10">
+      {/* Symmetrical Header matching HomologationForm */}
+      <div className="flex flex-col md:flex-row md:items-center justify-between gap-3 pb-4 border-b border-white/10">
         <div>
-          <div className="flex items-center gap-2 mb-1">
-            <span className="text-[10px] font-bold text-[#e11d48] uppercase tracking-wider font-mono-kpi">✦ Tabela de Fornecedores & Cotações 1-Clique</span>
-            <span className="text-[9px] px-2 py-0.5 rounded-full bg-[#d4a373]/10 text-[#d4a373] border border-[#d4a373]/20 font-mono">
+          <div className="flex items-center gap-2 mb-1 flex-wrap">
+            <span className="text-[10px] font-bold text-[#e11d48] uppercase tracking-wider font-mono-kpi">✦ Tabela de Fornecedores & Cotações</span>
+            <span className="text-[9px] px-2 py-0.5 rounded bg-white/5 border border-white/10 text-[#a39b94] font-mono">
               {filteredSuppliers.length} Registros
             </span>
           </div>
-          <h2 className="text-xl font-bold text-[#faf7f5]">Matriz Nacional B2B</h2>
+          <h2 className="text-xl font-bold text-[#faf7f5]">Matriz Nacional de Polos B2B</h2>
+          <p className="text-xs text-[#a39b94] font-medium mt-0.5">
+            Filtro ativo: <strong className="text-[#faf7f5]">POLO {selectedPolo}</strong> — {categoryFilter === 'TODAS' ? 'Todas Categorias' : categoryFilter}
+          </p>
         </div>
 
-        <div className="flex items-center gap-2 w-full sm:w-auto">
+        <div className="flex items-center gap-2 flex-wrap sm:flex-nowrap shrink-0">
           {/* Search Input */}
           <input
             type="text"
@@ -52,7 +55,7 @@ export function SupplierTable(): React.ReactElement {
             value={searchTerm}
             onChange={e => setSearchTerm(e.target.value)}
             aria-label="Buscar fornecedor, cidade ou categoria"
-            className="px-3 py-1.5 rounded-xl bg-[#0c0a0b] border border-white/10 text-xs text-[#faf7f5] placeholder-[#a39b94] focus:border-[#e11d48] focus:ring-1 focus:ring-[#e11d48] focus:outline-none w-full sm:w-48"
+            className="px-3 py-1.5 rounded-xl bg-[#0c0a0b] border border-white/10 text-xs text-[#faf7f5] placeholder-[#a39b94] focus:border-[#e11d48] focus:ring-1 focus:ring-[#e11d48] focus:outline-none w-full sm:w-40"
           />
 
           {/* Category Select */}
@@ -139,14 +142,14 @@ export function SupplierTable(): React.ReactElement {
       </div>
 
       {/* Desktop Table View (>= md) */}
-      <div className="hidden md:block overflow-x-auto flex-1 max-h-[430px] overflow-y-auto rounded-xl border border-white/10">
-        <table className="w-full text-left text-xs">
+      <div className="hidden md:block overflow-x-auto flex-1 max-h-[420px] overflow-y-auto rounded-xl border border-white/10">
+        <table className="w-full text-left text-xs table-fixed min-w-[500px]">
           <thead className="bg-[#0c0a0b] text-[#a39b94] font-bold uppercase text-[10px] tracking-wider sticky top-0 z-10 border-b border-white/10">
             <tr>
-              <th className="py-2.5 px-3">Fornecedor</th>
-              <th className="py-2.5 px-3">Polo</th>
-              <th className="py-2.5 px-3">Status</th>
-              <th className="py-2.5 px-3 text-right">Ação</th>
+              <th className="py-2.5 px-3 w-[36%]">Fornecedor</th>
+              <th className="py-2.5 px-3 w-[26%]">Polo / Cidade</th>
+              <th className="py-2.5 px-3 w-[23%]">Status Compliance</th>
+              <th className="py-2.5 px-3 w-[15%] text-right pr-4">Ação</th>
             </tr>
           </thead>
           <tbody className="divide-y divide-white/5">
@@ -173,31 +176,32 @@ export function SupplierTable(): React.ReactElement {
                     }`}
                   >
                     <td className="py-2.5 px-3 font-bold text-[#faf7f5]">
-                      <div className="line-clamp-1">{sup.name}</div>
-                      <span className="text-[10px] text-[#a39b94] font-normal block">{sup.category}</span>
+                      <div className="truncate text-xs" title={sup.name}>{sup.name}</div>
+                      <span className="text-[10px] text-[#a39b94] font-normal block truncate">{sup.category}</span>
                     </td>
-                    <td className="py-2.5 px-3 text-[#a39b94] font-mono text-[11px] whitespace-nowrap">
+                    <td className="py-2.5 px-3 text-[#a39b94] font-mono text-[11px] truncate">
                       {sup.city} ({sup.state})
                     </td>
-                    <td className="py-2.5 px-3 whitespace-nowrap">
-                      <span role="status" className={`badge-status ${sup.status} inline-flex items-center text-[10px]`}>
+                    <td className="py-2.5 px-3">
+                      <span role="status" className={`badge-status ${sup.status} inline-flex items-center text-[10px] whitespace-nowrap`}>
                         <span className="w-1.5 h-1.5 rounded-full bg-current animate-pulse inline-block mr-1" />
                         {statusLabel(sup.status)}
                       </span>
                     </td>
-                    <td className="py-2.5 px-3 text-right whitespace-nowrap">
+                    <td className="py-2.5 px-3 text-right pr-4">
                       {waLink ? (
                         <a
                           href={waLink}
                           target="_blank"
                           rel="noreferrer"
-                          className="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg bg-[#30d158]/20 hover:bg-[#30d158]/30 border border-[#30d158]/40 text-[#30d158] font-bold text-[10px] transition-all"
+                          className="inline-flex items-center justify-center w-7 h-7 rounded-lg bg-[#30d158]/20 hover:bg-[#30d158]/40 border border-[#30d158]/40 text-[#30d158] font-bold text-xs transition-all shadow-sm"
+                          title={`Cotar ${sup.name} no WhatsApp`}
                           onClick={e => e.stopPropagation()}
                         >
-                          💬 WhatsApp
+                          💬
                         </a>
                       ) : (
-                        <span className="text-[#a39b94] text-[10px]">Sem contato</span>
+                        <span className="text-[#a39b94] text-[10px]">—</span>
                       )}
                     </td>
                   </tr>
