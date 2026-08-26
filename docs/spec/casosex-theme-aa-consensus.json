@@ -1,10 +1,10 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "title": "CASOSEX Custom Theme Jury AA Consensus Specification (2026+)",
-  "version": "1.8.0",
+  "version": "1.9.0",
   "project": "CASOSEX",
   "author": "Jeferson Amorim (Founder) & Antigravity (AI Architect)",
-  "date": "2026-08-13",
+  "date": "2026-08-26",
   "target_performance": {
     "google_pagespeed_mobile_min": 98,
     "google_pagespeed_desktop_min": 100,
@@ -25,15 +25,18 @@
     "brand_dna_and_design_system": {
       "brand_positioning": "Erotic Luxury & High-End Sensual Lifestyle (SMB Brasil)",
       "tone_of_voice": "Sophisticated, Inclusive, Discrete & Empowering",
-      "brand_promise": "Zero Constrangimento. Sigilo Absoluto. Prazer Sem Tabus.",
+      "brand_promise": "Desperte seus sentidos",
       "tailwind_v4_theme_tokens": {
+        "obsidian_deep": "#0D0A0F",
         "obsidian_950": "#09090B",
         "obsidian_900": "#121215",
         "crimson_600": "#E11D48",
-        "crimson_500": "#F43F5E",
-        "bordeaux_900": "#881337",
-        "warm_gold_500": "#D97706",
+        "rose_soft": "#FB7185",
+        "gold_champagne": "#D4A373",
+        "gold_light": "#F5D0A9",
+        "coral_accent": "#F9603F",
         "emerald_pix_500": "#10B981",
+        "font_brand": "Playfair Display, serif",
         "font_display": "Outfit, sans-serif",
         "font_body": "Plus Jakarta Sans, sans-serif"
       }

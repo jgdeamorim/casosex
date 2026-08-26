@@ -110,12 +110,17 @@
     }
   },
   "casosex_volupia_mapped_tokens": {
-    "background": "#0c0a0b",
-    "surface_card": "#161214",
-    "glass_dock": "rgba(22, 18, 20, 0.85)",
+    "background_gradient": "radial-gradient(circle at 50% 20%, #211322 0%, #0d0a0f 70%, #050406 100%)",
+    "background_obsidian": "#0d0a0f",
+    "surface_glass": "rgba(28, 20, 30, 0.78)",
+    "surface_glass_border": "rgba(212, 163, 115, 0.28)",
+    "glass_dock": "rgba(28, 20, 30, 0.88)",
     "brand_accent_rose": "#e11d48",
-    "brand_accent_violet": "#8C57FF",
+    "brand_accent_rose_soft": "#fb7185",
+    "brand_accent_gold": "#d4a373",
+    "brand_accent_gold_light": "#f5d0a9",
+    "brand_logo_font": "Playfair Display, serif",
     "text_primary": "#faf7f5",
-    "text_secondary": "#a39b94"
+    "text_secondary": "#a89b9b"
   }
 }

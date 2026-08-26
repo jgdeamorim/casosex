@@ -1,34 +1,47 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "title": "CASOSEX Brand DNA & Design System Specification (2026+)",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "project": "CASOSEX",
   "author": "Jeferson Amorim (Founder) & Antigravity (AI Architect)",
-  "date": "2026-08-13",
+  "date": "2026-08-26",
   "brand_dna": {
     "positioning": "Erotic Luxury & High-End Sensual Lifestyle (SMB Brasil)",
     "tone_of_voice": "Sophisticated, Inclusive, Discrete & Empowering",
-    "core_tagline": "Zero Constrangimento. Sigilo Absoluto. Prazer Sem Tabus.",
+    "core_tagline": "Desperte seus sentidos",
     "visual_vibe": "Ateliê de Luxo Privado & Perfumaria Fina",
     "privacy_guarantee": "Embalagem 100% Neutra sem identificação externa + Nome Genérico na Fatura"
   },
+  "brand_logo_spec": {
+    "font_family": "Playfair Display, serif",
+    "weight": 700,
+    "transform": "uppercase",
+    "letter_spacing": "0.16em",
+    "fill_gradient": "linear-gradient(180deg, #FFFFFF 0%, #E2D7CE 60%, #D4A373 100%)",
+    "tagline_font": "Playfair Display, serif (italic 400)",
+    "tagline_text": "Desperte seus sentidos"
+  },
   "design_tokens_tailwind_v4": {
     "colors": {
+      "obsidian_deep": "#0D0A0F",
       "obsidian_950": "#09090B",
       "obsidian_900": "#121215",
-      "obsidian_800": "#1C1C21",
+      "obsidian_card": "rgba(28, 20, 30, 0.78)",
       "crimson_600": "#E11D48",
-      "crimson_500": "#F43F5E",
-      "bordeaux_900": "#881337",
-      "warm_gold_500": "#D97706",
-      "warm_gold_400": "#F59E0B",
+      "rose_soft": "#FB7185",
+      "gold_champagne": "#D4A373",
+      "gold_light": "#F5D0A9",
+      "coral_accent": "#F9603F",
       "emerald_pix_500": "#10B981",
       "emerald_pix_400": "#34D399",
-      "glass_overlay": "rgba(255, 255, 255, 0.05)",
-      "glass_border": "rgba(255, 255, 255, 0.12)",
-      "glass_hover": "rgba(255, 255, 255, 0.18)"
+      "glass_overlay": "rgba(28, 20, 30, 0.78)",
+      "glass_border": "rgba(212, 163, 115, 0.28)",
+      "glass_hover": "rgba(212, 163, 115, 0.45)",
+      "glow_rose": "rgba(225, 29, 72, 0.28)",
+      "glow_gold": "rgba(212, 163, 115, 0.22)"
     },
     "typography": {
+      "font_brand": "Playfair Display, serif",
       "font_display": "Outfit, sans-serif",
       "font_body": "Plus Jakarta Sans, sans-serif",
       "fluid_scales": {
