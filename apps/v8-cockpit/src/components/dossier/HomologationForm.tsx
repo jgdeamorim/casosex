@@ -185,14 +185,14 @@ export function HomologationForm(): React.ReactElement {
         <div>
           <label className="block text-[#a39b94] font-semibold mb-1">Catálogo B2B / Tabela (nome do arquivo)</label>
           <div className="flex items-center gap-3">
-            <label className="px-4 py-2 rounded-xl bg-[#221c1f] hover:bg-[#e11d48]/20 border border-white/10 hover:border-[#e11d48]/50 text-[#faf7f5] font-semibold cursor-pointer transition-all">
+            <label className="px-4 py-2 rounded-xl bg-[#221c1f] hover:bg-[#e11d48]/20 border border-white/10 hover:border-[#e11d48]/50 text-[#faf7f5] font-semibold cursor-pointer transition-all whitespace-nowrap shrink-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#e11d48]">
               <span>Selecionar PDF/CSV</span>
               <input type="file" accept=".pdf,.csv,.xlsx" onChange={handleFileUpload} className="hidden" />
             </label>
             {uploadedFile ? (
-              <span className="text-[#30d158] font-mono font-bold text-[11px]">📎 {uploadedFile}</span>
+              <span className="text-[#30d158] font-mono font-bold text-[11px] whitespace-nowrap">📎 {uploadedFile}</span>
             ) : (
-              <span className="text-[#a39b94] text-[11px]">Nenhum arquivo selecionado</span>
+              <span className="text-[#a39b94] text-[11px] whitespace-nowrap">Nenhum arquivo selecionado</span>
             )}
           </div>
         </div>
@@ -213,7 +213,7 @@ export function HomologationForm(): React.ReactElement {
         <button
           type="submit"
           disabled={saving}
-          className="w-full py-3 rounded-xl bg-gradient-to-r from-[#e11d48] to-[#d4a373] text-white font-bold text-xs uppercase tracking-wider shadow-lg shadow-[#e11d48]/20 hover:opacity-90 disabled:opacity-60 transition-all"
+          className="w-full py-3 rounded-xl bg-gradient-to-r from-[#e11d48] to-[#d4a373] text-white font-bold text-xs uppercase tracking-wider shadow-lg shadow-[#e11d48]/20 hover:opacity-90 disabled:opacity-60 transition-all whitespace-nowrap shrink-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#e11d48]"
         >
           {saving ? 'Salvando no Cloudflare D1…' : 'Salvar & Emitir Dossiê de Homologação'}
         </button>

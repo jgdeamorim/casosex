@@ -120,13 +120,13 @@ export function SupplierTable(): React.ReactElement {
                       href={waLink}
                       target="_blank"
                       rel="noreferrer"
-                      className="w-full inline-flex items-center justify-center gap-1.5 min-h-[44px] py-2 px-4 rounded-xl bg-[#30d158]/20 hover:bg-[#30d158]/30 border border-[#30d158]/40 text-[#30d158] font-bold text-xs transition-all active:scale-95"
+                      className="w-full inline-flex items-center justify-center gap-1.5 min-h-[44px] py-2 px-4 rounded-xl bg-[#30d158]/20 hover:bg-[#30d158]/30 border border-[#30d158]/40 text-[#30d158] font-bold text-xs transition-all active:scale-95 whitespace-nowrap shrink-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#30d158]"
                       onClick={e => e.stopPropagation()}
                     >
                       💬 Cotar WhatsApp
                     </a>
                   ) : (
-                    <span className="block text-center text-[#a39b94] text-xs py-2">Sem contato cadastrado</span>
+                    <span className="block text-center text-[#a39b94] text-xs py-2 whitespace-nowrap">Sem contato cadastrado</span>
                   )}
                 </div>
               </div>
@@ -203,13 +203,13 @@ export function SupplierTable(): React.ReactElement {
                           href={waLink}
                           target="_blank"
                           rel="noreferrer"
-                          className="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg bg-[#30d158]/20 hover:bg-[#30d158]/30 border border-[#30d158]/40 text-[#30d158] font-bold text-[11px] transition-all"
+                          className="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg bg-[#30d158]/20 hover:bg-[#30d158]/30 border border-[#30d158]/40 text-[#30d158] font-bold text-[11px] transition-all whitespace-nowrap shrink-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#30d158]"
                           onClick={e => e.stopPropagation()}
                         >
                           💬 Cotar WhatsApp
                         </a>
                       ) : (
-                        <span className="text-[#a39b94] text-[11px]">sem contato</span>
+                        <span className="text-[#a39b94] text-[11px] whitespace-nowrap">sem contato</span>
                       )}
                     </td>
                   </tr>

@@ -56,7 +56,7 @@ export function TeamChatDrawer(): React.ReactElement | null {
         <button
           onClick={toggleChat}
           aria-label="Fechar chat"
-          className="p-2 rounded-lg text-[#a39b94] hover:text-[#faf7f5] hover:bg-[#221c1f] transition-all"
+          className="p-2 rounded-lg text-[#a39b94] hover:text-[#faf7f5] hover:bg-[#221c1f] transition-all whitespace-nowrap shrink-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#e11d48]"
         >
           ✕
         </button>
@@ -68,7 +68,7 @@ export function TeamChatDrawer(): React.ReactElement | null {
           <button
             key={ch}
             onClick={() => setActiveChannel(ch)}
-            className={`flex-1 py-2 px-1 text-center transition-all ${
+            className={`flex-1 py-2 px-1 text-center transition-all whitespace-nowrap shrink-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#e11d48] ${
               activeChannel === ch
                 ? 'text-[#e11d48] border-b-2 border-[#e11d48] bg-[#221c1f]'
                 : 'text-[#a39b94] hover:text-[#faf7f5]'
@@ -110,7 +110,7 @@ export function TeamChatDrawer(): React.ReactElement | null {
         />
         <button
           type="submit"
-          className="px-4 py-2 rounded-xl bg-[#e11d48] text-white font-bold text-xs hover:bg-[#e11d48]/90 transition-all"
+          className="px-4 py-2 rounded-xl bg-[#e11d48] text-white font-bold text-xs hover:bg-[#e11d48]/90 transition-all whitespace-nowrap shrink-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#e11d48]"
         >
           Enviar
         </button>

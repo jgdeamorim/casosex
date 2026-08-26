@@ -37,6 +37,9 @@ export function SupplierMap(): React.ReactElement {
 
         markersRef.current = L.layerGroup().addTo(map);
         leafletMapRef.current = map;
+        setTimeout(() => {
+          map.invalidateSize();
+        }, 100);
       } catch (e: unknown) {
         void e;
       }
@@ -60,8 +63,10 @@ export function SupplierMap(): React.ReactElement {
       if (!markersRef.current || !leafletMapRef.current) return;
 
       markersRef.current.clearLayers();
+      leafletMapRef.current.invalidateSize();
 
       filteredSuppliers.forEach(supplier => {
+
         const lat = supplier.latitude || supplier.lat;
         const lng = supplier.longitude || supplier.lng;
 
@@ -116,7 +121,7 @@ export function SupplierMap(): React.ReactElement {
   }, [selectedSupplier]);
 
   return (
-    <div id="supplier-map-container" className="relative rounded-2xl overflow-hidden glass-panel border border-white/10 h-[450px] shadow-2xl">
+    <div id="supplier-map-container" className="relative rounded-2xl overflow-hidden glass-panel border border-white/10 h-[450px] shadow-2xl isolate z-10">
       <div className="absolute top-4 left-4 z-10 bg-[#0c0a0b]/90 backdrop-blur-md p-3 rounded-xl border border-white/10 text-xs flex items-center gap-3">
         <span className="font-bold text-[#faf7f5]">Polo Ativo:</span>
         <span className="px-2 py-0.5 rounded bg-[#e11d48]/20 text-[#e11d48] font-bold border border-[#e11d48]/30">

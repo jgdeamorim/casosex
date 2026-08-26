@@ -52,7 +52,7 @@ export function Sidebar({ activeTab, setActiveTab }: SidebarProps): React.ReactE
               type="button"
               onClick={() => setActiveTab(item.id)}
               aria-current={isActive ? 'page' : undefined}
-              className={`w-full flex items-center gap-3 px-3 py-2.5 rounded-xl font-semibold text-xs transition-all ${
+              className={`w-full flex items-center gap-3 px-3 py-2.5 rounded-xl font-semibold text-xs transition-all whitespace-nowrap shrink-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#e11d48] ${
                 isActive
                   ? 'bg-[#e11d48] text-white shadow-lg shadow-[#e11d48]/20'
                   : 'text-[#a39b94] hover:text-[#faf7f5] hover:bg-[#221c1f]'
