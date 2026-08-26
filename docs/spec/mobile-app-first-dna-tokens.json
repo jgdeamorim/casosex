@@ -1,0 +1,121 @@
+{
+  "metadata": {
+    "title": "Mercado Pago Mobile AppShell DNA Tokens Specification",
+    "version": "1.0.0",
+    "extracted_at": "2026-08-26",
+    "target": "CASOSEX Volúpia Cockpit V8 (mode:mobile-app-first)"
+  },
+  "mobile_app_first_patterns": {
+    "top_actions": {
+      "min_height_px": 48,
+      "padding": "12px 16px",
+      "components": [
+        "ProfileAvatar",
+        "PrivacyToggle (Hide/Show Balance)",
+        "NotificationBell",
+        "QuickHelp"
+      ]
+    },
+    "bottom_glass_dock": {
+      "min_height_px": 64,
+      "touch_target_min_px": 44,
+      "safe_area_bottom_inset": "env(safe-area-inset-bottom, 16px)",
+      "backdrop_blur": "blur(16px)",
+      "border_gradient": "linear-gradient(90deg, rgba(225,29,72,0.3), rgba(140,87,255,0.3))"
+    },
+    "carousel_snap": {
+      "alignment": "snap-x mandatory",
+      "card_min_width_px": 280,
+      "gap_px": 12,
+      "scroll_behavior": "smooth"
+    },
+    "bottom_sheet_layer": {
+      "border_radius": "24px 24px 0 0",
+      "drag_handle_width_px": 36,
+      "drag_handle_height_px": 4,
+      "animation": "slide-up 0.3s cubic-bezier(0.16, 1, 0.3, 1)"
+    }
+  },
+  "extracted_stats": {
+    "lottie_micro_animations_count": 21,
+    "sample_lotties": [
+      {
+        "name": "congrats_sdk_approved_lottie_animation_dark_mode.json",
+        "size_bytes": 54432,
+        "layers_count": 36
+      },
+      {
+        "name": "reauth_lock_light_theme.json",
+        "size_bytes": 8148,
+        "layers_count": 9
+      },
+      {
+        "name": "instore_scanner_pulse_qr_lottie.json",
+        "size_bytes": 14170,
+        "layers_count": 9
+      },
+      {
+        "name": "security_ui_vp_test_exit.json",
+        "size_bytes": 127652,
+        "layers_count": 3
+      },
+      {
+        "name": "scanner_screen_icon_initial_pill.json",
+        "size_bytes": 38089,
+        "layers_count": 8
+      },
+      {
+        "name": "security_ui_iso_entry_restyled.json",
+        "size_bytes": 22853,
+        "layers_count": 1
+      },
+      {
+        "name": "components_lottie_add_button.json",
+        "size_bytes": 25484,
+        "layers_count": 3
+      },
+      {
+        "name": "warning.json",
+        "size_bytes": 9056,
+        "layers_count": 9
+      },
+      {
+        "name": "credit_card_changepin_unlocking_card_animation.json",
+        "size_bytes": 126997,
+        "layers_count": 6
+      },
+      {
+        "name": "security_ui_vp_test_entry.json",
+        "size_bytes": 129604,
+        "layers_count": 3
+      }
+    ],
+    "total_color_tokens": 2199,
+    "sample_colors": {
+      "abc_decor_view_status_guard": "#ff000000",
+      "abc_decor_view_status_guard_light": "#ffffffff",
+      "abc_search_url_text_normal": "#ff7fa87f",
+      "abc_search_url_text_pressed": "@android:color/black",
+      "abc_search_url_text_selected": "@android:color/black",
+      "accent_material_dark": "@color/material_deep_teal_200",
+      "accent_material_light": "@color/material_deep_teal_500",
+      "action_bar_configurator_background_color": "@color/andes_brand_color",
+      "action_bar_configurator_gray_800_color_solid": "@color/andes_gray_800_solid",
+      "action_bar_configurator_white_color": "@color/andes_text_color_primary",
+      "activationBackgroundMaskScanQR": "#cc000000",
+      "activationRedErrorCreatePin": "#fff23d4f",
+      "activation_andes_progress_main_color_restyle": "#ff4850e5",
+      "activation_background_overlay_restyle": "#99282834",
+      "activation_color_background_overlay": "#99252537"
+    }
+  },
+  "casosex_volupia_mapped_tokens": {
+    "background": "#0c0a0b",
+    "surface_card": "#161214",
+    "glass_dock": "rgba(22, 18, 20, 0.85)",
+    "brand_accent_rose": "#e11d48",
+    "brand_accent_violet": "#8C57FF",
+    "text_primary": "#faf7f5",
+    "text_secondary": "#a39b94"
+  }
+}
