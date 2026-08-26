@@ -49,6 +49,10 @@ Efetivar o **EmDash** (`@emdash-cms`) não apenas como um gerenciador de posts, 
     - **Co-Piloto de Atendimento & Vendas Discretas no WhatsApp:** Integração de botões flutuantes WACTA (WhatsApp Call to Action) com mensagens anônimas pré-formatadas para matar dúvidas de compra.
     - **Motor de Recompra Automática (Commerce Intel):** Lembretes preditivos para itens consumíveis (lubrificantes, géis, óleos) gerando receita recorrente com checkout de 1-clique.
     - **Checkout Pix Transparente In-Modal:** Exibição do QR Code Pix e cópia-e-cola diretamente em modal glassmorphism com confirmação via webhook em < 2 segundos.
+16. **Topologia Dual-Stack & Identidade de Marca (Volúpia B2C + casosex-os Control Plane):**
+    - **Identidade da Marca**: A marca comercial e a loja virtual e-commerce B2C oficial é **Volúpia** (`usevolupia.com.br` / `app.usevolupia.com.br`). O nome **casosex-os** refere-se exclusivamente à infraestrutura do sistema operacional de controle.
+    - **Superfície B2C Air-Gapped**: A loja virtual é alimentada por **WordPress + WooCommerce** (executando em container Docker local `:8085` com o plugin soberano `wp-adsentice-second-brain`), mantendo o painel administrativo `/wp-admin` air-gapped contra ataques públicos.
+    - **Center-OS na Borda**: O `casosex-os` (EmDash na Cloudflare Pages/D1/R2) gerencia a orquestração agêntica MCP, discovery de fornecedores B2B, inteligência de vendas e sincronização de catálogo.
 
 ### Mapeamento de Tags do Knowledge Graph (Qdrant `:6352`)
 - **`tag=casosex`**: Governança, SOP v3.0, Constituição e ADRs.
