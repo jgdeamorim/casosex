@@ -9,7 +9,7 @@ export interface UserSession {
   scopePermissions: string[];
 }
 
-export type HomologationStatus = 'HOMOLOGADO' | 'VISITA_PENDENTE' | 'REJEITADO';
+export type HomologationStatus = 'HOMOLOGADO' | 'VISITA_PENDENTE' | 'PROSPECCAO' | 'REJEITADO';
 
 export interface Supplier {
   id: string;

@@ -10,12 +10,10 @@ import { HomologationForm } from './components/dossier/HomologationForm';
 import { SupplierTable } from './components/suppliers/SupplierTable';
 import { TeamChatDrawer } from './components/chat/TeamChatDrawer';
 import { ScopeGuard } from './auth/ScopeGuard';
-import { LoginModal } from './components/auth/LoginModal';
 import { LoginView } from './components/auth/LoginView';
 
 function MainLayout(): React.ReactElement {
   const [activeTab, setActiveTab] = useState<string>('dashboard');
-  const [isLoginOpen, setIsLoginOpen] = useState<boolean>(false);
   const facet = useDeviceFacet();
   const { userSession } = useRenderContext();
 
@@ -27,7 +25,7 @@ function MainLayout(): React.ReactElement {
 
   return (
     <div className="min-h-screen bg-[#0c0a0b] text-[#faf7f5] flex flex-col pb-20 md:pb-0">
-      <Header onOpenLogin={() => setIsLoginOpen(true)} />
+      <Header />
 
       <div className="flex flex-1">
         <Sidebar activeTab={activeTab} setActiveTab={setActiveTab} />
@@ -94,7 +92,6 @@ function MainLayout(): React.ReactElement {
 
       <BottomGlassDock activeTab={activeTab} setActiveTab={setActiveTab} />
       <TeamChatDrawer />
-      <LoginModal isOpen={isLoginOpen} onClose={() => setIsLoginOpen(false)} />
     </div>
   );
 }

@@ -1,32 +1,25 @@
 import React, { useState } from 'react';
 import { useRenderContext } from '../../context/RenderContext';
 import type { Supplier } from '../../types';
+import { filterSuppliers, uniqueCategories } from '../../lib/filterSuppliers';
+import { statusLabel } from '../../lib/status';
 
 export function SupplierTable(): React.ReactElement {
   const { suppliers, selectedPolo, selectedSupplier, selectSupplier, userSession } = useRenderContext();
   const [searchTerm, setSearchTerm] = useState<string>('');
   const [categoryFilter, setCategoryFilter] = useState<string>('TODAS');
 
-  const categories = Array.from(new Set(suppliers.map(s => s.category))).filter(Boolean);
+  const categories = uniqueCategories(suppliers);
 
-  const filteredSuppliers = suppliers.filter(s => {
-    const matchesPolo =
-      selectedPolo === 'TODOS' ||
-      (selectedPolo === 'SP' && (s.state === 'SP' || s.city.includes('São Paulo') || s.city.includes('Diadema'))) ||
-      (selectedPolo === 'RJ' && (s.state === 'RJ' || s.city.includes('Rio de Janeiro')));
-
-    const matchesCategory = categoryFilter === 'TODAS' || s.category === categoryFilter;
-
-    const matchesSearch =
-      s.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      s.category.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      s.city.toLowerCase().includes(searchTerm.toLowerCase());
-
-    return matchesPolo && matchesCategory && matchesSearch;
+  const filteredSuppliers = filterSuppliers(suppliers, {
+    polo: selectedPolo,
+    search: searchTerm,
+    category: categoryFilter
   });
 
-  const generateWhatsAppLink = (supplier: Supplier): string => {
-    const phone = supplier.whatsapp || supplier.phone || '5511999999999';
+  const generateWhatsAppLink = (supplier: Supplier): string | null => {
+    const phone = supplier.whatsapp || supplier.phone;
+    if (!phone) return null;
     const cleanPhone = phone.replace(/\D/g, '');
     const formattedPhone = cleanPhone.startsWith('55') ? cleanPhone : `55${cleanPhone}`;
 
@@ -41,7 +34,9 @@ export function SupplierTable(): React.ReactElement {
     <div className="p-6 rounded-2xl glass-panel border border-white/10">
       <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 mb-4">
         <div>
-          <h2 className="text-base font-bold text-[#faf7f5]">Tabela de 405 Fornecedores B2B Homologados</h2>
+          <h2 className="text-base font-bold text-[#faf7f5]">
+            Tabela de {suppliers.length} Fornecedores B2B
+          </h2>
           <p className="text-xs text-[#a39b94]">Polos SP & RJ com contato direto WhatsApp e filtro rápido</p>
         </div>
 
@@ -52,14 +47,16 @@ export function SupplierTable(): React.ReactElement {
             placeholder="Buscar fornecedor, cidade ou categoria..."
             value={searchTerm}
             onChange={e => setSearchTerm(e.target.value)}
-            className="px-3 py-1.5 rounded-xl bg-[#0c0a0b] border border-white/10 text-xs text-[#faf7f5] placeholder-[#a39b94] focus:border-[#e11d48] focus:outline-none w-full sm:w-64"
+            aria-label="Buscar fornecedor, cidade ou categoria"
+            className="px-3 py-2 rounded-xl bg-[#0c0a0b] border border-white/10 text-xs text-[#faf7f5] placeholder-[#a39b94] focus:border-[#e11d48] focus:outline-none w-full sm:w-64"
           />
 
           {/* Category Select */}
           <select
             value={categoryFilter}
             onChange={e => setCategoryFilter(e.target.value)}
-            className="px-3 py-1.5 rounded-xl bg-[#0c0a0b] border border-white/10 text-xs text-[#faf7f5] focus:border-[#e11d48] focus:outline-none font-semibold"
+            aria-label="Filtrar por categoria"
+            className="px-3 py-2 rounded-xl bg-[#0c0a0b] border border-white/10 text-xs text-[#faf7f5] focus:border-[#e11d48] focus:outline-none font-semibold"
           >
             <option value="TODAS">Todas as Categorias</option>
             {categories.map(cat => (
@@ -91,6 +88,7 @@ export function SupplierTable(): React.ReactElement {
             ) : (
               filteredSuppliers.map(sup => {
                 const isSelected = selectedSupplier?.id === sup.id;
+                const waLink = generateWhatsAppLink(sup);
                 return (
                   <tr
                     key={sup.id}
@@ -121,18 +119,22 @@ export function SupplierTable(): React.ReactElement {
                     <td className="py-3 px-4 text-[#a39b94] font-medium">{sup.category}</td>
                     <td className="py-3 px-4 text-[#a39b94] font-mono">{sup.city} - {sup.state}</td>
                     <td className="py-3 px-4">
-                      <span className={`badge-status ${sup.status}`}>{sup.status.replace('_', ' ')}</span>
+                      <span className={`badge-status ${sup.status}`}>{statusLabel(sup.status)}</span>
                     </td>
                     <td className="py-3 px-4 text-right">
-                      <a
-                        href={generateWhatsAppLink(sup)}
-                        target="_blank"
-                        rel="noreferrer"
-                        className="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg bg-[#30d158]/20 hover:bg-[#30d158]/30 border border-[#30d158]/40 text-[#30d158] font-bold text-[11px] transition-all"
-                        onClick={e => e.stopPropagation()}
-                      >
-                        💬 Cotar WhatsApp
-                      </a>
+                      {waLink ? (
+                        <a
+                          href={waLink}
+                          target="_blank"
+                          rel="noreferrer"
+                          className="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg bg-[#30d158]/20 hover:bg-[#30d158]/30 border border-[#30d158]/40 text-[#30d158] font-bold text-[11px] transition-all"
+                          onClick={e => e.stopPropagation()}
+                        >
+                          💬 Cotar WhatsApp
+                        </a>
+                      ) : (
+                        <span className="text-[#a39b94] text-[11px]">sem contato</span>
+                      )}
                     </td>
                   </tr>
                 );

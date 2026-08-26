@@ -1,47 +1,163 @@
 import { Hono } from 'hono';
 
-declare class HTMLRewriter {
-  on(selector: string, handlers: { element?: (element: { setAttribute: (name: string, value: string) => void }) => void }): this;
-  transform(response: Response): Response;
+interface D1Result {
+  results?: Record<string, unknown>[];
+  success: boolean;
+  error?: string;
+}
+
+interface D1PreparedStatement {
+  bind(...values: unknown[]): D1PreparedStatement;
+  all(): Promise<D1Result>;
+  first(): Promise<Record<string, unknown> | null>;
+  run(): Promise<{ success: boolean }>;
+}
+
+interface D1Database {
+  prepare(query: string): D1PreparedStatement;
 }
 
 interface Env {
   ASSETS?: { fetch: (req: Request) => Promise<Response> };
+  DB?: D1Database;
 }
+
+type Status = 'HOMOLOGADO' | 'VISITA_PENDENTE' | 'PROSPECCAO' | 'REJEITADO';
+
+const VALID_STATUSES: Status[] = ['HOMOLOGADO', 'VISITA_PENDENTE', 'PROSPECCAO', 'REJEITADO'];
 
 const app = new Hono<{ Bindings: Env }>();
 
-// Proxy API WooCommerce & Suppliers Healthcheck
 app.get('/api/v8/health', (c) => {
   return c.json({
     status: 'online',
     engine: 'Cloudflare Worker V8',
-    latency: '< 0.2ms',
     timestamp: new Date().toISOString()
   });
 });
 
-// Proxy WooCommerce REST API securely
-app.all('/api/v8/wc/*', async (c) => {
-  const targetUrl = `https://casosex.com.br/wp-json/wc/v3/${c.req.path.replace('/api/v8/wc/', '')}`;
-  try {
-    const resp = await fetch(targetUrl, {
-      method: c.req.method,
-      headers: {
-        'Content-Type': 'application/json',
-        'User-Agent': 'Volupia-V8-Worker-Proxy'
-      }
-    });
-    return new Response(resp.body, {
-      status: resp.status,
-      headers: resp.headers
-    });
-  } catch (err: unknown) {
-    return c.json({ error: 'Erro ao conectar ao WooCommerce na Hostgator', details: String(err) }, 502);
-  }
+// Todos os overrides de status persistidos (deltas sobre suppliers.json).
+app.get('/api/v8/status', async (c) => {
+  const db = c.env?.DB;
+  if (!db) return c.json({ overrides: [] });
+
+  const res = await db.prepare('SELECT supplier_id, status, updated_by, updated_at FROM supplier_status').all();
+  const overrides = (res.results ?? []).map(r => ({
+    supplierId: r.supplier_id,
+    status: r.status,
+    updatedBy: r.updated_by,
+    updatedAt: r.updated_at
+  }));
+  return c.json({ overrides });
 });
 
-// HTMLRewriter for Edge User Rules & Facet Injection + SPA Fallback
+// Write-through de status (otimista no cliente, upsert no D1).
+app.patch('/api/v8/suppliers/:id/status', async (c) => {
+  const db = c.env?.DB;
+  if (!db) return c.json({ error: 'D1 não configurado' }, 500);
+
+  const supplierId = c.req.param('id');
+  const body = (await c.req.json().catch(() => null)) as { status?: Status; updatedBy?: string } | null;
+  if (!body || !body.status || !VALID_STATUSES.includes(body.status)) {
+    return c.json({ error: 'status inválido' }, 400);
+  }
+
+  await db
+    .prepare(
+      `INSERT INTO supplier_status (supplier_id, status, updated_by, updated_at)
+       VALUES (?, ?, ?, strftime('%s','now'))
+       ON CONFLICT(supplier_id) DO UPDATE SET
+         status = excluded.status,
+         updated_by = excluded.updated_by,
+         updated_at = strftime('%s','now')`
+    )
+    .bind(supplierId, body.status, body.updatedBy ?? 'demo')
+    .run();
+
+  return c.json({ ok: true, supplierId, status: body.status });
+});
+
+function rowToDossier(r: Record<string, unknown>) {
+  return {
+    supplierId: r.supplier_id as string,
+    supplierName: (r.supplier_name as string) ?? '',
+    status: ((r.status as Status) ?? 'VISITA_PENDENTE') as Status,
+    qualityScore: r.quality_score == null ? null : Number(r.quality_score),
+    anvisaBodySafe: Number(r.anvisa_body_safe) === 1,
+    moq: (r.moq as string) ?? '',
+    paymentTerms: (r.payment_terms as string) ?? '',
+    catalogUrl: (r.catalog_url as string) || undefined,
+    catalogFileName: (r.catalog_file_name as string) || undefined,
+    auditNotes: (r.audit_notes as string) ?? '',
+    auditorName: (r.auditor_name as string) ?? '',
+    updatedAt: r.updated_at
+      ? new Date(Number(r.updated_at) * 1000).toISOString()
+      : new Date().toISOString()
+  };
+}
+
+app.get('/api/v8/dossier/:id', async (c) => {
+  const db = c.env?.DB;
+  if (!db) return c.json({ error: 'D1 não configurado' }, 500);
+
+  const supplierId = c.req.param('id');
+  const row = await db.prepare('SELECT * FROM dossiers WHERE supplier_id = ?').bind(supplierId).first();
+  if (!row) return c.json({ error: 'dossier não encontrado' }, 404);
+
+  return c.json({ dossier: rowToDossier(row) });
+});
+
+app.put('/api/v8/dossier/:id', async (c) => {
+  const db = c.env?.DB;
+  if (!db) return c.json({ error: 'D1 não configurado' }, 500);
+
+  const supplierId = c.req.param('id');
+  const body = (await c.req.json().catch(() => null)) as Record<string, unknown> | null;
+  if (!body || typeof body !== 'object') return c.json({ error: 'corpo inválido' }, 400);
+
+  const status = body.status as Status;
+  if (!VALID_STATUSES.includes(status)) return c.json({ error: 'status inválido' }, 400);
+
+  await db
+    .prepare(
+      `INSERT INTO dossiers (
+         supplier_id, supplier_name, status, quality_score, anvisa_body_safe,
+         moq, payment_terms, catalog_url, catalog_file_name, audit_notes, auditor_name, updated_at
+       ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, strftime('%s','now'))
+       ON CONFLICT(supplier_id) DO UPDATE SET
+         supplier_name = excluded.supplier_name,
+         status = excluded.status,
+         quality_score = excluded.quality_score,
+         anvisa_body_safe = excluded.anvisa_body_safe,
+         moq = excluded.moq,
+         payment_terms = excluded.payment_terms,
+         catalog_url = excluded.catalog_url,
+         catalog_file_name = excluded.catalog_file_name,
+         audit_notes = excluded.audit_notes,
+         auditor_name = excluded.auditor_name,
+         updated_at = strftime('%s','now')`
+    )
+    .bind(
+      supplierId,
+      String(body.supplierName ?? ''),
+      status,
+      body.qualityScore == null ? null : Number(body.qualityScore),
+      body.anvisaBodySafe ? 1 : 0,
+      String(body.moq ?? ''),
+      String(body.paymentTerms ?? ''),
+      body.catalogUrl ? String(body.catalogUrl) : null,
+      body.catalogFileName ? String(body.catalogFileName) : null,
+      String(body.auditNotes ?? ''),
+      String(body.auditorName ?? '')
+    )
+    .run();
+
+  const row = await db.prepare('SELECT * FROM dossiers WHERE supplier_id = ?').bind(supplierId).first();
+  return c.json({ ok: true, dossier: rowToDossier(row ?? {}) });
+});
+
+// SPA fallback + assets estáticos. O proxy WooCommerce e a injeção HTMLRewriter
+// morta foram removidos (o proxy 401 sem creds; a injeção não era lida pelo app).
 app.get('*', async (c) => {
   let assetResp: Response | null = null;
   if (c.env?.ASSETS) {
@@ -53,17 +169,7 @@ app.get('*', async (c) => {
   } else {
     assetResp = await fetch(c.req.raw);
   }
-
-  const userRole = c.req.header('X-Volupia-Role') || 'founder';
-
-  const rewriter = new HTMLRewriter().on('body', {
-    element(element) {
-      element.setAttribute('data-user-role', userRole);
-      element.setAttribute('data-v8-edge', 'active');
-    }
-  });
-
-  return rewriter.transform(assetResp);
+  return assetResp;
 });
 
 export default app;

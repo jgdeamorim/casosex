@@ -4,22 +4,10 @@ import { ROLE_CONFIGS } from '../../auth/userRules';
 import type { UserRole } from '../../types';
 import { LoginModal } from '../auth/LoginModal';
 
-interface HeaderProps {
-  onOpenLogin?: () => void;
-}
-
-export function Header({ onOpenLogin }: HeaderProps): React.ReactElement {
+export function Header(): React.ReactElement {
   const { userSession, setUserRole, selectedPolo, setSelectedPolo, toggleChat, unreadCount } = useRenderContext();
   const [isLoginOpen, setIsLoginOpen] = useState<boolean>(false);
   const currentConfig = ROLE_CONFIGS[userSession.role];
-
-  const handleTriggerLogin = (): void => {
-    if (onOpenLogin) {
-      onOpenLogin();
-    } else {
-      setIsLoginOpen(true);
-    }
-  };
 
   return (
     <header className="h-16 px-6 glass-panel border-b border-[#ffffff]/10 flex items-center justify-between sticky top-0 z-30">
@@ -53,12 +41,21 @@ export function Header({ onOpenLogin }: HeaderProps): React.ReactElement {
       </div>
 
       <div className="flex items-center gap-4">
-        {/* User Role Switcher */}
-        <div className="flex items-center gap-2 bg-[#0c0a0b] p-1 rounded-lg border border-white/10 text-xs">
+        {/* User Role Switcher (modo demonstração) */}
+        <div
+          role="group"
+          aria-label="Trocar perfil de demonstração"
+          className="flex items-center gap-1 bg-[#0c0a0b] p-1 rounded-lg border border-white/10 text-xs"
+        >
+          <span className="px-1.5 py-1 text-[9px] font-bold uppercase tracking-wider text-[#a39b94] border-r border-white/10 mr-0.5">
+            Demo
+          </span>
           {(['founder', 'ops', 'commercial'] as const).map(role => (
             <button
               key={role}
+              type="button"
               onClick={() => setUserRole(role as UserRole)}
+              aria-pressed={userSession.role === role}
               className={`px-2.5 py-1 rounded-md font-medium transition-all ${
                 userSession.role === role
                   ? 'bg-[#221c1f] text-[#faf7f5] border border-white/10 font-bold'
@@ -72,9 +69,10 @@ export function Header({ onOpenLogin }: HeaderProps): React.ReactElement {
 
         {/* Profile Pill & Login Launcher */}
         <button
+          type="button"
           onClick={() => setIsLoginOpen(true)}
           className="hidden sm:flex items-center gap-2 pl-3 border-l border-white/10 hover:opacity-80 transition-opacity text-left"
-          title="Clique para Autenticar / Trocar Usuário por E-mail"
+          title="Trocar perfil de demonstração"
         >
           <div className="w-8 h-8 rounded-full bg-[#221c1f] border border-white/10 flex items-center justify-center font-bold text-xs text-[#faf7f5]">
             {userSession.avatar}
@@ -89,8 +87,10 @@ export function Header({ onOpenLogin }: HeaderProps): React.ReactElement {
 
         {/* Chat Toggle Button */}
         <button
+          type="button"
           onClick={toggleChat}
-          className="relative p-2 rounded-lg bg-[#161214] border border-white/10 text-[#faf7f5] hover:border-[#e11d48]/50 transition-all"
+          aria-label="Abrir ou fechar chat da equipe"
+          className="relative p-2.5 rounded-lg bg-[#161214] border border-white/10 text-[#faf7f5] hover:border-[#e11d48]/50 transition-all"
           title="Abrir Chat da Equipe"
         >
           <svg className="w-5 h-5 text-[#a39b94] hover:text-[#faf7f5]" fill="none" stroke="currentColor" viewBox="0 0 24 24">

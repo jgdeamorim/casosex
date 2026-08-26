@@ -1,18 +1,15 @@
 import React, { useEffect, useRef } from 'react';
 import { useRenderContext } from '../../context/RenderContext';
-import type { Supplier } from '../../types';
+import { filterSuppliers } from '../../lib/filterSuppliers';
+import { STATUS_META, statusLabel } from '../../lib/status';
 
 export function SupplierMap(): React.ReactElement {
-  const { suppliers, selectedPolo, selectedSupplier, selectSupplier } = useRenderContext();
+  const { suppliers, selectedPolo, selectedSupplier, selectSupplier, isLoading } = useRenderContext();
   const mapRef = useRef<HTMLDivElement | null>(null);
   const leafletMapRef = useRef<L.Map | null>(null);
   const markersRef = useRef<L.LayerGroup | null>(null);
 
-  const filteredSuppliers = suppliers.filter(s => {
-    if (selectedPolo === 'SP') return s.state === 'SP' || s.city.includes('São Paulo') || s.city.includes('Diadema');
-    if (selectedPolo === 'RJ') return s.state === 'RJ' || s.city.includes('Rio de Janeiro');
-    return true;
-  });
+  const filteredSuppliers = filterSuppliers(suppliers, { polo: selectedPolo });
 
   useEffect(() => {
     if (!mapRef.current || leafletMapRef.current) return;
@@ -25,7 +22,8 @@ export function SupplierMap(): React.ReactElement {
         const map = L.map(mapRef.current, {
           center: [-23.5505, -46.6333],
           zoom: 7,
-          zoomControl: false
+          zoomControl: false,
+          keyboard: true
         });
 
         L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
@@ -68,7 +66,7 @@ export function SupplierMap(): React.ReactElement {
         if (!lat || !lng) return;
 
         const isSelected = selectedSupplier?.id === supplier.id;
-        const color = supplier.status === 'HOMOLOGADO' ? '#30d158' : supplier.status === 'VISITA_PENDENTE' ? '#eab308' : '#e11d48';
+        const color = STATUS_META[supplier.status].color;
 
         const customIcon = L.divIcon({
           className: 'custom-leaflet-pin',
@@ -92,7 +90,7 @@ export function SupplierMap(): React.ReactElement {
             <p style="font-size: 10px; font-weight: 700; color: #a39b94; text-transform: uppercase;">${supplier.category}</p>
             <h4 style="font-size: 13px; font-weight: 800; color: #faf7f5; margin: 2px 0;">${supplier.name}</h4>
             <p style="font-size: 11px; color: #a39b94; margin-bottom: 6px;">📍 ${supplier.city} - ${supplier.state}</p>
-            <span class="badge-status ${supplier.status}">${supplier.status.replace('_', ' ')}</span>
+            <span class="badge-status ${supplier.status}">${statusLabel(supplier.status)}</span>
           </div>
         `;
 
@@ -123,6 +121,14 @@ export function SupplierMap(): React.ReactElement {
           {selectedPolo} ({filteredSuppliers.length} Unidades)
         </span>
       </div>
+
+      {!isLoading && filteredSuppliers.length === 0 && (
+        <div className="absolute inset-0 z-10 flex items-center justify-center">
+          <p className="px-4 py-2 rounded-xl bg-[#0c0a0b]/90 border border-white/10 text-xs text-[#a39b94]">
+            Nenhum fornecedor no polo {selectedPolo}. Altere o filtro no topo.
+          </p>
+        </div>
+      )}
 
       <div ref={mapRef} className="w-full h-full" />
     </div>

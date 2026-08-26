@@ -1,5 +1,18 @@
-import React, { createContext, useContext, useState, useEffect } from 'react';
-import type { Supplier, UserSession, UserRole, HomologationStatus } from '../types';
+import React, { createContext, useContext, useState, useEffect, useCallback } from 'react';
+import type {
+  Supplier,
+  UserSession,
+  UserRole,
+  HomologationStatus,
+  HomologationDossier
+} from '../types';
+import {
+  fetchStatusOverrides,
+  patchSupplierStatus,
+  fetchDossier,
+  putDossier,
+  type DossierInput
+} from '../lib/api';
 
 interface RenderContextType {
   userSession: UserSession;
@@ -13,7 +26,16 @@ interface RenderContextType {
   toggleChat: () => void;
   unreadCount: number;
   clearUnread: () => void;
+  isLoading: boolean;
+  loadError: string | null;
+  retry: () => void;
+  statusSaving: boolean;
+  statusError: string | null;
   updateSupplierStatus: (supplierId: string, status: HomologationStatus) => void;
+  currentDossier: HomologationDossier | null;
+  dossierLoading: boolean;
+  dossierError: string | null;
+  saveDossier: (input: DossierInput) => Promise<boolean>;
 }
 
 const defaultSession: UserSession = {
@@ -35,25 +57,53 @@ export function RenderContextProvider({ children }: { children: React.ReactNode 
   const [isChatOpen, setIsChatOpen] = useState<boolean>(false);
   const [unreadCount, setUnreadCount] = useState<number>(3);
 
-  useEffect(() => {
-    async function loadSuppliers(): Promise<void> {
-      try {
-        const resp = await fetch('/suppliers.json');
-        if (resp.ok) {
-          const data: Supplier[] = await resp.json();
-          setSuppliers(data);
-          if (data.length > 0) {
-            setSelectedSupplier(data[0]);
-          }
-        }
-      } catch (e: unknown) {
-        void e;
+  const [isLoading, setIsLoading] = useState<boolean>(true);
+  const [loadError, setLoadError] = useState<string | null>(null);
+  const [statusSaving, setStatusSaving] = useState<boolean>(false);
+  const [statusError, setStatusError] = useState<string | null>(null);
+  const [currentDossier, setCurrentDossier] = useState<HomologationDossier | null>(null);
+  const [dossierLoading, setDossierLoading] = useState<boolean>(false);
+  const [dossierError, setDossierError] = useState<string | null>(null);
+
+  const loadData = useCallback(async (): Promise<void> => {
+    setIsLoading(true);
+    setLoadError(null);
+    try {
+      const resp = await fetch('/suppliers.json');
+      if (!resp.ok) {
+        throw new Error(`Falha ao carregar catálogo (HTTP ${resp.status})`);
       }
+      const data: Supplier[] = await resp.json();
+
+      // Overrides de status são deltas sobre o catálogo estático — falha aqui não
+      // bloqueia a tela, apenas deixa os status no valor do arquivo.
+      let overrides: Record<string, HomologationStatus> = {};
+      try {
+        overrides = await fetchStatusOverrides();
+      } catch {
+        overrides = {};
+      }
+
+      const merged = data.map(s => ({
+        ...s,
+        status: (overrides[s.id] ?? s.status) as HomologationStatus
+      }));
+      setSuppliers(merged);
+      if (merged.length > 0) {
+        setSelectedSupplier(prev => prev ?? merged[0]);
+      }
+    } catch (e: unknown) {
+      setLoadError(e instanceof Error ? e.message : 'Erro inesperado ao carregar dados.');
+    } finally {
+      setIsLoading(false);
     }
-    void loadSuppliers();
   }, []);
 
-  const setUserRole = (role: UserRole): void => {
+  useEffect(() => {
+    void loadData();
+  }, [loadData]);
+
+  const setUserRole = useCallback((role: UserRole): void => {
     if (role === 'founder') {
       setUserSession({
         id: 'usr_1',
@@ -82,27 +132,83 @@ export function RenderContextProvider({ children }: { children: React.ReactNode 
         scopePermissions: ['quotes', 'chat']
       });
     }
-  };
+  }, []);
 
-  const selectSupplier = (sup: Supplier | null): void => {
-    setSelectedSupplier(sup);
-  };
-
-  const toggleChat = (): void => {
-    setIsChatOpen(prev => !prev);
-    setUnreadCount(0);
-  };
-
-  const clearUnread = (): void => {
-    setUnreadCount(0);
-  };
-
-  const updateSupplierStatus = (supplierId: string, status: HomologationStatus): void => {
-    setSuppliers(prev => prev.map(s => s.id === supplierId ? { ...s, status } : s));
-    if (selectedSupplier && selectedSupplier.id === supplierId) {
-      setSelectedSupplier(prev => prev ? { ...prev, status } : null);
+  const loadDossier = useCallback(async (supplierId: string): Promise<void> => {
+    setDossierLoading(true);
+    setDossierError(null);
+    try {
+      const dossier = await fetchDossier(supplierId);
+      setCurrentDossier(dossier);
+    } catch (e: unknown) {
+      setDossierError(e instanceof Error ? e.message : 'Falha ao carregar dossiê.');
+      setCurrentDossier(null);
+    } finally {
+      setDossierLoading(false);
     }
-  };
+  }, []);
+
+  const selectSupplier = useCallback(
+    (sup: Supplier | null): void => {
+      setSelectedSupplier(sup);
+      setCurrentDossier(null);
+      if (sup) {
+        void loadDossier(sup.id);
+      }
+    },
+    [loadDossier]
+  );
+
+  const updateSupplierStatus = useCallback(
+    (supplierId: string, status: HomologationStatus): void => {
+      const previous: Supplier[] = suppliers;
+      setStatusSaving(true);
+      setStatusError(null);
+
+      setSuppliers(prev => prev.map(s => (s.id === supplierId ? { ...s, status } : s)));
+      setSelectedSupplier(prev => (prev && prev.id === supplierId ? { ...prev, status } : prev));
+
+      void patchSupplierStatus(supplierId, status, userSession.name)
+        .catch(() => {
+          setSuppliers(previous);
+          setSelectedSupplier(prev =>
+            prev && prev.id === supplierId
+              ? { ...prev, status: previous.find(s => s.id === supplierId)?.status ?? prev.status }
+              : prev
+          );
+          setStatusError('Não foi possível salvar o status no Cloudflare D1. Revertido.');
+        })
+        .finally(() => setStatusSaving(false));
+    },
+    [suppliers, userSession.name]
+  );
+
+  const saveDossier = useCallback(
+    async (input: DossierInput): Promise<boolean> => {
+      setDossierError(null);
+      try {
+        const saved = await putDossier(input);
+        setCurrentDossier(saved);
+        return true;
+      } catch (e: unknown) {
+        setDossierError(e instanceof Error ? e.message : 'Falha ao salvar dossiê.');
+        return false;
+      }
+    },
+    []
+  );
+
+  const toggleChat = useCallback((): void => {
+    setIsChatOpen(prev => {
+      const next = !prev;
+      if (next) setUnreadCount(0);
+      return next;
+    });
+  }, []);
+
+  const clearUnread = useCallback((): void => {
+    setUnreadCount(0);
+  }, []);
 
   return (
     <RenderContext.Provider
@@ -118,7 +224,16 @@ export function RenderContextProvider({ children }: { children: React.ReactNode 
         toggleChat,
         unreadCount,
         clearUnread,
-        updateSupplierStatus
+        isLoading,
+        loadError,
+        retry: loadData,
+        statusSaving,
+        statusError,
+        updateSupplierStatus,
+        currentDossier,
+        dossierLoading,
+        dossierError,
+        saveDossier
       }}
     >
       {children}

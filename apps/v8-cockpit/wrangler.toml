@@ -6,5 +6,12 @@ compatibility_flags = ["nodejs_compat"]
 [assets]
 directory = "./dist"
 
+[[d1_databases]]
+binding = "DB"
+database_name = "volupia-v8-db"
+# Substitua pelo ID real retornado por: wrangler d1 create volupia-v8-db
+database_id = "00000000-0000-0000-0000-000000000000"
+migrations_dir = "migrations"
+
 [vars]
 ENVIRONMENT = "production"

@@ -1,24 +1,45 @@
 import React, { useState, useEffect } from 'react';
 import { useRenderContext } from '../../context/RenderContext';
 import type { HomologationStatus } from '../../types';
+import type { DossierInput } from '../../lib/api';
+import { statusLabel } from '../../lib/status';
 
 export function HomologationForm(): React.ReactElement {
-  const { selectedSupplier, updateSupplierStatus, userSession } = useRenderContext();
+  const { selectedSupplier, updateSupplierStatus, userSession, currentDossier, dossierLoading, saveDossier } =
+    useRenderContext();
 
-  const [qualityScore, setQualityScore] = useState<number>(95);
-  const [anvisaBodySafe, setAnvisaBodySafe] = useState<boolean>(true);
-  const [moq, setMoq] = useState<string>('R$ 1.500');
-  const [paymentTerms, setPaymentTerms] = useState<string>('30 / 60 dias faturado');
-  const [auditNotes, setAuditNotes] = useState<string>('Laudo microbiológico verificado. Embalagem com lacre de segurança Anvisa.');
-  const [status, setStatus] = useState<HomologationStatus>('HOMOLOGADO');
+  const [qualityScore, setQualityScore] = useState<string>('');
+  const [anvisaBodySafe, setAnvisaBodySafe] = useState<boolean>(false);
+  const [moq, setMoq] = useState<string>('');
+  const [paymentTerms, setPaymentTerms] = useState<string>('');
+  const [auditNotes, setAuditNotes] = useState<string>('');
+  const [status, setStatus] = useState<HomologationStatus>('VISITA_PENDENTE');
   const [uploadedFile, setUploadedFile] = useState<string | null>(null);
   const [isSaved, setIsSaved] = useState<boolean>(false);
+  const [saving, setSaving] = useState<boolean>(false);
 
   useEffect(() => {
-    if (selectedSupplier) {
-      setStatus(selectedSupplier.status);
-    }
+    if (!selectedSupplier) return;
+    setStatus(selectedSupplier.status);
+    setQualityScore('');
+    setAnvisaBodySafe(false);
+    setMoq('');
+    setPaymentTerms('');
+    setAuditNotes('');
+    setUploadedFile(null);
+    setIsSaved(false);
   }, [selectedSupplier]);
+
+  useEffect(() => {
+    if (!currentDossier) return;
+    setQualityScore(currentDossier.qualityScore ? String(currentDossier.qualityScore) : '');
+    setAnvisaBodySafe(currentDossier.anvisaBodySafe);
+    setMoq(currentDossier.moq ?? '');
+    setPaymentTerms(currentDossier.paymentTerms ?? '');
+    setAuditNotes(currentDossier.auditNotes ?? '');
+    setUploadedFile(currentDossier.catalogFileName ?? null);
+    if (currentDossier.status) setStatus(currentDossier.status);
+  }, [currentDossier]);
 
   if (!selectedSupplier) {
     return (
@@ -35,11 +56,32 @@ export function HomologationForm(): React.ReactElement {
     }
   };
 
-  const handleSubmit = (e: React.FormEvent): void => {
+  const handleSubmit = async (e: React.FormEvent): Promise<void> => {
     e.preventDefault();
-    updateSupplierStatus(selectedSupplier.id, status);
-    setIsSaved(true);
-    setTimeout(() => setIsSaved(false), 3000);
+    if (!selectedSupplier) return;
+
+    const input: DossierInput = {
+      supplierId: selectedSupplier.id,
+      supplierName: selectedSupplier.name,
+      qualityScore: qualityScore.trim() === '' ? null : Number(qualityScore),
+      anvisaBodySafe,
+      moq: moq.trim(),
+      paymentTerms: paymentTerms.trim(),
+      catalogFileName: uploadedFile ?? undefined,
+      auditNotes: auditNotes.trim(),
+      status,
+      auditorName: userSession.name
+    };
+
+    setSaving(true);
+    const ok = await saveDossier(input);
+    setSaving(false);
+
+    if (ok) {
+      updateSupplierStatus(selectedSupplier.id, status);
+      setIsSaved(true);
+      setTimeout(() => setIsSaved(false), 3000);
+    }
   };
 
   return (
@@ -50,7 +92,10 @@ export function HomologationForm(): React.ReactElement {
           <h2 className="text-xl font-bold text-[#f5d0a9] font-serif-luxury">{selectedSupplier.name}</h2>
           <p className="text-xs text-[#a39b94] font-medium">{selectedSupplier.category} — {selectedSupplier.city}, {selectedSupplier.state}</p>
         </div>
-        <span className={`badge-status ${status}`}>{status.replace('_', ' ')}</span>
+        <div className="flex flex-col items-end gap-1">
+          <span className={`badge-status ${status}`}>{statusLabel(status)}</span>
+          {dossierLoading && <span className="text-[10px] text-[#a39b94] font-mono">carregando dossiê…</span>}
+        </div>
       </div>
 
       {isSaved && (
@@ -58,33 +103,37 @@ export function HomologationForm(): React.ReactElement {
           <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
           </svg>
-          Dossiê salvo e sincronizado com Cloudflare D1 / R2 Vault!
+          Dossiê salvo no Cloudflare D1.
         </div>
       )}
 
-      <form onSubmit={handleSubmit} className="space-y-4 text-xs">
+      <form onSubmit={(e) => void handleSubmit(e)} className="space-y-4 text-xs">
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <div>
-            <label className="block text-[#a39b94] font-semibold mb-1">Score de Qualidade (0-100)</label>
+            <label htmlFor="qualityScore" className="block text-[#a39b94] font-semibold mb-1">Score de Qualidade (0-100)</label>
             <input
+              id="qualityScore"
               type="number"
               min="0"
               max="100"
               value={qualityScore}
-              onChange={e => setQualityScore(Number(e.target.value))}
+              onChange={e => setQualityScore(e.target.value)}
+              placeholder="—"
               className="w-full px-3 py-2 rounded-xl bg-[#0c0a0b] border border-white/10 text-[#faf7f5] font-mono focus:border-[#e11d48] focus:outline-none"
             />
           </div>
 
           <div>
-            <label className="block text-[#a39b94] font-semibold mb-1">Status de Homologação</label>
+            <label htmlFor="status" className="block text-[#a39b94] font-semibold mb-1">Status de Homologação</label>
             <select
+              id="status"
               value={status}
               onChange={e => setStatus(e.target.value as HomologationStatus)}
               className="w-full px-3 py-2 rounded-xl bg-[#0c0a0b] border border-white/10 text-[#faf7f5] focus:border-[#e11d48] focus:outline-none font-bold"
             >
               <option value="HOMOLOGADO">HOMOLOGADO</option>
               <option value="VISITA_PENDENTE">VISITA PENDENTE</option>
+              <option value="PROSPECCAO">PROSPECÇÃO</option>
               <option value="REJEITADO">REJEITADO</option>
             </select>
           </div>
@@ -92,21 +141,25 @@ export function HomologationForm(): React.ReactElement {
 
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <div>
-            <label className="block text-[#a39b94] font-semibold mb-1">Pedido Mínimo (MOQ)</label>
+            <label htmlFor="moq" className="block text-[#a39b94] font-semibold mb-1">Pedido Mínimo (MOQ)</label>
             <input
+              id="moq"
               type="text"
               value={moq}
               onChange={e => setMoq(e.target.value)}
+              placeholder="—"
               className="w-full px-3 py-2 rounded-xl bg-[#0c0a0b] border border-white/10 text-[#faf7f5] focus:border-[#e11d48] focus:outline-none"
             />
           </div>
 
           <div>
-            <label className="block text-[#a39b94] font-semibold mb-1">Condição de Pagamento</label>
+            <label htmlFor="paymentTerms" className="block text-[#a39b94] font-semibold mb-1">Condição de Pagamento</label>
             <input
+              id="paymentTerms"
               type="text"
               value={paymentTerms}
               onChange={e => setPaymentTerms(e.target.value)}
+              placeholder="—"
               className="w-full px-3 py-2 rounded-xl bg-[#0c0a0b] border border-white/10 text-[#faf7f5] focus:border-[#e11d48] focus:outline-none"
             />
           </div>
@@ -126,9 +179,9 @@ export function HomologationForm(): React.ReactElement {
           </label>
         </div>
 
-        {/* Upload Catalog R2 */}
+        {/* Catalog file name (nota: Fase 1 guarda só o nome do arquivo) */}
         <div>
-          <label className="block text-[#a39b94] font-semibold mb-1">Upload de Catálogo B2B / Tabela (Cloudflare R2 Vault)</label>
+          <label className="block text-[#a39b94] font-semibold mb-1">Catálogo B2B / Tabela (nome do arquivo)</label>
           <div className="flex items-center gap-3">
             <label className="px-4 py-2 rounded-xl bg-[#221c1f] hover:bg-[#e11d48]/20 border border-white/10 hover:border-[#e11d48]/50 text-[#faf7f5] font-semibold cursor-pointer transition-all">
               <span>Selecionar PDF/CSV</span>
@@ -137,27 +190,30 @@ export function HomologationForm(): React.ReactElement {
             {uploadedFile ? (
               <span className="text-[#30d158] font-mono font-bold text-[11px]">📎 {uploadedFile}</span>
             ) : (
-              <span className="text-[#a39b94] text-[11px]">Nenhum arquivo enviado</span>
+              <span className="text-[#a39b94] text-[11px]">Nenhum arquivo selecionado</span>
             )}
           </div>
         </div>
 
         {/* Audit Notes */}
         <div>
-          <label className="block text-[#a39b94] font-semibold mb-1">Parecer da Auditora ({userSession.name})</label>
+          <label htmlFor="auditNotes" className="block text-[#a39b94] font-semibold mb-1">Parecer da Auditora ({userSession.name})</label>
           <textarea
+            id="auditNotes"
             rows={3}
             value={auditNotes}
             onChange={e => setAuditNotes(e.target.value)}
+            placeholder="Registre aqui o parecer técnico da auditoria…"
             className="w-full p-3 rounded-xl bg-[#0c0a0b] border border-white/10 text-[#faf7f5] focus:border-[#e11d48] focus:outline-none"
           />
         </div>
 
         <button
           type="submit"
-          className="w-full py-3 rounded-xl bg-gradient-to-r from-[#e11d48] to-[#d4a373] text-white font-bold text-xs uppercase tracking-wider shadow-lg shadow-[#e11d48]/20 hover:opacity-90 transition-all"
+          disabled={saving}
+          className="w-full py-3 rounded-xl bg-gradient-to-r from-[#e11d48] to-[#d4a373] text-white font-bold text-xs uppercase tracking-wider shadow-lg shadow-[#e11d48]/20 hover:opacity-90 disabled:opacity-60 transition-all"
         >
-          Salvar & Emitir Dossiê de Homologação
+          {saving ? 'Salvando no Cloudflare D1…' : 'Salvar & Emitir Dossiê de Homologação'}
         </button>
       </form>
     </div>
