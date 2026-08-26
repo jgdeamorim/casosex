@@ -41,6 +41,13 @@ app.all('/api/v8/wc/*', async (c) => {
   }
 });
 
+// Redirect / Rewrite legacy routes (/admin, /admin.html) to V8 Cockpit Root
+app.get('/admin*', (c) => {
+  const url = new URL(c.req.url);
+  url.pathname = '/';
+  return c.redirect(url.toString(), 301);
+});
+
 // HTMLRewriter for Edge User Rules & Facet Injection
 app.get('*', async (c) => {
   const assetResp = c.env?.ASSETS ? await c.env.ASSETS.fetch(c.req.raw) : await fetch(c.req.raw);
