@@ -3,9 +3,9 @@
 # Global Source: /home/jeffer/.gemini/antigravity/skills
 
 project: CASOSEX
-version: 3.2.0
-system: Sovereign Spec-Driven AI Engineering System (SS-AES v3.2)
-description: Index de habilidades ativas mapeadas da biblioteca central Antigravity
+version: 3.3.0
+system: Sovereign Spec-Driven AI Engineering System (SS-AES v3.3)
+description: Index de habilidades ativas mapeadas da biblioteca central Antigravity ativadas para o Cockpit V8
 
 governance_skills:
   - id: spec-kit
@@ -45,6 +45,12 @@ architecture_skills:
     role: Cache ultra-rápido de sínteses e hashes na camada Redis/redb
     status: active
 
+  - id: content-hash-cache-pattern
+    name: Content Hash Cache Pattern
+    path: /home/jeffer/.gemini/antigravity/skills/content-hash-cache-pattern/SKILL.md
+    role: Cache determinístico com SHA-256 e BLAKE3
+    status: active
+
 frontend_experience_skills:
   - id: dashboard-builder
     name: Enterprise Dashboard Builder
@@ -58,10 +64,28 @@ frontend_experience_skills:
     role: Componentes React 19 + Vite + Tailwind v4 + OKLCH Tokens
     status: active
 
-  - id: d3-visualization
-    name: Accessible Data Visualization
-    path: /home/jeffer/.gemini/antigravity/skills/d3-visualization/SKILL.md
-    role: Gráficos acessíveis (SVG/D3) compatíveis com leitores de tela e WCAG
+  - id: frontend-patterns
+    name: Frontend Development Patterns
+    path: /home/jeffer/.gemini/antigravity/skills/frontend-patterns/SKILL.md
+    role: Arquitetura de UI, React 19 hooks, gestão de estado e performance
+    status: active
+
+  - id: motion-ui
+    name: Production UI Motion System
+    path: /home/jeffer/.gemini/antigravity/skills/motion-ui/SKILL.md
+    role: Animações de UI fluidas, dct-motion e micro-interações
+    status: active
+
+  - id: taste-skill
+    name: High-Agency Frontend Taste
+    path: /home/jeffer/.gemini/antigravity/skills/taste-skill/SKILL.md
+    role: Design System de alta densidade visual, sem genérico (Anti AI Slop)
+    status: active
+
+  - id: shadcn-ui
+    name: Accessible Component Architecture
+    path: /home/jeffer/.gemini/antigravity/skills/shadcn-ui/SKILL.md
+    role: Padrões de componentes shadcn/ui com acessibilidade nativa
     status: active
 
 quality_assurance_skills:
