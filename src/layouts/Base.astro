@@ -54,7 +54,7 @@ const pageCtx = createPublicPageContext({
 	siteName: siteTitle,
 });
 
-const menu = {
+const menu: { items: Array<{ label: string; url: string; target?: string }> } = {
 	items: [
 		{ label: "Home", url: "/" },
 		{ label: "Catálogo", url: "/shop" },
@@ -76,6 +76,7 @@ const socialMenu: { items: Array<{ label: string; url: string; target?: string }
 		{/* <Font cssVariable="--font-sans" preload /> */}
 		{/* <Font cssVariable="--font-mono" /> */}
 		<title>{fullTitle}</title>
+		<EmDashHead page={pageCtx} />
 		<script is:inline>
 			// Apply theme immediately to prevent flash
 			(function () {
@@ -91,6 +92,7 @@ const socialMenu: { items: Array<{ label: string; url: string; target?: string }
 		</script>
 	</head>
 	<body>
+		<EmDashBodyStart page={pageCtx} />
 		<header class="site-header">
 			<nav class="nav">
 				<a href="/" class="site-title">
@@ -145,7 +147,7 @@ const socialMenu: { items: Array<{ label: string; url: string; target?: string }
 					<div class="footer-brand">
 						<a href="/" class="footer-logo">
 							{siteLogo
-								? <img src={siteLogo.url} alt={siteLogo.alt || siteTitle} class="footer-logo-img" />
+								? <img src={(siteLogo as any).url} alt={(siteLogo as any).alt || siteTitle} class="footer-logo-img" />
 								: siteTitle
 							}
 						</a>
@@ -159,8 +161,8 @@ const socialMenu: { items: Array<{ label: string; url: string; target?: string }
 							{
 								pages.slice(0, 3).map((page) => (
 									<li>
-										<a href={`/pages/${page.data.slug || page.id}`}>
-											{page.data.title}
+										<a href={`/pages/${page.slug}`}>
+											{page.title}
 										</a>
 									</li>
 								))
