@@ -12,19 +12,19 @@ export const ROLE_CONFIGS: Record<UserRole, RoleConfig> = {
     role: 'founder',
     title: 'Founder / CEO (Jeferson)',
     badgeColor: 'bg-[#e11d48]/20 text-[#e11d48] border-[#e11d48]/40',
-    allowedTabs: ['dashboard', 'map', 'dossier', 'suppliers', 'chat', 'login']
+    allowedTabs: ['dashboard', 'map', 'dossier', 'suppliers', 'chat', 'team', 'login']
   },
   ops: {
     role: 'ops',
     title: 'Auditora de Operações (Gláucia)',
     badgeColor: 'bg-[#eab308]/20 text-[#eab308] border-[#eab308]/40',
-    allowedTabs: ['dashboard', 'map', 'dossier', 'chat', 'login']
+    allowedTabs: ['dashboard', 'map', 'dossier', 'suppliers', 'chat', 'team', 'login']
   },
   commercial: {
     role: 'commercial',
     title: 'Gerente Comercial B2B (Bruno)',
     badgeColor: 'bg-[#3b82f6]/20 text-[#3b82f6] border-[#3b82f6]/40',
-    allowedTabs: ['dashboard', 'suppliers', 'chat', 'login']
+    allowedTabs: ['dashboard', 'suppliers', 'chat', 'team', 'login']
   }
 };
 
@@ -36,6 +36,7 @@ export const ROLE_CONFIGS: Record<UserRole, RoleConfig> = {
 export function canAccessTab(role: UserRole, tabName: string): boolean {
   const config = ROLE_CONFIGS[role];
   if (!config) return false;
+  if (tabName === 'team') return config.allowedTabs.includes('chat') || config.allowedTabs.includes('team');
   return config.allowedTabs.includes(tabName);
 }
 
