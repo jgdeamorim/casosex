@@ -19,6 +19,7 @@ export interface Supplier {
   city: string;
   state: string;
   address?: string;
+  cnpj?: string;
   status: HomologationStatus;
   whatsapp?: string;
   phone?: string;
