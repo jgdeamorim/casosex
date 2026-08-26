@@ -38,3 +38,8 @@ export function canAccessTab(role: UserRole, tabName: string): boolean {
   if (!config) return false;
   return config.allowedTabs.includes(tabName);
 }
+
+export function canUpdateStatus(role: UserRole): boolean {
+  return role === 'founder' || role === 'ops';
+}
+

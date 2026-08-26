@@ -4,12 +4,14 @@ import React, { useState } from 'react';
 import { RenderContextProvider, useRenderContext } from './context/RenderContext';
 import { useDeviceFacet } from './facets/DeviceLayoutFacet';
 import { Header } from './components/layout/Header';
+import { MobileHeader } from './components/layout/MobileHeader';
 import { Sidebar } from './components/layout/Sidebar';
 import { BottomGlassDock } from './components/layout/BottomGlassDock';
 import { KPIGrid } from './components/kpi/KPIGrid';
 import { SupplierMap } from './components/map/SupplierMap';
 import { HomologationForm } from './components/dossier/HomologationForm';
 import { SupplierTable } from './components/suppliers/SupplierTable';
+import { MobileSupplierCards } from './components/suppliers/MobileSupplierCards';
 import { TeamChatDrawer } from './components/chat/TeamChatDrawer';
 import { ScopeGuard } from './auth/ScopeGuard';
 import { LoginView } from './components/auth/LoginView';
@@ -19,11 +21,12 @@ function MainLayout(): React.ReactElement {
   const facet = useDeviceFacet();
   const { userSession } = useRenderContext();
 
-  // Dashboard tabs are directly controlled by main commercial navigation
+  const isMobileView = facet === 'mobile' || facet === 'smartwatch';
 
   return (
     <div className="min-h-screen bg-[#0c0a0b] text-[#faf7f5] flex flex-col pb-20 md:pb-0">
-      <Header />
+      {/* Dynamic Shell Header (Mobile App Header vs Desktop Header) */}
+      {isMobileView ? <MobileHeader /> : <Header />}
 
       <div className="flex flex-1">
         <Sidebar activeTab={activeTab} setActiveTab={setActiveTab} />
@@ -47,13 +50,13 @@ function MainLayout(): React.ReactElement {
                 <SupplierMap />
               </ScopeGuard>
 
-              {/* 3. 2 Colunas - Coluna 1: Dossiê de Homologação & Compliance | Coluna 2: Tabela de Fornecedores */}
+              {/* 3. 2 Colunas no Desktop | Stack Vertical no Mobile */}
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 items-start">
                 <ScopeGuard tabName="dossier">
                   <HomologationForm />
                 </ScopeGuard>
                 <ScopeGuard tabName="suppliers">
-                  <SupplierTable />
+                  {isMobileView ? <MobileSupplierCards /> : <SupplierTable />}
                 </ScopeGuard>
               </div>
             </div>
@@ -73,10 +76,10 @@ function MainLayout(): React.ReactElement {
             </ScopeGuard>
           )}
 
-          {/* Suppliers Table Tab */}
+          {/* Suppliers Table / Cards Tab */}
           {activeTab === 'suppliers' && (
             <ScopeGuard tabName="suppliers">
-              <SupplierTable />
+              {isMobileView ? <MobileSupplierCards /> : <SupplierTable />}
             </ScopeGuard>
           )}
 
@@ -100,5 +103,3 @@ export function App(): React.ReactElement {
     </RenderContextProvider>
   );
 }
-
-export default App;
