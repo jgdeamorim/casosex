@@ -81,3 +81,91 @@ export async function fetchHealth(): Promise<boolean> {
     return false;
   }
 }
+
+/* ==========================================================================
+ *  OFFLINE PWA & LOCALSTORAGE CACHE ENGINE
+ * ========================================================================== */
+
+const LOCAL_OVERRIDES_KEY = 'v8_status_overrides';
+const PENDING_SYNC_KEY = 'v8_pending_sync_queue';
+
+export interface PendingSyncItem {
+  supplierId: string;
+  status: HomologationStatus;
+  updatedBy: string;
+  timestamp: number;
+}
+
+export function getLocalStatusOverrides(): Record<string, HomologationStatus> {
+  try {
+    const raw = localStorage.getItem(LOCAL_OVERRIDES_KEY);
+    return raw ? (JSON.parse(raw) as Record<string, HomologationStatus>) : {};
+  } catch (e: unknown) {
+    void e;
+    return {};
+  }
+}
+
+export function saveLocalStatusOverride(supplierId: string, status: HomologationStatus): void {
+  try {
+    const current = getLocalStatusOverrides();
+    current[supplierId] = status;
+    localStorage.setItem(LOCAL_OVERRIDES_KEY, JSON.stringify(current));
+  } catch (e: unknown) {
+    void e;
+  }
+}
+
+export function getPendingSyncQueue(): PendingSyncItem[] {
+  try {
+    const raw = localStorage.getItem(PENDING_SYNC_KEY);
+    return raw ? (JSON.parse(raw) as PendingSyncItem[]) : [];
+  } catch (e: unknown) {
+    void e;
+    return [];
+  }
+}
+
+export function enqueuePendingSync(supplierId: string, status: HomologationStatus, updatedBy: string): void {
+  try {
+    const queue = getPendingSyncQueue().filter(i => i.supplierId !== supplierId);
+    queue.push({ supplierId, status, updatedBy, timestamp: Date.now() });
+    localStorage.setItem(PENDING_SYNC_KEY, JSON.stringify(queue));
+  } catch (e: unknown) {
+    void e;
+  }
+}
+
+export function removeFromPendingSync(supplierId: string): void {
+  try {
+    const queue = getPendingSyncQueue().filter(i => i.supplierId !== supplierId);
+    localStorage.setItem(PENDING_SYNC_KEY, JSON.stringify(queue));
+  } catch (e: unknown) {
+    void e;
+  }
+}
+
+export async function flushPendingSyncQueue(): Promise<number> {
+  const queue = getPendingSyncQueue();
+  if (queue.length === 0) return 0;
+
+  let syncedCount = 0;
+  const remaining: PendingSyncItem[] = [];
+
+  for (const item of queue) {
+    try {
+      await patchSupplierStatus(item.supplierId, item.status, item.updatedBy);
+      syncedCount++;
+    } catch {
+      remaining.push(item);
+    }
+  }
+
+  try {
+    localStorage.setItem(PENDING_SYNC_KEY, JSON.stringify(remaining));
+  } catch (e: unknown) {
+    void e;
+  }
+
+  return syncedCount;
+}

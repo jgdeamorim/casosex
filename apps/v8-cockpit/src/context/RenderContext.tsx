@@ -13,6 +13,11 @@ import {
   patchSupplierStatus,
   fetchDossier,
   putDossier,
+  getLocalStatusOverrides,
+  saveLocalStatusOverride,
+  enqueuePendingSync,
+  removeFromPendingSync,
+  flushPendingSyncQueue,
   type DossierInput
 } from '../lib/api';
 
@@ -80,23 +85,28 @@ export function RenderContextProvider({ children }: { children: React.ReactNode 
       }
       const data: Supplier[] = await resp.json();
 
-      // Overrides de status são deltas sobre o catálogo estático — falha aqui não
-      // bloqueia a tela, apenas deixa os status no valor do arquivo.
-      let overrides: Record<string, HomologationStatus> = {};
+      // Carrega overrides do D1 e mescla com overrides salvos localmente (PWA Offline First)
+      let remoteOverrides: Record<string, HomologationStatus> = {};
       try {
-        overrides = await fetchStatusOverrides();
+        remoteOverrides = await fetchStatusOverrides();
       } catch {
-        overrides = {};
+        remoteOverrides = {};
       }
+
+      const localOverrides = getLocalStatusOverrides();
+      const combinedOverrides = { ...localOverrides, ...remoteOverrides };
 
       const merged = data.map(s => ({
         ...s,
-        status: (overrides[s.id] ?? s.status) as HomologationStatus
+        status: (combinedOverrides[s.id] ?? s.status) as HomologationStatus
       }));
       setSuppliers(merged);
       if (merged.length > 0) {
         setSelectedSupplier(prev => prev ?? merged[0]);
       }
+
+      // Sincroniza pendências acumuladas em segundo plano se a API responder
+      void flushPendingSyncQueue();
     } catch (e: unknown) {
       setLoadError(e instanceof Error ? e.message : 'Erro inesperado ao carregar dados.');
     } finally {
@@ -106,6 +116,19 @@ export function RenderContextProvider({ children }: { children: React.ReactNode 
 
   useEffect(() => {
     void loadData();
+
+    const handleOnline = (): void => {
+      void flushPendingSyncQueue().then((synced) => {
+        if (synced > 0) {
+          void loadData();
+        }
+      });
+    };
+
+    window.addEventListener('online', handleOnline);
+    return () => {
+      window.removeEventListener('online', handleOnline);
+    };
   }, [loadData]);
 
   const setUserRole = useCallback((role: UserRole): void => {
@@ -166,26 +189,30 @@ export function RenderContextProvider({ children }: { children: React.ReactNode 
 
   const updateSupplierStatus = useCallback(
     (supplierId: string, status: HomologationStatus): void => {
-      const previous: Supplier[] = suppliers;
       setStatusSaving(true);
       setStatusError(null);
 
+      // 1. Atualização OTIMISTA imediata no React State
       setSuppliers(prev => prev.map(s => (s.id === supplierId ? { ...s, status } : s)));
       setSelectedSupplier(prev => (prev && prev.id === supplierId ? { ...prev, status } : prev));
 
+      // 2. Persistência imediata em LocalStorage (PWA Cache Local)
+      saveLocalStatusOverride(supplierId, status);
+
+      // 3. Sincronização em segundo plano com Cloudflare D1 Worker
       void patchSupplierStatus(supplierId, status, userSession.name)
+        .then(() => {
+          removeFromPendingSync(supplierId);
+        })
         .catch(() => {
-          setSuppliers(previous);
-          setSelectedSupplier(prev =>
-            prev && prev.id === supplierId
-              ? { ...prev, status: previous.find(s => s.id === supplierId)?.status ?? prev.status }
-              : prev
-          );
-          setStatusError('Não foi possível salvar o status no Cloudflare D1. Revertido.');
+          // Se a API estiver inacessível (offline ou dev local sem Worker D1), NÃO reverte!
+          // Registra na fila de sincronização para tentar novamente ao reconectar.
+          enqueuePendingSync(supplierId, status, userSession.name);
+          setStatusError('Status mantido localmente. Será sincronizado com o D1 ao conectar.');
         })
         .finally(() => setStatusSaving(false));
     },
-    [suppliers, userSession.name]
+    [userSession.name]
   );
 
   const saveDossier = useCallback(
