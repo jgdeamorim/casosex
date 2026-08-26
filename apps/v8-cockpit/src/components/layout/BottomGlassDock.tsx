@@ -26,7 +26,7 @@ export function BottomGlassDock({ activeTab, setActiveTab }: BottomGlassDockProp
     >
       {dockItems.map(item => {
         const isAllowed = canAccessTab(userSession.role, item.id);
-        const isActive = activeTab === item.id;
+        const isActive = item.id === 'team' ? isChatOpen : activeTab === item.id;
 
         if (!isAllowed) return null;
 

@@ -15,7 +15,7 @@ export function MobileSupplierCards(): React.ReactElement {
     selectSupplier
   } = useRenderContext();
 
-  const [viewMode, setViewMode] = useState<'map' | 'list'>('map');
+  const [viewMode, setViewMode] = useState<'map' | 'list'>('list');
   const [activeModalSupplier, setActiveModalSupplier] = useState<Supplier | null>(null);
 
   // Estados dos Filtros na Aba Lista
@@ -122,6 +122,7 @@ export function MobileSupplierCards(): React.ReactElement {
   const [pressToast, setPressToast] = useState<string | null>(null);
   const longPressTimerRef = React.useRef<ReturnType<typeof setTimeout> | null>(null);
   const isLongPressRef = React.useRef<boolean>(false);
+  const touchHandledRef = React.useRef<boolean>(false);
 
   const startPress = (sup: Supplier): void => {
     isLongPressRef.current = false;
@@ -143,12 +144,25 @@ export function MobileSupplierCards(): React.ReactElement {
     }, 3000);
   };
 
+  const handleTouchStart = (sup: Supplier): void => {
+    touchHandledRef.current = true;
+    startPress(sup);
+  };
+
+  const handleMouseDown = (sup: Supplier): void => {
+    if (touchHandledRef.current) return;
+    startPress(sup);
+  };
+
   const cancelPress = (): void => {
     if (longPressTimerRef.current) {
       clearTimeout(longPressTimerRef.current);
       longPressTimerRef.current = null;
     }
     setPressingId(null);
+    setTimeout(() => {
+      touchHandledRef.current = false;
+    }, 300);
   };
 
   const handleCardClickWithLongPress = (sup: Supplier): void => {
@@ -371,10 +385,10 @@ export function MobileSupplierCards(): React.ReactElement {
                   <div
                     key={sup.id}
                     onClick={() => handleCardClickWithLongPress(sup)}
-                    onTouchStart={() => startPress(sup)}
+                    onTouchStart={() => handleTouchStart(sup)}
                     onTouchEnd={cancelPress}
                     onTouchCancel={cancelPress}
-                    onMouseDown={() => startPress(sup)}
+                    onMouseDown={() => handleMouseDown(sup)}
                     onMouseUp={cancelPress}
                     onMouseLeave={cancelPress}
                     className={`p-4 rounded-2xl border transition-all cursor-pointer bg-[#161214]/90 relative overflow-hidden select-none ${
