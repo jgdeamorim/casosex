@@ -70,15 +70,25 @@ html.light .glass-dock,
 
 html.light-theme div[class*="bg-[#161214]"],
 html.light-theme div[class*="bg-[#0c0a0b]"],
+html.light-theme div[class*="bg-[#120e10]"],
+html.light-theme div[class*="bg-[#121215]"],
+html.light-theme div[class*="bg-[#110d0f]"],
+html.light-theme div[class*="bg-[#0f0c0d]"],
 html.light-theme div[class*="bg-[#0c0a0b]/90"],
 html.light-theme div[class*="bg-[#161214]/90"],
+html.light-theme div[class*="bg-[#0c0a0b]/95"],
+html.light-theme div[class*="bg-[#0c0a0b]/60"],
 html.light-theme div[class*="bg-stone-900"],
 html.light-theme div[class*="bg-stone-950"],
 html.light div[class*="bg-[#161214]"],
 html.light div[class*="bg-[#0c0a0b]"],
+html.light div[class*="bg-[#120e10]"],
+html.light div[class*="bg-[#121215]"],
 html.light div[class*="bg-stone-900"],
 [data-theme="light"] div[class*="bg-[#161214]"],
 [data-theme="light"] div[class*="bg-[#0c0a0b]"],
+[data-theme="light"] div[class*="bg-[#120e10]"],
+[data-theme="light"] div[class*="bg-[#121215]"],
 [data-theme="light"] div[class*="bg-stone-900"] {
   background-color: #ffffff !important;
   color: #18181b !important;
@@ -114,6 +124,54 @@ html.light p[class*="text-stone-400"],
 [data-theme="light"] span[class*="text-stone-400"],
 [data-theme="light"] p[class*="text-stone-400"] {
   color: #52525b !important;
+}
+
+/* Form Inputs, Textareas e Selects no Tema Light */
+html.light-theme input,
+html.light-theme textarea,
+html.light-theme select,
+html.light input,
+html.light textarea,
+html.light select,
+[data-theme="light"] input,
+[data-theme="light"] textarea,
+[data-theme="light"] select {
+  background-color: #f4f4f5 !important;
+  color: #18181b !important;
+  border-color: #d4d4d8 !important;
+}
+
+html.light-theme input::placeholder,
+html.light-theme textarea::placeholder,
+html.light input::placeholder,
+html.light textarea::placeholder,
+[data-theme="light"] input::placeholder,
+[data-theme="light"] textarea::placeholder {
+  color: #71717a !important;
+}
+
+/* Bordas gerais em Tema Light */
+html.light-theme [class*="border-stone-800"],
+html.light-theme [class*="border-stone-900"],
+html.light [class*="border-stone-800"],
+[data-theme="light"] [class*="border-stone-800"] {
+  border-color: #e4e4e7 !important;
+}
+
+/* Leaflet Map Popups em Tema Light */
+html.light-theme .leaflet-popup-content-wrapper,
+html.light .leaflet-popup-content-wrapper,
+[data-theme="light"] .leaflet-popup-content-wrapper {
+  background: #ffffff !important;
+  color: #18181b !important;
+  border: 1px solid #e4e4e7 !important;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1) !important;
+}
+
+html.light-theme .leaflet-popup-tip,
+html.light .leaflet-popup-tip,
+[data-theme="light"] .leaflet-popup-tip {
+  background: #ffffff !important;
 }
 
 /* Ambient Lighting Orbs */
