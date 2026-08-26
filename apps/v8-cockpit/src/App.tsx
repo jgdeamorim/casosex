@@ -1,10 +1,9 @@
-'use client';
-
 import React, { useState } from 'react';
-import { RenderContextProvider, useRenderContext } from './context/RenderContext';
+import { RenderContextProvider } from './context/RenderContext';
 import { useDeviceFacet } from './facets/DeviceLayoutFacet';
 import { Header } from './components/layout/Header';
-import { MobileHeader } from './components/layout/MobileHeader';
+import { MobileAppView } from './components/MobileAppView';
+import { UserProfileModal } from './components/profile/UserProfileModal';
 import { Sidebar } from './components/layout/Sidebar';
 import { BottomGlassDock } from './components/layout/BottomGlassDock';
 import { KPIGrid } from './components/kpi/KPIGrid';
@@ -19,26 +18,22 @@ import { LoginView } from './components/auth/LoginView';
 function MainLayout(): React.ReactElement {
   const [activeTab, setActiveTab] = useState<string>('dashboard');
   const facet = useDeviceFacet();
-  const { userSession } = useRenderContext();
 
   const isMobileView = facet === 'mobile' || facet === 'smartwatch';
 
+  if (isMobileView) {
+    return <MobileAppView />;
+  }
+
   return (
     <div className="min-h-screen bg-[#0c0a0b] text-[#faf7f5] flex flex-col pb-20 md:pb-0">
-      {/* Dynamic Shell Header (Mobile App Header vs Desktop Header) */}
-      {isMobileView ? <MobileHeader /> : <Header />}
+      {/* Dynamic Shell Header (Desktop Header) */}
+      <Header />
 
       <div className="flex flex-1">
         <Sidebar activeTab={activeTab} setActiveTab={setActiveTab} />
 
         <main className="flex-1 p-4 md:p-6 max-w-7xl mx-auto w-full space-y-6">
-          {/* Smartwatch Mini Facet Alert */}
-          {facet === 'smartwatch' && (
-            <div className="p-3 rounded-xl bg-[#e11d48]/20 border border-[#e11d48]/40 text-center text-xs font-bold text-[#faf7f5]">
-              ⌚ Modo Smartwatch 1x1 Widget Ativo ({userSession.name})
-            </div>
-          )}
-
           {/* Main Dashboard / Bento Grid Tab (Market Intel) */}
           {activeTab === 'dashboard' && (
             <div className="space-y-6">
@@ -91,6 +86,7 @@ function MainLayout(): React.ReactElement {
       </div>
 
       <BottomGlassDock activeTab={activeTab} setActiveTab={setActiveTab} />
+      <UserProfileModal />
       <TeamChatDrawer />
     </div>
   );
