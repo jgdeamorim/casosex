@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { useRenderContext } from '../../context/RenderContext';
 import { ROLE_CONFIGS } from '../../auth/userRules';
 import type { UserRole } from '../../types';
-import { LoginModal } from '../auth/LoginModal';
 
 export function Header(): React.ReactElement {
   const { userSession, setUserRole, selectedPolo, setSelectedPolo, toggleChat, unreadCount } = useRenderContext();
@@ -68,23 +67,89 @@ export function Header(): React.ReactElement {
           ))}
         </div>
 
-        {/* Profile Pill & Login Launcher */}
-        <button
-          type="button"
-          onClick={() => setIsLoginOpen(true)}
-          className="flex items-center gap-2 pl-3 min-h-[44px] border-l border-white/10 hover:opacity-80 transition-opacity text-left shrink-0 whitespace-nowrap focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#e11d48]"
-          title="Trocar perfil de demonstração"
-        >
-          <div className="w-8 h-8 rounded-full bg-[#221c1f] border border-white/10 flex items-center justify-center font-bold text-xs text-[#faf7f5] shrink-0">
-            {userSession.avatar}
-          </div>
-          <div className="text-left hidden sm:block shrink-0">
-            <p className="text-xs font-bold text-[#faf7f5] whitespace-nowrap">{userSession.name}</p>
-            <span className={`text-[9px] px-1.5 py-0.5 rounded border font-semibold whitespace-nowrap ${currentConfig.badgeColor}`}>
-              {currentConfig.title.split(' ')[0]}
-            </span>
-          </div>
-        </button>
+        {/* Profile Pill with Dropdown Popover */}
+        <div className="relative shrink-0">
+          <button
+            type="button"
+            onClick={() => setIsLoginOpen(!isLoginOpen)}
+            aria-expanded={isLoginOpen}
+            aria-haspopup="dialog"
+            className={`flex items-center gap-2.5 px-3 py-1.5 min-h-[44px] rounded-xl border transition-all text-left shrink-0 whitespace-nowrap focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#e11d48] ${
+              isLoginOpen 
+                ? 'bg-[#221c1f] border-[#e11d48]/50 shadow-lg shadow-[#e11d48]/10' 
+                : 'bg-[#161214] border-white/10 hover:border-white/20'
+            }`}
+            title="Gerenciar Perfil B2B & Escopos"
+          >
+            <div className="w-8 h-8 rounded-full bg-gradient-to-tr from-[#e11d48] to-[#d4a373] flex items-center justify-center font-bold text-xs text-white shadow-sm shrink-0">
+              {userSession.avatar}
+            </div>
+            <div className="text-left hidden sm:block shrink-0">
+              <p className="text-xs font-bold text-[#faf7f5] leading-none mb-1 whitespace-nowrap">{userSession.name}</p>
+              <span className={`text-[9px] px-1.5 py-0.5 rounded border font-semibold whitespace-nowrap ${currentConfig.badgeColor}`}>
+                {currentConfig.title.split(' ')[0]}
+              </span>
+            </div>
+            <svg className={`w-3.5 h-3.5 text-[#a39b94] transition-transform duration-200 ${isLoginOpen ? 'rotate-180 text-[#e11d48]' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M19 9l-7 7-7-7" />
+            </svg>
+          </button>
+
+          {/* Profile & Scope Popover */}
+          {isLoginOpen && (
+            <div className="absolute right-0 mt-2 w-80 rounded-2xl glass-panel border border-[#e11d48]/30 shadow-2xl p-4 z-50 animate-in fade-in slide-in-from-top-2 duration-150">
+              <div className="flex items-center justify-between pb-3 mb-3 border-b border-white/10">
+                <div>
+                  <h3 className="text-xs font-bold text-[#faf7f5] uppercase tracking-wider">Perfil & Escopo B2B</h3>
+                  <p className="text-[10px] text-[#a39b94]">Selecione a identidade operacional</p>
+                </div>
+                <span className="text-[9px] font-bold px-2 py-0.5 rounded bg-[#e11d48]/20 text-[#e11d48] border border-[#e11d48]/30">
+                  DEMO
+                </span>
+              </div>
+
+              <div className="space-y-2">
+                {(['founder', 'ops', 'commercial'] as const).map(role => {
+                  const cfg = ROLE_CONFIGS[role as UserRole];
+                  const active = userSession.role === role;
+                  return (
+                    <button
+                      key={role}
+                      type="button"
+                      onClick={() => {
+                        setUserRole(role as UserRole);
+                        setIsLoginOpen(false);
+                      }}
+                      className={`w-full flex items-center justify-between p-2.5 rounded-xl border text-left transition-all ${
+                        active
+                          ? 'bg-[#e11d48]/15 border-[#e11d48]/50 shadow-md shadow-[#e11d48]/10'
+                          : 'bg-[#0c0a0b] border-white/10 hover:border-white/20 hover:bg-[#1a1518]'
+                      }`}
+                    >
+                      <div className="flex items-center gap-2.5 min-w-0">
+                        <div className={`w-7 h-7 rounded-lg border flex items-center justify-center font-bold text-xs ${cfg.badgeColor}`}>
+                          {role[0].toUpperCase()}
+                        </div>
+                        <div className="min-w-0">
+                          <p className="text-xs font-bold text-[#faf7f5] truncate">{cfg.title}</p>
+                          <p className="text-[10px] text-[#a39b94] font-mono capitalize">{role} access</p>
+                        </div>
+                      </div>
+                      {active && (
+                        <span className="w-2 h-2 rounded-full bg-[#e11d48] animate-pulse shrink-0 ml-2" />
+                      )}
+                    </button>
+                  );
+                })}
+              </div>
+
+              <div className="mt-3 pt-3 border-t border-white/10 flex items-center justify-between text-[10px] text-[#a39b94]">
+                <span>Escopos ativos:</span>
+                <span className="font-mono text-[#faf7f5]">{currentConfig.allowedTabs.length} rotas liberadas</span>
+              </div>
+            </div>
+          )}
+        </div>
 
         {/* Chat Toggle Button */}
         <button
@@ -104,8 +169,6 @@ export function Header(): React.ReactElement {
           )}
         </button>
       </div>
-
-      <LoginModal isOpen={isLoginOpen} onClose={() => setIsLoginOpen(false)} />
     </header>
   );
 }

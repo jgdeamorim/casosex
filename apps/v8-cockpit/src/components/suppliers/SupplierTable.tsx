@@ -31,13 +31,17 @@ export function SupplierTable(): React.ReactElement {
   };
 
   return (
-    <div className="p-6 rounded-2xl glass-panel border border-white/10">
-      <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 mb-4">
+    <div className="p-6 md:p-8 rounded-2xl glass-panel border border-white/10 space-y-4">
+      <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-4 border-b border-white/10">
         <div>
-          <h2 className="text-base font-bold text-[#faf7f5]">
-            Tabela de {suppliers.length} Fornecedores B2B
+          <span className="text-[10px] font-bold text-[#e11d48] uppercase tracking-wider font-mono-kpi">✦ IBM Carbon B2B Data Table</span>
+          <h2 className="text-xl font-bold text-[#faf7f5]">
+            Matriz Nacional de Fornecedores B2B
+            <span className="ml-2.5 text-xs font-normal text-[#d4a373] font-mono bg-[#d4a373]/10 px-2.5 py-0.5 rounded-full border border-[#d4a373]/20">
+              {filteredSuppliers.length} de {suppliers.length} Registros Auditados
+            </span>
           </h2>
-          <p className="text-xs text-[#a39b94]">Polos SP & RJ com contato direto WhatsApp e filtro rápido</p>
+          <p className="text-xs text-[#a39b94] mt-0.5">Polos SP & RJ com verificação de compliance ANVISA e cotação direta WhatsApp</p>
         </div>
 
         <div className="flex flex-wrap items-center gap-2 w-full sm:w-auto">

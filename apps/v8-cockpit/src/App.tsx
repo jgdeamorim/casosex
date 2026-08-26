@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { RenderContextProvider, useRenderContext } from './context/RenderContext';
 import { useDeviceFacet } from './facets/DeviceLayoutFacet';
 import { Header } from './components/layout/Header';
@@ -19,11 +19,7 @@ function MainLayout(): React.ReactElement {
   const facet = useDeviceFacet();
   const { userSession } = useRenderContext();
 
-  useEffect(() => {
-    if (typeof window !== 'undefined' && window.location.pathname.includes('/login')) {
-      setActiveTab('login');
-    }
-  }, []);
+  // Dashboard tabs are directly controlled by main commercial navigation
 
   return (
     <div className="min-h-screen bg-[#0c0a0b] text-[#faf7f5] flex flex-col pb-20 md:pb-0">

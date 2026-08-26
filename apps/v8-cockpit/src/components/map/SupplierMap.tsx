@@ -124,11 +124,14 @@ export function SupplierMap(): React.ReactElement {
   }, [selectedSupplier]);
 
   return (
-    <div id="supplier-map-container" className="relative rounded-2xl overflow-hidden glass-panel border border-white/10 h-[450px] shadow-2xl isolate z-10">
-      <div className="absolute top-4 left-4 z-10 bg-[#0c0a0b]/90 backdrop-blur-md p-3 rounded-xl border border-white/10 text-xs flex items-center gap-3">
-        <span className="font-bold text-[#faf7f5]">Polo Ativo:</span>
-        <span className="px-2 py-0.5 rounded bg-[#e11d48]/20 text-[#e11d48] font-bold border border-[#e11d48]/30">
-          {selectedPolo} ({filteredSuppliers.length} Unidades)
+    <div id="supplier-map-container" className="relative rounded-2xl overflow-hidden glass-panel border border-white/10 h-[480px] shadow-2xl isolate z-10">
+      <div className="absolute top-4 left-4 z-10 bg-[#0c0a0b]/90 backdrop-blur-md px-4 py-2.5 rounded-xl border border-white/10 text-xs flex flex-col sm:flex-row items-start sm:items-center gap-2 sm:gap-3 shadow-lg">
+        <div>
+          <span className="text-[9px] font-bold text-[#e11d48] uppercase tracking-wider block">✦ Radar de Polos B2B</span>
+          <span className="font-bold text-[#faf7f5] text-xs">Geomapeamento Comercial</span>
+        </div>
+        <span className="px-2.5 py-1 rounded-lg bg-[#e11d48]/20 text-[#e11d48] font-mono font-bold text-xs border border-[#e11d48]/30 shrink-0">
+          POLO {selectedPolo} ({filteredSuppliers.length} Unidades)
         </span>
       </div>
 
