@@ -31,28 +31,28 @@ export function SupplierTable(): React.ReactElement {
   };
 
   return (
-    <div className="p-6 md:p-8 rounded-2xl glass-panel border border-white/10 space-y-4">
-      <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-4 border-b border-white/10">
+    <div className="p-6 md:p-8 rounded-2xl glass-panel border border-white/10 flex flex-col justify-between h-full min-h-[560px] space-y-4">
+      {/* Header & Controls */}
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-3 border-b border-white/10">
         <div>
-          <span className="text-[10px] font-bold text-[#e11d48] uppercase tracking-wider font-mono-kpi">✦ IBM Carbon B2B Data Table</span>
-          <h2 className="text-xl font-bold text-[#faf7f5]">
-            Matriz Nacional de Fornecedores B2B
-            <span className="ml-2.5 text-xs font-normal text-[#d4a373] font-mono bg-[#d4a373]/10 px-2.5 py-0.5 rounded-full border border-[#d4a373]/20">
-              {filteredSuppliers.length} de {suppliers.length} Registros Auditados
+          <div className="flex items-center gap-2 mb-1">
+            <span className="text-[10px] font-bold text-[#e11d48] uppercase tracking-wider font-mono-kpi">✦ Tabela de Fornecedores & Cotações 1-Clique</span>
+            <span className="text-[9px] px-2 py-0.5 rounded-full bg-[#d4a373]/10 text-[#d4a373] border border-[#d4a373]/20 font-mono">
+              {filteredSuppliers.length} Registros
             </span>
-          </h2>
-          <p className="text-xs text-[#a39b94] mt-0.5">Polos SP & RJ com verificação de compliance ANVISA e cotação direta WhatsApp</p>
+          </div>
+          <h2 className="text-xl font-bold text-[#faf7f5]">Matriz Nacional B2B</h2>
         </div>
 
-        <div className="flex flex-wrap items-center gap-2 w-full sm:w-auto">
+        <div className="flex items-center gap-2 w-full sm:w-auto">
           {/* Search Input */}
           <input
             type="text"
-            placeholder="Buscar fornecedor, cidade ou categoria..."
+            placeholder="Buscar fornecedor ou cidade..."
             value={searchTerm}
             onChange={e => setSearchTerm(e.target.value)}
             aria-label="Buscar fornecedor, cidade ou categoria"
-            className="px-3 py-2 rounded-xl bg-[#0c0a0b] border border-white/10 text-xs text-[#faf7f5] placeholder-[#a39b94] focus:border-[#e11d48] focus:outline-none w-full sm:w-64"
+            className="px-3 py-1.5 rounded-xl bg-[#0c0a0b] border border-white/10 text-xs text-[#faf7f5] placeholder-[#a39b94] focus:border-[#e11d48] focus:ring-1 focus:ring-[#e11d48] focus:outline-none w-full sm:w-48"
           />
 
           {/* Category Select */}
@@ -60,9 +60,9 @@ export function SupplierTable(): React.ReactElement {
             value={categoryFilter}
             onChange={e => setCategoryFilter(e.target.value)}
             aria-label="Filtrar por categoria"
-            className="px-3 py-2 rounded-xl bg-[#0c0a0b] border border-white/10 text-xs text-[#faf7f5] focus:border-[#e11d48] focus:outline-none font-semibold"
+            className="px-3 py-1.5 rounded-xl bg-[#0c0a0b] border border-white/10 text-xs text-[#faf7f5] focus:border-[#e11d48] focus:ring-1 focus:ring-[#e11d48] focus:outline-none font-semibold cursor-pointer"
           >
-            <option value="TODAS">Todas as Categorias</option>
+            <option value="TODAS">Todas Categorias</option>
             {categories.map(cat => (
               <option key={cat} value={cat}>{cat}</option>
             ))}
@@ -105,7 +105,6 @@ export function SupplierTable(): React.ReactElement {
                   <p className="text-xs text-rose-400 font-medium mb-1">{sup.category}</p>
                   <p className="text-[11px] text-[#a39b94] font-mono mb-3">{sup.city} - {sup.state}</p>
 
-                  {/* B2B Badges auditáveis */}
                   <div className="flex flex-wrap gap-1 mb-4">
                     {sup.status === 'HOMOLOGADO' && (
                       <span className="px-2 py-0.5 rounded-full text-[9px] font-extrabold bg-emerald-500/20 text-emerald-300 border border-emerald-500/40">
@@ -114,9 +113,6 @@ export function SupplierTable(): React.ReactElement {
                     )}
                     <span className="px-2 py-0.5 rounded-full text-[9px] font-extrabold bg-amber-500/20 text-amber-300 border border-amber-500/40">
                       ★ MARGEM DOURADA
-                    </span>
-                    <span className="px-2 py-0.5 rounded-full text-[9px] font-extrabold bg-purple-500/20 text-purple-300 border border-purple-500/40">
-                      ⚡ PRONTA ENTREGA
                     </span>
                   </div>
                 </div>
@@ -127,13 +123,13 @@ export function SupplierTable(): React.ReactElement {
                       href={waLink}
                       target="_blank"
                       rel="noreferrer"
-                      className="w-full inline-flex items-center justify-center gap-1.5 min-h-[44px] py-2 px-4 rounded-xl bg-[#30d158]/20 hover:bg-[#30d158]/30 border border-[#30d158]/40 text-[#30d158] font-bold text-xs transition-all active:scale-95 whitespace-nowrap shrink-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#30d158]"
+                      className="w-full inline-flex items-center justify-center gap-1.5 min-h-[40px] py-2 px-4 rounded-xl bg-[#30d158]/20 hover:bg-[#30d158]/30 border border-[#30d158]/40 text-[#30d158] font-bold text-xs transition-all active:scale-95 whitespace-nowrap shrink-0"
                       onClick={e => e.stopPropagation()}
                     >
                       💬 Cotar WhatsApp
                     </a>
                   ) : (
-                    <span className="block text-center text-[#a39b94] text-xs py-2 whitespace-nowrap">Sem contato cadastrado</span>
+                    <span className="block text-center text-[#a39b94] text-xs py-2">Sem contato</span>
                   )}
                 </div>
               </div>
@@ -143,21 +139,20 @@ export function SupplierTable(): React.ReactElement {
       </div>
 
       {/* Desktop Table View (>= md) */}
-      <div className="hidden md:block overflow-x-auto max-h-[500px] overflow-y-auto rounded-xl border border-white/10">
+      <div className="hidden md:block overflow-x-auto flex-1 max-h-[430px] overflow-y-auto rounded-xl border border-white/10">
         <table className="w-full text-left text-xs">
           <thead className="bg-[#0c0a0b] text-[#a39b94] font-bold uppercase text-[10px] tracking-wider sticky top-0 z-10 border-b border-white/10">
             <tr>
-              <th className="py-3 px-4">Fornecedor / Razão</th>
-              <th className="py-3 px-4">Categoria</th>
-              <th className="py-3 px-4">Cidade / Polo</th>
-              <th className="py-3 px-4">Status Auditoria</th>
-              <th className="py-3 px-4 text-right">Ações Rápidas</th>
+              <th className="py-2.5 px-3">Fornecedor</th>
+              <th className="py-2.5 px-3">Polo</th>
+              <th className="py-2.5 px-3">Status</th>
+              <th className="py-2.5 px-3 text-right">Ação</th>
             </tr>
           </thead>
           <tbody className="divide-y divide-white/5">
             {filteredSuppliers.length === 0 ? (
               <tr>
-                <td colSpan={5} className="py-8 text-center text-[#a39b94]">
+                <td colSpan={4} className="py-8 text-center text-[#a39b94]">
                   Nenhum fornecedor encontrado para os filtros selecionados.
                 </td>
               </tr>
@@ -170,7 +165,6 @@ export function SupplierTable(): React.ReactElement {
                     key={sup.id}
                     onClick={() => {
                       selectSupplier(sup);
-                      document.getElementById('supplier-map-container')?.scrollIntoView({ behavior: 'smooth', block: 'center' });
                     }}
                     className={`cursor-pointer transition-all ${
                       isSelected
@@ -178,48 +172,32 @@ export function SupplierTable(): React.ReactElement {
                         : 'hover:bg-[#221c1f]'
                     }`}
                   >
-                    <td className="py-3 px-4 font-bold text-[#faf7f5]">
-                      {sup.name}
-                      {sup.gmb_url && (
-                        <a
-                          href={sup.gmb_url}
-                          target="_blank"
-                          rel="noreferrer"
-                          className="ml-2 text-[10px] text-[#d4a373] hover:underline"
-                          onClick={e => e.stopPropagation()}
-                        >
-                          [GMB]
-                        </a>
-                      )}
+                    <td className="py-2.5 px-3 font-bold text-[#faf7f5]">
+                      <div className="line-clamp-1">{sup.name}</div>
+                      <span className="text-[10px] text-[#a39b94] font-normal block">{sup.category}</span>
                     </td>
-                    <td className="py-3 px-4 text-[#a39b94] font-medium">{sup.category}</td>
-                    <td className="py-3 px-4 text-[#a39b94] font-mono">{sup.city} - {sup.state}</td>
-                    <td className="py-3 px-4">
-                      <div className="flex items-center gap-2">
-                        <span role="status" className={`badge-status ${sup.status} inline-flex items-center`}>
-                          <span className="w-1.5 h-1.5 rounded-full bg-current animate-pulse inline-block mr-1" />
-                          {statusLabel(sup.status)}
-                        </span>
-                        {sup.status === 'HOMOLOGADO' && (
-                          <span className="px-2 py-0.5 rounded text-[9px] font-bold bg-emerald-500/20 text-emerald-300 border border-emerald-500/30">
-                            BINGO
-                          </span>
-                        )}
-                      </div>
+                    <td className="py-2.5 px-3 text-[#a39b94] font-mono text-[11px] whitespace-nowrap">
+                      {sup.city} ({sup.state})
                     </td>
-                    <td className="py-3 px-4 text-right">
+                    <td className="py-2.5 px-3 whitespace-nowrap">
+                      <span role="status" className={`badge-status ${sup.status} inline-flex items-center text-[10px]`}>
+                        <span className="w-1.5 h-1.5 rounded-full bg-current animate-pulse inline-block mr-1" />
+                        {statusLabel(sup.status)}
+                      </span>
+                    </td>
+                    <td className="py-2.5 px-3 text-right whitespace-nowrap">
                       {waLink ? (
                         <a
                           href={waLink}
                           target="_blank"
                           rel="noreferrer"
-                          className="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg bg-[#30d158]/20 hover:bg-[#30d158]/30 border border-[#30d158]/40 text-[#30d158] font-bold text-[11px] transition-all whitespace-nowrap shrink-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#30d158]"
+                          className="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg bg-[#30d158]/20 hover:bg-[#30d158]/30 border border-[#30d158]/40 text-[#30d158] font-bold text-[10px] transition-all"
                           onClick={e => e.stopPropagation()}
                         >
-                          💬 Cotar WhatsApp
+                          💬 WhatsApp
                         </a>
                       ) : (
-                        <span className="text-[#a39b94] text-[11px] whitespace-nowrap">sem contato</span>
+                        <span className="text-[#a39b94] text-[10px]">Sem contato</span>
                       )}
                     </td>
                   </tr>
