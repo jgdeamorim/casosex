@@ -491,9 +491,6 @@ export function MobileSupplierCards(): React.ReactElement {
                 <span className="text-[10px] font-black uppercase text-rose-400 tracking-wider">
                   {activeModalSupplier.category} • POLO {activeModalSupplier.state}
                 </span>
-                <span className="px-2 py-0.5 rounded-full text-[9px] font-extrabold bg-emerald-500/20 text-emerald-400 border border-emerald-500/30">
-                  SCORE BOA {activeModalSupplier.quality_score ?? 100}/100
-                </span>
               </div>
               <h3 className="text-base font-bold text-stone-100 truncate mt-0.5">
                 {activeModalSupplier.name}

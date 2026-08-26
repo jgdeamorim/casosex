@@ -145,6 +145,34 @@ export function removeFromPendingSync(supplierId: string): void {
   }
 }
 
+/* TTL de Cache PWA no Navegador: 365 Dias (1 Ano) */
+export const CACHE_TTL_365_DAYS_MS = 365 * 24 * 60 * 60 * 1000;
+const CACHE_TIMESTAMP_KEY = 'v8_cache_timestamp';
+
+export function checkAndSyncCloudflareCache(userRole?: string): boolean {
+  try {
+    const raw = localStorage.getItem(CACHE_TIMESTAMP_KEY);
+    const now = Date.now();
+
+    if (!raw) {
+      localStorage.setItem(CACHE_TIMESTAMP_KEY, now.toString());
+      return false;
+    }
+
+    const created = Number(raw);
+    if (now - created > CACHE_TTL_365_DAYS_MS) {
+      console.log(`[PWA Cache 365d] TTL expirado para perfil ${userRole ?? 'default'}. Re-sincronizando com Cloudflare D1...`);
+      localStorage.removeItem(LOCAL_OVERRIDES_KEY);
+      localStorage.setItem(CACHE_TIMESTAMP_KEY, now.toString());
+      return true;
+    }
+    return false;
+  } catch (e: unknown) {
+    void e;
+    return false;
+  }
+}
+
 export async function flushPendingSyncQueue(): Promise<number> {
   const queue = getPendingSyncQueue();
   if (queue.length === 0) return 0;

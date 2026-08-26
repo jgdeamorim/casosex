@@ -41,29 +41,32 @@ export function MobileHeader(): React.ReactElement {
         <span className="text-[9px] text-stone-400 font-medium tracking-wide">Market Intel Cockpit</span>
       </div>
 
-      {/* Top Right: Status Conectividade WiFi + Avatar Perfil */}
+      {/* Top Right: Status Conectividade Offline (Exibido Apenas quando Desconectado) + Avatar Perfil */}
       <div className="flex items-center gap-2">
-        <div
-          title={isOnline ? 'Online • Conectado ao Cloudflare D1' : 'Offline • Armazenando no Cache PWA'}
-          className="flex items-center justify-center p-1.5 rounded-full bg-stone-900/90 border border-stone-800"
-        >
-          <svg
-            className={`w-3.5 h-3.5 ${
-              isOnline ? 'text-emerald-400' : 'text-rose-500 animate-pulse'
-            }`}
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-            aria-label={isOnline ? 'Conectado à internet' : 'Modo Offline (PWA Cache)'}
+        {!isOnline && (
+          <div
+            title="Offline • Armazenando no Cache PWA (365 Dias)"
+            className="flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-rose-950/40 border border-rose-500/30"
           >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2.5}
-              d="M8.111 16.404a5.5 5.5 0 017.778 0M12 20h.01M4.929 13.222a10 10 0 0114.142 0M1.5 9.5a15 15 0 0121 0"
-            />
-          </svg>
-        </div>
+            <span className="text-[9px] font-semibold text-rose-400 font-mono tracking-tight animate-pulse">
+              Dados salvos offline
+            </span>
+            <svg
+              className="w-3.5 h-3.5 text-rose-500 animate-pulse shrink-0"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              aria-label="Modo Offline (PWA Cache)"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2.5}
+                d="M8.111 16.404a5.5 5.5 0 017.778 0M12 20h.01M4.929 13.222a10 10 0 0114.142 0M1.5 9.5a15 15 0 0121 0"
+              />
+            </svg>
+          </div>
+        )}
 
         <button
           type="button"

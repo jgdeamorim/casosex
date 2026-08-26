@@ -4,6 +4,34 @@ import type { ChatMessage } from '../../types';
 import { useFocusTrap } from '../../lib/useFocusTrap';
 import { triggerHapticFeedback } from '../../lib/pwa-helpers';
 
+const CHAT_STORAGE_KEY = 'v8_team_chat_history_v1';
+const THIRTY_DAYS_MS = 30 * 24 * 60 * 60 * 1000;
+
+interface StoredChatMessage extends ChatMessage {
+  createdAt?: number;
+}
+
+const DEFAULT_MESSAGES: StoredChatMessage[] = [
+  { id: '1', channel: '#geral-volupia', author: 'Jeferson (Founder)', time: '10:14', text: 'Pessoal, atualizamos a lista para 307 fornecedores mapeados nos Polos SP e RJ!', createdAt: Date.now() - 3600000 },
+  { id: '2', channel: '#homologacao-glaucia', author: 'Gláucia (Ops)', time: '10:22', text: 'Estou revisando a licença Anvisa e laudo técnico da fábrica Intt em Diadema.', createdAt: Date.now() - 1800000 },
+  { id: '3', channel: '#negociacao-bruno', author: 'Bruno (Comercial)', time: '10:30', text: 'Consegui a liberação de faturamento em 30/60 dias no boleto faturado!', createdAt: Date.now() - 600000 }
+];
+
+function loadRecentMessages(): StoredChatMessage[] {
+  try {
+    const raw = localStorage.getItem(CHAT_STORAGE_KEY);
+    if (!raw) return DEFAULT_MESSAGES;
+    const parsed = JSON.parse(raw) as StoredChatMessage[];
+    const now = Date.now();
+    // Preserva historico de 30 dias sem exclusao prematura
+    const valid = parsed.filter(m => !m.createdAt || (now - m.createdAt < THIRTY_DAYS_MS));
+    return valid.length > 0 ? valid : DEFAULT_MESSAGES;
+  } catch (e: unknown) {
+    void e;
+    return DEFAULT_MESSAGES;
+  }
+}
+
 export function TeamChatDrawer(): React.ReactElement | null {
   const { isChatOpen, toggleChat, userSession } = useRenderContext();
   const drawerRef = useRef<HTMLDivElement | null>(null);
@@ -11,12 +39,7 @@ export function TeamChatDrawer(): React.ReactElement | null {
 
   useFocusTrap(drawerRef, isChatOpen, toggleChat);
 
-  const [messages, setMessages] = useState<ChatMessage[]>([
-    { id: '1', channel: '#geral-volupia', author: 'Jeferson (Founder)', time: '10:14', text: 'Pessoal, atualizamos a lista para 307 fornecedores mapeados nos Polos SP e RJ!' },
-    { id: '2', channel: '#homologacao-glaucia', author: 'Gláucia (Ops)', time: '10:22', text: 'Estou revisando a licença Anvisa e laudo técnico da fábrica Intt em Diadema.' },
-    { id: '3', channel: '#negociacao-bruno', author: 'Bruno (Comercial)', time: '10:30', text: 'Consegui a liberação de faturamento em 30/60 dias no boleto faturado!' }
-  ]);
-
+  const [messages, setMessages] = useState<StoredChatMessage[]>(() => loadRecentMessages());
   const [inputText, setInputText] = useState<string>('');
 
   if (!isChatOpen) return null;
@@ -26,16 +49,26 @@ export function TeamChatDrawer(): React.ReactElement | null {
     if (!inputText.trim()) return;
     triggerHapticFeedback(8);
 
-    const newMessage: ChatMessage = {
-      id: Date.now().toString(),
+    const nowMs = Date.now();
+    const newMessage: StoredChatMessage = {
+      id: nowMs.toString(),
       channel: activeChannel,
       author: `${userSession.name} (${userSession.role.toUpperCase()})`,
       time: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
       text: inputText.trim(),
-      isMe: true
+      isMe: true,
+      createdAt: nowMs
     };
 
-    setMessages((prev) => [...prev, newMessage]);
+    setMessages((prev) => {
+      const updated = [...prev, newMessage];
+      try {
+        localStorage.setItem(CHAT_STORAGE_KEY, JSON.stringify(updated));
+      } catch (err: unknown) {
+        void err;
+      }
+      return updated;
+    });
     setInputText('');
   };
 
@@ -49,7 +82,7 @@ export function TeamChatDrawer(): React.ReactElement | null {
       aria-label="Chat interno da equipe"
       className="fixed inset-x-0 top-[calc(3.5rem+env(safe-area-inset-top,0px))] bottom-[calc(4.5rem+env(safe-area-inset-bottom,0px))] z-30 bg-[#0c0a0b]/95 backdrop-blur-2xl animate-in slide-in-from-bottom duration-200 flex flex-col border-t border-b border-stone-800 shadow-2xl"
     >
-      {/* Header do Chat WhatsApp B2B com Status Online */}
+      {/* Header do Chat WhatsApp B2B com Status Online e Badge de Retencao 30 dias */}
       <div className="p-3.5 border-b border-stone-800 flex items-center justify-between bg-[#161214]/90 backdrop-blur-md shrink-0">
         <div className="flex items-center space-x-3">
           <div className="w-10 h-10 rounded-2xl bg-gradient-to-tr from-emerald-600 to-emerald-400 flex items-center justify-center text-white text-lg shadow-md shadow-emerald-500/20 shrink-0 font-black">
@@ -61,6 +94,9 @@ export function TeamChatDrawer(): React.ReactElement | null {
                 Interchat Team B2B
               </h3>
               <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+              <span className="px-1.5 py-0.5 rounded text-[8px] font-mono font-bold bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
+                Histórico (30 dias)
+              </span>
             </div>
             <p className="text-[10px] text-stone-400 truncate">
               Canais Diretos de Negociação & Auditoria Volúpia
