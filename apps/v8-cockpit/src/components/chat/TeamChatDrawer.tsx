@@ -45,20 +45,23 @@ export function TeamChatDrawer(): React.ReactElement | null {
       role="dialog"
       aria-modal="true"
       aria-label="Chat interno da equipe"
-      className="fixed inset-y-0 right-0 w-80 sm:w-96 bg-[#161214] border-l border-white/10 shadow-2xl z-50 flex flex-col justify-between animate-slideLeft"
+      className="fixed inset-x-0 top-[calc(3.5rem+env(safe-area-inset-top,0px))] bottom-[calc(4.5rem+env(safe-area-inset-bottom,0px))] z-30 bg-[#0c0a0b]/95 backdrop-blur-xl animate-in slide-in-from-bottom duration-200 flex flex-col border-t border-b border-stone-800"
     >
-      {/* Header */}
-      <div className="p-4 border-b border-white/10 flex items-center justify-between bg-[#0c0a0b]">
+      {/* Header com Botão X Moderno */}
+      <div className="p-4 border-b border-stone-800 flex items-center justify-between bg-[#161214]">
         <div>
-          <h3 className="text-sm font-bold text-[#faf7f5]">Chat Interno da Equipe</h3>
-          <span className="text-[10px] text-[#a39b94]">Canais de Auditoria & Negociação</span>
+          <h3 className="text-xs font-black uppercase tracking-wider text-stone-200">Interchat Team B2B</h3>
+          <span className="text-[10px] text-stone-400">Canais de Auditoria & Negociação</span>
         </div>
         <button
+          type="button"
           onClick={toggleChat}
-          aria-label="Fechar chat"
-          className="p-2 rounded-lg text-[#a39b94] hover:text-[#faf7f5] hover:bg-[#221c1f] transition-all whitespace-nowrap shrink-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#e11d48]"
+          aria-label="Fechar chat da equipe"
+          className="w-8 h-8 rounded-full bg-stone-800 text-stone-400 hover:text-stone-100 hover:bg-stone-700 transition-all flex items-center justify-center focus:outline-none focus:ring-2 focus:ring-rose-500 shrink-0 min-h-[44px] min-w-[44px]"
         >
-          ✕
+          <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M6 18L18 6M6 6l12 12" />
+          </svg>
         </button>
       </div>
 

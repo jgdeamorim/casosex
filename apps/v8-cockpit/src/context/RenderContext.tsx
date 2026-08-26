@@ -26,6 +26,8 @@ interface RenderContextType {
   setSelectedPolo: (polo: 'TODOS' | 'SP' | 'RJ') => void;
   isChatOpen: boolean;
   toggleChat: () => void;
+  isProfileOpen: boolean;
+  toggleProfile: () => void;
   unreadCount: number;
   clearUnread: () => void;
   isLoading: boolean;
@@ -57,6 +59,7 @@ export function RenderContextProvider({ children }: { children: React.ReactNode 
   const [selectedSupplier, setSelectedSupplier] = useState<Supplier | null>(null);
   const [selectedPolo, setSelectedPolo] = useState<'TODOS' | 'SP' | 'RJ'>('TODOS');
   const [isChatOpen, setIsChatOpen] = useState<boolean>(false);
+  const [isProfileOpen, setIsProfileOpen] = useState<boolean>(false);
   const [unreadCount, setUnreadCount] = useState<number>(3);
 
   const [isLoading, setIsLoading] = useState<boolean>(true);
@@ -208,6 +211,10 @@ export function RenderContextProvider({ children }: { children: React.ReactNode 
     });
   }, []);
 
+  const toggleProfile = useCallback((): void => {
+    setIsProfileOpen(prev => !prev);
+  }, []);
+
   const clearUnread = useCallback((): void => {
     setUnreadCount(0);
   }, []);
@@ -224,6 +231,8 @@ export function RenderContextProvider({ children }: { children: React.ReactNode 
         setSelectedPolo,
         isChatOpen,
         toggleChat,
+        isProfileOpen,
+        toggleProfile,
         unreadCount,
         clearUnread,
         isLoading,

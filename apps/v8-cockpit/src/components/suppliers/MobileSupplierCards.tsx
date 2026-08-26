@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useRenderContext } from '../../context/RenderContext';
 import type { Supplier, HomologationStatus } from '../../types';
 import { canUpdateStatus } from '../../auth/userRules';
@@ -8,12 +8,13 @@ export function MobileSupplierCards(): React.ReactElement {
   const {
     suppliers,
     selectedPolo,
-    selectedSupplier,
-    selectSupplier,
     userSession,
     updateSupplierStatus,
-    statusSaving
+    statusSaving,
+    selectSupplier
   } = useRenderContext();
+
+  const [activeModalSupplier, setActiveModalSupplier] = useState<Supplier | null>(null);
 
   const filtered = suppliers.filter((s) => {
     if (selectedPolo === 'SP') return s.state === 'SP';
@@ -38,6 +39,12 @@ export function MobileSupplierCards(): React.ReactElement {
   const handleCardClick = (sup: Supplier): void => {
     triggerHapticFeedback(6);
     selectSupplier(sup);
+    setActiveModalSupplier(sup);
+  };
+
+  const handleCloseModal = (): void => {
+    triggerHapticFeedback(6);
+    setActiveModalSupplier(null);
   };
 
   const handleStatusClick = (e: React.MouseEvent, supId: string, currentStatus: HomologationStatus): void => {
@@ -51,13 +58,13 @@ export function MobileSupplierCards(): React.ReactElement {
   };
 
   return (
-    <section className="space-y-4" aria-label="Cartões de Fornecedores Tática Mobile">
+    <section className="space-y-4" aria-label="Cartões de Fornecedores Polos B2B">
       <div className="flex items-center justify-between px-1">
         <h2 className="text-xs font-black uppercase tracking-wider text-stone-400 flex items-center gap-1.5">
           <svg className="w-4 h-4 text-rose-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 01-2-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
           </svg>
-          <span>Matriz de Fornecedores ({filtered.length})</span>
+          <span>Polos Industriais ({filtered.length})</span>
         </h2>
         {selectedPolo !== 'TODOS' && (
           <span className="text-[10px] font-bold text-rose-400 bg-rose-500/10 px-2 py-0.5 rounded-full border border-rose-500/20">
@@ -66,9 +73,9 @@ export function MobileSupplierCards(): React.ReactElement {
         )}
       </div>
 
+      {/* Lista de Cartões de Fornecedores */}
       <div className="grid grid-cols-1 gap-3">
         {filtered.map((sup) => {
-          const isSelected = selectedSupplier?.id === sup.id;
           const badge = getStatusBadge(sup.status);
           const isUserAllowed = canUpdateStatus(userSession.role);
 
@@ -76,11 +83,7 @@ export function MobileSupplierCards(): React.ReactElement {
             <div
               key={sup.id}
               onClick={() => handleCardClick(sup)}
-              className={`p-4 rounded-2xl border transition-all cursor-pointer active:scale-[0.98] ${
-                isSelected
-                  ? 'bg-stone-900 border-rose-500 shadow-[0_0_15px_rgba(244,63,94,0.25)]'
-                  : 'bg-[#161214]/90 border-stone-800/80 hover:border-stone-700'
-              }`}
+              className="p-4 rounded-2xl border transition-all cursor-pointer bg-[#161214]/90 border-stone-800/80 hover:border-stone-700 active:scale-[0.98]"
             >
               <div className="flex items-start justify-between gap-2">
                 <div className="space-y-1 min-w-0">
@@ -99,46 +102,106 @@ export function MobileSupplierCards(): React.ReactElement {
                   type="button"
                   disabled={!isUserAllowed || statusSaving}
                   onClick={(e) => handleStatusClick(e, sup.id, sup.status)}
-                  className={`px-2.5 py-1 text-[10px] font-extrabold rounded-full border shrink-0 min-h-[36px] flex items-center gap-1 transition-transform ${badge.style} ${
-                    isUserAllowed ? 'hover:scale-105 active:scale-95' : 'opacity-80 cursor-not-allowed'
-                  }`}
-                  title={isUserAllowed ? 'Toque para alternar o status do fornecedor' : 'Sem permissão'}
+                  className={`px-2.5 py-1 text-[10px] font-extrabold rounded-full border shrink-0 min-h-[36px] flex items-center gap-1 transition-transform ${badge.style}`}
                 >
                   <span>{badge.label}</span>
-                  {isUserAllowed && (
-                    <svg className="w-3 h-3 opacity-60" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
-                    </svg>
-                  )}
                 </button>
               </div>
 
-              {/* Detalhes de Avaliação & WhatsApp no Mobile */}
               <div className="mt-3 pt-2.5 border-t border-stone-800/60 flex items-center justify-between text-xs text-stone-400">
                 <div className="flex items-center space-x-1.5">
                   <span className="text-amber-400 font-bold">★ {sup.rating ?? 5.0}</span>
                   <span className="text-stone-500">Score: {sup.quality_score ?? 100}/100</span>
                 </div>
-
-                {sup.whatsapp && (
-                  <a
-                    href={`https://wa.me/${sup.whatsapp}`}
-                    target="_blank"
-                    rel="noreferrer"
-                    onClick={(e) => e.stopPropagation()}
-                    className="px-2.5 py-1 rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 text-[11px] font-semibold flex items-center gap-1 min-h-[36px]"
-                  >
-                    <svg className="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24">
-                      <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/>
-                    </svg>
-                    <span>Zap</span>
-                  </a>
-                )}
+                <span className="text-[10px] text-rose-400 font-bold underline">Ver Mapa & PopUp →</span>
               </div>
             </div>
           );
         })}
       </div>
+
+      {/* Modern PopUp Bottom-Sheet com Mini-Mapa 35% na parte inferior */}
+      {activeModalSupplier && (
+        <div
+          className="fixed inset-0 z-50 flex items-end sm:items-center justify-center p-0 sm:p-4 bg-black/70 backdrop-blur-md animate-in fade-in duration-200"
+          role="dialog"
+          aria-modal="true"
+        >
+          <div className="w-full max-w-lg bg-[#161214] border border-stone-800 rounded-t-3xl sm:rounded-3xl shadow-2xl overflow-hidden flex flex-col h-[85vh] sm:h-[75vh] animate-in slide-in-from-bottom duration-300">
+            {/* Header do PopUp com Botão de Fechar X Moderno */}
+            <div className="p-4 border-b border-stone-800 flex items-center justify-between bg-[#0c0a0b]">
+              <div className="min-w-0 pr-2">
+                <span className="text-[10px] font-black uppercase text-rose-400 tracking-wider block">
+                  {activeModalSupplier.category} • Polo {activeModalSupplier.state}
+                </span>
+                <h3 className="text-sm font-bold text-stone-100 truncate">
+                  {activeModalSupplier.name}
+                </h3>
+              </div>
+
+              {/* Botão de Fechar X Moderno */}
+              <button
+                type="button"
+                onClick={handleCloseModal}
+                aria-label="Fechar PopUp do Fornecedor"
+                className="w-9 h-9 rounded-full bg-stone-800/80 text-stone-400 hover:text-stone-100 hover:bg-stone-700 transition-all flex items-center justify-center focus:outline-none focus:ring-2 focus:ring-rose-500 shrink-0 min-h-[44px] min-w-[44px]"
+              >
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              </button>
+            </div>
+
+            {/* Conteúdo Superior: Detalhes do Fornecedor */}
+            <div className="p-4 overflow-y-auto space-y-3 flex-1 text-xs">
+              <div className="p-3 rounded-2xl bg-stone-900/60 border border-stone-800 space-y-1">
+                <span className="text-[10px] font-bold text-stone-500 uppercase">Endereço da Fábrica:</span>
+                <p className="text-stone-200 font-semibold">{activeModalSupplier.address}</p>
+                <p className="text-stone-400">{activeModalSupplier.city} - {activeModalSupplier.state}</p>
+              </div>
+
+              <div className="flex items-center justify-between gap-2">
+                {activeModalSupplier.whatsapp && (
+                  <a
+                    href={`https://wa.me/${activeModalSupplier.whatsapp}`}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="flex-1 py-3 px-4 rounded-xl bg-emerald-500 hover:bg-emerald-600 text-white font-extrabold text-xs flex items-center justify-center gap-2 min-h-[44px] shadow-md shadow-emerald-500/20"
+                  >
+                    <span>Contatar no WhatsApp</span>
+                  </a>
+                )}
+                {activeModalSupplier.gmb_url && (
+                  <a
+                    href={activeModalSupplier.gmb_url}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="px-4 py-3 rounded-xl bg-stone-800 text-stone-200 font-bold text-xs flex items-center justify-center min-h-[44px]"
+                  >
+                    GMB
+                  </a>
+                )}
+              </div>
+            </div>
+
+            {/* Mini-Mapa 35% na Parte Inferior do PopUp */}
+            <div className="h-[35%] w-full border-t border-stone-800 relative bg-stone-900">
+              <iframe
+                title={`Mapa da Fábrica ${activeModalSupplier.name}`}
+                width="100%"
+                height="100%"
+                frameBorder="0"
+                scrolling="no"
+                src={`https://maps.google.com/maps?q=${activeModalSupplier.lat},${activeModalSupplier.lng}&z=14&output=embed`}
+                className="w-full h-full opacity-90 filter contrast-125"
+              />
+              <div className="absolute top-2 left-2 px-2.5 py-1 rounded-full bg-stone-900/90 text-rose-400 border border-rose-500/30 text-[10px] font-black uppercase shadow-lg backdrop-blur-md">
+                📍 Pin 35% Bottom • {activeModalSupplier.city}
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </section>
   );
 }
