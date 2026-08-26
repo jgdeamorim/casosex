@@ -1,6 +1,7 @@
 import React from 'react';
 import { useRenderContext } from '../../context/RenderContext';
 import { canAccessTab } from '../../auth/userRules';
+import { triggerHapticFeedback } from '../../lib/pwa-helpers';
 
 interface BottomGlassDockProps {
   activeTab: string;
@@ -19,7 +20,7 @@ export function BottomGlassDock({ activeTab, setActiveTab }: BottomGlassDockProp
 
   return (
     <div 
-      className="md:hidden fixed bottom-0 left-0 right-0 z-40 glass-dock px-3 pt-2 pb-[calc(0.5rem+env(safe-area-inset-bottom,0px))] flex items-center justify-around border-t border-white/10 backdrop-blur-xl bg-[#161214]/90 shadow-2xl" 
+      className="md:hidden fixed bottom-0 left-0 right-0 z-40 glass-dock px-3 pt-2 pb-[calc(0.75rem+env(safe-area-inset-bottom,0px))] flex items-center justify-around border-t border-white/10 backdrop-blur-xl bg-[#161214]/95 shadow-2xl" 
       role="navigation" 
       aria-label="Navegação móvel"
     >
@@ -33,7 +34,10 @@ export function BottomGlassDock({ activeTab, setActiveTab }: BottomGlassDockProp
           <button
             key={item.id}
             type="button"
-            onClick={() => setActiveTab(item.id)}
+            onClick={() => {
+              triggerHapticFeedback(6);
+              setActiveTab(item.id);
+            }}
             aria-current={isActive ? 'page' : undefined}
             className={`relative min-h-[48px] min-w-[48px] flex flex-col items-center justify-center gap-0.5 px-3 py-1.5 rounded-xl text-[11px] font-semibold tracking-wide transition-all active:scale-95 ${
               isActive
