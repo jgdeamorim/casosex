@@ -123,6 +123,21 @@ quality_assurance_skills:
     status: active
     claude_sync: true
 
+mobile_experience_skills:
+  - id: adsentice-pwa-mobile
+    name: Adsentice PWA Mobile Architecture
+    path: /home/jeffer/.gemini/antigravity/skills/adsentice-pwa-mobile/SKILL.md
+    role: Engenharia PWA Mobile Soberana (Safe Area Insets, Touch 44px, Haptic Feedback, Standby GPU, ADB Bridge)
+    status: active
+    claude_sync: true
+
+  - id: login-flow
+    name: Mobile Authentication Flow
+    path: /home/jeffer/.gemini/antigravity/skills/login-flow/SKILL.md
+    role: Padrões de autenticação e portais de login mobile-first
+    status: active
+    claude_sync: true
+
 grounding_servers:
   - mcp: context7
     role: Documentação oficial sincronizada para React 19, Vite, Tailwind v4, Hono, Supabase
