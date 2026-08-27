@@ -1,8 +1,7 @@
 #!/usr/bin/env python3
 """
 Adsentice Sovereign Bridge Server - Port 6669
-Suporta POST JSON e POST Form-Data (Bypass CSP do ChatGPT).
-Persiste eventos em docs/spec/incremental_events/ e notifica o Redis :6396.
+Suporta POST JSON e POST Form-Data com auto-close tab (Bypass de CSP connect-src e frame-src).
 """
 
 import http.server
@@ -84,7 +83,7 @@ class BridgeServerHandler(http.server.BaseHTTPRequestHandler):
         with open(filepath, "w", encoding="utf-8") as f:
             json.dump(payload_data, f, indent=2, ensure_ascii=False)
 
-        print(f"📥 [Bridge 6669] Evento capturado: {filename} ({len(raw_body)} bytes)")
+        print(f"📥 [Bridge 6669] Evento capturado com sucesso: {filename} ({len(raw_body)} bytes)")
 
         # Envia para o Redis se disponível
         if REDIS_CLIENT:
@@ -94,14 +93,30 @@ class BridgeServerHandler(http.server.BaseHTTPRequestHandler):
             except Exception as r_err:
                 print(f"⚠️ Erro ao publicar no Redis: {r_err}")
 
-        # Retorna resposta HTML/JSON apropriada para Form Submit ou Fetch
+        # Retorna HTML com auto-close da janela para form submit _blank
         self.send_response(200)
         self._set_cors_headers()
         
         if 'application/x-www-form-urlencoded' in content_type:
             self.send_header('Content-Type', 'text/html')
             self.end_headers()
-            self.wfile.write(b"<html><body><h3>OK - Payload Recebido pelo Bridge 6669</h3></body></html>")
+            html_response = f"""<!DOCTYPE html>
+<html>
+<head>
+    <title>Adsentice Bridge 6669</title>
+    <script>
+        window.onload = function() {{
+            setTimeout(function() {{ window.close(); }}, 100);
+        }};
+    </script>
+</head>
+<body style="font-family: sans-serif; text-align: center; padding-top: 50px;">
+    <h2>✅ Payload Recebido pelo Adsentice Bridge!</h2>
+    <p>Evento salvo: <code>{filename}</code></p>
+    <p>Esta aba fechará automaticamente...</p>
+</body>
+</html>"""
+            self.wfile.write(html_response.encode('utf-8'))
         else:
             self.send_header('Content-Type', 'application/json')
             self.end_headers()

@@ -1,7 +1,5 @@
 /**
- * ⚡ ADSENTICE CHATGPT CONSOLE EXTRACTOR (Bypass CSP via Form Submit + Copy Fallback)
- * 
- * Cole no Console do Chrome na aba do ChatGPT (F12 -> Console).
+ * ⚡ ADSENTICE CHATGPT CONSOLE EXTRACTOR (CSP Bypass via Target _blank Auto-Close)
  */
 (function() {
   const BRIDGE_URL = 'http://localhost:6669/push';
@@ -30,27 +28,18 @@
       payload: { title: document.title, messages: messages }
     };
 
-    // Copia para a área de transferência do DevTools como backup infalível
+    // Backup: Copia direto para a área de transferência do DevTools
     if (typeof copy === 'function') {
       copy(JSON.stringify(payload, null, 2));
-      console.log('%c 📋 JSON Copiado automaticamente para a Área de Transferência (DevTools copy)', 'color: #3b82f6; font-weight: bold;');
+      console.log('%c 📋 JSON Copiado para a Área de Transferência!', 'color: #3b82f6; font-weight: bold;');
     }
 
-    // Tenta Form Submit via Iframe Oculto (ignora connect-src do CSP)
+    // Target _blank abre aba rápida que envia o POST e auto-fecha (bypassa frame-src e connect-src do CSP)
     try {
-      let iframe = document.getElementById('adsentice_bridge_iframe');
-      if (!iframe) {
-        iframe = document.createElement('iframe');
-        iframe.name = 'adsentice_bridge_iframe';
-        iframe.id = 'adsentice_bridge_iframe';
-        iframe.style.display = 'none';
-        document.body.appendChild(iframe);
-      }
-
       const form = document.createElement('form');
       form.method = 'POST';
       form.action = BRIDGE_URL;
-      form.target = 'adsentice_bridge_iframe';
+      form.target = '_blank';
 
       const input = document.createElement('input');
       input.type = 'hidden';
@@ -60,13 +49,12 @@
 
       document.body.appendChild(form);
       form.submit();
-      setTimeout(() => form.remove(), 1000);
+      setTimeout(() => form.remove(), 500);
 
-      console.log('%c ✅ [Adsentice 6669] Conversa enviada via Form Submit (Bypass CSP)!', 'color: #10b981; font-weight: bold; font-size: 14px;');
-      alert(`✅ Conversa enviada com sucesso! ${messages.length} mensagens enviadas ao Adsentice.`);
+      console.log('%c ✅ [Adsentice 6669] Conversa enviada ao Bridge com sucesso!', 'color: #10b981; font-weight: bold; font-size: 14px;');
+      alert(`✅ Conversa capturada! ${messages.length} mensagens enviadas ao Adsentice.`);
     } catch (e) {
       console.error('❌ Erro no Form Submit:', e);
-      alert('⚠️ O envio HTTP falhou, mas o JSON foi COPIADO para a Área de Transferência! Você pode colar no arquivo.');
     }
   };
 
