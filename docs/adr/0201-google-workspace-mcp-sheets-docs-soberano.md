@@ -1,6 +1,6 @@
 # ADR-0201 · Integrador Soberano Google Workspace MCP Server para Planilhas e Documentos
 
-- **Status:** Accepted
+- **Status:** Concluído & Homologado (Implemented & Homologated)
 - **Data:** 2026-08-27
 - **Decisores:** founder (Jeferson Amorim), antigravity
 - **Extends:** ADR-0019, ADR-0144, ADR-0162
@@ -59,3 +59,16 @@ As credenciais do serviço estão armazenadas no cofre local seguro `.secrets/.e
 
 - **Mitigações**:
   - Exibição de tratamento de erro amigável (`HTTP 401 Unauthorized`) indicando a necessidade de repasse do token OAuth2 caso apenas a API Key esteja presente para operações de escrita/criação.
+
+---
+
+## 4. Homologação em Produção (`medido=verdade`)
+
+- **Planilha Criada em Produção**: `V8 Cockpit - Matriz Nacional de Fornecedores 2026`
+- **Spreadsheet ID**: `19LMcr3399dpQlRhf_gk6ftLJgjyChQuFJJKk76eF9Go`
+- **URL do Documento no Google Drive (`u/0`)**: [https://docs.google.com/spreadsheets/d/19LMcr3399dpQlRhf_gk6ftLJgjyChQuFJJKk76eF9Go/edit](https://docs.google.com/spreadsheets/d/19LMcr3399dpQlRhf_gk6ftLJgjyChQuFJJKk76eF9Go/edit)
+- **Logotipo do Branding (OAuth Consent Screen)**: `volupia_logo_120x120.png` (120x120px PNG)
+- **Token OAuth2 & Refresh Token**: Gravados com sucesso em `.secrets/.evn.GOOGLE-SHEETS`
+- **Redirecionamento Canônico**: `https://app.usevolupia.com.br/api/auth/google/callback` e `https://flossie-subolive-brittanie.ngrok-free.dev/api/auth/google/callback`
+- **Status do Teste de Leitura/Escrita**: **100% Homologado** com injeção automática de 3 linhas de fornecedores (`SUP-001`, `SUP-002`, `SUP-003`).
+
