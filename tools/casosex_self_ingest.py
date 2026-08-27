@@ -31,6 +31,7 @@ QDRANT_URL = os.getenv("QDRANT_URL", "http://127.0.0.1:6352")
 EMBED_URL = os.getenv("EMBED_URL", "http://127.0.0.1:8081")
 COLLECTION_CONVERSATION = "casosex-conversation"
 COLLECTION_SELF = "casosex-self"
+COLLECTION_INSPIRATION = "casosex-inspiration"
 EMBED_DIM = 768
 BATCH_SIZE = 64
 MAX_WORKERS = 8
@@ -143,7 +144,12 @@ def upsert_points(collection: str, points: list[dict]) -> int:
 
 def process_file_target(target_info):
     """Processa 1 arquivo: chunking -> BLAKE3 check -> vetorização batch -> upsert."""
-    rel_path, collection_name, kind = target_info
+    tag_value = "casosex"
+    if len(target_info) == 4:
+        rel_path, collection_name, kind, tag_value = target_info
+    else:
+        rel_path, collection_name, kind = target_info
+
     full_path = PROJECT_ROOT / rel_path
     if not full_path.exists():
         return 0, 0, rel_path, kind, collection_name
@@ -170,7 +176,7 @@ def process_file_target(target_info):
             "chunk_index": ci,
             "total_chunks": len(chunks),
             "ingested_at": datetime.now(timezone.utc).isoformat(),
-            "tag": "casosex",
+            "tag": tag_value,
             "project": "casosex",
             "blake3": fp,
         }
@@ -219,6 +225,7 @@ def run_ingestion():
 
     create_collection(COLLECTION_CONVERSATION)
     create_collection(COLLECTION_SELF)
+    create_collection(COLLECTION_INSPIRATION)
 
     targets = [
         ("docs/briefing/self-conversation/brienfin-conversation-v1.md", COLLECTION_CONVERSATION, "briefing-v1"),
@@ -236,6 +243,8 @@ def run_ingestion():
         targets.append((str(p.relative_to(PROJECT_ROOT)), COLLECTION_SELF, "handoff"))
     for p in sorted(PROJECT_ROOT.glob("specs/**/*.md")):
         targets.append((str(p.relative_to(PROJECT_ROOT)), COLLECTION_SELF, "spec"))
+    for p in sorted(PROJECT_ROOT.glob("docs/spec/mobile-app-first/*.*")):
+        targets.append((str(p.relative_to(PROJECT_ROOT)), COLLECTION_INSPIRATION, "app-jury", "app-jury"))
 
     total_inserted = 0
     total_skipped = 0
