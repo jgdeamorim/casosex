@@ -245,6 +245,9 @@ def run_ingestion():
         targets.append((str(p.relative_to(PROJECT_ROOT)), COLLECTION_SELF, "spec"))
     for p in sorted(PROJECT_ROOT.glob("docs/spec/mobile-app-first/*.*")):
         targets.append((str(p.relative_to(PROJECT_ROOT)), COLLECTION_INSPIRATION, "app-jury", "app-jury"))
+    for p in sorted(PROJECT_ROOT.glob("apps/v8-cockpit/src/**/*.*")):
+        if p.is_file() and p.suffix in [".ts", ".tsx", ".css", ".json", ".html"]:
+            targets.append((str(p.relative_to(PROJECT_ROOT)), COLLECTION_SELF, "v8-cockpit-code", "v8_cockpit"))
 
     total_inserted = 0
     total_skipped = 0
