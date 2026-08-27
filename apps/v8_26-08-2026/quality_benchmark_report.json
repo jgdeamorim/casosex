@@ -1,0 +1,470 @@
+{
+  "status": "VALIDATED",
+  "doctrine": "medido=verdade",
+  "timestamp": "2026-08-26T21:35:40",
+  "output_directory": "/media/jeffer/5aab5a95-8290-d3f7-2e4f-8c27cc2d09a93/CASOSEX/apps/v8_26-08-2026",
+  "metrics": {
+    "overall_quality_score": "100.0%",
+    "spec_files_count": 11,
+    "spec_tag": "app-jury",
+    "code_files_count": 38,
+    "code_tag": "v8_cockpit",
+    "qdrant_casosex_inspiration_points": 25,
+    "qdrant_casosex_self_points": 347,
+    "aligned_key_components": "7/7"
+  },
+  "spec_manifest": [
+    {
+      "file": "andes-ui-tokens.yaml",
+      "rel_path": "docs/spec/mobile-app-first/andes-ui-tokens.yaml",
+      "blake2b_hash": "3e83ee1f418c7d64fe6c16ee524a1579b89107a815e9d8a4238bcbe7e19d49f0",
+      "size_bytes": 1836,
+      "tag": "app-jury",
+      "collection": "casosex-inspiration"
+    },
+    {
+      "file": "assets-catalog.yaml",
+      "rel_path": "docs/spec/mobile-app-first/assets-catalog.yaml",
+      "blake2b_hash": "000ca3e8866db58bc2855723a42ae48ea0576758d9763cc05d1246c0212640c9",
+      "size_bytes": 16634,
+      "tag": "app-jury",
+      "collection": "casosex-inspiration"
+    },
+    {
+      "file": "component-routes-metadata.yaml",
+      "rel_path": "docs/spec/mobile-app-first/component-routes-metadata.yaml",
+      "blake2b_hash": "eb292b0fb2742648185ddab2b86119da4c8a90a78453bda2059fb27180acd06c",
+      "size_bytes": 6617,
+      "tag": "app-jury",
+      "collection": "casosex-inspiration"
+    },
+    {
+      "file": "deep-links-routes.yaml",
+      "rel_path": "docs/spec/mobile-app-first/deep-links-routes.yaml",
+      "blake2b_hash": "d174e84dba5831279a3913fcdda5e93777db385bef16f0ddc2923c4c68281aa7",
+      "size_bytes": 2466,
+      "tag": "app-jury",
+      "collection": "casosex-inspiration"
+    },
+    {
+      "file": "design-tokens-full.json",
+      "rel_path": "docs/spec/mobile-app-first/design-tokens-full.json",
+      "blake2b_hash": "1f442302f5148b17b405faf888a1aeb8f4c6140399b0ad130c92b38a14bbfe46",
+      "size_bytes": 360824,
+      "tag": "app-jury",
+      "collection": "casosex-inspiration"
+    },
+    {
+      "file": "dimens-spacing.yaml",
+      "rel_path": "docs/spec/mobile-app-first/dimens-spacing.yaml",
+      "blake2b_hash": "e88a3d02e287f51d53eea609ffad777317d8d1939408e38b427cb357ff1b3330",
+      "size_bytes": 3291,
+      "tag": "app-jury",
+      "collection": "casosex-inspiration"
+    },
+    {
+      "file": "index.yaml",
+      "rel_path": "docs/spec/mobile-app-first/index.yaml",
+      "blake2b_hash": "5680106554ab1e01f6dc0df8b69e43e313471eae9690f10014ec7a0adac37e5f",
+      "size_bytes": 1733,
+      "tag": "app-jury",
+      "collection": "casosex-inspiration"
+    },
+    {
+      "file": "interactive-states-actions.yaml",
+      "rel_path": "docs/spec/mobile-app-first/interactive-states-actions.yaml",
+      "blake2b_hash": "9c2eb0655bab54231d3930fadf7507750f5569c1db084c7c7145ee650798feef",
+      "size_bytes": 880,
+      "tag": "app-jury",
+      "collection": "casosex-inspiration"
+    },
+    {
+      "file": "master-design-system.json",
+      "rel_path": "docs/spec/mobile-app-first/master-design-system.json",
+      "blake2b_hash": "9fdf62adc305458fe41d73c1b39b2edab78555a08730c1e2618b6b25eac7047f",
+      "size_bytes": 77190,
+      "tag": "app-jury",
+      "collection": "casosex-inspiration"
+    },
+    {
+      "file": "micro-copy-ptbr.yaml",
+      "rel_path": "docs/spec/mobile-app-first/micro-copy-ptbr.yaml",
+      "blake2b_hash": "9b45ccec5f0da5440e4fe280040e091b4bee36a52c4bcedd9d94649619ae268b",
+      "size_bytes": 1094,
+      "tag": "app-jury",
+      "collection": "casosex-inspiration"
+    },
+    {
+      "file": "motion-animations.yaml",
+      "rel_path": "docs/spec/mobile-app-first/motion-animations.yaml",
+      "blake2b_hash": "c77346e24f62e75751a74bdea9c34c027e7dd48e96a45dc8342a498cb9bb223f",
+      "size_bytes": 1259,
+      "tag": "app-jury",
+      "collection": "casosex-inspiration"
+    }
+  ],
+  "code_manifest": [
+    {
+      "file": "App.tsx",
+      "rel_path": "apps/v8-cockpit/src/App.tsx",
+      "blake2b_hash": "ab5cdf1329f5191dc62beec23b2584394fc12dcb3de257483dacc3be9914f434",
+      "size_bytes": 4156,
+      "tag": "v8_cockpit",
+      "collection": "casosex-self"
+    },
+    {
+      "file": "ProfilePicker.tsx",
+      "rel_path": "apps/v8-cockpit/src/auth/ProfilePicker.tsx",
+      "blake2b_hash": "b2162a394254282aef04ace338c6ee57e2d33aa4ae0b637dd7a0c1956290767f",
+      "size_bytes": 2812,
+      "tag": "v8_cockpit",
+      "collection": "casosex-self"
+    },
+    {
+      "file": "ScopeGuard.tsx",
+      "rel_path": "apps/v8-cockpit/src/auth/ScopeGuard.tsx",
+      "blake2b_hash": "b9b116478667e751539f4a56a270369dea726d20b4800a0d17f4f2bb0bc1b3e3",
+      "size_bytes": 1046,
+      "tag": "v8_cockpit",
+      "collection": "casosex-self"
+    },
+    {
+      "file": "userRules.ts",
+      "rel_path": "apps/v8-cockpit/src/auth/userRules.ts",
+      "blake2b_hash": "213e194386cf861226526fd5d5d60a4a5857eb6d322a57a7347502b9da67762d",
+      "size_bytes": 1533,
+      "tag": "v8_cockpit",
+      "collection": "casosex-self"
+    },
+    {
+      "file": "MobileAppView.tsx",
+      "rel_path": "apps/v8-cockpit/src/components/MobileAppView.tsx",
+      "blake2b_hash": "5b886ff7d1d838a1a2c53d6e73f9802e38b05e1579ca6fbb4a72d41ea0de391e",
+      "size_bytes": 1536,
+      "tag": "v8_cockpit",
+      "collection": "casosex-self"
+    },
+    {
+      "file": "ResponsiveViewportEngine.tsx",
+      "rel_path": "apps/v8-cockpit/src/components/ResponsiveViewportEngine.tsx",
+      "blake2b_hash": "cdd67256c7202faed91cb1e816b4f9af7c291a4829520ef30fc42a13c9ed32a7",
+      "size_bytes": 1441,
+      "tag": "v8_cockpit",
+      "collection": "casosex-self"
+    },
+    {
+      "file": "LoginModal.tsx",
+      "rel_path": "apps/v8-cockpit/src/components/auth/LoginModal.tsx",
+      "blake2b_hash": "2773dcb43890e2e11733863fa9573c7d6971cfdbb26a92364d68482650a658d7",
+      "size_bytes": 1702,
+      "tag": "v8_cockpit",
+      "collection": "casosex-self"
+    },
+    {
+      "file": "LoginView.tsx",
+      "rel_path": "apps/v8-cockpit/src/components/auth/LoginView.tsx",
+      "blake2b_hash": "95a1d376d5188d93461a3e4cdec4b26127e75731fee0a07809f41b87516af98d",
+      "size_bytes": 1538,
+      "tag": "v8_cockpit",
+      "collection": "casosex-self"
+    },
+    {
+      "file": "TeamChatDrawer.tsx",
+      "rel_path": "apps/v8-cockpit/src/components/chat/TeamChatDrawer.tsx",
+      "blake2b_hash": "ee8be9addf9763b67f364ed4aa01befa6d7f1f685915e7770e8bed20a256af3f",
+      "size_bytes": 9012,
+      "tag": "v8_cockpit",
+      "collection": "casosex-self"
+    },
+    {
+      "file": "MobileIntelView.tsx",
+      "rel_path": "apps/v8-cockpit/src/components/dashboard/MobileIntelView.tsx",
+      "blake2b_hash": "def28c31a0fb07e533994d4c2145709ee4d5e31318665325a72527cf255bb137",
+      "size_bytes": 5795,
+      "tag": "v8_cockpit",
+      "collection": "casosex-self"
+    },
+    {
+      "file": "HomologationForm.tsx",
+      "rel_path": "apps/v8-cockpit/src/components/dossier/HomologationForm.tsx",
+      "blake2b_hash": "6e1347390d6c424e1ee3dc422e526d0a63ea205259cb5ce6e4eb3ff54d067c78",
+      "size_bytes": 14939,
+      "tag": "v8_cockpit",
+      "collection": "casosex-self"
+    },
+    {
+      "file": "MobileDossierView.tsx",
+      "rel_path": "apps/v8-cockpit/src/components/dossier/MobileDossierView.tsx",
+      "blake2b_hash": "c56e4618d793d45c86c1fc9a6458e3c2ab972a9153ed7d190ba8ac42252eed60",
+      "size_bytes": 20530,
+      "tag": "v8_cockpit",
+      "collection": "casosex-self"
+    },
+    {
+      "file": "KPIGrid.tsx",
+      "rel_path": "apps/v8-cockpit/src/components/kpi/KPIGrid.tsx",
+      "blake2b_hash": "96fbdbec8cfcd35c8807ca903fb2df1fa997c24fa6c02d79f8dd3ee9d7066312",
+      "size_bytes": 3985,
+      "tag": "v8_cockpit",
+      "collection": "casosex-self"
+    },
+    {
+      "file": "BottomGlassDock.tsx",
+      "rel_path": "apps/v8-cockpit/src/components/layout/BottomGlassDock.tsx",
+      "blake2b_hash": "1817e901ad06d6ac036b0bf44d13f4cae3e9fa8f92244d5e27d328281f0ed328",
+      "size_bytes": 4014,
+      "tag": "v8_cockpit",
+      "collection": "casosex-self"
+    },
+    {
+      "file": "Header.tsx",
+      "rel_path": "apps/v8-cockpit/src/components/layout/Header.tsx",
+      "blake2b_hash": "6b4f05d2737cfcdf7a52e72d015c2285e3d65613d90f82ac26ba2572c8fb4aaa",
+      "size_bytes": 9365,
+      "tag": "v8_cockpit",
+      "collection": "casosex-self"
+    },
+    {
+      "file": "MobileHeader.tsx",
+      "rel_path": "apps/v8-cockpit/src/components/layout/MobileHeader.tsx",
+      "blake2b_hash": "a7c2f09e5078c0a745b88defbe9215db80717bc39012c148edcda8a55b760f8f",
+      "size_bytes": 3953,
+      "tag": "v8_cockpit",
+      "collection": "casosex-self"
+    },
+    {
+      "file": "Sidebar.tsx",
+      "rel_path": "apps/v8-cockpit/src/components/layout/Sidebar.tsx",
+      "blake2b_hash": "6160b9ea44963cec9f428d57cc03bf4b18ab43b9c8198cef0d18a6dcacc4c99e",
+      "size_bytes": 4018,
+      "tag": "v8_cockpit",
+      "collection": "casosex-self"
+    },
+    {
+      "file": "SupplierMap.tsx",
+      "rel_path": "apps/v8-cockpit/src/components/map/SupplierMap.tsx",
+      "blake2b_hash": "c218c9b61ad704ccaeb1128d954b1f08c7efe3815aafdd612b309d36e4daf49e",
+      "size_bytes": 7223,
+      "tag": "v8_cockpit",
+      "collection": "casosex-self"
+    },
+    {
+      "file": "UserProfileModal.tsx",
+      "rel_path": "apps/v8-cockpit/src/components/profile/UserProfileModal.tsx",
+      "blake2b_hash": "1117682372b0d7f31de296d44b0c934c4ce747a2a4b8a1d7c8f816a6267c0120",
+      "size_bytes": 8872,
+      "tag": "v8_cockpit",
+      "collection": "casosex-self"
+    },
+    {
+      "file": "MobileSupplierCards.tsx",
+      "rel_path": "apps/v8-cockpit/src/components/suppliers/MobileSupplierCards.tsx",
+      "blake2b_hash": "c08623086484f2db3ef60d30566c6076fef85424e5c4ab509932ec86454d556d",
+      "size_bytes": 27037,
+      "tag": "v8_cockpit",
+      "collection": "casosex-self"
+    },
+    {
+      "file": "SupplierTable.tsx",
+      "rel_path": "apps/v8-cockpit/src/components/suppliers/SupplierTable.tsx",
+      "blake2b_hash": "312ae587fb7e6a9cfbfed5ccba76604a0903aeca78cba18bbf21f22a3ebd6285",
+      "size_bytes": 10697,
+      "tag": "v8_cockpit",
+      "collection": "casosex-self"
+    },
+    {
+      "file": "RenderContext.tsx",
+      "rel_path": "apps/v8-cockpit/src/context/RenderContext.tsx",
+      "blake2b_hash": "c5947f34740364541b5f01dd9981c713cfcfcb4d0be95d8b3e337f80d493b1f6",
+      "size_bytes": 9418,
+      "tag": "v8_cockpit",
+      "collection": "casosex-self"
+    },
+    {
+      "file": "DeviceLayoutFacet.ts",
+      "rel_path": "apps/v8-cockpit/src/facets/DeviceLayoutFacet.ts",
+      "blake2b_hash": "46b57ac63ed6e1016d9e4ffb97fe5f7565de90c9723a58c0d75f60af328f8195",
+      "size_bytes": 891,
+      "tag": "v8_cockpit",
+      "collection": "casosex-self"
+    },
+    {
+      "file": "index.css",
+      "rel_path": "apps/v8-cockpit/src/index.css",
+      "blake2b_hash": "4d56369506e139bc27ce1ef161a3fa20a59009d7398d36cd0d2c3d6e8c58ed0b",
+      "size_bytes": 7930,
+      "tag": "v8_cockpit",
+      "collection": "casosex-self"
+    },
+    {
+      "file": "api.ts",
+      "rel_path": "apps/v8-cockpit/src/lib/api.ts",
+      "blake2b_hash": "af645bfd512fc276cb2908ca5db8257305bf2d9a97659bb91416649ca97f3d88",
+      "size_bytes": 5750,
+      "tag": "v8_cockpit",
+      "collection": "casosex-self"
+    },
+    {
+      "file": "AuditTrailLogger.ts",
+      "rel_path": "apps/v8-cockpit/src/lib/background/AuditTrailLogger.ts",
+      "blake2b_hash": "aeadeba9b503331ef5fe499fc72b1b29a8bd6eb1642d0cbe70fdda49482624b1",
+      "size_bytes": 532,
+      "tag": "v8_cockpit",
+      "collection": "casosex-self"
+    },
+    {
+      "file": "CacheRevalidationService.ts",
+      "rel_path": "apps/v8-cockpit/src/lib/background/CacheRevalidationService.ts",
+      "blake2b_hash": "1ca224dbbbff8ef838ac9f0862210d1012b46ed678e79803c25f1a4981001ac3",
+      "size_bytes": 1322,
+      "tag": "v8_cockpit",
+      "collection": "casosex-self"
+    },
+    {
+      "file": "OfflineSyncQueue.ts",
+      "rel_path": "apps/v8-cockpit/src/lib/background/OfflineSyncQueue.ts",
+      "blake2b_hash": "8d4ec4fbf7217d3c70f680bc70061368bd612e313687b2a131589dc8af3b5d19",
+      "size_bytes": 1608,
+      "tag": "v8_cockpit",
+      "collection": "casosex-self"
+    },
+    {
+      "file": "SupplierPollingWorker.ts",
+      "rel_path": "apps/v8-cockpit/src/lib/background/SupplierPollingWorker.ts",
+      "blake2b_hash": "8bb8fd273129be3811b6a5d83711e61d0f4a13498f162d9f5ceec62776f83756",
+      "size_bytes": 1361,
+      "tag": "v8_cockpit",
+      "collection": "casosex-self"
+    },
+    {
+      "file": "TelemetryBackgroundWorker.ts",
+      "rel_path": "apps/v8-cockpit/src/lib/background/TelemetryBackgroundWorker.ts",
+      "blake2b_hash": "5b6f2f4182402a77ba4dbd606c7c856dc9e94acc0bbba4bf1f5fab00af4177ad",
+      "size_bytes": 1062,
+      "tag": "v8_cockpit",
+      "collection": "casosex-self"
+    },
+    {
+      "file": "index.ts",
+      "rel_path": "apps/v8-cockpit/src/lib/background/index.ts",
+      "blake2b_hash": "01fd27127092ff5fd155a24cb1f84d63c61ccbbd3046f262bd9fbe0e5113ffba",
+      "size_bytes": 495,
+      "tag": "v8_cockpit",
+      "collection": "casosex-self"
+    },
+    {
+      "file": "filterSuppliers.ts",
+      "rel_path": "apps/v8-cockpit/src/lib/filterSuppliers.ts",
+      "blake2b_hash": "ccee2b675305d14f37860fb2be52cb7689ef0e626e083f65038d1cc1af937cab",
+      "size_bytes": 1147,
+      "tag": "v8_cockpit",
+      "collection": "casosex-self"
+    },
+    {
+      "file": "pwa-helpers.ts",
+      "rel_path": "apps/v8-cockpit/src/lib/pwa-helpers.ts",
+      "blake2b_hash": "707418070b42bf15d659cfe48e1a53cd2de2914e6c2431fdf0880a625fba6915",
+      "size_bytes": 1530,
+      "tag": "v8_cockpit",
+      "collection": "casosex-self"
+    },
+    {
+      "file": "status.ts",
+      "rel_path": "apps/v8-cockpit/src/lib/status.ts",
+      "blake2b_hash": "639c4c375072a60ab801622555f1fe2176568d73dcaece26e9e18b0f6ea18075",
+      "size_bytes": 841,
+      "tag": "v8_cockpit",
+      "collection": "casosex-self"
+    },
+    {
+      "file": "useFocusTrap.ts",
+      "rel_path": "apps/v8-cockpit/src/lib/useFocusTrap.ts",
+      "blake2b_hash": "a5a7560230269da6736b899ae06a1f0dcea9b81ac6412c586c072ad17ed5f2cd",
+      "size_bytes": 1561,
+      "tag": "v8_cockpit",
+      "collection": "casosex-self"
+    },
+    {
+      "file": "main.tsx",
+      "rel_path": "apps/v8-cockpit/src/main.tsx",
+      "blake2b_hash": "312f49fe333b4c2629a43112c2bf71a6404612c0590ccbdc7c8289e9e156711f",
+      "size_bytes": 546,
+      "tag": "v8_cockpit",
+      "collection": "casosex-self"
+    },
+    {
+      "file": "responsive-screens.json",
+      "rel_path": "apps/v8-cockpit/src/seeds/responsive-screens.json",
+      "blake2b_hash": "a3a692f27a91eb304c7f049f9c5b32cf054a2d904257642567aee01cdb0eec5c",
+      "size_bytes": 1521,
+      "tag": "v8_cockpit",
+      "collection": "casosex-self"
+    },
+    {
+      "file": "index.ts",
+      "rel_path": "apps/v8-cockpit/src/types/index.ts",
+      "blake2b_hash": "894c7150d7c1bdd88211a037d037a7717ad0e342d8bca2d8fef0e1eb327531ee",
+      "size_bytes": 1344,
+      "tag": "v8_cockpit",
+      "collection": "casosex-self"
+    }
+  ],
+  "alignment_matrix": [
+    {
+      "component": "BottomGlassDock",
+      "spec_file": "andes-ui-tokens.yaml",
+      "code_file": "components/layout/BottomGlassDock.tsx",
+      "spec_hash": "3e83ee1f418c7d64fe6c16ee524a1579b89107a815e9d8a4238bcbe7e19d49f0",
+      "code_hash": "1817e901ad06d6ac036b0bf44d13f4cae3e9fa8f92244d5e27d328281f0ed328",
+      "status": "ALIGNED"
+    },
+    {
+      "component": "MobileDossierView",
+      "spec_file": "index.yaml",
+      "code_file": "components/dossier/MobileDossierView.tsx",
+      "spec_hash": "5680106554ab1e01f6dc0df8b69e43e313471eae9690f10014ec7a0adac37e5f",
+      "code_hash": "c56e4618d793d45c86c1fc9a6458e3c2ab972a9153ed7d190ba8ac42252eed60",
+      "status": "ALIGNED"
+    },
+    {
+      "component": "MobileSupplierCards",
+      "spec_file": "component-routes-metadata.yaml",
+      "code_file": "components/suppliers/MobileSupplierCards.tsx",
+      "spec_hash": "eb292b0fb2742648185ddab2b86119da4c8a90a78453bda2059fb27180acd06c",
+      "code_hash": "c08623086484f2db3ef60d30566c6076fef85424e5c4ab509932ec86454d556d",
+      "status": "ALIGNED"
+    },
+    {
+      "component": "MobileIntelView",
+      "spec_file": "index.yaml",
+      "code_file": "components/dashboard/MobileIntelView.tsx",
+      "spec_hash": "5680106554ab1e01f6dc0df8b69e43e313471eae9690f10014ec7a0adac37e5f",
+      "code_hash": "def28c31a0fb07e533994d4c2145709ee4d5e31318665325a72527cf255bb137",
+      "status": "ALIGNED"
+    },
+    {
+      "component": "MobileHeader",
+      "spec_file": "andes-ui-tokens.yaml",
+      "code_file": "components/layout/MobileHeader.tsx",
+      "spec_hash": "3e83ee1f418c7d64fe6c16ee524a1579b89107a815e9d8a4238bcbe7e19d49f0",
+      "code_hash": "a7c2f09e5078c0a745b88defbe9215db80717bc39012c148edcda8a55b760f8f",
+      "status": "ALIGNED"
+    },
+    {
+      "component": "ResponsiveViewportEngine",
+      "spec_file": "index.yaml",
+      "code_file": "components/ResponsiveViewportEngine.tsx",
+      "spec_hash": "5680106554ab1e01f6dc0df8b69e43e313471eae9690f10014ec7a0adac37e5f",
+      "code_hash": "cdd67256c7202faed91cb1e816b4f9af7c291a4829520ef30fc42a13c9ed32a7",
+      "status": "ALIGNED"
+    },
+    {
+      "component": "DeviceLayoutFacet",
+      "spec_file": "dimens-spacing.yaml",
+      "code_file": "facets/DeviceLayoutFacet.ts",
+      "spec_hash": "e88a3d02e287f51d53eea609ffad777317d8d1939408e38b427cb357ff1b3330",
+      "code_hash": "46b57ac63ed6e1016d9e4ffb97fe5f7565de90c9723a58c0d75f60af328f8195",
+      "status": "ALIGNED"
+    }
+  ]
+}
