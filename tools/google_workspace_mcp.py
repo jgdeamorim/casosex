@@ -68,7 +68,7 @@ def get_valid_access_token():
     return None
 
 @mcp.tool()
-def google_auth_get_login_url(redirect_uri: str = "http://localhost:3000/api/auth/google/callback") -> str:
+def google_auth_get_login_url(redirect_uri: str = None) -> str:
     """
     Gera o link de autorização OAuth 2.0 do Google para o operador fazer login no navegador.
     """
@@ -76,6 +76,9 @@ def google_auth_get_login_url(redirect_uri: str = "http://localhost:3000/api/aut
     client_id = secrets.get("GOOGLE_CLIENT_ID")
     if not client_id:
         return json.dumps({"status": "ERROR", "message": "GOOGLE_CLIENT_ID não configurado em .secrets/.evn.GOOGLE-SHEETS"})
+
+    if not redirect_uri:
+        redirect_uri = secrets.get("GOOGLE_REDIRECT_URI", "https://flossie-subolive-brittanie.ngrok-free.dev/api/auth/google/callback")
 
     scopes = "https://www.googleapis.com/auth/spreadsheets https://www.googleapis.com/auth/drive.file"
     params = {
@@ -90,17 +93,21 @@ def google_auth_get_login_url(redirect_uri: str = "http://localhost:3000/api/aut
     return json.dumps({
         "status": "SUCCESS",
         "auth_url": url,
+        "redirect_uri_used": redirect_uri,
         "instruction": "Abra a auth_url no navegador, autorize a aplicação e copie o código retornado no callback."
     }, ensure_ascii=False)
 
 @mcp.tool()
-def google_auth_exchange_code(code: str, redirect_uri: str = "http://localhost:3000/api/auth/google/callback") -> str:
+def google_auth_exchange_code(code: str, redirect_uri: str = None) -> str:
     """
     Troca o código de autorização OAuth 2.0 retornado pelo Google pelos tokens de acesso e os salva em .secrets/.evn.GOOGLE-SHEETS.
     """
     secrets = load_env_secrets()
     client_id = secrets.get("GOOGLE_CLIENT_ID")
     client_secret = secrets.get("GOOGLE_CLIENT_SECRET")
+
+    if not redirect_uri:
+        redirect_uri = secrets.get("GOOGLE_REDIRECT_URI", "https://flossie-subolive-brittanie.ngrok-free.dev/api/auth/google/callback")
 
     if not client_id or not client_secret:
         return json.dumps({"status": "ERROR", "message": "Credenciais de OAuth (Client ID / Secret) ausentes."})
