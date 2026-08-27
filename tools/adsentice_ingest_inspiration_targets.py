@@ -16,7 +16,7 @@ from urllib.request import Request, urlopen
 from datetime import datetime, timezone
 
 try:
-    from hashlib import blake3
+    import blake3
 except ImportError:
     blake3 = None
 
@@ -27,7 +27,7 @@ EMBED_DIM = 768
 
 def blake3_hex(text: str) -> str:
     if blake3:
-        return blake3(text.encode("utf-8")).hexdigest()
+        return blake3.blake3(text.encode("utf-8")).hexdigest()
     return hashlib.sha256(text.encode("utf-8")).hexdigest()
 
 def point_id(content: str) -> str:
