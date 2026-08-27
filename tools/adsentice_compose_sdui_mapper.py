@@ -43,17 +43,19 @@ def infer_andes_component(res_id, cls_name, content_desc, text):
     d = content_desc.lower()
     t = text.lower()
 
-    if 'banking_balance_row' in r or 'saldo' in d or 'saldo' in t:
+    if 'banking_balance_row' in r or ('saldo' in d or 'saldo' in t):
         return 'RsxtBankingBalanceRow'
-    elif 'tab' in r or 'bottom_navigation' in r or 'tabbar' in c:
+    elif 'quick_action' in r or 'pix' in d or 'pix' in t or 'transferir' in d or 'cobrar' in d or 'pagar' in d:
+        return 'RsxtAndesQuickActionsBar'
+    elif 'tab' in r or 'bottom_navigation' in r or 'tabbar' in c or 'navigation' in r:
         return 'RsxtAndesTabBar'
-    elif 'button' in c or 'button' in r:
-        return 'RsxtAndesButton'
-    elif 'card' in r or 'container' in r:
+    elif 'card' in r or 'container' in r or 'card' in c or 'credit' in r or 'cartao' in d or 'cartão' in d:
         return 'RsxtAndesCard'
-    elif 'image' in c or 'icon' in r:
+    elif 'button' in c or 'button' in r or 'btn' in r:
+        return 'RsxtAndesButton'
+    elif 'image' in c or 'icon' in r or 'imageview' in c:
         return 'RsxtAndesIcon'
-    elif 'text' in c or text != '':
+    elif 'textview' in c or 'text' in c or text != '':
         return 'RsxtAndesText'
     return 'RsxtViewContainer'
 
