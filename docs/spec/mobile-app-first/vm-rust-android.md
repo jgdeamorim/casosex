@@ -4,7 +4,7 @@
 
 A **VM Rust Android (`rsxt-android`)** evolui o conceito de especificações estáticas no ecossistema Adsentice / V8 Cockpit. 
 
-Historicamente, o **Veto #4** definia que conter 10 artefatos YAML/JSON em `docs/spec/mobile-app-first/` não alterava a interface sem a escrita manual de componentes `.tsx`. Com o **`rsxt-android`** (baseado no trifólio de arquiteturas `rsxt-engine` [tag: `oxibonsai-27b`], `rsxt-v0k3` [tag: `astro-emdash`] e agora `rsxt-android`), o motor em **Rust + Tokio + Redb + WGPU + Slint** consome a árvore de especificações compilada em `redb` e renderiza nativamente na GPU (via WGPU/Slint), **eliminando o Veto #4 definitivamente**.
+Historicamente, o **Veto #4** definia que conter 10 artefatos YAML/JSON em `docs/spec/mobile-app-first/` não alterava a interface sem a escrita manual de componentes `.tsx`. Com o **`rsxt-android`** (baseado no trifólio de arquiteturas `rsxt-engine` [tag: `oxibonsai-27b`], `rsxt-v0k3` [tag: `astro-emdash`] e agora `rsxt-android` [tag: `APP-MERCADOPAGO`]), o motor em **Rust + Tokio + Redb + WGPU + Slint** consome a árvore de especificações compilada em `redb` e renderiza nativamente na GPU (via WGPU/Slint), **eliminando o Veto #4 definitivamente**.
 
 ```
   ┌────────────────────────────────────────────────────────────────────────┐
@@ -15,7 +15,7 @@ Historicamente, o **Veto #4** definia que conter 10 artefatos YAML/JSON em `docs
   └───────────────────────────────────┬────────────────────────────────────┘
                                       │ Ingestão Redb Zero-Copy (< 0.1ms)
   ┌───────────────────────────────────▼────────────────────────────────────┐
-  │         Engine rsxt-android (Rust + Tokio + Redb + WGPU + Slint)        │
+  │ Engine rsxt-android [tag: APP-MERCADOPAGO] (Rust+Tokio+Redb+WGPU+Slint)│
   │ ├── Tokio Async Runtime          ├── Redb Embedded KV L1 Caching       │
   │ ├── WGPU Graphics Substrate      └── Slint Declarative GUI Compiler    │
   └───────────────────────────────────┬────────────────────────────────────┘
@@ -29,7 +29,7 @@ Historicamente, o **Veto #4** definia que conter 10 artefatos YAML/JSON em `docs
 
 1. **`rsxt-engine`** (`tag=oxibonsai-27b`): Motor Cérebro/LLM Local soberano em Rust zero-FFI para geração e síntese.
 2. **`rsxt-v0k3`** (`tag=astro-emdash`): Substrato de publicação estática e gestão resiliente de CMS/SSG.
-3. **`rsxt-android`** (`tag=rsxt-android`): VM Executável de Interface Nativa (Rust + Tokio + Redb + WGPU + Slint) para Android (`aarch64-linux-android`) e Desktop.
+3. **`rsxt-android`** (`tag=APP-MERCADOPAGO`): VM Executável de Interface Nativa (Rust + Tokio + Redb + WGPU + Slint) para Android (`aarch64-linux-android`) e Desktop.
 
 ## 3. Componentes da Arquitetura `rsxt-android`
 
