@@ -1,0 +1,1854 @@
+{
+  "version": "1.0.0-sdui-hibrido",
+  "device": "Xiaomi Redmi 13C (23100RN82L)",
+  "density_factor": 2.0,
+  "target_app": "com.mercadopago.wallet",
+  "blake3_checksum": "57152e3ed7fe4cf16f09a3e8ae3f39a4013532b2b1530aa0ac210a22b4e0b3fd",
+  "root": [
+    {
+      "component_type": "RsxtViewContainer",
+      "resource_id": "",
+      "class": "android.widget.FrameLayout",
+      "content_desc": "",
+      "text": "",
+      "clickable": false,
+      "geometry": {
+        "x": 0,
+        "y": 0,
+        "x2": 720,
+        "y2": 1600,
+        "w_px": 720,
+        "h_px": 1600,
+        "w_dp": 360.0,
+        "h_dp": 800.0,
+        "x_dp": 0.0,
+        "y_dp": 0.0
+      },
+      "children": [
+        {
+          "component_type": "RsxtViewContainer",
+          "resource_id": "",
+          "class": "android.widget.LinearLayout",
+          "content_desc": "",
+          "text": "",
+          "clickable": false,
+          "geometry": {
+            "x": 0,
+            "y": 0,
+            "x2": 720,
+            "y2": 1600,
+            "w_px": 720,
+            "h_px": 1600,
+            "w_dp": 360.0,
+            "h_dp": 800.0,
+            "x_dp": 0.0,
+            "y_dp": 0.0
+          },
+          "children": [
+            {
+              "component_type": "RsxtViewContainer",
+              "resource_id": "",
+              "class": "android.widget.FrameLayout",
+              "content_desc": "",
+              "text": "",
+              "clickable": false,
+              "geometry": {
+                "x": 0,
+                "y": 0,
+                "x2": 720,
+                "y2": 1600,
+                "w_px": 720,
+                "h_px": 1600,
+                "w_dp": 360.0,
+                "h_dp": 800.0,
+                "x_dp": 0.0,
+                "y_dp": 0.0
+              },
+              "children": [
+                {
+                  "component_type": "RsxtViewContainer",
+                  "resource_id": "com.mercadopago.wallet:id/action_bar_root",
+                  "class": "android.widget.LinearLayout",
+                  "content_desc": "",
+                  "text": "",
+                  "clickable": false,
+                  "geometry": {
+                    "x": 0,
+                    "y": 0,
+                    "x2": 720,
+                    "y2": 1600,
+                    "w_px": 720,
+                    "h_px": 1600,
+                    "w_dp": 360.0,
+                    "h_dp": 800.0,
+                    "x_dp": 0.0,
+                    "y_dp": 0.0
+                  },
+                  "children": [
+                    {
+                      "component_type": "RsxtViewContainer",
+                      "resource_id": "android:id/content",
+                      "class": "android.widget.FrameLayout",
+                      "content_desc": "",
+                      "text": "",
+                      "clickable": false,
+                      "geometry": {
+                        "x": 0,
+                        "y": 0,
+                        "x2": 720,
+                        "y2": 1600,
+                        "w_px": 720,
+                        "h_px": 1600,
+                        "w_dp": 360.0,
+                        "h_dp": 800.0,
+                        "x_dp": 0.0,
+                        "y_dp": 0.0
+                      },
+                      "children": [
+                        {
+                          "component_type": "RsxtViewContainer",
+                          "resource_id": "",
+                          "class": "android.widget.FrameLayout",
+                          "content_desc": "",
+                          "text": "",
+                          "clickable": false,
+                          "geometry": {
+                            "x": 0,
+                            "y": 0,
+                            "x2": 720,
+                            "y2": 1600,
+                            "w_px": 720,
+                            "h_px": 1600,
+                            "w_dp": 360.0,
+                            "h_dp": 800.0,
+                            "x_dp": 0.0,
+                            "y_dp": 0.0
+                          },
+                          "children": [
+                            {
+                              "component_type": "RsxtViewContainer",
+                              "resource_id": "",
+                              "class": "androidx.viewpager.widget.ViewPager",
+                              "content_desc": "",
+                              "text": "",
+                              "clickable": false,
+                              "geometry": {
+                                "x": 0,
+                                "y": 0,
+                                "x2": 720,
+                                "y2": 1426,
+                                "w_px": 720,
+                                "h_px": 1426,
+                                "w_dp": 360.0,
+                                "h_dp": 713.0,
+                                "x_dp": 0.0,
+                                "y_dp": 0.0
+                              },
+                              "children": [
+                                {
+                                  "component_type": "RsxtViewContainer",
+                                  "resource_id": "",
+                                  "class": "androidx.recyclerview.widget.RecyclerView",
+                                  "content_desc": "",
+                                  "text": "",
+                                  "clickable": false,
+                                  "geometry": {
+                                    "x": 0,
+                                    "y": 0,
+                                    "x2": 720,
+                                    "y2": 1426,
+                                    "w_px": 720,
+                                    "h_px": 1426,
+                                    "w_dp": 360.0,
+                                    "h_dp": 713.0,
+                                    "x_dp": 0.0,
+                                    "y_dp": 0.0
+                                  },
+                                  "children": [
+                                    {
+                                      "component_type": "RsxtViewContainer",
+                                      "resource_id": "",
+                                      "class": "android.widget.FrameLayout",
+                                      "content_desc": "",
+                                      "text": "",
+                                      "clickable": false,
+                                      "geometry": {
+                                        "x": 0,
+                                        "y": 0,
+                                        "x2": 720,
+                                        "y2": 1426,
+                                        "w_px": 720,
+                                        "h_px": 1426,
+                                        "w_dp": 360.0,
+                                        "h_dp": 713.0,
+                                        "x_dp": 0.0,
+                                        "y_dp": 0.0
+                                      },
+                                      "children": [
+                                        {
+                                          "component_type": "RsxtViewContainer",
+                                          "resource_id": "",
+                                          "class": "androidx.compose.ui.platform.ComposeView",
+                                          "content_desc": "",
+                                          "text": "",
+                                          "clickable": false,
+                                          "geometry": {
+                                            "x": 0,
+                                            "y": 0,
+                                            "x2": 720,
+                                            "y2": 1426,
+                                            "w_px": 720,
+                                            "h_px": 1426,
+                                            "w_dp": 360.0,
+                                            "h_dp": 713.0,
+                                            "x_dp": 0.0,
+                                            "y_dp": 0.0
+                                          },
+                                          "children": [
+                                            {
+                                              "component_type": "RsxtViewContainer",
+                                              "resource_id": "",
+                                              "class": "android.view.View",
+                                              "content_desc": "",
+                                              "text": "",
+                                              "clickable": false,
+                                              "geometry": {
+                                                "x": 0,
+                                                "y": 0,
+                                                "x2": 720,
+                                                "y2": 1426,
+                                                "w_px": 720,
+                                                "h_px": 1426,
+                                                "w_dp": 360.0,
+                                                "h_dp": 713.0,
+                                                "x_dp": 0.0,
+                                                "y_dp": 0.0
+                                              },
+                                              "children": [
+                                                {
+                                                  "component_type": "RsxtViewContainer",
+                                                  "resource_id": "",
+                                                  "class": "android.view.View",
+                                                  "content_desc": "",
+                                                  "text": "",
+                                                  "clickable": false,
+                                                  "geometry": {
+                                                    "x": 0,
+                                                    "y": 228,
+                                                    "x2": 720,
+                                                    "y2": 1394,
+                                                    "w_px": 720,
+                                                    "h_px": 1166,
+                                                    "w_dp": 360.0,
+                                                    "h_dp": 583.0,
+                                                    "x_dp": 0.0,
+                                                    "y_dp": 114.0
+                                                  },
+                                                  "children": [
+                                                    {
+                                                      "component_type": "RsxtViewContainer",
+                                                      "resource_id": "",
+                                                      "class": "android.view.View",
+                                                      "content_desc": "",
+                                                      "text": "",
+                                                      "clickable": false,
+                                                      "geometry": {
+                                                        "x": 32,
+                                                        "y": 308,
+                                                        "x2": 688,
+                                                        "y2": 699,
+                                                        "w_px": 656,
+                                                        "h_px": 391,
+                                                        "w_dp": 328.0,
+                                                        "h_dp": 195.5,
+                                                        "x_dp": 16.0,
+                                                        "y_dp": 154.0
+                                                      },
+                                                      "children": [
+                                                        {
+                                                          "component_type": "RsxtBankingBalanceRow",
+                                                          "resource_id": "banking_balance_row",
+                                                          "class": "android.view.View",
+                                                          "content_desc": "",
+                                                          "text": "",
+                                                          "clickable": true,
+                                                          "geometry": {
+                                                            "x": 64,
+                                                            "y": 330,
+                                                            "x2": 656,
+                                                            "y2": 426,
+                                                            "w_px": 592,
+                                                            "h_px": 96,
+                                                            "w_dp": 296.0,
+                                                            "h_dp": 48.0,
+                                                            "x_dp": 32.0,
+                                                            "y_dp": 165.0
+                                                          },
+                                                          "children": [
+                                                            {
+                                                              "component_type": "RsxtBankingBalanceRow",
+                                                              "resource_id": "",
+                                                              "class": "android.view.View",
+                                                              "content_desc": "Saldo, 0 reais e 0 centavos",
+                                                              "text": "",
+                                                              "clickable": false,
+                                                              "geometry": {
+                                                                "x": 64,
+                                                                "y": 340,
+                                                                "x2": 656,
+                                                                "y2": 415,
+                                                                "w_px": 592,
+                                                                "h_px": 75,
+                                                                "w_dp": 296.0,
+                                                                "h_dp": 37.5,
+                                                                "x_dp": 32.0,
+                                                                "y_dp": 170.0
+                                                              },
+                                                              "children": []
+                                                            },
+                                                            {
+                                                              "component_type": "RsxtViewContainer",
+                                                              "resource_id": "",
+                                                              "class": "android.view.View",
+                                                              "content_desc": "",
+                                                              "text": "",
+                                                              "clickable": false,
+                                                              "geometry": {
+                                                                "x": 64,
+                                                                "y": 340,
+                                                                "x2": 198,
+                                                                "y2": 415,
+                                                                "w_px": 134,
+                                                                "h_px": 75,
+                                                                "w_dp": 67.0,
+                                                                "h_dp": 37.5,
+                                                                "x_dp": 32.0,
+                                                                "y_dp": 170.0
+                                                              },
+                                                              "children": []
+                                                            },
+                                                            {
+                                                              "component_type": "RsxtViewContainer",
+                                                              "resource_id": "",
+                                                              "class": "android.view.View",
+                                                              "content_desc": "",
+                                                              "text": "",
+                                                              "clickable": false,
+                                                              "geometry": {
+                                                                "x": 210,
+                                                                "y": 354,
+                                                                "x2": 258,
+                                                                "y2": 402,
+                                                                "w_px": 48,
+                                                                "h_px": 48,
+                                                                "w_dp": 24.0,
+                                                                "h_dp": 24.0,
+                                                                "x_dp": 105.0,
+                                                                "y_dp": 177.0
+                                                              },
+                                                              "children": []
+                                                            },
+                                                            {
+                                                              "component_type": "RsxtViewContainer",
+                                                              "resource_id": "",
+                                                              "class": "android.view.View",
+                                                              "content_desc": "",
+                                                              "text": "",
+                                                              "clickable": false,
+                                                              "geometry": {
+                                                                "x": 512,
+                                                                "y": 358,
+                                                                "x2": 656,
+                                                                "y2": 398,
+                                                                "w_px": 144,
+                                                                "h_px": 40,
+                                                                "w_dp": 72.0,
+                                                                "h_dp": 20.0,
+                                                                "x_dp": 256.0,
+                                                                "y_dp": 179.0
+                                                              },
+                                                              "children": []
+                                                            },
+                                                            {
+                                                              "component_type": "RsxtAndesButton",
+                                                              "resource_id": "",
+                                                              "class": "android.widget.Button",
+                                                              "content_desc": "",
+                                                              "text": "",
+                                                              "clickable": false,
+                                                              "geometry": {
+                                                                "x": 64,
+                                                                "y": 340,
+                                                                "x2": 656,
+                                                                "y2": 415,
+                                                                "w_px": 592,
+                                                                "h_px": 75,
+                                                                "w_dp": 296.0,
+                                                                "h_dp": 37.5,
+                                                                "x_dp": 32.0,
+                                                                "y_dp": 170.0
+                                                              },
+                                                              "children": []
+                                                            }
+                                                          ]
+                                                        },
+                                                        {
+                                                          "component_type": "RsxtAndesCard",
+                                                          "resource_id": "info_action_card",
+                                                          "class": "android.view.View",
+                                                          "content_desc": "",
+                                                          "text": "",
+                                                          "clickable": false,
+                                                          "geometry": {
+                                                            "x": 64,
+                                                            "y": 447,
+                                                            "x2": 656,
+                                                            "y2": 667,
+                                                            "w_px": 592,
+                                                            "h_px": 220,
+                                                            "w_dp": 296.0,
+                                                            "h_dp": 110.0,
+                                                            "x_dp": 32.0,
+                                                            "y_dp": 223.5
+                                                          },
+                                                          "children": [
+                                                            {
+                                                              "component_type": "RsxtViewContainer",
+                                                              "resource_id": "",
+                                                              "class": "android.view.View",
+                                                              "content_desc": "",
+                                                              "text": "",
+                                                              "clickable": false,
+                                                              "geometry": {
+                                                                "x": 64,
+                                                                "y": 447,
+                                                                "x2": 656,
+                                                                "y2": 667,
+                                                                "w_px": 592,
+                                                                "h_px": 220,
+                                                                "w_dp": 296.0,
+                                                                "h_dp": 110.0,
+                                                                "x_dp": 32.0,
+                                                                "y_dp": 223.5
+                                                              },
+                                                              "children": [
+                                                                {
+                                                                  "component_type": "RsxtAndesButton",
+                                                                  "resource_id": "",
+                                                                  "class": "android.widget.Button",
+                                                                  "content_desc": "Você vendeu 0 reais de 10.000 reais este mês. Aumente suas vendas para ganhar até 120% do CDI nos Cofrinhos e ferramentas de gestão exclusivas",
+                                                                  "text": "",
+                                                                  "clickable": true,
+                                                                  "geometry": {
+                                                                    "x": 64,
+                                                                    "y": 447,
+                                                                    "x2": 656,
+                                                                    "y2": 667,
+                                                                    "w_px": 592,
+                                                                    "h_px": 220,
+                                                                    "w_dp": 296.0,
+                                                                    "h_dp": 110.0,
+                                                                    "x_dp": 32.0,
+                                                                    "y_dp": 223.5
+                                                                  },
+                                                                  "children": []
+                                                                }
+                                                              ]
+                                                            }
+                                                          ]
+                                                        }
+                                                      ]
+                                                    },
+                                                    {
+                                                      "component_type": "RsxtViewContainer",
+                                                      "resource_id": "",
+                                                      "class": "android.view.View",
+                                                      "content_desc": "",
+                                                      "text": "",
+                                                      "clickable": false,
+                                                      "geometry": {
+                                                        "x": 0,
+                                                        "y": 228,
+                                                        "x2": 720,
+                                                        "y2": 308,
+                                                        "w_px": 720,
+                                                        "h_px": 80,
+                                                        "w_dp": 360.0,
+                                                        "h_dp": 40.0,
+                                                        "x_dp": 0.0,
+                                                        "y_dp": 114.0
+                                                      },
+                                                      "children": [
+                                                        {
+                                                          "component_type": "RsxtBankingBalanceRow",
+                                                          "resource_id": "",
+                                                          "class": "android.widget.Button",
+                                                          "content_desc": "Saldo",
+                                                          "text": "",
+                                                          "clickable": false,
+                                                          "geometry": {
+                                                            "x": 32,
+                                                            "y": 228,
+                                                            "x2": 161,
+                                                            "y2": 316,
+                                                            "w_px": 129,
+                                                            "h_px": 88,
+                                                            "w_dp": 64.5,
+                                                            "h_dp": 44.0,
+                                                            "x_dp": 16.0,
+                                                            "y_dp": 114.0
+                                                          },
+                                                          "children": []
+                                                        },
+                                                        {
+                                                          "component_type": "RsxtAndesButton",
+                                                          "resource_id": "",
+                                                          "class": "android.widget.Button",
+                                                          "content_desc": "Cofrinhos",
+                                                          "text": "",
+                                                          "clickable": true,
+                                                          "geometry": {
+                                                            "x": 161,
+                                                            "y": 228,
+                                                            "x2": 351,
+                                                            "y2": 316,
+                                                            "w_px": 190,
+                                                            "h_px": 88,
+                                                            "w_dp": 95.0,
+                                                            "h_dp": 44.0,
+                                                            "x_dp": 80.5,
+                                                            "y_dp": 114.0
+                                                          },
+                                                          "children": []
+                                                        },
+                                                        {
+                                                          "component_type": "RsxtAndesButton",
+                                                          "resource_id": "",
+                                                          "class": "android.widget.Button",
+                                                          "content_desc": "Cripto",
+                                                          "text": "",
+                                                          "clickable": true,
+                                                          "geometry": {
+                                                            "x": 351,
+                                                            "y": 228,
+                                                            "x2": 488,
+                                                            "y2": 316,
+                                                            "w_px": 137,
+                                                            "h_px": 88,
+                                                            "w_dp": 68.5,
+                                                            "h_dp": 44.0,
+                                                            "x_dp": 175.5,
+                                                            "y_dp": 114.0
+                                                          },
+                                                          "children": []
+                                                        }
+                                                      ]
+                                                    },
+                                                    {
+                                                      "component_type": "RsxtAndesText",
+                                                      "resource_id": "",
+                                                      "class": "android.widget.TextView",
+                                                      "content_desc": "Ferramentas de venda",
+                                                      "text": "Ferramentas de venda",
+                                                      "clickable": false,
+                                                      "geometry": {
+                                                        "x": 32,
+                                                        "y": 763,
+                                                        "x2": 442,
+                                                        "y2": 812,
+                                                        "w_px": 410,
+                                                        "h_px": 49,
+                                                        "w_dp": 205.0,
+                                                        "h_dp": 24.5,
+                                                        "x_dp": 16.0,
+                                                        "y_dp": 381.5
+                                                      },
+                                                      "children": []
+                                                    },
+                                                    {
+                                                      "component_type": "RsxtViewContainer",
+                                                      "resource_id": "",
+                                                      "class": "android.widget.HorizontalScrollView",
+                                                      "content_desc": "",
+                                                      "text": "",
+                                                      "clickable": false,
+                                                      "geometry": {
+                                                        "x": 0,
+                                                        "y": 844,
+                                                        "x2": 720,
+                                                        "y2": 1020,
+                                                        "w_px": 720,
+                                                        "h_px": 176,
+                                                        "w_dp": 360.0,
+                                                        "h_dp": 88.0,
+                                                        "x_dp": 0.0,
+                                                        "y_dp": 422.0
+                                                      },
+                                                      "children": [
+                                                        {
+                                                          "component_type": "RsxtViewContainer",
+                                                          "resource_id": "",
+                                                          "class": "android.view.View",
+                                                          "content_desc": "",
+                                                          "text": "",
+                                                          "clickable": true,
+                                                          "geometry": {
+                                                            "x": 32,
+                                                            "y": 844,
+                                                            "x2": 174,
+                                                            "y2": 1020,
+                                                            "w_px": 142,
+                                                            "h_px": 176,
+                                                            "w_dp": 71.0,
+                                                            "h_dp": 88.0,
+                                                            "x_dp": 16.0,
+                                                            "y_dp": 422.0
+                                                          },
+                                                          "children": [
+                                                            {
+                                                              "component_type": "RsxtViewContainer",
+                                                              "resource_id": "",
+                                                              "class": "android.view.View",
+                                                              "content_desc": "Simulador de taxas",
+                                                              "text": "",
+                                                              "clickable": false,
+                                                              "geometry": {
+                                                                "x": 79,
+                                                                "y": 868,
+                                                                "x2": 127,
+                                                                "y2": 916,
+                                                                "w_px": 48,
+                                                                "h_px": 48,
+                                                                "w_dp": 24.0,
+                                                                "h_dp": 24.0,
+                                                                "x_dp": 39.5,
+                                                                "y_dp": 434.0
+                                                              },
+                                                              "children": []
+                                                            },
+                                                            {
+                                                              "component_type": "RsxtAndesText",
+                                                              "resource_id": "",
+                                                              "class": "android.widget.TextView",
+                                                              "content_desc": "",
+                                                              "text": "Simulador de taxas",
+                                                              "clickable": false,
+                                                              "geometry": {
+                                                                "x": 48,
+                                                                "y": 924,
+                                                                "x2": 158,
+                                                                "y2": 996,
+                                                                "w_px": 110,
+                                                                "h_px": 72,
+                                                                "w_dp": 55.0,
+                                                                "h_dp": 36.0,
+                                                                "x_dp": 24.0,
+                                                                "y_dp": 462.0
+                                                              },
+                                                              "children": []
+                                                            },
+                                                            {
+                                                              "component_type": "RsxtAndesButton",
+                                                              "resource_id": "",
+                                                              "class": "android.widget.Button",
+                                                              "content_desc": "",
+                                                              "text": "",
+                                                              "clickable": false,
+                                                              "geometry": {
+                                                                "x": 32,
+                                                                "y": 844,
+                                                                "x2": 174,
+                                                                "y2": 1020,
+                                                                "w_px": 142,
+                                                                "h_px": 176,
+                                                                "w_dp": 71.0,
+                                                                "h_dp": 88.0,
+                                                                "x_dp": 16.0,
+                                                                "y_dp": 422.0
+                                                              },
+                                                              "children": []
+                                                            }
+                                                          ]
+                                                        },
+                                                        {
+                                                          "component_type": "RsxtViewContainer",
+                                                          "resource_id": "",
+                                                          "class": "android.view.View",
+                                                          "content_desc": "",
+                                                          "text": "",
+                                                          "clickable": true,
+                                                          "geometry": {
+                                                            "x": 190,
+                                                            "y": 844,
+                                                            "x2": 332,
+                                                            "y2": 1020,
+                                                            "w_px": 142,
+                                                            "h_px": 176,
+                                                            "w_dp": 71.0,
+                                                            "h_dp": 88.0,
+                                                            "x_dp": 95.0,
+                                                            "y_dp": 422.0
+                                                          },
+                                                          "children": [
+                                                            {
+                                                              "component_type": "RsxtViewContainer",
+                                                              "resource_id": "",
+                                                              "class": "android.view.View",
+                                                              "content_desc": "Point Tap",
+                                                              "text": "",
+                                                              "clickable": false,
+                                                              "geometry": {
+                                                                "x": 237,
+                                                                "y": 868,
+                                                                "x2": 285,
+                                                                "y2": 916,
+                                                                "w_px": 48,
+                                                                "h_px": 48,
+                                                                "w_dp": 24.0,
+                                                                "h_dp": 24.0,
+                                                                "x_dp": 118.5,
+                                                                "y_dp": 434.0
+                                                              },
+                                                              "children": []
+                                                            },
+                                                            {
+                                                              "component_type": "RsxtAndesText",
+                                                              "resource_id": "",
+                                                              "class": "android.widget.TextView",
+                                                              "content_desc": "",
+                                                              "text": "Point Tap",
+                                                              "clickable": false,
+                                                              "geometry": {
+                                                                "x": 206,
+                                                                "y": 924,
+                                                                "x2": 316,
+                                                                "y2": 996,
+                                                                "w_px": 110,
+                                                                "h_px": 72,
+                                                                "w_dp": 55.0,
+                                                                "h_dp": 36.0,
+                                                                "x_dp": 103.0,
+                                                                "y_dp": 462.0
+                                                              },
+                                                              "children": []
+                                                            },
+                                                            {
+                                                              "component_type": "RsxtAndesButton",
+                                                              "resource_id": "",
+                                                              "class": "android.widget.Button",
+                                                              "content_desc": "",
+                                                              "text": "",
+                                                              "clickable": false,
+                                                              "geometry": {
+                                                                "x": 190,
+                                                                "y": 844,
+                                                                "x2": 332,
+                                                                "y2": 1020,
+                                                                "w_px": 142,
+                                                                "h_px": 176,
+                                                                "w_dp": 71.0,
+                                                                "h_dp": 88.0,
+                                                                "x_dp": 95.0,
+                                                                "y_dp": 422.0
+                                                              },
+                                                              "children": []
+                                                            }
+                                                          ]
+                                                        },
+                                                        {
+                                                          "component_type": "RsxtViewContainer",
+                                                          "resource_id": "",
+                                                          "class": "android.view.View",
+                                                          "content_desc": "",
+                                                          "text": "",
+                                                          "clickable": true,
+                                                          "geometry": {
+                                                            "x": 348,
+                                                            "y": 844,
+                                                            "x2": 490,
+                                                            "y2": 1020,
+                                                            "w_px": 142,
+                                                            "h_px": 176,
+                                                            "w_dp": 71.0,
+                                                            "h_dp": 88.0,
+                                                            "x_dp": 174.0,
+                                                            "y_dp": 422.0
+                                                          },
+                                                          "children": [
+                                                            {
+                                                              "component_type": "RsxtViewContainer",
+                                                              "resource_id": "",
+                                                              "class": "android.view.View",
+                                                              "content_desc": "Link de pagamento",
+                                                              "text": "",
+                                                              "clickable": false,
+                                                              "geometry": {
+                                                                "x": 395,
+                                                                "y": 868,
+                                                                "x2": 443,
+                                                                "y2": 916,
+                                                                "w_px": 48,
+                                                                "h_px": 48,
+                                                                "w_dp": 24.0,
+                                                                "h_dp": 24.0,
+                                                                "x_dp": 197.5,
+                                                                "y_dp": 434.0
+                                                              },
+                                                              "children": []
+                                                            },
+                                                            {
+                                                              "component_type": "RsxtAndesText",
+                                                              "resource_id": "",
+                                                              "class": "android.widget.TextView",
+                                                              "content_desc": "",
+                                                              "text": "Link de pagamento",
+                                                              "clickable": false,
+                                                              "geometry": {
+                                                                "x": 364,
+                                                                "y": 924,
+                                                                "x2": 474,
+                                                                "y2": 996,
+                                                                "w_px": 110,
+                                                                "h_px": 72,
+                                                                "w_dp": 55.0,
+                                                                "h_dp": 36.0,
+                                                                "x_dp": 182.0,
+                                                                "y_dp": 462.0
+                                                              },
+                                                              "children": []
+                                                            },
+                                                            {
+                                                              "component_type": "RsxtAndesButton",
+                                                              "resource_id": "",
+                                                              "class": "android.widget.Button",
+                                                              "content_desc": "",
+                                                              "text": "",
+                                                              "clickable": false,
+                                                              "geometry": {
+                                                                "x": 348,
+                                                                "y": 844,
+                                                                "x2": 490,
+                                                                "y2": 1020,
+                                                                "w_px": 142,
+                                                                "h_px": 176,
+                                                                "w_dp": 71.0,
+                                                                "h_dp": 88.0,
+                                                                "x_dp": 174.0,
+                                                                "y_dp": 422.0
+                                                              },
+                                                              "children": []
+                                                            }
+                                                          ]
+                                                        },
+                                                        {
+                                                          "component_type": "RsxtViewContainer",
+                                                          "resource_id": "",
+                                                          "class": "android.view.View",
+                                                          "content_desc": "",
+                                                          "text": "",
+                                                          "clickable": true,
+                                                          "geometry": {
+                                                            "x": 506,
+                                                            "y": 844,
+                                                            "x2": 648,
+                                                            "y2": 1020,
+                                                            "w_px": 142,
+                                                            "h_px": 176,
+                                                            "w_dp": 71.0,
+                                                            "h_dp": 88.0,
+                                                            "x_dp": 253.0,
+                                                            "y_dp": 422.0
+                                                          },
+                                                          "children": [
+                                                            {
+                                                              "component_type": "RsxtViewContainer",
+                                                              "resource_id": "",
+                                                              "class": "android.view.View",
+                                                              "content_desc": "Point",
+                                                              "text": "",
+                                                              "clickable": false,
+                                                              "geometry": {
+                                                                "x": 553,
+                                                                "y": 886,
+                                                                "x2": 601,
+                                                                "y2": 934,
+                                                                "w_px": 48,
+                                                                "h_px": 48,
+                                                                "w_dp": 24.0,
+                                                                "h_dp": 24.0,
+                                                                "x_dp": 276.5,
+                                                                "y_dp": 443.0
+                                                              },
+                                                              "children": []
+                                                            },
+                                                            {
+                                                              "component_type": "RsxtAndesText",
+                                                              "resource_id": "",
+                                                              "class": "android.widget.TextView",
+                                                              "content_desc": "",
+                                                              "text": "Point",
+                                                              "clickable": false,
+                                                              "geometry": {
+                                                                "x": 545,
+                                                                "y": 942,
+                                                                "x2": 610,
+                                                                "y2": 978,
+                                                                "w_px": 65,
+                                                                "h_px": 36,
+                                                                "w_dp": 32.5,
+                                                                "h_dp": 18.0,
+                                                                "x_dp": 272.5,
+                                                                "y_dp": 471.0
+                                                              },
+                                                              "children": []
+                                                            },
+                                                            {
+                                                              "component_type": "RsxtAndesButton",
+                                                              "resource_id": "",
+                                                              "class": "android.widget.Button",
+                                                              "content_desc": "",
+                                                              "text": "",
+                                                              "clickable": false,
+                                                              "geometry": {
+                                                                "x": 506,
+                                                                "y": 844,
+                                                                "x2": 648,
+                                                                "y2": 1020,
+                                                                "w_px": 142,
+                                                                "h_px": 176,
+                                                                "w_dp": 71.0,
+                                                                "h_dp": 88.0,
+                                                                "x_dp": 253.0,
+                                                                "y_dp": 422.0
+                                                              },
+                                                              "children": []
+                                                            }
+                                                          ]
+                                                        },
+                                                        {
+                                                          "component_type": "RsxtViewContainer",
+                                                          "resource_id": "",
+                                                          "class": "android.view.View",
+                                                          "content_desc": "",
+                                                          "text": "",
+                                                          "clickable": true,
+                                                          "geometry": {
+                                                            "x": 664,
+                                                            "y": 844,
+                                                            "x2": 720,
+                                                            "y2": 1020,
+                                                            "w_px": 56,
+                                                            "h_px": 176,
+                                                            "w_dp": 28.0,
+                                                            "h_dp": 88.0,
+                                                            "x_dp": 332.0,
+                                                            "y_dp": 422.0
+                                                          },
+                                                          "children": [
+                                                            {
+                                                              "component_type": "RsxtViewContainer",
+                                                              "resource_id": "",
+                                                              "class": "android.view.View",
+                                                              "content_desc": "Taxas e parcelas",
+                                                              "text": "",
+                                                              "clickable": false,
+                                                              "geometry": {
+                                                                "x": 711,
+                                                                "y": 868,
+                                                                "x2": 720,
+                                                                "y2": 916,
+                                                                "w_px": 9,
+                                                                "h_px": 48,
+                                                                "w_dp": 4.5,
+                                                                "h_dp": 24.0,
+                                                                "x_dp": 355.5,
+                                                                "y_dp": 434.0
+                                                              },
+                                                              "children": []
+                                                            },
+                                                            {
+                                                              "component_type": "RsxtAndesText",
+                                                              "resource_id": "",
+                                                              "class": "android.widget.TextView",
+                                                              "content_desc": "",
+                                                              "text": "Taxas e parcelas",
+                                                              "clickable": false,
+                                                              "geometry": {
+                                                                "x": 680,
+                                                                "y": 924,
+                                                                "x2": 720,
+                                                                "y2": 996,
+                                                                "w_px": 40,
+                                                                "h_px": 72,
+                                                                "w_dp": 20.0,
+                                                                "h_dp": 36.0,
+                                                                "x_dp": 340.0,
+                                                                "y_dp": 462.0
+                                                              },
+                                                              "children": []
+                                                            },
+                                                            {
+                                                              "component_type": "RsxtAndesButton",
+                                                              "resource_id": "",
+                                                              "class": "android.widget.Button",
+                                                              "content_desc": "",
+                                                              "text": "",
+                                                              "clickable": false,
+                                                              "geometry": {
+                                                                "x": 664,
+                                                                "y": 844,
+                                                                "x2": 720,
+                                                                "y2": 1020,
+                                                                "w_px": 56,
+                                                                "h_px": 176,
+                                                                "w_dp": 28.0,
+                                                                "h_dp": 88.0,
+                                                                "x_dp": 332.0,
+                                                                "y_dp": 422.0
+                                                              },
+                                                              "children": []
+                                                            }
+                                                          ]
+                                                        }
+                                                      ]
+                                                    },
+                                                    {
+                                                      "component_type": "RsxtViewContainer",
+                                                      "resource_id": "",
+                                                      "class": "android.view.View",
+                                                      "content_desc": "",
+                                                      "text": "",
+                                                      "clickable": true,
+                                                      "geometry": {
+                                                        "x": 32,
+                                                        "y": 1084,
+                                                        "x2": 688,
+                                                        "y2": 1196,
+                                                        "w_px": 656,
+                                                        "h_px": 112,
+                                                        "w_dp": 328.0,
+                                                        "h_dp": 56.0,
+                                                        "x_dp": 16.0,
+                                                        "y_dp": 542.0
+                                                      },
+                                                      "children": [
+                                                        {
+                                                          "component_type": "RsxtViewContainer",
+                                                          "resource_id": "",
+                                                          "class": "android.view.View",
+                                                          "content_desc": "",
+                                                          "text": "",
+                                                          "clickable": false,
+                                                          "geometry": {
+                                                            "x": 40,
+                                                            "y": 1092,
+                                                            "x2": 120,
+                                                            "y2": 1188,
+                                                            "w_px": 80,
+                                                            "h_px": 96,
+                                                            "w_dp": 40.0,
+                                                            "h_dp": 48.0,
+                                                            "x_dp": 20.0,
+                                                            "y_dp": 546.0
+                                                          },
+                                                          "children": []
+                                                        },
+                                                        {
+                                                          "component_type": "RsxtAndesText",
+                                                          "resource_id": "",
+                                                          "class": "android.widget.TextView",
+                                                          "content_desc": "Seus Cartões",
+                                                          "text": "Seus Cartões",
+                                                          "clickable": false,
+                                                          "geometry": {
+                                                            "x": 136,
+                                                            "y": 1120,
+                                                            "x2": 331,
+                                                            "y2": 1160,
+                                                            "w_px": 195,
+                                                            "h_px": 40,
+                                                            "w_dp": 97.5,
+                                                            "h_dp": 20.0,
+                                                            "x_dp": 68.0,
+                                                            "y_dp": 560.0
+                                                          },
+                                                          "children": []
+                                                        }
+                                                      ]
+                                                    },
+                                                    {
+                                                      "component_type": "RsxtAndesQuickActionsBar",
+                                                      "resource_id": "",
+                                                      "class": "android.view.View",
+                                                      "content_desc": "Empréstimos",
+                                                      "text": "",
+                                                      "clickable": false,
+                                                      "geometry": {
+                                                        "x": 32,
+                                                        "y": 1260,
+                                                        "x2": 688,
+                                                        "y2": 1309,
+                                                        "w_px": 656,
+                                                        "h_px": 49,
+                                                        "w_dp": 328.0,
+                                                        "h_dp": 24.5,
+                                                        "x_dp": 16.0,
+                                                        "y_dp": 630.0
+                                                      },
+                                                      "children": []
+                                                    },
+                                                    {
+                                                      "component_type": "RsxtViewContainer",
+                                                      "resource_id": "",
+                                                      "class": "android.view.View",
+                                                      "content_desc": "",
+                                                      "text": "",
+                                                      "clickable": true,
+                                                      "geometry": {
+                                                        "x": 32,
+                                                        "y": 1297,
+                                                        "x2": 213,
+                                                        "y2": 1393,
+                                                        "w_px": 181,
+                                                        "h_px": 96,
+                                                        "w_dp": 90.5,
+                                                        "h_dp": 48.0,
+                                                        "x_dp": 16.0,
+                                                        "y_dp": 648.5
+                                                      },
+                                                      "children": [
+                                                        {
+                                                          "component_type": "RsxtAndesText",
+                                                          "resource_id": "",
+                                                          "class": "android.widget.TextView",
+                                                          "content_desc": "",
+                                                          "text": "Consultar",
+                                                          "clickable": false,
+                                                          "geometry": {
+                                                            "x": 32,
+                                                            "y": 1325,
+                                                            "x2": 173,
+                                                            "y2": 1365,
+                                                            "w_px": 141,
+                                                            "h_px": 40,
+                                                            "w_dp": 70.5,
+                                                            "h_dp": 20.0,
+                                                            "x_dp": 16.0,
+                                                            "y_dp": 662.5
+                                                          },
+                                                          "children": []
+                                                        },
+                                                        {
+                                                          "component_type": "RsxtAndesButton",
+                                                          "resource_id": "",
+                                                          "class": "android.widget.Button",
+                                                          "content_desc": "",
+                                                          "text": "",
+                                                          "clickable": false,
+                                                          "geometry": {
+                                                            "x": 32,
+                                                            "y": 1325,
+                                                            "x2": 213,
+                                                            "y2": 1365,
+                                                            "w_px": 181,
+                                                            "h_px": 40,
+                                                            "w_dp": 90.5,
+                                                            "h_dp": 20.0,
+                                                            "x_dp": 16.0,
+                                                            "y_dp": 662.5
+                                                          },
+                                                          "children": []
+                                                        }
+                                                      ]
+                                                    },
+                                                    {
+                                                      "component_type": "RsxtViewContainer",
+                                                      "resource_id": "",
+                                                      "class": "android.view.View",
+                                                      "content_desc": "",
+                                                      "text": "",
+                                                      "clickable": true,
+                                                      "geometry": {
+                                                        "x": 32,
+                                                        "y": 1397,
+                                                        "x2": 688,
+                                                        "y2": 1426,
+                                                        "w_px": 656,
+                                                        "h_px": 29,
+                                                        "w_dp": 328.0,
+                                                        "h_dp": 14.5,
+                                                        "x_dp": 16.0,
+                                                        "y_dp": 698.5
+                                                      },
+                                                      "children": []
+                                                    }
+                                                  ]
+                                                },
+                                                {
+                                                  "component_type": "RsxtViewContainer",
+                                                  "resource_id": "",
+                                                  "class": "android.view.View",
+                                                  "content_desc": "",
+                                                  "text": "",
+                                                  "clickable": false,
+                                                  "geometry": {
+                                                    "x": 0,
+                                                    "y": 68,
+                                                    "x2": 720,
+                                                    "y2": 228,
+                                                    "w_px": 720,
+                                                    "h_px": 160,
+                                                    "w_dp": 360.0,
+                                                    "h_dp": 80.0,
+                                                    "x_dp": 0.0,
+                                                    "y_dp": 34.0
+                                                  },
+                                                  "children": [
+                                                    {
+                                                      "component_type": "RsxtViewContainer",
+                                                      "resource_id": "",
+                                                      "class": "android.view.View",
+                                                      "content_desc": "",
+                                                      "text": "",
+                                                      "clickable": true,
+                                                      "geometry": {
+                                                        "x": 32,
+                                                        "y": 92,
+                                                        "x2": 492,
+                                                        "y2": 188,
+                                                        "w_px": 460,
+                                                        "h_px": 96,
+                                                        "w_dp": 230.0,
+                                                        "h_dp": 48.0,
+                                                        "x_dp": 16.0,
+                                                        "y_dp": 46.0
+                                                      },
+                                                      "children": [
+                                                        {
+                                                          "component_type": "RsxtViewContainer",
+                                                          "resource_id": "",
+                                                          "class": "android.view.View",
+                                                          "content_desc": "Olá, HUBLOG DISTRIBUICAO E SERVICOS LTDA. Imagem de perfil",
+                                                          "text": "",
+                                                          "clickable": false,
+                                                          "geometry": {
+                                                            "x": 32,
+                                                            "y": 96,
+                                                            "x2": 492,
+                                                            "y2": 184,
+                                                            "w_px": 460,
+                                                            "h_px": 88,
+                                                            "w_dp": 230.0,
+                                                            "h_dp": 44.0,
+                                                            "x_dp": 16.0,
+                                                            "y_dp": 48.0
+                                                          },
+                                                          "children": []
+                                                        },
+                                                        {
+                                                          "component_type": "RsxtViewContainer",
+                                                          "resource_id": "",
+                                                          "class": "android.view.View",
+                                                          "content_desc": "",
+                                                          "text": "",
+                                                          "clickable": false,
+                                                          "geometry": {
+                                                            "x": 32,
+                                                            "y": 108,
+                                                            "x2": 96,
+                                                            "y2": 172,
+                                                            "w_px": 64,
+                                                            "h_px": 64,
+                                                            "w_dp": 32.0,
+                                                            "h_dp": 32.0,
+                                                            "x_dp": 16.0,
+                                                            "y_dp": 54.0
+                                                          },
+                                                          "children": []
+                                                        },
+                                                        {
+                                                          "component_type": "RsxtViewContainer",
+                                                          "resource_id": "",
+                                                          "class": "android.view.View",
+                                                          "content_desc": "Conta Negócio",
+                                                          "text": "",
+                                                          "clickable": false,
+                                                          "geometry": {
+                                                            "x": 120,
+                                                            "y": 144,
+                                                            "x2": 303,
+                                                            "y2": 176,
+                                                            "w_px": 183,
+                                                            "h_px": 32,
+                                                            "w_dp": 91.5,
+                                                            "h_dp": 16.0,
+                                                            "x_dp": 60.0,
+                                                            "y_dp": 72.0
+                                                          },
+                                                          "children": [
+                                                            {
+                                                              "component_type": "RsxtAndesText",
+                                                              "resource_id": "",
+                                                              "class": "android.widget.TextView",
+                                                              "content_desc": "",
+                                                              "text": "Conta Negócio",
+                                                              "clickable": false,
+                                                              "geometry": {
+                                                                "x": 132,
+                                                                "y": 148,
+                                                                "x2": 291,
+                                                                "y2": 172,
+                                                                "w_px": 159,
+                                                                "h_px": 24,
+                                                                "w_dp": 79.5,
+                                                                "h_dp": 12.0,
+                                                                "x_dp": 66.0,
+                                                                "y_dp": 74.0
+                                                              },
+                                                              "children": []
+                                                            }
+                                                          ]
+                                                        }
+                                                      ]
+                                                    },
+                                                    {
+                                                      "component_type": "RsxtAndesButton",
+                                                      "resource_id": "",
+                                                      "class": "android.widget.Button",
+                                                      "content_desc": "Busque ajuda e mais",
+                                                      "text": "",
+                                                      "clickable": true,
+                                                      "geometry": {
+                                                        "x": 502,
+                                                        "y": 92,
+                                                        "x2": 598,
+                                                        "y2": 188,
+                                                        "w_px": 96,
+                                                        "h_px": 96,
+                                                        "w_dp": 48.0,
+                                                        "h_dp": 48.0,
+                                                        "x_dp": 251.0,
+                                                        "y_dp": 46.0
+                                                      },
+                                                      "children": []
+                                                    },
+                                                    {
+                                                      "component_type": "RsxtAndesButton",
+                                                      "resource_id": "AndesIconButton",
+                                                      "class": "android.widget.Button",
+                                                      "content_desc": "Notificações",
+                                                      "text": "",
+                                                      "clickable": true,
+                                                      "geometry": {
+                                                        "x": 600,
+                                                        "y": 92,
+                                                        "x2": 696,
+                                                        "y2": 188,
+                                                        "w_px": 96,
+                                                        "h_px": 96,
+                                                        "w_dp": 48.0,
+                                                        "h_dp": 48.0,
+                                                        "x_dp": 300.0,
+                                                        "y_dp": 46.0
+                                                      },
+                                                      "children": []
+                                                    }
+                                                  ]
+                                                }
+                                              ]
+                                            }
+                                          ]
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "component_type": "RsxtAndesTabBar",
+                              "resource_id": "com.mercadopago.wallet:id/tabbar_ui",
+                              "class": "androidx.compose.ui.platform.ComposeView",
+                              "content_desc": "",
+                              "text": "",
+                              "clickable": false,
+                              "geometry": {
+                                "x": 0,
+                                "y": 1314,
+                                "x2": 720,
+                                "y2": 1600,
+                                "w_px": 720,
+                                "h_px": 286,
+                                "w_dp": 360.0,
+                                "h_dp": 143.0,
+                                "x_dp": 0.0,
+                                "y_dp": 657.0
+                              },
+                              "children": [
+                                {
+                                  "component_type": "RsxtViewContainer",
+                                  "resource_id": "",
+                                  "class": "android.view.View",
+                                  "content_desc": "",
+                                  "text": "",
+                                  "clickable": false,
+                                  "geometry": {
+                                    "x": 0,
+                                    "y": 1314,
+                                    "x2": 720,
+                                    "y2": 1600,
+                                    "w_px": 720,
+                                    "h_px": 286,
+                                    "w_dp": 360.0,
+                                    "h_dp": 143.0,
+                                    "x_dp": 0.0,
+                                    "y_dp": 657.0
+                                  },
+                                  "children": [
+                                    {
+                                      "component_type": "RsxtViewContainer",
+                                      "resource_id": "",
+                                      "class": "android.view.View",
+                                      "content_desc": "",
+                                      "text": "",
+                                      "clickable": true,
+                                      "geometry": {
+                                        "x": 0,
+                                        "y": 1407,
+                                        "x2": 144,
+                                        "y2": 1503,
+                                        "w_px": 144,
+                                        "h_px": 96,
+                                        "w_dp": 72.0,
+                                        "h_dp": 48.0,
+                                        "x_dp": 0.0,
+                                        "y_dp": 703.5
+                                      },
+                                      "children": [
+                                        {
+                                          "component_type": "RsxtAndesText",
+                                          "resource_id": "",
+                                          "class": "android.widget.TextView",
+                                          "content_desc": "",
+                                          "text": "Conta",
+                                          "clickable": false,
+                                          "geometry": {
+                                            "x": 40,
+                                            "y": 1469,
+                                            "x2": 104,
+                                            "y2": 1496,
+                                            "w_px": 64,
+                                            "h_px": 27,
+                                            "w_dp": 32.0,
+                                            "h_dp": 13.5,
+                                            "x_dp": 20.0,
+                                            "y_dp": 734.5
+                                          },
+                                          "children": []
+                                        }
+                                      ]
+                                    },
+                                    {
+                                      "component_type": "RsxtViewContainer",
+                                      "resource_id": "",
+                                      "class": "android.view.View",
+                                      "content_desc": "",
+                                      "text": "",
+                                      "clickable": true,
+                                      "geometry": {
+                                        "x": 144,
+                                        "y": 1407,
+                                        "x2": 288,
+                                        "y2": 1503,
+                                        "w_px": 144,
+                                        "h_px": 96,
+                                        "w_dp": 72.0,
+                                        "h_dp": 48.0,
+                                        "x_dp": 72.0,
+                                        "y_dp": 703.5
+                                      },
+                                      "children": [
+                                        {
+                                          "component_type": "RsxtAndesText",
+                                          "resource_id": "",
+                                          "class": "android.widget.TextView",
+                                          "content_desc": "",
+                                          "text": "Gestão",
+                                          "clickable": false,
+                                          "geometry": {
+                                            "x": 178,
+                                            "y": 1469,
+                                            "x2": 254,
+                                            "y2": 1496,
+                                            "w_px": 76,
+                                            "h_px": 27,
+                                            "w_dp": 38.0,
+                                            "h_dp": 13.5,
+                                            "x_dp": 89.0,
+                                            "y_dp": 734.5
+                                          },
+                                          "children": []
+                                        }
+                                      ]
+                                    },
+                                    {
+                                      "component_type": "RsxtViewContainer",
+                                      "resource_id": "",
+                                      "class": "android.view.View",
+                                      "content_desc": "",
+                                      "text": "",
+                                      "clickable": true,
+                                      "geometry": {
+                                        "x": 288,
+                                        "y": 1407,
+                                        "x2": 432,
+                                        "y2": 1503,
+                                        "w_px": 144,
+                                        "h_px": 96,
+                                        "w_dp": 72.0,
+                                        "h_dp": 48.0,
+                                        "x_dp": 144.0,
+                                        "y_dp": 703.5
+                                      },
+                                      "children": [
+                                        {
+                                          "component_type": "RsxtAndesQuickActionsBar",
+                                          "resource_id": "",
+                                          "class": "android.widget.TextView",
+                                          "content_desc": "",
+                                          "text": "Pix",
+                                          "clickable": false,
+                                          "geometry": {
+                                            "x": 344,
+                                            "y": 1469,
+                                            "x2": 377,
+                                            "y2": 1496,
+                                            "w_px": 33,
+                                            "h_px": 27,
+                                            "w_dp": 16.5,
+                                            "h_dp": 13.5,
+                                            "x_dp": 172.0,
+                                            "y_dp": 734.5
+                                          },
+                                          "children": []
+                                        }
+                                      ]
+                                    },
+                                    {
+                                      "component_type": "RsxtViewContainer",
+                                      "resource_id": "",
+                                      "class": "android.view.View",
+                                      "content_desc": "",
+                                      "text": "",
+                                      "clickable": true,
+                                      "geometry": {
+                                        "x": 432,
+                                        "y": 1407,
+                                        "x2": 576,
+                                        "y2": 1503,
+                                        "w_px": 144,
+                                        "h_px": 96,
+                                        "w_dp": 72.0,
+                                        "h_dp": 48.0,
+                                        "x_dp": 216.0,
+                                        "y_dp": 703.5
+                                      },
+                                      "children": [
+                                        {
+                                          "component_type": "RsxtAndesText",
+                                          "resource_id": "",
+                                          "class": "android.widget.TextView",
+                                          "content_desc": "",
+                                          "text": "Pagamentos",
+                                          "clickable": false,
+                                          "geometry": {
+                                            "x": 438,
+                                            "y": 1469,
+                                            "x2": 571,
+                                            "y2": 1496,
+                                            "w_px": 133,
+                                            "h_px": 27,
+                                            "w_dp": 66.5,
+                                            "h_dp": 13.5,
+                                            "x_dp": 219.0,
+                                            "y_dp": 734.5
+                                          },
+                                          "children": []
+                                        }
+                                      ]
+                                    },
+                                    {
+                                      "component_type": "RsxtViewContainer",
+                                      "resource_id": "",
+                                      "class": "android.view.View",
+                                      "content_desc": "",
+                                      "text": "",
+                                      "clickable": true,
+                                      "geometry": {
+                                        "x": 576,
+                                        "y": 1407,
+                                        "x2": 720,
+                                        "y2": 1503,
+                                        "w_px": 144,
+                                        "h_px": 96,
+                                        "w_dp": 72.0,
+                                        "h_dp": 48.0,
+                                        "x_dp": 288.0,
+                                        "y_dp": 703.5
+                                      },
+                                      "children": [
+                                        {
+                                          "component_type": "RsxtAndesText",
+                                          "resource_id": "",
+                                          "class": "android.widget.TextView",
+                                          "content_desc": "",
+                                          "text": "Mais",
+                                          "clickable": false,
+                                          "geometry": {
+                                            "x": 623,
+                                            "y": 1469,
+                                            "x2": 674,
+                                            "y2": 1496,
+                                            "w_px": 51,
+                                            "h_px": 27,
+                                            "w_dp": 25.5,
+                                            "h_dp": 13.5,
+                                            "x_dp": 311.5,
+                                            "y_dp": 734.5
+                                          },
+                                          "children": []
+                                        }
+                                      ]
+                                    },
+                                    {
+                                      "component_type": "RsxtAndesQuickActionsBar",
+                                      "resource_id": "",
+                                      "class": "android.view.View",
+                                      "content_desc": "Pix",
+                                      "text": "",
+                                      "clickable": true,
+                                      "geometry": {
+                                        "x": 304,
+                                        "y": 1338,
+                                        "x2": 416,
+                                        "y2": 1450,
+                                        "w_px": 112,
+                                        "h_px": 112,
+                                        "w_dp": 56.0,
+                                        "h_dp": 56.0,
+                                        "x_dp": 152.0,
+                                        "y_dp": 669.0
+                                      },
+                                      "children": []
+                                    }
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "component_type": "RsxtViewContainer",
+                              "resource_id": "",
+                              "class": "android.view.View",
+                              "content_desc": "",
+                              "text": "",
+                              "clickable": false,
+                              "geometry": {
+                                "x": 0,
+                                "y": 1506,
+                                "x2": 720,
+                                "y2": 1600,
+                                "w_px": 720,
+                                "h_px": 94,
+                                "w_dp": 360.0,
+                                "h_dp": 47.0,
+                                "x_dp": 0.0,
+                                "y_dp": 753.0
+                              },
+                              "children": []
+                            }
+                          ]
+                        },
+                        {
+                          "component_type": "RsxtViewContainer",
+                          "resource_id": "",
+                          "class": "android.widget.FrameLayout",
+                          "content_desc": "",
+                          "text": "",
+                          "clickable": false,
+                          "geometry": {
+                            "x": 568,
+                            "y": 1148,
+                            "x2": 688,
+                            "y2": 1348,
+                            "w_px": 120,
+                            "h_px": 200,
+                            "w_dp": 60.0,
+                            "h_dp": 100.0,
+                            "x_dp": 284.0,
+                            "y_dp": 574.0
+                          },
+                          "children": [
+                            {
+                              "component_type": "RsxtViewContainer",
+                              "resource_id": "",
+                              "class": "android.widget.LinearLayout",
+                              "content_desc": "",
+                              "text": "",
+                              "clickable": false,
+                              "geometry": {
+                                "x": 568,
+                                "y": 1180,
+                                "x2": 688,
+                                "y2": 1300,
+                                "w_px": 120,
+                                "h_px": 120,
+                                "w_dp": 60.0,
+                                "h_dp": 60.0,
+                                "x_dp": 284.0,
+                                "y_dp": 590.0
+                              },
+                              "children": [
+                                {
+                                  "component_type": "RsxtViewContainer",
+                                  "resource_id": "",
+                                  "class": "android.widget.FrameLayout",
+                                  "content_desc": "",
+                                  "text": "",
+                                  "clickable": false,
+                                  "geometry": {
+                                    "x": 568,
+                                    "y": 1180,
+                                    "x2": 688,
+                                    "y2": 1300,
+                                    "w_px": 120,
+                                    "h_px": 120,
+                                    "w_dp": 60.0,
+                                    "h_dp": 60.0,
+                                    "x_dp": 284.0,
+                                    "y_dp": 590.0
+                                  },
+                                  "children": [
+                                    {
+                                      "component_type": "RsxtViewContainer",
+                                      "resource_id": "",
+                                      "class": "android.widget.FrameLayout",
+                                      "content_desc": "FAB Principal",
+                                      "text": "",
+                                      "clickable": true,
+                                      "geometry": {
+                                        "x": 580,
+                                        "y": 1192,
+                                        "x2": 676,
+                                        "y2": 1288,
+                                        "w_px": 96,
+                                        "h_px": 96,
+                                        "w_dp": 48.0,
+                                        "h_dp": 48.0,
+                                        "x_dp": 290.0,
+                                        "y_dp": 596.0
+                                      },
+                                      "children": [
+                                        {
+                                          "component_type": "RsxtAndesIcon",
+                                          "resource_id": "",
+                                          "class": "android.widget.ImageView",
+                                          "content_desc": "",
+                                          "text": "",
+                                          "clickable": false,
+                                          "geometry": {
+                                            "x": 580,
+                                            "y": 1192,
+                                            "x2": 676,
+                                            "y2": 1288,
+                                            "w_px": 96,
+                                            "h_px": 96,
+                                            "w_dp": 48.0,
+                                            "h_dp": 48.0,
+                                            "x_dp": 290.0,
+                                            "y_dp": 596.0
+                                          },
+                                          "children": []
+                                        },
+                                        {
+                                          "component_type": "RsxtAndesIcon",
+                                          "resource_id": "",
+                                          "class": "android.widget.ImageView",
+                                          "content_desc": "",
+                                          "text": "",
+                                          "clickable": false,
+                                          "geometry": {
+                                            "x": 580,
+                                            "y": 1192,
+                                            "x2": 676,
+                                            "y2": 1288,
+                                            "w_px": 96,
+                                            "h_px": 96,
+                                            "w_dp": 48.0,
+                                            "h_dp": 48.0,
+                                            "x_dp": 290.0,
+                                            "y_dp": 596.0
+                                          },
+                                          "children": []
+                                        },
+                                        {
+                                          "component_type": "RsxtAndesIcon",
+                                          "resource_id": "",
+                                          "class": "android.widget.ImageView",
+                                          "content_desc": "",
+                                          "text": "",
+                                          "clickable": false,
+                                          "geometry": {
+                                            "x": 584,
+                                            "y": 1196,
+                                            "x2": 672,
+                                            "y2": 1284,
+                                            "w_px": 88,
+                                            "h_px": 88,
+                                            "w_dp": 44.0,
+                                            "h_dp": 44.0,
+                                            "x_dp": 292.0,
+                                            "y_dp": 598.0
+                                          },
+                                          "children": []
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "component_type": "RsxtAndesTabBar",
+          "resource_id": "android:id/navigationBarBackground",
+          "class": "android.view.View",
+          "content_desc": "",
+          "text": "",
+          "clickable": false,
+          "geometry": {
+            "x": 0,
+            "y": 1506,
+            "x2": 720,
+            "y2": 1600,
+            "w_px": 720,
+            "h_px": 94,
+            "w_dp": 360.0,
+            "h_dp": 47.0,
+            "x_dp": 0.0,
+            "y_dp": 753.0
+          },
+          "children": []
+        }
+      ]
+    }
+  ]
+}

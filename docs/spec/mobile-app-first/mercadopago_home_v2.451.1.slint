@@ -1,0 +1,281 @@
+import { Button, VerticalBox, HorizontalBox, ScrollView } from "std-widgets.slint";
+
+export component DynamicAppWindow inherits Window {
+    width: 390px;
+    height: 844px;
+    title: "Mercado Pago SDUI Hybrid IR 1:1";
+    background: #0B0E14;
+
+    VerticalLayout {
+        Rectangle {
+            background: #009EE3;
+            height: 64px;
+            padding-left: 16px;
+            padding-right: 16px;
+            HorizontalLayout {
+                alignment: space-between;
+                HorizontalLayout {
+                    spacing: 10px;
+                    alignment: center;
+                    Rectangle { width: 34px; height: 34px; background: #FFFFFF; border-radius: 17px; }
+                    Text { text: "Mercado Pago"; color: #FFFFFF; font-size: 18px; font-weight: 800; vertical-alignment: center; }
+                }
+                Rectangle { width: 32px; height: 32px; background: #0081BA; border-radius: 16px; }
+            }
+        }
+
+        ScrollView {
+            VerticalLayout {
+                padding: 14px;
+                spacing: 14px;
+
+                Rectangle {
+                    background: #161B22;
+                    border-radius: 16px;
+                    border-width: 1px;
+                    border-color: #30363D;
+                    padding: 16px;
+                    VerticalLayout {
+                        spacing: 8px;
+                        HorizontalLayout {
+                            alignment: space-between;
+                            Text { text: "Seu dinheiro"; color: #8B949E; font-size: 13px; }
+                            Text { text: "👁️"; font-size: 14px; }
+                        }
+                        Text { text: "R$ 1.482,90"; color: #FFFFFF; font-size: 26px; font-weight: 800; }
+                        Rectangle {
+                            background: #1F6FEB22;
+                            border-radius: 8px;
+                            height: 28px;
+                            padding-left: 10px;
+                            padding-right: 10px;
+                            HorizontalLayout {
+                                spacing: 6px;
+                                alignment: center;
+                                Text { text: "📈 Rendendo 105% do CDI"; color: #58A6FF; font-size: 12px; font-weight: 600; vertical-alignment: center; }
+                            }
+                        }
+                    }
+                }
+                Rectangle {
+                    background: #161B22;
+                    border-radius: 16px;
+                    border-width: 1px;
+                    border-color: #30363D;
+                    padding: 14px;
+                    VerticalLayout {
+                        spacing: 8px;
+                        HorizontalLayout {
+                            alignment: space-between;
+                            Text { text: "Cartão Mercado Pago"; color: #FFFFFF; font-size: 15px; font-weight: 700; }
+                            Text { text: "💳 Mastercard"; color: #8B949E; font-size: 12px; }
+                        }
+                        Text { text: "Limite disponível: R$ 3.200,00"; color: #8B949E; font-size: 13px; }
+                    }
+                }
+                Rectangle {
+                    background: #161B22;
+                    border-radius: 16px;
+                    border-width: 1px;
+                    border-color: #30363D;
+                    padding: 16px;
+                    VerticalLayout {
+                        spacing: 8px;
+                        HorizontalLayout {
+                            alignment: space-between;
+                            Text { text: "Seu dinheiro"; color: #8B949E; font-size: 13px; }
+                            Text { text: "👁️"; font-size: 14px; }
+                        }
+                        Text { text: "Saldo"; color: #FFFFFF; font-size: 26px; font-weight: 800; }
+                        Rectangle {
+                            background: #1F6FEB22;
+                            border-radius: 8px;
+                            height: 28px;
+                            padding-left: 10px;
+                            padding-right: 10px;
+                            HorizontalLayout {
+                                spacing: 6px;
+                                alignment: center;
+                                Text { text: "📈 Rendendo 105% do CDI"; color: #58A6FF; font-size: 12px; font-weight: 600; vertical-alignment: center; }
+                            }
+                        }
+                    }
+                }
+                Button {
+                    text: "Cofrinhos";
+                }
+                Button {
+                    text: "Cripto";
+                }
+                Text {
+                    text: "Ferramentas de venda";
+                    color: #E6EDF3;
+                    font-size: 14px;
+                }
+                Text {
+                    text: "Simulador de taxas";
+                    color: #E6EDF3;
+                    font-size: 14px;
+                }
+                Button {
+                    text: "Ação";
+                }
+                Text {
+                    text: "Point Tap";
+                    color: #E6EDF3;
+                    font-size: 14px;
+                }
+                Button {
+                    text: "Ação";
+                }
+                Text {
+                    text: "Link de pagamento";
+                    color: #E6EDF3;
+                    font-size: 14px;
+                }
+                Button {
+                    text: "Ação";
+                }
+                Text {
+                    text: "Point";
+                    color: #E6EDF3;
+                    font-size: 14px;
+                }
+                Button {
+                    text: "Ação";
+                }
+                Text {
+                    text: "Taxas e parcelas";
+                    color: #E6EDF3;
+                    font-size: 14px;
+                }
+                Button {
+                    text: "Ação";
+                }
+                Text {
+                    text: "Seus Cartões";
+                    color: #E6EDF3;
+                    font-size: 14px;
+                }
+                Rectangle {
+                    background: #161B22;
+                    border-radius: 16px;
+                    border-width: 1px;
+                    border-color: #30363D;
+                    padding: 14px;
+                    HorizontalLayout {
+                        alignment: space-around;
+                        spacing: 8px;
+                        VerticalLayout {
+                            spacing: 6px;
+                            alignment: center;
+                            Rectangle { width: 46px; height: 46px; background: #009EE3; border-radius: 23px; }
+                            Text { text: "Empréstimos"; color: #E6EDF3; font-size: 12px; font-weight: 600; horizontal-alignment: center; }
+                        }
+                        VerticalLayout {
+                            spacing: 6px;
+                            alignment: center;
+                            Rectangle { width: 46px; height: 46px; background: #238636; border-radius: 23px; }
+                            Text { text: "Transferir"; color: #E6EDF3; font-size: 12px; font-weight: 600; horizontal-alignment: center; }
+                        }
+                        VerticalLayout {
+                            spacing: 6px;
+                            alignment: center;
+                            Rectangle { width: 46px; height: 46px; background: #D29922; border-radius: 23px; }
+                            Text { text: "Pagar QR"; color: #E6EDF3; font-size: 12px; font-weight: 600; horizontal-alignment: center; }
+                        }
+                        VerticalLayout {
+                            spacing: 6px;
+                            alignment: center;
+                            Rectangle { width: 46px; height: 46px; background: #A371F7; border-radius: 23px; }
+                            Text { text: "Cobrar"; color: #E6EDF3; font-size: 12px; font-weight: 600; horizontal-alignment: center; }
+                        }
+                    }
+                }
+                Text {
+                    text: "Consultar";
+                    color: #E6EDF3;
+                    font-size: 14px;
+                }
+                Button {
+                    text: "Ação";
+                }
+                Text {
+                    text: "Conta Negócio";
+                    color: #E6EDF3;
+                    font-size: 14px;
+                }
+                Button {
+                    text: "Busque ajuda e mais";
+                }
+                Button {
+                    text: "Notificações";
+                }
+                Rectangle {
+                    background: #161B22;
+                    border-radius: 16px;
+                    border-width: 1px;
+                    border-color: #30363D;
+                    height: 60px;
+                    padding-left: 12px;
+                    padding-right: 12px;
+                    HorizontalLayout {
+                        alignment: space-around;
+                        VerticalLayout {
+                            alignment: center;
+                            Text { text: "🏠"; font-size: 16px; horizontal-alignment: center; }
+                            Text { text: "Início"; color: #009EE3; font-size: 11px; font-weight: 700; horizontal-alignment: center; }
+                        }
+                        VerticalLayout {
+                            alignment: center;
+                            Text { text: "💳"; font-size: 16px; horizontal-alignment: center; }
+                            Text { text: "Carteira"; color: #8B949E; font-size: 11px; horizontal-alignment: center; }
+                        }
+                        VerticalLayout {
+                            alignment: center;
+                            Text { text: "⚡"; font-size: 16px; horizontal-alignment: center; }
+                            Text { text: "Pix"; color: #8B949E; font-size: 11px; horizontal-alignment: center; }
+                        }
+                        VerticalLayout {
+                            alignment: center;
+                            Text { text: "☰"; font-size: 16px; horizontal-alignment: center; }
+                            Text { text: "Mais"; color: #8B949E; font-size: 11px; horizontal-alignment: center; }
+                        }
+                    }
+                }
+                Rectangle {
+                    background: #161B22;
+                    border-radius: 16px;
+                    border-width: 1px;
+                    border-color: #30363D;
+                    height: 60px;
+                    padding-left: 12px;
+                    padding-right: 12px;
+                    HorizontalLayout {
+                        alignment: space-around;
+                        VerticalLayout {
+                            alignment: center;
+                            Text { text: "🏠"; font-size: 16px; horizontal-alignment: center; }
+                            Text { text: "Início"; color: #009EE3; font-size: 11px; font-weight: 700; horizontal-alignment: center; }
+                        }
+                        VerticalLayout {
+                            alignment: center;
+                            Text { text: "💳"; font-size: 16px; horizontal-alignment: center; }
+                            Text { text: "Carteira"; color: #8B949E; font-size: 11px; horizontal-alignment: center; }
+                        }
+                        VerticalLayout {
+                            alignment: center;
+                            Text { text: "⚡"; font-size: 16px; horizontal-alignment: center; }
+                            Text { text: "Pix"; color: #8B949E; font-size: 11px; horizontal-alignment: center; }
+                        }
+                        VerticalLayout {
+                            alignment: center;
+                            Text { text: "☰"; font-size: 16px; horizontal-alignment: center; }
+                            Text { text: "Mais"; color: #8B949E; font-size: 11px; horizontal-alignment: center; }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
