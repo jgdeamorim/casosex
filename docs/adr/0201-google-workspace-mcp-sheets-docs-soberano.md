@@ -33,14 +33,23 @@ As credenciais do serviço estão armazenadas no cofre local seguro `.secrets/.e
 4. **Registro em `mcp_config.json`**:
    - Registrar a chave `"google-workspace"` no `/home/jeffer/.gemini/antigravity/mcp_config.json`.
 
+5. **Modelo de Autenticação Dual (API Key vs OAuth 2.0 / User Tokens)**:
+   - **Chave de API (`key=...`)**: Reservada estritamente para consultas e leitura de planilhas e dados públicos.
+   - **OAuth 2.0 / User Tokens**: Requisito obrigatório para operações de criação (`POST /v4/spreadsheets`) de novos documentos no Google Drive do usuário (`https://docs.google.com/spreadsheets/u/0/`).
+
+6. **Identificação de Workspace no V8 Cockpit (`UserProfileModal.tsx`)**:
+   - O e-mail do operador admin (`userSession.email`) acessível via `RenderContext` no modal de perfil (`UserProfileModal.tsx`) é estabelecido como o **ID Interno do Workspace**.
+   - As sessões de exportação e criação de planilhas no Google Drive serão vinculadas à identidade deste operador para total auditabilidade interna.
+
 ---
 
 ## 3. Consequências
 
 - **Positivas**:
   - Capacidade nativa do assistente Antigravity de manipular Google Sheets e Docs com comando de texto simples.
+  - Rastreabilidade de workspace e vinculação com a conta do Operador Admin (`userSession.email`).
   - Segurança total das credenciais mantidas isoladas em `.secrets/`.
   - Conformidade com a doutrina `medido=verdade` e rastreabilidade total.
 
 - **Mitigações**:
-  - Fallback automático para modo de simulação em caso de ausência de rede ou erro na API do Google.
+  - Exibição de tratamento de erro amigável (`HTTP 401 Unauthorized`) indicando a necessidade de token OAuth2 caso apenas a API Key esteja presente para operações de escrita/criação.
