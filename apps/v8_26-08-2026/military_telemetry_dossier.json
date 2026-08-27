@@ -1,0 +1,272 @@
+{
+  "telemetry_level": "MILITARY_GRADE_SOVEREIGN",
+  "doctrine": "medido=verdade",
+  "timestamp_utc": "2026-08-27T00:38:25Z",
+  "execution_latency_ms": 19.13,
+  "redis_state": {
+    "boa_score": "0.9900",
+    "stage_act": "SELADO INGESTÃO FERRARI v2.0 · 244 novos / 1558 cached em 61912.8ms (Commit ff1aa770e)",
+    "commit_hash": "ff1aa770e",
+    "gemini_flash_protocol": "ACTIVE_v1.0.0"
+  },
+  "qdrant_state": {
+    "casosex_inspiration_points": 25,
+    "casosex_self_points": 347
+  },
+  "ipc_state": {
+    "ast_ringbuffer_ipc": "/media/jeffer/RSXT/ast_ringbuffer.ipc",
+    "exists": true,
+    "size_bytes": 42069
+  },
+  "spec_artifacts_count": 11,
+  "spec_artifacts_hashes": {
+    "andes-ui-tokens.yaml": {
+      "blake2b_256": "3e83ee1f418c7d64fe6c16ee524a1579b89107a815e9d8a4238bcbe7e19d49f0",
+      "bytes": 1836,
+      "mmap_status": "ZERO_COPY_READ_OK"
+    },
+    "assets-catalog.yaml": {
+      "blake2b_256": "000ca3e8866db58bc2855723a42ae48ea0576758d9763cc05d1246c0212640c9",
+      "bytes": 16634,
+      "mmap_status": "ZERO_COPY_READ_OK"
+    },
+    "component-routes-metadata.yaml": {
+      "blake2b_256": "eb292b0fb2742648185ddab2b86119da4c8a90a78453bda2059fb27180acd06c",
+      "bytes": 6617,
+      "mmap_status": "ZERO_COPY_READ_OK"
+    },
+    "deep-links-routes.yaml": {
+      "blake2b_256": "d174e84dba5831279a3913fcdda5e93777db385bef16f0ddc2923c4c68281aa7",
+      "bytes": 2466,
+      "mmap_status": "ZERO_COPY_READ_OK"
+    },
+    "design-tokens-full.json": {
+      "blake2b_256": "1f442302f5148b17b405faf888a1aeb8f4c6140399b0ad130c92b38a14bbfe46",
+      "bytes": 360824,
+      "mmap_status": "ZERO_COPY_READ_OK"
+    },
+    "dimens-spacing.yaml": {
+      "blake2b_256": "e88a3d02e287f51d53eea609ffad777317d8d1939408e38b427cb357ff1b3330",
+      "bytes": 3291,
+      "mmap_status": "ZERO_COPY_READ_OK"
+    },
+    "index.yaml": {
+      "blake2b_256": "5680106554ab1e01f6dc0df8b69e43e313471eae9690f10014ec7a0adac37e5f",
+      "bytes": 1733,
+      "mmap_status": "ZERO_COPY_READ_OK"
+    },
+    "interactive-states-actions.yaml": {
+      "blake2b_256": "9c2eb0655bab54231d3930fadf7507750f5569c1db084c7c7145ee650798feef",
+      "bytes": 880,
+      "mmap_status": "ZERO_COPY_READ_OK"
+    },
+    "master-design-system.json": {
+      "blake2b_256": "9fdf62adc305458fe41d73c1b39b2edab78555a08730c1e2618b6b25eac7047f",
+      "bytes": 77190,
+      "mmap_status": "ZERO_COPY_READ_OK"
+    },
+    "micro-copy-ptbr.yaml": {
+      "blake2b_256": "9b45ccec5f0da5440e4fe280040e091b4bee36a52c4bcedd9d94649619ae268b",
+      "bytes": 1094,
+      "mmap_status": "ZERO_COPY_READ_OK"
+    },
+    "motion-animations.yaml": {
+      "blake2b_256": "c77346e24f62e75751a74bdea9c34c027e7dd48e96a45dc8342a498cb9bb223f",
+      "bytes": 1259,
+      "mmap_status": "ZERO_COPY_READ_OK"
+    }
+  },
+  "codebase_files_count": 38,
+  "codebase_files_hashes": {
+    "App.tsx": {
+      "blake2b_256": "ab5cdf1329f5191dc62beec23b2584394fc12dcb3de257483dacc3be9914f434",
+      "bytes": 4156,
+      "mmap_status": "ZERO_COPY_READ_OK"
+    },
+    "auth/ProfilePicker.tsx": {
+      "blake2b_256": "b2162a394254282aef04ace338c6ee57e2d33aa4ae0b637dd7a0c1956290767f",
+      "bytes": 2812,
+      "mmap_status": "ZERO_COPY_READ_OK"
+    },
+    "auth/ScopeGuard.tsx": {
+      "blake2b_256": "b9b116478667e751539f4a56a270369dea726d20b4800a0d17f4f2bb0bc1b3e3",
+      "bytes": 1046,
+      "mmap_status": "ZERO_COPY_READ_OK"
+    },
+    "auth/userRules.ts": {
+      "blake2b_256": "213e194386cf861226526fd5d5d60a4a5857eb6d322a57a7347502b9da67762d",
+      "bytes": 1533,
+      "mmap_status": "ZERO_COPY_READ_OK"
+    },
+    "components/MobileAppView.tsx": {
+      "blake2b_256": "5b886ff7d1d838a1a2c53d6e73f9802e38b05e1579ca6fbb4a72d41ea0de391e",
+      "bytes": 1536,
+      "mmap_status": "ZERO_COPY_READ_OK"
+    },
+    "components/ResponsiveViewportEngine.tsx": {
+      "blake2b_256": "cdd67256c7202faed91cb1e816b4f9af7c291a4829520ef30fc42a13c9ed32a7",
+      "bytes": 1441,
+      "mmap_status": "ZERO_COPY_READ_OK"
+    },
+    "components/auth/LoginModal.tsx": {
+      "blake2b_256": "2773dcb43890e2e11733863fa9573c7d6971cfdbb26a92364d68482650a658d7",
+      "bytes": 1702,
+      "mmap_status": "ZERO_COPY_READ_OK"
+    },
+    "components/auth/LoginView.tsx": {
+      "blake2b_256": "95a1d376d5188d93461a3e4cdec4b26127e75731fee0a07809f41b87516af98d",
+      "bytes": 1538,
+      "mmap_status": "ZERO_COPY_READ_OK"
+    },
+    "components/chat/TeamChatDrawer.tsx": {
+      "blake2b_256": "ee8be9addf9763b67f364ed4aa01befa6d7f1f685915e7770e8bed20a256af3f",
+      "bytes": 9012,
+      "mmap_status": "ZERO_COPY_READ_OK"
+    },
+    "components/dashboard/MobileIntelView.tsx": {
+      "blake2b_256": "def28c31a0fb07e533994d4c2145709ee4d5e31318665325a72527cf255bb137",
+      "bytes": 5795,
+      "mmap_status": "ZERO_COPY_READ_OK"
+    },
+    "components/dossier/HomologationForm.tsx": {
+      "blake2b_256": "6e1347390d6c424e1ee3dc422e526d0a63ea205259cb5ce6e4eb3ff54d067c78",
+      "bytes": 14939,
+      "mmap_status": "ZERO_COPY_READ_OK"
+    },
+    "components/dossier/MobileDossierView.tsx": {
+      "blake2b_256": "c56e4618d793d45c86c1fc9a6458e3c2ab972a9153ed7d190ba8ac42252eed60",
+      "bytes": 20530,
+      "mmap_status": "ZERO_COPY_READ_OK"
+    },
+    "components/kpi/KPIGrid.tsx": {
+      "blake2b_256": "96fbdbec8cfcd35c8807ca903fb2df1fa997c24fa6c02d79f8dd3ee9d7066312",
+      "bytes": 3985,
+      "mmap_status": "ZERO_COPY_READ_OK"
+    },
+    "components/layout/BottomGlassDock.tsx": {
+      "blake2b_256": "1817e901ad06d6ac036b0bf44d13f4cae3e9fa8f92244d5e27d328281f0ed328",
+      "bytes": 4014,
+      "mmap_status": "ZERO_COPY_READ_OK"
+    },
+    "components/layout/Header.tsx": {
+      "blake2b_256": "6b4f05d2737cfcdf7a52e72d015c2285e3d65613d90f82ac26ba2572c8fb4aaa",
+      "bytes": 9365,
+      "mmap_status": "ZERO_COPY_READ_OK"
+    },
+    "components/layout/MobileHeader.tsx": {
+      "blake2b_256": "a7c2f09e5078c0a745b88defbe9215db80717bc39012c148edcda8a55b760f8f",
+      "bytes": 3953,
+      "mmap_status": "ZERO_COPY_READ_OK"
+    },
+    "components/layout/Sidebar.tsx": {
+      "blake2b_256": "6160b9ea44963cec9f428d57cc03bf4b18ab43b9c8198cef0d18a6dcacc4c99e",
+      "bytes": 4018,
+      "mmap_status": "ZERO_COPY_READ_OK"
+    },
+    "components/map/SupplierMap.tsx": {
+      "blake2b_256": "c218c9b61ad704ccaeb1128d954b1f08c7efe3815aafdd612b309d36e4daf49e",
+      "bytes": 7223,
+      "mmap_status": "ZERO_COPY_READ_OK"
+    },
+    "components/profile/UserProfileModal.tsx": {
+      "blake2b_256": "1117682372b0d7f31de296d44b0c934c4ce747a2a4b8a1d7c8f816a6267c0120",
+      "bytes": 8872,
+      "mmap_status": "ZERO_COPY_READ_OK"
+    },
+    "components/suppliers/MobileSupplierCards.tsx": {
+      "blake2b_256": "c08623086484f2db3ef60d30566c6076fef85424e5c4ab509932ec86454d556d",
+      "bytes": 27037,
+      "mmap_status": "ZERO_COPY_READ_OK"
+    },
+    "components/suppliers/SupplierTable.tsx": {
+      "blake2b_256": "312ae587fb7e6a9cfbfed5ccba76604a0903aeca78cba18bbf21f22a3ebd6285",
+      "bytes": 10697,
+      "mmap_status": "ZERO_COPY_READ_OK"
+    },
+    "context/RenderContext.tsx": {
+      "blake2b_256": "c5947f34740364541b5f01dd9981c713cfcfcb4d0be95d8b3e337f80d493b1f6",
+      "bytes": 9418,
+      "mmap_status": "ZERO_COPY_READ_OK"
+    },
+    "facets/DeviceLayoutFacet.ts": {
+      "blake2b_256": "46b57ac63ed6e1016d9e4ffb97fe5f7565de90c9723a58c0d75f60af328f8195",
+      "bytes": 891,
+      "mmap_status": "ZERO_COPY_READ_OK"
+    },
+    "index.css": {
+      "blake2b_256": "4d56369506e139bc27ce1ef161a3fa20a59009d7398d36cd0d2c3d6e8c58ed0b",
+      "bytes": 7930,
+      "mmap_status": "ZERO_COPY_READ_OK"
+    },
+    "lib/api.ts": {
+      "blake2b_256": "af645bfd512fc276cb2908ca5db8257305bf2d9a97659bb91416649ca97f3d88",
+      "bytes": 5750,
+      "mmap_status": "ZERO_COPY_READ_OK"
+    },
+    "lib/background/AuditTrailLogger.ts": {
+      "blake2b_256": "aeadeba9b503331ef5fe499fc72b1b29a8bd6eb1642d0cbe70fdda49482624b1",
+      "bytes": 532,
+      "mmap_status": "ZERO_COPY_READ_OK"
+    },
+    "lib/background/CacheRevalidationService.ts": {
+      "blake2b_256": "1ca224dbbbff8ef838ac9f0862210d1012b46ed678e79803c25f1a4981001ac3",
+      "bytes": 1322,
+      "mmap_status": "ZERO_COPY_READ_OK"
+    },
+    "lib/background/OfflineSyncQueue.ts": {
+      "blake2b_256": "8d4ec4fbf7217d3c70f680bc70061368bd612e313687b2a131589dc8af3b5d19",
+      "bytes": 1608,
+      "mmap_status": "ZERO_COPY_READ_OK"
+    },
+    "lib/background/SupplierPollingWorker.ts": {
+      "blake2b_256": "8bb8fd273129be3811b6a5d83711e61d0f4a13498f162d9f5ceec62776f83756",
+      "bytes": 1361,
+      "mmap_status": "ZERO_COPY_READ_OK"
+    },
+    "lib/background/TelemetryBackgroundWorker.ts": {
+      "blake2b_256": "5b6f2f4182402a77ba4dbd606c7c856dc9e94acc0bbba4bf1f5fab00af4177ad",
+      "bytes": 1062,
+      "mmap_status": "ZERO_COPY_READ_OK"
+    },
+    "lib/background/index.ts": {
+      "blake2b_256": "01fd27127092ff5fd155a24cb1f84d63c61ccbbd3046f262bd9fbe0e5113ffba",
+      "bytes": 495,
+      "mmap_status": "ZERO_COPY_READ_OK"
+    },
+    "lib/filterSuppliers.ts": {
+      "blake2b_256": "ccee2b675305d14f37860fb2be52cb7689ef0e626e083f65038d1cc1af937cab",
+      "bytes": 1147,
+      "mmap_status": "ZERO_COPY_READ_OK"
+    },
+    "lib/pwa-helpers.ts": {
+      "blake2b_256": "707418070b42bf15d659cfe48e1a53cd2de2914e6c2431fdf0880a625fba6915",
+      "bytes": 1530,
+      "mmap_status": "ZERO_COPY_READ_OK"
+    },
+    "lib/status.ts": {
+      "blake2b_256": "639c4c375072a60ab801622555f1fe2176568d73dcaece26e9e18b0f6ea18075",
+      "bytes": 841,
+      "mmap_status": "ZERO_COPY_READ_OK"
+    },
+    "lib/useFocusTrap.ts": {
+      "blake2b_256": "a5a7560230269da6736b899ae06a1f0dcea9b81ac6412c586c072ad17ed5f2cd",
+      "bytes": 1561,
+      "mmap_status": "ZERO_COPY_READ_OK"
+    },
+    "main.tsx": {
+      "blake2b_256": "312f49fe333b4c2629a43112c2bf71a6404612c0590ccbdc7c8289e9e156711f",
+      "bytes": 546,
+      "mmap_status": "ZERO_COPY_READ_OK"
+    },
+    "seeds/responsive-screens.json": {
+      "blake2b_256": "a3a692f27a91eb304c7f049f9c5b32cf054a2d904257642567aee01cdb0eec5c",
+      "bytes": 1521,
+      "mmap_status": "ZERO_COPY_READ_OK"
+    },
+    "types/index.ts": {
+      "blake2b_256": "894c7150d7c1bdd88211a037d037a7717ad0e342d8bca2d8fef0e1eb327531ee",
+      "bytes": 1344,
+      "mmap_status": "ZERO_COPY_READ_OK"
+    }
+  }
+}
