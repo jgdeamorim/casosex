@@ -1,5 +1,0 @@
-# Cloudflare Pages Redirect Rules for Volúpia V8 Cockpit
-/admin          /               301
-/admin/*        /               301
-/cockpit        /               301
-/v8             /               301
