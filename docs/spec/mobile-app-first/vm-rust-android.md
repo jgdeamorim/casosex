@@ -33,13 +33,19 @@ Historicamente, o **Veto #4** definia que conter 10 artefatos YAML/JSON em `docs
 
 ## 3. Componentes da Arquitetura `rsxt-android`
 
-### 3.1. Stack Tecnológica Core
+### 3.1. Fontes de Dados Físicas e Rastreabilidade (`medido=verdade`)
+- **APK de Origem (Inspiration)**: `/media/jeffer/5aab5a95-8290-d3f7-2e4f-8c27cc2d09a93/adsentice/self-inspirations/com.mercadopago.wallet_2.449.0-1816181509_4arch_7dpi_4feat_6f8d1808e3179e8ff153d9ad52410688_apkmirror.com`
+- **JSON de Payload Vivo**: `/media/jeffer/5aab5a95-8290-d3f7-2e4f-8c27cc2d09a93/CASOSEX/docs/spec/mobile-app-first/vm-rust-android.json` (618 KB / 2.017 linhas).
+- **Tags Vectoriais no Qdrant**: `tag=app-jury` e `tag=app-mercadopago`.
+- **Mecanismo Eval & Probe**: Motor de Sondagem Rust lendo o AST/DOM estático de `vm-rust-android.json` em sub-milissegundo (`redb`), mapeando componentes nativos sem alucinação.
+
+### 3.2. Stack Tecnológica Core
 - **Runtime Async**: `tokio` (orquestração concorrente de I/O, IPC e eventos touch).
-- **Embedded Persistence L1**: `redb` (carregamento instantâneo do `master-design-system.json` em sub-milissegundo).
+- **Embedded Persistence L1**: `redb` (carregamento instantâneo do `vm-rust-android.json` em `< 0.1ms`).
 - **Graphics & Pipeline Hardware**: `wgpu` (aceleração gráfica via Vulkan / GLES3 no Android).
 - **GUI Engine Declarativa**: `slint` (compilação de layouts nativos a partir da árvore `component-routes-metadata.yaml` e `andes-ui-tokens.yaml`).
 
-### 3.2. Protocolo de Comunicação IPC (Zero-Copy)
+### 3.3. Protocolo de Comunicação IPC (Zero-Copy)
 - **RingBuffer IPC**: Mapeado via Mmap em `/media/jeffer/RSXT/ast_ringbuffer.ipc`.
 - **Protobuf Mesh**: Armazenamento binário de sessões (`.pb`) com economia estimada de tokens `> 92.5%`.
 
