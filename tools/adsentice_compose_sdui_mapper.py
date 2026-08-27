@@ -43,11 +43,15 @@ def infer_andes_component(res_id, cls_name, content_desc, text):
     d = content_desc.lower()
     t = text.lower()
 
-    if 'banking_balance_row' in r or ('saldo' in d or 'saldo' in t):
+    if 'header' in r or 'topbar' in r or 'toolbar' in r or 'user_profile' in r:
+        return 'RsxtHeaderNavBar'
+    elif 'banking_balance_row' in r or 'balance' in r or ('saldo' in d or 'saldo' in t or 'rendendo' in d or 'rendendo' in t):
         return 'RsxtBankingBalanceRow'
-    elif 'quick_action' in r or 'pix' in d or 'pix' in t or 'transferir' in d or 'cobrar' in d or 'pagar' in d:
+    elif 'quick_action' in r or 'shortcut' in r or any(kw in d or kw in t for kw in ['pix', 'transferir', 'cobrar', 'pagar', 'recarregar', 'empréstimo', 'cartão']):
         return 'RsxtAndesQuickActionsBar'
-    elif 'tab' in r or 'bottom_navigation' in r or 'tabbar' in c or 'navigation' in r:
+    elif 'banner' in r or 'promo' in r or 'carousel' in r or 'campaign' in r:
+        return 'RsxtPromoBanner'
+    elif 'tab' in r or 'bottom_navigation' in r or 'tabbar' in c or 'navigation' in r or 'bottom_bar' in r:
         return 'RsxtAndesTabBar'
     elif 'card' in r or 'container' in r or 'card' in c or 'credit' in r or 'cartao' in d or 'cartão' in d:
         return 'RsxtAndesCard'
@@ -113,9 +117,24 @@ def generate_sdui_ir(dump_file_path):
     return ir_document
 
 if __name__ == '__main__':
-    dump_path = '/tmp/bone_dump.xml'
-    if not os.path.exists(dump_path):
-        dump_path = '/media/jeffer/5aab5a95-8290-d3f7-2e4f-8c27cc2d09a93/adsentice/docs/inspirations/window_dump.xml'
+    import sys
+    dump_path = sys.argv[1] if len(sys.argv) > 1 else '/tmp/bone_dump.xml'
+
+    # Se o dump live for nulo, do lockscreen ou não contiver MercadoPago, faz fallback automático
+    is_valid_mp_dump = False
+    if os.path.exists(dump_path):
+        try:
+            content = open(dump_path, 'r', encoding='utf-8', errors='ignore').read()
+            if 'com.mercadopago.wallet' in content or 'banking' in content or 'saldo' in content.lower():
+                is_valid_mp_dump = True
+        except Exception:
+            pass
+
+    if not is_valid_mp_dump:
+        fallback_path = '/media/jeffer/5aab5a95-8290-d3f7-2e4f-8c27cc2d09a93/adsentice/docs/inspirations/window_dump.xml'
+        if os.path.exists(fallback_path):
+            print(f"⚠️ Dump live ({dump_path}) pertence ao lockscreen/systemui. Utilizando dump canônico do MercadoPago: {fallback_path}")
+            dump_path = fallback_path
 
     print(f"⚡ Mapeando árvore Jetpack Compose SDUI a partir de: {dump_path}")
     ir = generate_sdui_ir(dump_path)
@@ -126,3 +145,4 @@ if __name__ == '__main__':
 
     print(f"✅ IR JSON Soberano gerado em: {out_path}")
     print(f"📊 Checksum BLAKE3: {ir['blake3_checksum']}")
+
