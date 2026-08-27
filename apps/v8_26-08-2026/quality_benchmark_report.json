@@ -5,7 +5,7 @@
   "output_directory": "/media/jeffer/5aab5a95-8290-d3f7-2e4f-8c27cc2d09a93/CASOSEX/apps/v8_26-08-2026",
   "metrics": {
     "overall_quality_score": "100.0%",
-    "spec_files_count": 11,
+    "spec_files_count": 14,
     "spec_tag": "app-jury",
     "code_files_count": 38,
     "code_tag": "v8_cockpit",
@@ -99,6 +99,30 @@
       "rel_path": "docs/spec/mobile-app-first/motion-animations.yaml",
       "blake2b_hash": "c77346e24f62e75751a74bdea9c34c027e7dd48e96a45dc8342a498cb9bb223f",
       "size_bytes": 1259,
+      "tag": "app-jury",
+      "collection": "casosex-inspiration"
+    },
+    {
+      "file": "vm-rust-android-conversa-full.md",
+      "rel_path": "docs/spec/mobile-app-first/vm-rust-android-conversa-full.md",
+      "blake2b_hash": "6d55565a858335f6c2a874254f477393d45adba26b63bc36ac3c6284cbe05b31",
+      "size_bytes": 346,
+      "tag": "app-jury",
+      "collection": "casosex-inspiration"
+    },
+    {
+      "file": "vm-rust-android.json",
+      "rel_path": "docs/spec/mobile-app-first/vm-rust-android.json",
+      "blake2b_hash": "7118ff706093f3c3592379b12ca143c281275be8f770a67522759435ced6ba56",
+      "size_bytes": 82388,
+      "tag": "app-jury",
+      "collection": "casosex-inspiration"
+    },
+    {
+      "file": "vm-rust-android.md",
+      "rel_path": "docs/spec/mobile-app-first/vm-rust-android.md",
+      "blake2b_hash": "0bffe804ff6b313a8a3f1131eb2a5bc7caa679f3ca32824d67fdad4f7c628554",
+      "size_bytes": 47365,
       "tag": "app-jury",
       "collection": "casosex-inspiration"
     }
@@ -259,8 +283,8 @@
     {
       "file": "MobileSupplierCards.tsx",
       "rel_path": "apps/v8-cockpit/src/components/suppliers/MobileSupplierCards.tsx",
-      "blake2b_hash": "c08623086484f2db3ef60d30566c6076fef85424e5c4ab509932ec86454d556d",
-      "size_bytes": 27037,
+      "blake2b_hash": "40c7c1e70b4e3624b2b7e7fef976686bcd39fd3dc190ee1bb419dac29e1d6728",
+      "size_bytes": 29170,
       "tag": "v8_cockpit",
       "collection": "casosex-self"
     },
@@ -431,7 +455,7 @@
       "spec_file": "component-routes-metadata.yaml",
       "code_file": "components/suppliers/MobileSupplierCards.tsx",
       "spec_hash": "eb292b0fb2742648185ddab2b86119da4c8a90a78453bda2059fb27180acd06c",
-      "code_hash": "c08623086484f2db3ef60d30566c6076fef85424e5c4ab509932ec86454d556d",
+      "code_hash": "40c7c1e70b4e3624b2b7e7fef976686bcd39fd3dc190ee1bb419dac29e1d6728",
       "status": "ALIGNED"
     },
     {
