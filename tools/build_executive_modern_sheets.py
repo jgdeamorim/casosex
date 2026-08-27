@@ -1,13 +1,14 @@
 #!/usr/bin/env python3
 """
-Volúpia B2B — Sovereign Field Commercial Cockpit v3.0
+Volúpia B2B — Sovereign Field Commercial Cockpit v4.0
 Google Sheets Ultra-Modern Executive App Redesign (ADR-0201).
 
 Destaques da Interface Avançada:
+- Dashboard Interativo com Selector Dropdown em tempo real (Filtro por Polo Regional).
+- 6 Cards KPI de Alto Impacto com bordas, cores soft temáticas e percentuais dinâmicos.
 - Botões de Ação Visual (Pill Buttons) com fundo colorido e texto branco centralizado.
 - Checkboxes nativas de 1-toque no celular (BOOLEAN validation).
 - Disposição Mobile-First: Botões de GPS e WhatsApp nas primeiras colunas visíveis.
-- Dropdowns nativos de Status e Prioridade com formatação condicional de Badges.
 - Google Sheets API v4 via urllib.
 """
 
@@ -22,7 +23,7 @@ from pathlib import Path
 SECRETS_FILE = Path("/media/jeffer/5aab5a95-8290-d3f7-2e4f-8c27cc2d09a93/CASOSEX/.secrets/.evn.GOOGLE-SHEETS")
 SPREADSHEET_ID = "1P1xfMibrs8SmPhGBbWnvpvR15-OZvvYdjQgKfeYU90s"
 
-# Paleta de Cores Executiva Volúpia (Crimson & Slate) + Botões de Ação Acessíveis
+# Paleta de Cores Executiva Volúpia (Crimson & Slate)
 CRIMSON_DARK = "#4C0519"
 CRIMSON_PRIMARY = "#881337"
 CRIMSON_SOFT = "#FFF1F2"
@@ -41,7 +42,7 @@ BTN_IG_BG = "#E11D48"         # Rose 600 (Instagram)
 BTN_SITE_BG = "#7C3AED"       # Violet 600 (Website)
 BTN_GMB_BG = "#D97706"        # Amber 600 (Reviews GMB)
 
-# Cores de Badges / Status
+# Cores de Cards KPI & Badges
 GREEN_SOFT = "#DCFCE7"
 GREEN_TEXT = "#15803D"
 BLUE_SOFT = "#DBEAFE"
@@ -160,7 +161,7 @@ def whatsapp_url(phone):
 
 
 def build_field_cockpit():
-    """Executa a construção da planilha avançada com botões interativos e layout mobile-first."""
+    """Executa a construção da planilha avançada com botões interativos e KPI cards dinâmicos."""
     token = get_access_token()
     print("🔑 Token obtido com sucesso.")
 
@@ -203,50 +204,56 @@ def build_field_cockpit():
             polo1.append(r)
 
     total = len(raw)
-    whatsapp_count = sum(
-        bool(str(r[5] if len(r) > 5 else "").strip() or str(r[4] if len(r) > 4 else "").strip())
-        for r in raw
-    )
 
     # -------------------------------------------------------------
-    # 1. ABA DASHBOARD EXECUTIVO
+    # 1. ABA DASHBOARD EXECUTIVO INTERATIVO
     # -------------------------------------------------------------
+    # B3 será a célula do Selector Dropdown de Polo!
+    # Fórmulas conectadas a B3 para recalcular instantaneamente ao selecionar um Polo!
+    f_total = f'=SE(B3="TODOS OS POLOS"; CONT.SE(\'{matriz_name}\'!A5:A120; "<>"); CONT.SE.SEIS(\'{matriz_name}\'!A5:A120; "<>"; \'{matriz_name}\'!H5:H120; B3))'
+    f_visitados = f'=SE(B3="TODOS OS POLOS"; CONT.SE(\'{matriz_name}\'!C5:C120; VERDADEIRO); CONT.SE.SEIS(\'{matriz_name}\'!C5:C120; VERDADEIRO; \'{matriz_name}\'!H5:H120; B3))'
+    f_cobertura = f'=B6/B5'
+    f_zap = f'=SE(B3="TODOS OS POLOS"; CONT.SE(\'{matriz_name}\'!D5:D120; "*WHATSAPP*"); CONT.SE.SEIS(\'{matriz_name}\'!D5:D120; "*WHATSAPP*"; \'{matriz_name}\'!H5:H120; B3))'
+    f_homologados = f'=SE(B3="TODOS OS POLOS"; CONT.SE(\'{matriz_name}\'!F5:F120; "HOMOLOGADO"); CONT.SE.SEIS(\'{matriz_name}\'!F5:F120; "HOMOLOGADO"; \'{matriz_name}\'!H5:H120; B3))'
+    f_followup = f'=SE(B3="TODOS OS POLOS"; CONT.SE(\'{matriz_name}\'!F5:F120; "FOLLOW_UP"); CONT.SE.SEIS(\'{matriz_name}\'!F5:F120; "FOLLOW_UP"; \'{matriz_name}\'!H5:H120; B3))'
+
     dash = [
-        ["VOLÚPIA EROTIC BOUTIQUE", "B2B COCKPIT DE CAMPO — RIO DE JANEIRO", "", "", "", "", "", ""],
-        ["Painel de Controle de Prospecção, Auditoria e Relacionamento Comercial em Campo", "", "", "", "", "", "", ""],
+        ["VOLÚPIA EROTIC BOUTIQUE", "B2B FIELD EXECUTIVE DASHBOARD v4.0", "", "", "", "", "", ""],
+        ["Painel de Inteligência de Mercado e Controle Interativo de Campo", "", "", "", "", "", "", ""],
+        ["⚡ FILTRO DINÂMICO DE POLO:", "TODOS OS POLOS", "", "", "", "", "", ""],
         [],
-        ["📊 METRICAS CHAVE DO FUNIL", "", "", "", "", "", "", ""],
-        ["FORNECEDORES", "COM WHATSAPP", "POLOS RJ", "PROSPECCAO", "HOMOLOGADOS", "FOLLOW-UP", "", ""],
-        [total, whatsapp_count, 3, f'=CONT.SE(\'{matriz_name}\'!F:F; "PROSPECCAO")', f'=CONT.SE(\'{matriz_name}\'!F:F; "HOMOLOGADO")', f'=CONT.SE(\'{matriz_name}\'!F:F; "FOLLOW_UP")', "", ""],
-        ["Base Cadastrada", "Com Contato Direto", "Regiões Mapeadas", "Aguardando Visita", "Aprovados", "Pendente Retorno", "", ""],
+        ["📊 CARDS KPIS INTERATIVOS DA OPERAÇÃO", "", "", "", "", "", "", ""],
+        # Linha 5: Valor Grande dos KPI Cards
+        [f_total, f_visitados, f_cobertura, f_zap, f_homologados, f_followup, "", ""],
+        # Linha 6: Título / Descrição dos Cards
+        ["🏢 TOTAL DE BASE B2B", "☑️ VISITAS REALIZADAS", "📊 COBERTURA DE CAMPO", "💬 DISPONIBILIDADE ZAP", "🏆 HOMOLOGADOS", "⏳ EM FOLLOW-UP", "", ""],
+        # Linha 7: Subtexto Informativo
+        ["Fornecedores Mapeados", "Auditados em Campo", "% da Base Auditada", "Com WhatsApp Direct", "Faturamento Habilitado", "Aguardando Retorno", "", ""],
         [],
-        ["📍 COBERTURA E DENSIDADE REGIONAL", "", "", "", "", "", "", ""],
-        ["POLO", "CIDADES / REGIÃO", "FORNECEDORES", "% PARTICIPAÇÃO", "FOCO LOGÍSTICO", "DIRETRIZ DE CAMPO", "", ""],
-        ["Polo 1", "Rio de Janeiro (Capital & Zona Norte)", len(polo1), f"={len(polo1)}/{max(total,1)}", "Alta Concentração", "Visitas por Bairro", "", ""],
-        ["Polo 2", "Baixada Fluminense (Caxias / Meriti)", len(polo2), f"={len(polo2)}/{max(total,1)}", "Cluster Industrial", "Rota Concentrada", "", ""],
-        ["Polo 3", "Leste Fluminense (Niterói / SG)", len(polo3), f"={len(polo3)}/{max(total,1)}", "Ponte / Distribuição", "Agrupar Agendamentos", "", ""],
+        ["📍 DESEMPENHO E DENSIDADE POR POLO REGIONAL", "", "", "", "", "", "", ""],
+        ["POLO REGIONAL", "MUNICÍPIOS / COBERTURA", "BASE B2B", "VISITADOS", "% CONCLUÍDO", "DIRETRIZ DE CAMPO", "", ""],
+        ["Polo 1", "Rio de Janeiro (Capital / Zona Norte)", len(polo1), f'=CONT.SE.SEIS(\'{matriz_name}\'!C5:C120; VERDADEIRO; \'{matriz_name}\'!H5:H120; "Polo 1")', f'=D12/C12', "Visitas por Bairro / Densidade", "", ""],
+        ["Polo 2", "Baixada Fluminense (Caxias / Meriti)", len(polo2), f'=CONT.SE.SEIS(\'{matriz_name}\'!C5:C120; VERDADEIRO; \'{matriz_name}\'!H5:H120; "Polo 2")', f'=D13/C13', "Rota Concentrada Caxias/Meriti", "", ""],
+        ["Polo 3", "Leste Fluminense (Niterói / SG)", len(polo3), f'=CONT.SE.SEIS(\'{matriz_name}\'!C5:C120; VERDADEIRO; \'{matriz_name}\'!H5:H120; "Polo 3")', f'=D14/C14', "Agrupar Agendamentos Niterói", "", ""],
         [],
-        ["🎯 WORKFLOW DE STATUS (GLÁUCIA)", "", "", "", "", "", "", ""],
-        ["STATUS", "ETAPA OPERACIONAL", "AÇÃO EXIGIDA EM CAMPO", "", "", "", "", ""],
-        ["PROSPECCAO", "Identificação", "Acionar WhatsApp / Telefone e solicitar catálogo B2B", "", "", "", "", ""],
-        ["CONTATO_REALIZADO", "Qualificação Inicial", "Analisar prazo de pagamento e pedido mínimo", "", "", "", "", ""],
-        ["AGENDADA", "Visita Confirmada", "Abrir GPS (Botão Azul) e realizar auditoria presencial", "", "", "", "", ""],
-        ["VISITA_REALIZADA", "Auditoria Efetuada", "Registrar termos, amostras e margem de lucro", "", "", "", "", ""],
-        ["HOMOLOGADO", "Parceiro Aprovado", "Marcar Checkbox e liberar primeiros pedidos de compra", "", "", "", "", ""],
-        ["FOLLOW_UP", "Em Negociação", "Registrar data de retorno e acompanhar representante", "", "", "", "", ""],
-        ["REJEITADO", "Fora de Perfil", "Registrar justificativa nas observações", "", "", "", "", ""],
+        ["🎯 WORKFLOW DE STATUS & METAS", "", "", "", "", "", "", ""],
+        ["STATUS", "ETAPA OPERACIONAL", "META DE CAMPO", "TOTAL REGISTRADO", "", "", "", ""],
+        ["PROSPECCAO", "Identificação", "Acionar WhatsApp / Telefone e solicitar catálogo", f'=CONT.SE(\'{matriz_name}\'!F:F; "PROSPECCAO")', "", "", "", ""],
+        ["CONTATO_REALIZADO", "Qualificação Inicial", "Analisar prazo de pagamento e pedido mínimo", f'=CONT.SE(\'{matriz_name}\'!F:F; "CONTATO_REALIZADO")', "", "", "", ""],
+        ["AGENDADA", "Visita Confirmada", "Abrir GPS (Botão Azul) e realizar auditoria", f'=CONT.SE(\'{matriz_name}\'!F:F; "AGENDADA")', "", "", "", ""],
+        ["VISITA_REALIZADA", "Auditoria Efetuada", "Registrar termos, amostras e margem de lucro", f'=CONT.SE(\'{matriz_name}\'!F:F; "VISITA_REALIZADA")', "", "", "", ""],
+        ["HOMOLOGADO", "Parceiro Aprovado", "Marcar Checkbox e liberar compras", f'=CONT.SE(\'{matriz_name}\'!F:F; "HOMOLOGADO")', "", "", "", ""],
+        ["FOLLOW_UP", "Em Negociação", "Registrar data de retorno e acompanhar representante", f'=CONT.SE(\'{matriz_name}\'!F:F; "FOLLOW_UP")', "", "", "", ""],
+        ["REJEITADO", "Fora de Perfil", "Registrar justificativa nas observações", f'=CONT.SE(\'{matriz_name}\'!F:F; "REJEITADO")', "", "", "", ""],
         [],
-        ["📱 MANUAL DE USO RÁPIDO NO CELULAR", "", "", "", "", "", "", ""],
-        ["1", "Toque no BOTÃO VERDE [ 💬 ZAP DIRECT ] para abrir a conversa instantânea no WhatsApp.", "", "", "", "", "", ""],
-        ["2", "Toque no BOTÃO AZUL [ 🗺️ ABRIR GPS ] para iniciar o Waze / Google Maps até a porta do fornecedor.", "", "", "", "", "", ""],
-        ["3", "Marque a CAIXA DE SELEÇÃO [ ☑️ VISITADO ] com 1 toque assim que concluir a visita.", "", "", "", "", "", ""],
-        ["4", "Altere o STATUS diretamente no Dropdown interativo para atualizar os gráficos.", "", "", "", "", "", ""],
+        ["📱 INSTRUÇÕES DE INTERATIVIDADE NO CELULAR", "", "", "", "", "", "", ""],
+        ["1", "Altere o FILTRO DE POLO na célula B3 no topo para filtrar todo o Dashboard em tempo real.", "", "", "", "", "", ""],
+        ["2", "Alterne para a aba Matriz B2B RJ para acionar os Botões de WhatsApp, GPS e Checkboxes.", "", "", "", "", "", ""],
     ]
 
     # -------------------------------------------------------------
     # 2. ABA MATRIZ B2B RJ — MOBILE-FIRST LAYOUT COM BOTÕES
     # -------------------------------------------------------------
-    # Estrutura otimizada para o celular: Colunas de Ação Rápida no topo da visualização
     headers = [
         "ID",                      # Col A (0)
         "FORNECEDOR",              # Col B (1)
@@ -275,7 +282,7 @@ def build_field_cockpit():
     ]
 
     matriz = [
-        ["MATRIZ B2B RJ — FIELD COMMERCIAL COCKPIT v3.0", "VOLÚPIA EROTIC BOUTIQUE", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""],
+        ["MATRIZ B2B RJ — FIELD COMMERCIAL COCKPIT v4.0", "VOLÚPIA EROTIC BOUTIQUE", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""],
         ["Cockpit Comercial com Botões Visuais de 1-Clique (WhatsApp, Maps GPS, Telefone e Mídias)", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""],
         [],
         headers,
@@ -367,7 +374,7 @@ def build_field_cockpit():
     write_values(token, matriz_name, "A1", matriz)
 
     # -------------------------------------------------------------
-    # 4. CONFIGURAÇÃO DE DESIGN & FORMATAÇÃO DOS BOTÕES VISUAIS
+    # 4. CONFIGURAÇÃO DE DESIGN & FORMATAÇÃO DOS CARDS E BOTÕES
     # -------------------------------------------------------------
     requests = []
 
@@ -385,8 +392,6 @@ def build_field_cockpit():
                 "fields": fields,
             }
         })
-
-
 
     # Superfície Base do Dashboard
     repeat(dash_id, 0, 40, 0, 8,
@@ -414,16 +419,38 @@ def build_field_cockpit():
             "horizontalAlignment": "LEFT"},
            "userEnteredFormat(backgroundColor,textFormat,horizontalAlignment)")
 
-    repeat(matriz_id, 0, 1, 0, 24,
-           {"backgroundColor": hex_to_rgb(CRIMSON_DARK),
-            "textFormat": {"foregroundColor": hex_to_rgb("#FFFFFF"), "fontFamily": "Roboto", "fontSize": 14, "bold": True},
+    # Bar do Selector Dropdown no Topo do Dashboard (Linha 3 / Row 2 0-indexed)
+    repeat(dash_id, 2, 3, 0, 2,
+           {"backgroundColor": hex_to_rgb(CRIMSON_SOFT),
+            "textFormat": {"foregroundColor": hex_to_rgb(CRIMSON_PRIMARY), "fontFamily": "Roboto", "fontSize": 10, "bold": True},
             "horizontalAlignment": "LEFT", "verticalAlignment": "MIDDLE"},
            "userEnteredFormat(backgroundColor,textFormat,horizontalAlignment,verticalAlignment)")
-    repeat(matriz_id, 1, 2, 0, 24,
-           {"backgroundColor": hex_to_rgb(CRIMSON_DARK),
-            "textFormat": {"foregroundColor": hex_to_rgb("#FFE4E6"), "fontFamily": "Roboto", "fontSize": 9},
-            "horizontalAlignment": "LEFT"},
-           "userEnteredFormat(backgroundColor,textFormat,horizontalAlignment)")
+
+    # Dropdown validation para o Selector B3 (Col B / Col 1, Row 2)
+    requests.append({
+        "setDataValidation": {
+            "range": {
+                "sheetId": dash_id,
+                "startRowIndex": 2,
+                "endRowIndex": 3,
+                "startColumnIndex": 1,
+                "endColumnIndex": 2,
+            },
+            "rule": {
+                "condition": {
+                    "type": "ONE_OF_LIST",
+                    "values": [
+                        {"userEnteredValue": "TODOS OS POLOS"},
+                        {"userEnteredValue": "Polo 1"},
+                        {"userEnteredValue": "Polo 2"},
+                        {"userEnteredValue": "Polo 3"},
+                    ]
+                },
+                "showCustomUi": True,
+                "strict": True,
+            }
+        }
+    })
 
     # Cabeçalho da Tabela Matriz (Dark Navy Header)
     repeat(matriz_id, 3, 4, 0, 24,
@@ -444,7 +471,7 @@ def build_field_cockpit():
     # Congelar Linhas e Colunas para Mobile Navegação Eficiente
     requests.append({
         "updateSheetProperties": {
-            "properties": {"sheetId": dash_id, "gridProperties": {"frozenRowCount": 2}},
+            "properties": {"sheetId": dash_id, "gridProperties": {"frozenRowCount": 3}},
             "fields": "gridProperties.frozenRowCount",
         }
     })
@@ -455,19 +482,59 @@ def build_field_cockpit():
         }
     })
 
-    # KPI Cards do Dashboard
-    repeat(dash_id, 4, 7, 0, 6,
-           {"backgroundColor": hex_to_rgb(CRIMSON_SOFT),
-            "textFormat": {"fontFamily": "Roboto"},
-            "horizontalAlignment": "CENTER"},
-           "userEnteredFormat(backgroundColor,textFormat,horizontalAlignment)")
-    repeat(dash_id, 5, 6, 0, 6,
-           {"textFormat": {"foregroundColor": hex_to_rgb(CRIMSON_PRIMARY), "fontFamily": "Roboto", "fontSize": 20, "bold": True},
-            "horizontalAlignment": "CENTER"},
-           "userEnteredFormat(textFormat,horizontalAlignment)")
+    # -------------------------------------------------------------
+    # 5. DESIGN AVANÇADO DE CARDS KPIS INTERATIVOS NO DASHBOARD
+    # -------------------------------------------------------------
+    # Cores individuais para cada Card KPI
+    card_styles = [
+        (0, CRIMSON_SOFT, CRIMSON_PRIMARY), # Card 1: Total Base
+        (1, GREEN_SOFT, GREEN_TEXT),        # Card 2: Visitas
+        (2, BLUE_SOFT, BLUE_TEXT),          # Card 3: % Cobertura
+        (3, GREEN_SOFT, BTN_ZAP_BG),        # Card 4: Zap Direct
+        (4, PURPLE_SOFT, PURPLE_TEXT),      # Card 5: Homologados
+        (5, YELLOW_SOFT, YELLOW_TEXT),      # Card 6: Follow-Up
+    ]
+
+    for col_idx, bg_color, fg_color in card_styles:
+        # Fundo do Card (Linhas 5 a 8 / Row 5 a 8)
+        repeat(dash_id, 5, 8, col_idx, col_idx + 1,
+               {"backgroundColor": hex_to_rgb(bg_color)},
+               "userEnteredFormat(backgroundColor)")
+
+        # Valor Grande (Linha 5 / Row 5)
+        fmt_val = {"foregroundColor": hex_to_rgb(fg_color), "fontFamily": "Roboto", "fontSize": 22, "bold": True}
+        if col_idx == 2: # Porcentagem
+            repeat(dash_id, 5, 6, col_idx, col_idx + 1,
+                   {"textFormat": fmt_val, "numberFormat": {"type": "PERCENT", "pattern": "0.0%"}, "horizontalAlignment": "CENTER", "verticalAlignment": "MIDDLE"},
+                   "userEnteredFormat(textFormat,numberFormat,horizontalAlignment,verticalAlignment)")
+        else:
+            repeat(dash_id, 5, 6, col_idx, col_idx + 1,
+                   {"textFormat": fmt_val, "horizontalAlignment": "CENTER", "verticalAlignment": "MIDDLE"},
+                   "userEnteredFormat(textFormat,horizontalAlignment,verticalAlignment)")
+
+        # Título do Card (Linha 6 / Row 6)
+        repeat(dash_id, 6, 7, col_idx, col_idx + 1,
+               {"textFormat": {"foregroundColor": hex_to_rgb(INK_MAIN), "fontFamily": "Roboto", "fontSize": 8, "bold": True}, "horizontalAlignment": "CENTER", "verticalAlignment": "MIDDLE"},
+               "userEnteredFormat(textFormat,horizontalAlignment,verticalAlignment)")
+
+        # Subtexto (Linha 7 / Row 7)
+        repeat(dash_id, 7, 8, col_idx, col_idx + 1,
+               {"textFormat": {"foregroundColor": hex_to_rgb(MUTED_TEXT), "fontFamily": "Roboto", "fontSize": 8}, "horizontalAlignment": "CENTER", "verticalAlignment": "MIDDLE"},
+               "userEnteredFormat(textFormat,horizontalAlignment,verticalAlignment)")
+
+    # Format Tabela de Polos (Linhas 10 a 14)
+    repeat(dash_id, 10, 11, 0, 6,
+           {"backgroundColor": hex_to_rgb(INK_MAIN),
+            "textFormat": {"foregroundColor": hex_to_rgb("#FFFFFF"), "fontFamily": "Roboto", "fontSize": 9, "bold": True},
+            "horizontalAlignment": "LEFT", "verticalAlignment": "MIDDLE"},
+           "userEnteredFormat(backgroundColor,textFormat,horizontalAlignment,verticalAlignment)")
+
+    repeat(dash_id, 11, 14, 4, 5,
+           {"numberFormat": {"type": "PERCENT", "pattern": "0.0%"}, "horizontalAlignment": "CENTER", "verticalAlignment": "MIDDLE"},
+           "userEnteredFormat(numberFormat,horizontalAlignment,verticalAlignment)")
 
     # -------------------------------------------------------------
-    # 5. CONSTRUÇÃO DOS BOTÕES VISUAIS (ACTION PILLS) NA MATRIZ
+    # 6. CONSTRUÇÃO DOS BOTÕES VISUAIS (ACTION PILLS) NA MATRIZ
     # -------------------------------------------------------------
     data_start = 4
     data_end = len(matriz)
@@ -515,7 +582,7 @@ def build_field_cockpit():
            "userEnteredFormat(backgroundColor,textFormat,horizontalAlignment,verticalAlignment)")
 
     # -------------------------------------------------------------
-    # 6. CAIXAS DE SELEÇÃO NATIVAS (CHECKBOXES DE 1-TOQUE)
+    # 7. CAIXAS DE SELEÇÃO NATIVAS (CHECKBOXES DE 1-TOQUE)
     # -------------------------------------------------------------
     # Coluna C (Col 2): ☑️ VISITADO? -> Checkbox Nativa
     requests.append({
@@ -538,7 +605,7 @@ def build_field_cockpit():
            "userEnteredFormat(horizontalAlignment,verticalAlignment)")
 
     # -------------------------------------------------------------
-    # 7. DROPDOWNS E VALIDAÇÃO DE DADOS (STATUS / PRIORIDADE / RESULTADO)
+    # 8. DROPDOWNS E VALIDAÇÃO DE DADOS (STATUS / PRIORIDADE / RESULTADO)
     # -------------------------------------------------------------
     validations = [
         (5, ["PROSPECCAO", "CONTATO_REALIZADO", "AGENDADA", "VISITA_REALIZADA", "HOMOLOGADO", "FOLLOW_UP", "REJEITADO"]), # STATUS (Col F)
@@ -624,7 +691,7 @@ def build_field_cockpit():
         })
 
     # -------------------------------------------------------------
-    # 8. LARGURA E ALTURA DAS LINHAS (TOUCH-TARGET MOBILE COMPATIBLE)
+    # 9. LARGURA E ALTURA DAS LINHAS (TOUCH-TARGET MOBILE COMPATIBLE)
     # -------------------------------------------------------------
     widths = {
         0: 55,   # A: ID
@@ -662,7 +729,7 @@ def build_field_cockpit():
         })
 
     # Dashboard Column Widths
-    for col, px in {0: 150, 1: 220, 2: 130, 3: 130, 4: 130, 5: 130}.items():
+    for col, px in {0: 160, 1: 180, 2: 160, 3: 160, 4: 160, 5: 160}.items():
         requests.append({
             "updateDimensionProperties": {
                 "range": {"sheetId": dash_id, "dimension": "COLUMNS", "startIndex": col, "endIndex": col + 1},
@@ -683,7 +750,7 @@ def build_field_cockpit():
 
     batch_url = f"https://sheets.googleapis.com/v4/spreadsheets/{SPREADSHEET_ID}:batchUpdate"
     result = api_request(token, batch_url, method="POST", body={"requests": requests})
-    print(f"🚀 COCKPIT V3.0 ATUALIZADO! {len(requests)} operações visuais de botões e checkboxes concluídas com sucesso.")
+    print(f"🚀 COCKPIT V4.0 COMPLETO! {len(requests)} atualizações de KPI cards e filtros interativos aplicadas.")
     print("📊 Dashboard:", dash_name)
     print("🏢 Matriz:", matriz_name)
     return result
