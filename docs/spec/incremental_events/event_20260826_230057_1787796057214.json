@@ -1,0 +1,8 @@
+{
+  "action": "test_ping",
+  "timestamp": "2026-08-27T02:00:00Z",
+  "payload": {
+    "title": "Test Ping",
+    "messages": []
+  }
+}
