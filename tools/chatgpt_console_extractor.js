@@ -1,5 +1,5 @@
 /**
- * ⚡ ADSENTICE CHATGPT CONSOLE EXTRACTOR (CSP Bypass via Target _blank Auto-Close)
+ * ⚡ ADSENTICE CHATGPT CONSOLE EXTRACTOR (User-Initiated Popup Bypass)
  */
 (function() {
   const BRIDGE_URL = 'http://localhost:6669/push';
@@ -28,18 +28,19 @@
       payload: { title: document.title, messages: messages }
     };
 
-    // Backup: Copia direto para a área de transferência do DevTools
     if (typeof copy === 'function') {
       copy(JSON.stringify(payload, null, 2));
       console.log('%c 📋 JSON Copiado para a Área de Transferência!', 'color: #3b82f6; font-weight: bold;');
     }
 
-    // Target _blank abre aba rápida que envia o POST e auto-fecha (bypassa frame-src e connect-src do CSP)
     try {
+      // Janela iniciada pelo clique do usuário (Chrome não bloqueia)
+      const popup = window.open('about:blank', 'adsentice_win', 'width=400,height=300');
+      
       const form = document.createElement('form');
       form.method = 'POST';
       form.action = BRIDGE_URL;
-      form.target = '_blank';
+      form.target = 'adsentice_win';
 
       const input = document.createElement('input');
       input.type = 'hidden';
@@ -51,7 +52,7 @@
       form.submit();
       setTimeout(() => form.remove(), 500);
 
-      console.log('%c ✅ [Adsentice 6669] Conversa enviada ao Bridge com sucesso!', 'color: #10b981; font-weight: bold; font-size: 14px;');
+      console.log('%c ✅ [Adsentice 6669] Envio realizado com sucesso!', 'color: #10b981; font-weight: bold; font-size: 14px;');
       alert(`✅ Conversa capturada! ${messages.length} mensagens enviadas ao Adsentice.`);
     } catch (e) {
       console.error('❌ Erro no Form Submit:', e);
