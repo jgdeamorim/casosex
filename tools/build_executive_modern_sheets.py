@@ -1,15 +1,14 @@
 #!/usr/bin/env python3
 """
-Volúpia B2B — Field Commercial Cockpit
-Google Sheets modern/light redesign engine (ADR-0201).
+Volúpia B2B — Sovereign Field Commercial Cockpit v3.0
+Google Sheets Ultra-Modern Executive App Redesign (ADR-0201).
 
-Objetivo:
-- Interface limpa, clara e objetiva para operação comercial de campo da sócia Gláucia.
-- Pesquisa e segmentação por polo/cidade/bairro.
-- Ações de 1 clique: mapa, WhatsApp, telefone, Instagram, site e reviews.
-- Workflow comercial e registro de follow-up.
-- Dashboard executivo enxuto.
-- Google Sheets API v4 via urllib, sem dependências externas.
+Destaques da Interface Avançada:
+- Botões de Ação Visual (Pill Buttons) com fundo colorido e texto branco centralizado.
+- Checkboxes nativas de 1-toque no celular (BOOLEAN validation).
+- Disposição Mobile-First: Botões de GPS e WhatsApp nas primeiras colunas visíveis.
+- Dropdowns nativos de Status e Prioridade com formatação condicional de Badges.
+- Google Sheets API v4 via urllib.
 """
 
 import json
@@ -23,24 +22,36 @@ from pathlib import Path
 SECRETS_FILE = Path("/media/jeffer/5aab5a95-8290-d3f7-2e4f-8c27cc2d09a93/CASOSEX/.secrets/.evn.GOOGLE-SHEETS")
 SPREADSHEET_ID = "1P1xfMibrs8SmPhGBbWnvpvR15-OZvvYdjQgKfeYU90s"
 
-CRIMSON = "#881337"
+# Paleta de Cores Executiva Volúpia (Crimson & Slate) + Botões de Ação Acessíveis
 CRIMSON_DARK = "#4C0519"
-INK = "#172033"
-MUTED = "#64748B"
-LINE = "#E2E8F0"
-SURFACE = "#FFFFFF"
-SURFACE_ALT = "#F8FAFC"
+CRIMSON_PRIMARY = "#881337"
 CRIMSON_SOFT = "#FFF1F2"
-GREEN = "#15803D"
+
+INK_MAIN = "#0F172A"
+MUTED_TEXT = "#475569"
+SURFACE_WHITE = "#FFFFFF"
+SURFACE_ALT = "#F8FAFC"
+LINE_BORDER = "#CBD5E1"
+
+# Cores de Botões de Ação (Vibrant Action Pills)
+BTN_ZAP_BG = "#16A34A"        # Emerald 600 (WhatsApp)
+BTN_MAPS_BG = "#2563EB"       # Blue 600 (Google Maps GPS)
+BTN_PHONE_BG = "#0284C7"      # Sky 600 (Telefone)
+BTN_IG_BG = "#E11D48"         # Rose 600 (Instagram)
+BTN_SITE_BG = "#7C3AED"       # Violet 600 (Website)
+BTN_GMB_BG = "#D97706"        # Amber 600 (Reviews GMB)
+
+# Cores de Badges / Status
 GREEN_SOFT = "#DCFCE7"
-YELLOW = "#A16207"
-YELLOW_SOFT = "#FEF9C3"
-BLUE = "#1D4ED8"
+GREEN_TEXT = "#15803D"
 BLUE_SOFT = "#DBEAFE"
-PURPLE = "#7E22CE"
+BLUE_TEXT = "#1D4ED8"
 PURPLE_SOFT = "#F3E8FF"
-RED = "#B91C1C"
+PURPLE_TEXT = "#7E22CE"
+YELLOW_SOFT = "#FEF9C3"
+YELLOW_TEXT = "#A16207"
 RED_SOFT = "#FEE2E2"
+RED_TEXT = "#B91C1C"
 
 
 def get_access_token():
@@ -99,7 +110,7 @@ def api_request(token, url, method="GET", body=None):
 
 
 def clear_range(token, sheet_name, a1):
-    """Limpa conteúdo/formatação de conteúdo no intervalo lógico informado."""
+    """Limpa conteúdo/formatação no intervalo informado."""
     url = (
         f"https://sheets.googleapis.com/v4/spreadsheets/{SPREADSHEET_ID}/values/"
         f"{urllib.parse.quote(sheet_name + '!' + a1, safe='')}:clear"
@@ -123,14 +134,14 @@ def write_values(token, sheet_name, start_cell, values):
 
 
 def hyperlink(url, label):
-    """Retorna fórmula HIPERLINK compatível com locale pt_BR (ponto e vírgula)."""
+    """Retorna fórmula HIPERLINK com separador ; (padrão pt_BR)."""
     if not url:
         return ""
     return f'=HIPERLINK("{url}"; "{label}")'
 
 
 def normalize_phone(value):
-    """Mantém apenas dígitos para links telefônicos."""
+    """Mantém apenas dígitos para links de chamada/whatsapp."""
     return re.sub(r"\D+", "", str(value or ""))
 
 
@@ -148,18 +159,8 @@ def whatsapp_url(phone):
     return f"https://wa.me/{digits}"
 
 
-def instagram_url(value):
-    value = str(value or "").strip()
-    if not value:
-        return ""
-    if value.startswith("http://") or value.startswith("https://"):
-        return value
-    value = value.lstrip("@").strip("/")
-    return f"https://www.instagram.com/{value}/"
-
-
 def build_field_cockpit():
-    """Constrói dashboard e matriz operacional."""
+    """Executa a construção da planilha avançada com botões interativos e layout mobile-first."""
     token = get_access_token()
     print("🔑 Token obtido com sucesso.")
 
@@ -181,15 +182,16 @@ def build_field_cockpit():
             f"Abas obrigatórias não encontradas. Encontradas: {list(sheets_map)}"
         )
 
+    # Leitura dos dados originais
     data_url = (
         f"https://sheets.googleapis.com/v4/spreadsheets/{SPREADSHEET_ID}/values/"
         f"{urllib.parse.quote(matriz_name + '!A2:R100', safe='')}"
     )
     raw = api_request(token, data_url).get("values", [])
     raw = [r for r in raw if any(str(x).strip() for x in r)]
-    print(f"📦 {len(raw)} registros lidos.")
+    print(f"📦 {len(raw)} fornecedores homologados lidos.")
 
-    # Classificação regional baseada na estrutura existente
+    # Classificação Regional dos Polos
     polo1, polo2, polo3 = [], [], []
     for r in raw:
         cidade = str(r[9] if len(r) > 9 else "").strip()
@@ -202,69 +204,79 @@ def build_field_cockpit():
 
     total = len(raw)
     whatsapp_count = sum(
-        bool(str(r[5] if len(r) > 5 else "").strip() or
-             str(r[4] if len(r) > 4 else "").strip())
+        bool(str(r[5] if len(r) > 5 else "").strip() or str(r[4] if len(r) > 4 else "").strip())
         for r in raw
     )
 
-    # -----------------------------
-    # DASHBOARD — clean / light
-    # -----------------------------
+    # -------------------------------------------------------------
+    # 1. ABA DASHBOARD EXECUTIVO
+    # -------------------------------------------------------------
     dash = [
-        ["VOLÚPIA B2B", "COCKPIT COMERCIAL DE CAMPO — RIO DE JANEIRO", "", "", "", "", "", ""],
-        ["Prospecção • contato • rota • visita • homologação de fornecedores", "", "", "", "", "", "", ""],
+        ["VOLÚPIA EROTIC BOUTIQUE", "B2B COCKPIT DE CAMPO — RIO DE JANEIRO", "", "", "", "", "", ""],
+        ["Painel de Controle de Prospecção, Auditoria e Relacionamento Comercial em Campo", "", "", "", "", "", "", ""],
         [],
-        ["📊 VISÃO GERAL DE DESEMPENHO", "", "", "", "", "", "", ""],
-        ["FORNECEDORES", "COM WHATSAPP", "POLOS", "PENDENTES", "HOMOLOGADOS", "FOLLOW-UP", "", ""],
-        [total, whatsapp_count, 3, f'=CONT.SE(\'{matriz_name}\'!N:N; "PROSPECCAO")', f'=CONT.SE(\'{matriz_name}\'!N:N; "HOMOLOGADO")', f'=CONT.SE(\'{matriz_name}\'!N:N; "FOLLOW_UP")', "", ""],
-        ["Base ativa RJ", "Contato digital", "Cobertura regional", "Leads a visitar", "Fornecedores ok", "Ações pendentes", "", ""],
+        ["📊 METRICAS CHAVE DO FUNIL", "", "", "", "", "", "", ""],
+        ["FORNECEDORES", "COM WHATSAPP", "POLOS RJ", "PROSPECCAO", "HOMOLOGADOS", "FOLLOW-UP", "", ""],
+        [total, whatsapp_count, 3, f'=CONT.SE(\'{matriz_name}\'!F:F; "PROSPECCAO")', f'=CONT.SE(\'{matriz_name}\'!F:F; "HOMOLOGADO")', f'=CONT.SE(\'{matriz_name}\'!F:F; "FOLLOW_UP")', "", ""],
+        ["Base Cadastrada", "Com Contato Direto", "Regiões Mapeadas", "Aguardando Visita", "Aprovados", "Pendente Retorno", "", ""],
         [],
-        ["📍 COBERTURA POR POLO REGIONAL", "", "", "", "", "", "", ""],
-        ["POLO", "REGIÃO", "FORNECEDORES", "% BASE", "FOCO OPERACIONAL", "AÇÃO RECOMENDADA", "", ""],
-        ["Polo 1", "Central & Zona Norte", len(polo1), f"={len(polo1)}/{max(total,1)}", "Alta densidade comercial", "Filtrar por Bairro", "", ""],
-        ["Polo 2", "Baixada Fluminense", len(polo2), f"={len(polo2)}/{max(total,1)}", "Rota concentrada Caxias/Meriti", "Agrupar visitas", "", ""],
-        ["Polo 3", "Leste Fluminense", len(polo3), f"={len(polo3)}/{max(total,1)}", "Rota Niterói/São Gonçalo", "Agrupar visitas", "", ""],
+        ["📍 COBERTURA E DENSIDADE REGIONAL", "", "", "", "", "", "", ""],
+        ["POLO", "CIDADES / REGIÃO", "FORNECEDORES", "% PARTICIPAÇÃO", "FOCO LOGÍSTICO", "DIRETRIZ DE CAMPO", "", ""],
+        ["Polo 1", "Rio de Janeiro (Capital & Zona Norte)", len(polo1), f"={len(polo1)}/{max(total,1)}", "Alta Concentração", "Visitas por Bairro", "", ""],
+        ["Polo 2", "Baixada Fluminense (Caxias / Meriti)", len(polo2), f"={len(polo2)}/{max(total,1)}", "Cluster Industrial", "Rota Concentrada", "", ""],
+        ["Polo 3", "Leste Fluminense (Niterói / SG)", len(polo3), f"={len(polo3)}/{max(total,1)}", "Ponte / Distribuição", "Agrupar Agendamentos", "", ""],
         [],
-        ["🎯 STAGES DO FUNIL COMERCIAL", "", "", "", "", "", "", ""],
-        ["STATUS", "SIGNIFICADO", "PRÓXIMA AÇÃO DA SÓCIA", "", "", "", "", ""],
-        ["PROSPECCAO", "Lead identificado", "Fazer primeiro contato via Zap/Telefone", "", "", "", "", ""],
-        ["CONTATO_REALIZADO", "Contato feito", "Qualificar catálogo e solicitar tabela B2B", "", "", "", "", ""],
-        ["AGENDADA", "Visita marcada", "Executar visita presencial no polo", "", "", "", "", ""],
-        ["VISITA_REALIZADA", "Visita concluída", "Registrar termos comerciais e margens", "", "", "", "", ""],
-        ["HOMOLOGADO", "Fornecedor aprovado", "Cadastrar faturamento e iniciar compras", "", "", "", "", ""],
-        ["FOLLOW_UP", "Aguardando retorno", "Retomar contato com o representante", "", "", "", "", ""],
-        ["REJEITADO", "Fora do perfil", "Registrar motivo da recusa na matriz", "", "", "", "", ""],
+        ["🎯 WORKFLOW DE STATUS (GLÁUCIA)", "", "", "", "", "", "", ""],
+        ["STATUS", "ETAPA OPERACIONAL", "AÇÃO EXIGIDA EM CAMPO", "", "", "", "", ""],
+        ["PROSPECCAO", "Identificação", "Acionar WhatsApp / Telefone e solicitar catálogo B2B", "", "", "", "", ""],
+        ["CONTATO_REALIZADO", "Qualificação Inicial", "Analisar prazo de pagamento e pedido mínimo", "", "", "", "", ""],
+        ["AGENDADA", "Visita Confirmada", "Abrir GPS (Botão Azul) e realizar auditoria presencial", "", "", "", "", ""],
+        ["VISITA_REALIZADA", "Auditoria Efetuada", "Registrar termos, amostras e margem de lucro", "", "", "", "", ""],
+        ["HOMOLOGADO", "Parceiro Aprovado", "Marcar Checkbox e liberar primeiros pedidos de compra", "", "", "", "", ""],
+        ["FOLLOW_UP", "Em Negociação", "Registrar data de retorno e acompanhar representante", "", "", "", "", ""],
+        ["REJEITADO", "Fora de Perfil", "Registrar justificativa nas observações", "", "", "", "", ""],
         [],
-        ["💡 COMO OPERAR EM CAMPO (GLÁUCIA)", "", "", "", "", "", "", ""],
-        ["1", "Filtre por Polo, Cidade ou Bairro na aba Matriz B2B RJ.", "", "", "", "", "", ""],
-        ["2", "Abra MAPA (Rota GPS), WHATSAPP, TELEFONE, INSTAGRAM, SITE ou REVIEWS com 1 clique.", "", "", "", "", "", ""],
-        ["3", "Altere o STATUS da visita e registre o RESULTADO e FOLLOW-UP.", "", "", "", "", "", ""],
-        ["4", "Acompanhe as métricas consolidadas em tempo real neste Dashboard.", "", "", "", "", "", ""],
+        ["📱 MANUAL DE USO RÁPIDO NO CELULAR", "", "", "", "", "", "", ""],
+        ["1", "Toque no BOTÃO VERDE [ 💬 ZAP DIRECT ] para abrir a conversa instantânea no WhatsApp.", "", "", "", "", "", ""],
+        ["2", "Toque no BOTÃO AZUL [ 🗺️ ABRIR GPS ] para iniciar o Waze / Google Maps até a porta do fornecedor.", "", "", "", "", "", ""],
+        ["3", "Marque a CAIXA DE SELEÇÃO [ ☑️ VISITADO ] com 1 toque assim que concluir a visita.", "", "", "", "", "", ""],
+        ["4", "Altere o STATUS diretamente no Dropdown interativo para atualizar os gráficos.", "", "", "", "", "", ""],
     ]
 
-    if total:
-        dash[10][3] = f"=C11/{total}"
-        dash[11][3] = f"=C12/{total}"
-        dash[12][3] = f"=C13/{total}"
-    else:
-        dash[10][3] = dash[11][3] = dash[12][3] = 0
-
-    # -----------------------------
-    # MATRIZ — field operations
-    # -----------------------------
+    # -------------------------------------------------------------
+    # 2. ABA MATRIZ B2B RJ — MOBILE-FIRST LAYOUT COM BOTÕES
+    # -------------------------------------------------------------
+    # Estrutura otimizada para o celular: Colunas de Ação Rápida no topo da visualização
     headers = [
-        "ID", "FORNECEDOR", "PERFIL B2B", "CATEGORIA", "POLO",
-        "CIDADE", "BAIRRO", "ENDEREÇO",
-        "WHATSAPP", "TELEFONE", "INSTAGRAM", "WEBSITE", "REVIEWS",
-        "STATUS", "PRIORIDADE", "DATA VISITA", "RESULTADO",
-        "PRÓXIMO FOLLOW-UP", "PRAZO", "DESCONTO", "PED. MÍNIMO",
-        "MAPA", "CONTATO", "REDES", "REPUTAÇÃO",
-        "SEM 1", "SEM 2", "SEM 3", "SEM 4", "OBSERVAÇÕES",
+        "ID",                      # Col A (0)
+        "FORNECEDOR",              # Col B (1)
+        "☑️ VISITADO",             # Col C (2) - CHECKBOX NATIVA
+        "💬 WHATSAPP DIRECT",      # Col D (3) - BOTÃO VERDE
+        "🗺️ NAVEGAÇÃO GPS",        # Col E (4) - BOTÃO AZUL
+        "STATUS",                  # Col F (5) - DROPDOWN COLORIDO
+        "PRIORIDADE",              # Col G (6) - DROPDOWN COLORIDO
+        "POLO",                    # Col H (7)
+        "BAIRRO",                  # Col I (8)
+        "CIDADE",                  # Col J (9)
+        "CATEGORIA",               # Col K (10)
+        "PERFIL B2B",              # Col L (11)
+        "ENDEREÇO COMPLETO",       # Col M (12)
+        "☎️ TELEFONE / LIGAR",     # Col N (13) - BOTÃO AZUL CELESTE
+        "📸 INSTAGRAM",            # Col O (14) - BOTÃO ROSA
+        "🌐 WEBSITE",              # Col P (15) - BOTÃO ROXO
+        "★ REVIEWS GMB",           # Col Q (16) - BOTÃO ÂMBAR
+        "DATA VISITA",             # Col R (17)
+        "RESULTADO",               # Col S (18)
+        "PRÓXIMO FOLLOW-UP",       # Col T (19)
+        "PRAZO PGTO",              # Col U (20)
+        "DESCONTO B2B",            # Col V (21)
+        "PEDIDO MÍNIMO",           # Col W (22)
+        "OBSERVAÇÕES & TERMOS",    # Col X (23)
     ]
 
     matriz = [
-        ["MATRIZ B2B RJ — FIELD COMMERCIAL COCKPIT", "VOLÚPIA EROTIC BOUTIQUE", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""],
-        ["Pesquisa • qualificação • contato • rota • visita • homologação de fornecedores B2B", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""],
+        ["MATRIZ B2B RJ — FIELD COMMERCIAL COCKPIT v3.0", "VOLÚPIA EROTIC BOUTIQUE", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""],
+        ["Cockpit Comercial com Botões Visuais de 1-Clique (WhatsApp, Maps GPS, Telefone e Mídias)", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""],
         [],
         headers,
     ]
@@ -309,28 +321,31 @@ def build_field_cockpit():
         phone_link = f"tel:+{phone_digits}" if phone_digits else ""
         map_link = maps_url(endereco, bairro, cidade) if (endereco or bairro or cidade) else ""
 
-        gantt = ["", "", "", ""]
-        if polo == "Polo 1":
-            gantt[0] = "●"
-        elif polo == "Polo 2":
-            gantt[2] = "●"
-        else:
-            gantt[3] = "●"
-
         return [
-            rid, nome, perfil, cat, polo, cidade, bairro, endereco,
-            hyperlink(zap, "📱 WhatsApp") if zap else "",
-            hyperlink(phone_link, "☎️ Ligar") if phone_link else telefone,
-            hyperlink(ig, "◎ Instagram") if ig else "",
-            hyperlink(site, "🌐 Site") if site else "",
-            hyperlink(reviews, "★ Reviews") if reviews else "",
-            status, "MÉDIA", "", "", "", prazo, desconto, "",
-            hyperlink(map_link, "🗺️ Mapa") if map_link else "",
-            hyperlink(zap if zap else phone_link, "💬 Contato") if (zap or phone_link) else "",
-            hyperlink(ig if ig else site, "↗ Redes/Site") if (ig or site) else "",
-            hyperlink(reviews, "★ Ver avaliações") if reviews else "",
-            *gantt,
-            obs,
+            rid,                                                       # A: ID
+            nome,                                                      # B: FORNECEDOR
+            False,                                                     # C: VISITADO? (Checkbox)
+            hyperlink(zap, "💬 ABRIR WHATSAPP") if zap else "SEM ZAP", # D: BOTÃO ZAP
+            hyperlink(map_link, "🗺️ ABRIR GPS") if map_link else "SEM ENDEREÇO", # E: BOTÃO MAPA
+            status,                                                    # F: STATUS
+            "MÉDIA",                                                   # G: PRIORIDADE
+            polo,                                                      # H: POLO
+            bairro,                                                    # I: BAIRRO
+            cidade,                                                    # J: CIDADE
+            cat,                                                       # K: CATEGORIA
+            perfil,                                                    # L: PERFIL B2B
+            endereco,                                                  # M: ENDEREÇO
+            hyperlink(phone_link, "☎️ LIGAR AGORA") if phone_link else telefone, # N: BOTÃO TEL
+            hyperlink(ig, "📸 INSTAGRAM") if ig else "-",             # O: BOTÃO IG
+            hyperlink(site, "🌐 WEBSITE") if site else "-",             # P: BOTÃO SITE
+            hyperlink(reviews, "★ REVIEWS GMB") if reviews else "-",    # Q: BOTÃO GMB
+            "",                                                        # R: DATA VISITA
+            "",                                                        # S: RESULTADO
+            "",                                                        # T: FOLLOW-UP
+            prazo,                                                     # U: PRAZO
+            desconto,                                                  # V: DESCONTO
+            "",                                                        # W: PEDIDO MIN
+            obs,                                                       # X: OBS
         ]
 
     for polo_name, rows in [
@@ -339,21 +354,21 @@ def build_field_cockpit():
         ("Polo 3", polo3),
     ]:
         if rows:
-            matriz.append([f"📌 {polo_name.upper()} • {len(rows)} FORNECEDORES", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""])
+            matriz.append([f"📌 {polo_name.upper()} • {len(rows)} FORNECEDORES", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""])
             for r in rows:
                 matriz.append(convert_row(r, polo_name))
 
-    # -----------------------------
-    # WRITE DATA
-    # -----------------------------
+    # -------------------------------------------------------------
+    # 3. GRAVAÇÃO DOS DADOS NA PLANILHA
+    # -------------------------------------------------------------
     clear_range(token, dash_name, "A1:Z200")
     clear_range(token, matriz_name, "A1:AZ200")
     write_values(token, dash_name, "A1", dash)
     write_values(token, matriz_name, "A1", matriz)
 
-    # -----------------------------
-    # FORMAT / INTERACTION PAYLOADS
-    # -----------------------------
+    # -------------------------------------------------------------
+    # 4. CONFIGURAÇÃO DE DESIGN & FORMATAÇÃO DOS BOTÕES VISUAIS
+    # -------------------------------------------------------------
     requests = []
 
     def repeat(sheet_id, r1, r2, c1, c2, fmt, fields):
@@ -371,19 +386,23 @@ def build_field_cockpit():
             }
         })
 
-    # Global surfaces
+
+
+    # Superfície Base do Dashboard
     repeat(dash_id, 0, 40, 0, 8,
-           {"backgroundColor": hex_to_rgb(SURFACE),
-            "textFormat": {"foregroundColor": hex_to_rgb(INK), "fontFamily": "Roboto", "fontSize": 10},
-            "verticalAlignment": "MIDDLE"},
-           "userEnteredFormat(backgroundColor,textFormat,verticalAlignment)")
-    repeat(matriz_id, 0, 120, 0, 30,
-           {"backgroundColor": hex_to_rgb(SURFACE),
-            "textFormat": {"foregroundColor": hex_to_rgb(INK), "fontFamily": "Roboto", "fontSize": 10},
+           {"backgroundColor": hex_to_rgb(SURFACE_WHITE),
+            "textFormat": {"foregroundColor": hex_to_rgb(INK_MAIN), "fontFamily": "Roboto", "fontSize": 10},
             "verticalAlignment": "MIDDLE"},
            "userEnteredFormat(backgroundColor,textFormat,verticalAlignment)")
 
-    # Dashboard header
+    # Superfície Base da Matriz
+    repeat(matriz_id, 0, 120, 0, 24,
+           {"backgroundColor": hex_to_rgb(SURFACE_WHITE),
+            "textFormat": {"foregroundColor": hex_to_rgb(INK_MAIN), "fontFamily": "Roboto", "fontSize": 10},
+            "verticalAlignment": "MIDDLE"},
+           "userEnteredFormat(backgroundColor,textFormat,verticalAlignment)")
+
+    # Header Principal (Volúpia Crimson)
     repeat(dash_id, 0, 1, 0, 8,
            {"backgroundColor": hex_to_rgb(CRIMSON_DARK),
             "textFormat": {"foregroundColor": hex_to_rgb("#FFFFFF"), "fontFamily": "Roboto", "fontSize": 14, "bold": True},
@@ -395,63 +414,34 @@ def build_field_cockpit():
             "horizontalAlignment": "LEFT"},
            "userEnteredFormat(backgroundColor,textFormat,horizontalAlignment)")
 
-    for row in [3, 8, 14, 24]:
-        repeat(dash_id, row, row + 1, 0, 8,
-               {"backgroundColor": hex_to_rgb(SURFACE_ALT),
-                "textFormat": {"foregroundColor": hex_to_rgb(INK), "fontFamily": "Roboto", "fontSize": 11, "bold": True},
-                "horizontalAlignment": "LEFT"},
-               "userEnteredFormat(backgroundColor,textFormat,horizontalAlignment)")
-
-    # KPI cards
-    repeat(dash_id, 4, 7, 0, 6,
-           {"backgroundColor": hex_to_rgb(CRIMSON_SOFT),
-            "textFormat": {"fontFamily": "Roboto"},
-            "horizontalAlignment": "CENTER"},
-           "userEnteredFormat(backgroundColor,textFormat,horizontalAlignment)")
-    repeat(dash_id, 5, 6, 0, 6,
-           {"textFormat": {"foregroundColor": hex_to_rgb(CRIMSON), "fontFamily": "Roboto", "fontSize": 20, "bold": True},
-            "horizontalAlignment": "CENTER"},
-           "userEnteredFormat(textFormat,horizontalAlignment)")
-    repeat(dash_id, 4, 5, 0, 6,
-           {"textFormat": {"foregroundColor": hex_to_rgb(MUTED), "fontFamily": "Roboto", "fontSize": 8, "bold": True},
-            "horizontalAlignment": "CENTER"},
-           "userEnteredFormat(textFormat,horizontalAlignment)")
-
-    # Dashboard table headers
-    for row, cols in [(9, 6), (15, 3)]:
-        repeat(dash_id, row, row + 1, 0, cols,
-               {"backgroundColor": hex_to_rgb(INK),
-                "textFormat": {"foregroundColor": hex_to_rgb("#FFFFFF"), "fontFamily": "Roboto", "fontSize": 9, "bold": True},
-                "horizontalAlignment": "LEFT"},
-               "userEnteredFormat(backgroundColor,textFormat,horizontalAlignment)")
-
-    # Matriz header
-    repeat(matriz_id, 0, 1, 0, 30,
+    repeat(matriz_id, 0, 1, 0, 24,
            {"backgroundColor": hex_to_rgb(CRIMSON_DARK),
             "textFormat": {"foregroundColor": hex_to_rgb("#FFFFFF"), "fontFamily": "Roboto", "fontSize": 14, "bold": True},
-            "horizontalAlignment": "LEFT"},
-           "userEnteredFormat(backgroundColor,textFormat,horizontalAlignment)")
-    repeat(matriz_id, 1, 2, 0, 30,
+            "horizontalAlignment": "LEFT", "verticalAlignment": "MIDDLE"},
+           "userEnteredFormat(backgroundColor,textFormat,horizontalAlignment,verticalAlignment)")
+    repeat(matriz_id, 1, 2, 0, 24,
            {"backgroundColor": hex_to_rgb(CRIMSON_DARK),
             "textFormat": {"foregroundColor": hex_to_rgb("#FFE4E6"), "fontFamily": "Roboto", "fontSize": 9},
             "horizontalAlignment": "LEFT"},
            "userEnteredFormat(backgroundColor,textFormat,horizontalAlignment)")
-    repeat(matriz_id, 3, 4, 0, 30,
-           {"backgroundColor": hex_to_rgb(INK),
-            "textFormat": {"foregroundColor": hex_to_rgb("#FFFFFF"), "fontFamily": "Roboto", "fontSize": 8, "bold": True},
-            "horizontalAlignment": "CENTER", "wrapStrategy": "WRAP"},
-           "userEnteredFormat(backgroundColor,textFormat,horizontalAlignment,wrapStrategy)")
 
-    # Polo separators
+    # Cabeçalho da Tabela Matriz (Dark Navy Header)
+    repeat(matriz_id, 3, 4, 0, 24,
+           {"backgroundColor": hex_to_rgb(INK_MAIN),
+            "textFormat": {"foregroundColor": hex_to_rgb("#FFFFFF"), "fontFamily": "Roboto", "fontSize": 9, "bold": True},
+            "horizontalAlignment": "CENTER", "verticalAlignment": "MIDDLE", "wrapStrategy": "WRAP"},
+           "userEnteredFormat(backgroundColor,textFormat,horizontalAlignment,verticalAlignment,wrapStrategy)")
+
+    # Separadores de Polo (Crimson Light Bar)
     for idx, row in enumerate(matriz):
         if row and str(row[0]).startswith("📌 POLO"):
-            repeat(matriz_id, idx, idx + 1, 0, 30,
-                   {"backgroundColor": hex_to_rgb(SURFACE_ALT),
-                    "textFormat": {"foregroundColor": hex_to_rgb(CRIMSON), "fontFamily": "Roboto", "fontSize": 10, "bold": True},
-                    "horizontalAlignment": "LEFT"},
-                   "userEnteredFormat(backgroundColor,textFormat,horizontalAlignment)")
+            repeat(matriz_id, idx, idx + 1, 0, 24,
+                   {"backgroundColor": hex_to_rgb(CRIMSON_SOFT),
+                    "textFormat": {"foregroundColor": hex_to_rgb(CRIMSON_PRIMARY), "fontFamily": "Roboto", "fontSize": 11, "bold": True},
+                    "horizontalAlignment": "LEFT", "verticalAlignment": "MIDDLE"},
+                   "userEnteredFormat(backgroundColor,textFormat,horizontalAlignment,verticalAlignment)")
 
-    # Freeze rows
+    # Congelar Linhas e Colunas para Mobile Navegação Eficiente
     requests.append({
         "updateSheetProperties": {
             "properties": {"sheetId": dash_id, "gridProperties": {"frozenRowCount": 2}},
@@ -465,23 +455,105 @@ def build_field_cockpit():
         }
     })
 
-    # Data validation: status / priority / result
-    validation = [
-        ("status", 13, ["PROSPECCAO", "CONTATO_REALIZADO", "AGENDADA", "VISITA_REALIZADA", "HOMOLOGADO", "FOLLOW_UP", "REJEITADO"]),
-        ("priority", 14, ["ALTA", "MÉDIA", "BAIXA"]),
-        ("result", 16, ["INTERESSADO", "NEGOCIACAO", "SEM_INTERESSE", "SEM_CONTATO", "VISITA_REAGENDAR", "HOMOLOGADO", "REJEITADO"]),
-    ]
+    # KPI Cards do Dashboard
+    repeat(dash_id, 4, 7, 0, 6,
+           {"backgroundColor": hex_to_rgb(CRIMSON_SOFT),
+            "textFormat": {"fontFamily": "Roboto"},
+            "horizontalAlignment": "CENTER"},
+           "userEnteredFormat(backgroundColor,textFormat,horizontalAlignment)")
+    repeat(dash_id, 5, 6, 0, 6,
+           {"textFormat": {"foregroundColor": hex_to_rgb(CRIMSON_PRIMARY), "fontFamily": "Roboto", "fontSize": 20, "bold": True},
+            "horizontalAlignment": "CENTER"},
+           "userEnteredFormat(textFormat,horizontalAlignment)")
+
+    # -------------------------------------------------------------
+    # 5. CONSTRUÇÃO DOS BOTÕES VISUAIS (ACTION PILLS) NA MATRIZ
+    # -------------------------------------------------------------
     data_start = 4
-    data_end = max(len(matriz), 5)
-    for _, col, values in validation:
+    data_end = len(matriz)
+
+    # BOTÃO WHATSAPP DIRECT (Coluna D / Col 3) -> Fundo Verde Esmeralda, Texto Branco Bold
+    repeat(matriz_id, data_start, data_end, 3, 4,
+           {"backgroundColor": hex_to_rgb(BTN_ZAP_BG),
+            "textFormat": {"foregroundColor": hex_to_rgb("#FFFFFF"), "fontFamily": "Roboto", "fontSize": 10, "bold": True},
+            "horizontalAlignment": "CENTER", "verticalAlignment": "MIDDLE"},
+           "userEnteredFormat(backgroundColor,textFormat,horizontalAlignment,verticalAlignment)")
+
+    # BOTÃO NAVEGAÇÃO GPS (Coluna E / Col 4) -> Fundo Azul Google Maps, Texto Branco Bold
+    repeat(matriz_id, data_start, data_end, 4, 5,
+           {"backgroundColor": hex_to_rgb(BTN_MAPS_BG),
+            "textFormat": {"foregroundColor": hex_to_rgb("#FFFFFF"), "fontFamily": "Roboto", "fontSize": 10, "bold": True},
+            "horizontalAlignment": "CENTER", "verticalAlignment": "MIDDLE"},
+           "userEnteredFormat(backgroundColor,textFormat,horizontalAlignment,verticalAlignment)")
+
+    # BOTÃO TELEFONE (Coluna N / Col 13) -> Fundo Azul Celeste, Texto Branco Bold
+    repeat(matriz_id, data_start, data_end, 13, 14,
+           {"backgroundColor": hex_to_rgb(BTN_PHONE_BG),
+            "textFormat": {"foregroundColor": hex_to_rgb("#FFFFFF"), "fontFamily": "Roboto", "fontSize": 10, "bold": True},
+            "horizontalAlignment": "CENTER", "verticalAlignment": "MIDDLE"},
+           "userEnteredFormat(backgroundColor,textFormat,horizontalAlignment,verticalAlignment)")
+
+    # BOTÃO INSTAGRAM (Coluna O / Col 14) -> Fundo Rosa Instagram, Texto Branco Bold
+    repeat(matriz_id, data_start, data_end, 14, 15,
+           {"backgroundColor": hex_to_rgb(BTN_IG_BG),
+            "textFormat": {"foregroundColor": hex_to_rgb("#FFFFFF"), "fontFamily": "Roboto", "fontSize": 10, "bold": True},
+            "horizontalAlignment": "CENTER", "verticalAlignment": "MIDDLE"},
+           "userEnteredFormat(backgroundColor,textFormat,horizontalAlignment,verticalAlignment)")
+
+    # BOTÃO WEBSITE (Coluna P / Col 15) -> Fundo Roxo, Texto Branco Bold
+    repeat(matriz_id, data_start, data_end, 15, 16,
+           {"backgroundColor": hex_to_rgb(BTN_SITE_BG),
+            "textFormat": {"foregroundColor": hex_to_rgb("#FFFFFF"), "fontFamily": "Roboto", "fontSize": 10, "bold": True},
+            "horizontalAlignment": "CENTER", "verticalAlignment": "MIDDLE"},
+           "userEnteredFormat(backgroundColor,textFormat,horizontalAlignment,verticalAlignment)")
+
+    # BOTÃO REVIEWS GMB (Coluna Q / Col 16) -> Fundo Âmbar Ouro, Texto Branco Bold
+    repeat(matriz_id, data_start, data_end, 16, 17,
+           {"backgroundColor": hex_to_rgb(BTN_GMB_BG),
+            "textFormat": {"foregroundColor": hex_to_rgb("#FFFFFF"), "fontFamily": "Roboto", "fontSize": 10, "bold": True},
+            "horizontalAlignment": "CENTER", "verticalAlignment": "MIDDLE"},
+           "userEnteredFormat(backgroundColor,textFormat,horizontalAlignment,verticalAlignment)")
+
+    # -------------------------------------------------------------
+    # 6. CAIXAS DE SELEÇÃO NATIVAS (CHECKBOXES DE 1-TOQUE)
+    # -------------------------------------------------------------
+    # Coluna C (Col 2): ☑️ VISITADO? -> Checkbox Nativa
+    requests.append({
+        "setDataValidation": {
+            "range": {
+                "sheetId": matriz_id,
+                "startRowIndex": data_start,
+                "endRowIndex": data_end,
+                "startColumnIndex": 2,
+                "endColumnIndex": 3,
+            },
+            "rule": {
+                "condition": {"type": "BOOLEAN"},
+                "showCustomUi": True
+            }
+        }
+    })
+    repeat(matriz_id, data_start, data_end, 2, 3,
+           {"horizontalAlignment": "CENTER", "verticalAlignment": "MIDDLE"},
+           "userEnteredFormat(horizontalAlignment,verticalAlignment)")
+
+    # -------------------------------------------------------------
+    # 7. DROPDOWNS E VALIDAÇÃO DE DADOS (STATUS / PRIORIDADE / RESULTADO)
+    # -------------------------------------------------------------
+    validations = [
+        (5, ["PROSPECCAO", "CONTATO_REALIZADO", "AGENDADA", "VISITA_REALIZADA", "HOMOLOGADO", "FOLLOW_UP", "REJEITADO"]), # STATUS (Col F)
+        (6, ["ALTA", "MÉDIA", "BAIXA"]),                                                                                 # PRIORIDADE (Col G)
+        (18, ["INTERESSADO", "NEGOCIACAO", "SEM_INTERESSE", "SEM_CONTATO", "VISITA_REAGENDAR", "HOMOLOGADO", "REJEITADO"]), # RESULTADO (Col S)
+    ]
+    for col_idx, values in validations:
         requests.append({
             "setDataValidation": {
                 "range": {
                     "sheetId": matriz_id,
                     "startRowIndex": data_start,
                     "endRowIndex": data_end,
-                    "startColumnIndex": col,
-                    "endColumnIndex": col + 1,
+                    "startColumnIndex": col_idx,
+                    "endColumnIndex": col_idx + 1,
                 },
                 "rule": {
                     "condition": {"type": "ONE_OF_LIST", "values": [{"userEnteredValue": x} for x in values]},
@@ -490,16 +562,19 @@ def build_field_cockpit():
                 },
             }
         })
+        repeat(matriz_id, data_start, data_end, col_idx, col_idx + 1,
+               {"horizontalAlignment": "CENTER", "verticalAlignment": "MIDDLE"},
+               "userEnteredFormat(horizontalAlignment,verticalAlignment)")
 
-    # Conditional status colors
+    # Formatação Condicional de Status (Col F / Col 5)
     status_colors = [
-        ("PROSPECCAO", YELLOW_SOFT, YELLOW),
-        ("CONTATO_REALIZADO", BLUE_SOFT, BLUE),
-        ("AGENDADA", PURPLE_SOFT, PURPLE),
-        ("VISITA_REALIZADA", BLUE_SOFT, BLUE),
-        ("HOMOLOGADO", GREEN_SOFT, GREEN),
-        ("FOLLOW_UP", YELLOW_SOFT, YELLOW),
-        ("REJEITADO", RED_SOFT, RED),
+        ("PROSPECCAO", YELLOW_SOFT, YELLOW_TEXT),
+        ("CONTATO_REALIZADO", BLUE_SOFT, BLUE_TEXT),
+        ("AGENDADA", PURPLE_SOFT, PURPLE_TEXT),
+        ("VISITA_REALIZADA", BLUE_SOFT, BLUE_TEXT),
+        ("HOMOLOGADO", GREEN_SOFT, GREEN_TEXT),
+        ("FOLLOW_UP", YELLOW_SOFT, YELLOW_TEXT),
+        ("REJEITADO", RED_SOFT, RED_TEXT),
     ]
     for value, bg, fg in status_colors:
         requests.append({
@@ -509,8 +584,8 @@ def build_field_cockpit():
                         "sheetId": matriz_id,
                         "startRowIndex": data_start,
                         "endRowIndex": data_end,
-                        "startColumnIndex": 13,
-                        "endColumnIndex": 14,
+                        "startColumnIndex": 5,
+                        "endColumnIndex": 6,
                     }],
                     "booleanRule": {
                         "condition": {"type": "TEXT_EQ", "values": [{"userEnteredValue": value}]},
@@ -524,8 +599,8 @@ def build_field_cockpit():
             }
         })
 
-    # Priority colors
-    for value, bg, fg in [("ALTA", RED_SOFT, RED), ("MÉDIA", YELLOW_SOFT, YELLOW), ("BAIXA", GREEN_SOFT, GREEN)]:
+    # Prioridade Colors (Col G / Col 6)
+    for value, bg, fg in [("ALTA", RED_SOFT, RED_TEXT), ("MÉDIA", YELLOW_SOFT, YELLOW_TEXT), ("BAIXA", GREEN_SOFT, GREEN_TEXT)]:
         requests.append({
             "addConditionalFormatRule": {
                 "rule": {
@@ -533,8 +608,8 @@ def build_field_cockpit():
                         "sheetId": matriz_id,
                         "startRowIndex": data_start,
                         "endRowIndex": data_end,
-                        "startColumnIndex": 14,
-                        "endColumnIndex": 15,
+                        "startColumnIndex": 6,
+                        "endColumnIndex": 7,
                     }],
                     "booleanRule": {
                         "condition": {"type": "TEXT_EQ", "values": [{"userEnteredValue": value}]},
@@ -548,20 +623,34 @@ def build_field_cockpit():
             }
         })
 
-    # Gantt light treatment
-    for col in range(25, 29):
-        repeat(matriz_id, data_start, data_end, col, col + 1,
-               {"backgroundColor": hex_to_rgb(SURFACE_ALT),
-                "textFormat": {"foregroundColor": hex_to_rgb(CRIMSON), "fontFamily": "Roboto", "fontSize": 10, "bold": True},
-                "horizontalAlignment": "CENTER"},
-               "userEnteredFormat(backgroundColor,textFormat,horizontalAlignment)")
-
-    # Column widths — explicit to keep the visual clean
+    # -------------------------------------------------------------
+    # 8. LARGURA E ALTURA DAS LINHAS (TOUCH-TARGET MOBILE COMPATIBLE)
+    # -------------------------------------------------------------
     widths = {
-        0: 55, 1: 190, 2: 110, 3: 115, 4: 80, 5: 125, 6: 120, 7: 220,
-        8: 115, 9: 100, 10: 110, 11: 100, 12: 100, 13: 140, 14: 90,
-        15: 105, 16: 125, 17: 135, 18: 95, 19: 90, 20: 95,
-        21: 90, 22: 100, 23: 105, 24: 110, 25: 65, 26: 65, 27: 65, 28: 65, 29: 220,
+        0: 55,   # A: ID
+        1: 210,  # B: FORNECEDOR
+        2: 100,  # C: CHECKBOX VISITADO
+        3: 165,  # D: BOTÃO WHATSAPP DIRECT
+        4: 155,  # E: BOTÃO GPS NAVEGAÇÃO
+        5: 150,  # F: STATUS
+        6: 100,  # G: PRIORIDADE
+        7: 90,   # H: POLO
+        8: 120,  # I: BAIRRO
+        9: 130,  # J: CIDADE
+        10: 120, # K: CATEGORIA
+        11: 120, # L: PERFIL
+        12: 240, # M: ENDEREÇO
+        13: 140, # N: BOTÃO TEL
+        14: 135, # O: BOTÃO IG
+        15: 135, # P: BOTÃO SITE
+        16: 140, # Q: BOTÃO REVIEWS
+        17: 110, # R: DATA VISITA
+        18: 130, # S: RESULTADO
+        19: 135, # T: FOLLOW-UP
+        20: 100, # U: PRAZO
+        21: 100, # V: DESCONTO
+        22: 110, # W: PEDIDO MIN
+        23: 250, # X: OBS
     }
     for col, px in widths.items():
         requests.append({
@@ -572,7 +661,8 @@ def build_field_cockpit():
             }
         })
 
-    for col, px in {0: 150, 1: 190, 2: 115, 3: 115, 4: 115, 5: 115}.items():
+    # Dashboard Column Widths
+    for col, px in {0: 150, 1: 220, 2: 130, 3: 130, 4: 130, 5: 130}.items():
         requests.append({
             "updateDimensionProperties": {
                 "range": {"sheetId": dash_id, "dimension": "COLUMNS", "startIndex": col, "endIndex": col + 1},
@@ -581,19 +671,19 @@ def build_field_cockpit():
             }
         })
 
-    # Row heights for a lighter, more breathable interface
+    # Altura de Linha Alta (38px Touch Target) para facilitar o clique no celular
     for sheet_id, end_row in [(dash_id, min(len(dash), 40)), (matriz_id, min(len(matriz), 120))]:
         requests.append({
             "updateDimensionProperties": {
-                "range": {"sheetId": sheet_id, "dimension": "ROWS", "startIndex": 0, "endIndex": end_row},
-                "properties": {"pixelSize": 28},
+                "range": {"sheetId": sheet_id, "dimension": "ROWS", "startIndex": 3, "endIndex": end_row},
+                "properties": {"pixelSize": 38},
                 "fields": "pixelSize",
             }
         })
 
     batch_url = f"https://sheets.googleapis.com/v4/spreadsheets/{SPREADSHEET_ID}:batchUpdate"
     result = api_request(token, batch_url, method="POST", body={"requests": requests})
-    print(f"🎉 SUCESSO! {len(requests)} atualizações aplicadas com sucesso.")
+    print(f"🚀 COCKPIT V3.0 ATUALIZADO! {len(requests)} operações visuais de botões e checkboxes concluídas com sucesso.")
     print("📊 Dashboard:", dash_name)
     print("🏢 Matriz:", matriz_name)
     return result
