@@ -41,15 +41,21 @@ As credenciais do serviço estão armazenadas no cofre local seguro `.secrets/.e
    - O e-mail do operador admin (`userSession.email`) acessível via `RenderContext` no modal de perfil (`UserProfileModal.tsx`) é estabelecido como o **ID Interno do Workspace**.
    - As sessões de exportação e criação de planilhas no Google Drive serão vinculadas à identidade deste operador para total auditabilidade interna.
 
+7. **Fluxo de Repasse de Token OAuth (V8 Cockpit ──► MCP Server)**:
+   - O login do operador no V8 Cockpit (`apps/v8-cockpit`) obtém a sessão autorizada Google OAuth 2.0.
+   - O token Bearer do usuário logado é repassado ao MCP Server (`tools/google_workspace_mcp.py`) via variável `GOOGLE_OAUTH_TOKEN` ou cabeçalho HTTP.
+   - Com este repasse transparente, o MCP executa a chamada `POST https://sheets.googleapis.com/v4/spreadsheets` com o e-mail do operador logado (`u/0`) como proprietário direto da planilha no Google Drive.
+
 ---
 
 ## 3. Consequências
 
 - **Positivas**:
-  - Capacidade nativa do assistente Antigravity de manipular Google Sheets e Docs com comando de texto simples.
-  - Rastreabilidade de workspace e vinculação com a conta do Operador Admin (`userSession.email`).
+  - Capacidade nativa do assistente Antigravity de manipular Google Sheets e Docs aproveitando a sessão OAuth2 do usuário logado no V8 Cockpit.
+  - Rastreabilidade de workspace e vinculação direta com a conta do Operador Admin (`userSession.email`).
+  - Criação de planilhas diretamente no Google Drive do usuário (`u/0`) sem necessidade de gerenciamento manual de chaves.
   - Segurança total das credenciais mantidas isoladas em `.secrets/`.
   - Conformidade com a doutrina `medido=verdade` e rastreabilidade total.
 
 - **Mitigações**:
-  - Exibição de tratamento de erro amigável (`HTTP 401 Unauthorized`) indicando a necessidade de token OAuth2 caso apenas a API Key esteja presente para operações de escrita/criação.
+  - Exibição de tratamento de erro amigável (`HTTP 401 Unauthorized`) indicando a necessidade de repasse do token OAuth2 caso apenas a API Key esteja presente para operações de escrita/criação.
