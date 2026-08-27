@@ -208,47 +208,97 @@ export function MobileSupplierCards(): React.ReactElement {
           <span>{pressToast}</span>
         </div>
       )}
-      {/* Top Menu Header Compacto: py-1 (5px top/bottom) com Título + Contador e Toggle Mapa Radar/Lista */}
-      <div className="flex items-center justify-between py-[5px] mb-[5px] px-1">
-        <h2 className="text-xs font-black uppercase tracking-wider text-stone-300 flex items-center gap-1.5">
-          <svg className="w-4 h-4 text-rose-500 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 01-2-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
-          </svg>
-          <span className="truncate">POLOS INDÚSTRIAIS</span>
-          <span className="px-2 py-0.5 rounded-full text-[10px] font-black bg-rose-500/20 text-rose-400 border border-rose-500/30">
-            ({filtered.length})
-          </span>
-        </h2>
+      {/* Top Menu Header Compacto: py-1 com Título + Seletor Rápido de Polos + Toggle Mapa/Lista */}
+      <div className="space-y-2 mb-2 px-1">
+        <div className="flex items-center justify-between py-[5px]">
+          <h2 className="text-xs font-black uppercase tracking-wider text-stone-300 flex items-center gap-1.5">
+            <svg className="w-4 h-4 text-rose-500 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 01-2-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
+            </svg>
+            <span className="truncate">POLOS INDUSTRIAIS</span>
+            <span className="px-2 py-0.5 rounded-full text-[10px] font-black bg-rose-500/20 text-rose-400 border border-rose-500/30">
+              ({filtered.length})
+            </span>
+          </h2>
 
-        {/* Alternador de Visão: Mapa Radar vs Lista */}
-        <div className="flex items-center p-1 rounded-xl bg-stone-900 border border-stone-800 text-[10px] font-bold shrink-0">
+          {/* Alternador de Visão: Mapa Radar vs Lista */}
+          <div className="flex items-center p-1 rounded-xl bg-stone-900 border border-stone-800 text-[10px] font-bold shrink-0">
+            <button
+              type="button"
+              onClick={() => {
+                triggerHapticFeedback(4);
+                setViewMode('map');
+              }}
+              className={`px-2.5 py-0.5 rounded-lg transition-all flex items-center gap-1 ${
+                viewMode === 'map'
+                  ? 'bg-rose-600 text-white shadow-md font-black'
+                  : 'text-stone-400 hover:text-stone-200'
+              }`}
+            >
+              <span>Mapa Radar</span>
+            </button>
+            <button
+              type="button"
+              onClick={() => {
+                triggerHapticFeedback(4);
+                setViewMode('list');
+              }}
+              className={`px-2.5 py-0.5 rounded-lg transition-all flex items-center gap-1 ${
+                viewMode === 'list'
+                  ? 'bg-rose-600 text-white shadow-md font-black'
+                  : 'text-stone-400 hover:text-stone-200'
+              }`}
+            >
+              <span>Lista</span>
+            </button>
+          </div>
+        </div>
+
+        {/* Seletor Rápido de Polo Regional (Andes UI Sovereign Chips) */}
+        <div className="flex items-center gap-1.5 overflow-x-auto pb-1 no-scrollbar text-[10px] font-extrabold">
           <button
             type="button"
             onClick={() => {
               triggerHapticFeedback(4);
-              setViewMode('map');
+              setStateFilter('TODOS');
             }}
-            className={`px-2.5 py-0.5 rounded-lg transition-all flex items-center gap-1 ${
-              viewMode === 'map'
-                ? 'bg-rose-600 text-white shadow-md font-black'
-                : 'text-stone-400 hover:text-stone-200'
+            className={`px-3 py-1 rounded-xl border transition-all shrink-0 ${
+              stateFilter === 'TODOS'
+                ? 'bg-rose-600 text-white border-rose-500 shadow-lg shadow-rose-950/40'
+                : 'bg-stone-900/90 text-stone-400 border-stone-800 hover:text-stone-200'
             }`}
           >
-            <span>Mapa Radar</span>
+            🌐 TODOS OS POLOS ({suppliers.length})
           </button>
           <button
             type="button"
             onClick={() => {
               triggerHapticFeedback(4);
-              setViewMode('list');
+              setStateFilter('SP');
+              setCityFilter('TODOS');
             }}
-            className={`px-2.5 py-0.5 rounded-lg transition-all flex items-center gap-1 ${
-              viewMode === 'list'
-                ? 'bg-rose-600 text-white shadow-md font-black'
-                : 'text-stone-400 hover:text-stone-200'
+            className={`px-3 py-1 rounded-xl border transition-all shrink-0 ${
+              stateFilter === 'SP'
+                ? 'bg-emerald-600 text-white border-emerald-500 shadow-lg shadow-emerald-950/40'
+                : 'bg-stone-900/90 text-stone-400 border-stone-800 hover:text-stone-200'
             }`}
           >
-            <span>Lista</span>
+            🏭 POLO SP ({suppliers.filter((s) => s.state === 'SP').length})
+          </button>
+          <button
+            type="button"
+            onClick={() => {
+              triggerHapticFeedback(4);
+              setStateFilter('RJ');
+              setCityFilter('TODOS');
+            }}
+            className={`px-3 py-1 rounded-xl border transition-all shrink-0 ${
+              stateFilter === 'RJ'
+                ? 'bg-cyan-600 text-white border-cyan-500 shadow-lg shadow-cyan-950/40'
+                : 'bg-stone-900/90 text-stone-400 border-stone-800 hover:text-stone-200'
+            }`}
+          >
+            🌊 POLO RJ ({suppliers.filter((s) => s.state === 'RJ').length})
           </button>
         </div>
       </div>
