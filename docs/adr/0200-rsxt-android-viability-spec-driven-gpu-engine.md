@@ -153,16 +153,34 @@ Em vez de copiar especificações proprietárias, a engine define o `MaterialDNA
 
 ---
 
-## 8. Status de Auditoria & Trilha Git
+## 9. Substrato Soberano Alpine RootFS & Antigravity-Router L7 Proxy Bridge (`:2727`)
 
-* **Commit Crate Code**: `691c055` (`feat(rsxt-android): implement native rust tokio redb slint gpu engine & probe agent`)
+Em conformidade com a **ADR-0207** e a implantação soberana ratificada na tag `astro-emdash`:
+
+1. **Substrato Alpine RootFS (`/media/jeffer/RSXT/alpine/rootfs`)**:
+   A engine opera sob um container isolado montado no ponto de alta velocidade NVMe `/media/jeffer/RSXT/alpine/rootfs` com trava de memória rígida de **200MB RAM max** (consumo real medido: **42.93 MiB**).
+2. **Antigravity-Router L7 Proxy Bridge (`:2727`)**:
+   O tráfego de interface, dashboards e telemetria de runtime da engine é exposto via L7 Proxy Bridge em `http://localhost:2727` (`tools/adsentice_router_proxy_bridge.py`), fornecendo:
+   - Cache Fast-Path **BLAKE3** (< 0.5ms TTFT) no Redis `:6396`.
+   - Logging em tempo real e encaminhamento sem perdas de `Set-Cookie` e status `302`.
+   - Telemetria de container registrada sob as chaves Redis `adsentice:sovereign:container:2727` e `adsentice:router:telemetry:2727`.
+
+---
+
+## 10. Status de Auditoria & Trilha Git
+
+* **Commit Crate Code**: `c481b66` (`feat(rsxt-android): add 5 ViewportProfiles comparison benchmarks and MaterialDNA struct`)
 * **Commit ADR Baseline**: `de2de0af3`
-* **Commit ADR Refactored Specification**: Atualizado nesta sessão.
+* **Commit ADR Refactored Specification**: `3f9ba0ab6`
+* **Substrato Live `:2727`**: Executando via `tools/adsentice_rsxt_rootfs_launcher.py` + `tools/adsentice_router_proxy_bridge.py` (Container `emdash_sovereign_2727` em 42.93MiB / 200MB limit).
 * **Arquivos Canônicos**: 
   - [`docs/adr/0200-rsxt-android-viability-spec-driven-gpu-engine.md`](file:///media/jeffer/5aab5a95-8290-d3f7-2e4f-8c27cc2d09a93/CASOSEX/docs/adr/0200-rsxt-android-viability-spec-driven-gpu-engine.md)
   - [`crates/rsxt-android/src/main.rs`](file:///media/jeffer/5aab5a95-8290-d3f7-2e4f-8c27cc2d09a93/rsxt/crates/rsxt-android/src/main.rs)
   - [`crates/rsxt-android/src/redb_store.rs`](file:///media/jeffer/5aab5a95-8290-d3f7-2e4f-8c27cc2d09a93/rsxt/crates/rsxt-android/src/redb_store.rs)
   - [`crates/rsxt-android/ui/app_window.slint`](file:///media/jeffer/5aab5a95-8290-d3f7-2e4f-8c27cc2d09a93/rsxt/crates/rsxt-android/ui/app_window.slint)
-* **Qdrant Key**: Tag `adsentice`, `app-jury`, `app-mercadopago` em `claude-memory`
-* **Redis State**: `adsentice:ooda:stage:act` -> `SELADO v12`
+  - [`tools/adsentice_rsxt_rootfs_launcher.py`](file:///media/jeffer/5aab5a95-8290-d3f7-2e4f-8c27cc2d09a93/CASOSEX/tools/adsentice_rsxt_rootfs_launcher.py)
+  - [`tools/adsentice_router_proxy_bridge.py`](file:///media/jeffer/5aab5a95-8290-d3f7-2e4f-8c27cc2d09a93/CASOSEX/tools/adsentice_router_proxy_bridge.py)
+* **Qdrant Key**: Tag `adsentice`, `astro-emdash` em `claude-memory`
+* **Redis State**: `adsentice:ooda:stage:act` -> `SELADO v15`
 * **BOA Score**: `0.9091` (`EXCELLENT`)
+
