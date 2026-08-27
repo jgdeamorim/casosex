@@ -1,4 +1,4 @@
-name = "volupia-v8-cockpit"
+name = "volupia-cockpit"
 main = "worker/index.ts"
 compatibility_date = "2026-08-25"
 compatibility_flags = ["nodejs_compat"]
