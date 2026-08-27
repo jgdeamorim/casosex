@@ -8,9 +8,8 @@ directory = "./dist"
 
 [[d1_databases]]
 binding = "DB"
-database_name = "volupia-v8-db"
-# Substitua pelo ID real retornado por: wrangler d1 create volupia-v8-db
-database_id = "00000000-0000-0000-0000-000000000000"
+database_name = "volupia-db"
+database_id = "a7e5672c-8eb6-4871-a60b-17541e2da457"
 migrations_dir = "migrations"
 
 [vars]
