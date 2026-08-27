@@ -1,6 +1,7 @@
 # Brazilian Portuguese Micro-Copy & CTA Tokens Catalog
 metadata:
   title: PT-BR Onboarding & Commercial Micro-Copy Catalog
+  version: "4.0.0-SOVEREIGN"
   total_string_tokens: 8122
 
 micro_copy_highlights:

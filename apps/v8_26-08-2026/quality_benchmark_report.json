@@ -9,7 +9,7 @@
     "spec_tag": "app-jury",
     "code_files_count": 38,
     "code_tag": "v8_cockpit",
-    "qdrant_casosex_inspiration_points": 25,
+    "qdrant_casosex_inspiration_points": 34,
     "qdrant_casosex_self_points": 347,
     "aligned_key_components": "7/7"
   },
@@ -17,8 +17,8 @@
     {
       "file": "andes-ui-tokens.yaml",
       "rel_path": "docs/spec/mobile-app-first/andes-ui-tokens.yaml",
-      "blake2b_hash": "3e83ee1f418c7d64fe6c16ee524a1579b89107a815e9d8a4238bcbe7e19d49f0",
-      "size_bytes": 1836,
+      "blake2b_hash": "a589d601ef95c8422483c233b13dd0617fcd09abe20b0dbe9c6767626abcf840",
+      "size_bytes": 1875,
       "tag": "app-jury",
       "collection": "casosex-inspiration"
     },
@@ -41,8 +41,8 @@
     {
       "file": "deep-links-routes.yaml",
       "rel_path": "docs/spec/mobile-app-first/deep-links-routes.yaml",
-      "blake2b_hash": "d174e84dba5831279a3913fcdda5e93777db385bef16f0ddc2923c4c68281aa7",
-      "size_bytes": 2466,
+      "blake2b_hash": "ff6a595ed6f334b9436223a698e14c9b63b9e4bbfe60221458e06b13d9037333",
+      "size_bytes": 2577,
       "tag": "app-jury",
       "collection": "casosex-inspiration"
     },
@@ -65,8 +65,8 @@
     {
       "file": "index.yaml",
       "rel_path": "docs/spec/mobile-app-first/index.yaml",
-      "blake2b_hash": "5680106554ab1e01f6dc0df8b69e43e313471eae9690f10014ec7a0adac37e5f",
-      "size_bytes": 1733,
+      "blake2b_hash": "4f30040f0727ed141c2c55a01c90bc00b7169c0c6842d051383434a3cc9a61d8",
+      "size_bytes": 2184,
       "tag": "app-jury",
       "collection": "casosex-inspiration"
     },
@@ -81,16 +81,16 @@
     {
       "file": "master-design-system.json",
       "rel_path": "docs/spec/mobile-app-first/master-design-system.json",
-      "blake2b_hash": "9fdf62adc305458fe41d73c1b39b2edab78555a08730c1e2618b6b25eac7047f",
-      "size_bytes": 77190,
+      "blake2b_hash": "65a638c3f7486db863d23c30ba0f6dc6e60ff2203b47a5de376276d3e036a39e",
+      "size_bytes": 77539,
       "tag": "app-jury",
       "collection": "casosex-inspiration"
     },
     {
       "file": "micro-copy-ptbr.yaml",
       "rel_path": "docs/spec/mobile-app-first/micro-copy-ptbr.yaml",
-      "blake2b_hash": "9b45ccec5f0da5440e4fe280040e091b4bee36a52c4bcedd9d94649619ae268b",
-      "size_bytes": 1094,
+      "blake2b_hash": "2a078cf3b0eb9ebcd6e99097f576f5c1ea5af24de547354449aa20816621dc50",
+      "size_bytes": 1123,
       "tag": "app-jury",
       "collection": "casosex-inspiration"
     },
@@ -414,7 +414,7 @@
       "component": "BottomGlassDock",
       "spec_file": "andes-ui-tokens.yaml",
       "code_file": "components/layout/BottomGlassDock.tsx",
-      "spec_hash": "3e83ee1f418c7d64fe6c16ee524a1579b89107a815e9d8a4238bcbe7e19d49f0",
+      "spec_hash": "a589d601ef95c8422483c233b13dd0617fcd09abe20b0dbe9c6767626abcf840",
       "code_hash": "1817e901ad06d6ac036b0bf44d13f4cae3e9fa8f92244d5e27d328281f0ed328",
       "status": "ALIGNED"
     },
@@ -422,7 +422,7 @@
       "component": "MobileDossierView",
       "spec_file": "index.yaml",
       "code_file": "components/dossier/MobileDossierView.tsx",
-      "spec_hash": "5680106554ab1e01f6dc0df8b69e43e313471eae9690f10014ec7a0adac37e5f",
+      "spec_hash": "4f30040f0727ed141c2c55a01c90bc00b7169c0c6842d051383434a3cc9a61d8",
       "code_hash": "c56e4618d793d45c86c1fc9a6458e3c2ab972a9153ed7d190ba8ac42252eed60",
       "status": "ALIGNED"
     },
@@ -438,7 +438,7 @@
       "component": "MobileIntelView",
       "spec_file": "index.yaml",
       "code_file": "components/dashboard/MobileIntelView.tsx",
-      "spec_hash": "5680106554ab1e01f6dc0df8b69e43e313471eae9690f10014ec7a0adac37e5f",
+      "spec_hash": "4f30040f0727ed141c2c55a01c90bc00b7169c0c6842d051383434a3cc9a61d8",
       "code_hash": "def28c31a0fb07e533994d4c2145709ee4d5e31318665325a72527cf255bb137",
       "status": "ALIGNED"
     },
@@ -446,7 +446,7 @@
       "component": "MobileHeader",
       "spec_file": "andes-ui-tokens.yaml",
       "code_file": "components/layout/MobileHeader.tsx",
-      "spec_hash": "3e83ee1f418c7d64fe6c16ee524a1579b89107a815e9d8a4238bcbe7e19d49f0",
+      "spec_hash": "a589d601ef95c8422483c233b13dd0617fcd09abe20b0dbe9c6767626abcf840",
       "code_hash": "a7c2f09e5078c0a745b88defbe9215db80717bc39012c148edcda8a55b760f8f",
       "status": "ALIGNED"
     },
@@ -454,7 +454,7 @@
       "component": "ResponsiveViewportEngine",
       "spec_file": "index.yaml",
       "code_file": "components/ResponsiveViewportEngine.tsx",
-      "spec_hash": "5680106554ab1e01f6dc0df8b69e43e313471eae9690f10014ec7a0adac37e5f",
+      "spec_hash": "4f30040f0727ed141c2c55a01c90bc00b7169c0c6842d051383434a3cc9a61d8",
       "code_hash": "cdd67256c7202faed91cb1e816b4f9af7c291a4829520ef30fc42a13c9ed32a7",
       "status": "ALIGNED"
     },

@@ -1,5 +1,7 @@
 # Andes UI Component Specification Matrix
 # Mapped 1:1 to React 19 + Tailwind CSS v4 Components
+metadata:
+  version: "4.0.0-SOVEREIGN"
 
 components:
   AndesButton:

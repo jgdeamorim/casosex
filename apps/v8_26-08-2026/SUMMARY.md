@@ -11,7 +11,7 @@
 | :--- | :---: | :---: |
 | **Especificações Descompiladas (`tag=app-jury`)** | **11 arquivos** | 🟢 OK |
 | **Código Fonte V8 Cockpit (`tag=v8_cockpit`)** | **38 arquivos** | 🟢 OK |
-| **Pontos Qdrant `casosex-inspiration`** | **25 pontos** | 🟢 OK |
+| **Pontos Qdrant `casosex-inspiration`** | **34 pontos** | 🟢 OK |
 | **Pontos Qdrant `casosex-self`** | **347 pontos** | 🟢 OK |
 | **Componentes Mestre Alinhados** | **7/7** | 🟢 100% |
 

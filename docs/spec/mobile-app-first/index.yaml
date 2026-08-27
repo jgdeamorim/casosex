@@ -1,11 +1,18 @@
-# Master Index: Mode Mobile-App-First Specification (100% COMPLETE)
-# Governed by VOLÚPIA SS-AES v3.4 & AXA v3.2 Protocol
+# Master Index: Mode Mobile-App-First Specification (100% COMPLETE v4.0)
+# Governed by CASOSEX SS-AES v3.4 & AXA v3.2 Protocol
 metadata:
   title: Sovereign Mobile-App-First Design System Master Index
-  version: 3.0.0 (100% SYNTHESIS COMPLETE)
+  version: 4.0.0 (100% SYNTHESIS COMPLETE + BLAKE2b HASHING)
   source: Mercado Pago APK Decompiled Analysis
   generated_at: 2026-08-26
-  target: VOLÚPIA Cockpit V8 (app.usevolupia.com.br)
+  target: CASOSEX Volúpia Cockpit V8 (app.usevolupia.com.br)
+  blake2b_256_hashes:
+{
+    "deep-links-routes.yaml": "ff6a595ed6f334b9436223a698e14c9b63b9e4bbfe60221458e06b13d9037333",
+    "micro-copy-ptbr.yaml": "2a078cf3b0eb9ebcd6e99097f576f5c1ea5af24de547354449aa20816621dc50",
+    "andes-ui-tokens.yaml": "a589d601ef95c8422483c233b13dd0617fcd09abe20b0dbe9c6767626abcf840",
+    "master-design-system.json": "65a638c3f7486db863d23c30ba0f6dc6e60ff2203b47a5de376276d3e036a39e"
+}
 
 architectural_axioms:
   axa_axiom_12: "Mobile não é um breakpoint responsivo do Desktop. Mobile é uma experiência de aplicação independente."
@@ -25,7 +32,7 @@ synthesized_artifacts_100_percent:
   - file: "master-design-system.json" (100% Unified JSON Export)
 
 completion_metrics:
-  status: "100% COMPLETE SOVEREIGN SYNTHESIS"
+  status: "100% COMPLETE SOVEREIGN SYNTHESIS v4.0"
   total_dimension_tokens: 5868
   total_svg_vector_drawables: 792
   total_webp_png_assets: 201

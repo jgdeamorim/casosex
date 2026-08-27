@@ -1,16 +1,16 @@
 {
   "telemetry_level": "MILITARY_GRADE_SOVEREIGN",
   "doctrine": "medido=verdade",
-  "timestamp_utc": "2026-08-27T00:38:25Z",
-  "execution_latency_ms": 19.13,
+  "timestamp_utc": "2026-08-27T00:40:44Z",
+  "execution_latency_ms": 23.43,
   "redis_state": {
-    "boa_score": "0.9900",
-    "stage_act": "SELADO INGESTÃO FERRARI v2.0 · 244 novos / 1558 cached em 61912.8ms (Commit ff1aa770e)",
-    "commit_hash": "ff1aa770e",
+    "boa_score": "0.9300",
+    "stage_act": "SELADO INGESTÃO FERRARI v2.0 · 9 novos / 1794 cached em 2475.0ms (Commit df39b6fc1)",
+    "commit_hash": "df39b6fc1",
     "gemini_flash_protocol": "ACTIVE_v1.0.0"
   },
   "qdrant_state": {
-    "casosex_inspiration_points": 25,
+    "casosex_inspiration_points": 34,
     "casosex_self_points": 347
   },
   "ipc_state": {
@@ -21,8 +21,8 @@
   "spec_artifacts_count": 11,
   "spec_artifacts_hashes": {
     "andes-ui-tokens.yaml": {
-      "blake2b_256": "3e83ee1f418c7d64fe6c16ee524a1579b89107a815e9d8a4238bcbe7e19d49f0",
-      "bytes": 1836,
+      "blake2b_256": "a589d601ef95c8422483c233b13dd0617fcd09abe20b0dbe9c6767626abcf840",
+      "bytes": 1875,
       "mmap_status": "ZERO_COPY_READ_OK"
     },
     "assets-catalog.yaml": {
@@ -36,8 +36,8 @@
       "mmap_status": "ZERO_COPY_READ_OK"
     },
     "deep-links-routes.yaml": {
-      "blake2b_256": "d174e84dba5831279a3913fcdda5e93777db385bef16f0ddc2923c4c68281aa7",
-      "bytes": 2466,
+      "blake2b_256": "ff6a595ed6f334b9436223a698e14c9b63b9e4bbfe60221458e06b13d9037333",
+      "bytes": 2577,
       "mmap_status": "ZERO_COPY_READ_OK"
     },
     "design-tokens-full.json": {
@@ -51,8 +51,8 @@
       "mmap_status": "ZERO_COPY_READ_OK"
     },
     "index.yaml": {
-      "blake2b_256": "5680106554ab1e01f6dc0df8b69e43e313471eae9690f10014ec7a0adac37e5f",
-      "bytes": 1733,
+      "blake2b_256": "4f30040f0727ed141c2c55a01c90bc00b7169c0c6842d051383434a3cc9a61d8",
+      "bytes": 2184,
       "mmap_status": "ZERO_COPY_READ_OK"
     },
     "interactive-states-actions.yaml": {
@@ -61,13 +61,13 @@
       "mmap_status": "ZERO_COPY_READ_OK"
     },
     "master-design-system.json": {
-      "blake2b_256": "9fdf62adc305458fe41d73c1b39b2edab78555a08730c1e2618b6b25eac7047f",
-      "bytes": 77190,
+      "blake2b_256": "65a638c3f7486db863d23c30ba0f6dc6e60ff2203b47a5de376276d3e036a39e",
+      "bytes": 77539,
       "mmap_status": "ZERO_COPY_READ_OK"
     },
     "micro-copy-ptbr.yaml": {
-      "blake2b_256": "9b45ccec5f0da5440e4fe280040e091b4bee36a52c4bcedd9d94649619ae268b",
-      "bytes": 1094,
+      "blake2b_256": "2a078cf3b0eb9ebcd6e99097f576f5c1ea5af24de547354449aa20816621dc50",
+      "bytes": 1123,
       "mmap_status": "ZERO_COPY_READ_OK"
     },
     "motion-animations.yaml": {
