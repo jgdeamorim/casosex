@@ -136,7 +136,7 @@ pub struct InteractionTrace {
 
 ---
 
-## 6. Otimização de Recursos no Aspire 5 (`medido=verdade`)
+## 7. Otimização de Recursos no Aspire 5 (`medido=verdade`)
 
 * **Lazy Loading de VRAM**: Catalogar 1.012 telas no `redb` não aloca 1.012 telas na GPU.
   $$\text{1.012 telas catalogadas no redb} \neq \text{1.012 telas renderizadas na VRAM}$$
@@ -145,19 +145,46 @@ pub struct InteractionTrace {
 
 ---
 
-## 7. Status de Auditoria & Trilha Git
+## 8. Auditoria até o Osso: Diagnóstico de Falha dos Protótipos Stubs
 
-* **Commit Crate Code**: `c481b66` (`feat(rsxt-android): add 5 ViewportProfiles comparison benchmarks and MaterialDNA struct`)
-* **Commit ADR Baseline**: `de2de0af3`
-* **Commit ADR Refactored Specification**: Atualizado com pipeline IR 1:1 e Modos A/B.
+A auditoria de código realizada em `crates/rsxt-android/src/` constatou a **reincidência do Veto #4 sob o ilusionismo do mock visual**:
+
+1. **Inexistência de Ingestão Real de APK**: O agente `SpecProbeAgent` (`probe.rs`) insere 3 rotas hardcodadas em memória. O código **não lê** os 18 diretórios `smali_classes1..18/`, nem `AndroidManifest.xml` nem arquivos `res/layout/*.xml`.
+2. **Layout Slint Estático Hardcoded**: A interface `app_window.slint` exibe um layout predefinido compilar estaticamente. Não há renderização dinâmica dirigida pelos `ScreenModel` do Redb.
+3. **Ausência de Captura de Gestos e InteractionTrace**: A interação resume-se a um clique estático sem rastreio de `swipe`, `drag`, `scroll` ou tempo de resposta `timestamp_ns`.
+4. **Shaders MaterialDNA Inativos**: A estrutura `MaterialDNA` encontra-se anotada com `#[allow(dead_code)]` sem integração com pipeline customizado de shaders WGSL.
+5. **Persistência Epímera em `/tmp/`**: A store abre em banco temporário descartável (`open_temporary`), desvinculada da base persistente local.
+
+---
+
+## 9. Requisitos Técnicos Obrigatórios (Eliminação Definitiva de Mocks)
+
+Para transitar da casca estática para a engine spec-driven real, o desenvolvimento exige obrigatoriamente:
+
+```
+APK Descompilado ➡️ axml/dex-parser ➡️ AppModel JSON ➡️ Redb L1 (NVMe) ➡️ slint_interpreter / Scene Graph ➡️ WGPU Shader Pipeline
+```
+
+1. **Module `rsxt-ingestor` (Rust)**: Parser nativo AXML (para `AndroidManifest.xml` e `res/layout/*.xml`) + DexSet parser.
+2. **Dynamic UI Renderer (`slint_interpreter`)**: Renderizador de cena guiado por árvore dinâmica de `ComponentSpec` (eliminando componentes Slint hardcodados).
+3. **Persistência NVMe Periódica**: Banco `redb` gravado em `/media/jeffer/RSXT/data/rsxt_app_model.redb`.
+4. **WGPU Custom Render Pass**: Compilação e vinculação real de shaders WGSL para `MaterialDNA`.
+
+---
+
+## 10. Status de Auditoria & Trilha Git
+
+* **Commit Crate Code**: `d9d3a2c` (`fix(rsxt-android): allow dead_code on public SDK structs and methods for warning-free release builds`)
+* **Commit ADR Refactored Specification**: `dc1d7c3a0`
 * **Arquivos Canônicos**: 
   - [`docs/adr/0200-rsxt-android-viability-spec-driven-gpu-engine.md`](file:///media/jeffer/5aab5a95-8290-d3f7-2e4f-8c27cc2d09a93/CASOSEX/docs/adr/0200-rsxt-android-viability-spec-driven-gpu-engine.md)
   - [`crates/rsxt-android/src/main.rs`](file:///media/jeffer/5aab5a95-8290-d3f7-2e4f-8c27cc2d09a93/rsxt/crates/rsxt-android/src/main.rs)
   - [`crates/rsxt-android/src/redb_store.rs`](file:///media/jeffer/5aab5a95-8290-d3f7-2e4f-8c27cc2d09a93/rsxt/crates/rsxt-android/src/redb_store.rs)
   - [`crates/rsxt-android/ui/app_window.slint`](file:///media/jeffer/5aab5a95-8290-d3f7-2e4f-8c27cc2d09a93/rsxt/crates/rsxt-android/ui/app_window.slint)
 * **Qdrant Key**: Tag `adsentice`, `app-jury`, `app-mercadopago` em `claude-memory`
-* **Redis State**: `adsentice:ooda:stage:act` -> `SELADO v16`
+* **Redis State**: `adsentice:ooda:stage:act` -> `AUDITADO - AUDITORIA ATÉ O OSSO REGISTRADA`
 * **BOA Score**: `0.9091` (`EXCELLENT`)
+
 
 
 
