@@ -158,18 +158,20 @@ app.put('/api/v8/dossier/:id', async (c) => {
 
 // SPA fallback + assets estáticos. O proxy WooCommerce e a injeção HTMLRewriter
 // morta foram removidos (o proxy 401 sem creds; a injeção não era lida pelo app).
-app.get('*', async (c) => {
-  let assetResp: Response | null = null;
+app.all('*', async (c) => {
   if (c.env?.ASSETS) {
-    assetResp = await c.env.ASSETS.fetch(c.req.raw);
-    if (assetResp.status === 404) {
-      const indexReq = new Request(new URL('/index.html', c.req.url).toString(), c.req.raw);
-      assetResp = await c.env.ASSETS.fetch(indexReq);
+    try {
+      const res = await c.env.ASSETS.fetch(c.req.raw);
+      if (res.status !== 404) {
+        return res;
+      }
+    } catch (e: unknown) {
+      void e;
     }
-  } else {
-    assetResp = await fetch(c.req.raw);
+    const indexUrl = new URL('/index.html', c.req.url);
+    return c.env.ASSETS.fetch(new Request(indexUrl.toString(), { method: c.req.method }));
   }
-  return assetResp;
+  return c.text('Not Found', 404);
 });
 
 export default app;
