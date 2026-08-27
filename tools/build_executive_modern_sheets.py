@@ -135,10 +135,10 @@ def write_values(token, sheet_name, start_cell, values):
 
 
 def hyperlink(url, label):
-    """Retorna fórmula HIPERLINK com separador ; (padrão pt_BR)."""
+    """Retorna fórmula HYPERLINK canônica (Google Sheets API)."""
     if not url:
         return ""
-    return f'=HIPERLINK("{url}"; "{label}")'
+    return f'=HYPERLINK("{url}", "{label}")'
 
 
 def normalize_phone(value):
@@ -207,15 +207,14 @@ def build_field_cockpit():
 
     # -------------------------------------------------------------
     # 1. ABA DASHBOARD EXECUTIVO INTERATIVO
-    # -------------------------------------------------------------
-    # B3 será a célula do Selector Dropdown de Polo!
+    # ------    # B3 será a célula do Selector Dropdown de Polo!
     # Fórmulas conectadas a B3 para recalcular instantaneamente ao selecionar um Polo!
-    f_total = f'=SE(B3="TODOS OS POLOS"; CONT.SE(\'{matriz_name}\'!A5:A120; "<>"); CONT.SE.SEIS(\'{matriz_name}\'!A5:A120; "<>"; \'{matriz_name}\'!H5:H120; B3))'
-    f_visitados = f'=SE(B3="TODOS OS POLOS"; CONT.SE(\'{matriz_name}\'!C5:C120; VERDADEIRO); CONT.SE.SEIS(\'{matriz_name}\'!C5:C120; VERDADEIRO; \'{matriz_name}\'!H5:H120; B3))'
+    f_total = f'=IF(B3="TODOS OS POLOS", COUNTIF(\'{matriz_name}\'!A5:A120, "<>"), COUNTIFS(\'{matriz_name}\'!A5:A120, "<>", \'{matriz_name}\'!H5:H120, B3))'
+    f_visitados = f'=IF(B3="TODOS OS POLOS", COUNTIF(\'{matriz_name}\'!C5:C120, TRUE), COUNTIFS(\'{matriz_name}\'!C5:C120, TRUE, \'{matriz_name}\'!H5:H120, B3))'
     f_cobertura = f'=B6/B5'
-    f_zap = f'=SE(B3="TODOS OS POLOS"; CONT.SE(\'{matriz_name}\'!D5:D120; "*WHATSAPP*"); CONT.SE.SEIS(\'{matriz_name}\'!D5:D120; "*WHATSAPP*"; \'{matriz_name}\'!H5:H120; B3))'
-    f_homologados = f'=SE(B3="TODOS OS POLOS"; CONT.SE(\'{matriz_name}\'!F5:F120; "HOMOLOGADO"); CONT.SE.SEIS(\'{matriz_name}\'!F5:F120; "HOMOLOGADO"; \'{matriz_name}\'!H5:H120; B3))'
-    f_followup = f'=SE(B3="TODOS OS POLOS"; CONT.SE(\'{matriz_name}\'!F5:F120; "FOLLOW_UP"); CONT.SE.SEIS(\'{matriz_name}\'!F5:F120; "FOLLOW_UP"; \'{matriz_name}\'!H5:H120; B3))'
+    f_zap = f'=IF(B3="TODOS OS POLOS", COUNTIF(\'{matriz_name}\'!D5:D120, "*WHATSAPP*"), COUNTIFS(\'{matriz_name}\'!D5:D120, "*WHATSAPP*", \'{matriz_name}\'!H5:H120, B3))'
+    f_homologados = f'=IF(B3="TODOS OS POLOS", COUNTIF(\'{matriz_name}\'!F5:F120, "HOMOLOGADO"), COUNTIFS(\'{matriz_name}\'!F5:F120, "HOMOLOGADO", \'{matriz_name}\'!H5:H120, B3))'
+    f_followup = f'=IF(B3="TODOS OS POLOS", COUNTIF(\'{matriz_name}\'!F5:F120, "FOLLOW_UP"), COUNTIFS(\'{matriz_name}\'!F5:F120, "FOLLOW_UP", \'{matriz_name}\'!H5:H120, B3))'
 
     dash = [
         ["VOLÚPIA EROTIC BOUTIQUE", "B2B FIELD EXECUTIVE DASHBOARD v4.0", "", "", "", "", "", ""],
@@ -232,19 +231,19 @@ def build_field_cockpit():
         [],
         ["📍 DESEMPENHO E DENSIDADE POR POLO REGIONAL", "", "", "", "", "", "", ""],
         ["POLO REGIONAL", "MUNICÍPIOS / COBERTURA", "BASE B2B", "VISITADOS", "% CONCLUÍDO", "DIRETRIZ DE CAMPO", "", ""],
-        ["Polo 1", "Rio de Janeiro (Capital / Zona Norte)", len(polo1), f'=CONT.SE.SEIS(\'{matriz_name}\'!C5:C120; VERDADEIRO; \'{matriz_name}\'!H5:H120; "Polo 1")', f'=D12/C12', "Visitas por Bairro / Densidade", "", ""],
-        ["Polo 2", "Baixada Fluminense (Caxias / Meriti)", len(polo2), f'=CONT.SE.SEIS(\'{matriz_name}\'!C5:C120; VERDADEIRO; \'{matriz_name}\'!H5:H120; "Polo 2")', f'=D13/C13', "Rota Concentrada Caxias/Meriti", "", ""],
-        ["Polo 3", "Leste Fluminense (Niterói / SG)", len(polo3), f'=CONT.SE.SEIS(\'{matriz_name}\'!C5:C120; VERDADEIRO; \'{matriz_name}\'!H5:H120; "Polo 3")', f'=D14/C14', "Agrupar Agendamentos Niterói", "", ""],
+        ["Polo 1", "Rio de Janeiro (Capital / Zona Norte)", len(polo1), f'=COUNTIFS(\'{matriz_name}\'!C5:C120, TRUE, \'{matriz_name}\'!H5:H120, "Polo 1")', f'=D12/C12', "Visitas por Bairro / Densidade", "", ""],
+        ["Polo 2", "Baixada Fluminense (Caxias / Meriti)", len(polo2), f'=COUNTIFS(\'{matriz_name}\'!C5:C120, TRUE, \'{matriz_name}\'!H5:H120, "Polo 2")', f'=D13/C13', "Rota Concentrada Caxias/Meriti", "", ""],
+        ["Polo 3", "Leste Fluminense (Niterói / SG)", len(polo3), f'=COUNTIFS(\'{matriz_name}\'!C5:C120, TRUE, \'{matriz_name}\'!H5:H120, "Polo 3")', f'=D14/C14', "Agrupar Agendamentos Niterói", "", ""],
         [],
         ["🎯 WORKFLOW DE STATUS & METAS", "", "", "", "", "", "", ""],
         ["STATUS", "ETAPA OPERACIONAL", "META DE CAMPO", "TOTAL REGISTRADO", "", "", "", ""],
-        ["PROSPECCAO", "Identificação", "Acionar WhatsApp / Telefone e solicitar catálogo", f'=CONT.SE(\'{matriz_name}\'!F:F; "PROSPECCAO")', "", "", "", ""],
-        ["CONTATO_REALIZADO", "Qualificação Inicial", "Analisar prazo de pagamento e pedido mínimo", f'=CONT.SE(\'{matriz_name}\'!F:F; "CONTATO_REALIZADO")', "", "", "", ""],
-        ["AGENDADA", "Visita Confirmada", "Abrir GPS (Botão Azul) e realizar auditoria", f'=CONT.SE(\'{matriz_name}\'!F:F; "AGENDADA")', "", "", "", ""],
-        ["VISITA_REALIZADA", "Auditoria Efetuada", "Registrar termos, amostras e margem de lucro", f'=CONT.SE(\'{matriz_name}\'!F:F; "VISITA_REALIZADA")', "", "", "", ""],
-        ["HOMOLOGADO", "Parceiro Aprovado", "Marcar Checkbox e liberar compras", f'=CONT.SE(\'{matriz_name}\'!F:F; "HOMOLOGADO")', "", "", "", ""],
-        ["FOLLOW_UP", "Em Negociação", "Registrar data de retorno e acompanhar representante", f'=CONT.SE(\'{matriz_name}\'!F:F; "FOLLOW_UP")', "", "", "", ""],
-        ["REJEITADO", "Fora de Perfil", "Registrar justificativa nas observações", f'=CONT.SE(\'{matriz_name}\'!F:F; "REJEITADO")', "", "", "", ""],
+        ["PROSPECCAO", "Identificação", "Acionar WhatsApp / Telefone e solicitar catálogo", f'=COUNTIF(\'{matriz_name}\'!F:F, "PROSPECCAO")', "", "", "", ""],
+        ["CONTATO_REALIZADO", "Qualificação Inicial", "Analisar prazo de pagamento e pedido mínimo", f'=COUNTIF(\'{matriz_name}\'!F:F, "CONTATO_REALIZADO")', "", "", "", ""],
+        ["AGENDADA", "Visita Confirmada", "Abrir GPS (Botão Azul) e realizar auditoria", f'=COUNTIF(\'{matriz_name}\'!F:F, "AGENDADA")', "", "", "", ""],
+        ["VISITA_REALIZADA", "Auditoria Efetuada", "Registrar termos, amostras e margem de lucro", f'=COUNTIF(\'{matriz_name}\'!F:F, "VISITA_REALIZADA")', "", "", "", ""],
+        ["HOMOLOGADO", "Parceiro Aprovado", "Marcar Checkbox e liberar compras", f'=COUNTIF(\'{matriz_name}\'!F:F, "HOMOLOGADO")', "", "", "", ""],
+        ["FOLLOW_UP", "Em Negociação", "Registrar data de retorno e acompanhar representante", f'=COUNTIF(\'{matriz_name}\'!F:F, "FOLLOW_UP")', "", "", "", ""],
+        ["REJEITADO", "Fora de Perfil", "Registrar justificativa nas observações", f'=COUNTIF(\'{matriz_name}\'!F:F, "REJEITADO")', "", "", "", ""],
         [],
         ["📱 INSTRUÇÕES DE INTERATIVIDADE NO CELULAR", "", "", "", "", "", "", ""],
         ["1", "Altere o FILTRO DE POLO na célula B3 no topo para filtrar todo o Dashboard em tempo real.", "", "", "", "", "", ""],
