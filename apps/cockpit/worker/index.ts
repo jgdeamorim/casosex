@@ -81,14 +81,17 @@ app.post('/api/v8/auth/login', async (c) => {
 
   const rawEmail = (body?.email || '').trim().toLowerCase();
 
-  // Whitelist soberana de autorização (apenas Jeferson Amorim e Gláucia Michaella)
+  // Whitelist soberana de autorização (Jeferson Amorim, Gláucia Michaella e Bruno Amin)
   const AUTHORIZED_USERS: Record<string, string> = {
     'jeferson@usevolupia.com.br': 'jeferson@usevolupia.com.br',
     'jeferson@volupia.com.br': 'jeferson@usevolupia.com.br',
     'hypersizemultimidia@gmail.com': 'jeferson@usevolupia.com.br',
     'glaucia@usevolupia.com.br': 'glaucia@usevolupia.com.br',
     'glaucia@volupia.com.br': 'glaucia@usevolupia.com.br',
-    'enf.glauciamichaella@gmail.com': 'glaucia@usevolupia.com.br'
+    'enf.glauciamichaella@gmail.com': 'glaucia@usevolupia.com.br',
+    'bruno@usevolupia.com.br': 'bruno@usevolupia.com.br',
+    'bruno@volupia.com.br': 'bruno@usevolupia.com.br',
+    'bruno_amin4@gmail.com': 'bruno@usevolupia.com.br'
   };
 
   const canonicalEmail = rawEmail ? AUTHORIZED_USERS[rawEmail] : undefined;
