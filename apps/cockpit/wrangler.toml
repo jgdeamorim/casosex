@@ -4,7 +4,9 @@ compatibility_date = "2026-08-25"
 compatibility_flags = ["nodejs_compat"]
 
 routes = [
-  { pattern = "app.usevolupia.com.br/*", zone_name = "usevolupia.com.br" }
+  { pattern = "app.usevolupia.com.br/*", zone_name = "usevolupia.com.br" },
+  { pattern = "usevolupia.com.br/*", zone_name = "usevolupia.com.br" },
+  { pattern = "www.usevolupia.com.br/*", zone_name = "usevolupia.com.br" }
 ]
 
 [assets]
