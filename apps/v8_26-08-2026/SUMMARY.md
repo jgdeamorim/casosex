@@ -9,10 +9,10 @@
 
 | Métrica / Vetor | Valor Medido | Status |
 | :--- | :---: | :---: |
-| **Especificações Descompiladas (`tag=app-jury`)** | **14 arquivos** | 🟢 OK |
+| **Especificações Descompiladas (`tag=app-jury`)** | **17 arquivos** | 🟢 OK |
 | **Código Fonte V8 Cockpit (`tag=v8_cockpit`)** | **38 arquivos** | 🟢 OK |
-| **Pontos Qdrant `casosex-inspiration`** | **34 pontos** | 🟢 OK |
-| **Pontos Qdrant `casosex-self`** | **347 pontos** | 🟢 OK |
+| **Pontos Qdrant `casosex-inspiration`** | **96 pontos** | 🟢 OK |
+| **Pontos Qdrant `casosex-self`** | **405 pontos** | 🟢 OK |
 | **Componentes Mestre Alinhados** | **7/7** | 🟢 100% |
 
 ---
@@ -25,7 +25,7 @@
 | **MobileDossierView** | `index.yaml` | `components/dossier/MobileDossierView.tsx` | 🟢 ALIGNED | `c56e4618d793d45c...` |
 | **MobileSupplierCards** | `component-routes-metadata.yaml` | `components/suppliers/MobileSupplierCards.tsx` | 🟢 ALIGNED | `40c7c1e70b4e3624...` |
 | **MobileIntelView** | `index.yaml` | `components/dashboard/MobileIntelView.tsx` | 🟢 ALIGNED | `def28c31a0fb07e5...` |
-| **MobileHeader** | `andes-ui-tokens.yaml` | `components/layout/MobileHeader.tsx` | 🟢 ALIGNED | `a7c2f09e5078c0a7...` |
+| **MobileHeader** | `andes-ui-tokens.yaml` | `components/layout/MobileHeader.tsx` | 🟢 ALIGNED | `3e0b4e905a1ff366...` |
 | **ResponsiveViewportEngine** | `index.yaml` | `components/ResponsiveViewportEngine.tsx` | 🟢 ALIGNED | `cdd67256c7202fae...` |
 | **DeviceLayoutFacet** | `dimens-spacing.yaml` | `facets/DeviceLayoutFacet.ts` | 🟢 ALIGNED | `46b57ac63ed6e101...` |
 

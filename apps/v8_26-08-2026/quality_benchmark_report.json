@@ -5,12 +5,12 @@
   "output_directory": "/media/jeffer/5aab5a95-8290-d3f7-2e4f-8c27cc2d09a93/CASOSEX/apps/v8_26-08-2026",
   "metrics": {
     "overall_quality_score": "100.0%",
-    "spec_files_count": 14,
+    "spec_files_count": 17,
     "spec_tag": "app-jury",
     "code_files_count": 38,
     "code_tag": "v8_cockpit",
-    "qdrant_casosex_inspiration_points": 34,
-    "qdrant_casosex_self_points": 347,
+    "qdrant_casosex_inspiration_points": 96,
+    "qdrant_casosex_self_points": 405,
     "aligned_key_components": "7/7"
   },
   "spec_manifest": [
@@ -87,6 +87,22 @@
       "collection": "casosex-inspiration"
     },
     {
+      "file": "mercadopago_home_v2.451.1.slint",
+      "rel_path": "docs/spec/mobile-app-first/mercadopago_home_v2.451.1.slint",
+      "blake2b_hash": "839dc42bf5eda702902a76af27fe2156fced71689a0d4a09b6281d7580bee677",
+      "size_bytes": 12378,
+      "tag": "app-jury",
+      "collection": "casosex-inspiration"
+    },
+    {
+      "file": "mercadopago_sdui_ir_v2.451.1.json",
+      "rel_path": "docs/spec/mobile-app-first/mercadopago_sdui_ir_v2.451.1.json",
+      "blake2b_hash": "83448301bb987a932b8b6f0d39cd0926c2e2d2da8ce155981e46ea37274fa66f",
+      "size_bytes": 121202,
+      "tag": "app-jury",
+      "collection": "casosex-inspiration"
+    },
+    {
       "file": "micro-copy-ptbr.yaml",
       "rel_path": "docs/spec/mobile-app-first/micro-copy-ptbr.yaml",
       "blake2b_hash": "2a078cf3b0eb9ebcd6e99097f576f5c1ea5af24de547354449aa20816621dc50",
@@ -99,6 +115,14 @@
       "rel_path": "docs/spec/mobile-app-first/motion-animations.yaml",
       "blake2b_hash": "c77346e24f62e75751a74bdea9c34c027e7dd48e96a45dc8342a498cb9bb223f",
       "size_bytes": 1259,
+      "tag": "app-jury",
+      "collection": "casosex-inspiration"
+    },
+    {
+      "file": "screen_mp_home_v2.451.1.png",
+      "rel_path": "docs/spec/mobile-app-first/screen_mp_home_v2.451.1.png",
+      "blake2b_hash": "bd41baf627f52bfe140cc54cdb609c8aecb381f24042d25505370df4978aa255",
+      "size_bytes": 154459,
       "tag": "app-jury",
       "collection": "casosex-inspiration"
     },
@@ -130,23 +154,23 @@
   "code_manifest": [
     {
       "file": "App.tsx",
-      "rel_path": "apps/v8-cockpit/src/App.tsx",
-      "blake2b_hash": "ab5cdf1329f5191dc62beec23b2584394fc12dcb3de257483dacc3be9914f434",
-      "size_bytes": 4156,
+      "rel_path": "apps/cockpit/src/App.tsx",
+      "blake2b_hash": "d3e3a8b7e3c3fcb527bef2e9743f400aa1f9a9bec63251617124def928ffd334",
+      "size_bytes": 5404,
       "tag": "v8_cockpit",
       "collection": "casosex-self"
     },
     {
       "file": "ProfilePicker.tsx",
-      "rel_path": "apps/v8-cockpit/src/auth/ProfilePicker.tsx",
-      "blake2b_hash": "b2162a394254282aef04ace338c6ee57e2d33aa4ae0b637dd7a0c1956290767f",
-      "size_bytes": 2812,
+      "rel_path": "apps/cockpit/src/auth/ProfilePicker.tsx",
+      "blake2b_hash": "c9eb5d607a06a4ca9bbbfd5a4993d7ccb5b19ef184688dd0fafe8e77d0b0d094",
+      "size_bytes": 4894,
       "tag": "v8_cockpit",
       "collection": "casosex-self"
     },
     {
       "file": "ScopeGuard.tsx",
-      "rel_path": "apps/v8-cockpit/src/auth/ScopeGuard.tsx",
+      "rel_path": "apps/cockpit/src/auth/ScopeGuard.tsx",
       "blake2b_hash": "b9b116478667e751539f4a56a270369dea726d20b4800a0d17f4f2bb0bc1b3e3",
       "size_bytes": 1046,
       "tag": "v8_cockpit",
@@ -154,7 +178,7 @@
     },
     {
       "file": "userRules.ts",
-      "rel_path": "apps/v8-cockpit/src/auth/userRules.ts",
+      "rel_path": "apps/cockpit/src/auth/userRules.ts",
       "blake2b_hash": "213e194386cf861226526fd5d5d60a4a5857eb6d322a57a7347502b9da67762d",
       "size_bytes": 1533,
       "tag": "v8_cockpit",
@@ -162,15 +186,15 @@
     },
     {
       "file": "MobileAppView.tsx",
-      "rel_path": "apps/v8-cockpit/src/components/MobileAppView.tsx",
-      "blake2b_hash": "5b886ff7d1d838a1a2c53d6e73f9802e38b05e1579ca6fbb4a72d41ea0de391e",
-      "size_bytes": 1536,
+      "rel_path": "apps/cockpit/src/components/MobileAppView.tsx",
+      "blake2b_hash": "d5f6b5612741f3b78cd1260266b8a7faca0db012047b1aadc8193b3156a168b6",
+      "size_bytes": 1647,
       "tag": "v8_cockpit",
       "collection": "casosex-self"
     },
     {
       "file": "ResponsiveViewportEngine.tsx",
-      "rel_path": "apps/v8-cockpit/src/components/ResponsiveViewportEngine.tsx",
+      "rel_path": "apps/cockpit/src/components/ResponsiveViewportEngine.tsx",
       "blake2b_hash": "cdd67256c7202faed91cb1e816b4f9af7c291a4829520ef30fc42a13c9ed32a7",
       "size_bytes": 1441,
       "tag": "v8_cockpit",
@@ -178,7 +202,7 @@
     },
     {
       "file": "LoginModal.tsx",
-      "rel_path": "apps/v8-cockpit/src/components/auth/LoginModal.tsx",
+      "rel_path": "apps/cockpit/src/components/auth/LoginModal.tsx",
       "blake2b_hash": "2773dcb43890e2e11733863fa9573c7d6971cfdbb26a92364d68482650a658d7",
       "size_bytes": 1702,
       "tag": "v8_cockpit",
@@ -186,15 +210,15 @@
     },
     {
       "file": "LoginView.tsx",
-      "rel_path": "apps/v8-cockpit/src/components/auth/LoginView.tsx",
-      "blake2b_hash": "95a1d376d5188d93461a3e4cdec4b26127e75731fee0a07809f41b87516af98d",
-      "size_bytes": 1538,
+      "rel_path": "apps/cockpit/src/components/auth/LoginView.tsx",
+      "blake2b_hash": "d7d1ce5f8b46b5cc9709af868c7eb900dd2b9d3c9d86d6c99384cb53c6187a97",
+      "size_bytes": 14530,
       "tag": "v8_cockpit",
       "collection": "casosex-self"
     },
     {
       "file": "TeamChatDrawer.tsx",
-      "rel_path": "apps/v8-cockpit/src/components/chat/TeamChatDrawer.tsx",
+      "rel_path": "apps/cockpit/src/components/chat/TeamChatDrawer.tsx",
       "blake2b_hash": "ee8be9addf9763b67f364ed4aa01befa6d7f1f685915e7770e8bed20a256af3f",
       "size_bytes": 9012,
       "tag": "v8_cockpit",
@@ -202,7 +226,7 @@
     },
     {
       "file": "MobileIntelView.tsx",
-      "rel_path": "apps/v8-cockpit/src/components/dashboard/MobileIntelView.tsx",
+      "rel_path": "apps/cockpit/src/components/dashboard/MobileIntelView.tsx",
       "blake2b_hash": "def28c31a0fb07e533994d4c2145709ee4d5e31318665325a72527cf255bb137",
       "size_bytes": 5795,
       "tag": "v8_cockpit",
@@ -210,7 +234,7 @@
     },
     {
       "file": "HomologationForm.tsx",
-      "rel_path": "apps/v8-cockpit/src/components/dossier/HomologationForm.tsx",
+      "rel_path": "apps/cockpit/src/components/dossier/HomologationForm.tsx",
       "blake2b_hash": "6e1347390d6c424e1ee3dc422e526d0a63ea205259cb5ce6e4eb3ff54d067c78",
       "size_bytes": 14939,
       "tag": "v8_cockpit",
@@ -218,7 +242,7 @@
     },
     {
       "file": "MobileDossierView.tsx",
-      "rel_path": "apps/v8-cockpit/src/components/dossier/MobileDossierView.tsx",
+      "rel_path": "apps/cockpit/src/components/dossier/MobileDossierView.tsx",
       "blake2b_hash": "c56e4618d793d45c86c1fc9a6458e3c2ab972a9153ed7d190ba8ac42252eed60",
       "size_bytes": 20530,
       "tag": "v8_cockpit",
@@ -226,7 +250,7 @@
     },
     {
       "file": "KPIGrid.tsx",
-      "rel_path": "apps/v8-cockpit/src/components/kpi/KPIGrid.tsx",
+      "rel_path": "apps/cockpit/src/components/kpi/KPIGrid.tsx",
       "blake2b_hash": "96fbdbec8cfcd35c8807ca903fb2df1fa997c24fa6c02d79f8dd3ee9d7066312",
       "size_bytes": 3985,
       "tag": "v8_cockpit",
@@ -234,7 +258,7 @@
     },
     {
       "file": "BottomGlassDock.tsx",
-      "rel_path": "apps/v8-cockpit/src/components/layout/BottomGlassDock.tsx",
+      "rel_path": "apps/cockpit/src/components/layout/BottomGlassDock.tsx",
       "blake2b_hash": "1817e901ad06d6ac036b0bf44d13f4cae3e9fa8f92244d5e27d328281f0ed328",
       "size_bytes": 4014,
       "tag": "v8_cockpit",
@@ -242,23 +266,23 @@
     },
     {
       "file": "Header.tsx",
-      "rel_path": "apps/v8-cockpit/src/components/layout/Header.tsx",
-      "blake2b_hash": "6b4f05d2737cfcdf7a52e72d015c2285e3d65613d90f82ac26ba2572c8fb4aaa",
-      "size_bytes": 9365,
+      "rel_path": "apps/cockpit/src/components/layout/Header.tsx",
+      "blake2b_hash": "2ac4f5d8d649adccc484564db6d643cdcd6b27b873fed095d272d0b7b43be749",
+      "size_bytes": 10570,
       "tag": "v8_cockpit",
       "collection": "casosex-self"
     },
     {
       "file": "MobileHeader.tsx",
-      "rel_path": "apps/v8-cockpit/src/components/layout/MobileHeader.tsx",
-      "blake2b_hash": "a7c2f09e5078c0a745b88defbe9215db80717bc39012c148edcda8a55b760f8f",
-      "size_bytes": 3953,
+      "rel_path": "apps/cockpit/src/components/layout/MobileHeader.tsx",
+      "blake2b_hash": "3e0b4e905a1ff366a0177fb665a336e64e6d8850e7b1842e1fad3d2fd8f9fbb3",
+      "size_bytes": 4170,
       "tag": "v8_cockpit",
       "collection": "casosex-self"
     },
     {
       "file": "Sidebar.tsx",
-      "rel_path": "apps/v8-cockpit/src/components/layout/Sidebar.tsx",
+      "rel_path": "apps/cockpit/src/components/layout/Sidebar.tsx",
       "blake2b_hash": "6160b9ea44963cec9f428d57cc03bf4b18ab43b9c8198cef0d18a6dcacc4c99e",
       "size_bytes": 4018,
       "tag": "v8_cockpit",
@@ -266,7 +290,7 @@
     },
     {
       "file": "SupplierMap.tsx",
-      "rel_path": "apps/v8-cockpit/src/components/map/SupplierMap.tsx",
+      "rel_path": "apps/cockpit/src/components/map/SupplierMap.tsx",
       "blake2b_hash": "c218c9b61ad704ccaeb1128d954b1f08c7efe3815aafdd612b309d36e4daf49e",
       "size_bytes": 7223,
       "tag": "v8_cockpit",
@@ -274,15 +298,15 @@
     },
     {
       "file": "UserProfileModal.tsx",
-      "rel_path": "apps/v8-cockpit/src/components/profile/UserProfileModal.tsx",
-      "blake2b_hash": "1117682372b0d7f31de296d44b0c934c4ce747a2a4b8a1d7c8f816a6267c0120",
-      "size_bytes": 8872,
+      "rel_path": "apps/cockpit/src/components/profile/UserProfileModal.tsx",
+      "blake2b_hash": "5364eb621f4bc488b3a93511942578e764ac1de3bf9227e9c2d4edfa29c8a940",
+      "size_bytes": 10303,
       "tag": "v8_cockpit",
       "collection": "casosex-self"
     },
     {
       "file": "MobileSupplierCards.tsx",
-      "rel_path": "apps/v8-cockpit/src/components/suppliers/MobileSupplierCards.tsx",
+      "rel_path": "apps/cockpit/src/components/suppliers/MobileSupplierCards.tsx",
       "blake2b_hash": "40c7c1e70b4e3624b2b7e7fef976686bcd39fd3dc190ee1bb419dac29e1d6728",
       "size_bytes": 29170,
       "tag": "v8_cockpit",
@@ -290,7 +314,7 @@
     },
     {
       "file": "SupplierTable.tsx",
-      "rel_path": "apps/v8-cockpit/src/components/suppliers/SupplierTable.tsx",
+      "rel_path": "apps/cockpit/src/components/suppliers/SupplierTable.tsx",
       "blake2b_hash": "312ae587fb7e6a9cfbfed5ccba76604a0903aeca78cba18bbf21f22a3ebd6285",
       "size_bytes": 10697,
       "tag": "v8_cockpit",
@@ -298,15 +322,15 @@
     },
     {
       "file": "RenderContext.tsx",
-      "rel_path": "apps/v8-cockpit/src/context/RenderContext.tsx",
-      "blake2b_hash": "c5947f34740364541b5f01dd9981c713cfcfcb4d0be95d8b3e337f80d493b1f6",
-      "size_bytes": 9418,
+      "rel_path": "apps/cockpit/src/context/RenderContext.tsx",
+      "blake2b_hash": "3c1861e3d39f670db63da832f518d0c8bcac4be203034ec73b59786cd5e1ebec",
+      "size_bytes": 13210,
       "tag": "v8_cockpit",
       "collection": "casosex-self"
     },
     {
       "file": "DeviceLayoutFacet.ts",
-      "rel_path": "apps/v8-cockpit/src/facets/DeviceLayoutFacet.ts",
+      "rel_path": "apps/cockpit/src/facets/DeviceLayoutFacet.ts",
       "blake2b_hash": "46b57ac63ed6e1016d9e4ffb97fe5f7565de90c9723a58c0d75f60af328f8195",
       "size_bytes": 891,
       "tag": "v8_cockpit",
@@ -314,7 +338,7 @@
     },
     {
       "file": "index.css",
-      "rel_path": "apps/v8-cockpit/src/index.css",
+      "rel_path": "apps/cockpit/src/index.css",
       "blake2b_hash": "4d56369506e139bc27ce1ef161a3fa20a59009d7398d36cd0d2c3d6e8c58ed0b",
       "size_bytes": 7930,
       "tag": "v8_cockpit",
@@ -322,7 +346,7 @@
     },
     {
       "file": "api.ts",
-      "rel_path": "apps/v8-cockpit/src/lib/api.ts",
+      "rel_path": "apps/cockpit/src/lib/api.ts",
       "blake2b_hash": "af645bfd512fc276cb2908ca5db8257305bf2d9a97659bb91416649ca97f3d88",
       "size_bytes": 5750,
       "tag": "v8_cockpit",
@@ -330,7 +354,7 @@
     },
     {
       "file": "AuditTrailLogger.ts",
-      "rel_path": "apps/v8-cockpit/src/lib/background/AuditTrailLogger.ts",
+      "rel_path": "apps/cockpit/src/lib/background/AuditTrailLogger.ts",
       "blake2b_hash": "aeadeba9b503331ef5fe499fc72b1b29a8bd6eb1642d0cbe70fdda49482624b1",
       "size_bytes": 532,
       "tag": "v8_cockpit",
@@ -338,7 +362,7 @@
     },
     {
       "file": "CacheRevalidationService.ts",
-      "rel_path": "apps/v8-cockpit/src/lib/background/CacheRevalidationService.ts",
+      "rel_path": "apps/cockpit/src/lib/background/CacheRevalidationService.ts",
       "blake2b_hash": "1ca224dbbbff8ef838ac9f0862210d1012b46ed678e79803c25f1a4981001ac3",
       "size_bytes": 1322,
       "tag": "v8_cockpit",
@@ -346,7 +370,7 @@
     },
     {
       "file": "OfflineSyncQueue.ts",
-      "rel_path": "apps/v8-cockpit/src/lib/background/OfflineSyncQueue.ts",
+      "rel_path": "apps/cockpit/src/lib/background/OfflineSyncQueue.ts",
       "blake2b_hash": "8d4ec4fbf7217d3c70f680bc70061368bd612e313687b2a131589dc8af3b5d19",
       "size_bytes": 1608,
       "tag": "v8_cockpit",
@@ -354,7 +378,7 @@
     },
     {
       "file": "SupplierPollingWorker.ts",
-      "rel_path": "apps/v8-cockpit/src/lib/background/SupplierPollingWorker.ts",
+      "rel_path": "apps/cockpit/src/lib/background/SupplierPollingWorker.ts",
       "blake2b_hash": "8bb8fd273129be3811b6a5d83711e61d0f4a13498f162d9f5ceec62776f83756",
       "size_bytes": 1361,
       "tag": "v8_cockpit",
@@ -362,7 +386,7 @@
     },
     {
       "file": "TelemetryBackgroundWorker.ts",
-      "rel_path": "apps/v8-cockpit/src/lib/background/TelemetryBackgroundWorker.ts",
+      "rel_path": "apps/cockpit/src/lib/background/TelemetryBackgroundWorker.ts",
       "blake2b_hash": "5b6f2f4182402a77ba4dbd606c7c856dc9e94acc0bbba4bf1f5fab00af4177ad",
       "size_bytes": 1062,
       "tag": "v8_cockpit",
@@ -370,7 +394,7 @@
     },
     {
       "file": "index.ts",
-      "rel_path": "apps/v8-cockpit/src/lib/background/index.ts",
+      "rel_path": "apps/cockpit/src/lib/background/index.ts",
       "blake2b_hash": "01fd27127092ff5fd155a24cb1f84d63c61ccbbd3046f262bd9fbe0e5113ffba",
       "size_bytes": 495,
       "tag": "v8_cockpit",
@@ -378,7 +402,7 @@
     },
     {
       "file": "filterSuppliers.ts",
-      "rel_path": "apps/v8-cockpit/src/lib/filterSuppliers.ts",
+      "rel_path": "apps/cockpit/src/lib/filterSuppliers.ts",
       "blake2b_hash": "ccee2b675305d14f37860fb2be52cb7689ef0e626e083f65038d1cc1af937cab",
       "size_bytes": 1147,
       "tag": "v8_cockpit",
@@ -386,7 +410,7 @@
     },
     {
       "file": "pwa-helpers.ts",
-      "rel_path": "apps/v8-cockpit/src/lib/pwa-helpers.ts",
+      "rel_path": "apps/cockpit/src/lib/pwa-helpers.ts",
       "blake2b_hash": "707418070b42bf15d659cfe48e1a53cd2de2914e6c2431fdf0880a625fba6915",
       "size_bytes": 1530,
       "tag": "v8_cockpit",
@@ -394,7 +418,7 @@
     },
     {
       "file": "status.ts",
-      "rel_path": "apps/v8-cockpit/src/lib/status.ts",
+      "rel_path": "apps/cockpit/src/lib/status.ts",
       "blake2b_hash": "639c4c375072a60ab801622555f1fe2176568d73dcaece26e9e18b0f6ea18075",
       "size_bytes": 841,
       "tag": "v8_cockpit",
@@ -402,7 +426,7 @@
     },
     {
       "file": "useFocusTrap.ts",
-      "rel_path": "apps/v8-cockpit/src/lib/useFocusTrap.ts",
+      "rel_path": "apps/cockpit/src/lib/useFocusTrap.ts",
       "blake2b_hash": "a5a7560230269da6736b899ae06a1f0dcea9b81ac6412c586c072ad17ed5f2cd",
       "size_bytes": 1561,
       "tag": "v8_cockpit",
@@ -410,7 +434,7 @@
     },
     {
       "file": "main.tsx",
-      "rel_path": "apps/v8-cockpit/src/main.tsx",
+      "rel_path": "apps/cockpit/src/main.tsx",
       "blake2b_hash": "312f49fe333b4c2629a43112c2bf71a6404612c0590ccbdc7c8289e9e156711f",
       "size_bytes": 546,
       "tag": "v8_cockpit",
@@ -418,7 +442,7 @@
     },
     {
       "file": "responsive-screens.json",
-      "rel_path": "apps/v8-cockpit/src/seeds/responsive-screens.json",
+      "rel_path": "apps/cockpit/src/seeds/responsive-screens.json",
       "blake2b_hash": "a3a692f27a91eb304c7f049f9c5b32cf054a2d904257642567aee01cdb0eec5c",
       "size_bytes": 1521,
       "tag": "v8_cockpit",
@@ -426,9 +450,9 @@
     },
     {
       "file": "index.ts",
-      "rel_path": "apps/v8-cockpit/src/types/index.ts",
-      "blake2b_hash": "894c7150d7c1bdd88211a037d037a7717ad0e342d8bca2d8fef0e1eb327531ee",
-      "size_bytes": 1344,
+      "rel_path": "apps/cockpit/src/types/index.ts",
+      "blake2b_hash": "47ccc40a928e72b0f8561f13890b6ac5dc06903869e0252d7bf87efa73236211",
+      "size_bytes": 1364,
       "tag": "v8_cockpit",
       "collection": "casosex-self"
     }
@@ -471,7 +495,7 @@
       "spec_file": "andes-ui-tokens.yaml",
       "code_file": "components/layout/MobileHeader.tsx",
       "spec_hash": "a589d601ef95c8422483c233b13dd0617fcd09abe20b0dbe9c6767626abcf840",
-      "code_hash": "a7c2f09e5078c0a745b88defbe9215db80717bc39012c148edcda8a55b760f8f",
+      "code_hash": "3e0b4e905a1ff366a0177fb665a336e64e6d8850e7b1842e1fad3d2fd8f9fbb3",
       "status": "ALIGNED"
     },
     {

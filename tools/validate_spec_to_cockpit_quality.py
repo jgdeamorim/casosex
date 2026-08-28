@@ -16,7 +16,7 @@ from pathlib import Path
 
 PROJECT_ROOT = Path("/media/jeffer/5aab5a95-8290-d3f7-2e4f-8c27cc2d09a93/CASOSEX")
 SPEC_DIR = PROJECT_ROOT / "docs/spec/mobile-app-first"
-COCKPIT_DIR = PROJECT_ROOT / "apps/v8-cockpit/src"
+COCKPIT_DIR = PROJECT_ROOT / "apps/cockpit/src"
 OUT_DIR = PROJECT_ROOT / "apps/v8_26-08-2026"
 QDRANT_URL = "http://127.0.0.1:6352"
 
@@ -164,7 +164,9 @@ def main():
 | :--- | :--- | :--- | :---: | :--- |
 """
     for item in alignment_results:
-        summary_md += f"| **{item['component']}** | `{item['spec_file']}` | `{item['code_file']}` | 🟢 {item['status']} | `{item['code_hash'][:16]}...` |\n"
+        hash_display = f"`{item['code_hash'][:16]}...`" if item['code_hash'] else "`MISSING`"
+        status_icon = "🟢" if item['status'] == "ALIGNED" else "🔴"
+        summary_md += f"| **{item['component']}** | `{item['spec_file']}` | `{item['code_file']}` | {status_icon} {item['status']} | {hash_display} |\n"
 
     summary_md += """
 ---
