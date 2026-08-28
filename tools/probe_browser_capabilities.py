@@ -1,14 +1,16 @@
 #!/usr/bin/env python3
 """
-App-Jury Deep Hardware & Browser Capability Probe
+App-Jury Deep Hardware & Browser Capability Probe (Multi-Device)
 Monorepo CASOSEX · Sovereign Capability Extractor via DevTools Bridge (6661)
+Extracts and compares capabilities of both Mobile & Desktop connected devices.
 """
 
 import sys
 import json
 import urllib.request
 
-BRIDGE_URL = "http://127.0.0.1:6661/eval"
+BRIDGE_EVAL_URL = "http://127.0.0.1:6661/eval"
+BRIDGE_STATUS_URL = "http://127.0.0.1:6661/status"
 
 PROBE_SCRIPT = """
 (async function() {
@@ -151,20 +153,48 @@ PROBE_SCRIPT = """
     device_orientation: 'DeviceOrientationEvent' in window
   };
 
+  const isMobile = /Android|iPhone|iPad|iPod|Mobile/i.test(navigator.userAgent) || window.innerWidth <= 767;
+  const devId = isMobile ? "device_mobile_android" : "device_desktop_pc";
+  caps.device_id = devId;
+
+  // Post back telemetry to bridge
+  try {
+    const bridgeUrl = 'http://127.0.0.1:6661';
+    await fetch(`${bridgeUrl}/telemetry`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ device_id: devId, capabilities: caps, userAgent: navigator.userAgent })
+    });
+  } catch(e) {}
+
   return JSON.stringify(caps);
 })()
 """
 
 def main():
+    # 1. First trigger eval on both devices
     payload = json.dumps({"code": PROBE_SCRIPT}).encode("utf-8")
-    req = urllib.request.Request(BRIDGE_URL, data=payload, headers={"Content-Type": "application/json"})
+    req = urllib.request.Request(BRIDGE_EVAL_URL, data=payload, headers={"Content-Type": "application/json"})
     try:
-        res = urllib.request.urlopen(req, timeout=10)
-        data = json.loads(res.read().decode("utf-8"))
-        print(json.dumps(data, indent=2))
+        res = urllib.request.urlopen(req, timeout=8)
+        eval_resp = json.loads(res.read().decode("utf-8"))
     except Exception as e:
-        print(f"Error querying bridge: {e}")
-        sys.exit(1)
+        eval_resp = {"error": str(e)}
+
+    # 2. Fetch full telemetry status from bridge to get registered devices
+    try:
+        req_status = urllib.request.Request(BRIDGE_STATUS_URL)
+        res_status = urllib.request.urlopen(req_status, timeout=5)
+        status_data = json.loads(res_status.read().decode("utf-8"))
+    except Exception as e:
+        status_data = {"error": str(e)}
+
+    output = {
+        "eval_result": eval_resp,
+        "connected_devices": status_data.get("devices", {}),
+        "status": status_data.get("status", "UNKNOWN")
+    }
+    print(json.dumps(output, indent=2))
 
 if __name__ == "__main__":
     main()

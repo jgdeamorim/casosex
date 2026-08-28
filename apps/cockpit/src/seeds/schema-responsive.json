@@ -1,9 +1,9 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "engine_version": "2.0.0",
+  "engine_version": "2.1.0",
   "adr_reference": "ADR-0212",
-  "title": "Sovereign Responsive & Hardware Capability Matrix Schema",
-  "description": "Schema soberano de profiling e orquestração responsiva adaptativa por capacidade de hardware e navegador (V8 Cockpit)",
+  "title": "Sovereign Responsive Multi-Device & Hardware Capability Matrix Schema",
+  "description": "Schema soberano de profiling e orquestração responsiva adaptativa por capacidade de hardware e navegador com auditoria de múltiplos dispositivos em tempo real (V8 Cockpit)",
   "device_facets": [
     {
       "model": "smartwatch",
@@ -60,6 +60,42 @@
       "min_touch_target_px": 32
     }
   ],
+  "registered_live_devices": {
+    "device_mobile_android": {
+      "label": "Dispositivo 1: Celular Físico Android",
+      "platform": "Linux armv81 (Android 10)",
+      "renderer": "ARM Mali-G52 MC2 (OpenGL ES 3.2)",
+      "viewport": "360x663",
+      "dpr": 2.0,
+      "max_texture_size": 8192,
+      "max_touch_points": 5,
+      "tier": "Tier-2 Mid-Range Mobile",
+      "features": {
+        "glassmorphism_blur_px": 8,
+        "smooth_fps_target": 60,
+        "touch_gestures_layer": true,
+        "wasm_simd_processing": true,
+        "opfs_storage": false
+      }
+    },
+    "device_desktop_pc": {
+      "label": "Dispositivo 2: Workstation Desktop Linux",
+      "platform": "Linux x86_64",
+      "renderer": "Intel Iris Xe Graphics (OpenGL ES 3.2)",
+      "viewport": "1920x873",
+      "dpr": 1.0,
+      "max_texture_size": 16384,
+      "max_touch_points": 0,
+      "tier": "Tier-1 High Performance",
+      "features": {
+        "glassmorphism_blur_px": 16,
+        "smooth_fps_target": 60,
+        "touch_gestures_layer": false,
+        "wasm_simd_processing": true,
+        "opfs_storage": true
+      }
+    }
+  },
   "hardware_tier_matrix": {
     "tier_1_high": {
       "label": "Tier-1 High Performance (Workstation / Flagship Mobile)",
