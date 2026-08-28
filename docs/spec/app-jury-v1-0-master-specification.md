@@ -52,26 +52,29 @@ graph TD
 
 ---
 
-## 3. Arquitetura de Mapeamento Físico-Soberano (USB / ADB Live Mapping)
+## 3. Arquitetura de Mapeamento Físico-Soberano & DevTools Bridge (USB / ADB Live Mapping)
 
-O pipeline de captura USB conecta o smartphone físico diretamente ao motor do Cockpit no modo `mobile`:
+O pipeline de captura USB conecta o smartphone Android físico (`AMXCN7Q86LHIMNRK`) diretamente ao motor do Cockpit no modo `mobile` via **DevTools Bridge Server (Porta `:6661`)**:
 
 ```
 ┌─────────────────────────────────────────────────────────┐
-│               Smartphone Android via USB                │
-│    Mercado Pago App v2.451.1 (Build 1816181531)       │
+│         Smartphone Android Físico (Chrome Browser)      │
+│  • Instância Mobile Cockpit V8 em http://localhost:8089 │
+│  • App-Jury DevTools Probe Injector (JS Runtime)       │
 └───────────────────────────┬─────────────────────────────┘
-                            │
+                            │ (adb reverse tcp:6661 tcp:6661)
         ┌───────────────────┴───────────────────┐
-        │       Pipeline Telemetria ADB         │
-        │  • uiautomator dump → Compose IR      │
-        │  • screencap → Screenshot 1080x2400   │
-        │  • dumpsys gfxinfo → GPU Frame Times  │
+        │  DevTools Bridge Server (Porta 6661)  │
+        │  • ThreadingHTTPServer (Python/Rust)  │
+        │  • Transmissão de Telemetria / POST   │
+        │  • Remote Eval Execution via GET/POST │
         └───────────────────┬───────────────────┘
                             │
         ┌───────────────────┴───────────────────┐
-        │   SDUI Intermediate Representation    │
-        │   (/tmp/rsxt_sdui_ir.json)            │
+        │   SDUI & Telemetry Realtime Metrics   │
+        │  • Frame Rate: 59 FPS a 60 FPS        │
+        │  • Hardware GPU: Mali (WebGPU Active) │
+        │  • JS Heap Memory: ~16.8 MB           │
         └───────────────────┬───────────────────┘
                             │
         ┌───────────────────┴───────────────────┐
