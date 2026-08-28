@@ -85,8 +85,12 @@ export function Header({ onLogout }: HeaderProps): React.ReactElement {
             }`}
             title="Gerenciar Perfil B2B & Escopos"
           >
-            <div className="w-8 h-8 rounded-full bg-gradient-to-tr from-[#e11d48] to-[#d4a373] flex items-center justify-center font-bold text-xs text-white shadow-sm shrink-0">
-              {userSession.avatar}
+            <div className="w-8 h-8 rounded-full bg-gradient-to-tr from-[#e11d48] to-[#d4a373] flex items-center justify-center font-bold text-xs text-white shadow-sm shrink-0 overflow-hidden">
+              {userSession.picture ? (
+                <img src={userSession.picture} alt={userSession.name} className="w-full h-full object-cover" />
+              ) : (
+                userSession.avatar
+              )}
             </div>
             <div className="text-left hidden sm:block shrink-0">
               <p className="text-xs font-bold text-[#faf7f5] leading-none mb-1 whitespace-nowrap">{userSession.name}</p>

@@ -41,9 +41,21 @@ async function initUserTable(db: D1Database) {
         password_hash TEXT,
         role TEXT,
         name TEXT,
+        picture_url TEXT,
+        google_id TEXT,
+        locale TEXT,
+        lgpd_consent_at INTEGER,
+        created_at INTEGER,
         updated_at INTEGER
       )
     `).run();
+
+    // Migrações idempotentes para garantir colunas em tabelas legadas
+    try { await db.prepare('ALTER TABLE users ADD COLUMN picture_url TEXT').run(); } catch (e: unknown) { void e; }
+    try { await db.prepare('ALTER TABLE users ADD COLUMN google_id TEXT').run(); } catch (e: unknown) { void e; }
+    try { await db.prepare('ALTER TABLE users ADD COLUMN locale TEXT').run(); } catch (e: unknown) { void e; }
+    try { await db.prepare('ALTER TABLE users ADD COLUMN lgpd_consent_at INTEGER').run(); } catch (e: unknown) { void e; }
+    try { await db.prepare('ALTER TABLE users ADD COLUMN created_at INTEGER').run(); } catch (e: unknown) { void e; }
   } catch (e: unknown) {
     void e;
   }
@@ -111,7 +123,7 @@ app.get('/api/auth/google/callback', async (c) => {
     const userinfoRes = await fetch('https://www.googleapis.com/oauth2/v2/userinfo', {
       headers: { Authorization: `Bearer ${tokenData.access_token}` }
     });
-    const userinfo = (await userinfoRes.json().catch(() => null)) as { email?: string; name?: string; picture?: string } | null;
+    const userinfo = (await userinfoRes.json().catch(() => null)) as { sub?: string; email?: string; name?: string; picture?: string; locale?: string } | null;
 
     const googleEmail = (userinfo?.email || '').trim().toLowerCase();
     if (!googleEmail) {
@@ -136,13 +148,32 @@ app.get('/api/auth/google/callback', async (c) => {
     }
 
     await initUserTable(db);
-    const user = await db.prepare('SELECT id, email, role, name FROM users WHERE email = ?').bind(canonicalEmail).first();
+    const user = await db.prepare('SELECT id, email, role, name, picture_url FROM users WHERE email = ?').bind(canonicalEmail).first();
     if (!user) {
       return c.redirect('/login.html?sso_error=Usuário%20não%20encontrado%20na%20tabela%20D1', 302);
     }
 
+    const now = Date.now();
+    const pictureUrl = userinfo?.picture || (user.picture_url as string) || '';
+    try {
+      await db.prepare(`
+        UPDATE users 
+        SET picture_url = ?, google_id = ?, locale = ?, lgpd_consent_at = COALESCE(lgpd_consent_at, ?), updated_at = ?
+        WHERE email = ?
+      `).bind(
+        pictureUrl,
+        userinfo?.sub || null,
+        userinfo?.locale || 'pt-BR',
+        now,
+        now,
+        canonicalEmail
+      ).run();
+    } catch (e: unknown) {
+      void e;
+    }
+
     return c.redirect(
-      `/login.html?sso_success=true&email=${encodeURIComponent(user.email as string)}&role=${encodeURIComponent(user.role as string)}&name=${encodeURIComponent(user.name as string)}`,
+      `/login.html?sso_success=true&email=${encodeURIComponent(user.email as string)}&role=${encodeURIComponent(user.role as string)}&name=${encodeURIComponent(user.name as string)}&picture=${encodeURIComponent(pictureUrl)}`,
       302
     );
   } catch (err: unknown) {

@@ -7,6 +7,7 @@ export interface UserSession {
   avatar: string;
   email: string;
   scopePermissions: string[];
+  picture?: string;
 }
 
 export type HomologationStatus = 'HOMOLOGADO' | 'VISITA_PENDENTE' | 'PROSPECCAO' | 'PROSPECTADO' | 'REJEITADO';

@@ -8,7 +8,7 @@ interface UserProfileModalProps {
 }
 
 export function UserProfileModal({ onLogout }: UserProfileModalProps): React.ReactElement | null {
-  const { isProfileOpen, toggleProfile, userSession } = useRenderContext();
+  const { isProfileOpen, toggleProfile, userSession, setUserRole } = useRenderContext();
   const modalRef = useRef<HTMLDivElement | null>(null);
   const [isFullscreen, setIsFullscreen] = useState(false);
   const [isDarkMode, setIsDarkMode] = useState(() => {
@@ -96,8 +96,36 @@ export function UserProfileModal({ onLogout }: UserProfileModalProps): React.Rea
         {/* Informações Principais do Usuário */}
         <div className="p-6 space-y-6 overflow-y-auto max-h-[80vh]">
           <div className="flex items-center space-x-4 p-4 rounded-2xl bg-stone-900/60 border border-stone-800">
-            <div className="w-14 h-14 rounded-2xl bg-gradient-to-tr from-rose-600 to-rose-400 flex items-center justify-center text-xl font-black text-white shadow-lg shadow-rose-500/20 shrink-0">
-              {userSession.avatar || 'JA'}
+            <div className="relative group cursor-pointer shrink-0" title="Clique para alterar foto de perfil">
+              <div className="w-14 h-14 rounded-2xl bg-gradient-to-tr from-rose-600 to-rose-400 flex items-center justify-center text-xl font-black text-white shadow-lg shadow-rose-500/20 overflow-hidden">
+                {userSession.picture ? (
+                  <img src={userSession.picture} alt={userSession.name} className="w-full h-full object-cover rounded-2xl" />
+                ) : (
+                  userSession.avatar || 'JA'
+                )}
+              </div>
+              <label className="absolute inset-0 bg-stone-950/70 opacity-0 group-hover:opacity-100 flex items-center justify-center rounded-2xl transition-opacity cursor-pointer text-stone-200 text-[10px] font-bold">
+                📷 Alterar
+                <input
+                  type="file"
+                  accept="image/*"
+                  className="hidden"
+                  onChange={(e) => {
+                    const file = e.target.files?.[0];
+                    if (file) {
+                      const reader = new FileReader();
+                      reader.onload = (evt) => {
+                        const result = evt.target?.result as string;
+                        if (result) {
+                          setUserRole(userSession.role, result);
+                          triggerHapticFeedback(10);
+                        }
+                      };
+                      reader.readAsDataURL(file);
+                    }
+                  }}
+                />
+              </label>
             </div>
             <div className="min-w-0 flex-1">
               <h4 className="text-base font-bold text-stone-100 truncate">{userSession.name}</h4>

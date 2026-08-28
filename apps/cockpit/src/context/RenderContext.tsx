@@ -23,7 +23,7 @@ import {
 
 interface RenderContextType {
   userSession: UserSession;
-  setUserRole: (role: UserRole) => void;
+  setUserRole: (role: UserRole, customPicture?: string) => void;
   suppliers: Supplier[];
   selectedSupplier: Supplier | null;
   selectSupplier: (sup: Supplier | null) => void;
@@ -162,7 +162,12 @@ export function RenderContextProvider({ children }: { children: React.ReactNode 
     };
   }, [loadData]);
 
-  const setUserRole = useCallback((role: UserRole): void => {
+  const setUserRole = useCallback((role: UserRole, customPicture?: string): void => {
+    const savedPic = customPicture || localStorage.getItem(`v8_user_picture_${role}`) || undefined;
+    if (customPicture) {
+      try { localStorage.setItem(`v8_user_picture_${role}`, customPicture); } catch (e: unknown) { void e; }
+    }
+
     if (role === 'founder') {
       setUserSession({
         id: 'usr_1',
@@ -170,7 +175,8 @@ export function RenderContextProvider({ children }: { children: React.ReactNode 
         role: 'founder',
         avatar: 'JA',
         email: 'jeferson@usevolupia.com.br',
-        scopePermissions: ['all', 'admin', 'homologation', 'quotes', 'chat']
+        scopePermissions: ['all', 'admin', 'homologation', 'quotes', 'chat'],
+        picture: savedPic
       });
     } else if (role === 'ops') {
       setUserSession({
@@ -179,7 +185,8 @@ export function RenderContextProvider({ children }: { children: React.ReactNode 
         role: 'ops',
         avatar: 'GM',
         email: 'glaucia@usevolupia.com.br',
-        scopePermissions: ['homologation', 'chat']
+        scopePermissions: ['homologation', 'chat'],
+        picture: savedPic
       });
     } else {
       setUserSession({
@@ -188,7 +195,8 @@ export function RenderContextProvider({ children }: { children: React.ReactNode 
         role: 'commercial',
         avatar: 'BA',
         email: 'bruno@usevolupia.com.br',
-        scopePermissions: ['quotes', 'chat']
+        scopePermissions: ['quotes', 'chat'],
+        picture: savedPic
       });
     }
   }, []);

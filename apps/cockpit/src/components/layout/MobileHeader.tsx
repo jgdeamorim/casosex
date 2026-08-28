@@ -75,8 +75,12 @@ export function MobileHeader(): React.ReactElement {
           className="flex items-center gap-2.5 p-1 rounded-full hover:bg-stone-800/40 focus:outline-none active:scale-95 transition-all"
         >
           <div className="w-8 h-8 rounded-full p-[1.5px] bg-gradient-to-tr from-rose-500 via-rose-600 to-amber-500 shadow-[0_0_12px_rgba(225,29,72,0.35)] shrink-0">
-            <div className="w-full h-full rounded-full bg-stone-950 flex items-center justify-center text-[11px] font-black text-stone-100 tracking-tighter">
-              {userSession.avatar || 'JA'}
+            <div className="w-full h-full rounded-full bg-stone-950 flex items-center justify-center text-[11px] font-black text-stone-100 tracking-tighter overflow-hidden">
+              {userSession.picture ? (
+                <img src={userSession.picture} alt={userSession.name} className="w-full h-full object-cover rounded-full" />
+              ) : (
+                userSession.avatar || 'JA'
+              )}
             </div>
           </div>
           <div className="text-left hidden xs:block">

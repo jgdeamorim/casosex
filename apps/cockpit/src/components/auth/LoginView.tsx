@@ -30,9 +30,10 @@ export function LoginView({ onSuccess }: LoginViewProps): React.ReactElement {
     const ssoError = params.get('sso_error');
     const role = params.get('role') as UserRole | null;
     const name = params.get('name') || 'Usuário';
+    const picture = params.get('picture') || undefined;
 
     if (ssoSuccess === 'true' && role) {
-      setUserRole(role);
+      setUserRole(role, picture);
       setToastMessage({
         text: `✨ Autenticado via Google OAuth 2.0 como ${name} (${role.toUpperCase()})!`,
         type: 'success'
