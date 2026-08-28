@@ -262,7 +262,7 @@ export function MobileSupplierCards(): React.ReactElement {
               triggerHapticFeedback(4);
               setStateFilter('TODOS');
             }}
-            className={`px-3 py-1 rounded-xl border transition-all shrink-0 ${
+            className={`px-3.5 py-1.5 min-h-[48px] flex items-center justify-center rounded-xl border transition-all shrink-0 active:scale-95 ${
               stateFilter === 'TODOS'
                 ? 'bg-rose-600 text-white border-rose-500 shadow-lg shadow-rose-950/40'
                 : 'bg-stone-900/90 text-stone-400 border-stone-800 hover:text-stone-200'
@@ -277,7 +277,7 @@ export function MobileSupplierCards(): React.ReactElement {
               setStateFilter('SP');
               setCityFilter('TODOS');
             }}
-            className={`px-3 py-1 rounded-xl border transition-all shrink-0 ${
+            className={`px-3.5 py-1.5 min-h-[48px] flex items-center justify-center rounded-xl border transition-all shrink-0 active:scale-95 ${
               stateFilter === 'SP'
                 ? 'bg-emerald-600 text-white border-emerald-500 shadow-lg shadow-emerald-950/40'
                 : 'bg-stone-900/90 text-stone-400 border-stone-800 hover:text-stone-200'
@@ -292,7 +292,7 @@ export function MobileSupplierCards(): React.ReactElement {
               setStateFilter('RJ');
               setCityFilter('TODOS');
             }}
-            className={`px-3 py-1 rounded-xl border transition-all shrink-0 ${
+            className={`px-3.5 py-1.5 min-h-[48px] flex items-center justify-center rounded-xl border transition-all shrink-0 active:scale-95 ${
               stateFilter === 'RJ'
                 ? 'bg-cyan-600 text-white border-cyan-500 shadow-lg shadow-cyan-950/40'
                 : 'bg-stone-900/90 text-stone-400 border-stone-800 hover:text-stone-200'
@@ -506,7 +506,7 @@ export function MobileSupplierCards(): React.ReactElement {
                         type="button"
                         disabled={!isUserAllowed || statusSaving}
                         onClick={(e) => handleStatusClick(e, sup.id, sup.status)}
-                        className={`px-2.5 py-1 text-[10px] font-extrabold rounded-full border shrink-0 min-h-[36px] flex items-center gap-1 transition-transform ${badge.style}`}
+                        className={`px-3.5 py-1.5 text-[10px] font-extrabold rounded-full border shrink-0 min-h-[48px] min-w-[48px] flex items-center justify-center gap-1 transition-all active:scale-95 ${badge.style}`}
                       >
                         <span>{badge.label}</span>
                       </button>

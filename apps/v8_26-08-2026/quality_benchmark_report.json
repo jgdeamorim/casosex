@@ -7,7 +7,7 @@
     "overall_quality_score": "100.0%",
     "spec_files_count": 17,
     "spec_tag": "app-jury",
-    "code_files_count": 38,
+    "code_files_count": 39,
     "code_tag": "v8_cockpit",
     "qdrant_casosex_inspiration_points": 96,
     "qdrant_casosex_self_points": 405,
@@ -155,8 +155,8 @@
     {
       "file": "App.tsx",
       "rel_path": "apps/cockpit/src/App.tsx",
-      "blake2b_hash": "d3e3a8b7e3c3fcb527bef2e9743f400aa1f9a9bec63251617124def928ffd334",
-      "size_bytes": 5404,
+      "blake2b_hash": "33cd09e33d7b12479db642eb3e30b798ce838bf7badba5d099a906d5cae09699",
+      "size_bytes": 5914,
       "tag": "v8_cockpit",
       "collection": "casosex-self"
     },
@@ -227,8 +227,8 @@
     {
       "file": "MobileIntelView.tsx",
       "rel_path": "apps/cockpit/src/components/dashboard/MobileIntelView.tsx",
-      "blake2b_hash": "def28c31a0fb07e533994d4c2145709ee4d5e31318665325a72527cf255bb137",
-      "size_bytes": 5795,
+      "blake2b_hash": "767c85c4355773a08254353601f06ecdb59f5021161a5ff60d38c9cd014c4dcf",
+      "size_bytes": 6388,
       "tag": "v8_cockpit",
       "collection": "casosex-self"
     },
@@ -275,8 +275,8 @@
     {
       "file": "MobileHeader.tsx",
       "rel_path": "apps/cockpit/src/components/layout/MobileHeader.tsx",
-      "blake2b_hash": "3e0b4e905a1ff366a0177fb665a336e64e6d8850e7b1842e1fad3d2fd8f9fbb3",
-      "size_bytes": 4170,
+      "blake2b_hash": "86cc800becb0bfbaca2709af64dd24468dbfacd531f4fa9e6d0e19184c99145e",
+      "size_bytes": 4225,
       "tag": "v8_cockpit",
       "collection": "casosex-self"
     },
@@ -307,8 +307,8 @@
     {
       "file": "MobileSupplierCards.tsx",
       "rel_path": "apps/cockpit/src/components/suppliers/MobileSupplierCards.tsx",
-      "blake2b_hash": "40c7c1e70b4e3624b2b7e7fef976686bcd39fd3dc190ee1bb419dac29e1d6728",
-      "size_bytes": 29170,
+      "blake2b_hash": "590a220974f60dcdf91324fcd295ded20310aa5082dc186e426b8b89f5a5d882",
+      "size_bytes": 29408,
       "tag": "v8_cockpit",
       "collection": "casosex-self"
     },
@@ -323,8 +323,8 @@
     {
       "file": "RenderContext.tsx",
       "rel_path": "apps/cockpit/src/context/RenderContext.tsx",
-      "blake2b_hash": "3c1861e3d39f670db63da832f518d0c8bcac4be203034ec73b59786cd5e1ebec",
-      "size_bytes": 13210,
+      "blake2b_hash": "0dd7eefbeccdda0af89fa4bf85e563fb9d85d0e6603ea57d1d32df4f2b3793fb",
+      "size_bytes": 13316,
       "tag": "v8_cockpit",
       "collection": "casosex-self"
     },
@@ -449,6 +449,14 @@
       "collection": "casosex-self"
     },
     {
+      "file": "schema-responsive.json",
+      "rel_path": "apps/cockpit/src/seeds/schema-responsive.json",
+      "blake2b_hash": "224aa567c246695c353cede40fa6238b44fae947be66a38909bd6f00a982d0b3",
+      "size_bytes": 4942,
+      "tag": "v8_cockpit",
+      "collection": "casosex-self"
+    },
+    {
       "file": "index.ts",
       "rel_path": "apps/cockpit/src/types/index.ts",
       "blake2b_hash": "47ccc40a928e72b0f8561f13890b6ac5dc06903869e0252d7bf87efa73236211",
@@ -479,7 +487,7 @@
       "spec_file": "component-routes-metadata.yaml",
       "code_file": "components/suppliers/MobileSupplierCards.tsx",
       "spec_hash": "eb292b0fb2742648185ddab2b86119da4c8a90a78453bda2059fb27180acd06c",
-      "code_hash": "40c7c1e70b4e3624b2b7e7fef976686bcd39fd3dc190ee1bb419dac29e1d6728",
+      "code_hash": "590a220974f60dcdf91324fcd295ded20310aa5082dc186e426b8b89f5a5d882",
       "status": "ALIGNED"
     },
     {
@@ -487,7 +495,7 @@
       "spec_file": "index.yaml",
       "code_file": "components/dashboard/MobileIntelView.tsx",
       "spec_hash": "4f30040f0727ed141c2c55a01c90bc00b7169c0c6842d051383434a3cc9a61d8",
-      "code_hash": "def28c31a0fb07e533994d4c2145709ee4d5e31318665325a72527cf255bb137",
+      "code_hash": "767c85c4355773a08254353601f06ecdb59f5021161a5ff60d38c9cd014c4dcf",
       "status": "ALIGNED"
     },
     {
@@ -495,7 +503,7 @@
       "spec_file": "andes-ui-tokens.yaml",
       "code_file": "components/layout/MobileHeader.tsx",
       "spec_hash": "a589d601ef95c8422483c233b13dd0617fcd09abe20b0dbe9c6767626abcf840",
-      "code_hash": "3e0b4e905a1ff366a0177fb665a336e64e6d8850e7b1842e1fad3d2fd8f9fbb3",
+      "code_hash": "86cc800becb0bfbaca2709af64dd24468dbfacd531f4fa9e6d0e19184c99145e",
       "status": "ALIGNED"
     },
     {
