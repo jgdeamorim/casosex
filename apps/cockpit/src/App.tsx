@@ -65,6 +65,10 @@ function MainLayout(): React.ReactElement {
 
   const isMobileView = facet === 'mobile' || facet === 'smartwatch';
 
+  if (activeTab === 'login') {
+    return <LoginView onSuccess={() => handleTabChange('dashboard')} />;
+  }
+
   if (isMobileView) {
     return <MobileAppView />;
   }
@@ -120,11 +124,6 @@ function MainLayout(): React.ReactElement {
             <ScopeGuard tabName="suppliers">
               {isMobileView ? <MobileSupplierCards /> : <SupplierTable />}
             </ScopeGuard>
-          )}
-
-          {/* Dedicated Login Portal Tab */}
-          {activeTab === 'login' && (
-            <LoginView onSuccess={() => handleTabChange('dashboard')} />
           )}
         </main>
       </div>
