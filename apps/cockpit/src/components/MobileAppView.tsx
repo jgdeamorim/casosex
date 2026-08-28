@@ -7,7 +7,11 @@ import { MobileDossierView } from './dossier/MobileDossierView';
 import { TeamChatDrawer } from './chat/TeamChatDrawer';
 import { UserProfileModal } from './profile/UserProfileModal';
 
-export function MobileAppView(): React.ReactElement {
+interface MobileAppViewProps {
+  onLogout?: () => void;
+}
+
+export function MobileAppView({ onLogout }: MobileAppViewProps): React.ReactElement {
   const [activeTab, setActiveTab] = useState<string>('dashboard');
 
   return (
@@ -23,7 +27,7 @@ export function MobileAppView(): React.ReactElement {
       </main>
 
       {/* 3. Modal de Perfil Soberano do Operador */}
-      <UserProfileModal />
+      <UserProfileModal onLogout={onLogout} />
 
       {/* 4. Interchat Team B2B (Overlay Modo Preservativo de Navigation) */}
       <TeamChatDrawer />

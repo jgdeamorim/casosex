@@ -70,7 +70,7 @@ function MainLayout(): React.ReactElement {
   }
 
   if (isMobileView) {
-    return <MobileAppView />;
+    return <MobileAppView onLogout={() => handleTabChange('login')} />;
   }
 
   return (
