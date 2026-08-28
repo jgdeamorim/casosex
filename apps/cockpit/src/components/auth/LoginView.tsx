@@ -32,7 +32,7 @@ export function LoginView({ onSuccess }: LoginViewProps): React.ReactElement {
       const res = await fetch('/api/v8/auth/login', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ provider: 'google_oauth', email: email || 'jeferson@volupia.com.br' })
+        body: JSON.stringify({ provider: 'google_oauth', email: email || 'jeferson@usevolupia.com.br' })
       });
       const data = (await res.json().catch(() => null)) as { ok?: boolean; error?: string; user?: { role?: UserRole; name?: string } } | null;
 
