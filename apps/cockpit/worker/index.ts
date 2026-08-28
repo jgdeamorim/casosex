@@ -241,12 +241,12 @@ app.get('/api/auth/google/callback', async (c) => {
     }
 
     return c.redirect(
-      `/login.html?sso_success=true&email=${encodeURIComponent(user.email as string)}&role=${encodeURIComponent(user.role as string)}&name=${encodeURIComponent(user.name as string)}&picture=${encodeURIComponent(pictureUrl)}`,
+      `/?sso_success=true&email=${encodeURIComponent(user.email as string)}&role=${encodeURIComponent(user.role as string)}&name=${encodeURIComponent(user.name as string)}&picture=${encodeURIComponent(pictureUrl)}`,
       302
     );
   } catch (err: unknown) {
     const errorMsg = err instanceof Error ? err.message : 'erro_desconhecido';
-    return c.redirect(`/login.html?sso_error=Erro%20no%20processamento%20OAuth:%20${encodeURIComponent(errorMsg)}`, 302);
+    return c.redirect(`/?sso_error=Erro%20no%20processamento%20OAuth:%20${encodeURIComponent(errorMsg)}`, 302);
   }
 });
 

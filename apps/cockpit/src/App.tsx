@@ -19,7 +19,12 @@ function getTabFromUrl(): string {
   if (typeof window === 'undefined') return 'dashboard';
   const path = window.location.pathname.toLowerCase();
   const search = window.location.search.toLowerCase();
-  if (path.includes('/login') || path.includes('/sso') || path.includes('/auth') || search.includes('login')) {
+
+  if (search.includes('sso_success=true')) {
+    return 'dashboard';
+  }
+
+  if (path.includes('/login') || path.includes('/sso') || path.includes('/auth') || (search.includes('login') && !search.includes('sso_success'))) {
     return 'login';
   }
   if (path.includes('/map')) return 'map';
@@ -48,6 +53,12 @@ function MainLayout(): React.ReactElement {
     };
     window.addEventListener('popstate', handlePopState);
     return () => window.removeEventListener('popstate', handlePopState);
+  }, []);
+
+  useEffect(() => {
+    if (typeof window !== 'undefined' && window.location.search.includes('sso_success=true')) {
+      window.history.replaceState({}, document.title, window.location.pathname);
+    }
   }, []);
 
   useEffect(() => {

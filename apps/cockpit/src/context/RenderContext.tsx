@@ -25,6 +25,7 @@ interface RenderContextType {
   userSession: UserSession;
   setUserRole: (role: UserRole, customPicture?: string) => void;
   updateUserProfile: (picture?: string, name?: string) => Promise<boolean>;
+  logout: () => void;
   suppliers: Supplier[];
   selectedSupplier: Supplier | null;
   selectSupplier: (sup: Supplier | null) => void;
@@ -163,14 +164,52 @@ export function RenderContextProvider({ children }: { children: React.ReactNode 
     };
   }, [loadData]);
 
+  // Boot Hydration & SSO Callback Parsing
+  useEffect(() => {
+    if (typeof window === 'undefined') return;
+
+    const search = window.location.search;
+    if (search.includes('sso_success=true')) {
+      const params = new URLSearchParams(search);
+      const email = params.get('email') || 'jeferson@usevolupia.com.br';
+      const role = (params.get('role') || 'founder') as UserRole;
+      const name = params.get('name') || 'Jeferson Amorim';
+      const picture = params.get('picture') || undefined;
+
+      const ssoSession: UserSession = {
+        id: role === 'ops' ? 'usr_2' : role === 'commercial' ? 'usr_3' : 'usr_1',
+        name,
+        role,
+        avatar: name.split(' ').map((n) => n[0]).join('').substring(0, 2).toUpperCase(),
+        email,
+        scopePermissions: role === 'founder' ? ['all', 'admin', 'homologation', 'quotes', 'chat'] : role === 'ops' ? ['homologation', 'chat'] : ['quotes', 'chat'],
+        picture
+      };
+
+      setUserSession(ssoSession);
+      try { localStorage.setItem('v8_active_session', JSON.stringify(ssoSession)); } catch (e: unknown) { void e; }
+    } else {
+      try {
+        const stored = localStorage.getItem('v8_active_session');
+        if (stored) {
+          const parsed = JSON.parse(stored) as UserSession;
+          if (parsed && parsed.email) {
+            setUserSession(parsed);
+          }
+        }
+      } catch (e: unknown) { void e; }
+    }
+  }, []);
+
   const setUserRole = useCallback((role: UserRole, customPicture?: string): void => {
     const savedPic = customPicture || localStorage.getItem(`v8_user_picture_${role}`) || undefined;
     if (customPicture) {
       try { localStorage.setItem(`v8_user_picture_${role}`, customPicture); } catch (e: unknown) { void e; }
     }
 
+    let newSession: UserSession;
     if (role === 'founder') {
-      setUserSession({
+      newSession = {
         id: 'usr_1',
         name: 'Jeferson Amorim',
         role: 'founder',
@@ -178,9 +217,9 @@ export function RenderContextProvider({ children }: { children: React.ReactNode 
         email: 'jeferson@usevolupia.com.br',
         scopePermissions: ['all', 'admin', 'homologation', 'quotes', 'chat'],
         picture: savedPic
-      });
+      };
     } else if (role === 'ops') {
-      setUserSession({
+      newSession = {
         id: 'usr_2',
         name: 'Gláucia Michaella',
         role: 'ops',
@@ -188,9 +227,9 @@ export function RenderContextProvider({ children }: { children: React.ReactNode 
         email: 'glaucia@usevolupia.com.br',
         scopePermissions: ['homologation', 'chat'],
         picture: savedPic
-      });
+      };
     } else {
-      setUserSession({
+      newSession = {
         id: 'usr_3',
         name: 'Bruno Amin',
         role: 'commercial',
@@ -198,18 +237,32 @@ export function RenderContextProvider({ children }: { children: React.ReactNode 
         email: 'bruno@usevolupia.com.br',
         scopePermissions: ['quotes', 'chat'],
         picture: savedPic
-      });
+      };
+    }
+
+    setUserSession(newSession);
+    try { localStorage.setItem('v8_active_session', JSON.stringify(newSession)); } catch (e: unknown) { void e; }
+  }, []);
+
+  const logout = useCallback((): void => {
+    try { localStorage.removeItem('v8_active_session'); } catch (e: unknown) { void e; }
+    setUserSession(defaultSession);
+    if (typeof window !== 'undefined') {
+      window.location.href = '/login.html';
     }
   }, []);
 
   const updateUserProfile = useCallback(async (picture?: string, name?: string): Promise<boolean> => {
     if (!userSession?.email) return false;
 
-    setUserSession((prev) => ({
-      ...prev,
-      name: name ?? prev.name,
-      picture: picture ?? prev.picture
-    }));
+    const updatedSession = {
+      ...userSession,
+      name: name ?? userSession.name,
+      picture: picture ?? userSession.picture
+    };
+
+    setUserSession(updatedSession);
+    try { localStorage.setItem('v8_active_session', JSON.stringify(updatedSession)); } catch (e: unknown) { void e; }
 
     if (picture) {
       try { localStorage.setItem(`v8_user_picture_${userSession.role}`, picture); } catch (e: unknown) { void e; }
@@ -308,6 +361,7 @@ export function RenderContextProvider({ children }: { children: React.ReactNode 
         userSession,
         setUserRole,
         updateUserProfile,
+        logout,
         suppliers,
         selectedSupplier,
         selectSupplier,
