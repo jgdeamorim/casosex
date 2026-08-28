@@ -23,3 +23,6 @@ migrations_dir = "migrations"
 
 [vars]
 ENVIRONMENT = "production"
+GOOGLE_CLIENT_ID = "1024367308872-i1uo09sq0naqqcq1b8sk34prefqf55s6.apps.googleusercontent.com"
+GOOGLE_CLIENT_SECRET = "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"
+GOOGLE_REDIRECT_URI = "https://app.usevolupia.com.br/api/auth/google/callback"

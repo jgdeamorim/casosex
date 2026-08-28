@@ -21,6 +21,9 @@ interface D1Database {
 interface Env {
   ASSETS?: { fetch: (req: Request) => Promise<Response> };
   DB?: D1Database;
+  GOOGLE_CLIENT_ID?: string;
+  GOOGLE_CLIENT_SECRET?: string;
+  GOOGLE_REDIRECT_URI?: string;
 }
 
 type Status = 'HOMOLOGADO' | 'VISITA_PENDENTE' | 'PROSPECCAO' | 'REJEITADO';
@@ -54,6 +57,98 @@ app.get('/api/v8/health', (c) => {
     zeroTrustUser: cfUserEmail || null,
     timestamp: new Date().toISOString()
   });
+});
+
+// 1. Rota de Redirecionamento Inicial para o Google OAuth 2.0
+app.get('/api/v8/auth/google/redirect', (c) => {
+  const clientId = c.env?.GOOGLE_CLIENT_ID || '1024367308872-i1uo09sq0naqqcq1b8sk34prefqf55s6.apps.googleusercontent.com';
+  const redirectUri = c.env?.GOOGLE_REDIRECT_URI || 'https://app.usevolupia.com.br/api/auth/google/callback';
+
+  const googleAuthUrl = new URL('https://accounts.google.com/o/oauth2/v2/auth');
+  googleAuthUrl.searchParams.set('client_id', clientId);
+  googleAuthUrl.searchParams.set('redirect_uri', redirectUri);
+  googleAuthUrl.searchParams.set('response_type', 'code');
+  googleAuthUrl.searchParams.set('scope', 'openid email profile');
+  googleAuthUrl.searchParams.set('prompt', 'select_account');
+
+  return c.redirect(googleAuthUrl.toString(), 302);
+});
+
+// 2. Callback Real do Google OAuth 2.0 (Troca code por access_token, consulta UserInfo API e valida Whitelist D1)
+app.get('/api/auth/google/callback', async (c) => {
+  const db = c.env?.DB;
+  if (!db) {
+    return c.redirect('/login.html?sso_error=D1%20Database%20não%20conectado', 302);
+  }
+
+  const code = c.req.query('code');
+  if (!code) {
+    return c.redirect('/login.html?sso_error=Código%20de%20autenticação%20do%20Google%20ausente', 302);
+  }
+
+  const clientId = c.env?.GOOGLE_CLIENT_ID || '1024367308872-i1uo09sq0naqqcq1b8sk34prefqf55s6.apps.googleusercontent.com';
+  const clientSecret = c.env?.GOOGLE_CLIENT_SECRET || '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';
+  const redirectUri = c.env?.GOOGLE_REDIRECT_URI || 'https://app.usevolupia.com.br/api/auth/google/callback';
+
+  try {
+    const tokenRes = await fetch('https://oauth2.googleapis.com/token', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: new URLSearchParams({
+        code,
+        client_id: clientId,
+        client_secret: clientSecret,
+        redirect_uri: redirectUri,
+        grant_type: 'authorization_code'
+      })
+    });
+
+    const tokenData = (await tokenRes.json().catch(() => null)) as { access_token?: string; id_token?: string; error?: string } | null;
+    if (!tokenData?.access_token) {
+      return c.redirect(`/login.html?sso_error=Falha%20na%20troca%20de%20token%20Google:%20${encodeURIComponent(tokenData?.error || 'token_invalido')}`, 302);
+    }
+
+    const userinfoRes = await fetch('https://www.googleapis.com/oauth2/v2/userinfo', {
+      headers: { Authorization: `Bearer ${tokenData.access_token}` }
+    });
+    const userinfo = (await userinfoRes.json().catch(() => null)) as { email?: string; name?: string; picture?: string } | null;
+
+    const googleEmail = (userinfo?.email || '').trim().toLowerCase();
+    if (!googleEmail) {
+      return c.redirect('/login.html?sso_error=E-mail%20não%20retornado%20pelo%20Google', 302);
+    }
+
+    const AUTHORIZED_USERS: Record<string, string> = {
+      'jeferson@usevolupia.com.br': 'jeferson@usevolupia.com.br',
+      'jeferson@volupia.com.br': 'jeferson@usevolupia.com.br',
+      'hypersizemultimidia@gmail.com': 'jeferson@usevolupia.com.br',
+      'glaucia@usevolupia.com.br': 'glaucia@usevolupia.com.br',
+      'glaucia@volupia.com.br': 'glaucia@usevolupia.com.br',
+      'enf.glauciamichaella@gmail.com': 'glaucia@usevolupia.com.br',
+      'bruno@usevolupia.com.br': 'bruno@usevolupia.com.br',
+      'bruno@volupia.com.br': 'bruno@usevolupia.com.br',
+      'bruno_amin4@gmail.com': 'bruno@usevolupia.com.br'
+    };
+
+    const canonicalEmail = AUTHORIZED_USERS[googleEmail];
+    if (!canonicalEmail) {
+      return c.redirect(`/login.html?sso_error=E-mail%20${encodeURIComponent(googleEmail)}%20não%20autorizado%20nos%20segredos%20D1%20(.secrets/.evn.GOOGLE-SHEETS)`, 302);
+    }
+
+    await initUserTable(db);
+    const user = await db.prepare('SELECT id, email, role, name FROM users WHERE email = ?').bind(canonicalEmail).first();
+    if (!user) {
+      return c.redirect('/login.html?sso_error=Usuário%20não%20encontrado%20na%20tabela%20D1', 302);
+    }
+
+    return c.redirect(
+      `/login.html?sso_success=true&email=${encodeURIComponent(user.email as string)}&role=${encodeURIComponent(user.role as string)}&name=${encodeURIComponent(user.name as string)}`,
+      302
+    );
+  } catch (err: unknown) {
+    const errorMsg = err instanceof Error ? err.message : 'erro_desconhecido';
+    return c.redirect(`/login.html?sso_error=Erro%20no%20processamento%20OAuth:%20${encodeURIComponent(errorMsg)}`, 302);
+  }
 });
 
 // Autenticação Soberana (Cloudflare Zero-Trust SSO + Hash SHA-256 em Banco D1 volupia-db)

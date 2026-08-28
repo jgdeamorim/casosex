@@ -24,34 +24,36 @@ export function LoginView({ onSuccess }: LoginViewProps): React.ReactElement {
   const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
   const [toastMessage, setToastMessage] = useState<{ text: string; type: 'success' | 'error' } | null>(null);
 
-  const handleGoogleSSO = async () => {
-    setIsSubmitting(true);
-    setToastMessage({ text: '🔐 Conectando ao Google OAuth 2.0 Zero-Trust...', type: 'success' });
+  React.useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    const ssoSuccess = params.get('sso_success');
+    const ssoError = params.get('sso_error');
+    const role = params.get('role') as UserRole | null;
+    const name = params.get('name') || 'Usuário';
 
-    try {
-      const res = await fetch('/api/v8/auth/login', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ provider: 'google_oauth', email: email || 'jeferson@usevolupia.com.br' })
+    if (ssoSuccess === 'true' && role) {
+      setUserRole(role);
+      setToastMessage({
+        text: `✨ Autenticado via Google OAuth 2.0 como ${name} (${role.toUpperCase()})!`,
+        type: 'success'
       });
-      const data = (await res.json().catch(() => null)) as { ok?: boolean; error?: string; user?: { role?: UserRole; name?: string } } | null;
-
-      if (data?.ok && data?.user?.role) {
-        setUserRole(data.user.role);
-        setToastMessage({ text: `✨ Autenticado via Google como ${data.user.name} (${data.user.role.toUpperCase()})!`, type: 'success' });
-        setTimeout(() => {
-          setIsSubmitting(false);
-          onSuccess?.();
-        }, 600);
-      } else {
-        setIsSubmitting(false);
-        setToastMessage({ text: data?.error || '❌ E-mail não autorizado nos segredos D1 (.secrets/.evn.GOOGLE-SHEETS)', type: 'error' });
-      }
-    } catch (e: unknown) {
-      void e;
-      setIsSubmitting(false);
-      setToastMessage({ text: '❌ Erro ao conectar ao serviço de autenticação.', type: 'error' });
+      window.history.replaceState({}, document.title, window.location.pathname);
+      setTimeout(() => {
+        onSuccess?.();
+      }, 600);
+    } else if (ssoError) {
+      setToastMessage({
+        text: `❌ ${decodeURIComponent(ssoError)}`,
+        type: 'error'
+      });
+      window.history.replaceState({}, document.title, window.location.pathname);
     }
+  }, [setUserRole, onSuccess]);
+
+  const handleGoogleSSO = () => {
+    setIsSubmitting(true);
+    setToastMessage({ text: '🔐 Redirecionando para autenticação soberana no Google OAuth 2.0...', type: 'success' });
+    window.location.href = '/api/v8/auth/google/redirect';
   };
 
   const handleFormLogin = async (e: React.FormEvent) => {
@@ -268,7 +270,7 @@ export function LoginView({ onSuccess }: LoginViewProps): React.ReactElement {
                 <span>Verificando Credenciais...</span>
               ) : (
                 <>
-                  <span>Entrar no Cockpit Volúpia</span>
+                  <span>Entrar</span>
                   <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
                   </svg>
