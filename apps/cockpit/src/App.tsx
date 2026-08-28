@@ -15,8 +15,22 @@ import { TeamChatDrawer } from './components/chat/TeamChatDrawer';
 import { ScopeGuard } from './auth/ScopeGuard';
 import { LoginView } from './components/auth/LoginView';
 
+function hasActiveSession(): boolean {
+  if (typeof window === 'undefined') return false;
+  const search = window.location.search.toLowerCase();
+  if (search.includes('sso_success=true')) return true;
+  try {
+    const stored = localStorage.getItem('v8_active_session');
+    if (stored) {
+      const parsed = JSON.parse(stored) as { email?: string };
+      if (parsed && parsed.email) return true;
+    }
+  } catch (e: unknown) { void e; }
+  return false;
+}
+
 function getTabFromUrl(): string {
-  if (typeof window === 'undefined') return 'dashboard';
+  if (typeof window === 'undefined') return 'login';
   const path = window.location.pathname.toLowerCase();
   const search = window.location.search.toLowerCase();
 
@@ -27,6 +41,11 @@ function getTabFromUrl(): string {
   if (path.includes('/login') || path.includes('/sso') || path.includes('/auth') || (search.includes('login') && !search.includes('sso_success'))) {
     return 'login';
   }
+
+  if (!hasActiveSession()) {
+    return 'login';
+  }
+
   if (path.includes('/map')) return 'map';
   if (path.includes('/dossier')) return 'dossier';
   if (path.includes('/suppliers')) return 'suppliers';

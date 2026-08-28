@@ -255,9 +255,16 @@ export function RenderContextProvider({ children }: { children: React.ReactNode 
 
   const logout = useCallback((): void => {
     try { localStorage.removeItem('v8_active_session'); } catch (e: unknown) { void e; }
-    setUserSession(defaultSession);
+    setUserSession({
+      id: '',
+      name: '',
+      role: 'commercial',
+      avatar: '',
+      email: '',
+      scopePermissions: []
+    });
     if (typeof window !== 'undefined') {
-      window.location.href = '/login.html';
+      window.location.href = '/login';
     }
   }, []);
 
