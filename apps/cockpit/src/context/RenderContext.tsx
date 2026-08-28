@@ -206,7 +206,7 @@ export function RenderContextProvider({ children }: { children: React.ReactNode 
   // Limpeza segura de URL apos inicializacao da sessao SSO
   useEffect(() => {
     if (typeof window !== 'undefined' && window.location.search.includes('sso_success=true')) {
-      window.history.replaceState({}, document.title, window.location.pathname);
+      window.history.replaceState({}, document.title, '/');
     }
   }, []);
 

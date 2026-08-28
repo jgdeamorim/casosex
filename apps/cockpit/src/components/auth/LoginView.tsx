@@ -38,7 +38,7 @@ export function LoginView({ onSuccess }: LoginViewProps): React.ReactElement {
         text: `✨ Autenticado via Google OAuth 2.0 como ${name} (${role.toUpperCase()})!`,
         type: 'success'
       });
-      window.history.replaceState({}, document.title, window.location.pathname);
+      window.history.replaceState({}, document.title, '/');
       setTimeout(() => {
         onSuccess?.();
       }, 600);

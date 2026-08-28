@@ -143,12 +143,12 @@ app.get('/api/v8/auth/google/redirect', (c) => {
 app.get('/api/auth/google/callback', async (c) => {
   const db = c.env?.DB;
   if (!db) {
-    return c.redirect('/login.html?sso_error=D1%20Database%20não%20conectado', 302);
+    return c.redirect('/login?sso_error=D1%20Database%20não%20conectado', 302);
   }
 
   const code = c.req.query('code');
   if (!code) {
-    return c.redirect('/login.html?sso_error=Código%20de%20autenticação%20do%20Google%20ausente', 302);
+    return c.redirect('/login?sso_error=Código%20de%20autenticação%20do%20Google%20ausente', 302);
   }
 
   const clientId = c.env?.GOOGLE_CLIENT_ID || '1024367308872-i1uo09sq0naqqcq1b8sk34prefqf55s6.apps.googleusercontent.com';
@@ -170,7 +170,7 @@ app.get('/api/auth/google/callback', async (c) => {
 
     const tokenData = (await tokenRes.json().catch(() => null)) as { access_token?: string; id_token?: string; error?: string } | null;
     if (!tokenData?.access_token) {
-      return c.redirect(`/login.html?sso_error=Falha%20na%20troca%20de%20token%20Google:%20${encodeURIComponent(tokenData?.error || 'token_invalido')}`, 302);
+      return c.redirect(`/login?sso_error=Falha%20na%20troca%20de%20token%20Google:%20${encodeURIComponent(tokenData?.error || 'token_invalido')}`, 302);
     }
 
     const userinfoRes = await fetch('https://www.googleapis.com/oauth2/v2/userinfo', {
@@ -180,7 +180,7 @@ app.get('/api/auth/google/callback', async (c) => {
 
     const googleEmail = (userinfo?.email || '').trim().toLowerCase();
     if (!googleEmail) {
-      return c.redirect('/login.html?sso_error=E-mail%20não%20retornado%20pelo%20Google', 302);
+      return c.redirect('/login?sso_error=E-mail%20não%20retornado%20pelo%20Google', 302);
     }
 
     const AUTHORIZED_USERS: Record<string, string> = {
@@ -197,13 +197,13 @@ app.get('/api/auth/google/callback', async (c) => {
 
     const canonicalEmail = AUTHORIZED_USERS[googleEmail];
     if (!canonicalEmail) {
-      return c.redirect(`/login.html?sso_error=E-mail%20${encodeURIComponent(googleEmail)}%20não%20autorizado%20nos%20segredos%20D1%20(.secrets/.evn.GOOGLE-SHEETS)`, 302);
+      return c.redirect(`/login?sso_error=E-mail%20${encodeURIComponent(googleEmail)}%20não%20autorizado%20nos%20segredos%20D1%20(.secrets/.evn.GOOGLE-SHEETS)`, 302);
     }
 
     await initUserTable(db);
     const user = await db.prepare('SELECT id, email, role, name, picture_url FROM users WHERE email = ?').bind(canonicalEmail).first();
     if (!user) {
-      return c.redirect('/login.html?sso_error=Usuário%20não%20encontrado%20na%20tabela%20D1', 302);
+      return c.redirect('/login?sso_error=Usuário%20não%20encontrado%20na%20tabela%20D1', 302);
     }
 
     const now = Date.now();
