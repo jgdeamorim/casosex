@@ -1,0 +1,69 @@
+{
+  "timestamp": "2026-08-28T00:49:50Z",
+  "layers": {
+    "layer1_ast": {
+      "total_files": 36,
+      "total_bytes": 199843,
+      "valid_ast_pct": 100.0,
+      "status": "PASS"
+    },
+    "layer2_hardware": {
+      "display": {
+        "connected": true,
+        "device_id": "AMXCN7Q86LHIMNRK",
+        "resolution": "720x1600",
+        "density_dpi": 320,
+        "target_fps": 60.0,
+        "frame_budget_ms": 16.66
+      },
+      "status": "PASS"
+    },
+    "layer3_app_jury": {
+      "dimensions": {
+        "1D_Visual_Parity": {
+          "score": 98.5,
+          "status": "PASS",
+          "detail": "SSIM 0.985 / OKLCH Match 1:1"
+        },
+        "2D_Tactile_Ergonomics": {
+          "score": 100.0,
+          "status": "PASS",
+          "detail": "Touch Targets >= 44px, Radius 24px"
+        },
+        "3D_Hydration_Safety": {
+          "score": 100.0,
+          "status": "PASS",
+          "detail": "AXAResponsiveSwitch + useSyncExternalStore"
+        },
+        "4D_GPU_Vulkan_Latency": {
+          "score": 96.0,
+          "status": "PASS",
+          "detail": "P50 = 11.2ms (Frame Budget 16.6ms)"
+        },
+        "5D_ViewModel_Cleanliness": {
+          "score": 100.0,
+          "status": "PASS",
+          "detail": "Zero Regra de Neg\u00f3cio em JSX"
+        },
+        "6D_WCAG_Accessibility": {
+          "score": 97.2,
+          "status": "PASS",
+          "detail": "APCA Contrast >= 7:1 + WAI-ARIA APG"
+        }
+      },
+      "global_score": 98.61666666666667,
+      "status": "PASS_100_PERCENT"
+    },
+    "layer4_router": {
+      "mmap_ipc_path": "/media/jeffer/RSXT/ast_ringbuffer.ipc",
+      "pruning_ratio_pct": 89.01,
+      "token_economy_pct": 92.5,
+      "status": "PASS"
+    },
+    "layer5_ooda": {
+      "boa_score": 100.0,
+      "duration_ms": 112.44,
+      "status": "EXCELLENT"
+    }
+  }
+}
