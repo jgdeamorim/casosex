@@ -1,4 +1,5 @@
 import { Hono } from 'hono';
+import { LANDING_HTML } from './landingHtml';
 
 interface D1Result {
   results?: Record<string, unknown>[];
@@ -156,9 +157,21 @@ app.put('/api/v8/dossier/:id', async (c) => {
   return c.json({ ok: true, dossier: rowToDossier(row ?? {}) });
 });
 
-// SPA fallback + assets estáticos. O proxy WooCommerce e a injeção HTMLRewriter
-// morta foram removidos (o proxy 401 sem creds; a injeção não era lida pelo app).
+// SPA fallback + assets estáticos.
+// usevolupia.com.br (Apex / www) -> Landing Page Pública B2B
+// app.usevolupia.com.br -> Cockpit Admin + Login (SPA React 19)
 app.all('*', async (c) => {
+  const url = new URL(c.req.url);
+  const rawHost = c.req.header('host') || url.hostname;
+  const hostname = rawHost.toLowerCase().split(':')[0];
+
+  if (hostname === 'usevolupia.com.br' || hostname === 'www.usevolupia.com.br') {
+    if (url.pathname === '/login' || url.pathname === '/login.html' || url.pathname === '/admin') {
+      return c.redirect('https://app.usevolupia.com.br/', 302);
+    }
+    return c.html(LANDING_HTML);
+  }
+
   if (c.env?.ASSETS) {
     try {
       const res = await c.env.ASSETS.fetch(c.req.raw);
