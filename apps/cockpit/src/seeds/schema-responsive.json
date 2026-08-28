@@ -1,0 +1,125 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "engine_version": "2.0.0",
+  "adr_reference": "ADR-0212",
+  "title": "Sovereign Responsive & Hardware Capability Matrix Schema",
+  "description": "Schema soberano de profiling e orquestração responsiva adaptativa por capacidade de hardware e navegador (V8 Cockpit)",
+  "device_facets": [
+    {
+      "model": "smartwatch",
+      "min_width": 0,
+      "max_width": 359,
+      "touch_optimized": true,
+      "layout_mode": "CompactSingleCard",
+      "primary_panel": "polo_kpi_micro",
+      "min_touch_target_px": 44,
+      "max_animations_count": 2
+    },
+    {
+      "model": "mobile",
+      "min_width": 360,
+      "max_width": 767,
+      "touch_optimized": true,
+      "layout_mode": "MobileAppFirstShell",
+      "dock_enabled": true,
+      "primary_panel": "supplier_map_mobile",
+      "min_touch_target_px": 48,
+      "gesture_drawer_enabled": true
+    },
+    {
+      "model": "tablet",
+      "min_width": 768,
+      "max_width": 1023,
+      "touch_optimized": true,
+      "layout_mode": "SplitMasterDetailCompact",
+      "sidebar_collapsible": true,
+      "primary_panel": "supplier_grid_tablet",
+      "min_touch_target_px": 44
+    },
+    {
+      "model": "desktop",
+      "min_width": 1024,
+      "max_width": 1919,
+      "touch_optimized": false,
+      "layout_mode": "MultiPanelGridStation",
+      "sidebar_expanded": true,
+      "map_isolate_layer": true,
+      "primary_panel": "dashboard_station",
+      "min_touch_target_px": 32
+    },
+    {
+      "model": "ultra-screen",
+      "min_width": 1920,
+      "max_width": 9999,
+      "touch_optimized": false,
+      "layout_mode": "UltrawideMultiMonitorStation",
+      "sidebar_expanded": true,
+      "map_isolate_layer": true,
+      "dual_dossier_panel": true,
+      "primary_panel": "ultrawide_command_center",
+      "min_touch_target_px": 32
+    }
+  ],
+  "hardware_tier_matrix": {
+    "tier_1_high": {
+      "label": "Tier-1 High Performance (Workstation / Flagship Mobile)",
+      "min_cpu_cores": 8,
+      "min_ram_gb": 8,
+      "required_gpu": ["webgl2", "webgl1"],
+      "recommended_gpu": ["webgpu"],
+      "features_enabled": {
+        "glassmorphism_blur_px": 16,
+        "smooth_60fps_animations": true,
+        "realtime_map_vectors": true,
+        "wasm_simd_processing": true,
+        "offscreen_canvas_workers": true,
+        "opfs_vault_caching": true,
+        "max_map_markers": 5000
+      }
+    },
+    "tier_2_mid": {
+      "label": "Tier-2 Mid-Range (Standard Laptop / Mid Mobile)",
+      "min_cpu_cores": 4,
+      "min_ram_gb": 4,
+      "required_gpu": ["webgl1"],
+      "features_enabled": {
+        "glassmorphism_blur_px": 8,
+        "smooth_60fps_animations": true,
+        "realtime_map_vectors": false,
+        "wasm_simd_processing": true,
+        "offscreen_canvas_workers": false,
+        "opfs_vault_caching": true,
+        "max_map_markers": 1000
+      }
+    },
+    "tier_3_low": {
+      "label": "Tier-3 Constrained (Low-End / Power Saver)",
+      "min_cpu_cores": 1,
+      "min_ram_gb": 1,
+      "required_gpu": [],
+      "features_enabled": {
+        "glassmorphism_blur_px": 0,
+        "smooth_60fps_animations": false,
+        "realtime_map_vectors": false,
+        "wasm_simd_processing": false,
+        "offscreen_canvas_workers": false,
+        "opfs_vault_caching": false,
+        "max_map_markers": 100
+      }
+    }
+  },
+  "capability_probe_contract": {
+    "required_fields": [
+      "hardware.cores",
+      "hardware.memory_gb",
+      "display.screen_resolution",
+      "display.viewport_inner",
+      "gpu.webgl1.supported",
+      "gpu.webgl2.supported",
+      "platform.wasm",
+      "platform.wasm_simd",
+      "network.effective_type"
+    ],
+    "telemetry_bridge_port": 6661
+  }
+}
