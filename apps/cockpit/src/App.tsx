@@ -15,9 +15,40 @@ import { TeamChatDrawer } from './components/chat/TeamChatDrawer';
 import { ScopeGuard } from './auth/ScopeGuard';
 import { LoginView } from './components/auth/LoginView';
 
+function getTabFromUrl(): string {
+  if (typeof window === 'undefined') return 'dashboard';
+  const path = window.location.pathname.toLowerCase();
+  const search = window.location.search.toLowerCase();
+  if (path.includes('/login') || path.includes('/sso') || path.includes('/auth') || search.includes('login')) {
+    return 'login';
+  }
+  if (path.includes('/map')) return 'map';
+  if (path.includes('/dossier')) return 'dossier';
+  if (path.includes('/suppliers')) return 'suppliers';
+  return 'dashboard';
+}
+
 function MainLayout(): React.ReactElement {
-  const [activeTab, setActiveTab] = useState<string>('dashboard');
+  const [activeTab, setActiveTabState] = useState<string>(getTabFromUrl);
   const facet = useDeviceFacet();
+
+  const handleTabChange = (tab: string) => {
+    setActiveTabState(tab);
+    if (typeof window !== 'undefined') {
+      const newPath = tab === 'dashboard' ? '/' : `/${tab}`;
+      if (window.location.pathname !== newPath) {
+        window.history.pushState(null, '', newPath);
+      }
+    }
+  };
+
+  useEffect(() => {
+    const handlePopState = () => {
+      setActiveTabState(getTabFromUrl());
+    };
+    window.addEventListener('popstate', handlePopState);
+    return () => window.removeEventListener('popstate', handlePopState);
+  }, []);
 
   useEffect(() => {
     const savedTheme = localStorage.getItem('v8_theme');
@@ -41,10 +72,10 @@ function MainLayout(): React.ReactElement {
   return (
     <div className="min-h-screen bg-[#0c0a0b] text-[#faf7f5] flex flex-col pb-20 md:pb-0">
       {/* Dynamic Shell Header (Desktop Header) */}
-      <Header />
+      <Header onLogout={() => handleTabChange('login')} />
 
       <div className="flex flex-1">
-        <Sidebar activeTab={activeTab} setActiveTab={setActiveTab} />
+        <Sidebar activeTab={activeTab} setActiveTab={handleTabChange} />
 
         <main className="flex-1 p-4 md:p-6 max-w-7xl mx-auto w-full space-y-6">
           {/* Main Dashboard / Bento Grid Tab (Market Intel) */}
@@ -93,13 +124,13 @@ function MainLayout(): React.ReactElement {
 
           {/* Dedicated Login Portal Tab */}
           {activeTab === 'login' && (
-            <LoginView onSuccess={() => setActiveTab('dashboard')} />
+            <LoginView onSuccess={() => handleTabChange('dashboard')} />
           )}
         </main>
       </div>
 
-      <BottomGlassDock activeTab={activeTab} setActiveTab={setActiveTab} />
-      <UserProfileModal />
+      <BottomGlassDock activeTab={activeTab} setActiveTab={handleTabChange} />
+      <UserProfileModal onLogout={() => handleTabChange('login')} />
       <TeamChatDrawer />
     </div>
   );

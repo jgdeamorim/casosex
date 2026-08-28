@@ -166,8 +166,8 @@ app.all('*', async (c) => {
   const hostname = rawHost.toLowerCase().split(':')[0];
 
   if (hostname === 'usevolupia.com.br' || hostname === 'www.usevolupia.com.br') {
-    if (url.pathname === '/login' || url.pathname === '/login.html' || url.pathname === '/admin') {
-      return c.redirect('https://app.usevolupia.com.br/', 302);
+    if (url.pathname === '/login' || url.pathname === '/login.html' || url.pathname === '/sso' || url.pathname === '/auth' || url.pathname === '/admin') {
+      return c.redirect('https://app.usevolupia.com.br/login', 302);
     }
     return c.html(LANDING_HTML);
   }
