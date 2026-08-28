@@ -56,12 +56,6 @@ function MainLayout(): React.ReactElement {
   }, []);
 
   useEffect(() => {
-    if (typeof window !== 'undefined' && window.location.search.includes('sso_success=true')) {
-      window.history.replaceState({}, document.title, window.location.pathname);
-    }
-  }, []);
-
-  useEffect(() => {
     const savedTheme = localStorage.getItem('v8_theme');
     if (savedTheme === 'light') {
       document.documentElement.classList.remove('dark');

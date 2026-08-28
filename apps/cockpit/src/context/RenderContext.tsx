@@ -63,7 +63,46 @@ interface RenderContextType {
 const RenderContext = createContext<RenderContextType | undefined>(undefined);
 
 export function RenderContextProvider({ children }: { children: React.ReactNode }): React.ReactElement {
-  const [userSession, setUserSession] = useState<UserSession>(defaultSession);
+  const [userSession, setUserSession] = useState<UserSession>(() => {
+    if (typeof window !== 'undefined') {
+      const search = window.location.search;
+      if (search.includes('sso_success=true')) {
+        const params = new URLSearchParams(search);
+        const email = params.get('email') || 'jeferson@usevolupia.com.br';
+        const role = (params.get('role') || 'founder') as UserRole;
+        const name = params.get('name') || 'Jeferson Amorim';
+        const picture = params.get('picture') || undefined;
+
+        const ssoSession: UserSession = {
+          id: role === 'ops' ? 'usr_2' : role === 'commercial' ? 'usr_3' : 'usr_1',
+          name,
+          role,
+          avatar: name.split(' ').map((n) => n[0]).join('').substring(0, 2).toUpperCase(),
+          email,
+          scopePermissions: role === 'founder' ? ['all', 'admin', 'homologation', 'quotes', 'chat'] : role === 'ops' ? ['homologation', 'chat'] : ['quotes', 'chat'],
+          picture
+        };
+        try {
+          localStorage.setItem('v8_active_session', JSON.stringify(ssoSession));
+          if (picture) {
+            localStorage.setItem(`v8_user_picture_${role}`, picture);
+          }
+        } catch (e: unknown) { void e; }
+        return ssoSession;
+      }
+      try {
+        const stored = localStorage.getItem('v8_active_session');
+        if (stored) {
+          const parsed = JSON.parse(stored) as UserSession;
+          if (parsed && parsed.email) {
+            return parsed;
+          }
+        }
+      } catch (e: unknown) { void e; }
+    }
+    return defaultSession;
+  });
+
   const [suppliers, setSuppliers] = useState<Supplier[]>([]);
   const [selectedSupplier, setSelectedSupplier] = useState<Supplier | null>(null);
   const [selectedPolo, setSelectedPolo] = useState<'TODOS' | 'SP' | 'RJ'>('TODOS');
@@ -164,40 +203,10 @@ export function RenderContextProvider({ children }: { children: React.ReactNode 
     };
   }, [loadData]);
 
-  // Boot Hydration & SSO Callback Parsing
+  // Limpeza segura de URL apos inicializacao da sessao SSO
   useEffect(() => {
-    if (typeof window === 'undefined') return;
-
-    const search = window.location.search;
-    if (search.includes('sso_success=true')) {
-      const params = new URLSearchParams(search);
-      const email = params.get('email') || 'jeferson@usevolupia.com.br';
-      const role = (params.get('role') || 'founder') as UserRole;
-      const name = params.get('name') || 'Jeferson Amorim';
-      const picture = params.get('picture') || undefined;
-
-      const ssoSession: UserSession = {
-        id: role === 'ops' ? 'usr_2' : role === 'commercial' ? 'usr_3' : 'usr_1',
-        name,
-        role,
-        avatar: name.split(' ').map((n) => n[0]).join('').substring(0, 2).toUpperCase(),
-        email,
-        scopePermissions: role === 'founder' ? ['all', 'admin', 'homologation', 'quotes', 'chat'] : role === 'ops' ? ['homologation', 'chat'] : ['quotes', 'chat'],
-        picture
-      };
-
-      setUserSession(ssoSession);
-      try { localStorage.setItem('v8_active_session', JSON.stringify(ssoSession)); } catch (e: unknown) { void e; }
-    } else {
-      try {
-        const stored = localStorage.getItem('v8_active_session');
-        if (stored) {
-          const parsed = JSON.parse(stored) as UserSession;
-          if (parsed && parsed.email) {
-            setUserSession(parsed);
-          }
-        }
-      } catch (e: unknown) { void e; }
+    if (typeof window !== 'undefined' && window.location.search.includes('sso_success=true')) {
+      window.history.replaceState({}, document.title, window.location.pathname);
     }
   }, []);
 
