@@ -2,7 +2,7 @@ export const LANDING_HTML = `<!DOCTYPE html>
 <html lang="pt-BR" data-theme="dark">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <title>Volúpia | Desperte Seus Sentidos — B2B · B2C · B2E</title>
   <meta name="description" content="Volúpia — O prazer sensorial sofisticado que transforma a intimidade em experiência. Ecossistema B2B, B2C e B2E de Sexual Wellness no Brasil.">
   <meta name="theme-color" content="#0d0a0f">
@@ -36,9 +36,12 @@ export const LANDING_HTML = `<!DOCTYPE html>
     
     html, body {
       width: 100%;
-      height: 100%;
-      height: 100dvh;
-      overflow: hidden;
+      min-height: 100%;
+      min-height: 100dvh;
+      overflow-x: hidden;
+      overflow-y: auto;
+      overscroll-behavior-y: auto;
+      -webkit-overflow-scrolling: touch;
     }
 
     body {
