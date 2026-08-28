@@ -8,7 +8,7 @@ interface UserProfileModalProps {
 }
 
 export function UserProfileModal({ onLogout }: UserProfileModalProps): React.ReactElement | null {
-  const { isProfileOpen, toggleProfile, userSession, setUserRole } = useRenderContext();
+  const { isProfileOpen, toggleProfile, userSession, setUserRole, updateUserProfile } = useRenderContext();
   const modalRef = useRef<HTMLDivElement | null>(null);
   const [isFullscreen, setIsFullscreen] = useState(false);
   const [isDarkMode, setIsDarkMode] = useState(() => {
@@ -118,6 +118,7 @@ export function UserProfileModal({ onLogout }: UserProfileModalProps): React.Rea
                         const result = evt.target?.result as string;
                         if (result) {
                           setUserRole(userSession.role, result);
+                          void updateUserProfile(result);
                           triggerHapticFeedback(10);
                         }
                       };

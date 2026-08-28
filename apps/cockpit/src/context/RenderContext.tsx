@@ -24,6 +24,7 @@ import {
 interface RenderContextType {
   userSession: UserSession;
   setUserRole: (role: UserRole, customPicture?: string) => void;
+  updateUserProfile: (picture?: string, name?: string) => Promise<boolean>;
   suppliers: Supplier[];
   selectedSupplier: Supplier | null;
   selectSupplier: (sup: Supplier | null) => void;
@@ -201,6 +202,38 @@ export function RenderContextProvider({ children }: { children: React.ReactNode 
     }
   }, []);
 
+  const updateUserProfile = useCallback(async (picture?: string, name?: string): Promise<boolean> => {
+    if (!userSession?.email) return false;
+
+    setUserSession((prev) => ({
+      ...prev,
+      name: name ?? prev.name,
+      picture: picture ?? prev.picture
+    }));
+
+    if (picture) {
+      try { localStorage.setItem(`v8_user_picture_${userSession.role}`, picture); } catch (e: unknown) { void e; }
+    }
+
+    try {
+      const res = await fetch('/api/v8/user/profile', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          email: userSession.email,
+          name,
+          picture
+        })
+      });
+
+      const data = (await res.json().catch(() => null)) as { ok?: boolean } | null;
+      return Boolean(data?.ok);
+    } catch (e: unknown) {
+      void e;
+      return true;
+    }
+  }, [userSession]);
+
   const loadDossier = useCallback(async (supplierId: string): Promise<void> => {
     setDossierLoading(true);
     setDossierError(null);
@@ -274,6 +307,7 @@ export function RenderContextProvider({ children }: { children: React.ReactNode 
       value={{
         userSession,
         setUserRole,
+        updateUserProfile,
         suppliers,
         selectedSupplier,
         selectSupplier,

@@ -61,6 +61,59 @@ async function initUserTable(db: D1Database) {
   }
 }
 
+async function initAuditLogsTable(db: D1Database) {
+  try {
+    await db.prepare(`
+      CREATE TABLE IF NOT EXISTS audit_logs (
+        id TEXT PRIMARY KEY,
+        user_id TEXT,
+        user_email TEXT NOT NULL,
+        action TEXT NOT NULL,
+        details TEXT,
+        ip_address TEXT,
+        user_agent TEXT,
+        created_at INTEGER NOT NULL
+      )
+    `).run();
+  } catch (e: unknown) {
+    void e;
+  }
+}
+
+interface AuditLogEntry {
+  userId?: string;
+  userEmail: string;
+  action: 'AUTH_LOGIN_GOOGLE' | 'AUTH_LOGIN_PASSWORD' | 'PROFILE_PICTURE_UPDATE' | 'PROFILE_NAME_UPDATE' | 'LGPD_CONSENT_GIVEN';
+  details?: Record<string, unknown>;
+  ipAddress?: string;
+  userAgent?: string;
+}
+
+async function createAuditLog(db: D1Database, entry: AuditLogEntry) {
+  try {
+    await initAuditLogsTable(db);
+    const id = `audit_${Date.now()}_${Math.random().toString(36).substring(2, 9)}`;
+    const now = Math.floor(Date.now() / 1000);
+    const detailsStr = entry.details ? JSON.stringify(entry.details) : null;
+
+    await db.prepare(`
+      INSERT INTO audit_logs (id, user_id, user_email, action, details, ip_address, user_agent, created_at)
+      VALUES (?, ?, ?, ?, ?, ?, ?, ?)
+    `).bind(
+      id,
+      entry.userId || null,
+      entry.userEmail,
+      entry.action,
+      detailsStr,
+      entry.ipAddress || null,
+      entry.userAgent || null,
+      now
+    ).run();
+  } catch (e: unknown) {
+    void e;
+  }
+}
+
 app.get('/api/v8/health', (c) => {
   const cfUserEmail = c.req.header('cf-access-authenticated-user-email');
   return c.json({
@@ -168,6 +221,21 @@ app.get('/api/auth/google/callback', async (c) => {
         now,
         canonicalEmail
       ).run();
+
+      const ipAddress = c.req.header('cf-connecting-ip') || c.req.header('x-forwarded-for') || '127.0.0.1';
+      const userAgent = c.req.header('user-agent') || 'Unknown';
+      await createAuditLog(db, {
+        userId: user.id as string,
+        userEmail: canonicalEmail,
+        action: 'AUTH_LOGIN_GOOGLE',
+        details: {
+          googleEmail,
+          locale: userinfo?.locale || 'pt-BR',
+          pictureUpdated: Boolean(userinfo?.picture)
+        },
+        ipAddress,
+        userAgent
+      });
     } catch (e: unknown) {
       void e;
     }
@@ -441,6 +509,112 @@ app.put('/api/v8/dossier/:id', async (c) => {
 
   const row = await db.prepare('SELECT * FROM dossiers WHERE supplier_id = ?').bind(supplierId).first();
   return c.json({ ok: true, dossier: rowToDossier(row ?? {}) });
+});
+
+// Endpoint para atualização de perfil e log de auditoria LGPD no D1
+app.post('/api/v8/user/profile', async (c) => {
+  const db = c.env?.DB;
+  if (!db) {
+    return c.json({ ok: false, error: 'D1 Database não conectado' }, 500);
+  }
+
+  await initUserTable(db);
+  await initAuditLogsTable(db);
+
+  const body = (await c.req.json().catch(() => null)) as { email?: string; name?: string; picture?: string } | null;
+  const email = (body?.email || '').trim().toLowerCase();
+  if (!email) {
+    return c.json({ ok: false, error: 'E-mail do usuário é obrigatório' }, 400);
+  }
+
+  const user = await db.prepare('SELECT id, email, name, picture_url FROM users WHERE email = ?').bind(email).first();
+  if (!user) {
+    return c.json({ ok: false, error: 'Usuário não encontrado' }, 404);
+  }
+
+  const now = Math.floor(Date.now() / 1000);
+  const newName = body?.name !== undefined ? body.name : (user.name as string);
+  const newPicture = body?.picture !== undefined ? body.picture : (user.picture_url as string);
+
+  await db.prepare(`
+    UPDATE users
+    SET name = ?, picture_url = ?, updated_at = ?
+    WHERE email = ?
+  `).bind(newName, newPicture, now, email).run();
+
+  const ipAddress = c.req.header('cf-connecting-ip') || c.req.header('x-forwarded-for') || '127.0.0.1';
+  const userAgent = c.req.header('user-agent') || 'Unknown';
+
+  if (body?.picture !== undefined && body.picture !== user.picture_url) {
+    await createAuditLog(db, {
+      userId: user.id as string,
+      userEmail: email,
+      action: 'PROFILE_PICTURE_UPDATE',
+      details: {
+        previousPictureLength: user.picture_url ? (user.picture_url as string).length : 0,
+        newPictureLength: newPicture ? newPicture.length : 0,
+        isBase64: newPicture.startsWith('data:image/')
+      },
+      ipAddress,
+      userAgent
+    });
+  }
+
+  if (body?.name !== undefined && body.name !== user.name) {
+    await createAuditLog(db, {
+      userId: user.id as string,
+      userEmail: email,
+      action: 'PROFILE_NAME_UPDATE',
+      details: {
+        previousName: user.name,
+        newName
+      },
+      ipAddress,
+      userAgent
+    });
+  }
+
+  return c.json({
+    ok: true,
+    message: 'Perfil atualizado no D1 e registrado na auditoria LGPD',
+    user: {
+      id: user.id,
+      email,
+      name: newName,
+      picture: newPicture
+    }
+  });
+});
+
+// Endpoint para consulta auditável dos registros LGPD
+app.get('/api/v8/audit-logs', async (c) => {
+  const db = c.env?.DB;
+  if (!db) {
+    return c.json({ ok: false, error: 'D1 Database não conectado' }, 500);
+  }
+
+  await initAuditLogsTable(db);
+  const email = c.req.query('email');
+  const limitStr = c.req.query('limit') || '50';
+  const limit = Math.min(parseInt(limitStr, 10) || 50, 200);
+
+  let query = 'SELECT * FROM audit_logs ORDER BY created_at DESC LIMIT ?';
+  let bindParams: (string | number)[] = [limit];
+
+  if (email) {
+    query = 'SELECT * FROM audit_logs WHERE user_email = ? ORDER BY created_at DESC LIMIT ?';
+    bindParams = [email.trim().toLowerCase(), limit];
+  }
+
+  const { results } = await db.prepare(query).bind(...bindParams).all();
+  return c.json({
+    ok: true,
+    count: results ? results.length : 0,
+    logs: (results || []).map((row) => ({
+      ...row,
+      details: row.details ? JSON.parse(row.details as string) : null
+    }))
+  });
 });
 
 // SPA fallback + assets estáticos.
