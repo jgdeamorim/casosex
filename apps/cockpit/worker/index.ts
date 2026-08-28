@@ -636,13 +636,25 @@ app.all('*', async (c) => {
     try {
       const res = await c.env.ASSETS.fetch(c.req.raw);
       if (res.status !== 404) {
+        if (url.pathname === '/' || url.pathname === '/index.html' || url.pathname === '/login') {
+          const newRes = new Response(res.body, res);
+          newRes.headers.set('Cache-Control', 'no-store, no-cache, must-revalidate, proxy-revalidate');
+          newRes.headers.set('Pragma', 'no-cache');
+          newRes.headers.set('Expires', '0');
+          return newRes;
+        }
         return res;
       }
     } catch (e: unknown) {
       void e;
     }
     const indexUrl = new URL('/index.html', c.req.url);
-    return c.env.ASSETS.fetch(new Request(indexUrl.toString(), { method: c.req.method }));
+    const res = await c.env.ASSETS.fetch(new Request(indexUrl.toString(), { method: c.req.method }));
+    const newRes = new Response(res.body, res);
+    newRes.headers.set('Cache-Control', 'no-store, no-cache, must-revalidate, proxy-revalidate');
+    newRes.headers.set('Pragma', 'no-cache');
+    newRes.headers.set('Expires', '0');
+    return newRes;
   }
   return c.text('Not Found', 404);
 });
