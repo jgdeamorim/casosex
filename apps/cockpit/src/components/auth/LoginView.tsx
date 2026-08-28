@@ -32,26 +32,26 @@ export function LoginView({ onSuccess }: LoginViewProps): React.ReactElement {
       const res = await fetch('/api/v8/auth/login', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ provider: 'google_oauth', email: 'jeferson@volupia.com.br' })
+        body: JSON.stringify({ provider: 'google_oauth', email: email || 'jeferson@volupia.com.br' })
       });
-      const data = (await res.json().catch(() => null)) as { ok?: boolean; user?: { role?: UserRole } } | null;
-      if (data?.user?.role) {
+      const data = (await res.json().catch(() => null)) as { ok?: boolean; error?: string; user?: { role?: UserRole; name?: string } } | null;
+
+      if (data?.ok && data?.user?.role) {
         setUserRole(data.user.role);
+        setToastMessage({ text: `✨ Autenticado via Google como ${data.user.name} (${data.user.role.toUpperCase()})!`, type: 'success' });
+        setTimeout(() => {
+          setIsSubmitting(false);
+          onSuccess?.();
+        }, 600);
       } else {
-        setUserRole('founder');
+        setIsSubmitting(false);
+        setToastMessage({ text: data?.error || '❌ E-mail não cadastrado na base D1 para acesso SSO.', type: 'error' });
       }
     } catch (e: unknown) {
       void e;
-      setUserRole('founder');
-    }
-
-    setTimeout(() => {
       setIsSubmitting(false);
-      setToastMessage({ text: '✨ Autenticado via Google com sucesso! Acessando Cockpit...', type: 'success' });
-      setTimeout(() => {
-        onSuccess?.();
-      }, 600);
-    }, 600);
+      setToastMessage({ text: '❌ Erro ao conectar ao serviço de autenticação.', type: 'error' });
+    }
   };
 
   const handleFormLogin = async (e: React.FormEvent) => {
@@ -67,35 +67,30 @@ export function LoginView({ onSuccess }: LoginViewProps): React.ReactElement {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email, passwordHash, provider: 'form_sha256' })
       });
-      const data = (await res.json().catch(() => null)) as { ok?: boolean; user?: { role?: UserRole } } | null;
+      const data = (await res.json().catch(() => null)) as { ok?: boolean; error?: string; user?: { role?: UserRole; name?: string } } | null;
 
-      if (data?.user?.role) {
+      if (data?.ok && data?.user?.role) {
         setUserRole(data.user.role);
+        setToastMessage({
+          text: `✨ Bem-vindo, ${data.user.name}! Nível de acesso: ${data.user.role.toUpperCase()}`,
+          type: 'success'
+        });
+        setTimeout(() => {
+          setIsSubmitting(false);
+          onSuccess?.();
+        }, 800);
       } else {
-        // Auto-assign role by email if DB fallback
-        const lower = email.toLowerCase();
-        if (lower.includes('glaucia') || lower.includes('ops')) {
-          setUserRole('ops');
-        } else if (lower.includes('bruno') || lower.includes('comercial')) {
-          setUserRole('commercial');
-        } else {
-          setUserRole('founder');
-        }
+        setIsSubmitting(false);
+        setToastMessage({
+          text: data?.error || '❌ Credenciais inválidas ou e-mail não cadastrado no D1.',
+          type: 'error'
+        });
       }
     } catch (e: unknown) {
       void e;
-      setUserRole('founder');
+      setIsSubmitting(false);
+      setToastMessage({ text: '❌ Erro ao conectar à base de dados D1.', type: 'error' });
     }
-
-    setIsSubmitting(false);
-    setToastMessage({
-      text: '✨ Autenticação realizada com sucesso! Acessando o Cockpit Volúpia...',
-      type: 'success'
-    });
-
-    setTimeout(() => {
-      onSuccess?.();
-    }, 800);
   };
 
   return (

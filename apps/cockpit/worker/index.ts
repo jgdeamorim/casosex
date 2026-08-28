@@ -56,53 +56,76 @@ app.get('/api/v8/health', (c) => {
   });
 });
 
-// Autenticação Soberana (Cloudflare Zero-Trust SSO + Hash SHA-256 em Banco D1)
+// Autenticação Soberana (Cloudflare Zero-Trust SSO + Hash SHA-256 em Banco D1 volupia-db)
 app.post('/api/v8/auth/login', async (c) => {
   const db = c.env?.DB;
+  if (!db) {
+    return c.json({ ok: false, error: 'D1 Database não conectado' }, 500);
+  }
+
+  await initUserTable(db);
   const cfUserEmail = c.req.header('cf-access-authenticated-user-email');
   const body = (await c.req.json().catch(() => null)) as { email?: string; passwordHash?: string; provider?: string } | null;
 
-  // Cloudflare Zero-Trust SSO Access Assertion Header
+  // 1. Cloudflare Zero-Trust SSO Access Assertion Header
   if (cfUserEmail) {
-    return c.json({
-      ok: true,
-      provider: 'cloudflare_zero_trust',
-      user: { email: cfUserEmail, role: 'founder', name: 'Operador Zero-Trust' }
-    });
-  }
-
-  if (db && body?.email && body?.passwordHash) {
-    try {
-      await initUserTable(db);
-      const user = await db.prepare('SELECT * FROM users WHERE email = ?').bind(body.email.toLowerCase()).first();
-      if (user && user.password_hash === body.passwordHash) {
-        return c.json({
-          ok: true,
-          provider: 'd1_sha256',
-          user: { id: user.id, email: user.email, role: user.role, name: user.name }
-        });
-      }
-    } catch (e: unknown) {
-      void e;
+    const user = await db.prepare('SELECT id, email, role, name FROM users WHERE email = ?').bind(cfUserEmail.toLowerCase()).first();
+    if (user) {
+      return c.json({
+        ok: true,
+        provider: 'cloudflare_zero_trust',
+        user: { id: user.id, email: user.email, role: user.role, name: user.name }
+      });
     }
   }
 
-  const email = body?.email?.toLowerCase() || 'jeferson@volupia.com.br';
-  let role = 'founder';
-  let name = 'Jeferson Amorim';
-  if (email.includes('glaucia') || email.includes('ops')) {
-    role = 'ops';
-    name = 'Gláucia Michaella';
-  } else if (email.includes('bruno') || email.includes('comercial')) {
-    role = 'commercial';
-    name = 'Bruno Amin';
+  const email = (body?.email || '').trim().toLowerCase();
+
+  // 2. Google OAuth SSO Provider (valida contra a tabela users do D1)
+  if (body?.provider === 'google_oauth') {
+    const searchEmail = email || 'jeferson@volupia.com.br';
+    const user = await db.prepare('SELECT id, email, role, name FROM users WHERE email = ?').bind(searchEmail).first();
+    if (user) {
+      return c.json({
+        ok: true,
+        provider: 'google_oauth_d1',
+        user: { id: user.id, email: user.email, role: user.role, name: user.name }
+      });
+    }
+    return c.json({ ok: false, error: 'E-mail não autorizado no banco D1' }, 403);
   }
 
-  return c.json({
-    ok: true,
-    provider: body?.provider || 'soberano_auth',
-    user: { email, role, name }
-  });
+  if (!email) {
+    return c.json({ ok: false, error: 'E-mail corporativo ou CNPJ é obrigatório' }, 400);
+  }
+
+  // 3. Email + Hash SHA-256 em D1
+  if (body?.passwordHash) {
+    const user = await db.prepare('SELECT id, email, role, name FROM users WHERE email = ? AND password_hash = ?')
+      .bind(email, body.passwordHash)
+      .first();
+
+    if (user) {
+      return c.json({
+        ok: true,
+        provider: 'd1_sha256',
+        user: { id: user.id, email: user.email, role: user.role, name: user.name }
+      });
+    }
+    return c.json({ ok: false, error: 'Credenciais inválidas ou senha incorreta' }, 401);
+  }
+
+  // 4. Busca direta no D1 por e-mail
+  const user = await db.prepare('SELECT id, email, role, name FROM users WHERE email = ?').bind(email).first();
+  if (user) {
+    return c.json({
+      ok: true,
+      provider: 'd1_db',
+      user: { id: user.id, email: user.email, role: user.role, name: user.name }
+    });
+  }
+
+  return c.json({ ok: false, error: 'Usuário não cadastrado na base D1' }, 404);
 });
 
 // Todos os overrides de status persistidos (deltas sobre suppliers.json).
