@@ -1,15 +1,15 @@
 # VOLÚPIA · Coding SOP — TypeScript + Módulos Puros + UI
 
 > ⚠️ **LEIA ANTES de editar qualquer componente (.tsx) OU módulo .ts.**
-> Fontes: SOP v3.0 Canônico + SWC Rules + TypeScript ESLint Canonical Rules
-> v3.0 · 2026-08-13 — Instanciação Soberana para o projeto VOLÚPIA
+> Fontes: SOP v3.3 Canônico + Antigravity-Router MCP + SWC Rules + TypeScript ESLint Canonical Rules
+> v3.3 · 2026-08-28 — Instanciação Soberana com App-Jury & Antigravity-Router (ADR-0210)
 
 ---
 
-## I. Ciclo de Codificação (SOP v3.0)
+## I. Ciclo de Codificação (SOP v3.3)
 
 ```
-1. DAG (volupia-dag / casosex-dag) → 2. Coda com regras → 3. Validate (tsc) → 4. Commit
+1. DAG (volupia-dag / casosex-dag) → 2. Coda (Antigravity-Router oxc) → 3. Validate (App-Jury 6D) → 4. Commit
 ```
 
 ### 1. Pré-flight — DAG + Grounding
@@ -27,7 +27,7 @@ Antes de codar, executar grounding no Qdrant/Filesystem via skill `/volupia-dag`
 
 ### 3. Check & Commit
 ```bash
-npx tsc --noEmit
+python3 tools/validate_spec_to_cockpit_quality.py
 git add . && git commit -m "type: descrição"
 ```
 
@@ -49,15 +49,37 @@ git add . && git commit -m "type: descrição"
 
 1. **Descoberta via Context7**: Todo julgamento de padrão deve ser recuperado via Context7 a partir de especificações normativas formais (`docs/spec/design-patterns/*.yaml`).
 2. **Contrato de Alinhamento de Cabeçalhos (`UI-PATTERN-FORM-HEADER`)**:
-   - Cabeçalhos desktop (`>= 640px`) DEVEM alinhar título e badges de ação horizontalmente (`flex-row items-center justify-between`). É proibido empilhar badges com `flex-col items-end` em cabeçalhos principais desktop.
+   - Cabeçalhos desktop (`>= 640px`) DEVEM alinhar título e badges de ação horizontalmente (`flex-row items-center justify-between`).
 3. **Contrato de Tabelas B2B High-Density (`UI-PATTERN-DATA-TABLE`)**:
-   - Segue padrão IBM Carbon (5 densidades, células verticalmente centralizadas `items-center` / `align-middle`, destaque de linha `hover:bg-muted/20`, acessibilidade `role="table"` e suporte a navegação por teclado).
+   - Segue padrão IBM Carbon (5 densidades, células verticalmente centralizadas `items-center` / `align-middle`, destaque de linha `hover:bg-muted/20`).
 4. **Contrato de Indicadores de Status (`UI-PATTERN-STATUS-INDICATOR`)**:
    - Badges de status DEVEM combinar indicador visual (dot de pulso `<span className="w-2 h-2 rounded-full animate-pulse" />`) com texto e `role="status"` WAI-ARIA.
-5. **Multi-Jury Enforcement**:
-   - **AST Jury** (sub-milissegundo no dev-loop) $\rightarrow$ **DOM/ARIA Jury** (pre-push/PR) $\rightarrow$ **Visual Jury** (PR/CI com Playwright).
 
 ---
 
-*v3.2 · VOLÚPIA · Especificação de SOP Técnica & Governança Normativa B2B*
+## IV. Engate Automático do App-Jury em `worktree mode:mobile`
 
+Quando o modo de viewport ou contexto for alterado para `mode:mobile`, a SOP v3.3 ativa automaticamente o **`App-Jury v1.0`**:
+
+1. **Gate das 6 Dimensões (6D Critique Theater)**:
+   - Visual Parity ($\ge 95\%$ SSIM / OKLCH)
+   - Ergonomia Tátil (Touch Targets $\ge 44\text{px}$, Radius 24px)
+   - Hydration Safety (`useSyncExternalStore` + `AXAResponsiveSwitch`)
+   - Latência GPU Vulkan/Skia ($P50 \le 16.6\text{ms}$ / 60 FPS)
+   - ViewModel Cleanliness (Zero regra de negócio em JSX)
+   - Acessibilidade WCAG 2.2 AA (APCA Contrast $\ge 7:1$)
+
+---
+
+## V. Integração Soberana com Antigravity-Router (`adsentice-router-dev`)
+
+O ciclo de desenvolvimento utiliza as ferramentas de aceleração compilada em Rust do `adsentice-router-dev`:
+
+1. **Fast-Path AST Validation (`adsentice_ast_validate`)**: Valida sintaxe TS/TSX via parser `oxc` em $< 0.8\text{ms}$ antes de registrar alterações.
+2. **Intent-Driven Patching (`adsentice_d_ips_apply`)**: LLM emite `IntentPatchSpec` em JSON compacto, aplicando edições cirúrgicas no código local (economia de $> 92\%$ em tokens).
+3. **Substrato Tri-Layer (`adsentice_tri_layer_ingest` / `lookup`)**: Separação de Skeleton (interfaces/assinaturas) e Values (design tokens).
+4. **Validação Cryptográfica FCE (`adsentice_fce_validate`)**: Garantia de integridade do contrato e checksums BLAKE3.
+
+---
+
+*v3.3 · VOLÚPIA / CASOSEX · SOP de Engenharia & Governança Antigravity-Router (ADR-0210)*
