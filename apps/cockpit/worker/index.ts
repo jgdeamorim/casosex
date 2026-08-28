@@ -128,7 +128,54 @@ app.post('/api/v8/auth/login', async (c) => {
   return c.json({ ok: false, error: 'Usuário não cadastrado na base D1' }, 404);
 });
 
-// Todos os overrides de status persistidos (deltas sobre suppliers.json).
+// Busca fornecedores 100% dinâmico da tabela 'suppliers' do Cloudflare D1
+app.get('/api/v8/suppliers', async (c) => {
+  const db = c.env?.DB;
+  if (!db) return c.json([]);
+
+  try {
+    const res = await db.prepare(`
+      SELECT 
+        s.id, s.place_id, s.name, s.trade_name, s.cnpj, s.category, s.subcategory,
+        s.address, s.city, s.state, s.zip_code, s.latitude, s.longitude, s.phone,
+        s.whatsapp, s.email, s.website, s.gmb_url, s.rating, s.reviews_count,
+        COALESCE(st.status, s.status, 'VISITA_PENDENTE') AS status
+      FROM suppliers s
+      LEFT JOIN supplier_status st ON s.id = st.supplier_id
+    `).all();
+
+    const suppliers = (res.results ?? []).map(r => ({
+      id: r.id,
+      place_id: r.place_id,
+      name: r.name,
+      trade_name: r.trade_name,
+      cnpj: r.cnpj,
+      category: r.category,
+      subcategory: r.subcategory,
+      address: r.address,
+      city: r.city,
+      state: r.state,
+      zip_code: r.zip_code,
+      latitude: r.latitude == null ? null : Number(r.latitude),
+      longitude: r.longitude == null ? null : Number(r.longitude),
+      phone: r.phone,
+      whatsapp: r.whatsapp,
+      email: r.email,
+      website: r.website,
+      gmb_url: r.gmb_url,
+      rating: r.rating == null ? 0 : Number(r.rating),
+      reviews_count: r.reviews_count == null ? 0 : Number(r.reviews_count),
+      status: r.status
+    }));
+
+    return c.json(suppliers);
+  } catch (e: unknown) {
+    void e;
+    return c.json({ error: 'Erro ao buscar fornecedores do D1' }, 500);
+  }
+});
+
+// Todos os overrides de status persistidos (deltas sobre suppliers).
 app.get('/api/v8/status', async (c) => {
   const db = c.env?.DB;
   if (!db) return c.json({ overrides: [] });

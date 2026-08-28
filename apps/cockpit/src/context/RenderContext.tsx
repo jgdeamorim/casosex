@@ -49,12 +49,12 @@ interface RenderContextType {
   saveDossier: (input: DossierInput) => Promise<boolean>;
 }
 
-const defaultSession: UserSession = {
+  const defaultSession: UserSession = {
   id: 'usr_1',
   name: 'Jeferson Amorim',
   role: 'founder',
   avatar: 'JA',
-  email: 'jeferson@volupia.com.br',
+  email: 'jeferson@usevolupia.com.br',
   scopePermissions: ['all', 'admin', 'homologation', 'quotes', 'chat']
 };
 
@@ -109,7 +109,7 @@ export function RenderContextProvider({ children }: { children: React.ReactNode 
     setIsLoading(true);
     setLoadError(null);
     try {
-      const resp = await fetch('/suppliers.json');
+      const resp = await fetch('/api/v8/suppliers');
       if (!resp.ok) {
         throw new Error(`Falha ao carregar catálogo (HTTP ${resp.status})`);
       }
@@ -169,7 +169,7 @@ export function RenderContextProvider({ children }: { children: React.ReactNode 
         name: 'Jeferson Amorim',
         role: 'founder',
         avatar: 'JA',
-        email: 'jeferson@volupia.com.br',
+        email: 'jeferson@usevolupia.com.br',
         scopePermissions: ['all', 'admin', 'homologation', 'quotes', 'chat']
       });
     } else if (role === 'ops') {
@@ -178,7 +178,7 @@ export function RenderContextProvider({ children }: { children: React.ReactNode 
         name: 'Gláucia Michaella',
         role: 'ops',
         avatar: 'GM',
-        email: 'glaucia@volupia.com.br',
+        email: 'glaucia@usevolupia.com.br',
         scopePermissions: ['homologation', 'chat']
       });
     } else {
@@ -187,7 +187,7 @@ export function RenderContextProvider({ children }: { children: React.ReactNode 
         name: 'Bruno Amin',
         role: 'commercial',
         avatar: 'BA',
-        email: 'bruno@volupia.com.br',
+        email: 'bruno@usevolupia.com.br',
         scopePermissions: ['quotes', 'chat']
       });
     }
