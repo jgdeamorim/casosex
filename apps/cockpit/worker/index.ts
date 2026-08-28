@@ -79,11 +79,26 @@ app.post('/api/v8/auth/login', async (c) => {
     }
   }
 
-  const email = (body?.email || '').trim().toLowerCase();
+  const rawEmail = (body?.email || '').trim().toLowerCase();
+
+  // Whitelist soberana de autorização (apenas Jeferson Amorim e Gláucia Michaella)
+  const AUTHORIZED_USERS: Record<string, string> = {
+    'jeferson@usevolupia.com.br': 'jeferson@usevolupia.com.br',
+    'jeferson@volupia.com.br': 'jeferson@usevolupia.com.br',
+    'hypersizemultimidia@gmail.com': 'jeferson@usevolupia.com.br',
+    'glaucia@usevolupia.com.br': 'glaucia@usevolupia.com.br',
+    'glaucia@volupia.com.br': 'glaucia@usevolupia.com.br',
+    'enf.glauciamichaella@gmail.com': 'glaucia@usevolupia.com.br'
+  };
+
+  const canonicalEmail = rawEmail ? AUTHORIZED_USERS[rawEmail] : undefined;
 
   // 2. Google OAuth SSO Provider (valida contra a tabela users do D1)
   if (body?.provider === 'google_oauth') {
-    const searchEmail = email || 'jeferson@volupia.com.br';
+    const searchEmail = canonicalEmail || (rawEmail ? undefined : 'jeferson@usevolupia.com.br');
+    if (!searchEmail) {
+      return c.json({ ok: false, error: 'E-mail não autorizado nos segredos D1 (.secrets/.evn.GOOGLE-SHEETS)' }, 403);
+    }
     const user = await db.prepare('SELECT id, email, role, name FROM users WHERE email = ?').bind(searchEmail).first();
     if (user) {
       return c.json({
@@ -92,17 +107,21 @@ app.post('/api/v8/auth/login', async (c) => {
         user: { id: user.id, email: user.email, role: user.role, name: user.name }
       });
     }
-    return c.json({ ok: false, error: 'E-mail não autorizado no banco D1' }, 403);
+    return c.json({ ok: false, error: 'E-mail não autorizado nos segredos D1 (.secrets/.evn.GOOGLE-SHEETS)' }, 403);
   }
 
-  if (!email) {
+  if (!rawEmail) {
     return c.json({ ok: false, error: 'E-mail corporativo ou CNPJ é obrigatório' }, 400);
+  }
+
+  if (!canonicalEmail) {
+    return c.json({ ok: false, error: 'E-mail não autorizado nos segredos D1 (.secrets/.evn.GOOGLE-SHEETS)' }, 403);
   }
 
   // 3. Email + Hash SHA-256 em D1
   if (body?.passwordHash) {
     const user = await db.prepare('SELECT id, email, role, name FROM users WHERE email = ? AND password_hash = ?')
-      .bind(email, body.passwordHash)
+      .bind(canonicalEmail, body.passwordHash)
       .first();
 
     if (user) {
@@ -116,7 +135,7 @@ app.post('/api/v8/auth/login', async (c) => {
   }
 
   // 4. Busca direta no D1 por e-mail
-  const user = await db.prepare('SELECT id, email, role, name FROM users WHERE email = ?').bind(email).first();
+  const user = await db.prepare('SELECT id, email, role, name FROM users WHERE email = ?').bind(canonicalEmail).first();
   if (user) {
     return c.json({
       ok: true,
@@ -125,7 +144,7 @@ app.post('/api/v8/auth/login', async (c) => {
     });
   }
 
-  return c.json({ ok: false, error: 'Usuário não cadastrado na base D1' }, 404);
+  return c.json({ ok: false, error: 'E-mail não autorizado nos segredos D1 (.secrets/.evn.GOOGLE-SHEETS)' }, 403);
 });
 
 // Busca fornecedores 100% dinâmico da tabela 'suppliers' do Cloudflare D1

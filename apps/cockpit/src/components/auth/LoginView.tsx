@@ -45,7 +45,7 @@ export function LoginView({ onSuccess }: LoginViewProps): React.ReactElement {
         }, 600);
       } else {
         setIsSubmitting(false);
-        setToastMessage({ text: data?.error || '❌ E-mail não cadastrado na base D1 para acesso SSO.', type: 'error' });
+        setToastMessage({ text: data?.error || '❌ E-mail não autorizado nos segredos D1 (.secrets/.evn.GOOGLE-SHEETS)', type: 'error' });
       }
     } catch (e: unknown) {
       void e;
@@ -82,7 +82,7 @@ export function LoginView({ onSuccess }: LoginViewProps): React.ReactElement {
       } else {
         setIsSubmitting(false);
         setToastMessage({
-          text: data?.error || '❌ Credenciais inválidas ou e-mail não cadastrado no D1.',
+          text: data?.error || '❌ E-mail não autorizado nos segredos D1 (.secrets/.evn.GOOGLE-SHEETS)',
           type: 'error'
         });
       }
