@@ -6,6 +6,7 @@ import { componentsRouter } from "./routes/components.js";
 import { configRouter } from "./routes/config.js";
 import { flowsRouter } from "./routes/flows.js";
 import { mcpRouter } from "./routes/mcp.js";
+import { a2aRouter } from "./routes/a2a.js";
 
 const app = new Hono();
 
@@ -26,12 +27,14 @@ app.route("/api/v1", authRouter);
 app.route("/api/v1", componentsRouter);
 app.route("/api/v1", flowsRouter);
 app.route("/api/v1", mcpRouter);
+app.route("/api/v1/a2a", a2aRouter);
 
 app.route("/", configRouter);
 app.route("/", authRouter);
 app.route("/", componentsRouter);
 app.route("/", flowsRouter);
 app.route("/", mcpRouter);
+app.route("/a2a", a2aRouter);
 
 // Fail-soft fallback route: return [] for GET requests to ensure .map() on list queries never crashes React
 app.all("*", (c) => {
