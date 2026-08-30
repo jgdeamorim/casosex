@@ -3,6 +3,7 @@ import {
   deleteFlowFromD1,
   deleteMemoryFromD1,
   deleteVariableFromD1,
+  logTelemetryToD1,
   syncFlowToD1,
   syncMemoryToD1,
   syncProjectToD1,
@@ -288,4 +289,96 @@ export async function deleteMemoryFromRedis(id: string) {
     return false;
   }
 }
+
+// Sovereign Active Telemetry & BOA Score Recalculator
+export interface TelemetryEventPayload {
+  event_type: string; // 'run_flow', 'execute_component', 'build_vertices', 'exception', 'vastai_render'
+  flow_id?: string;
+  component_name?: string;
+  duration_ms?: number;
+  success?: boolean;
+  error_message?: string;
+  user_id?: string;
+  metadata?: Record<string, unknown>;
+}
+
+export async function recordSovereignTelemetry(event: TelemetryEventPayload) {
+  try {
+    const timestamp = new Date().toISOString();
+    const eventType = event.event_type || "UNKNOWN";
+    const flowId = event.flow_id || "global";
+    const compName = event.component_name || "core";
+    const durationMs = event.duration_ms || 0;
+    const isSuccess = event.success !== false;
+
+    // 1. Record in Redis Stream & Key Metrics
+    const metricKey = `casosex:volupia:metrics:flow:${flowId}`;
+    const nodeMetricKey = `casosex:volupia:metrics:node:${compName}`;
+    const oodaObserveKey = `casosex:volupia:ooda:stage:observe`;
+    const boaScoreKey = `casosex:volupia:boa:score`;
+
+    await redis.hincrby(metricKey, "total_calls", 1);
+    if (!isSuccess) {
+      await redis.hincrby(metricKey, "failed_calls", 1);
+      await redis.set(`casosex:volupia:telemetry:last_error`, JSON.stringify({ event, timestamp }));
+    } else {
+      await redis.hincrby(metricKey, "successful_calls", 1);
+    }
+    await redis.hset(nodeMetricKey, "last_duration_ms", durationMs.toString());
+    await redis.hset(nodeMetricKey, "last_seen", timestamp);
+
+    // 2. Recalculate BOA Affective Score
+    const currentScoreRaw = await redis.get(boaScoreKey);
+    let currentScore = currentScoreRaw ? parseFloat(currentScoreRaw) : 95.0;
+    if (isSuccess && durationMs < 500) {
+      currentScore = Math.min(100.0, currentScore + 0.5);
+    } else if (!isSuccess) {
+      currentScore = Math.max(0.0, currentScore - 5.0);
+    } else if (durationMs > 3000) {
+      currentScore = Math.max(0.0, currentScore - 2.0);
+    }
+    await redis.set(boaScoreKey, currentScore.toFixed(2));
+
+    // 3. Update OODA Stage Observe
+    await redis.set(oodaObserveKey, `Active Telemetry: Event ${eventType} for flow ${flowId} (${durationMs}ms) | BOA: ${currentScore.toFixed(2)}`);
+
+    // 4. Asynchronous Dual-Sync to Cloudflare D1
+    void logTelemetryToD1(event).catch(() => {});
+
+    return {
+      success: true,
+      boa_score: currentScore,
+      recorded_at: timestamp,
+    };
+  } catch (e: unknown) {
+    void e;
+    void logTelemetryToD1(event).catch(() => {});
+    return { success: false, boa_score: 95.0, recorded_at: new Date().toISOString() };
+  }
+}
+
+export async function getSovereignTelemetryStatus() {
+  try {
+    const boaScore = (await redis.get(`casosex:volupia:boa:score`)) || "95.00";
+    const oodaStage = (await redis.get(`casosex:volupia:ooda:stage:observe`)) || "Observação ativa";
+    const lastError = await redis.get(`casosex:volupia:telemetry:last_error`);
+    return {
+      status: "active",
+      sovereign_mode: "air_gapped",
+      boa_score: parseFloat(boaScore),
+      ooda_observe: oodaStage,
+      last_error: lastError ? JSON.parse(lastError) : null,
+    };
+  } catch (e: unknown) {
+    void e;
+    return {
+      status: "active",
+      sovereign_mode: "air_gapped",
+      boa_score: 95.0,
+      ooda_observe: "Standby",
+      last_error: null,
+    };
+  }
+}
+
 

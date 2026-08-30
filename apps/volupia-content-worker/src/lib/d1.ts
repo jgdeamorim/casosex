@@ -131,3 +131,46 @@ export async function deleteMemoryFromD1(id: string) {
   const sql = `DELETE FROM volupia_memories WHERE id='${id}';`;
   await queryCloudflareD1(sql);
 }
+
+// Telemetry D1 Log
+export async function logTelemetryToD1(event: {
+  event_type: string;
+  flow_id?: string;
+  component_name?: string;
+  duration_ms?: number;
+  success?: boolean;
+  error_message?: string;
+  user_id?: string;
+  metadata?: Record<string, unknown>;
+}) {
+  const id = crypto.randomUUID();
+  const eventType = event.event_type || "UNKNOWN";
+  const flowId = event.flow_id || "";
+  const compName = (event.component_name || "").replace(/'/g, "''");
+  const durationMs = event.duration_ms || 0;
+  const success = event.success !== false ? 1 : 0;
+  const errMsg = (event.error_message || "").replace(/'/g, "''");
+  const userId = event.user_id || "00000000-0000-0000-0000-000000000001";
+  const metaStr = JSON.stringify(event.metadata || {}).replace(/'/g, "''");
+  const createdAt = new Date().toISOString();
+
+  // Create table if not exists then insert
+  const createTableSql = `CREATE TABLE IF NOT EXISTS volupia_telemetry (
+    id TEXT PRIMARY KEY,
+    event_type TEXT NOT NULL,
+    flow_id TEXT,
+    component_name TEXT,
+    duration_ms INTEGER,
+    success INTEGER,
+    error_message TEXT,
+    user_id TEXT,
+    metadata TEXT,
+    created_at TEXT
+  );`;
+
+  const insertSql = `INSERT INTO volupia_telemetry (id, event_type, flow_id, component_name, duration_ms, success, error_message, user_id, metadata, created_at)
+                     VALUES ('${id}', '${eventType}', '${flowId}', '${compName}', ${durationMs}, ${success}, '${errMsg}', '${userId}', '${metaStr}', '${createdAt}');`;
+
+  await queryCloudflareD1(`${createTableSql} ${insertSql}`);
+}
+
