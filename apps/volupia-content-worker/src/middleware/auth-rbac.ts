@@ -1,5 +1,5 @@
 import type { Context, Next } from "hono";
-import type { AuthenticatedUser, UserRole } from "../../../cockpit/src/types/content-os.js";
+import type { AuthenticatedUser, UserRole } from "../types/content-os.js";
 
 // Extend Hono Context Variables
 declare module "hono" {

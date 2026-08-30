@@ -1,6 +1,6 @@
 import { Hono } from 'hono';
 import { authMiddleware, requireRole } from '../middleware/auth-rbac.js';
-import type { CharacterEntity } from '../../../cockpit/src/types/content-os.js';
+import type { CharacterEntity } from '../types/content-os.js';
 
 type D1Database = any;
 

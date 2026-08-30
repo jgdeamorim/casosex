@@ -1,4 +1,4 @@
-import type { ContentMetrics } from '../../../cockpit/src/types/content-os.js';
+import type { ContentMetrics } from '../types/content-os.js';
 
 interface VectorPointPayload {
   kind: string;

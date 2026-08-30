@@ -1,5 +1,5 @@
 import { Redis } from 'ioredis';
-import type { ContentEvent } from '../../../cockpit/src/types/content-os.js';
+import type { ContentEvent } from '../types/content-os.js';
 
 let redisInstance: InstanceType<typeof Redis> | null = null;
 let isRedisAvailable = true;

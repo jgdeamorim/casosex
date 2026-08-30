@@ -1,6 +1,6 @@
 import { Hono } from 'hono';
 import { authMiddleware } from '../middleware/auth-rbac.js';
-import type { ContentEvent, ContentMetrics } from '../../../cockpit/src/types/content-os.js';
+import type { ContentEvent, ContentMetrics } from '../types/content-os.js';
 import { publishOodaEvent } from '../lib/redisClient.js';
 import { vectorizeHighConversionPost } from '../lib/vectorService.js';
 

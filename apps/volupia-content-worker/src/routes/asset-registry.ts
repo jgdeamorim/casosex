@@ -1,6 +1,6 @@
 import { Hono } from 'hono';
 import { authMiddleware } from '../middleware/auth-rbac.js';
-import type { AssetGeneration } from '../../../cockpit/src/types/content-os.js';
+import type { AssetGeneration } from '../types/content-os.js';
 
 type D1Database = {
   prepare(query: string): {
