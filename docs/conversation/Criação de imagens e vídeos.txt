@@ -1,0 +1,1828 @@
+Criação de imagens e vídeos 9:16 para postagens Automáticas Instagram, X;
+genini + uma espécie de flow estilo n8n para fluxos de geração com MCP e Prompts com a imagem de referencia.
+
+========================================
+
+## [ASSISTANT]
+
+Sim. Para o BBQ – Bruno Carioca, eu estruturaria isso como um Content Generation Flow visual, semelhante ao n8n, mas especializado em geração de conteúdo social.
+
+A ideia central seria:
+
+Imagem/personagem de referência → Prompt Engine → Geração 9:16 → Validação → Copy/Hashtags → Publicação → Métricas → Aprendizado
+
+Arquitetura que eu recomendo
+6
+1. Content Flow Builder
+
+Uma interface visual de nós:
+
+[TRIGGER]
+    ↓
+[CAMPAIGN]
+    ↓
+[REFERENCE IMAGE]
+    ↓
+[CHARACTER / BRAND CONTEXT]
+    ↓
+[PROMPT ENGINE]
+    ↓
+[IMAGE GENERATION]
+    ↓
+[VIDEO GENERATION]
+    ↓
+[QUALITY CHECK]
+    ↓
+[CAPTION + HASHTAGS]
+    ↓
+[APPROVAL]
+    ↓
+ ┌───────────────┐
+ ↓               ↓
+[Instagram]     [X]
+ ↓               ↓
+[Metrics]       [Metrics]
+ └───────┬───────┘
+         ↓
+   [LEARNING LOOP]
+
+O diferencial é que o Prompt Engine não seria apenas um campo de texto.
+
+Ele poderia montar o prompt a partir de vários contextos:
+
+BRAND
+ ├── Bruno Carioca
+ ├── BBQ
+ ├── Florida
+ ├── visual identity
+ └── tone of voice
+
+CHARACTER
+ ├── reference images
+ ├── facial characteristics
+ ├── clothing
+ ├── body characteristics
+ └── consistency rules
+
+CAMPAIGN
+ ├── objective
+ ├── audience
+ ├── offer
+ ├── location
+ └── CTA
+
+SCENE
+ ├── environment
+ ├── lighting
+ ├── camera
+ ├── composition
+ └── action
+
+FORMAT
+ ├── 9:16
+ ├── Instagram
+ ├── X
+ └── video/image
+
+Isso permite gerar algo como:
+
+BRUNO_CARIOCA_REFERENCE
+        +
+CAMPAIGN_CONTEXT
+        +
+SCENE_CONTEXT
+        +
+BRAND_RULES
+        +
+PLATFORM_RULES
+        ↓
+   PROMPT COMPILER
+        ↓
+ IMAGE / VIDEO MODEL
+2. MCP como camada de ferramentas
+
+Eu separaria MCP do Flow.
+
+O Flow decide o que fazer.
+
+Os servidores/ferramentas MCP executam como fazer.
+
+Por exemplo:
+
+                    CONTENT FLOW
+                         │
+                 ┌───────┴───────┐
+                 │  MCP Gateway  │
+                 └───────┬───────┘
+                         │
+       ┌─────────────────┼─────────────────┐
+       ↓                 ↓                 ↓
+ Image Generation   Video Generation   Social Publishing
+       │                 │                 │
+       ↓                 ↓                 ↓
+   IMAGE MCP          VIDEO MCP       META/X MCP
+
+Isso deixa o sistema muito mais flexível.
+
+Se amanhã você trocar o modelo de geração de imagem, não precisa reconstruir o fluxo inteiro.
+
+3. Nós que eu criaria inicialmente
+Core
+
+Trigger
+
+Manual Trigger
+
+Schedule
+
+Campaign
+
+Prompt
+
+Reference Image
+
+Reference Character
+
+Generate Image
+
+Generate Video
+
+Transform
+
+Resize
+
+Quality Check
+
+Approval
+
+Publish
+
+Wait
+
+Condition
+
+Webhook
+
+HTTP Request
+
+Social
+
+Instagram Image
+
+Instagram Reel
+
+Instagram Story
+
+X Post
+
+X Media
+
+Google Review
+
+Analytics
+
+IA
+
+LLM
+
+Prompt Compiler
+
+Vision Analysis
+
+Image Consistency
+
+Caption Generator
+
+Hashtag Generator
+
+Content Evaluator
+
+4. A parte mais importante: Reference Image
+
+Para o Bruno, eu não deixaria o usuário simplesmente anexar uma imagem toda vez.
+
+Criaria uma biblioteca:
+
+CHARACTER LIBRARY
+
+Bruno Carioca
+│
+├── Face References
+│   ├── front
+│   ├── 3/4
+│   ├── profile
+│   └── expressions
+│
+├── Full Body
+│
+├── Clothing
+│
+├── BBQ Environment
+│
+└── Approved Generated Images
+
+E cada personagem teria um Character Profile.
+
+Por exemplo:
+
+JSON
+{
+  "character": "Bruno Carioca",
+  "reference_set": [
+    "face_front",
+    "face_3_4",
+    "face_profile"
+  ],
+  "identity_rules": {
+    "preserve_face": true,
+    "preserve_hair": true,
+    "preserve_body": true
+  },
+  "visual_style": {
+    "photorealistic": true,
+    "cinematic": true
+  }
+}
+
+Assim o Flow poderia ter:
+
+[Bruno Carioca]
+       ↓
+[Reference Set]
+       ↓
+[Prompt Compiler]
+       ↓
+[Generate]
+
+em vez de depender de um prompt gigante escrito manualmente.
+
+5. Geração 9:16
+
+Eu trataria 9:16 como um formato nativo do pipeline, não como simples resize posterior.
+
+CONTENT
+  │
+  ├── Instagram
+  │      ├── Feed
+  │      ├── Reel
+  │      └── Story
+  │
+  └── X
+         └── Post
+
+Para geração:
+
+IMAGE
+1080 × 1920
+9:16
+
+VIDEO
+1080 × 1920
+9:16
+
+E o sistema deveria saber automaticamente coisas como:
+
+safe zones;
+
+posição do personagem;
+
+área reservada para texto;
+
+composição;
+
+duração;
+
+thumbnail;
+
+CTA;
+
+legenda;
+
+hashtags.
+
+6. "Prompt com imagem de referência"
+
+Aqui está uma oportunidade muito boa para o projeto.
+
+Em vez de:
+
+"gere um homem fazendo churrasco..."
+
+o sistema poderia montar:
+
+SYSTEM PROMPT
+        +
+BRAND PROMPT
+        +
+CHARACTER IDENTITY
+        +
+REFERENCE IMAGE
+        +
+SCENE PROMPT
+        +
+CAMERA PROMPT
+        +
+LIGHTING
+        +
+PLATFORM FORMAT
+        ↓
+   FINAL PROMPT
+
+E guardar o prompt final + referências + parâmetros + modelo utilizado junto do asset.
+
+Isso cria rastreabilidade.
+
+Exemplo:
+
+Asset #000184
+
+Campaign:
+Summer BBQ Florida
+
+Character:
+Bruno Carioca v1.4
+
+Reference:
+bruno_face_03.jpg
+
+Model:
+Image Generator X
+
+Prompt:
+...
+
+Negative Prompt:
+...
+
+Aspect:
+9:16
+
+Seed:
+...
+
+Generated:
+2026-08-18 18:42
+
+Status:
+APPROVED
+
+Isso será extremamente útil posteriormente para descobrir quais combinações produzem melhores resultados.
+
+7. Flow visual
+
+Eu faria algo próximo disto:
+
+┌─────────────────────────────────────────────┐
+│ BBQ CONTENT FLOW                            │
+├─────────────────────────────────────────────┤
+│                                             │
+│  ○ Schedule                                  │
+│       │                                     │
+│       ▼                                     │
+│  ◇ Campaign                                  │
+│       │                                     │
+│       ▼                                     │
+│  ◉ Bruno Carioca                            │
+│       │                                     │
+│       ▼                                     │
+│  ◎ Reference Images                         │
+│       │                                     │
+│       ▼                                     │
+│  ✦ Prompt Compiler                          │
+│       │                                     │
+│       ├──────────────┐                      │
+│       ▼              ▼                      │
+│   🖼 Image         🎬 Video                 │
+│       │              │                      │
+│       └──────┬───────┘                      │
+│              ▼                              │
+│        ◇ Quality Check                      │
+│              │                              │
+│              ▼                              │
+│        ✦ Caption AI                         │
+│              │                              │
+│              ▼                              │
+│         ◇ Approval                          │
+│          │       │                          │
+│          ▼       ▼                          │
+│      Instagram   X                          │
+│                                             │
+└─────────────────────────────────────────────┘
+
+Cada nó teria:
+
+input;
+
+output;
+
+configuração;
+
+logs;
+
+execution status;
+
+retry;
+
+custo;
+
+tempo de execução;
+
+preview.
+
+8. E eu colocaria uma camada chamada Asset Registry
+
+Isso é importante para o projeto não virar uma pasta cheia de imagens.
+
+ASSET
+│
+├── ID
+├── Campaign
+├── Character
+├── Prompt
+├── Reference Images
+├── Model
+├── Parameters
+├── Generated File
+├── Platform
+├── Status
+├── Approval
+├── Publication
+└── Metrics
+
+Então:
+
+Asset
+   ↓
+Generated
+   ↓
+Approved
+   ↓
+Published
+   ↓
+Performance
+
+O sistema passa a ter memória operacional do conteúdo.
+
+9. O "cérebro" do sistema
+
+Eu criaria um componente:
+
+Prompt Compiler
+
+Ele recebe:
+
+JSON
+{
+  "character": "bruno_carioca",
+  "campaign": "summer_bbq",
+  "scene": "backyard_bbq",
+  "platform": "instagram_reel",
+  "format": "9:16",
+  "reference_images": [
+    "bruno_face_01",
+    "bruno_face_02"
+  ]
+}
+
+e produz:
+
+IDENTITY
++
+SCENE
++
+STYLE
++
+CAMERA
++
+LIGHTING
++
+COMPOSITION
++
+BRAND
++
+PLATFORM
++
+NEGATIVE CONSTRAINTS
+
+Isso é muito mais robusto do que deixar cada workflow ter seu próprio prompt.
+
+10. Stack que eu consideraria
+
+Para o MVP:
+
+Frontend
+   React / Next.js
+
+Flow Editor
+   React Flow
+
+Backend
+   Node.js / TypeScript
+
+Database
+   PostgreSQL
+
+Storage
+   S3-compatible storage
+
+Queue
+   Redis + BullMQ
+
+AI
+   Model adapters
+
+MCP
+   MCP Gateway / Servers
+
+Social
+   Meta Graph API
+   X API
+
+Auth
+   OAuth 2.0
+
+Observability
+   execution logs
+   cost tracking
+   error tracking
+
+E principalmente:
+
+                  BBQ PLATFORM
+                       │
+              ┌────────┴────────┐
+              │                 │
+          FLOW ENGINE       ASSET ENGINE
+              │                 │
+       ┌──────┴──────┐          │
+       │             │          │
+      MCP           AI      STORAGE
+       │             │          │
+       └──────┬──────┘          │
+              │                 │
+         SOCIAL APIs ───────────┘
+11. A visão que eu acho mais interessante para o BBQ
+
+Não faria apenas um "gerador de imagens".
+
+Faria um:
+
+AI Content Operating System
+
+onde você consegue montar:
+
+CAMPAIGN
+   ↓
+CHARACTER
+   ↓
+REFERENCE
+   ↓
+PROMPT
+   ↓
+IMAGE
+   ↓
+VIDEO
+   ↓
+COPY
+   ↓
+APPROVAL
+   ↓
+PUBLICATION
+   ↓
+ANALYTICS
+   ↓
+LEARNING
+   ↺
+
+E o mesmo Flow pode ser reutilizado para:
+
+Instagram
+X
+Facebook
+TikTok
+YouTube Shorts
+Stories
+Ads
+Website
+Google Business
+
+A grande sacada é separar identidade, prompt, geração, publicação e analytics. Assim, quando evoluirmos o personagem Bruno, a identidade visual ou os modelos de IA, não precisamos reescrever o sistema inteiro.
+
+Para o BBQ – Bruno Carioca, eu começaria pelo Flow Engine + Character/Reference Library + Prompt Compiler + Image Generation 9:16. Depois entraria vídeo, publicação automática e, por último, o learning loop baseado nas métricas reais.
+
+========================================
+
+## [ASSISTANT]
+
+Sim. E isso muda um ponto importante do MVP: "Tema → Objetivo → Bruno/referência" está simplificado demais para a arquitetura que você já possui.
+
+No seu caso, a geração de conteúdo deve começar por inteligência de mercado, não pela imagem.
+
+Eu reformularia o pipeline para:
+
+SINAL DE MERCADO
+      ↓
+OBSERVAÇÃO
+      ↓
+CONTEXTO SEMÂNTICO
+      ↓
+INTENÇÃO / OBJETIVO
+      ↓
+HIPÓTESE DE CONTEÚDO
+      ↓
+ESTRATÉGIA
+      ↓
+BRUNO + REFERÊNCIAS
+      ↓
+PROMPT
+      ↓
+GERAÇÃO
+      ↓
+QA
+      ↓
+PUBLICAÇÃO
+      ↓
+MÉTRICAS
+      ↓
+OODA / KG
+      ↺
+
+Isso aproveita muito melhor o que você já construiu.
+
+1. O que você tem é uma vantagem enorme
+
+Seu sistema já possui fontes que podem alimentar o Observe do OODA:
+
+                    MARKET OBSERVATION
+                           │
+       ┌───────────────────┼────────────────────┐
+       ▼                   ▼                    ▼
+   DataForSEO          Instagram MCP       Other MCPs
+       │                   │                    │
+       ▼                   ▼                    ▼
+ Keywords            Posts/comments       External signals
+ SERP                 Engagement           Trends
+ Search intent        Reviews              Competitors
+       │                   │                    │
+       └───────────────────┼────────────────────┘
+                           ▼
+                    OODA-REDIS / KG
+
+E eu acrescentaria:
+
+reviews públicos;
+
+perguntas recorrentes;
+
+comentários;
+
+concorrentes;
+
+termos emergentes;
+
+sazonalidade;
+
+eventos locais;
+
+mudanças de preço/oferta;
+
+padrões de demanda;
+
+conteúdo que está recebendo interação;
+
+lacunas de conteúdo;
+
+dúvidas do público.
+
+Mas com uma regra importante: o sistema deve distinguir sinal, fato, hipótese e decisão. Um comentário isolado não deve virar automaticamente "tendência de mercado".
+
+2. Eu mudaria seu botão "Nova publicação"
+
+Em vez de:
+
+Nova publicação
+
+Tema
+Objetivo
+Bruno / referência
+Prompt
+
+eu faria:
+
+NEW CONTENT OPPORTUNITY
+
+┌─────────────────────────────────────────┐
+│ O que queremos alcançar?                │
+│                                         │
+│ [ Brand Awareness                  ▼ ]  │
+└─────────────────────────────────────────┘
+
+        ↓
+
+┌─────────────────────────────────────────┐
+│ MARKET INTELLIGENCE                     │
+│                                         │
+│ [✓] Search trends                       │
+│ [✓] Social signals                      │
+│ [✓] Reviews                             │
+│ [✓] Competitors                         │
+│ [✓] Existing BBQ knowledge              │
+└─────────────────────────────────────────┘
+
+        ↓
+
+┌─────────────────────────────────────────┐
+│ OPPORTUNITIES                           │
+│                                         │
+│ 12 signals detected                     │
+│ 4 recurring topics                      │
+│ 3 content gaps                          │
+│ 2 high-interest opportunities           │
+└─────────────────────────────────────────┘
+
+        ↓
+
+┌─────────────────────────────────────────┐
+│ CONTENT STRATEGY                        │
+│                                         │
+│ Hypothesis                              │
+│ Audience                                │
+│ Message                                 │
+│ CTA                                     │
+└─────────────────────────────────────────┘
+
+        ↓
+
+        BRUNO / REFERENCES
+
+        ↓
+
+        PROMPT
+
+Isso já começa a parecer uma ferramenta profissional de content intelligence, e não um simples formulário de geração.
+
+3. Seu ADR-0008 entra aqui de maneira interessante
+
+O ADR que você mostrou não é apenas arquitetura de checkout/RH.
+
+Ele revela uma filosofia importante do sistema:
+
+capturar a intenção antes de executar a operação.
+
+Isso pode ser reutilizado no Content Engine.
+
+Você já tem:
+
+Client Intent
+        ↓
+Checkout Stepper
+        ↓
+Business Transaction
+
+Podemos ter:
+
+Content Intent
+        ↓
+Strategy Stepper
+        ↓
+Content Transaction
+
+Então poderíamos ter um Content Opportunity Stepper.
+
+Passo 1 — Intent
+What are we trying to accomplish?
+
+○ Awareness
+○ Engagement
+○ Lead Generation
+○ Service Promotion
+○ Education
+○ Authority
+○ Conversion
+Passo 2 — Market Context
+
+O sistema consulta automaticamente:
+
+DataForSEO
+Instagram
+Reviews
+KG
+Historical Performance
+Passo 3 — Opportunity
+Detected opportunity:
+
+"Brazilian BBQ vs American BBQ"
+
+Evidence:
+- Search demand
+- recurring questions
+- social discussion
+- existing content gap
+Passo 4 — Strategy
+Audience:
+Florida BBQ consumers
+
+Hook:
+"American BBQ isn't the only BBQ in Florida."
+
+Angle:
+Brazilian BBQ experience
+
+CTA:
+Get a Quote
+Passo 5 — Creative
+Bruno
++
+reference set
++
+scene
++
+camera
++
+9:16
+Passo 6 — Generation
+Prompt Compiler
+       ↓
+Seedance / ComfyUI / Higgsfield
+Passo 7 — QA
+Identity
+Brand
+Composition
+Message
+Platform
+Safety
+Passo 8 — Approval
+[Regenerate]
+[Approve]
+Passo 9 — Publication
+Instagram
+Passo 10 — Learning
+Metrics
+  ↓
+OODA
+  ↓
+KG
+4. E aqui eu faria uma separação muito importante
+
+Não misturaria:
+
+Market Signal
+"Há muitos comentários perguntando X."
+
+com:
+
+Market Insight
+"Existe uma recorrência de interesse em X."
+
+com:
+
+Strategic Hypothesis
+"Conteúdo explicando X pode aumentar engagement."
+
+com:
+
+Decision
+"Vamos produzir três variações."
+
+E finalmente:
+
+Outcome
+Variant B teve maior retenção.
+
+No KG:
+
+Signal
+   ↓
+Insight
+   ↓
+Hypothesis
+   ↓
+Experiment
+   ↓
+Outcome
+
+Isso é perfeito para o OODA.
+
+5. Seu KG poderia ter essas entidades
+
+Eu acrescentaria ao modelo semântico:
+
+MarketSignal
+MarketTrend
+Audience
+PainPoint
+Question
+Review
+Competitor
+Keyword
+SearchIntent
+ContentGap
+Hypothesis
+Strategy
+Campaign
+ContentConcept
+Asset
+Publication
+Metric
+Experiment
+Outcome
+
+E relações:
+
+Keyword
+   └── indicates → SearchIntent
+
+Review
+   └── expresses → PainPoint
+
+Comment
+   └── expresses → Question
+
+MarketSignal
+   └── supports → MarketTrend
+
+MarketTrend
+   └── suggests → ContentOpportunity
+
+ContentOpportunity
+   └── produces → Hypothesis
+
+Hypothesis
+   └── tested_by → Experiment
+
+Experiment
+   └── produces → Outcome
+
+Outcome
+   └── updates → Strategy
+
+Isso é muito mais rico do que simplesmente guardar embeddings de posts.
+
+6. E o LLM passa a receber um contexto muito melhor
+
+Em vez de:
+
+"Crie um post sobre BBQ."
+
+o Gemini/DeepSeek recebe algo conceitualmente assim:
+
+INTENT
+Brand awareness
+
+MARKET SIGNALS
+...
+
+SEARCH SIGNALS
+...
+
+SOCIAL SIGNALS
+...
+
+REVIEWS
+...
+
+AUDIENCE
+...
+
+CONTENT GAPS
+...
+
+PAST PERFORMANCE
+...
+
+BRAND RULES
+...
+
+CHARACTER
+Bruno Carioca
+
+PLATFORM
+Instagram Reel
+
+FORMAT
+9:16
+
+E a instrução:
+
+"Proponha uma estratégia de conteúdo baseada nas evidências disponíveis. Diferencie fatos observados de hipóteses. Não trate um sinal isolado como tendência."
+
+Isso é muito mais robusto.
+
+7. Eu adicionaria "Evidence Pack"
+
+Essa é outra pequena peça que acho valiosa.
+
+Antes do LLM criar a estratégia:
+
+Opportunity
+      ↓
+Evidence Collector
+      ↓
+Evidence Pack
+
+Exemplo:
+
+EVIDENCE PACK #00071
+
+Topic:
+Brazilian BBQ
+
+Search:
+12 relevant queries
+
+Social:
+37 relevant discussions
+
+Reviews:
+14 recurring references
+
+Competitors:
+8 observed content patterns
+
+Historical BBQ data:
+...
+
+Confidence:
+0.82
+
+Last updated:
+2026-08-18
+
+Então o agente recebe um pacote de evidências, não dezenas de resultados crus.
+
+Isso reduz contexto e melhora auditabilidade.
+
+8. A decisão de conteúdo fica rastreável
+
+Imagine daqui a seis meses você perguntar:
+
+"Por que o sistema decidiu criar esse Reel?"
+
+Podemos responder:
+
+CONTENT #00182
+
+Intent:
+Brand Awareness
+
+Opportunity:
+Brazilian BBQ education
+
+Evidence:
+- 14 recurring questions
+- 3 keyword clusters
+- 2 competitor gaps
+- 4 historical high-performing posts
+
+Hypothesis:
+Educational comparison increases engagement.
+
+Strategy:
+Create 3 short-form variants.
+
+Creative:
+Bruno + backyard BBQ + 9:16
+
+Result:
+Variant B +31% engagement
+
+Isso é excelente para governança.
+
+9. E seu ADR-0008 pode inspirar o próprio "Content Transaction"
+
+Eu criaria posteriormente algo como:
+
+ADR-00XX: Intent-Driven Content Generation
+
+Com a decisão:
+
+Content generation MUST NOT begin
+directly from media generation.
+
+Every autonomous content operation SHOULD
+pass through:
+
+Intent
+→ Evidence
+→ Strategy
+→ Creative
+→ Generation
+→ Evaluation
+→ Approval
+→ Publication
+→ Measurement
+
+Isso seria uma regra central do BBQ Content OS.
+
+Portanto, eu mudaria o MVP
+
+Em vez de:
+
+Nova publicação
+ ↓
+Tema
+ ↓
+Objetivo
+ ↓
+Bruno
+ ↓
+Prompt
+
+para:
+
+NOVA OPORTUNIDADE
+       ↓
+INTENT
+       ↓
+EVIDENCE COLLECTION
+       ↓
+MARKET / SOCIAL / SEARCH SIGNALS
+       ↓
+EVIDENCE PACK
+       ↓
+CONTENT OPPORTUNITY
+       ↓
+STRATEGIC HYPOTHESIS
+       ↓
+BRUNO + REFERENCE
+       ↓
+PROMPT COMPILER
+       ↓
+GENERATION
+       ↓
+EVALUATION
+       ↓
+APPROVAL
+       ↓
+INSTAGRAM
+       ↓
+METRICS
+       ↓
+OODA / KG
+       ↺
+
+Isso aproveita diretamente o que você já possui em OODA-Redis, KG semântico, intent-driven, MCP, Instagram e DataForSEO.
+
+E eu considero essa mudança mais importante do que adicionar mais um modelo de IA. O diferencial do BBQ não será "ter acesso ao melhor gerador de vídeo"; será conseguir transformar sinais dispersos do mercado em decisões de conteúdo rastreáveis e depois aprender com os resultados.
+
+========================================
+
+## [USER]
+
+Vaos definir a stack mvp cunfy+vast.ai + gemini
+
+========================================
+
+## [ASSISTANT]
+
+Sim. Eu selaria o MVP exatamente com ComfyUI + Vast.ai + Gemini, mantendo o OODA-Redis/KG como camada de inteligência que você já possui.
+
+Só faria uma correção de nomenclatura: ComfyUI, não "Cunfy".
+
+Stack MVP — BBQ Instagram
+                         BBQ INSTAGRAM MVP
+                                │
+                                ▼
+                    ┌─────────────────────┐
+                    │      NEXT.JS        │
+                    │ Content Studio      │
+                    └──────────┬──────────┘
+                               │
+                               ▼
+                    ┌─────────────────────┐
+                    │     BBQ API         │
+                    │ Node.js / TypeScript │
+                    └──────────┬──────────┘
+                               │
+             ┌─────────────────┼─────────────────┐
+             ▼                 ▼                 ▼
+        OODA-REDIS         PostgreSQL       Object Storage
+        KG + Intent          Metadata          Assets
+             │
+             ▼
+      ┌─────────────────┐
+      │ INTELLIGENCE    │
+      │     LAYER       │
+      └────────┬────────┘
+               │
+               ▼
+             GEMINI
+               │
+       ┌───────┼────────┐
+       ▼       ▼        ▼
+    Research Strategy Prompt
+       │       │        │
+       └───────┼────────┘
+               ▼
+        PROMPT COMPILER
+               │
+               ▼
+        GENERATION JOB
+               │
+               ▼
+          VAST.AI GPU
+               │
+               ▼
+           COMFYUI
+               │
+               ▼
+       IMAGE / VIDEO 9:16
+               │
+               ▼
+         GEMINI VISION QA
+               │
+               ▼
+            APPROVAL
+               │
+               ▼
+       INSTAGRAM GRAPH API
+               │
+               ▼
+            METRICS
+               │
+               ▼
+          OODA / KG
+               ↺
+O que entra no MVP
+1. Gemini
+
+Será nosso LLM multimodal principal.
+
+Responsabilidades:
+
+interpretar intenção;
+
+analisar sinais de mercado;
+
+sintetizar Evidence Pack;
+
+criar estratégia;
+
+gerar prompts;
+
+analisar imagens;
+
+fazer QA;
+
+criar caption;
+
+sugerir hashtags;
+
+analisar resultados.
+
+Não precisamos de DeepSeek agora.
+
+2. ComfyUI
+
+Será nosso motor de geração.
+
+Não quero que o backend conheça detalhes de cada modelo.
+
+Teremos workflows versionados:
+
+comfyui/
+│
+├── workflows/
+│   ├── bruno-image-9x16.json
+│   ├── bruno-reel-9x16.json
+│   └── bruno-image-4x5.json
+│
+├── custom_nodes/
+│
+├── models/
+│
+└── input/
+    output/
+
+O backend envia:
+
+workflow_id
++
+prompt
++
+reference_images
++
+parameters
+
+e recebe:
+
+job_id
+status
+asset
+metadata
+3. Vast.ai
+
+A Vast.ai será infraestrutura GPU, não parte da lógica de negócio.
+
+Isso é importante.
+
+BBQ API
+   │
+   │ generation job
+   ▼
+Vast.ai
+   │
+   ▼
+ComfyUI
+   │
+   ▼
+Asset
+
+Nosso código nunca deve depender de:
+
+"GPU XYZ da Vast.ai".
+
+Ele depende de:
+
+ComfyUIProvider.
+
+Assim amanhã podemos trocar:
+
+Vast.ai
+   ↓
+RunPod
+
+sem modificar o Content Studio.
+
+4. Provider Interface
+
+Eu já criaria essa abstração no MVP.
+
+GenerationProvider
+
+├── createJob()
+├── getJobStatus()
+├── getResult()
+├── cancelJob()
+└── healthCheck()
+
+Implementação inicial:
+
+ComfyUIProvider
+      │
+      └── Vast.ai
+
+Futuramente:
+
+HiggsfieldProvider
+SeedanceProvider
+OtherProvider
+
+Mas não implementar agora.
+
+5. OODA-Redis continua
+
+Eu não descartaria nada do que você já possui.
+
+No MVP:
+
+OODA-REDIS
+│
+├── Intent
+├── Market Signals
+├── Evidence
+├── Content Strategy
+├── Character
+├── Generation State
+├── Publication State
+└── Performance
+
+Isso significa que desde o primeiro post estamos acumulando conhecimento útil.
+
+6. PostgreSQL
+
+Eu usaria PostgreSQL para dados transacionais.
+
+Exemplo:
+
+campaign
+content_opportunity
+content_concept
+prompt
+generation_job
+asset
+approval
+instagram_publication
+metric_snapshot
+
+A regra:
+
+PostgreSQL
+= verdade transacional
+
+OODA/KG
+= conhecimento + contexto + relações
+
+Object Storage
+= arquivos
+
+Essa separação é muito saudável.
+
+7. Object Storage
+
+Para:
+
+referências do Bruno;
+
+imagens geradas;
+
+vídeos;
+
+thumbnails;
+
+outputs do ComfyUI.
+
+Algo S3-compatible.
+
+Não precisamos decidir o fornecedor agora.
+
+8. Instagram
+
+Para o MVP:
+
+BBQ API
+   │
+   ▼
+Instagram Adapter
+   │
+   ▼
+Meta Graph API
+
+Não precisamos criar um "Social MCP Framework" ainda.
+
+O adapter deve encapsular:
+
+createMediaContainer()
+publishMedia()
+getMedia()
+getInsights()
+
+Depois podemos colocar MCP por cima.
+
+9. Fluxo de uma publicação
+
+Eu faria o primeiro fluxo real assim:
+
+[NEW OPPORTUNITY]
+        │
+        ▼
+[INTENT]
+        │
+        ▼
+[MARKET RESEARCH]
+        │
+        ▼
+[EVIDENCE PACK]
+        │
+        ▼
+[CONTENT STRATEGY]
+        │
+        ▼
+[BRUNO REFERENCE]
+        │
+        ▼
+[GEMINI PROMPT]
+        │
+        ▼
+[COMFYUI]
+        │
+        ▼
+[VAST.AI]
+        │
+        ▼
+[ASSET]
+        │
+        ▼
+[GEMINI VISION QA]
+        │
+     ┌──┴───┐
+     ▼      ▼
+ REGENERATE APPROVE
+             │
+             ▼
+       [INSTAGRAM]
+             │
+             ▼
+          [METRICS]
+             │
+             ▼
+        [OODA / KG]
+
+Esse fluxo é pequeno, mas já contém o DNA da plataforma final.
+
+10. Eu não faria o Flow Builder completo ainda
+
+Para o MVP:
+
+Pipeline configurado
+
+Não:
+
+Clone do n8n
+
+Podemos ter uma UI mostrando:
+
+● Intent
+   ↓
+● Research
+   ↓
+● Strategy
+   ↓
+● Prompt
+   ↓
+● Generate
+   ↓
+● QA
+   ↓
+● Approval
+   ↓
+● Publish
+
+Mas os nodes ainda são controlados pelo código.
+
+Depois que validarmos o processo:
+
+MVP 2 → React Flow
+
+Isso evita gastar semanas construindo editor visual antes de sabermos quais nodes realmente precisamos.
+
+11. Estrutura inicial do projeto
+
+Eu começaria com um monorepo:
+
+bbq-content/
+│
+├── apps/
+│   ├── web/
+│   │   └── Next.js
+│   │
+│   └── api/
+│       └── Node.js
+│
+├── packages/
+│   ├── domain/
+│   ├── database/
+│   ├── ooda/
+│   ├── knowledge/
+│   ├── intent/
+│   ├── prompts/
+│   ├── generation/
+│   ├── instagram/
+│   └── ai/
+│
+├── workflows/
+│   └── comfyui/
+│
+├── docs/
+│   ├── ADR/
+│   └── architecture/
+│
+└── infrastructure/
+    ├── docker/
+    └── vast/
+generation/
+generation/
+├── provider.ts
+├── comfyui.provider.ts
+├── job.service.ts
+└── types.ts
+ai/
+ai/
+├── gemini.client.ts
+├── prompt.service.ts
+├── vision.service.ts
+├── strategy.service.ts
+└── qa.service.ts
+instagram/
+instagram/
+├── instagram.client.ts
+├── publishing.service.ts
+├── insights.service.ts
+└── types.ts
+
+Isso deixa cada responsabilidade muito clara.
+
+12. MVP com apenas uma variável de geração
+
+Para não explodir o escopo:
+
+Primeiro formato
+
+Instagram Reel 9:16
+
+1080 × 1920
+
+Depois:
+
+Image
+4:5
+
+E somente posteriormente:
+
+YouTube
+16:9
+
+Embora nossa arquitetura suporte todos eles, o MVP deve provar um formato primeiro.
+
+13. A primeira versão deveria provar este cenário
+
+Você entra:
+
+Nova oportunidade
+
+O sistema:
+
+analisa o objetivo;
+
+consulta as fontes disponíveis;
+
+cria Evidence Pack;
+
+propõe uma oportunidade;
+
+cria estratégia;
+
+seleciona referências do Bruno;
+
+Gemini cria o prompt;
+
+ComfyUI gera;
+
+Vast.ai processa;
+
+Gemini faz QA;
+
+você aprova;
+
+Instagram publica;
+
+métricas voltam para OODA/KG.
+
+Se isso funcionar ponta a ponta, temos o núcleo do produto.
+
+Stack MVP selada
+FRONTEND
+Next.js
+React
+shadcn/ui
+TanStack Query
+
+BACKEND
+Node.js
+TypeScript
+Fastify/NestJS
+
+AI
+Gemini
+
+INTELLIGENCE
+OODA-Redis
+Semantic KG
+Intent Engine
+
+DATABASE
+PostgreSQL
+
+STORAGE
+S3-compatible
+
+GENERATION
+ComfyUI
+
+GPU
+Vast.ai
+
+SOCIAL
+Instagram Graph API
+
+ARCHITECTURE
+GenerationProvider
+InstagramAdapter
+
+EXECUTION
+Redis/BullMQ inicialmente
+
+DEPLOYMENT
+Docker
+E deliberadamente fora do MVP:
+DeepSeek
+Higgsfield
+Seedance API
+Temporal
+React Flow completo
+X
+YouTube
+Blog
+Multi-agent
+Capability Registry completo
+Experiment Engine avançado
+
+Apenas as interfaces para esses componentes ficam preparadas.
+
+Isso me parece o ponto ideal: pequeno o suficiente para construir e testar rapidamente, mas sem tomar decisões que nos prendam quando evoluirmos para o Content OS completo.
+
+========================================
+
+## [USER]
+
+Selado
+
+========================================
+
+## [ASSISTANT]
+
+Selado.
+
+BBQ Instagram MVP — Stack oficial
+Frontend
+→ Next.js + React + shadcn/ui + TanStack Query
+
+Backend
+→ Node.js + TypeScript + Fastify/NestJS
+
+AI
+→ Gemini
+
+Intelligence
+→ OODA-Redis + Semantic KG + Intent Engine
+
+Database
+→ PostgreSQL
+
+Storage
+→ S3-compatible Object Storage
+
+Generation
+→ ComfyUI
+
+GPU
+→ Vast.ai
+
+Social
+→ Instagram Graph API
+
+Execution
+→ Redis/BullMQ
+
+Deployment
+→ Docker
+Pipeline oficial
+Intent
+  ↓
+Market Intelligence
+  ↓
+Evidence Pack
+  ↓
+Content Strategy
+  ↓
+Bruno + Reference
+  ↓
+Gemini Prompt
+  ↓
+ComfyUI / Vast.ai
+  ↓
+Generated Asset
+  ↓
+Gemini Vision QA
+  ↓
+Approval
+  ↓
+Instagram
+  ↓
+Metrics
+  ↓
+OODA / Semantic KG
+  ↺
+Princípios que ficam registrados
+
+Inteligência antes da geração.
+
+Intent-driven antes de executar uma ação.
+
+OODA-Redis permanece como memória/estado estratégico.
+
+KG semântico registra conhecimento e relações.
+
+Gemini é o modelo principal do MVP.
+
+ComfyUI é o motor multimídia.
+
+Vast.ai fornece GPU sob demanda.
+
+Instagram Graph API é a integração social inicial.
+
+PostgreSQL mantém o estado transacional.
+
+Object Storage mantém os assets.
+
+GenerationProvider impede acoplamento ao ComfyUI/Vast.ai.
+
+InstagramAdapter impede acoplamento da aplicação à API da Meta.
+
+MVP não será um clone do n8n; o workflow visual completo vem depois.
+
+DeepSeek, Higgsfield, Seedance, YouTube, X, Blog, Temporal, agentes especializados e Experiment Engine avançado ficam para evolução posterior.
+
+O próximo marco técnico é, portanto, implementar o vertical slice completo: uma oportunidade → pesquisa/contexto → geração 9:16 → QA → aprovação → publicação no Instagram → métricas → OODA/KG.
+
+Esse passa a ser o baseline oficial do BBQ Content Engine MVP.

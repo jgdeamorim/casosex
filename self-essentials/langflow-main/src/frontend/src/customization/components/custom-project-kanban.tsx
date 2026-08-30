@@ -35,7 +35,7 @@ import {
   Clock,
   CheckCircle2,
 } from "lucide-react";
-import { cn } from "@/lib/utils";
+import { cn } from "@/utils/utils";
 import { CustomMediaStudioModal } from "./custom-media-studio-modal";
 import {
   fetchVolupiaBoard,

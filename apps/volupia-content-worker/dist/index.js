@@ -16,7 +16,7 @@ app.use("*", cors({
     allowHeaders: ["*"],
     credentials: true,
 }));
-// Mount router modules under both /api/v1 and root for maximum client compatibility
+// Mount router modules under /api/v1, /api/v2, and root for maximum client compatibility
 app.route("/api/v1", configRouter);
 app.route("/api/v1", authRouter);
 app.route("/api/v1", componentsRouter);
@@ -24,6 +24,13 @@ app.route("/api/v1", flowsRouter);
 app.route("/api/v1", mcpRouter);
 app.route("/api/v1", settingsRouter);
 app.route("/api/v1/a2a", a2aRouter);
+app.route("/api/v2", configRouter);
+app.route("/api/v2", authRouter);
+app.route("/api/v2", componentsRouter);
+app.route("/api/v2", flowsRouter);
+app.route("/api/v2", mcpRouter);
+app.route("/api/v2", settingsRouter);
+app.route("/api/v2/a2a", a2aRouter);
 app.route("/", configRouter);
 app.route("/", authRouter);
 app.route("/", componentsRouter);

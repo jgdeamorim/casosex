@@ -1,6 +1,6 @@
 import React from "react";
 import { LayoutGrid, Workflow, Sparkles } from "lucide-react";
-import { cn } from "@/lib/utils";
+import { cn } from "@/utils/utils";
 
 export type CockpitTab = "kanban" | "flows";
 
