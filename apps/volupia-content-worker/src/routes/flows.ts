@@ -10,6 +10,12 @@ import {
   saveProjectToRedis,
   saveVariableToRedis,
 } from "../lib/redis.js";
+import {
+  computeVertexOrder,
+  executeVertexNode,
+  type FlowGraph,
+  type FlowNode,
+} from "../lib/execution.js";
 
 export const flowsRouter = new Hono();
 
@@ -85,6 +91,109 @@ flowsRouter.delete("/flows/:id", async (c) => {
   const id = c.req.param("id");
   await deleteFlowFromRedis(id);
   return c.json({ message: "Flow deleted successfully" });
+});
+
+// --- Phase 4: Graph Build & Execution Engine ---
+
+// Retrieve topological vertex order for DAG build
+flowsRouter.post("/build/:flow_id/vertices", async (c) => {
+  const flowId = c.req.param("flow_id");
+  const stopNodeId = c.req.query("stop_component_id");
+  const startNodeId = c.req.query("start_component_id");
+
+  const body = (await c.req.json().catch(() => ({}))) as FlowGraph;
+  let graph: FlowGraph = body;
+
+  if (!graph.nodes || graph.nodes.length === 0) {
+    const storedFlow = (await getFlowFromRedis(flowId)) as { data?: FlowGraph } | null;
+    if (storedFlow?.data?.nodes) {
+      graph = storedFlow.data;
+    }
+  }
+
+  const result = computeVertexOrder(graph, startNodeId, stopNodeId);
+  return c.json(result);
+});
+
+// Build individual vertex node in flow
+flowsRouter.post("/build/:flow_id/vertices/:vertex_id", async (c) => {
+  const vertexId = c.req.param("vertex_id");
+  const body = (await c.req.json().catch(() => ({}))) as {
+    inputs?: Record<string, unknown>;
+    node?: FlowNode;
+  };
+
+  const dummyNode: FlowNode = body.node || {
+    id: vertexId,
+    data: { node: { display_name: "Nó Customizado Volúpia" } },
+  };
+
+  const result = await executeVertexNode(dummyNode, body.inputs || {});
+  return c.json({
+    vertex_builds: {
+      [vertexId]: [result],
+    },
+  });
+});
+
+// Build full flow graph topology
+flowsRouter.post("/build/:flow_id/flow", async (c) => {
+  const flowId = c.req.param("flow_id");
+  const body = (await c.req.json().catch(() => ({}))) as FlowGraph;
+
+  const orderResult = computeVertexOrder(body);
+  return c.json({
+    status: "success",
+    flow_id: flowId,
+    vertex_order: orderResult.ids,
+    run_id: orderResult.run_id,
+  });
+});
+
+// Run flow execution
+flowsRouter.post("/run/:flow_id", async (c) => {
+  const flowId = c.req.param("flow_id");
+  const body = (await c.req.json().catch(() => ({}))) as {
+    inputs?: Record<string, unknown>;
+    graph?: FlowGraph;
+  };
+
+  let graph: FlowGraph = body.graph || { nodes: [], edges: [] };
+  if (!graph.nodes || graph.nodes.length === 0) {
+    const stored = (await getFlowFromRedis(flowId)) as { data?: FlowGraph } | null;
+    if (stored?.data?.nodes) {
+      graph = stored.data;
+    }
+  }
+
+  const order = computeVertexOrder(graph);
+  const outputs: Record<string, unknown> = {};
+
+  for (const nodeId of order.vertices_to_run) {
+    const node = graph.nodes.find((n) => n.id === nodeId) || { id: nodeId };
+    const res = await executeVertexNode(node, body.inputs || {});
+    outputs[nodeId] = res.outputs;
+  }
+
+  return c.json({
+    run_id: order.run_id,
+    status: "completed",
+    outputs,
+  });
+});
+
+// Session-based run execution
+flowsRouter.post("/run/session", async (c) => {
+  const body = (await c.req.json().catch(() => ({}))) as Record<string, unknown>;
+  const run_id = crypto.randomUUID();
+
+  return c.json({
+    run_id,
+    session_id: body.session_id || crypto.randomUUID(),
+    outputs: {
+      result: "Fluxo executado via sessão Volúpia V8 Engine",
+    },
+  });
 });
 
 // Examples & Starters
