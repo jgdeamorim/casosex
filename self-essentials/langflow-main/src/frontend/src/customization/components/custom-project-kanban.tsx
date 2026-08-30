@@ -37,6 +37,11 @@ import {
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { CustomMediaStudioModal } from "./custom-media-studio-modal";
+import {
+  fetchVolupiaBoard,
+  saveVolupiaBoard,
+  triggerMediaGeneration,
+} from "../services/volupia-kanban-service";
 
 export interface KanbanItem {
   id: string;
@@ -327,6 +332,30 @@ export function CustomProjectKanban({ onOpenPreview }: CustomProjectKanbanProps)
   const [modalItem, setModalItem] = useState<KanbanItem | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
+  // Carregar estado persistido no Redis / Cache local ao montar
+  React.useEffect(() => {
+    let isMounted = true;
+    fetchVolupiaBoard()
+      .then((loadedBoard) => {
+        if (isMounted && loadedBoard) {
+          setBoard(loadedBoard);
+        }
+      })
+      .catch((e: unknown) => {
+        void e;
+      });
+    return () => {
+      isMounted = false;
+    };
+  }, []);
+
+  // Persistir alterações de estado no Redis / Cache local
+  React.useEffect(() => {
+    saveVolupiaBoard(board).catch((e: unknown) => {
+      void e;
+    });
+  }, [board]);
+
   const handleOpenStudioModal = (item: KanbanItem) => {
     setModalItem(item);
     setIsModalOpen(true);
@@ -458,6 +487,7 @@ export function CustomProjectKanban({ onOpenPreview }: CustomProjectKanbanProps)
         isOpen={isModalOpen}
         onClose={() => setIsModalOpen(false)}
         onSaveOptics={handleSaveStudioOptics}
+        onTriggerGeneration={triggerMediaGeneration}
       />
     </div>
   );
