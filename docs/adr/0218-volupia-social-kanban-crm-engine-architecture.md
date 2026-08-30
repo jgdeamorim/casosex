@@ -24,11 +24,9 @@ Decidimos evoluir a interface do projeto no Cockpit UI para integrar o **Volúpi
 
 ### 1. Reestruturação das Abas do Projeto
 
-A visualização de projeto passa a contar com quatro visões principais:
-1. 📊 **Kanban Social & Agenda IA** *(Visão Padrão)*: Gestão de cards de postagens em tempo real.
-2. ⚡ **Fluxos de Automação**: Construtor visual de grafos do Langflow.
-3. 🌐 **Servidor MCP**: Gerenciamento de ferramentas e conectores MCP.
-4. 📈 **Telemetria & BOA Score**: Métricas operacionais e score de saúde do sistema.
+A visualização de projeto passa a contar com duas visões principais:
+1. 📊 **Kanban Social & Agenda IA** *(Visão Padrão)*: Gestão visual de cards de postagens, preview de mídia e agendamento inteligente.
+2. ⚡ **Fluxos de Automação**: Construtor visual de grafos do Langflow para criação e edição de nós.
 
 ### 2. Estágios do Pipeline Kanban (5 Colunas)
 
