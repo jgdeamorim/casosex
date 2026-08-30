@@ -8,14 +8,21 @@ import {
   Download,
   Check,
   Sliders,
-  Eye,
-  Layers,
   Wand2,
-  Maximize2,
   Copy,
+  Save,
+  Type,
+  FileText,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { KanbanItem } from "./custom-project-kanban";
+import {
+  CAMERA_OPTIONS,
+  LENS_OPTIONS,
+  FOCAL_OPTIONS,
+  APERTURE_OPTIONS,
+  ASPECT_RATIOS,
+} from "../config/volupia-optics-config";
 
 interface CustomMediaStudioModalProps {
   item: KanbanItem | null;
@@ -24,33 +31,6 @@ interface CustomMediaStudioModalProps {
   onSaveOptics?: (updatedItem: KanbanItem) => void;
   onTriggerGeneration?: (item: KanbanItem) => void;
 }
-
-const CAMERA_OPTIONS = [
-  { value: "digital_8k", label: "RED V-Raptor XL 8K (Digital)" },
-  { value: "full_frame", label: "ARRI Alexa Mini LF (Full Frame)" },
-  { value: "grand_format_70mm", label: "IMAX 70mm Panavision (Analógico)" },
-  { value: "super_35", label: "Sony FX9 Super 35mm (Studio)" },
-  { value: "classic_16mm", label: "Arriflex 16 SR3 16mm (Retro Film)" },
-];
-
-const LENS_OPTIONS = [
-  { value: "anamorphic", label: "2.39:1 Anamorphic Flare" },
-  { value: "tilt", label: "Selective Focus Tilt-Lens" },
-  { value: "macro", label: "Extreme Macro Probe Lens" },
-  { value: "vintage_prime", label: "1970s Canon K35 Prime" },
-  { value: "halation", label: "Highlight Halation Bloom" },
-];
-
-const FOCAL_OPTIONS = [8, 14, 24, 35, 50, 85];
-
-const APERTURE_OPTIONS = ["f/1.4", "f/4", "f/11"];
-
-const ASPECT_RATIOS = [
-  { value: "9:16", label: "9:16 Reels/TikTok", class: "aspect-[9/16] max-h-[420px]" },
-  { value: "1:1", label: "1:1 Square Feed", class: "aspect-square max-h-[380px]" },
-  { value: "16:9", label: "16:9 YouTube/TV", class: "aspect-[16/9] max-h-[320px]" },
-  { value: "21:9", label: "21:9 Ultrawide", class: "aspect-[21/9] max-h-[260px]" },
-];
 
 export function CustomMediaStudioModal({
   item,
@@ -61,12 +41,15 @@ export function CustomMediaStudioModal({
 }: CustomMediaStudioModalProps): JSX.Element | null {
   if (!isOpen || !item) return null;
 
+  const [title, setTitle] = useState(item.title);
+  const [prompt, setPrompt] = useState(item.prompt);
   const [optics, setOptics] = useState(item.cameraOptics);
   const [aspectRatio, setAspectRatio] = useState(item.aspectRatio);
   const [isGenerating, setIsGenerating] = useState(false);
   const [copied, setCopied] = useState(false);
+  const [isSaved, setIsSaved] = useState(false);
 
-  const compiledPrompt = `${item.prompt}, Shot on ${optics.camera.replace("_", " ")}, ${optics.lens} lens, ${optics.focal}mm focal perspective, ${optics.aperture} aperture bokeh, 8k resolution, award-winning cinematography, hyper-detailed`;
+  const compiledPrompt = `${prompt}, Shot on ${optics.camera.replace("_", " ")}, ${optics.lens} lens, ${optics.focal}mm focal perspective, ${optics.aperture} aperture bokeh, 8k resolution, award-winning cinematography, hyper-detailed`;
 
   const handleCopyPrompt = () => {
     navigator.clipboard.writeText(compiledPrompt);
@@ -74,18 +57,39 @@ export function CustomMediaStudioModal({
     setTimeout(() => setCopied(false), 2000);
   };
 
+  const handleSave = () => {
+    const updated: KanbanItem = {
+      ...item,
+      title,
+      prompt,
+      cameraOptics: optics,
+      aspectRatio,
+    };
+    if (onSaveOptics) {
+      onSaveOptics(updated);
+    }
+    setIsSaved(true);
+    setTimeout(() => setIsSaved(false), 2000);
+  };
+
   const handleGenerate = () => {
     setIsGenerating(true);
+    const updated: KanbanItem = {
+      ...item,
+      title,
+      prompt,
+      cameraOptics: optics,
+      aspectRatio,
+    };
+    if (onSaveOptics) {
+      onSaveOptics(updated);
+    }
     setTimeout(() => {
       setIsGenerating(false);
       if (onTriggerGeneration) {
-        onTriggerGeneration({
-          ...item,
-          cameraOptics: optics,
-          aspectRatio,
-        });
+        onTriggerGeneration(updated);
       }
-    }, 1200);
+    }, 1000);
   };
 
   const selectedAspect = ASPECT_RATIOS.find((a) => a.value === aspectRatio) || ASPECT_RATIOS[0];
@@ -115,17 +119,48 @@ export function CustomMediaStudioModal({
 
         {/* Main Grid Content */}
         <div className="grid flex-1 grid-cols-1 gap-6 overflow-y-auto p-6 md:grid-cols-12">
-          {/* Left Column: Media Preview Canvas */}
+          {/* Left Column: Media Preview Canvas & Title/Prompt Edit */}
           <div className="flex flex-col gap-4 md:col-span-7">
-            <div className="relative flex flex-1 items-center justify-center overflow-hidden rounded-xl border border-zinc-800/80 bg-zinc-950 p-4 shadow-inner">
-              {/* Virtual Aspect Ratio Display Frame */}
+            {/* Title & Prompt Edit Section */}
+            <div className="flex flex-col gap-3 rounded-xl border border-zinc-800/80 bg-zinc-950 p-4">
+              <div className="flex flex-col gap-1">
+                <label className="flex items-center gap-1.5 font-mono text-[11px] text-zinc-400">
+                  <Type className="h-3.5 w-3.5 text-cyan-400" />
+                  <span>Título do Card</span>
+                </label>
+                <input
+                  type="text"
+                  value={title}
+                  onChange={(e) => setTitle(e.target.value)}
+                  className="rounded-lg border border-zinc-800 bg-zinc-900 px-3 py-1.5 font-sans text-xs text-zinc-100 focus:border-cyan-500 focus:outline-none"
+                  placeholder="Nome da peça de conteúdo..."
+                />
+              </div>
+
+              <div className="flex flex-col gap-1">
+                <label className="flex items-center gap-1.5 font-mono text-[11px] text-zinc-400">
+                  <FileText className="h-3.5 w-3.5 text-cyan-400" />
+                  <span>Prompt-Base de Conteúdo</span>
+                </label>
+                <textarea
+                  rows={2}
+                  value={prompt}
+                  onChange={(e) => setPrompt(e.target.value)}
+                  className="rounded-lg border border-zinc-800 bg-zinc-900 px-3 py-1.5 font-sans text-xs text-zinc-100 focus:border-cyan-500 focus:outline-none resize-none"
+                  placeholder="Descreva a cena visual..."
+                />
+              </div>
+            </div>
+
+            {/* Virtual Canvas Display */}
+            <div className="relative flex flex-1 items-center justify-center overflow-hidden rounded-xl border border-zinc-800/80 bg-zinc-950 p-4 shadow-inner min-h-[220px]">
               <div
                 className={cn(
                   "relative flex w-full items-center justify-center overflow-hidden rounded-lg border border-cyan-500/40 bg-zinc-900/90 shadow-[0_0_30px_rgba(0,0,0,0.8)] transition-all duration-300",
                   selectedAspect.class
                 )}
               >
-                {/* Simulated Visual Render */}
+                {/* Visual Render */}
                 <div className="absolute inset-0 bg-gradient-to-br from-cyan-950/40 via-zinc-900 to-zinc-950 flex flex-col items-center justify-center p-6 text-center">
                   <Film className="h-10 w-10 text-cyan-400/40 mb-3 animate-pulse" />
                   <span className="font-mono text-xs text-zinc-400 uppercase tracking-widest">
@@ -147,6 +182,15 @@ export function CustomMediaStudioModal({
             <div className="flex items-center gap-3">
               <button
                 type="button"
+                onClick={handleSave}
+                className="flex items-center gap-2 rounded-lg border border-emerald-500/50 bg-emerald-500/10 px-4 py-2.5 font-sans text-xs font-semibold text-emerald-300 hover:bg-emerald-500/20 transition-all"
+              >
+                {isSaved ? <Check className="h-4 w-4 text-emerald-400" /> : <Save className="h-4 w-4 text-emerald-400" />}
+                <span>{isSaved ? "Salvo no Redis!" : "Salvar Card"}</span>
+              </button>
+
+              <button
+                type="button"
                 onClick={handleGenerate}
                 disabled={isGenerating}
                 className="flex flex-1 items-center justify-center gap-2 rounded-lg border border-cyan-500/50 bg-cyan-500/20 px-4 py-2.5 font-sans text-xs font-semibold text-cyan-300 shadow-[0_0_15px_rgba(34,211,238,0.2)] transition-all hover:bg-cyan-500/30 hover:border-cyan-400 active:scale-[0.98] disabled:opacity-50"
@@ -159,7 +203,7 @@ export function CustomMediaStudioModal({
                 ) : (
                   <>
                     <Wand2 className="h-4 w-4 text-cyan-400" />
-                    <span>Regenerar com IA (Worker :7860)</span>
+                    <span>Gerar Mídia (Worker Engine)</span>
                   </>
                 )}
               </button>

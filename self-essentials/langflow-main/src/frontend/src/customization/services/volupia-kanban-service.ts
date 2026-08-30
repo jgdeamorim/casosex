@@ -1,9 +1,9 @@
 import type { KanbanItem, ColumnId } from "../components/custom-project-kanban";
+import { getWorkerApiUrl, getMediaVaultUrl } from "../config/volupia-optics-config";
 
 export type BoardState = Record<ColumnId, KanbanItem[]>;
 
 const LOCAL_STORAGE_KEY = "casosex:volupia:board:v1";
-const WORKER_ENDPOINT = "http://localhost:7860/api/v1/generate";
 
 export interface GenerationResponse {
   success: boolean;
@@ -70,10 +70,14 @@ export async function saveVolupiaBoard(board: BoardState): Promise<boolean> {
 }
 
 /**
- * Envia solicitação de geração de mídia para o Worker de Conteúdo Volúpia (:7860).
+ * Envia solicitação de geração de mídia para o Worker de Conteúdo Volúpia.
+ * Endpoint resolvido dinamicamente via getWorkerApiUrl() sem porta/host hardcoded.
  */
 export async function triggerMediaGeneration(item: KanbanItem): Promise<GenerationResponse> {
   try {
+    const workerEndpoint = getWorkerApiUrl();
+    const fallbackVaultUrl = getMediaVaultUrl(item.id, item.platform);
+
     const compiledPrompt = `${item.prompt}, Shot on ${item.cameraOptics.camera.replace("_", " ")}, ${item.cameraOptics.lens} lens, ${item.cameraOptics.focal}mm focal perspective, ${item.cameraOptics.aperture} aperture bokeh, 8k resolution, award-winning cinematography`;
 
     const payload = {
@@ -84,7 +88,7 @@ export async function triggerMediaGeneration(item: KanbanItem): Promise<Generati
       optics: item.cameraOptics,
     };
 
-    const res = await fetch(WORKER_ENDPOINT, {
+    const res = await fetch(workerEndpoint, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(payload),
@@ -92,20 +96,23 @@ export async function triggerMediaGeneration(item: KanbanItem): Promise<Generati
 
     if (res.ok) {
       const data = (await res.json()) as GenerationResponse;
-      return data;
+      return {
+        ...data,
+        mediaUrl: data.mediaUrl || fallbackVaultUrl,
+      };
     }
 
     return {
       success: true,
       jobId: `job-worker-${Date.now()}`,
-      mediaUrl: `http://localhost:7860/vault/${item.id}.mp4`,
+      mediaUrl: fallbackVaultUrl,
     };
   } catch (e: unknown) {
     void e;
     return {
       success: true,
       jobId: `job-simulated-${Date.now()}`,
-      mediaUrl: `http://localhost:7860/vault/${item.id}.mp4`,
+      mediaUrl: getMediaVaultUrl(item.id, item.platform),
     };
   }
 }

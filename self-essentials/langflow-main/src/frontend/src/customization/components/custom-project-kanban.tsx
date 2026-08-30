@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import {
   DndContext,
   closestCorners,
@@ -199,8 +199,9 @@ function KanbanCard({ item, onOpenPreview, isOverlay = false }: KanbanCardProps)
       style={style}
       {...attributes}
       {...listeners}
+      onClick={() => onOpenPreview?.(item)}
       className={cn(
-        "group relative flex flex-col gap-2.5 rounded-xl border border-zinc-800/80 bg-zinc-900/80 p-3.5 shadow-lg backdrop-blur-sm transition-all duration-150 hover:border-cyan-500/40 hover:bg-zinc-900 active:scale-[0.98]",
+        "group relative flex flex-col gap-2.5 rounded-xl border border-zinc-800/80 bg-zinc-900/80 p-3.5 shadow-lg backdrop-blur-sm transition-all duration-150 hover:border-cyan-500/40 hover:bg-zinc-900 active:scale-[0.98] cursor-pointer",
         isDragging && "opacity-40 border-cyan-500/50 scale-[0.98]",
         isOverlay && "border-cyan-400 bg-zinc-900 shadow-[0_0_20px_rgba(34,211,238,0.25)] scale-[1.02] cursor-grabbing"
       )}
@@ -302,7 +303,8 @@ function DroppableColumn({ def, items, onOpenPreview, onAddCard }: DroppableColu
           <button
             type="button"
             onClick={() => onAddCard?.(def.id)}
-            className="rounded p-1 text-zinc-500 hover:bg-zinc-800 hover:text-zinc-200"
+            title="Adicionar Card"
+            className="rounded p-1 text-zinc-400 hover:bg-zinc-800 hover:text-cyan-300 transition-colors"
           >
             <Plus className="h-3.5 w-3.5" />
           </button>
@@ -331,26 +333,35 @@ export function CustomProjectKanban({ onOpenPreview }: CustomProjectKanbanProps)
   const [activeItem, setActiveItem] = useState<KanbanItem | null>(null);
   const [modalItem, setModalItem] = useState<KanbanItem | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const isLoadedRef = useRef<boolean>(false);
 
   // Carregar estado persistido no Redis / Cache local ao montar
-  React.useEffect(() => {
+  useEffect(() => {
     let isMounted = true;
     fetchVolupiaBoard()
       .then((loadedBoard) => {
-        if (isMounted && loadedBoard) {
-          setBoard(loadedBoard);
+        if (isMounted) {
+          if (loadedBoard) {
+            setBoard(loadedBoard);
+          }
+          isLoadedRef.current = true;
         }
       })
       .catch((e: unknown) => {
         void e;
+        if (isMounted) {
+          isLoadedRef.current = true;
+        }
       });
     return () => {
       isMounted = false;
     };
   }, []);
 
-  // Persistir alterações de estado no Redis / Cache local
-  React.useEffect(() => {
+  // Persistir alterações de estado no Redis / Cache local (somente após carregamento inicial)
+  useEffect(() => {
+    if (!isLoadedRef.current) return;
+
     saveVolupiaBoard(board).catch((e: unknown) => {
       void e;
     });
@@ -370,6 +381,23 @@ export function CustomProjectKanban({ onOpenPreview }: CustomProjectKanbanProps)
         [colId]: prev[colId].map((i) => (i.id === updatedItem.id ? updatedItem : i)),
       }));
     }
+  };
+
+  const handleAddCard = (columnId: ColumnId) => {
+    const newId = `post-${Date.now()}`;
+    const newCard: KanbanItem = {
+      id: newId,
+      title: "Nova Peça de Mídia",
+      prompt: "Descreva a cena cinemática ou conceito visual para a IA...",
+      cameraOptics: { camera: "full_frame", lens: "anamorphic", focal: 35, aperture: "f/1.4" },
+      platform: "reels",
+      aspectRatio: "9:16",
+    };
+    setBoard((prev) => ({
+      ...prev,
+      [columnId]: [newCard, ...prev[columnId]],
+    }));
+    handleOpenStudioModal(newCard);
   };
 
   // Setup dnd-kit sensors with Pointer + Touch + Keyboard support
@@ -416,7 +444,7 @@ export function CustomProjectKanban({ onOpenPreview }: CustomProjectKanbanProps)
 
       const draggedItem = activeItems[activeIndex];
 
-      let newOverItems = [...overItems];
+      const newOverItems = [...overItems];
       if (overIndex >= 0) {
         newOverItems.splice(overIndex, 0, draggedItem);
       } else {
@@ -473,6 +501,7 @@ export function CustomProjectKanban({ onOpenPreview }: CustomProjectKanbanProps)
               def={colDef}
               items={board[colDef.id]}
               onOpenPreview={handleOpenStudioModal}
+              onAddCard={handleAddCard}
             />
           ))}
         </div>
