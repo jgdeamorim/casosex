@@ -48,6 +48,28 @@ A visualização de projeto passa a contar com quatro visões principais:
   - **Sessões e Filas**: Redis `:6396` (`casosex:volupia:posts:*`).
   - **Persistência Relacional**: Cloudflare D1 via Volúpia Content Worker (`:7860`).
 
+### 4. Inspiração Arquitetural & Referência de Padrões (`self-essentials/Open-Generative-AI-main`)
+
+Utilizamos o repositório `self-essentials/Open-Generative-AI-main` como referência de padrões (em estrita conformidade com a Doutrina de Isolamento #10), extraindo 4 direcionadores fundamentais (`medido=verdade`):
+
+1. **Custom Components para o Langflow (`src/lib/models.js` & `packages/studio`)**:
+   - *O que ele traz*: Schemas pré-mapeados para múltiplos modelos de IA generativa (Flux Schnell, Nano Banana Pro, MiniMax Hailuo H3 para vídeo, Lip Sync).
+   - *Aplicação Sovereign*: Conversão dos schemas de modelos em **Nós Customizados (Custom Components)** dentro do Langflow no Volúpia Worker (`:7860`), capacitando os nós para geração multimídia nativa.
+
+2. **Automação de Mídia para a Coluna "Em Criação"**:
+   - *O que ele traz*: `packages/Open-AI-Design-Agent` e `packages/Open-Poe-AI/packages/agents`.
+   - *Aplicação Sovereign*: O agente de design atua como o motor gerador automatizado da coluna **🎨 Em Criação**, sintetizando automaticamente banners e thumbnails (ex: 1920x1080) para as postagens.
+
+3. **Modal de Preview de Mídia no Cockpit UI (`src/components/ImageStudio.js`)**:
+   - *O que ele traz*: Controles visuais de Aspect Ratio (16:9, 1:1, 9:16 para Reels/TikTok), seletor de resolução, histórico de geração local e canvas em dark mode cibernético (`#050505` + Electric Cyan `#22d3ee`).
+   - *Aplicação Sovereign*: Adoção dessa UX/UI na modal de **Preview & Revisão de Postagens** do Cockpit no Langflow (`:5556`).
+
+4. **Motor de Workflows de Mídia (`packages/Vibe-Workflow/packages/workflow-builder`)**:
+   - *O que ele traz*: Construtor visual focado no encadeamento de mídias (IA Prompt → Imagem → Upscale → Lip Sync → Vídeo Final).
+   - *Aplicação Sovereign*: Serve de padrão de referência para otimizar os grafos do Langflow voltados a pipeline multimídia.
+
+> **Resumo Prático:** O `Open-Generative-AI-main` opera como a matriz de referência para a fábrica de mídias (imagem e vídeo), alimentando os fluxos do Langflow e preenchendo as postagens no nosso Kanban Social & Agenda IA.
+
 ---
 
 ## Consequências
@@ -66,4 +88,5 @@ A visualização de projeto passa a contar com quatro visões principais:
 
 - **ADR-0216**: Intent-Driven Content Engine (Langflow + Vast.ai + Gemini).
 - **ADR-0217**: Volúpia Cloudflare D1/R2/KV Persistence Architecture.
-- **Context7**: `/clauderic/dnd-kit` (Dokumentação de Drag and Drop React).
+- **Context7**: `/clauderic/dnd-kit` (Documentação de Drag and Drop React).
+- **Self-Essentials**: `/media/jeffer/5aab5a95-8290-d3f7-2e4f-8c27cc2d09a93/CASOSEX/self-essentials/Open-Generative-AI-main`.
