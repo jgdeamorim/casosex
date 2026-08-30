@@ -47,10 +47,34 @@ export default defineConfig(({ mode }) => {
       modulePreload: false,
       sourcemap: false,
       reportCompressedSize: false,
-      chunkSizeWarningLimit: 2000,
+      chunkSizeWarningLimit: 1000,
       cssMinify: "esbuild",
       minify: "esbuild",
       maxParallelFileOps: 2,
+      rollupOptions: {
+        output: {
+          manualChunks(id) {
+            if (id.includes("node_modules")) {
+              if (id.includes("react-dom") || id.includes("react-router")) {
+                return "vendor-react";
+              }
+              if (id.includes("lucide-react")) {
+                return "vendor-lucide";
+              }
+              if (id.includes("@dnd-kit")) {
+                return "vendor-dndkit";
+              }
+              if (id.includes("@radix-ui") || id.includes("framer-motion")) {
+                return "vendor-ui";
+              }
+              if (id.includes("monaco-editor") || id.includes("ace-builds")) {
+                return "vendor-editors";
+              }
+              return "vendor-others";
+            }
+          },
+        },
+      },
     },
     define: {
       ...createAccessTokenExpireSecondsDefinition(
@@ -80,6 +104,7 @@ export default defineConfig(({ mode }) => {
       },
     },
     plugins: [
+      tsconfigPaths(),
       react(),
       svgr(),
       process.env.VITE_COVERAGE
