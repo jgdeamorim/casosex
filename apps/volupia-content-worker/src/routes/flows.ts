@@ -1,8 +1,9 @@
-import { Hono } from "hono";
+import { Context, Hono } from "hono";
 import {
   deleteFlowFromRedis,
   deleteVariableFromRedis,
   getFlowFromRedis,
+  getProjectFromRedis,
   listFlowsFromRedis,
   listProjectsFromRedis,
   listVariablesFromRedis,
@@ -58,6 +59,52 @@ flowsRouter.post("/folders", async (c) => {
   return c.json(saved, 201);
 });
 
+// Single Project/Folder Read (PaginatedFolderType expected by React Cockpit)
+const handleGetProjectById = async (c: Context) => {
+  const id = c.req.param("id") || "";
+  let project = (await getProjectFromRedis(id)) as Record<string, unknown> | null;
+  if (!project && id === "00000000-0000-0000-0000-000000000001") {
+    project = defaultProjects[0];
+  }
+  if (!project) {
+    project = {
+      id,
+      name: "Volúpia Social Engine",
+      description: "Estúdio de Conteúdo Volúpia",
+      parent_id: null,
+      components: [],
+    };
+  }
+
+  const allFlows = await listFlowsFromRedis();
+  const flows = allFlows.filter((f: Record<string, unknown>) => {
+    const fId = f.folder_id as string | undefined;
+    return !fId || fId === id || id === "00000000-0000-0000-0000-000000000001";
+  });
+
+  return c.json({
+    folder: {
+      id: project.id || id,
+      name: project.name || "Volúpia Social Engine",
+      description: project.description || "Estúdio de Conteúdo Volúpia",
+      parent_id: project.parent_id || null,
+      components: project.components || [],
+    },
+    flows: {
+      items: flows,
+      total: flows.length,
+      page: 1,
+      size: 50,
+      pages: 1,
+    },
+  });
+};
+
+flowsRouter.get("/projects/:id", handleGetProjectById);
+flowsRouter.get("/projects/:id/", handleGetProjectById);
+flowsRouter.get("/folders/:id", handleGetProjectById);
+flowsRouter.get("/folders/:id/", handleGetProjectById);
+
 // Flows CRUD
 flowsRouter.get("/flows", async (c) => {
   const flows = await listFlowsFromRedis();
@@ -76,6 +123,11 @@ flowsRouter.get("/flows/:id", async (c) => {
   return c.json(flow);
 });
 flowsRouter.post("/flows", async (c) => {
+  const body = (await c.req.json().catch(() => ({}))) as Record<string, unknown>;
+  const saved = await saveFlowToRedis(body);
+  return c.json(saved, 201);
+});
+flowsRouter.post("/flows/", async (c) => {
   const body = (await c.req.json().catch(() => ({}))) as Record<string, unknown>;
   const saved = await saveFlowToRedis(body);
   return c.json(saved, 201);

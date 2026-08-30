@@ -39,7 +39,10 @@ export async function saveFlowToRedis(flow: Record<string, unknown>) {
   try {
     const id = (flow.id as string) || crypto.randomUUID();
     flow.id = id;
+    flow.folder_id = flow.folder_id || "00000000-0000-0000-0000-000000000001";
     flow.updated_at = new Date().toISOString();
+    flow.is_component = flow.is_component ?? false;
+    flow.data = flow.data || { nodes: [], edges: [], viewport: { x: 0, y: 0, zoom: 1 } };
     await redis.set(KEYS.FLOW(id), JSON.stringify(flow));
     await redis.sadd(KEYS.FLOW_LIST, id);
     return flow;
@@ -74,6 +77,16 @@ export async function listFlowsFromRedis() {
 }
 
 // Project & Folder CRUD
+export async function getProjectFromRedis(id: string) {
+  try {
+    const data = await redis.get(KEYS.PROJECT(id));
+    return data ? JSON.parse(data) : null;
+  } catch (e: unknown) {
+    void e;
+    return null;
+  }
+}
+
 export async function listProjectsFromRedis() {
   try {
     const ids = await redis.smembers(KEYS.PROJECT_LIST);
