@@ -5,6 +5,7 @@ import type {
   BrandDnaPillar,
   CharacterEntity,
 } from "../types/content-os.js";
+import { compilePrompt, type CompiledPromptResult } from "../lib/promptCompiler.js";
 
 const WORKER_BASE_URL = "http://localhost:7860/api/v1";
 
@@ -228,6 +229,31 @@ export class ContentOsService {
       void e;
       return null;
     }
+  }
+
+  // --- PROMPT COMPILER METHODS (ADR-0219 M3) ---
+
+  public static async compilePromptRemote(
+    post: ContentPost,
+    brandDna?: BrandDnaPillar | null,
+    character?: CharacterEntity | null,
+    customDirectives?: string
+  ): Promise<CompiledPromptResult> {
+    try {
+      const res = await fetch(`${WORKER_BASE_URL}/prompt-compiler/compile`, {
+        method: "POST",
+        headers: this.getAuthHeader(),
+        body: JSON.stringify({ post, brandDna, character, customDirectives }),
+      });
+      if (res.ok) {
+        const body = (await res.json()) as { success: boolean; data: CompiledPromptResult };
+        if (body.data) return body.data;
+      }
+    } catch (e: unknown) {
+      void e;
+    }
+    // Local fallback pure compiler execution
+    return compilePrompt({ post, brandDna, character, customDirectives });
   }
 }
 

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import type { ContentPost, ContentPostStatus, ContentObjective, ContentPlatform, UserRole } from '../../types/content-os';
 import { ContentOsService } from '../../services/contentOsService';
+import type { CompiledPromptResult } from '../../lib/promptCompiler';
 
 interface ContentPostDrawerProps {
   post: ContentPost | null;
@@ -42,6 +43,8 @@ export function ContentPostDrawer({
   const [activeTab, setActiveTab] = useState<'overview' | 'script' | 'preview' | 'dna' | 'prompt'>('overview');
   const [isSaving, setIsSaving] = useState(false);
   const [isApproving, setIsApproving] = useState(false);
+  const [isCompiling, setIsCompiling] = useState(false);
+  const [compiledResult, setCompiledResult] = useState<CompiledPromptResult | null>(null);
   const [editedPost, setEditedPost] = useState<Partial<ContentPost>>({});
 
   useEffect(() => {
@@ -345,20 +348,78 @@ export function ContentPostDrawer({
 
           {activeTab === 'prompt' && (
             <div className="space-y-4 text-xs">
+              <div className="flex items-center justify-between p-4 rounded-xl bg-gradient-to-r from-[#1a1215] to-[#25131b] border border-rose-500/30">
+                <div>
+                  <h4 className="font-bold text-white text-sm">Compiler Determinístico BLAKE3 (M3)</h4>
+                  <p className="text-stone-400 text-[11px]">Compilação em 11 blocos estruturados + Fingerprinting</p>
+                </div>
+                <button
+                  type="button"
+                  onClick={async () => {
+                    try {
+                      setIsCompiling(true);
+                      const result = await ContentOsService.compilePromptRemote(post);
+                      if (result) {
+                        setEditedPost((prev) => ({
+                          ...prev,
+                          compiledPrompt: result.compiledPrompt,
+                          promptHash: result.hash,
+                        }));
+                        setCompiledResult(result);
+                      }
+                    } catch (e: unknown) {
+                      void e;
+                    } finally {
+                      setIsCompiling(false);
+                    }
+                  }}
+                  disabled={isCompiling}
+                  className="px-4 py-2 rounded-xl bg-[#e11d48] hover:bg-rose-600 text-white font-bold text-xs transition-all shadow-lg shadow-[#e11d48]/20 disabled:opacity-50 flex items-center gap-2"
+                >
+                  {isCompiling ? (
+                    'Compilando...'
+                  ) : (
+                    <>
+                      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+                      </svg>
+                      ⚡ Compilar Prompt
+                    </>
+                  )}
+                </button>
+              </div>
+
               <div className="p-4 rounded-xl bg-stone-950 border border-stone-800 space-y-3">
                 <div className="flex items-center justify-between">
-                  <span className="font-bold text-white">BLAKE3 Hash do Prompt</span>
-                  <span className="font-mono text-[10px] text-emerald-400 bg-emerald-950/60 px-2 py-0.5 rounded border border-emerald-800">
-                    {post.promptHash || 'Pendente de Compilação'}
+                  <span className="font-bold text-white">BLAKE3 Hash (64-hex)</span>
+                  <span className="font-mono text-[10px] text-emerald-400 bg-emerald-950/60 px-2 py-0.5 rounded border border-emerald-800 break-all">
+                    {editedPost.promptHash || post.promptHash || 'Pendente de Compilação'}
                   </span>
                 </div>
                 <div>
-                  <label className="block text-stone-400 mb-1">Prompt Compilado</label>
-                  <div className="p-3 rounded-lg bg-black font-mono text-[11px] text-stone-300 border border-white/10 overflow-x-auto whitespace-pre-wrap">
-                    {post.compiledPrompt || 'Prompt ainda não compilado pelo Prompt Compiler (M3).'}
+                  <label className="block text-stone-400 mb-1 font-semibold">Prompt Compilado Final</label>
+                  <div className="p-3 rounded-lg bg-black font-mono text-[11px] text-stone-300 border border-white/10 overflow-x-auto whitespace-pre-wrap max-h-60 overflow-y-auto">
+                    {editedPost.compiledPrompt || post.compiledPrompt || 'Clique em "Compilar Prompt" para sintetizar o prompt em 11 blocos.'}
                   </div>
                 </div>
               </div>
+
+              {compiledResult && (
+                <div className="space-y-3">
+                  <h4 className="font-bold text-stone-300 text-xs uppercase tracking-wider">Decomposição em 11 Blocos Estruturados</h4>
+                  <div className="space-y-2 max-h-64 overflow-y-auto pr-1">
+                    {compiledResult.blocks.map((block) => (
+                      <div key={block.key} className="p-3 rounded-lg bg-[#0c0a0b] border border-white/10 space-y-1">
+                        <div className="flex items-center justify-between text-[10px]">
+                          <span className="font-mono font-bold text-rose-400">{block.key}</span>
+                          <span className="text-stone-400">{block.title}</span>
+                        </div>
+                        <p className="text-stone-200 font-mono text-[11px]">{block.content}</p>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
             </div>
           )}
         </div>
