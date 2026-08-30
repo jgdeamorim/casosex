@@ -36,6 +36,7 @@ import {
   CheckCircle2,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { CustomMediaStudioModal } from "./custom-media-studio-modal";
 
 export interface KanbanItem {
   id: string;
@@ -323,6 +324,24 @@ interface CustomProjectKanbanProps {
 export function CustomProjectKanban({ onOpenPreview }: CustomProjectKanbanProps): JSX.Element {
   const [board, setBoard] = useState<Record<ColumnId, KanbanItem[]>>(INITIAL_BOARD);
   const [activeItem, setActiveItem] = useState<KanbanItem | null>(null);
+  const [modalItem, setModalItem] = useState<KanbanItem | null>(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const handleOpenStudioModal = (item: KanbanItem) => {
+    setModalItem(item);
+    setIsModalOpen(true);
+    if (onOpenPreview) onOpenPreview(item);
+  };
+
+  const handleSaveStudioOptics = (updatedItem: KanbanItem) => {
+    const colId = findColumn(updatedItem.id);
+    if (colId) {
+      setBoard((prev) => ({
+        ...prev,
+        [colId]: prev[colId].map((i) => (i.id === updatedItem.id ? updatedItem : i)),
+      }));
+    }
+  };
 
   // Setup dnd-kit sensors with Pointer + Touch + Keyboard support
   const sensors = useSensors(
@@ -424,7 +443,7 @@ export function CustomProjectKanban({ onOpenPreview }: CustomProjectKanbanProps)
               key={colDef.id}
               def={colDef}
               items={board[colDef.id]}
-              onOpenPreview={onOpenPreview}
+              onOpenPreview={handleOpenStudioModal}
             />
           ))}
         </div>
@@ -433,6 +452,13 @@ export function CustomProjectKanban({ onOpenPreview }: CustomProjectKanbanProps)
           {activeItem ? <KanbanCard item={activeItem} isOverlay /> : null}
         </DragOverlay>
       </DndContext>
+
+      <CustomMediaStudioModal
+        item={modalItem}
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+        onSaveOptics={handleSaveStudioOptics}
+      />
     </div>
   );
 }
