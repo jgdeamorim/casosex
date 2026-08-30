@@ -100,3 +100,36 @@ componentsRouter.get("/all", (c) => {
   });
 });
 
+// Custom component code validation endpoint
+componentsRouter.post("/custom_component", async (c) => {
+  const body = (await c.req.json().catch(() => ({}))) as {
+    code?: string;
+    frontend_node?: Record<string, unknown>;
+  };
+
+  const nodeName =
+    (body.frontend_node?.name as string) || "CustomComponent";
+  const displayName =
+    (body.frontend_node?.display_name as string) || "Componente Customizado Volúpia";
+
+  return c.json({
+    data: {
+      name: nodeName,
+      display_name: displayName,
+      description: "Componente Customizado Volúpia Ativo",
+      field_order: ["code"],
+      template: {
+        code: {
+          type: "code",
+          required: true,
+          value: body.code || "",
+        },
+      },
+    },
+  });
+});
+
+componentsRouter.post("/custom_component/update", async (c) => {
+  const body = (await c.req.json().catch(() => ({}))) as Record<string, unknown>;
+  return c.json({ status: "updated", data: body });
+});

@@ -10,7 +10,8 @@
   },
   "dependencies": {
     "@hono/node-server": "^1.13.8",
-    "hono": "^4.7.2"
+    "hono": "^4.7.2",
+    "ioredis": "^6.0.0"
   },
   "devDependencies": {
     "@cloudflare/workers-types": "^4.20250214.0",
