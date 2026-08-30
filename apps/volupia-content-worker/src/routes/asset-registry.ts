@@ -2,10 +2,33 @@ import { Hono } from 'hono';
 import { authMiddleware } from '../middleware/auth-rbac.js';
 import type { AssetGeneration } from '../../../cockpit/src/types/content-os.js';
 
-type D1Database = any;
+type D1Database = {
+  prepare(query: string): {
+    bind(...args: unknown[]): {
+      all<T = unknown>(): Promise<{ results?: T[] }>;
+      first<T = unknown>(): Promise<T | null>;
+      run(): Promise<unknown>;
+    };
+  };
+};
+
+type R2Bucket = {
+  get(key: string): Promise<{
+    body: ReadableStream;
+    headers?: Headers;
+    httpMetadata?: { contentType?: string };
+  } | null>;
+  put(
+    key: string,
+    value: ArrayBuffer | ReadableStream | string,
+    options?: { httpMetadata?: { contentType?: string } }
+  ): Promise<unknown>;
+  delete(key: string): Promise<unknown>;
+};
 
 type Bindings = {
   DB?: D1Database;
+  R2_VAULT?: R2Bucket;
 };
 
 export const assetRegistryRouter = new Hono<{ Bindings: Bindings }>();
@@ -166,7 +189,7 @@ assetRegistryRouter.post('/select/:id', async (c) => {
       const asset = await db
         .prepare('SELECT post_id as postId FROM asset_generations WHERE id = ?')
         .bind(id)
-        .first();
+        .first<{ postId: string }>();
 
       if (!asset) {
         return c.json({ success: false, error: 'Asset não encontrado' }, 404);
@@ -236,6 +259,89 @@ assetRegistryRouter.delete('/:id', async (c) => {
   } catch (e: unknown) {
     return c.json(
       { success: false, error: e instanceof Error ? e.message : 'Erro ao deletar asset' },
+      500
+    );
+  }
+});
+
+// POST /api/v1/assets/vault/upload - Upload 9:16 asset media binary to R2 Vault
+assetRegistryRouter.post('/vault/upload', async (c) => {
+  try {
+    const r2 = c.env?.R2_VAULT;
+    const body = await c.req.parseBody();
+    const file = body['file'];
+
+    if (!file || !(file instanceof File)) {
+      return c.json({ success: false, error: 'Arquivo é obrigatório para upload' }, 400);
+    }
+
+    const fileExt = file.name.split('.').pop() || 'png';
+    const key = `vault/9-16/${Date.now()}-${Math.random().toString(36).slice(2, 8)}.${fileExt}`;
+    const contentType = file.type || 'image/png';
+
+    if (r2) {
+      const buffer = await file.arrayBuffer();
+      await r2.put(key, buffer, {
+        httpMetadata: { contentType },
+      });
+
+      const publicUrl = `/api/v1/assets/vault/${key}`;
+      return c.json({
+        success: true,
+        data: {
+          key,
+          assetUrl: publicUrl,
+          mimeType: contentType,
+          size: file.size,
+          provider: 'cloudflare-r2',
+        },
+      });
+    }
+
+    // Local Standalone Dev Mock Vault Fallback
+    const mockUrl = `https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=1080&auto=format&fit=crop`;
+    return c.json({
+      success: true,
+      data: {
+        key,
+        assetUrl: mockUrl,
+        mimeType: contentType,
+        size: file.size,
+        provider: 'local-standalone-mock',
+      },
+    });
+  } catch (e: unknown) {
+    return c.json(
+      { success: false, error: e instanceof Error ? e.message : 'Erro ao realizar upload no R2 Vault' },
+      500
+    );
+  }
+});
+
+// GET /api/v1/assets/vault/* - Serve 9:16 asset media from Cloudflare R2 Vault
+assetRegistryRouter.get('/vault/*', async (c) => {
+  try {
+    const r2 = c.env?.R2_VAULT;
+    const path = c.req.path.replace('/api/v1/assets/vault/', '');
+
+    if (!r2) {
+      return c.json({ success: false, error: 'R2 Vault não configurado em ambiente dev local' }, 404);
+    }
+
+    const object = await r2.get(path);
+    if (!object) {
+      return c.json({ success: false, error: 'Objeto não encontrado no Vault R2' }, 404);
+    }
+
+    const headers = new Headers();
+    if (object.httpMetadata?.contentType) {
+      headers.set('Content-Type', object.httpMetadata.contentType);
+    }
+
+    return new Response(object.body as unknown as ReadableStream, { headers });
+  } catch (e: unknown) {
+    return c.json(
+      { success: false, error: e instanceof Error ? e.message : 'Erro ao buscar objeto no Vault R2' },
       500
     );
   }

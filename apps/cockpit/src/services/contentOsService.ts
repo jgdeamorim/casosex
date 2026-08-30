@@ -259,7 +259,30 @@ export class ContentOsService {
     return compilePrompt({ post, brandDna, character, customDirectives });
   }
 
-  // --- ASSET REGISTRY METHODS (ADR-0219 M4) ---
+  // --- ASSET REGISTRY METHODS (ADR-0219 M4 & P4 Vault) ---
+
+  public static async uploadAssetToVault(file: File): Promise<{ assetUrl: string; key: string } | null> {
+    try {
+      const formData = new FormData();
+      formData.append("file", file);
+
+      const token = localStorage.getItem("volupia_token") || "volupia_founder_token";
+      const res = await fetch(`${WORKER_BASE_URL}/assets/vault/upload`, {
+        method: "POST",
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+        body: formData,
+      });
+
+      if (!res.ok) return null;
+      const body = (await res.json()) as { success: boolean; data?: { assetUrl: string; key: string } };
+      return body.data || null;
+    } catch (e: unknown) {
+      void e;
+      return null;
+    }
+  }
 
   public static async fetchAssetsForPost(postId: string): Promise<AssetGeneration[]> {
     try {
