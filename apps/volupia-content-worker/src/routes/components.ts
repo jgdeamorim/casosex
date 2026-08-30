@@ -4,7 +4,7 @@ export const componentsRouter = new Hono();
 
 componentsRouter.get("/all", (c) => {
   return c.json({
-    "Volúpia Social Engine": {
+    models: {
       "Gemini Scriptwriter": {
         name: "Gemini Scriptwriter",
         description:
@@ -29,6 +29,8 @@ componentsRouter.get("/all", (c) => {
           },
         },
       },
+    },
+    processing: {
       "Remote Vast.ai Renderer": {
         name: "Remote Vast.ai Renderer",
         description:
@@ -49,6 +51,8 @@ componentsRouter.get("/all", (c) => {
           },
         },
       },
+    },
+    outputs: {
       "Instagram Publisher": {
         name: "Instagram Publisher",
         description:
@@ -69,5 +73,30 @@ componentsRouter.get("/all", (c) => {
         },
       },
     },
+    saved_components: {
+      "Volúpia Social Engine": {
+        name: "Volúpia Social Engine",
+        description: "Estúdio de Conteúdo Mestre Volúpia",
+        display_name: "Volúpia Social Engine",
+        field_order: [],
+        template: {},
+      },
+    },
+    custom_component: {
+      CustomComponent: {
+        name: "CustomComponent",
+        description: "Componente Customizado Volúpia",
+        display_name: "Componente Customizado",
+        field_order: ["code"],
+        template: {
+          code: {
+            type: "code",
+            required: true,
+            value: "",
+          },
+        },
+      },
+    },
   });
 });
+
