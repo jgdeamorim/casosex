@@ -1,4 +1,6 @@
 import { Hono } from 'hono';
+import { blake3 } from '@noble/hashes/blake3.js';
+import { bytesToHex } from '@noble/hashes/utils.js';
 import { authMiddleware } from '../middleware/auth-rbac.js';
 import type { ContentPost, BrandDnaPillar, CharacterEntity } from '../types/content-os.js';
 
@@ -20,32 +22,12 @@ export interface CompileRequestPayload {
 }
 
 /**
- * Pure Deterministic Hash (BLAKE3-compatible 64-char hex fingerprint)
+ * Pure Deterministic Hash (BLAKE3-standard 64-char hex fingerprint via @noble/hashes)
+ * Computes a cryptographic 256-bit BLAKE3 hash string for parity with Cockpit frontend.
  */
 function computeBlake3Hash(input: string): string {
-  let h1 = 0xdeadbeef ^ 0;
-  let h2 = 0x41c6ce57 ^ 0;
-  let h3 = 0x3039 ^ 0;
-  let h4 = 0xfae00 ^ 0;
-
-  for (let i = 0; i < input.length; i++) {
-    const ch = input.charCodeAt(i);
-    h1 = Math.imul(h1 ^ ch, 2654435761);
-    h2 = Math.imul(h2 ^ ch, 1597334677);
-    h3 = Math.imul(h3 ^ ch, 2246822507);
-    h4 = Math.imul(h4 ^ ch, 3266489917);
-  }
-
-  h1 = Math.imul(h1 ^ (h1 >>> 16), 2246822507) ^ Math.imul(h2 ^ (h2 >>> 13), 3266489917);
-  h2 = Math.imul(h2 ^ (h2 >>> 16), 2246822507) ^ Math.imul(h3 ^ (h3 >>> 13), 1597334677);
-  h3 = Math.imul(h3 ^ (h3 >>> 16), 2246822507) ^ Math.imul(h4 ^ (h4 >>> 13), 2654435761);
-  h4 = Math.imul(h4 ^ (h4 >>> 16), 2246822507) ^ Math.imul(h1 ^ (h1 >>> 13), 3266489917);
-
-  const hex = (val: number) => (val >>> 0).toString(16).padStart(8, '0');
-  const part1 = hex(h1) + hex(h2) + hex(h3) + hex(h4);
-  const part2 = hex(h4) + hex(h3) + hex(h2) + hex(h1);
-
-  return (part1 + part2).toLowerCase();
+  const bytes = new TextEncoder().encode(input);
+  return bytesToHex(blake3(bytes));
 }
 
 // POST /api/v1/prompt-compiler/compile

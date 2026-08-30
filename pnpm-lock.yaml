@@ -71,6 +71,9 @@ importers:
       '@hono/node-server':
         specifier: ^1.13.8
         version: 1.19.17(hono@4.13.1)
+      '@noble/hashes':
+        specifier: ^2.4.0
+        version: 2.4.0
       hono:
         specifier: ^4.7.2
         version: 4.13.1
