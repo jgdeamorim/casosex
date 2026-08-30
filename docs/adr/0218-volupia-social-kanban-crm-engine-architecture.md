@@ -59,6 +59,9 @@ Em conformidade com a Doutrina de Isolamento #10 (o repositório em `self-essent
 - **Aplicação no Langflow**: Criação do **Nó Customizado "Direção de Fotografia / Cinematic Prompt Builder"** no Langflow, permitindo que os grafos de automação de conteúdo configurem parâmetros ópticos de câmera antes de enviar o prompt à GPU.
 
 #### B. Engine Dual de Inferência Local ($0 Custo de API) (`src/lib/localInferenceClient.js` & `localModels.js`)
+> [!NOTE]
+> **Implantação Futura / Roadmap**: O adaptador de inferência dual local (`sd.cpp` + `Wan2GP`) está catalogado na arquitetura para fase posterior. No ciclo atual, a geração de mídia utiliza as rotas padrão de GPU via Volúpia Worker (`:7860`).
+
 - **Descoberta**: Suporte a execução de modelos locais via:
   - `sd.cpp`: Engine compilado em C++ nativo para Stable Diffusion / Flux rodando localmente sem dependência de cloud.
   - `Wan2GP`: Servidor Gradio local para modelos de vídeo de alta fidelidade (Wan2.1 T2V/I2V 14B/1.3B).
