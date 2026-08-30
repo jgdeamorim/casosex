@@ -48,27 +48,40 @@ A visualização de projeto passa a contar com quatro visões principais:
   - **Sessões e Filas**: Redis `:6396` (`casosex:volupia:posts:*`).
   - **Persistência Relacional**: Cloudflare D1 via Volúpia Content Worker (`:7860`).
 
-### 4. Inspiração Arquitetural & Referência de Padrões (`self-essentials/Open-Generative-AI-main`)
+### 4. Análise Arquitetural Profunda ("Até o Osso"): Padrões de Inspiração de Mídia (`self-essentials/Open-Generative-AI-main`)
 
-Utilizamos o repositório `self-essentials/Open-Generative-AI-main` como referência de padrões (em estrita conformidade com a Doutrina de Isolamento #10), extraindo 4 direcionadores fundamentais (`medido=verdade`):
+Em conformidade com a Doutrina de Isolamento #10 (o repositório em `self-essentials` atua como fonte de referência de padrões sem acoplamento de runtime ou containers), a análise detalhada da codebase do `Open-Generative-AI-main` revela 5 motores arquiteturais a serem adaptados para o Langflow e o Social Kanban (`medido=verdade`):
 
-1. **Custom Components para o Langflow (`src/lib/models.js` & `packages/studio`)**:
-   - *O que ele traz*: Schemas pré-mapeados para múltiplos modelos de IA generativa (Flux Schnell, Nano Banana Pro, MiniMax Hailuo H3 para vídeo, Lip Sync).
-   - *Aplicação Sovereign*: Conversão dos schemas de modelos em **Nós Customizados (Custom Components)** dentro do Langflow no Volúpia Worker (`:7860`), capacitando os nós para geração multimídia nativa.
+#### A. Compilador de Prompts Cinematográficos e Física de Câmera (`src/lib/promptUtils.js`)
+- **Descoberta**: Função `buildNanoBananaPrompt()` traduz parâmetros físicos de fotografia e cinema em prompts hiper-realistas:
+  - `CAMERA_MAP`: Câmeras 8K Digital, Full-Frame Cine, 70mm Grand Format, S35.
+  - `LENS_MAP`: Lentes Anamórficas, Tilt, 70s Cinema Prime, Macro, Halation Diffusion.
+  - `FOCAL_PERSPECTIVE`: Mapeamento milimétrico de distância focal (8mm wide → 85mm portrait).
+  - `APERTURE_EFFECT`: Controle de profundidade de campo e bokeh (`f/1.4`, `f/4`, `f/11`).
+- **Aplicação no Langflow**: Criação do **Nó Customizado "Direção de Fotografia / Cinematic Prompt Builder"** no Langflow, permitindo que os grafos de automação de conteúdo configurem parâmetros ópticos de câmera antes de enviar o prompt à GPU.
 
-2. **Automação de Mídia para a Coluna "Em Criação"**:
-   - *O que ele traz*: `packages/Open-AI-Design-Agent` e `packages/Open-Poe-AI/packages/agents`.
-   - *Aplicação Sovereign*: O agente de design atua como o motor gerador automatizado da coluna **🎨 Em Criação**, sintetizando automaticamente banners e thumbnails (ex: 1920x1080) para as postagens.
+#### B. Engine Dual de Inferência Local ($0 Custo de API) (`src/lib/localInferenceClient.js` & `localModels.js`)
+- **Descoberta**: Suporte a execução de modelos locais via:
+  - `sd.cpp`: Engine compilado em C++ nativo para Stable Diffusion / Flux rodando localmente sem dependência de cloud.
+  - `Wan2GP`: Servidor Gradio local para modelos de vídeo de alta fidelidade (Wan2.1 T2V/I2V 14B/1.3B).
+- **Aplicação no Volúpia Worker (`:7860`)**: O worker pode se conectar a instâncias locais de `sd.cpp` e `Wan2GP`, permitindo a geração de imagens/vídeos com custo R$0 para postagens de menor prioridade no Kanban.
 
-3. **Modal de Preview de Mídia no Cockpit UI (`src/components/ImageStudio.js`)**:
-   - *O que ele traz*: Controles visuais de Aspect Ratio (16:9, 1:1, 9:16 para Reels/TikTok), seletor de resolução, histórico de geração local e canvas em dark mode cibernético (`#050505` + Electric Cyan `#22d3ee`).
-   - *Aplicação Sovereign*: Adoção dessa UX/UI na modal de **Preview & Revisão de Postagens** do Cockpit no Langflow (`:5556`).
+#### C. Arquitetura MCP Native & Agentes CLI (`src/components/McpCliStudio.js`)
+- **Descoberta**: Servidor MCP nativo (`muapi-mcp-server`) que expõe 100+ modelos generativos como ferramentas MCP estruturadas (`--output-json`), combinado com a suíte `Generative-Media-Skills` (Skills pré-prontas para Cinema Director, Logo Creator, Shorts Presets e AI Clipping).
+- **Aplicação no Langflow**: Expansão do **Servidor MCP** da aba 3 do projeto no Langflow, permitindo que agentes autônomos dentro dos fluxos invoquem ferramentas MCP de mídia de forma assíncrona.
 
-4. **Motor de Workflows de Mídia (`packages/Vibe-Workflow/packages/workflow-builder`)**:
-   - *O que ele traz*: Construtor visual focado no encadeamento de mídias (IA Prompt → Imagem → Upscale → Lip Sync → Vídeo Final).
-   - *Aplicação Sovereign*: Serve de padrão de referência para otimizar os grafos do Langflow voltados a pipeline multimídia.
+#### D. Suíte de Estúdios de Mídia Por Formato Social (`src/components/*Studio.js`)
+- **Descoberta**: Componentes especializados por tipo de produção visual:
+  - `CinemaStudio.js`: Controle de enquadramento 16:9 / 21:9 para vídeos e banners com overlay de parâmetros e histórico local.
+  - `LipSyncStudio.js`: Sincronização labial e geração de avatares falantes a partir de áudio/script.
+  - `VideoStudio.js`: Geração de vídeos curtos (Reels, TikTok, Shorts em 9:16) com controle de movimento e câmera.
+- **Aplicação no Kanban CRM**: Utilização dessa especificação visual para estruturar a **Modal de Preview & Edição de Mídia** do Kanban Social, com seletores dedicados para cada rede social (Reels 9:16, Feed 1:1, Youtube 16:9).
 
-> **Resumo Prático:** O `Open-Generative-AI-main` opera como a matriz de referência para a fábrica de mídias (imagem e vídeo), alimentando os fluxos do Langflow e preenchendo as postagens no nosso Kanban Social & Agenda IA.
+#### E. Gestão de Jobs Assíncronos & Polling (`src/lib/pendingJobs.js` & `uploadHistory.js`)
+- **Descoberta**: Sistema resiliente para rastrear jobs de geração pesados em background com atualizações de progresso via polling e cache local.
+- **Aplicação na Persistência**: Integração com as filas do Redis `:6396` (`casosex:volupia:posts:*`) e tabelas no Cloudflare D1 via Volúpia Worker, garantindo que o status dos cards no Kanban seja atualizado em tempo real à medida que a GPU conclui a renderização.
+
+> **Resumo da Reanálise Profunda:** O `Open-Generative-AI-main` fornece a especificação técnica completa para transformarmos o Volúpia Content Engine em um estúdio generativo multimídia autônomo, nativo em C/C++ e GPU local, gerenciado visualmente pelo nosso Social Kanban CRM no Langflow.
 
 ---
 
@@ -77,7 +90,7 @@ Utilizamos o repositório `self-essentials/Open-Generative-AI-main` como referê
 ### Positivas
 - **Foco em Produto**: Transforma a interface de um simples criador de nós em um CRM completo de gerenciamento de mídias sociais impulsionado por IA.
 - **Automação End-to-End**: Conecta a geração de ideias, produção gráfica na GPU e agendamento de postagens em uma única experiência visual.
-- **Soberania e Custo $0**: Dispensa o uso de ferramentas pagas de agendamento (ex: Buffer, Hootsuite, Later).
+- **Soberania e Custo $0**: Dispensa o uso de ferramentas pagas de agendamento (ex: Buffer, Hootsuite, Later) e APIs de imagem/vídeo através de inferência local.
 
 ### Negativas / Riscos
 - **Manutenção de Customização**: Exige manter o componente customizado sincronizado durante eventuais atualizações da base do Langflow.
