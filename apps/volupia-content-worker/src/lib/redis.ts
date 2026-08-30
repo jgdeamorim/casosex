@@ -24,11 +24,44 @@ const KEYS = {
   VARIABLE_LIST: "volupia:variables:list",
 };
 
+// Flow Normalizer to guarantee complete FlowType schema compatibility
+export function normalizeFlow(flow: Record<string, unknown>): Record<string, unknown> {
+  const id = (flow.id as string) || crypto.randomUUID();
+  const folder_id = (flow.folder_id as string) || "00000000-0000-0000-0000-000000000001";
+  const data = (flow.data && typeof flow.data === "object")
+    ? flow.data
+    : { nodes: [], edges: [], viewport: { x: 0, y: 0, zoom: 1 } };
+
+  return {
+    ...flow,
+    id,
+    name: flow.name || "Novo Fluxo Volúpia",
+    description: flow.description || "",
+    data,
+    is_component: flow.is_component ?? false,
+    folder_id,
+    user_id: flow.user_id || "00000000-0000-0000-0000-000000000001",
+    icon: flow.icon || null,
+    icon_bg_color: flow.icon_bg_color || null,
+    gradient: flow.gradient || null,
+    tags: flow.tags || [],
+    updated_at: flow.updated_at || new Date().toISOString(),
+    webhook: flow.webhook ?? false,
+    endpoint_name: flow.endpoint_name || null,
+    locked: flow.locked ?? false,
+    mcp_enabled: flow.mcp_enabled ?? false,
+    access_type: flow.access_type || "PRIVATE",
+    flow_type: flow.flow_type || "workflow",
+  };
+}
+
 // Flow CRUD
 export async function getFlowFromRedis(id: string) {
   try {
     const data = await redis.get(KEYS.FLOW(id));
-    return data ? JSON.parse(data) : null;
+    if (!data) return null;
+    const parsed = JSON.parse(data);
+    return normalizeFlow(parsed);
   } catch (e: unknown) {
     void e;
     return null;
@@ -37,18 +70,14 @@ export async function getFlowFromRedis(id: string) {
 
 export async function saveFlowToRedis(flow: Record<string, unknown>) {
   try {
-    const id = (flow.id as string) || crypto.randomUUID();
-    flow.id = id;
-    flow.folder_id = flow.folder_id || "00000000-0000-0000-0000-000000000001";
-    flow.updated_at = new Date().toISOString();
-    flow.is_component = flow.is_component ?? false;
-    flow.data = flow.data || { nodes: [], edges: [], viewport: { x: 0, y: 0, zoom: 1 } };
-    await redis.set(KEYS.FLOW(id), JSON.stringify(flow));
+    const normalized = normalizeFlow(flow);
+    const id = normalized.id as string;
+    await redis.set(KEYS.FLOW(id), JSON.stringify(normalized));
     await redis.sadd(KEYS.FLOW_LIST, id);
-    return flow;
+    return normalized;
   } catch (e: unknown) {
     void e;
-    return flow;
+    return normalizeFlow(flow);
   }
 }
 
@@ -69,7 +98,9 @@ export async function listFlowsFromRedis() {
     if (!ids || ids.length === 0) return [];
     const keys = ids.map((id) => KEYS.FLOW(id));
     const items = await redis.mget(...keys);
-    return items.filter((item): item is string => Boolean(item)).map((item) => JSON.parse(item));
+    return items
+      .filter((item): item is string => Boolean(item))
+      .map((item) => normalizeFlow(JSON.parse(item)));
   } catch (e: unknown) {
     void e;
     return [];
