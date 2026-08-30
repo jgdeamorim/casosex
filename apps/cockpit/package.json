@@ -10,6 +10,7 @@
     "check": "tsc --noEmit"
   },
   "dependencies": {
+    "@noble/hashes": "^2.4.0",
     "clsx": "^2.1.1",
     "hono": "^4.7.0",
     "leaflet": "^1.9.4",
