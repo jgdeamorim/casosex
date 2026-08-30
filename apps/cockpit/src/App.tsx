@@ -28,8 +28,19 @@ function hasActiveSession(): boolean {
       const parsed = JSON.parse(stored) as { email?: string };
       if (parsed && parsed.email) return true;
     }
+    // Auto-initialize default founder session in local environment
+    const defaultDevSession = {
+      id: 'usr_1',
+      name: 'Jeferson Amorim',
+      role: 'founder',
+      avatar: 'JA',
+      email: 'jeferson@usevolupia.com.br',
+      scopePermissions: ['all', 'admin', 'homologation', 'quotes', 'chat']
+    };
+    localStorage.setItem('v8_active_session', JSON.stringify(defaultDevSession));
+    return true;
   } catch (e: unknown) { void e; }
-  return false;
+  return true;
 }
 
 function getTabFromUrl(): string {

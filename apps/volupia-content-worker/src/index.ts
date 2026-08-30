@@ -14,6 +14,10 @@ import { charactersRouter } from "./routes/characters.js";
 import { promptCompilerRouter } from "./routes/prompt-compiler.js";
 import { assetRegistryRouter } from "./routes/asset-registry.js";
 import { learningLoopRouter } from "./routes/learning-loop.js";
+import { DevStore } from "./lib/devStore.js";
+
+// Initialize local disk persistent store for standalone Node mode
+DevStore.init();
 
 const app = new Hono();
 
