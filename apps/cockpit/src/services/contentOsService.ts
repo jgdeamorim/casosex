@@ -1,4 +1,10 @@
-import type { ContentPost, ContentPostStatus, ContentPlatform } from "../types/content-os.js";
+import type {
+  ContentPost,
+  ContentPostStatus,
+  ContentPlatform,
+  BrandDnaPillar,
+  CharacterEntity,
+} from "../types/content-os.js";
 
 const WORKER_BASE_URL = "http://localhost:7860/api/v1";
 
@@ -155,4 +161,73 @@ export class ContentOsService {
       return false;
     }
   }
+
+  // --- BRAND DNA METHODS ---
+
+  public static async fetchBrandDnaPillars(): Promise<BrandDnaPillar[]> {
+    try {
+      const res = await fetch(`${WORKER_BASE_URL}/brand-dna`, {
+        headers: this.getAuthHeader(),
+      });
+      if (!res.ok) return [];
+      const body = (await res.json()) as { success: boolean; data: BrandDnaPillar[] };
+      return body.data || [];
+    } catch (e: unknown) {
+      void e;
+      return [];
+    }
+  }
+
+  public static async createOrUpdateBrandDnaPillar(
+    payload: Partial<BrandDnaPillar>
+  ): Promise<BrandDnaPillar | null> {
+    try {
+      const res = await fetch(`${WORKER_BASE_URL}/brand-dna`, {
+        method: "POST",
+        headers: this.getAuthHeader(),
+        body: JSON.stringify(payload),
+      });
+      if (!res.ok) return null;
+      const body = (await res.json()) as { success: boolean; data: BrandDnaPillar };
+      return body.data || null;
+    } catch (e: unknown) {
+      void e;
+      return null;
+    }
+  }
+
+  // --- CHARACTER LIBRARY METHODS ---
+
+  public static async fetchCharacters(): Promise<CharacterEntity[]> {
+    try {
+      const res = await fetch(`${WORKER_BASE_URL}/characters`, {
+        headers: this.getAuthHeader(),
+      });
+      if (!res.ok) return [];
+      const body = (await res.json()) as { success: boolean; data: CharacterEntity[] };
+      return body.data || [];
+    } catch (e: unknown) {
+      void e;
+      return [];
+    }
+  }
+
+  public static async createOrUpdateCharacter(
+    payload: Partial<CharacterEntity>
+  ): Promise<CharacterEntity | null> {
+    try {
+      const res = await fetch(`${WORKER_BASE_URL}/characters`, {
+        method: "POST",
+        headers: this.getAuthHeader(),
+        body: JSON.stringify(payload),
+      });
+      if (!res.ok) return null;
+      const body = (await res.json()) as { success: boolean; data: CharacterEntity };
+      return body.data || null;
+    } catch (e: unknown) {
+      void e;
+      return null;
+    }
+  }
 }
+

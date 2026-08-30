@@ -93,3 +93,25 @@ export interface ContentMetrics {
   conversionsCount: number;
   updatedAt: string;
 }
+
+export interface BrandDnaPillar {
+  id: string;
+  name: string;
+  pillarKey: string;
+  visualGuidelines: string;
+  verbalTone: string;
+  colorPalette: string;
+  lightingProfile: string;
+  version: number;
+  createdAt: string;
+}
+
+export interface CharacterEntity {
+  id: string;
+  name: string;
+  description: string;
+  faceReferenceUrls: string;
+  fixedSeed: number;
+  createdAt: string;
+}
+

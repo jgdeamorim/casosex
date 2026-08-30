@@ -15,6 +15,8 @@ import { TeamChatDrawer } from './components/chat/TeamChatDrawer';
 import { ScopeGuard } from './auth/ScopeGuard';
 import { LoginView } from './components/auth/LoginView';
 import { AgendaPage } from './components/agenda/AgendaPage';
+import { BrandDnaPage } from './components/dna/BrandDnaPage';
+import { CharacterLibraryPage } from './components/dna/CharacterLibraryPage';
 
 function hasActiveSession(): boolean {
   if (typeof window === 'undefined') return false;
@@ -113,6 +115,20 @@ function MainLayout(): React.ReactElement {
           {activeTab === 'agenda' && (
             <ScopeGuard tabName="agenda">
               <AgendaPage userRole={userSession.role} />
+            </ScopeGuard>
+          )}
+
+          {/* Brand DNA Tab */}
+          {activeTab === 'brand_dna' && (
+            <ScopeGuard tabName="brand_dna">
+              <BrandDnaPage />
+            </ScopeGuard>
+          )}
+
+          {/* Character Library Tab */}
+          {activeTab === 'characters' && (
+            <ScopeGuard tabName="characters">
+              <CharacterLibraryPage />
             </ScopeGuard>
           )}
 
