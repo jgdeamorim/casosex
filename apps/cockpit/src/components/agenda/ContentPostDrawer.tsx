@@ -1,5 +1,14 @@
 import React, { useState, useEffect } from 'react';
-import type { ContentPost, ContentPostStatus, ContentObjective, ContentPlatform, UserRole, AssetGeneration } from '../../types/content-os';
+import type {
+  ContentPost,
+  ContentPostStatus,
+  ContentObjective,
+  ContentPlatform,
+  UserRole,
+  AssetGeneration,
+  ContentEvent,
+  ContentMetrics,
+} from '../../types/content-os';
 import { ContentOsService } from '../../services/contentOsService';
 import type { CompiledPromptResult } from '../../lib/promptCompiler';
 
@@ -40,7 +49,9 @@ export function ContentPostDrawer({
   onPostUpdated,
   onPostDeleted,
 }: ContentPostDrawerProps): React.ReactElement | null {
-  const [activeTab, setActiveTab] = useState<'overview' | 'script' | 'preview' | 'dna' | 'prompt' | 'assets'>('overview');
+  const [activeTab, setActiveTab] = useState<
+    'overview' | 'script' | 'preview' | 'dna' | 'prompt' | 'assets' | 'learning_loop'
+  >('overview');
   const [isSaving, setIsSaving] = useState(false);
   const [isApproving, setIsApproving] = useState(false);
   const [isCompiling, setIsCompiling] = useState(false);
@@ -54,6 +65,21 @@ export function ContentPostDrawer({
   const [newAssetModel, setNewAssetModel] = useState('flux-1-schnell');
   const [isCreatingAsset, setIsCreatingAsset] = useState(false);
 
+  // Learning Loop M5 state
+  const [eventsList, setEventsList] = useState<ContentEvent[]>([]);
+  const [postMetrics, setPostMetrics] = useState<ContentMetrics | null>(null);
+  const [recommendations, setRecommendations] = useState<{
+    oodaStage: string;
+    confidenceScore: number;
+    topPerformingPillars: Array<{ pillar: string; avgConversionRate: string; recommendedHookType: string }>;
+    recommendations: string[];
+  } | null>(null);
+  const [isLoadingMetrics, setIsLoadingMetrics] = useState(false);
+  const [metricImpressions, setMetricImpressions] = useState<number>(0);
+  const [metricClicks, setMetricClicks] = useState<number>(0);
+  const [metricConversions, setMetricConversions] = useState<number>(0);
+  const [isSavingMetrics, setIsSavingMetrics] = useState(false);
+
   useEffect(() => {
     if (post) {
       setEditedPost(post);
@@ -64,7 +90,67 @@ export function ContentPostDrawer({
     if (post && activeTab === 'assets') {
       void loadAssets();
     }
+    if (post && activeTab === 'learning_loop') {
+      void loadLearningLoopData();
+    }
   }, [post, activeTab]);
+
+  const loadLearningLoopData = async (): Promise<void> => {
+    if (!post) return;
+    try {
+      setIsLoadingMetrics(true);
+      const [eventsData, metricsData, recsData] = await Promise.all([
+        ContentOsService.fetchPostEvents(post.id),
+        ContentOsService.fetchPostMetrics(post.id),
+        ContentOsService.fetchLearningLoopRecommendations(),
+      ]);
+      setEventsList(eventsData);
+      setPostMetrics(metricsData);
+      setRecommendations(recsData);
+      if (metricsData) {
+        setMetricImpressions(metricsData.impressions || 0);
+        setMetricClicks(metricsData.directClicks || 0);
+        setMetricConversions(metricsData.conversionsCount || 0);
+      }
+    } catch (e: unknown) {
+      void e;
+    } finally {
+      setIsLoadingMetrics(false);
+    }
+  };
+
+  const handleUpdateMetricsForm = async (e: React.FormEvent): Promise<void> => {
+    e.preventDefault();
+    if (!post) return;
+    try {
+      setIsSavingMetrics(true);
+      const engagementRate =
+        metricImpressions > 0 ? Number(((metricClicks / metricImpressions) * 100).toFixed(2)) : 0;
+
+      const updated = await ContentOsService.updatePostMetrics({
+        postId: post.id,
+        impressions: metricImpressions,
+        engagementRate,
+        directClicks: metricClicks,
+        conversionsCount: metricConversions,
+      });
+
+      if (updated) {
+        setPostMetrics(updated);
+        await ContentOsService.recordPostEvent(post.id, 'metric_received', {
+          impressions: metricImpressions,
+          directClicks: metricClicks,
+          conversionsCount: metricConversions,
+        });
+        const freshEvents = await ContentOsService.fetchPostEvents(post.id);
+        setEventsList(freshEvents);
+      }
+    } catch (err: unknown) {
+      void err;
+    } finally {
+      setIsSavingMetrics(false);
+    }
+  };
 
   const loadAssets = async (): Promise<void> => {
     if (!post) return;
@@ -207,8 +293,8 @@ export function ContentPostDrawer({
         </div>
 
         {/* Drawer Navigation Tabs */}
-        <div className="px-5 border-b border-white/10 flex items-center gap-1 bg-[#120e10] overflow-x-auto">
-          {(['overview', 'script', 'preview', 'dna', 'prompt', 'assets'] as const).map((tab) => {
+        <div className="px-5 border-b border-white/10 flex items-center gap-1 bg-[#120e10] overflow-x-auto whitespace-nowrap scrollbar-none">
+          {(['overview', 'script', 'preview', 'dna', 'prompt', 'assets', 'learning_loop'] as const).map((tab) => {
             const labels = {
               overview: 'Visão Geral',
               script: 'Roteiro & Hook',
@@ -216,6 +302,7 @@ export function ContentPostDrawer({
               dna: 'Brand & Personagem',
               prompt: 'Prompt Compiler',
               assets: 'Galeria M4 (Mídia)',
+              learning_loop: 'Métricas & OODA (M5)',
             };
 
             return (
@@ -628,6 +715,168 @@ export function ContentPostDrawer({
                   })}
                 </div>
               )}
+            </div>
+          )}
+
+          {activeTab === 'learning_loop' && (
+            <div className="space-y-6 text-xs">
+              {/* Header Box */}
+              <div className="p-4 bg-gradient-to-r from-stone-900 via-[#1c1418] to-stone-900 border border-white/10 rounded-2xl">
+                <div className="flex items-center justify-between">
+                  <h3 className="font-bold text-sm text-rose-400 flex items-center gap-2">
+                    <span>⚡</span> OODA Learning Loop & Performance (M5)
+                  </h3>
+                  {recommendations && (
+                    <span className="px-2.5 py-1 text-[10px] font-mono bg-rose-500/20 text-rose-300 border border-rose-500/30 rounded-full font-bold">
+                      Confidence: {(recommendations.confidenceScore * 100).toFixed(0)}%
+                    </span>
+                  )}
+                </div>
+                <p className="text-[#a8a29e] text-[11px] mt-1">
+                  Telemetria viva de eventos, métricas de conversão e motor de recomendação inteligente do Adsentice.
+                </p>
+              </div>
+
+              {/* Performance Cards */}
+              <div className="grid grid-cols-2 gap-3">
+                <div className="p-3 bg-[#0c0a0b] border border-white/10 rounded-xl space-y-1">
+                  <span className="text-[10px] uppercase font-bold text-stone-400">Impressões</span>
+                  <div className="text-xl font-bold font-mono text-white">
+                    {postMetrics?.impressions?.toLocaleString() || 0}
+                  </div>
+                </div>
+
+                <div className="p-3 bg-[#0c0a0b] border border-white/10 rounded-xl space-y-1">
+                  <span className="text-[10px] uppercase font-bold text-stone-400">Taxa de Engajamento</span>
+                  <div className="text-xl font-bold font-mono text-amber-400">
+                    {postMetrics?.engagementRate || 0}%
+                  </div>
+                </div>
+
+                <div className="p-3 bg-[#0c0a0b] border border-white/10 rounded-xl space-y-1">
+                  <span className="text-[10px] uppercase font-bold text-stone-400">Cliques Diretos (Direct)</span>
+                  <div className="text-xl font-bold font-mono text-blue-400">
+                    {postMetrics?.directClicks || 0}
+                  </div>
+                </div>
+
+                <div className="p-3 bg-[#0c0a0b] border border-white/10 rounded-xl space-y-1">
+                  <span className="text-[10px] uppercase font-bold text-stone-400">Conversões (Vendas)</span>
+                  <div className="text-xl font-bold font-mono text-emerald-400">
+                    {postMetrics?.conversionsCount || 0}
+                  </div>
+                </div>
+              </div>
+
+              {/* Update Metrics Form */}
+              <form onSubmit={handleUpdateMetricsForm} className="p-4 bg-[#0c0a0b]/60 border border-white/10 rounded-xl space-y-3">
+                <h4 className="font-bold text-stone-200 text-xs">Atualizar Métricas de Performance</h4>
+                <div className="grid grid-cols-3 gap-3">
+                  <div>
+                    <label className="block text-[10px] text-stone-400 mb-1">Impressões</label>
+                    <input
+                      type="number"
+                      value={metricImpressions}
+                      onChange={(e) => setMetricImpressions(Number(e.target.value))}
+                      className="w-full bg-[#161214] border border-white/15 rounded-lg p-2 text-white font-mono text-xs focus:ring-1 focus:ring-[#e11d48]"
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-[10px] text-stone-400 mb-1">Cliques</label>
+                    <input
+                      type="number"
+                      value={metricClicks}
+                      onChange={(e) => setMetricClicks(Number(e.target.value))}
+                      className="w-full bg-[#161214] border border-white/15 rounded-lg p-2 text-white font-mono text-xs focus:ring-1 focus:ring-[#e11d48]"
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-[10px] text-stone-400 mb-1">Conversões</label>
+                    <input
+                      type="number"
+                      value={metricConversions}
+                      onChange={(e) => setMetricConversions(Number(e.target.value))}
+                      className="w-full bg-[#161214] border border-white/15 rounded-lg p-2 text-white font-mono text-xs focus:ring-1 focus:ring-[#e11d48]"
+                    />
+                  </div>
+                </div>
+
+                <button
+                  type="submit"
+                  disabled={isSavingMetrics}
+                  className="w-full py-2 bg-stone-800 hover:bg-stone-700 text-stone-200 font-bold rounded-lg transition-colors text-xs border border-white/10 disabled:opacity-50"
+                >
+                  {isSavingMetrics ? 'Registrando Telemetria...' : 'Salvar Métricas & Registrar Evento'}
+                </button>
+              </form>
+
+              {/* OODA Recommendations Engine Insights */}
+              {recommendations && (
+                <div className="p-4 bg-emerald-950/20 border border-emerald-500/30 rounded-xl space-y-3">
+                  <h4 className="font-bold text-emerald-300 text-xs flex items-center gap-1.5">
+                    <span>🧠</span> Recomendações do OODA Learning Loop
+                  </h4>
+
+                  <div className="space-y-2">
+                    {recommendations.recommendations.map((rec, i) => (
+                      <div key={i} className="p-2.5 bg-[#0c0a0b]/80 border border-emerald-500/20 rounded-lg text-emerald-200/90 text-[11px]">
+                        • {rec}
+                      </div>
+                    ))}
+                  </div>
+
+                  <div className="pt-2">
+                    <span className="block text-[10px] uppercase font-bold text-emerald-400 mb-1.5">Top Pilares de Conversão</span>
+                    <div className="space-y-1">
+                      {recommendations.topPerformingPillars.map((p, idx) => (
+                        <div key={idx} className="flex items-center justify-between text-[11px] p-2 bg-[#120e10] rounded border border-white/5">
+                          <span className="font-mono font-bold text-stone-300">{p.pillar}</span>
+                          <span className="text-stone-400">Hook: {p.recommendedHookType}</span>
+                          <span className="font-mono text-emerald-400 font-bold">{p.avgConversionRate}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              )}
+
+              {/* Telemetry Event Trail */}
+              <div className="space-y-3">
+                <h4 className="font-bold text-stone-300 text-xs flex items-center gap-1.5">
+                  <span>📜</span> Trilha Telemétrica de Eventos (D1 Audit)
+                </h4>
+
+                {isLoadingMetrics ? (
+                  <div className="py-6 text-center text-stone-500 animate-pulse">Carregando eventos...</div>
+                ) : eventsList.length === 0 ? (
+                  <div className="p-4 text-center text-stone-500 bg-[#0c0a0b] rounded-xl border border-white/5">
+                    Nenhum evento telemétrico registrado ainda.
+                  </div>
+                ) : (
+                  <div className="space-y-2">
+                    {eventsList.map((evt) => (
+                      <div key={evt.id} className="p-3 bg-[#0c0a0b] border border-white/10 rounded-xl flex items-start justify-between gap-2">
+                        <div className="space-y-1">
+                          <div className="flex items-center gap-2">
+                            <span className="px-2 py-0.5 text-[9px] font-mono font-bold uppercase rounded bg-rose-950 text-rose-300 border border-rose-800/40">
+                              {evt.eventType}
+                            </span>
+                            <span className="font-mono text-[10px] text-stone-400">{evt.actorId}</span>
+                          </div>
+                          {evt.payload && Object.keys(evt.payload).length > 0 && (
+                            <pre className="text-[10px] font-mono text-stone-400 bg-[#161214] p-1.5 rounded overflow-x-auto max-w-md">
+                              {JSON.stringify(evt.payload, null, 2)}
+                            </pre>
+                          )}
+                        </div>
+                        <span className="font-mono text-[9px] text-stone-500 whitespace-nowrap">
+                          {new Date(evt.timestamp).toLocaleTimeString()}
+                        </span>
+                      </div>
+                    ))}
+                  </div>
+                )}
+              </div>
             </div>
           )}
         </div>

@@ -13,6 +13,7 @@ import { brandDnaRouter } from "./routes/brand-dna.js";
 import { charactersRouter } from "./routes/characters.js";
 import { promptCompilerRouter } from "./routes/prompt-compiler.js";
 import { assetRegistryRouter } from "./routes/asset-registry.js";
+import { learningLoopRouter } from "./routes/learning-loop.js";
 
 const app = new Hono();
 
@@ -39,6 +40,7 @@ app.route("/api/v1/brand-dna", brandDnaRouter);
 app.route("/api/v1/characters", charactersRouter);
 app.route("/api/v1/prompt-compiler", promptCompilerRouter);
 app.route("/api/v1/assets", assetRegistryRouter);
+app.route("/api/v1/learning-loop", learningLoopRouter);
 app.route("/api/v1/a2a", a2aRouter);
 
 app.route("/api/v2", configRouter);
@@ -52,6 +54,7 @@ app.route("/api/v2/brand-dna", brandDnaRouter);
 app.route("/api/v2/characters", charactersRouter);
 app.route("/api/v2/prompt-compiler", promptCompilerRouter);
 app.route("/api/v2/assets", assetRegistryRouter);
+app.route("/api/v2/learning-loop", learningLoopRouter);
 app.route("/api/v2/a2a", a2aRouter);
 
 app.route("/", configRouter);
@@ -65,6 +68,7 @@ app.route("/brand-dna", brandDnaRouter);
 app.route("/characters", charactersRouter);
 app.route("/prompt-compiler", promptCompilerRouter);
 app.route("/assets", assetRegistryRouter);
+app.route("/learning-loop", learningLoopRouter);
 app.route("/a2a", a2aRouter);
 
 // Fail-soft fallback route: return [] for GET requests to ensure .map() on list queries never crashes React

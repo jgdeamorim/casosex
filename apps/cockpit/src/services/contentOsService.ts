@@ -5,6 +5,8 @@ import type {
   BrandDnaPillar,
   CharacterEntity,
   AssetGeneration,
+  ContentEvent,
+  ContentMetrics,
 } from "../types/content-os.js";
 import { compilePrompt, type CompiledPromptResult } from "../lib/promptCompiler.js";
 
@@ -314,6 +316,101 @@ export class ContentOsService {
     } catch (e: unknown) {
       void e;
       return false;
+    }
+  }
+
+  // --- Milestone 5: Learning Loop & Telemetry Methods ---
+
+  public static async fetchPostEvents(postId: string): Promise<ContentEvent[]> {
+    try {
+      const res = await fetch(`${WORKER_BASE_URL}/learning-loop/events/${postId}`, {
+        headers: this.getAuthHeader(),
+      });
+      if (!res.ok) return [];
+      const json = (await res.json()) as { success: boolean; data: ContentEvent[] };
+      return json.success && Array.isArray(json.data) ? json.data : [];
+    } catch (e: unknown) {
+      void e;
+      return [];
+    }
+  }
+
+  public static async recordPostEvent(
+    postId: string,
+    eventType: ContentEvent["eventType"],
+    payload: Record<string, unknown> = {}
+  ): Promise<ContentEvent | null> {
+    try {
+      const res = await fetch(`${WORKER_BASE_URL}/learning-loop/events`, {
+        method: "POST",
+        headers: this.getAuthHeader(),
+        body: JSON.stringify({ postId, eventType, actorId: "cockpit_user", payload }),
+      });
+      if (!res.ok) return null;
+      const json = (await res.json()) as { success: boolean; data: ContentEvent };
+      return json.success ? json.data : null;
+    } catch (e: unknown) {
+      void e;
+      return null;
+    }
+  }
+
+  public static async fetchPostMetrics(postId: string): Promise<ContentMetrics | null> {
+    try {
+      const res = await fetch(`${WORKER_BASE_URL}/learning-loop/metrics/${postId}`, {
+        headers: this.getAuthHeader(),
+      });
+      if (!res.ok) return null;
+      const json = (await res.json()) as { success: boolean; data: ContentMetrics };
+      return json.success ? json.data : null;
+    } catch (e: unknown) {
+      void e;
+      return null;
+    }
+  }
+
+  public static async updatePostMetrics(
+    metrics: Partial<ContentMetrics> & { postId: string }
+  ): Promise<ContentMetrics | null> {
+    try {
+      const res = await fetch(`${WORKER_BASE_URL}/learning-loop/metrics`, {
+        method: "POST",
+        headers: this.getAuthHeader(),
+        body: JSON.stringify(metrics),
+      });
+      if (!res.ok) return null;
+      const json = (await res.json()) as { success: boolean; data: ContentMetrics };
+      return json.success ? json.data : null;
+    } catch (e: unknown) {
+      void e;
+      return null;
+    }
+  }
+
+  public static async fetchLearningLoopRecommendations(): Promise<{
+    oodaStage: string;
+    confidenceScore: number;
+    topPerformingPillars: Array<{ pillar: string; avgConversionRate: string; recommendedHookType: string }>;
+    recommendations: string[];
+  } | null> {
+    try {
+      const res = await fetch(`${WORKER_BASE_URL}/learning-loop/recommendations`, {
+        headers: this.getAuthHeader(),
+      });
+      if (!res.ok) return null;
+      const json = (await res.json()) as {
+        success: boolean;
+        data: {
+          oodaStage: string;
+          confidenceScore: number;
+          topPerformingPillars: Array<{ pillar: string; avgConversionRate: string; recommendedHookType: string }>;
+          recommendations: string[];
+        };
+      };
+      return json.success ? json.data : null;
+    } catch (e: unknown) {
+      void e;
+      return null;
     }
   }
 }
