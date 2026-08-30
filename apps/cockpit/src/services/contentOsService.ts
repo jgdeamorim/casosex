@@ -4,6 +4,7 @@ import type {
   ContentPlatform,
   BrandDnaPillar,
   CharacterEntity,
+  AssetGeneration,
 } from "../types/content-os.js";
 import { compilePrompt, type CompiledPromptResult } from "../lib/promptCompiler.js";
 
@@ -254,6 +255,66 @@ export class ContentOsService {
     }
     // Local fallback pure compiler execution
     return compilePrompt({ post, brandDna, character, customDirectives });
+  }
+
+  // --- ASSET REGISTRY METHODS (ADR-0219 M4) ---
+
+  public static async fetchAssetsForPost(postId: string): Promise<AssetGeneration[]> {
+    try {
+      const res = await fetch(`${WORKER_BASE_URL}/assets/post/${postId}`, {
+        headers: this.getAuthHeader(),
+      });
+      if (!res.ok) return [];
+      const body = (await res.json()) as { success: boolean; data: AssetGeneration[] };
+      return body.data || [];
+    } catch (e: unknown) {
+      void e;
+      return [];
+    }
+  }
+
+  public static async createAssetGeneration(
+    payload: Partial<AssetGeneration>
+  ): Promise<AssetGeneration | null> {
+    try {
+      const res = await fetch(`${WORKER_BASE_URL}/assets/generate`, {
+        method: "POST",
+        headers: this.getAuthHeader(),
+        body: JSON.stringify(payload),
+      });
+      if (!res.ok) return null;
+      const body = (await res.json()) as { success: boolean; data: AssetGeneration };
+      return body.data || null;
+    } catch (e: unknown) {
+      void e;
+      return null;
+    }
+  }
+
+  public static async selectPublishedAsset(assetId: string): Promise<boolean> {
+    try {
+      const res = await fetch(`${WORKER_BASE_URL}/assets/select/${assetId}`, {
+        method: "POST",
+        headers: this.getAuthHeader(),
+      });
+      return res.ok;
+    } catch (e: unknown) {
+      void e;
+      return false;
+    }
+  }
+
+  public static async deleteAsset(assetId: string): Promise<boolean> {
+    try {
+      const res = await fetch(`${WORKER_BASE_URL}/assets/${assetId}`, {
+        method: "DELETE",
+        headers: this.getAuthHeader(),
+      });
+      return res.ok;
+    } catch (e: unknown) {
+      void e;
+      return false;
+    }
   }
 }
 

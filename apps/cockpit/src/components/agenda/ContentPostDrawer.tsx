@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import type { ContentPost, ContentPostStatus, ContentObjective, ContentPlatform, UserRole } from '../../types/content-os';
+import type { ContentPost, ContentPostStatus, ContentObjective, ContentPlatform, UserRole, AssetGeneration } from '../../types/content-os';
 import { ContentOsService } from '../../services/contentOsService';
 import type { CompiledPromptResult } from '../../lib/promptCompiler';
 
@@ -40,18 +40,92 @@ export function ContentPostDrawer({
   onPostUpdated,
   onPostDeleted,
 }: ContentPostDrawerProps): React.ReactElement | null {
-  const [activeTab, setActiveTab] = useState<'overview' | 'script' | 'preview' | 'dna' | 'prompt'>('overview');
+  const [activeTab, setActiveTab] = useState<'overview' | 'script' | 'preview' | 'dna' | 'prompt' | 'assets'>('overview');
   const [isSaving, setIsSaving] = useState(false);
   const [isApproving, setIsApproving] = useState(false);
   const [isCompiling, setIsCompiling] = useState(false);
   const [compiledResult, setCompiledResult] = useState<CompiledPromptResult | null>(null);
   const [editedPost, setEditedPost] = useState<Partial<ContentPost>>({});
 
+  // Asset Registry M4 state
+  const [assetsList, setAssetsList] = useState<AssetGeneration[]>([]);
+  const [isLoadingAssets, setIsLoadingAssets] = useState(false);
+  const [newAssetUrl, setNewAssetUrl] = useState('');
+  const [newAssetModel, setNewAssetModel] = useState('flux-1-schnell');
+  const [isCreatingAsset, setIsCreatingAsset] = useState(false);
+
   useEffect(() => {
     if (post) {
       setEditedPost(post);
     }
   }, [post]);
+
+  useEffect(() => {
+    if (post && activeTab === 'assets') {
+      void loadAssets();
+    }
+  }, [post, activeTab]);
+
+  const loadAssets = async (): Promise<void> => {
+    if (!post) return;
+    try {
+      setIsLoadingAssets(true);
+      const data = await ContentOsService.fetchAssetsForPost(post.id);
+      setAssetsList(data);
+    } catch (e: unknown) {
+      void e;
+    } finally {
+      setIsLoadingAssets(false);
+    }
+  };
+
+  const handleSelectAssetVersion = async (assetId: string): Promise<void> => {
+    if (!post) return;
+    try {
+      const success = await ContentOsService.selectPublishedAsset(assetId);
+      if (success) {
+        setAssetsList((prev) =>
+          prev.map((a) => ({
+            ...a,
+            status: a.id === assetId ? 'published' : 'draft',
+          }))
+        );
+        const updated = { ...post, status: 'generated' as ContentPostStatus };
+        onPostUpdated(updated);
+      }
+    } catch (e: unknown) {
+      void e;
+    }
+  };
+
+  const handleRegisterNewAsset = async (e: React.FormEvent): Promise<void> => {
+    e.preventDefault();
+    if (!post || !newAssetUrl.trim()) return;
+    try {
+      setIsCreatingAsset(true);
+      const created = await ContentOsService.createAssetGeneration({
+        postId: post.id,
+        assetUrl: newAssetUrl.trim(),
+        model: newAssetModel,
+        seed: Math.floor(Math.random() * 100000000),
+        promptHash: editedPost.promptHash || post.promptHash || '',
+        compiledPrompt: editedPost.compiledPrompt || post.compiledPrompt || '',
+        mimeType: 'image/jpeg',
+        width: 1080,
+        height: 1920,
+        createdBy: userRole,
+      });
+
+      if (created) {
+        setAssetsList((prev) => [created, ...prev]);
+        setNewAssetUrl('');
+      }
+    } catch (err: unknown) {
+      void err;
+    } finally {
+      setIsCreatingAsset(false);
+    }
+  };
 
   if (!isOpen || !post) return null;
 
@@ -133,14 +207,15 @@ export function ContentPostDrawer({
         </div>
 
         {/* Drawer Navigation Tabs */}
-        <div className="px-5 border-b border-white/10 flex items-center gap-1 bg-[#120e10]">
-          {(['overview', 'script', 'preview', 'dna', 'prompt'] as const).map((tab) => {
+        <div className="px-5 border-b border-white/10 flex items-center gap-1 bg-[#120e10] overflow-x-auto">
+          {(['overview', 'script', 'preview', 'dna', 'prompt', 'assets'] as const).map((tab) => {
             const labels = {
               overview: 'Visão Geral',
               script: 'Roteiro & Hook',
               preview: 'Safe Zone 9:16',
               dna: 'Brand & Personagem',
               prompt: 'Prompt Compiler',
+              assets: 'Galeria M4 (Mídia)',
             };
 
             return (
@@ -418,6 +493,139 @@ export function ContentPostDrawer({
                       </div>
                     ))}
                   </div>
+                </div>
+              )}
+            </div>
+          )}
+
+          {activeTab === 'assets' && (
+            <div className="space-y-6 text-xs">
+              <div className="flex items-center justify-between border-b border-white/10 pb-3">
+                <div>
+                  <h3 className="text-sm font-bold text-white">Asset Registry & Versões de Mídia (M4)</h3>
+                  <p className="text-stone-400 text-[11px]">
+                    Histórico de gerações 9:16 associadas ao post com rastreabilidade por Seed, Modelo e Hash BLAKE3.
+                  </p>
+                </div>
+                <button
+                  type="button"
+                  onClick={loadAssets}
+                  className="px-3 py-1.5 rounded-lg bg-stone-800 hover:bg-stone-700 text-stone-200 font-bold text-[11px] transition-colors"
+                >
+                  🔄 Recarregar
+                </button>
+              </div>
+
+              {/* Form de Simulação de Nova Geração */}
+              <form onSubmit={handleRegisterNewAsset} className="p-4 rounded-xl bg-stone-950 border border-white/10 space-y-3">
+                <h4 className="font-bold text-rose-400 text-xs uppercase tracking-wider">Simular / Registrar Nova Geração (AI)</h4>
+                <div className="grid grid-cols-3 gap-3">
+                  <div className="col-span-2">
+                    <label className="block text-stone-400 mb-1 font-medium text-[11px]">URL da Mídia (R2 ou preview)</label>
+                    <input
+                      type="url"
+                      placeholder="https://..."
+                      value={newAssetUrl}
+                      onChange={(e) => setNewAssetUrl(e.target.value)}
+                      className="w-full bg-[#0c0a0b] border border-white/15 rounded-lg p-2 text-white focus:outline-none focus:ring-1 focus:ring-rose-500 font-mono text-[11px]"
+                      required
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-stone-400 mb-1 font-medium text-[11px]">Modelo AI</label>
+                    <select
+                      value={newAssetModel}
+                      onChange={(e) => setNewAssetModel(e.target.value)}
+                      className="w-full bg-[#0c0a0b] border border-white/15 rounded-lg p-2 text-white focus:outline-none focus:ring-1 focus:ring-rose-500 text-[11px]"
+                    >
+                      <option value="flux-1-schnell">Flux 1 Schnell</option>
+                      <option value="kling-o3">Kling O3 (Vídeo)</option>
+                      <option value="sora">OpenAI Sora</option>
+                      <option value="sdxl-turbo">SDXL Turbo</option>
+                    </select>
+                  </div>
+                </div>
+                <button
+                  type="submit"
+                  disabled={isCreatingAsset}
+                  className="w-full py-2 bg-gradient-to-r from-rose-600 to-pink-600 hover:from-rose-500 hover:to-pink-500 text-white font-bold rounded-lg transition-all shadow-md shadow-rose-900/30 disabled:opacity-50"
+                >
+                  {isCreatingAsset ? 'Registrando...' : '✨ Registrar Nova Versão na Galeria'}
+                </button>
+              </form>
+
+              {/* Lista de Ativos em Galeria */}
+              {isLoadingAssets ? (
+                <div className="p-8 text-center text-stone-400 font-mono">Carregando registro de mídias...</div>
+              ) : assetsList.length === 0 ? (
+                <div className="p-8 text-center border border-dashed border-stone-800 rounded-xl space-y-2">
+                  <p className="text-stone-400 font-medium">Nenhuma mídia registrada para este post.</p>
+                  <p className="text-stone-600 text-[11px]">Submeta um asset acima ou execute o pipeline de geração AI.</p>
+                </div>
+              ) : (
+                <div className="grid grid-cols-2 gap-4">
+                  {assetsList.map((asset) => {
+                    const isPublished = asset.status === 'published';
+                    return (
+                      <div
+                        key={asset.id}
+                        className={`group relative rounded-xl overflow-hidden border transition-all ${
+                          isPublished
+                            ? 'border-emerald-500 bg-emerald-950/20 ring-2 ring-emerald-500/50'
+                            : 'border-white/10 bg-[#0c0a0b] hover:border-stone-600'
+                        }`}
+                      >
+                        {/* Status Badge */}
+                        <div className="absolute top-2 left-2 z-10 flex gap-1">
+                          <span
+                            className={`px-2 py-0.5 text-[9px] font-bold uppercase rounded-md shadow ${
+                              isPublished
+                                ? 'bg-emerald-500 text-black'
+                                : 'bg-stone-900/90 text-stone-300 border border-stone-700'
+                            }`}
+                          >
+                            {isPublished ? '✓ Publicado' : `Gen #${asset.generationNumber}`}
+                          </span>
+                        </div>
+
+                        {/* Image Preview 9:16 Aspect */}
+                        <div className="relative aspect-[9/16] bg-black/40 overflow-hidden">
+                          <img
+                            src={asset.assetUrl}
+                            alt={`Geração #${asset.generationNumber}`}
+                            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                          />
+                        </div>
+
+                        {/* Metadata Footer */}
+                        <div className="p-3 space-y-2 text-[10px] border-t border-white/10 bg-[#120e10]">
+                          <div className="flex items-center justify-between font-mono text-stone-300">
+                            <span className="font-bold text-rose-400">{asset.model}</span>
+                            <span>Seed: {asset.seed || 'N/A'}</span>
+                          </div>
+                          {asset.promptHash && (
+                            <div className="font-mono text-[9px] text-stone-500 truncate" title={asset.promptHash}>
+                              BLAKE3: {asset.promptHash}
+                            </div>
+                          )}
+                          <div className="flex items-center justify-between text-stone-400 pt-1">
+                            <span>{asset.width}x{asset.height}</span>
+                            <span>{new Date(asset.createdAt).toLocaleDateString()}</span>
+                          </div>
+
+                          {!isPublished && (
+                            <button
+                              type="button"
+                              onClick={() => handleSelectAssetVersion(asset.id)}
+                              className="w-full mt-2 py-1.5 bg-emerald-600/90 hover:bg-emerald-500 text-white font-bold rounded text-[11px] transition-colors shadow"
+                            >
+                              Seleção 1-Click (Ativar)
+                            </button>
+                          )}
+                        </div>
+                      </div>
+                    );
+                  })}
                 </div>
               )}
             </div>
