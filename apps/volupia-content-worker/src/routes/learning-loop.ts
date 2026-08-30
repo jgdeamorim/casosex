@@ -1,8 +1,18 @@
 import { Hono } from 'hono';
 import { authMiddleware } from '../middleware/auth-rbac.js';
 import type { ContentEvent, ContentMetrics } from '../../../cockpit/src/types/content-os.js';
+import { publishOodaEvent } from '../lib/redisClient.js';
+import { vectorizeHighConversionPost } from '../lib/vectorService.js';
 
-type D1Database = any;
+type D1Database = {
+  prepare: (query: string) => {
+    bind: (...args: unknown[]) => {
+      all: <T = Record<string, unknown>>() => Promise<{ results?: T[] }>;
+      first: <T = Record<string, unknown>>() => Promise<T | null>;
+      run: () => Promise<unknown>;
+    };
+  };
+};
 
 type Bindings = {
   DB?: D1Database;
@@ -90,9 +100,9 @@ learningLoopRouter.get('/events/:postId', async (c) => {
         .bind(postId)
         .all();
 
-      const parsed = (results || []).map((row: any) => ({
+      const parsed = (results || []).map((row: Record<string, unknown>) => ({
         ...row,
-        payload: row.payload ? JSON.parse(row.payload) : {},
+        payload: typeof row.payload === 'string' ? JSON.parse(row.payload) : {},
       }));
 
       return c.json({ success: true, data: parsed });
@@ -142,10 +152,12 @@ learningLoopRouter.post('/events', async (c) => {
         )
         .run();
 
+      void publishOodaEvent(newEvent);
       return c.json({ success: true, data: newEvent });
     }
 
     mockEventsStore.unshift(newEvent);
+    void publishOodaEvent(newEvent);
     return c.json({ success: true, data: newEvent });
   } catch (e: unknown) {
     return c.json(
@@ -251,10 +263,12 @@ learningLoopRouter.post('/metrics', async (c) => {
         )
         .run();
 
+      void vectorizeHighConversionPost(metric.postId, metric);
       return c.json({ success: true, data: metric });
     }
 
     mockMetricsStore.set(postId, metric);
+    void vectorizeHighConversionPost(metric.postId, metric);
     return c.json({ success: true, data: metric });
   } catch (e: unknown) {
     return c.json(
