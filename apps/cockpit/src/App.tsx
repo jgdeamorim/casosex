@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { RenderContextProvider } from './context/RenderContext';
+import { RenderContextProvider, useRenderContext } from './context/RenderContext';
 import { useDeviceFacet } from './facets/DeviceLayoutFacet';
 import { Header } from './components/layout/Header';
 import { MobileAppView } from './components/MobileAppView';
@@ -14,6 +14,7 @@ import { MobileSupplierCards } from './components/suppliers/MobileSupplierCards'
 import { TeamChatDrawer } from './components/chat/TeamChatDrawer';
 import { ScopeGuard } from './auth/ScopeGuard';
 import { LoginView } from './components/auth/LoginView';
+import { AgendaPage } from './components/agenda/AgendaPage';
 
 function hasActiveSession(): boolean {
   if (typeof window === 'undefined') return false;
@@ -35,7 +36,7 @@ function getTabFromUrl(): string {
   const search = window.location.search.toLowerCase();
 
   if (search.includes('sso_success=true')) {
-    return 'dashboard';
+    return 'agenda';
   }
 
   if (path.includes('/login') || path.includes('/sso') || path.includes('/auth') || (search.includes('login') && !search.includes('sso_success'))) {
@@ -46,20 +47,22 @@ function getTabFromUrl(): string {
     return 'login';
   }
 
+  if (path.includes('/agenda')) return 'agenda';
   if (path.includes('/map')) return 'map';
   if (path.includes('/dossier')) return 'dossier';
   if (path.includes('/suppliers')) return 'suppliers';
-  return 'dashboard';
+  return 'agenda';
 }
 
 function MainLayout(): React.ReactElement {
   const [activeTab, setActiveTabState] = useState<string>(getTabFromUrl);
   const facet = useDeviceFacet();
+  const { userSession } = useRenderContext();
 
   const handleTabChange = (tab: string) => {
     setActiveTabState(tab);
     if (typeof window !== 'undefined') {
-      const newPath = tab === 'dashboard' ? '/' : `/${tab}`;
+      const newPath = tab === 'agenda' ? '/' : `/${tab}`;
       if (window.location.pathname !== newPath) {
         window.history.pushState(null, '', newPath);
       }
@@ -90,7 +93,7 @@ function MainLayout(): React.ReactElement {
   const isMobileView = facet === 'mobile' || facet === 'smartwatch';
 
   if (activeTab === 'login') {
-    return <LoginView onSuccess={() => handleTabChange('dashboard')} />;
+    return <LoginView onSuccess={() => handleTabChange('agenda')} />;
   }
 
   if (isMobileView) {
@@ -106,6 +109,13 @@ function MainLayout(): React.ReactElement {
         <Sidebar activeTab={activeTab} setActiveTab={handleTabChange} />
 
         <main className="flex-1 p-4 md:p-6 max-w-7xl mx-auto w-full space-y-6">
+          {/* Agenda IA Tab (Content OS Core) */}
+          {activeTab === 'agenda' && (
+            <ScopeGuard tabName="agenda">
+              <AgendaPage userRole={userSession.role} />
+            </ScopeGuard>
+          )}
+
           {/* Main Dashboard / Bento Grid Tab (Market Intel) */}
           {activeTab === 'dashboard' && (
             <div className="space-y-6">
