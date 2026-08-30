@@ -27,12 +27,14 @@ import type { FlowTabType } from "../../types";
 import DeploymentsPage from "../deploymentsPage/deployments-page";
 import EmptyFolder from "../emptyFolder";
 import { CustomProjectKanban } from "@/customization/components/custom-project-kanban";
+import { CustomProjectAgenda } from "@/customization/components/custom-project-agenda";
 import { isFolderEmpty } from "./utils/isFolderEmpty";
 
 // Keyed by the active tab, not the route: Flows and Deployments share /flows
 // and only differ by which header tab is selected.
 const PAGE_TITLE_KEYS: Record<FlowTabType, string> = {
-  kanban: "Kanban Social & Agenda IA",
+  kanban: "Kanban Social",
+  agenda_ai: "Agenda IA",
   flows: "mainPage.tabFlows",
   deployments: "mainPage.tabDeployments",
   components: "mainPage.tabComponents",
@@ -357,6 +359,8 @@ const HomePage = ({ type }: { type: FlowTabType }) => {
                       )
                     ) : flowType === "kanban" ? (
                       <CustomProjectKanban />
+                    ) : flowType === "agenda_ai" ? (
+                      <CustomProjectAgenda />
                     ) : flowType === "mcp" ? (
                       <CustomMcpServerTab folderName={folderName} />
                     ) : flowType === "deployments" ? (

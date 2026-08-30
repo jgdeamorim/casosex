@@ -486,7 +486,7 @@ export function CustomProjectKanban({ onOpenPreview }: CustomProjectKanbanProps)
   }
 
   return (
-    <div className="flex h-[calc(100vh-45px)] w-full flex-col bg-[#050505] p-4 text-zinc-100 overflow-x-auto">
+    <div className="flex w-full flex-col bg-transparent p-4 text-zinc-100 overflow-x-auto min-h-[calc(100vh-160px)]">
       <DndContext
         sensors={sensors}
         collisionDetection={closestCorners}

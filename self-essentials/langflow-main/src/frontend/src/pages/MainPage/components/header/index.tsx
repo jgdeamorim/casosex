@@ -96,6 +96,7 @@ const HeaderComponent = ({
   // Determine which tabs to show based on feature flags
   const tabTypes = [
     "kanban",
+    "agenda_ai",
     "flows",
     ...(isMCPEnabled ? ["mcp"] : ["components"]),
     ...(isDeploymentsEnabled ? ["deployments"] : []),
@@ -177,16 +178,18 @@ const HeaderComponent = ({
                   )}
                 >
                   {type === "kanban"
-                    ? "Kanban Social & Agenda IA"
-                    : type === "mcp"
-                      ? t("mainPage.mcpServer")
-                      : type === "flows"
-                        ? t("mainPage.tabFlows")
-                        : type === "deployments"
-                          ? t("mainPage.tabDeployments")
-                          : type === "components"
-                            ? t("mainPage.tabComponents")
-                            : type.charAt(0).toUpperCase() + type.slice(1)}
+                    ? "Kanban Social"
+                    : type === "agenda_ai"
+                      ? "Agenda IA"
+                      : type === "mcp"
+                        ? t("mainPage.mcpServer")
+                        : type === "flows"
+                          ? t("mainPage.tabFlows")
+                          : type === "deployments"
+                            ? t("mainPage.tabDeployments")
+                            : type === "components"
+                              ? t("mainPage.tabComponents")
+                              : type.charAt(0).toUpperCase() + type.slice(1)}
                   {type === "deployments" && (
                     <Badge
                       variant="purpleStatic"

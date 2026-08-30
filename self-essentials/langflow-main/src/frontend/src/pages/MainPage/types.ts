@@ -1,1 +1,1 @@
-export type FlowTabType = "kanban" | "flows" | "components" | "mcp" | "deployments";
+export type FlowTabType = "kanban" | "agenda_ai" | "flows" | "components" | "mcp" | "deployments";
