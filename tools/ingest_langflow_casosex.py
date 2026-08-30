@@ -182,31 +182,21 @@ def run():
 
     files_to_ingest = []
     
-    # 1. Documentação (.md, .txt)
+    # 1. Documentação e Specs (.md, .txt)
     for p in LANGFLOW_ROOT.glob("**/*.md"):
         if "node_modules" not in str(p) and ".venv" not in str(p):
             files_to_ingest.append((p, COLLECTION_SELF, "langflow-doc"))
     for p in LANGFLOW_ROOT.glob("docs/**/*.txt"):
         files_to_ingest.append((p, COLLECTION_SELF, "langflow-doc"))
 
-    # 2. Frontend / Cockpit Custom Nodes (.ts, .tsx, .json)
-    src_frontend = LANGFLOW_ROOT / "src/frontend/src"
-    if src_frontend.exists():
-        for p in src_frontend.glob("**/*.ts"):
-            if "node_modules" not in str(p) and ".test." not in str(p):
-                files_to_ingest.append((p, COLLECTION_SELF, "langflow-frontend-code"))
-        for p in src_frontend.glob("**/*.tsx"):
-            if "node_modules" not in str(p) and ".test." not in str(p):
-                files_to_ingest.append((p, COLLECTION_SELF, "langflow-frontend-code"))
-
-    # 3. Python Core / Backend Custom Nodes
-    src_backend = LANGFLOW_ROOT / "src/backend"
-    if src_backend.exists():
-        for p in src_backend.glob("**/*.py"):
+    # 2. Somente Custom Nodes e Core API Schemas (excluindo UI bruta / frontend extenso)
+    src_custom_nodes = LANGFLOW_ROOT / "src/backend/base/langflow/custom"
+    if src_custom_nodes.exists():
+        for p in src_custom_nodes.glob("**/*.py"):
             if "__pycache__" not in str(p) and ".venv" not in str(p) and "test" not in str(p):
-                files_to_ingest.append((p, COLLECTION_SELF, "langflow-backend-code"))
+                files_to_ingest.append((p, COLLECTION_SELF, "langflow-backend-node"))
 
-    print(f"📦 Total de arquivos selecionados: {len(files_to_ingest)}")
+    print(f"📦 Total de arquivos essenciais (Docs/Specs/Nodes): {len(files_to_ingest)}")
 
     total_inserted = 0
     total_skipped = 0
