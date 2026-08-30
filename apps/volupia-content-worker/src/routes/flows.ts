@@ -1,13 +1,17 @@
 import { Context, Hono } from "hono";
 import {
   deleteFlowFromRedis,
+  deleteMemoryFromRedis,
   deleteVariableFromRedis,
   getFlowFromRedis,
+  getMemoryFromRedis,
   getProjectFromRedis,
   listFlowsFromRedis,
+  listMemoriesFromRedis,
   listProjectsFromRedis,
   listVariablesFromRedis,
   saveFlowToRedis,
+  saveMemoryToRedis,
   saveProjectToRedis,
   saveVariableToRedis,
 } from "../lib/redis.js";
@@ -271,7 +275,45 @@ flowsRouter.get("/starter-projects/", (c) => c.json([]));
 // Sidebar, Models, Knowledge & Extension endpoints
 flowsRouter.get("/sidebar_categories", (c) => c.json([]));
 flowsRouter.get("/models", (c) => c.json([]));
-flowsRouter.get("/models/providers", (c) => c.json([]));
+flowsRouter.get("/models/providers", (c) => {
+  return c.json([
+    {
+      provider: "OpenAI",
+      is_enabled: true,
+      is_configured: true,
+      icon: "OpenAI",
+      models: [
+        { model_name: "text-embedding-3-small", metadata: { model_type: "embeddings" } },
+        { model_name: "text-embedding-3-large", metadata: { model_type: "embeddings" } },
+        { model_name: "text-embedding-ada-002", metadata: { model_type: "embeddings" } },
+        { model_name: "gpt-4o-mini", metadata: { model_type: "chat" } },
+        { model_name: "gpt-4o", metadata: { model_type: "chat" } },
+      ],
+    },
+    {
+      provider: "Ollama",
+      is_enabled: true,
+      is_configured: true,
+      icon: "Ollama",
+      models: [
+        { model_name: "text-embedding-mpnet-base-v2 (Local :8081)", metadata: { model_type: "embeddings" } },
+        { model_name: "nomic-embed-text", metadata: { model_type: "embeddings" } },
+        { model_name: "bge-m3", metadata: { model_type: "embeddings" } },
+        { model_name: "qwen2.5:1.5b", metadata: { model_type: "chat" } },
+      ],
+    },
+    {
+      provider: "Anthropic",
+      is_enabled: true,
+      is_configured: true,
+      icon: "Anthropic",
+      models: [
+        { model_name: "claude-3-5-sonnet-latest", metadata: { model_type: "chat" } },
+        { model_name: "claude-3-5-haiku-latest", metadata: { model_type: "chat" } },
+      ],
+    },
+  ]);
+});
 flowsRouter.get("/knowledge_bases", (c) => c.json([]));
 flowsRouter.get("/extensions", (c) => c.json([]));
 flowsRouter.get("/a2a", (c) => c.json([]));
@@ -303,6 +345,62 @@ flowsRouter.get("/store/components", (c) => c.json([]));
 flowsRouter.get("/authz/me/permissions", (c) => c.json({ permissions: [] }));
 flowsRouter.get("/monitor/transactions", (c) => c.json([]));
 flowsRouter.get("/monitor/messages", (c) => c.json([]));
-flowsRouter.get("/memories", (c) => c.json([]));
-flowsRouter.get("/memories/", (c) => c.json([]));
+
+// Memories CRUD (Redis-backed)
+flowsRouter.get("/memories", async (c) => {
+  const flowId = c.req.query("flow_id");
+  const items = await listMemoriesFromRedis(flowId);
+  return c.json({
+    items,
+    total: items.length,
+    page: 1,
+    size: 50,
+    pages: items.length > 0 ? 1 : 0,
+  });
+});
+flowsRouter.get("/memories/", async (c) => {
+  const flowId = c.req.query("flow_id");
+  const items = await listMemoriesFromRedis(flowId);
+  return c.json({
+    items,
+    total: items.length,
+    page: 1,
+    size: 50,
+    pages: items.length > 0 ? 1 : 0,
+  });
+});
+
+flowsRouter.post("/memories", async (c) => {
+  const body = (await c.req.json().catch(() => ({}))) as Record<string, unknown>;
+  const saved = await saveMemoryToRedis(body);
+  return c.json(saved, 201);
+});
+flowsRouter.post("/memories/", async (c) => {
+  const body = (await c.req.json().catch(() => ({}))) as Record<string, unknown>;
+  const saved = await saveMemoryToRedis(body);
+  return c.json(saved, 201);
+});
+
+flowsRouter.get("/memories/:id", async (c) => {
+  const id = c.req.param("id");
+  const mem = await getMemoryFromRedis(id);
+  if (!mem) return c.json({ detail: "Memory not found" }, 404);
+  return c.json(mem);
+});
+
+flowsRouter.patch("/memories/:id", async (c) => {
+  const id = c.req.param("id");
+  const existing = await getMemoryFromRedis(id);
+  if (!existing) return c.json({ detail: "Memory not found" }, 404);
+  const body = (await c.req.json().catch(() => ({}))) as Record<string, unknown>;
+  const updated = await saveMemoryToRedis({ ...existing, ...body, id });
+  return c.json(updated);
+});
+
+flowsRouter.delete("/memories/:id", async (c) => {
+  const id = c.req.param("id");
+  await deleteMemoryFromRedis(id);
+  return c.json({ message: "Memory deleted" });
+});
+
 flowsRouter.get("/policy-bundle", (c) => c.json({}));

@@ -22,6 +22,8 @@ const KEYS = {
   PROJECT_LIST: "volupia:projects:list",
   VARIABLE: (id: string) => `volupia:variable:${id}`,
   VARIABLE_LIST: "volupia:variables:list",
+  MEMORY: (id: string) => `volupia:memory:${id}`,
+  MEMORY_LIST: "volupia:memories:list",
 };
 
 // Flow Normalizer to guarantee complete FlowType schema compatibility
@@ -182,3 +184,82 @@ export async function deleteVariableFromRedis(id: string) {
     return false;
   }
 }
+
+// Memory CRUD
+export function normalizeMemory(memory: Record<string, unknown>): Record<string, unknown> {
+  const id = (memory.id as string) || crypto.randomUUID();
+  const name = (memory.name as string) || "Nova Memória Volúpia";
+  const kb_name = (memory.kb_name as string) || `kb_${name.toLowerCase().replace(/[^a-z0-9_]/g, "_")}`;
+
+  return {
+    id,
+    name,
+    flow_id: memory.flow_id || "",
+    user_id: memory.user_id || "00000000-0000-0000-0000-000000000001",
+    threshold: typeof memory.threshold === "number" ? memory.threshold : 1,
+    auto_capture: memory.auto_capture ?? true,
+    embedding_model: memory.embedding_model || "text-embedding-3-small",
+    preprocessing: memory.preprocessing ?? false,
+    preproc_model: memory.preproc_model || undefined,
+    preproc_instructions: memory.preproc_instructions || undefined,
+    kb_name,
+    created_at: memory.created_at || new Date().toISOString(),
+    backend_type: memory.backend_type || "chroma",
+    backend_config: memory.backend_config || { mode: "local" },
+  };
+}
+
+export async function listMemoriesFromRedis(flowId?: string) {
+  try {
+    const ids = await redis.smembers(KEYS.MEMORY_LIST);
+    if (!ids || ids.length === 0) return [];
+    const keys = ids.map((id) => KEYS.MEMORY(id));
+    const items = await redis.mget(...keys);
+    const memories = items
+      .filter((item): item is string => Boolean(item))
+      .map((item) => normalizeMemory(JSON.parse(item)));
+    if (flowId) {
+      return memories.filter((m) => m.flow_id === flowId);
+    }
+    return memories;
+  } catch (e: unknown) {
+    void e;
+    return [];
+  }
+}
+
+export async function getMemoryFromRedis(id: string) {
+  try {
+    const data = await redis.get(KEYS.MEMORY(id));
+    if (!data) return null;
+    return normalizeMemory(JSON.parse(data));
+  } catch (e: unknown) {
+    void e;
+    return null;
+  }
+}
+
+export async function saveMemoryToRedis(memory: Record<string, unknown>) {
+  try {
+    const normalized = normalizeMemory(memory);
+    const id = normalized.id as string;
+    await redis.set(KEYS.MEMORY(id), JSON.stringify(normalized));
+    await redis.sadd(KEYS.MEMORY_LIST, id);
+    return normalized;
+  } catch (e: unknown) {
+    void e;
+    return normalizeMemory(memory);
+  }
+}
+
+export async function deleteMemoryFromRedis(id: string) {
+  try {
+    await redis.del(KEYS.MEMORY(id));
+    await redis.srem(KEYS.MEMORY_LIST, id);
+    return true;
+  } catch (e: unknown) {
+    void e;
+    return false;
+  }
+}
+
