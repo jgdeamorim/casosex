@@ -1,6 +1,16 @@
 import { Redis } from "ioredis";
+import {
+  deleteFlowFromD1,
+  deleteMemoryFromD1,
+  deleteVariableFromD1,
+  syncFlowToD1,
+  syncMemoryToD1,
+  syncProjectToD1,
+  syncVariableToD1,
+} from "./d1.js";
 
 const REDIS_PORT = 6396;
+
 const REDIS_HOST = process.env.REDIS_HOST || "127.0.0.1";
 
 export const redis = new Redis({
@@ -76,10 +86,13 @@ export async function saveFlowToRedis(flow: Record<string, unknown>) {
     const id = normalized.id as string;
     await redis.set(KEYS.FLOW(id), JSON.stringify(normalized));
     await redis.sadd(KEYS.FLOW_LIST, id);
+    void syncFlowToD1(normalized).catch(() => {});
     return normalized;
   } catch (e: unknown) {
     void e;
-    return normalizeFlow(flow);
+    const normalized = normalizeFlow(flow);
+    void syncFlowToD1(normalized).catch(() => {});
+    return normalized;
   }
 }
 
@@ -87,9 +100,11 @@ export async function deleteFlowFromRedis(id: string) {
   try {
     await redis.del(KEYS.FLOW(id));
     await redis.srem(KEYS.FLOW_LIST, id);
+    void deleteFlowFromD1(id).catch(() => {});
     return true;
   } catch (e: unknown) {
     void e;
+    void deleteFlowFromD1(id).catch(() => {});
     return false;
   }
 }
@@ -140,9 +155,11 @@ export async function saveProjectToRedis(project: Record<string, unknown>) {
     project.updated_at = new Date().toISOString();
     await redis.set(KEYS.PROJECT(id), JSON.stringify(project));
     await redis.sadd(KEYS.PROJECT_LIST, id);
+    void syncProjectToD1(project).catch(() => {});
     return project;
   } catch (e: unknown) {
     void e;
+    void syncProjectToD1(project).catch(() => {});
     return project;
   }
 }
@@ -167,9 +184,11 @@ export async function saveVariableToRedis(variable: Record<string, unknown>) {
     variable.id = id;
     await redis.set(KEYS.VARIABLE(id), JSON.stringify(variable));
     await redis.sadd(KEYS.VARIABLE_LIST, id);
+    void syncVariableToD1(variable).catch(() => {});
     return variable;
   } catch (e: unknown) {
     void e;
+    void syncVariableToD1(variable).catch(() => {});
     return variable;
   }
 }
@@ -178,9 +197,11 @@ export async function deleteVariableFromRedis(id: string) {
   try {
     await redis.del(KEYS.VARIABLE(id));
     await redis.srem(KEYS.VARIABLE_LIST, id);
+    void deleteVariableFromD1(id).catch(() => {});
     return true;
   } catch (e: unknown) {
     void e;
+    void deleteVariableFromD1(id).catch(() => {});
     return false;
   }
 }
@@ -245,10 +266,13 @@ export async function saveMemoryToRedis(memory: Record<string, unknown>) {
     const id = normalized.id as string;
     await redis.set(KEYS.MEMORY(id), JSON.stringify(normalized));
     await redis.sadd(KEYS.MEMORY_LIST, id);
+    void syncMemoryToD1(normalized).catch(() => {});
     return normalized;
   } catch (e: unknown) {
     void e;
-    return normalizeMemory(memory);
+    const normalized = normalizeMemory(memory);
+    void syncMemoryToD1(normalized).catch(() => {});
+    return normalized;
   }
 }
 
@@ -256,9 +280,11 @@ export async function deleteMemoryFromRedis(id: string) {
   try {
     await redis.del(KEYS.MEMORY(id));
     await redis.srem(KEYS.MEMORY_LIST, id);
+    void deleteMemoryFromD1(id).catch(() => {});
     return true;
   } catch (e: unknown) {
     void e;
+    void deleteMemoryFromD1(id).catch(() => {});
     return false;
   }
 }

@@ -3,5 +3,29 @@
   "name": "volupia-content-worker",
   "main": "src/index.ts",
   "compatibility_date": "2026-01-14",
-  "compatibility_flags": ["nodejs_compat"]
+  "compatibility_flags": ["nodejs_compat"],
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "volupia-db",
+      "database_id": "a7e5672c-8eb6-4871-a60b-17541e2da457"
+    }
+  ],
+  "r2_buckets": [
+    {
+      "binding": "VAULT",
+      "bucket_name": "adsentice"
+    }
+  ],
+  "kv_namespaces": [
+    {
+      "binding": "VOLUPIA_KV",
+      "id": "b24adc8976524d74b91f4a150212a8b4"
+    }
+  ],
+  "observability": {
+    "enabled": true
+  }
 }
+
+
