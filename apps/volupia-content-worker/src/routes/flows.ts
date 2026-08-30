@@ -248,6 +248,20 @@ flowsRouter.post("/run/session", async (c) => {
   });
 });
 
+// Flow Events Stream / Polling endpoint for Cockpit UI
+flowsRouter.get("/flows/:flow_id/events", (c) => {
+  return c.json({
+    events: [],
+    settled: true,
+  });
+});
+flowsRouter.get("/flows/:flow_id/events/", (c) => {
+  return c.json({
+    events: [],
+    settled: true,
+  });
+});
+
 // Examples & Starters
 flowsRouter.get("/flows/basic_examples", (c) => c.json([]));
 flowsRouter.get("/flows/basic_examples/", (c) => c.json([]));
