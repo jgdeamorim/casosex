@@ -60,7 +60,14 @@ def compile_cinematic_prompt(
     return f"{clean_base}, {camera_desc}, {lens_desc}, {focal_desc}, {aperture_desc}, 8k resolution, award-winning cinematography, hyper-detailed, photorealistic"
 
 
-class CinematicPromptBuilder:
+try:
+    from langflow.custom import Component
+except ImportError:
+    class Component:  # type: ignore
+        pass
+
+
+class CinematicPromptBuilder(Component):
     """Langflow Custom Component for Cinematic Optics Prompt Compilation."""
 
     display_name = "Cinematic Prompt Builder"
