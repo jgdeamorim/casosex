@@ -57,13 +57,6 @@ export const EXECUTIVE_NAV_ITEMS: NavItem[] = [
     icon: "Settings",
     path: "/settings",
   },
-  {
-    id: "support",
-    label: "Suporte",
-    subtitle: "Central de Ajuda & Docs",
-    icon: "LifeBuoy",
-    path: "/support",
-  },
 ];
 
 export const ExecutiveSidebar: React.FC = () => {
@@ -137,21 +130,33 @@ export const ExecutiveSidebar: React.FC = () => {
         })}
       </div>
 
-      {/* Footer Status Badge */}
+      {/* Footer Support Section */}
       <div className="border-t border-border/40 p-3 bg-secondary/20">
-        <div className="flex items-center justify-between text-[11px] text-muted-foreground">
-          <div className="flex items-center gap-2">
-            <span className="relative flex h-2 w-2">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-              <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
-            </span>
-            <span className="font-mono text-[10px]">REST :7860</span>
-          </div>
-          <span className="text-[10px] font-medium text-emerald-500/90">Calm Mode</span>
-        </div>
+        <ShadTooltip
+          content="Central de Ajuda & Suporte"
+          side="top"
+          delayDuration={300}
+        >
+          <button
+            type="button"
+            onClick={() => navigate("/support")}
+            className="flex w-full items-center justify-between gap-2 rounded-md px-2 py-1.5 text-xs text-muted-foreground transition-colors hover:bg-secondary/60 hover:text-foreground"
+          >
+            <div className="flex items-center gap-2">
+              <ForwardedIconComponent
+                name="LifeBuoy"
+                className="h-4 w-4 text-primary"
+                strokeWidth={1.8}
+              />
+              <span className="font-medium text-foreground">Suporte</span>
+            </div>
+            <span className="text-[10px] text-muted-foreground/70">Ajuda</span>
+          </button>
+        </ShadTooltip>
       </div>
     </aside>
   );
 };
+
 
 export default ExecutiveSidebar;
