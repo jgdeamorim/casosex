@@ -57,6 +57,13 @@ export const EXECUTIVE_NAV_ITEMS: NavItem[] = [
     icon: "Settings",
     path: "/settings",
   },
+  {
+    id: "support",
+    label: "Suporte",
+    subtitle: "Central de Ajuda & Docs",
+    icon: "LifeBuoy",
+    path: "/support",
+  },
 ];
 
 export const ExecutiveSidebar: React.FC = () => {

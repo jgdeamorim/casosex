@@ -72,14 +72,10 @@ export const HeaderButtons = ({
             isDiscordJoined={isDiscordJoined ?? false}
             handleDismissDialog={handleDismissDialog}
           />
-
-          <div className="-mx-4 mt-1 w-[280px]">
-            <hr className="border-t-1 w-full" />
-          </div>
         </>
       )}
 
-      <div className="flex shrink-0 items-center justify-between gap-2 pt-2">
+      <div className="flex shrink-0 items-center justify-between gap-2 pt-0">
         <SidebarTrigger className="lg:hidden">
           <IconComponent name="PanelLeftClose" className="h-4 w-4" />
         </SidebarTrigger>
