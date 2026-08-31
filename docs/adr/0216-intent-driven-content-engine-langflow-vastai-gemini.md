@@ -34,7 +34,7 @@ Evidence Pack (Compilação Estruturada + Confidence Score)
    ↓
 Content Strategy (Hipótese Estratégica)
    ↓
-Bruno + Reference Set (Modelos de Identidade e Personagem)
+Brand DNA + Reference Set (Elenco Digital & Personagens IA CASOSEX)
    ↓
 Gemini Prompt Compiler (Compilação do Prompt Multimodal)
    ↓
