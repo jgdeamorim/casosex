@@ -23,7 +23,7 @@ function enrichComponentTemplates<T extends Record<string, any>>(categories: T):
   return categories;
 }
 
-componentsRouter.get("/all", (c) => {
+const getAllComponentsHandler = (c: any) => {
   return c.json(
     enrichComponentTemplates({
       inputs: {
@@ -254,7 +254,10 @@ componentsRouter.get("/all", (c) => {
       },
     })
   );
-});
+};
+
+componentsRouter.get("/all", getAllComponentsHandler);
+componentsRouter.get("/components/all", getAllComponentsHandler);
 
 // Custom component code validation endpoint
 componentsRouter.post("/custom_component", async (c) => {
