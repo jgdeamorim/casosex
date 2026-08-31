@@ -404,3 +404,73 @@ flowsRouter.delete("/memories/:id", async (c) => {
 });
 
 flowsRouter.get("/policy-bundle", (c) => c.json({}));
+
+// Starter Projects
+flowsRouter.get("/starter-projects", async (c) => {
+  const starterFlows = [
+    {
+      id: "00000000-0000-0000-0000-000000000002",
+      name: "Volúpia Scriptwriter AI",
+      description: "Gerador de Roteiros 9:16 com Física Óptica",
+      is_component: false,
+      folder_id: "00000000-0000-0000-0000-000000000001",
+      data: { nodes: [], edges: [] },
+    },
+    {
+      id: "00000000-0000-0000-0000-000000000003",
+      name: "Remote Vast.ai Renderer",
+      description: "Pipeline de Renderização de Vídeo GPU",
+      is_component: false,
+      folder_id: "00000000-0000-0000-0000-000000000001",
+      data: { nodes: [], edges: [] },
+    },
+  ];
+  return c.json(starterFlows);
+});
+flowsRouter.get("/starter-projects/", async (c) => {
+  const starterFlows = [
+    {
+      id: "00000000-0000-0000-0000-000000000002",
+      name: "Volúpia Scriptwriter AI",
+      description: "Gerador de Roteiros 9:16 com Física Óptica",
+      is_component: false,
+      folder_id: "00000000-0000-0000-0000-000000000001",
+      data: { nodes: [], edges: [] },
+    },
+    {
+      id: "00000000-0000-0000-0000-000000000003",
+      name: "Remote Vast.ai Renderer",
+      description: "Pipeline de Renderização de Vídeo GPU",
+      is_component: false,
+      folder_id: "00000000-0000-0000-0000-000000000001",
+      data: { nodes: [], edges: [] },
+    },
+  ];
+  return c.json(starterFlows);
+});
+
+// Flow Batch Operations
+flowsRouter.post("/flows/batch/", async (c) => {
+  const body = (await c.req.json().catch(() => ([]))) as Array<Record<string, unknown>>;
+  const savedFlows = [];
+  for (const item of body) {
+    const saved = await saveFlowToRedis(item);
+    savedFlows.push(saved);
+  }
+  return c.json(savedFlows, 201);
+});
+
+flowsRouter.post("/flows/upload/", async (c) => {
+  const body = (await c.req.json().catch(() => ({}))) as Record<string, unknown>;
+  const saved = await saveFlowToRedis(body);
+  return c.json(saved, 201);
+});
+
+flowsRouter.post("/flows/download/", async (c) => {
+  const body = (await c.req.json().catch(() => ({}))) as { flow_ids?: string[] };
+  const allFlows = await listFlowsFromRedis();
+  const selected = body.flow_ids
+    ? allFlows.filter((f: Record<string, unknown>) => body.flow_ids?.includes(f.id as string))
+    : allFlows;
+  return c.json(selected);
+});

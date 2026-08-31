@@ -36,6 +36,35 @@ export const EXECUTIVE_NAV_ITEMS: NavItem[] = [
     path: "/creative",
   },
   {
+    id: "flows",
+    label: "Flow Canvas",
+    subtitle: "Visual Graph Builder",
+    icon: "GitFork",
+    path: "/studio/flows",
+    badge: "DAG",
+  },
+  {
+    id: "components",
+    label: "Componentes",
+    subtitle: "Biblioteca Soberana",
+    icon: "Boxes",
+    path: "/studio/components",
+  },
+  {
+    id: "mcp",
+    label: "MCP Tools",
+    subtitle: "Servidores & Integrações",
+    icon: "Cpu",
+    path: "/studio/mcp",
+  },
+  {
+    id: "kanban",
+    label: "Esteira Kanban",
+    subtitle: "Produção de Cards",
+    icon: "Kanban",
+    path: "/studio/kanban",
+  },
+  {
     id: "insights",
     label: "Insights & Performance",
     subtitle: "Retenção & Algoritmos",
@@ -57,6 +86,9 @@ export const ExecutiveSidebar: React.FC = () => {
 
   const isActivePath = (itemPath: string) => {
     if (itemPath === "/overview" && (location.pathname === "/" || location.pathname === "/overview")) {
+      return true;
+    }
+    if (itemPath === "/studio/flows" && location.pathname.startsWith("/flow/")) {
       return true;
     }
     return location.pathname.startsWith(itemPath);
