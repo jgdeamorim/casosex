@@ -1,1 +1,0 @@
-import{bw as e}from"./index-DuRGk81n.js";const o=[["rect",{width:"18",height:"18",x:"3",y:"3",rx:"2",key:"afitv7"}],["path",{d:"m16 10-4 4-4-4",key:"894hmk"}]],r=e("square-chevron-down",o);export{o as __iconNode,r as default};

