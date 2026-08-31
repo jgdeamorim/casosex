@@ -78,20 +78,7 @@ export const ExecutiveSidebar: React.FC = () => {
       className="z-20 flex h-full w-[240px] shrink-0 flex-col border-r border-border/40 bg-background/80 backdrop-blur-md transition-all duration-200 select-none"
       data-testid="executive-sidebar"
     >
-      {/* Brand Header */}
-      <div className="flex h-[52px] items-center gap-3 px-4 border-b border-border/40">
-        <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-gradient-to-tr from-purple-600 via-indigo-500 to-pink-500 text-white shadow-md shadow-purple-500/20 font-bold text-sm">
-          V8
-        </div>
-        <div className="flex flex-col">
-          <span className="font-semibold text-sm tracking-tight text-foreground">
-            V8 Studio OS
-          </span>
-          <span className="text-[10px] text-muted-foreground font-mono">
-            CASOSEX Engine v1.0
-          </span>
-        </div>
-      </div>
+
 
       {/* Main Navigation Items */}
       <div className="flex-1 space-y-1.5 p-3 overflow-y-auto">
