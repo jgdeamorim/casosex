@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "tsx watch src/index.ts",
     "build": "tsc",
-    "build:all": "cd ../../self-essentials/langflow-main/src/frontend && npm run build && cd - && mkdir -p public && cp -r ../../self-essentials/langflow-main/src/frontend/build/* public/ && tsc",
+    "build:all": "cd frontend && npm run build && cd .. && mkdir -p public && cp -r frontend/build/* public/ && tsc",
     "start": "node dist/index.js"
   },
   "dependencies": {
