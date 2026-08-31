@@ -1,6 +1,6 @@
 {
   "$schema": "../../node_modules/wrangler/config-schema.json",
-  "name": "volupia-content-worker",
+  "name": "v8_studio",
   "main": "src/index.ts",
   "compatibility_date": "2026-01-14",
   "compatibility_flags": ["nodejs_compat"],

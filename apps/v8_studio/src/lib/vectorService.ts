@@ -60,7 +60,7 @@ export async function vectorizeHighConversionPost(
       engagementRate: metrics.engagementRate,
       conversionsCount: metrics.conversionsCount,
       updatedAt: metrics.updatedAt,
-      source: 'volupia-content-worker/learning-loop',
+      source: 'v8_studio/learning-loop',
     };
 
     // Converter string ID para formato uint64 ou UUID aceito pelo Qdrant
