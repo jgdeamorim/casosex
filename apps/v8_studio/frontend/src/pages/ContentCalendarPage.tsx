@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import ForwardedIconComponent from "@/components/common/genericIconComponent";
 import { Button } from "@/components/ui/button";
+import MediaGeneratorModal from "@/modals/mediaGeneratorModal";
 
 export interface ScheduledPost {
   id: string;
@@ -72,6 +73,8 @@ export const ContentCalendarPage: React.FC = () => {
   const [posts, setPosts] = useState<ScheduledPost[]>(DEFAULT_POSTS);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [selectedMediaPost, setSelectedMediaPost] = useState<ScheduledPost | null>(null);
+  const [isMediaModalOpen, setIsMediaModalOpen] = useState(false);
 
   // Form State
   const [newTitle, setNewTitle] = useState("");
@@ -315,19 +318,35 @@ export const ContentCalendarPage: React.FC = () => {
                         </span>
                       </div>
 
-                      {/* Advance Stage Action Button */}
-                      {post.status !== "published" && (
+                      {/* Action Buttons */}
+                      <div className="flex items-center gap-1.5 pt-1">
                         <Button
                           type="button"
                           variant="ghost"
                           size="sm"
-                          onClick={() => handlePromotePost(post.id, post.status)}
-                          className="w-full text-[10px] h-7 border border-border/50 text-indigo-400 hover:bg-indigo-500/10 hover:text-indigo-300 flex items-center justify-center gap-1"
+                          onClick={() => {
+                            setSelectedMediaPost(post);
+                            setIsMediaModalOpen(true);
+                          }}
+                          className="flex-1 text-[10px] h-7 border border-indigo-500/30 text-indigo-300 hover:bg-indigo-500/10 flex items-center justify-center gap-1"
                         >
-                          <span>Avançar Etapa</span>
-                          <ForwardedIconComponent name="ArrowRight" className="h-3 w-3" />
+                          <ForwardedIconComponent name="Sparkles" className="h-3 w-3 text-indigo-400" />
+                          <span>Mídia</span>
                         </Button>
-                      )}
+
+                        {post.status !== "published" && (
+                          <Button
+                            type="button"
+                            variant="ghost"
+                            size="sm"
+                            onClick={() => handlePromotePost(post.id, post.status)}
+                            className="flex-1 text-[10px] h-7 border border-border/50 text-indigo-400 hover:bg-indigo-500/10 hover:text-indigo-300 flex items-center justify-center gap-1"
+                          >
+                            <span>Avançar</span>
+                            <ForwardedIconComponent name="ArrowRight" className="h-3 w-3" />
+                          </Button>
+                        )}
+                      </div>
                     </div>
                   </div>
                 ))}
@@ -420,6 +439,21 @@ export const ContentCalendarPage: React.FC = () => {
             </form>
           </div>
         </div>
+      )}
+
+      {/* Media Generator Modal */}
+      {selectedMediaPost && (
+        <MediaGeneratorModal
+          isOpen={isMediaModalOpen}
+          onClose={() => {
+            setIsMediaModalOpen(false);
+            setSelectedMediaPost(null);
+          }}
+          postId={selectedMediaPost.id}
+          postTitle={selectedMediaPost.title}
+          channel={selectedMediaPost.channel}
+          pillar={selectedMediaPost.pillar}
+        />
       )}
     </div>
   );

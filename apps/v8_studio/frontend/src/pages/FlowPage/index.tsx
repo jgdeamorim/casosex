@@ -306,6 +306,8 @@ export default function FlowPage({ view }: { view?: boolean }): JSX.Element {
                   width="17.5rem"
                   defaultOpen={!isMobile}
                   segmentedSidebar={ENABLE_NEW_SIDEBAR}
+                  defaultSection="components"
+                  forceInitialSection={true}
                 >
                   {/* Assistant Panel — single instance, mounted INSIDE the
                     SidebarProvider so it can read sidebar open state via

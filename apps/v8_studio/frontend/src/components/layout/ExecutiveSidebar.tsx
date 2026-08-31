@@ -44,27 +44,6 @@ export const EXECUTIVE_NAV_ITEMS: NavItem[] = [
     badge: "DAG",
   },
   {
-    id: "components",
-    label: "Componentes",
-    subtitle: "Biblioteca Soberana",
-    icon: "Boxes",
-    path: "/studio/components",
-  },
-  {
-    id: "mcp",
-    label: "MCP Tools",
-    subtitle: "Servidores & Integrações",
-    icon: "Cpu",
-    path: "/studio/mcp",
-  },
-  {
-    id: "kanban",
-    label: "Esteira Kanban",
-    subtitle: "Produção de Cards",
-    icon: "Kanban",
-    path: "/studio/kanban",
-  },
-  {
     id: "insights",
     label: "Insights & Performance",
     subtitle: "Retenção & Algoritmos",

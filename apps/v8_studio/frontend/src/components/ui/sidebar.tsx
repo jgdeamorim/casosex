@@ -104,6 +104,7 @@ const SidebarProvider = React.forwardRef<
     width?: string;
     segmentedSidebar?: boolean;
     defaultSection?: SidebarSection;
+    forceInitialSection?: boolean;
     activeSection?: SidebarSection;
     onSectionChange?: (section: SidebarSection) => void;
   }
@@ -114,6 +115,7 @@ const SidebarProvider = React.forwardRef<
       open: openProp,
       onOpenChange: setOpenProp,
       defaultSection = "components",
+      forceInitialSection = false,
       activeSection: activeSectionProp,
       onSectionChange: setActiveSectionProp,
       className,
@@ -150,7 +152,10 @@ const SidebarProvider = React.forwardRef<
 
     // Section state management
     const [_activeSection, _setActiveSection] = React.useState<SidebarSection>(
-      () => getInitialSidebarSection(defaultSection),
+      () =>
+        forceInitialSection
+          ? defaultSection
+          : getInitialSidebarSection(defaultSection),
     );
     const activeSection = activeSectionProp ?? _activeSection;
     const setActiveSection = React.useCallback(
