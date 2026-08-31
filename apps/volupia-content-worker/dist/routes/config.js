@@ -39,6 +39,10 @@ configRouter.get("/config", (c) => {
         assistant_max_message_length: 4000,
         local_vector_store_available: true,
         blocked_component_types: [],
+        do_not_track: true,
+        telemetry_base_url: "",
+        telemetry_sovereign_enabled: true,
+        telemetry_storage: "redis+d1",
     });
 });
 // Version endpoint
@@ -47,4 +51,24 @@ configRouter.get("/version", (c) => {
         version: "1.0.0",
         package: "volupia-v8-content-engine",
     });
+});
+// Sovereign Telemetry Status & Ingestion
+configRouter.get("/telemetry/status", async (c) => {
+    const { getSovereignTelemetryStatus } = await import("../lib/redis.js");
+    const status = await getSovereignTelemetryStatus();
+    return c.json(status);
+});
+configRouter.post("/telemetry", async (c) => {
+    const body = (await c.req.json().catch(() => ({})));
+    const { recordSovereignTelemetry } = await import("../lib/redis.js");
+    const result = await recordSovereignTelemetry({
+        event_type: body.event_type || "custom_event",
+        flow_id: body.flow_id,
+        component_name: body.component_name,
+        duration_ms: typeof body.duration_ms === "number" ? body.duration_ms : 0,
+        success: body.success !== false,
+        error_message: body.error_message,
+        metadata: body.metadata,
+    });
+    return c.json(result);
 });

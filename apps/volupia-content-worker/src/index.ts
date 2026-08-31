@@ -1,6 +1,9 @@
 import { serve } from "@hono/node-server";
-import { Hono } from "hono";
+import { serveStatic } from "@hono/node-server/serve-static";
+import { Context, Hono } from "hono";
 import { cors } from "hono/cors";
+import fs from "node:fs";
+import path from "node:path";
 import { authRouter } from "./routes/auth.js";
 import { componentsRouter } from "./routes/components.js";
 import { configRouter } from "./routes/config.js";
@@ -32,7 +35,13 @@ app.use(
   }),
 );
 
-// Mount router modules under /api/v1, /api/v2, and root for maximum client compatibility
+// Serve static assets from public/
+app.use("/assets/*", serveStatic({ root: "./public" }));
+app.use("/icons/*", serveStatic({ root: "./public" }));
+app.use("/favicon.ico", serveStatic({ root: "./public" }));
+app.use("/manifest.json", serveStatic({ root: "./public" }));
+
+// Mount router modules under /api/v1, /api/v2, and /api
 app.route("/api/v1", configRouter);
 app.route("/api/v1", authRouter);
 app.route("/api/v1", componentsRouter);
@@ -61,28 +70,52 @@ app.route("/api/v2/assets", assetRegistryRouter);
 app.route("/api/v2/learning-loop", learningLoopRouter);
 app.route("/api/v2/a2a", a2aRouter);
 
-app.route("/", configRouter);
-app.route("/", authRouter);
-app.route("/", componentsRouter);
-app.route("/", flowsRouter);
-app.route("/", mcpRouter);
-app.route("/", settingsRouter);
-app.route("/", contentPostsRouter);
-app.route("/brand-dna", brandDnaRouter);
-app.route("/characters", charactersRouter);
-app.route("/prompt-compiler", promptCompilerRouter);
-app.route("/assets", assetRegistryRouter);
-app.route("/learning-loop", learningLoopRouter);
-app.route("/a2a", a2aRouter);
+app.route("/api", configRouter);
+app.route("/api", authRouter);
+app.route("/api", componentsRouter);
+app.route("/api", flowsRouter);
 
-// Fail-soft fallback route: return [] for GET requests to ensure .map() on list queries never crashes React
+// Helper function to serve index.html for SPA client-side routing
+const serveIndexHtml = (c: Context) => {
+  const indexPath = path.resolve("./public/index.html");
+  if (fs.existsSync(indexPath)) {
+    const html = fs.readFileSync(indexPath, "utf-8");
+    return c.html(html);
+  }
+  return c.text("Volúpia SPA Frontend not found", 404);
+};
+
+// Root "/" handler serves SPA index.html
+app.get("/", serveIndexHtml);
+
+// SPA fallback handler for navigation routes
 app.all("*", (c) => {
+  const pathName = c.req.path;
+
+  // If request is an API request (starts with /api/), return fail-soft JSON
+  if (pathName.startsWith("/api/")) {
+    if (c.req.method === "GET") {
+      return c.json([]);
+    }
+    return c.json({
+      status: "ok",
+      path: pathName,
+      message: "volupia v8 content worker active",
+    });
+  }
+
+  // If request is GET and accepts HTML or has no file extension, return index.html for SPA
   if (c.req.method === "GET") {
+    const accept = c.req.header("accept") || "";
+    if (accept.includes("text/html") || !pathName.includes(".")) {
+      return serveIndexHtml(c);
+    }
     return c.json([]);
   }
+
   return c.json({
     status: "ok",
-    path: c.req.path,
+    path: pathName,
     message: "volupia v8 content worker active",
   });
 });
@@ -99,3 +132,4 @@ serve({
 
 // Export default app for V8 Isolates / Cloudflare Workers runtime
 export default app;
+
