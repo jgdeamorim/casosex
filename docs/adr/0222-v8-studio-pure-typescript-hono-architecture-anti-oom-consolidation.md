@@ -49,15 +49,28 @@ Decidimos ratificar e formalizar a **Arquitetura 100% TypeScript + Hono** para o
    - Limite de memória de build configurado em `NODE_OPTIONS="--max-old-space-size=4096"` para compilações pesadas de frontend.
    - Execução persistente do dev server Hono consumindo menos de 50MB de RAM.
 
+### 2.3. Mapeamento Estrito de Recursos & Capacidades: `langflow-main` (Python) ➔ `v8_studio` (TypeScript)
+
+Para assegurar que nenhuma funcionalidade ou inteligência construída em `self-essentials/langflow-main` fosse perdida, realizamos o alinhamento e portabilidade integral em DAG:
+
+| Módulo / Recurso Original em `self-essentials/langflow-main` | Implementação Soberana em `apps/v8_studio` (TypeScript) | Status & Arquivos Fonte |
+| :--- | :--- | :--- |
+| **Cinematic Optics Physics Engine**<br>`src/backend/base/langflow/components/custom_components/cinematic_prompt.py`<br>*(Dicionários `CAMERA_MAP`, `LENS_MAP`, `FOCAL_PERSPECTIVE`, `APERTURE_EFFECT`)* | **Motor de Óptica Cinematográfica TS**<br>`apps/v8_studio/src/lib/cinematic-optics.ts`<br>`apps/v8_studio/src/routes/prompt-compiler.ts` | **Portado & Tipado (Zod/TS)**<br>Integração com bloco `08_CAMERA_LENS` e hash BLAKE3 via `@noble/hashes`. |
+| **FastAPI Flow & Component Routers**<br>`src/backend/base/langflow/api/v1/` | **Hono TS Routers**<br>`apps/v8_studio/src/routes/flows.ts`<br>`apps/v8_studio/src/routes/components.ts` | **Portado & Ativo**<br>Servimento REST reativo na porta `:7860`. |
+| **Canvas de Nós Visuais (SPA)**<br>`src/frontend/src/pages/FlowPage/` | **Studio Flow Canvas React 19**<br>`apps/v8_studio/frontend/src/pages/FlowPage/index.tsx`<br>`@xyflow/react` | **Portado & Preservado**<br>Suporte a `AgentMainContent`, `MemoriesMainContent`, `TraceComponent` e `PageComponent`. |
+| **Persistência de Sessão e Estado**<br>Sessões SQLite/Protobuf nativas do Langflow | **DevStore Local & Cloudflare D1**<br>`apps/v8_studio/src/lib/devStore.ts`<br>`migrations/0001_content_os_tables.sql` | **Migrado para D1/JSON**<br>Persistência atômica de 7 tabelas e visualização no Kanban/Calendário. |
+| **Visão QA & Badges de Qualidade**<br>Função de validação multimodal de saída | **Gemini Vision QA Handlers**<br>`apps/v8_studio/src/routes/content-posts.ts`<br>`apps/v8_studio/frontend/src/pages/AgendaPage.tsx` | **Integrado**<br>Validação visual e selos de conformidade no Kanban M5. |
+
 ---
 
 ## 3. Consequências
 
 ### Positivas:
-- **Zero OOM:** Eliminação completa dos estendimentos de memória e travamentos de processo provocados pela stack Python.
+- **Zero OOM:** Eliminação completa dos estouros de memória e travamentos de processo provocados pela stack Python.
 - **Desenvolvimento Agilizado:** Programação end-to-end em TypeScript (do nó de IA ao componente de tela).
 - **Implantação Econômica:** Compatibilidade perfeita com servidores Hetzner CAX11 ($5.39/mês) e Cloudflare Workers.
 - **Manutenibilidade:** Menos de 1.000 linhas de código no backend Hono versus mais de 20.000 linhas de dependências Python desnecessárias.
+- **Invariância de Lógica:** 100% dos parâmetros ópticos cinematográficos e do compilador de prompts foram preservados em TypeScript.
 
 ### Negativas:
 - Caso no futuro seja necessário rodar modelos PyTorch pesados *in-process* no servidor principal, estes deverão ser expostos como microserviços HTTP isolados (ex: Ollama, ComfyUI ou endpoints vast.ai), preservando o V8 Studio limpo.
@@ -67,6 +80,9 @@ Decidimos ratificar e formalizar a **Arquitetura 100% TypeScript + Hono** para o
 ## 4. Conformidade & Fontes (`medido=verdade`)
 
 - **Backend Soberano:** `apps/v8_studio/src/index.ts`
-- **Roteadores Hono TS:** `apps/v8_studio/src/routes/` (`flows.ts`, `components.ts`, `prompt-compiler.ts`, `brand-dna.ts`, `characters.ts`)
+- **Motor de Óptica Cinematográfica TS:** `apps/v8_studio/src/lib/cinematic-optics.ts`
+- **Compilador Hono TS:** `apps/v8_studio/src/routes/prompt-compiler.ts`
+- **Roteadores Hono TS:** `apps/v8_studio/src/routes/` (`flows.ts`, `components.ts`, `brand-dna.ts`, `characters.ts`, `content-posts.ts`)
 - **Frontend SPA React 19:** `apps/v8_studio/frontend/src/pages/FlowPage/index.tsx`
+- **Referência Legada (Python):** `self-essentials/langflow-main/src/backend/base/langflow/components/custom_components/cinematic_prompt.py`
 - **ADRs Relacionadas:** ADR-0016, ADR-0017, ADR-0220, ADR-0221
