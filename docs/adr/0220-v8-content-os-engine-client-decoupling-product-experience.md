@@ -44,14 +44,24 @@ A interface do Cockpit passa a traduzir todos os conceitos técnicos sob a lingu
 - `Create Post` ➔ **Criar Conteúdo** *(Stepper de Intenção: Objetivo ➔ Canal ➔ Pilar ➔ Ideia)*.
 - `BLAKE3 / Seed / Hash / SQL` ➔ **Advanced (10% Power User)** *(Isolado no rodapé de gavetas técnicas)*.
 
-### 2.3. Navegação Executiva (5 Blocos Soberanos)
+### 2.3. Fronteiras Soberanas entre Apps (Desacoplamento de Escopo)
+
+Fica estabelecido e institucionalizado o desacoplamento estrito de responsabilidades entre as aplicações:
+
+1. **`apps/cockpit` (Cockpit Operacional & B2B)**:
+   - **Escopo:** Polos Regionais (RJ/SP), Dossiês de Homologação (Anvisa body-safe), Matriz de Fornecedores, Cotações 1-Clique e Mapa Leaflet de Fornecedores.
+
+2. **`apps/v8_studio` (AI Content OS Studio Engine)**:
+   - **Escopo:** Estúdio Visual de Criação, Nós Customizados (Custom Nodes), Agenda IA, Brand DNA & Personagens IA, Compilador de Prompts e Registro/Versionamento de Ativos.
+
+### 2.4. Navegação Executiva do V8 Studio (5 Blocos Soberanos)
 
 ```
-OVERVIEW      │ Painel Executivo Diário ("Dashboard Calmo" / Atenção Necessária)
-CONTENT       │ Agenda 30/60/90, Pipeline, Biblioteca de Conteúdo, Brand
-COMMERCE      │ Fornecedores, Dossiês de Vendas, Polos Regionais
-INSIGHTS      │ Performance de Mídia, Análise de Mercado, Recomendações dos Agentes
-SETTINGS      │ Configurações de Conta, RBAC e Integrações (Isolado)
+OVERVIEW      │ Painel Executivo Diário ("Dashboard Calmo" / Atividade do Estúdio)
+CONTENT       │ Agenda IA (30/60/90), Pipeline de Postagens, Biblioteca de Mídia
+CREATIVE      │ Studio Flow Canvas (Nós Customizados), Personagens IA & Elenco Digital
+INSIGHTS      │ Performance de Conteúdo, Retenção & Recomendações dos Agentes IA
+SETTINGS      │ Configurações de Studio, Chaves API e Parâmetros da Engine (Isolado)
 ```
 
 ---
