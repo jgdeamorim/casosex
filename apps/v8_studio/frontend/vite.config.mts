@@ -55,22 +55,13 @@ export default defineConfig(({ mode }) => {
         output: {
           manualChunks(id) {
             if (id.includes("node_modules")) {
-              if (id.includes("react-dom") || id.includes("react-router")) {
+              if (id.includes("react") || id.includes("react-dom") || id.includes("react-router")) {
                 return "vendor-react";
-              }
-              if (id.includes("lucide-react")) {
-                return "vendor-lucide";
-              }
-              if (id.includes("@dnd-kit")) {
-                return "vendor-dndkit";
-              }
-              if (id.includes("@radix-ui") || id.includes("framer-motion")) {
-                return "vendor-ui";
               }
               if (id.includes("monaco-editor") || id.includes("ace-builds")) {
                 return "vendor-editors";
               }
-              return "vendor-others";
+              return undefined;
             }
           },
         },
@@ -104,7 +95,9 @@ export default defineConfig(({ mode }) => {
       },
     },
     plugins: [
-      tsconfigPaths(),
+      tsconfigPaths({
+        projects: [path.resolve(__dirname, "./tsconfig.json")],
+      }),
       react(),
       svgr(),
       process.env.VITE_COVERAGE

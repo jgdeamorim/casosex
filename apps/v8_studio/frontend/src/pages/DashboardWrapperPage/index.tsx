@@ -1,5 +1,6 @@
 import { Outlet } from "react-router-dom";
 import AppHeader from "@/components/core/appHeaderComponent";
+import ExecutiveSidebar from "@/components/layout/ExecutiveSidebar";
 import { PermissionsProvider } from "@/contexts/permissionsContext";
 import useTheme from "@/customization/hooks/use-custom-theme";
 import useFlowStore from "@/stores/flowStore";
@@ -16,10 +17,13 @@ export function DashboardWrapperPage() {
         currentFlow?.folder_id ? `project:${currentFlow.folder_id}` : undefined
       }
     >
-      <div className="flex h-screen w-full flex-col overflow-hidden">
+      <div className="flex h-screen w-full flex-col overflow-hidden bg-background">
         <AppHeader />
         <div className="flex w-full flex-1 flex-row overflow-hidden">
-          <Outlet />
+          <ExecutiveSidebar />
+          <main className="flex-1 overflow-hidden">
+            <Outlet />
+          </main>
         </div>
       </div>
     </PermissionsProvider>

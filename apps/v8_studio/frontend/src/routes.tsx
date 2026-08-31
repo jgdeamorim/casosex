@@ -41,6 +41,10 @@ import McpClientPage from "./pages/SettingsPage/pages/McpClientPage";
 import ModelProvidersPage from "./pages/SettingsPage/pages/ModelProvidersPage";
 import MessagesPage from "./pages/SettingsPage/pages/messagesPage";
 import ShortcutsPage from "./pages/SettingsPage/pages/ShortcutsPage";
+import OverviewPage from "./pages/OverviewPage";
+import ContentCalendarPage from "./pages/ContentCalendarPage";
+import BrandDnaPage from "./pages/BrandDnaPage";
+import InsightsPage from "./pages/InsightsPage";
 
 const LoginAdminPage = lazy(() => import("./pages/AdminPage/LoginPage"));
 
@@ -82,7 +86,12 @@ const router = createBrowserRouter(
           >
             <Route path="" element={<AppAuthenticatedPage />}>
               <Route path="" element={<CustomDashboardWrapperPage />}>
-                <Route path="" element={<CollectionPage />}>
+                <Route index element={<CustomNavigate replace to={"overview"} />} />
+                <Route path="overview" element={<OverviewPage />} />
+                <Route path="content" element={<ContentCalendarPage />} />
+                <Route path="creative" element={<BrandDnaPage />} />
+                <Route path="insights" element={<InsightsPage />} />
+                <Route path="studio" element={<CollectionPage />}>
                   <Route
                     index
                     element={<CustomNavigate replace to={"kanban"} />}
