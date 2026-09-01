@@ -1,0 +1,552 @@
+<nav class="navbar navbar-expand-lg bg-azul">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="https://developer.omie.com.br/">
+            <img class="lozad img-logo" data-src="https://static.omie.com.br/images/logo/logo-omie-topo.png" src="https://static.omie.com.br/images/logo/logo-omie-topo.png" data-loaded="true">
+        </a>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <span class="borda-hover"></span>
+                    <a class="nav-link" href="https://developer.omie.com.br/my-apps/"> Aplicativos </a>
+                </li>
+                <li class="nav-item ">
+                    <span class="borda-hover"></span>
+                    <a class="nav-link" href="https://developer.omie.com.br/service-list/">
+                        Lista das API's
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <span class="borda-hover"></span>
+                    <a class="nav-link" href="https://ajuda.omie.com.br/pt-BR/collections/3045828-apis" target="_blank"> Ajuda </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<html>
+<head>
+<title>ResumoTarefas</title>
+<style type="text/css" media="all">
+  [id] { scroll-margin-top: 68px; }
+</style>
+<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+<script src="https://cdn.omie.com.br/omie-assets/js/omie-compat-v2.min.js"></script>
+<script src="/developer/themes/omie/developer.js?ts=2021.008"></script>
+<link rel="stylesheet" href="//app.omie.com.br/wp-content/themes/omie/bootstrap/css/bootstrap.min.css" async/>
+<link href="https://cdn.omie.com.br/assets/developer/css/site.css?ts=2021.008" media="all" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="/developer/themes/omie/developer.css?ts=2021.008" async/>
+</head>
+<body>
+<div class="jumbotron banner bg-azul">
+<div class="container">
+<img src="https://cdn.omie.com.br/assets/developer/images/seta-azuis.png" alt="" class="img-setas">
+<div class="row align-items-center">
+<div class="col-12">
+<h1>ResumoTarefas</h1>
+<ul class="nav nav-tabs" role="tablist">
+  <li role="presentation" class="active"><a href="#section-endpoint" aria-controls="section-endpoint" role="tab" data-toggle="tab">Endpoint</a></li>
+  <li role="presentation" class="pull-right"><a href="#section-wsdl" aria-controls="section-wsdl" role="tab" data-toggle="tab">WSDL</a></li>
+  <li role="presentation" class="pull-right"><a href="#section-php-soap" aria-controls="section-php-soap" role="tab" data-toggle="tab">PHP SOAP</a></li>
+  <li role="presentation" class="pull-right"><a href="#section-json" aria-controls="section-json" role="tab" data-toggle="tab">JSON</a></li>
+</ul>
+<div class="tab-content">
+  <div role="tabpanel" class="tab-pane fade in active" id="section-endpoint">
+    <h4>Endpoint URI</h4>
+    <a class="highlight" href="https://app.omie.com.br/api/v1/crm/tarefas-resumo/"><pre><code>https://app.omie.com.br/api/v1/crm/tarefas-resumo/</code></pre></a>
+  </div>
+  <div role="tabpanel" class="tab-pane fade" id="section-wsdl">
+    <h4>WSDL URI</h4>
+    <a class="highlight" href="https://app.omie.com.br/api/v1/crm/tarefas-resumo/?WSDL"><pre><code>https://app.omie.com.br/api/v1/crm/tarefas-resumo/?WSDL</code></pre></a>
+  </div>
+  <div role="tabpanel" class="tab-pane fade" id="section-php-soap">
+    <h4>PHP SOAP client download</h4>
+    <a class="highlight" href="https://app.omie.com.br/api/v1/crm/tarefas-resumo/?PHPSOAPCLIENT""><pre><code>https://app.omie.com.br/api/v1/crm/tarefas-resumo/?PHPSOAPCLIENT</code></pre></a>
+  </div>
+  <div role="tabpanel" class="tab-pane fade" id="section-json">
+    <h4>JSON client download URI</h4>
+    <h5>PHP</h5>
+    <a class="highlight" href="https://app.omie.com.br/api/v1/crm/tarefas-resumo/?PHPJSONCLIENT"><pre><code>https://app.omie.com.br/api/v1/crm/tarefas-resumo/?PHPJSONCLIENT</code></pre></a>
+    <h5>JavaScript (recomendado para uso apenas do lado do servidor)</h5>
+    <a class="highlight" href="https://app.omie.com.br/api/v1/crm/tarefas-resumo/?JSJSONCLIENT"><pre><code>https://app.omie.com.br/api/v1/crm/tarefas-resumo/?JSJSONCLIENT</code></pre></a>
+  </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="container">
+<div class="row">
+<div class="col-md-9">
+<h2>M&eacute;todos</h2>
+<p>Veja abaixo a documenta&ccedil;&atilde;o de cada m&eacute;todo dispon&iacute;vel para este servi&ccedil;o.</p>
+<div id="ObterDetalhesTarefa" class="methodItem">
+<h3 class="method-name">ObterDetalhesTarefa</h3>
+<p>
+Consulta os detalhes de uma tafera.
+</p>
+<div class="panel panel-default method">
+<div class="panel-heading"> Par&acirc;metros:
+</div>
+<table class="table table-condensed table-hover">
+<tr>
+<td class="">&nbsp;</td>
+<td class="method-parameter-type"><a href="#ObterDetalhesTarefasRequest">ObterDetalhesTarefasRequest</a></td>
+<td class="method-parameter-name">ObterDetalhesTarefasRequest</td><td class="method-parameter-docs"><div class="first">Consulta os detalhes de uma tafera.</div></td>
+</tr>
+</table>
+<div class="panel-footer">
+Retorno <span class="pre"><a href="#ObterDetalhesTarefasResponse"><span class="lightBlue">ObterDetalhesTarefasResponse</span></a></span>: Resposta da consulta de detalhes de uma tarefa.
+</div>
+</div>
+<div class="method-example-area">
+<h5>Exemplo:</h5>
+<pre class="method-example-code">{<BR>   "nIdOportunidade":0,<BR>   "nIdTarefa":0<BR>}</pre>
+<button class="btn btn-success method-example" data-method="ObterDetalhesTarefa" data-example="%7B+++%22nIdOportunidade%22%3A0%2C+++%22nIdTarefa%22%3A0%7D">Teste agora mesmo</button>
+</div>
+</div>
+<div id="ObterListaTarefas" class="methodItem">
+<h3 class="method-name">ObterListaTarefas</h3>
+<p>
+
+</p>
+<div class="panel panel-default method">
+<div class="panel-heading"> Par&acirc;metros:
+</div>
+<table class="table table-condensed table-hover">
+<tr>
+<td class="">&nbsp;</td>
+<td class="method-parameter-type"><a href="#ObterListaTarefasRequest">ObterListaTarefasRequest</a></td>
+<td class="method-parameter-name">ObterListaTarefasRequest</td><td class="method-parameter-docs"><div class="first">Solicitação da listagem do resumo das tarefas do CRM.</div></td>
+</tr>
+</table>
+<div class="panel-footer">
+Retorno <span class="pre"><a href="#ObterListaTarefasResponse"><span class="lightBlue">ObterListaTarefasResponse</span></a></span>: 
+</div>
+</div>
+<div class="method-example-area">
+<h5>Exemplo:</h5>
+<pre class="method-example-code">{<BR>   "dDia":"01/09/2026"<BR>}</pre>
+<button class="btn btn-success method-example" data-method="ObterListaTarefas" data-example="%7B+++%22dDia%22%3A%2201%2F09%2F2026%22%7D">Teste agora mesmo</button>
+</div>
+</div>
+<div id="ObterResumoTarefas" class="methodItem">
+<h3 class="method-name">ObterResumoTarefas</h3>
+<p>
+Resumos das tarefas do CRM.
+</p>
+<div class="panel panel-default method">
+<div class="panel-heading"> Par&acirc;metros:
+</div>
+<table class="table table-condensed table-hover">
+<tr>
+<td class="">&nbsp;</td>
+<td class="method-parameter-type"><a href="#obterResumoTarefasRequest">obterResumoTarefasRequest</a></td>
+<td class="method-parameter-name">obterResumoTarefasRequest</td><td class="method-parameter-docs"><div class="first">Solicitação do resumo das tarefas do CRM.</div></td>
+</tr>
+</table>
+<div class="panel-footer">
+Retorno <span class="pre"><a href="#obterResumoTarefasResponse"><span class="lightBlue">obterResumoTarefasResponse</span></a></span>: 
+</div>
+</div>
+<div class="method-example-area">
+<h5>Exemplo:</h5>
+<pre class="method-example-code">{<BR>   "dDataInicio":"01/09/2026",<BR>   "dDataFim":"01/09/2026",<BR>   "cTipoTarefa":""<BR>}<BR></pre>
+<button class="btn btn-success method-example" data-method="ObterResumoTarefas" data-example="%7B+++%22dDataInicio%22%3A%2201%2F09%2F2026%22%2C+++%22dDataFim%22%3A%2201%2F09%2F2026%22%2C+++%22cTipoTarefa%22%3A%22%22%7D">Teste agora mesmo</button>
+</div>
+</div>
+<h2>Tipos Complexos</h2>
+<div class="complexTypeItem">
+<a name="ObterDetalhesTarefasRequest" class="anchorScroll"></a>
+<h3>ObterDetalhesTarefasRequest</h3>
+<p>Consulta os detalhes de uma tafera.</p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">nIdOportunidade</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código da oportunidade.</div><div class="more"><a href="javascript:void(0)">+</a><div>(Gerado internamente, não é visualizado na tela)</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nIdTarefa</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Código da tarefa.</div><div class="more"><a href="javascript:void(0)">+</a><div>(Gerado internamente, não é visualizado na tela)</div></div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="ObterDetalhesTarefasResponse" class="anchorScroll"></a>
+<h3>ObterDetalhesTarefasResponse</h3>
+<p>Resposta da consulta de detalhes de uma tarefa.</p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">dDataEmail</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Data em que deve ser enviado o e-mail de notificação.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cHoraEmail</td>
+<td class="parameter-type">string<span class="parameter-lenght">5</span></td><td class="parameter-docs"><div class="first">Hora em que deve ser enviado o e-mail de notificação.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cEnviadoEmail</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Indica que foi enviado o e-mail de notificação.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cDescricaoTarefa</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Descrição da tarefa.</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="ObterListaTarefasRequest" class="anchorScroll"></a>
+<h3>ObterListaTarefasRequest</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">dDia</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Data da consulta</div><div class="more"><a href="javascript:void(0)">+</a><div><BR>Preenchimento opcional.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nPagina</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Número da página.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nRegPorPagina</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Número de registros.</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="ObterListaTarefasResponse" class="anchorScroll"></a>
+<h3>ObterListaTarefasResponse</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">listaDetalhesTarefas</td>
+<td class="parameter-type"><a href="#listaDetalhesTarefasArray">listaDetalhesTarefasArray</a></td><td class="parameter-docs"><div class="first">Lista de detalhes da tarefa.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nRegistros</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Número de registros.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nPagina</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Número da página.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nTotPaginas</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Número total de páginas.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nTotRegistros</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Número total de registros.</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="listaDetalhesTarefas" class="anchorScroll"></a>
+<h3>listaDetalhesTarefas</h3>
+<p>Lista de detalhes da tarefa.</p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">nIdTarefa</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Código da tarefa.</div><div class="more"><a href="javascript:void(0)">+</a><div>(Gerado internamente, não é visualizado na tela)</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">dDataTarefa</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Data da tarefa.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cHoraTarefa</td>
+<td class="parameter-type">string<span class="parameter-lenght">5</span></td><td class="parameter-docs"><div class="first">Hora da tarefa.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cEmExecucao</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Indica que a atividade está em execução.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cRealizada</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Indica que a atividade foi realizada/concluída.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nIdResponsavel</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código do responsável.</div><div class="more"><a href="javascript:void(0)">+</a><div>(Gerado internamente, não é visualizado na tela)</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cNomeResponsavel</td>
+<td class="parameter-type">string<span class="parameter-lenght">100</span></td><td class="parameter-docs"><div class="first">Nome do responsável.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nIdNotificacao</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código da notificação.</div><div class="more"><a href="javascript:void(0)">+</a><div>(Gerado internamente, não é visualizado na tela)</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nIdOportunidade</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código da oportunidade.</div><div class="more"><a href="javascript:void(0)">+</a><div>(Gerado internamente, não é visualizado na tela)</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cNomeOportunidade</td>
+<td class="parameter-type">string<span class="parameter-lenght">100</span></td><td class="parameter-docs"><div class="first">Nome da oportunidade.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cEmailOportunidade</td>
+<td class="parameter-type">string<span class="parameter-lenght">100</span></td><td class="parameter-docs"><div class="first">E-mail da oportunidade.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nIdContato</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código do contato.</div><div class="more"><a href="javascript:void(0)">+</a><div>(Gerado internamente, não é visualizado na tela)</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cNomeContato</td>
+<td class="parameter-type">string<span class="parameter-lenght">100</span></td><td class="parameter-docs"><div class="first">Nome do contato.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCargoContato</td>
+<td class="parameter-type">string<span class="parameter-lenght">60</span></td><td class="parameter-docs"><div class="first">Cargo do contato.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cEmailContato</td>
+<td class="parameter-type">string<span class="parameter-lenght">200</span></td><td class="parameter-docs"><div class="first">E-mail do contato.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cTelefoneContato</td>
+<td class="parameter-type">string<span class="parameter-lenght">100</span></td><td class="parameter-docs"><div class="first">Telefone do contato.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCelularContato</td>
+<td class="parameter-type">string<span class="parameter-lenght">100</span></td><td class="parameter-docs"><div class="first">Celular do contato.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nIdAtividade</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código da atividade.</div><div class="more"><a href="javascript:void(0)">+</a><div>(Gerado internamente, não é visualizado na tela)</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cNomeAtividade</td>
+<td class="parameter-type">string<span class="parameter-lenght">40</span></td><td class="parameter-docs"><div class="first">Nome da atividade.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cImportante</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Indica que é uma atividade importante.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cUrgente</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Indica que é uma atividade urgente.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nIdVendedor</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código do responsável.</div><div class="more"><a href="javascript:void(0)">+</a><div>(Gerado internamente, não é visualizado na tela)</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cNomeVendedor</td>
+<td class="parameter-type">string<span class="parameter-lenght">100</span></td><td class="parameter-docs"><div class="first">Nome do responsável.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nIdConta</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código da conta.</div><div class="more"><a href="javascript:void(0)">+</a><div>(Gerado internamente, não é visualizado na tela)</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cNomeConta</td>
+<td class="parameter-type">string<span class="parameter-lenght">100</span></td><td class="parameter-docs"><div class="first">Nome da conta.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nIdSolucao</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código da solução</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cNomeSolucao</td>
+<td class="parameter-type">string<span class="parameter-lenght">100</span></td><td class="parameter-docs"><div class="first">Nome da solução.</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="listaDetalhesTarefasArray" class="anchorScroll"></a>
+<h3>listaDetalhesTarefasArray</h3>
+<p>Este par&acirc;metro &eacute; um array do tipo <span class="pre"><a href="#listaDetalhesTarefas"><span class="lightBlue">listaDetalhesTarefas</span></a></span></p>
+<p>Lista de listaDetalhesTarefas</p>
+</div>
+<div class="complexTypeItem">
+<a name="obterResumoTarefasRequest" class="anchorScroll"></a>
+<h3>obterResumoTarefasRequest</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">dDataInicio</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Data Inicial de Consulta.</div><div class="more"><a href="javascript:void(0)">+</a><div><BR>Preenchimento opcional.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">dDataFim</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Data final de Consulta.</div><div class="more"><a href="javascript:void(0)">+</a><div><BR>Preenchimento opcional.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cTipoTarefa</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Código do tipo da tarefa.</div><div class="more"><a href="javascript:void(0)">+</a><div>O valor default desse campo é zero, o que significa que todas as listas serão retornadas.<BR><BR><BR>Pode ser:<BR>0 - Todas os resumos<BR>1 - Apenas Tarefas Futuras<BR>2 - Apenas Tarefas para Hoje<BR>3 - Apenas Tarefas em Execução<BR>4 - Apenas Tarefas Realizadas<BR>9 - Apenas Tarefas Totalizadas<BR></div></div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="obterResumoTarefasResponse" class="anchorScroll"></a>
+<h3>obterResumoTarefasResponse</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">resumoTarefasTodos</td>
+<td class="parameter-type"><a href="#resumoTarefasTodosArray">resumoTarefasTodosArray</a></td><td class="parameter-docs"><div class="first">Lista de todas as tarefas encontradas.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">resumoTarefasFuturas</td>
+<td class="parameter-type"><a href="#resumoTarefasFuturasArray">resumoTarefasFuturasArray</a></td><td class="parameter-docs"><div class="first">Lista das tarefas futuras.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">resumoTarefasHoje</td>
+<td class="parameter-type"><a href="#resumoTarefasHojeArray">resumoTarefasHojeArray</a></td><td class="parameter-docs"><div class="first">Lista das tarefas para hoje.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">resumoTarefasExecucao</td>
+<td class="parameter-type"><a href="#resumoTarefasExecucaoArray">resumoTarefasExecucaoArray</a></td><td class="parameter-docs"><div class="first">Lista das tarefas em execução.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">resumoTarefasRealizadas</td>
+<td class="parameter-type"><a href="#resumoTarefasRealizadasArray">resumoTarefasRealizadasArray</a></td><td class="parameter-docs"><div class="first">Lista das tarefas realizadas.</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="omie_fail" class="anchorScroll"></a>
+<h3>omie_fail</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">code</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Codigo do erro</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">description</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Descricao do erro</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-required">referer</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Origem do erro</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-required">fatal</td>
+<td class="parameter-type">boolean</td><td class="parameter-docs"><div class="first">Indica se eh um erro fatal</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="resumoTarefasExecucao" class="anchorScroll"></a>
+<h3>resumoTarefasExecucao</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">dDia</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Data da consulta</div><div class="more"><a href="javascript:void(0)">+</a><div><BR>Preenchimento opcional.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nTarefas</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Quantidade de tarefas.</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="resumoTarefasExecucaoArray" class="anchorScroll"></a>
+<h3>resumoTarefasExecucaoArray</h3>
+<p>Este par&acirc;metro &eacute; um array do tipo <span class="pre"><a href="#resumoTarefasExecucao"><span class="lightBlue">resumoTarefasExecucao</span></a></span></p>
+<p>Lista de resumoTarefasExecucao</p>
+</div>
+<div class="complexTypeItem">
+<a name="resumoTarefasFuturas" class="anchorScroll"></a>
+<h3>resumoTarefasFuturas</h3>
+<p>Lista das tarefas futuras.</p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">dDia</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Data da consulta</div><div class="more"><a href="javascript:void(0)">+</a><div><BR>Preenchimento opcional.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nTarefas</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Quantidade de tarefas.</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="resumoTarefasFuturasArray" class="anchorScroll"></a>
+<h3>resumoTarefasFuturasArray</h3>
+<p>Este par&acirc;metro &eacute; um array do tipo <span class="pre"><a href="#resumoTarefasFuturas"><span class="lightBlue">resumoTarefasFuturas</span></a></span></p>
+<p>Lista de resumoTarefasFuturas</p>
+</div>
+<div class="complexTypeItem">
+<a name="resumoTarefasHoje" class="anchorScroll"></a>
+<h3>resumoTarefasHoje</h3>
+<p>Lista das tarefas para hoje.</p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">dDia</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Data da consulta</div><div class="more"><a href="javascript:void(0)">+</a><div><BR>Preenchimento opcional.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nTarefas</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Quantidade de tarefas.</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="resumoTarefasHojeArray" class="anchorScroll"></a>
+<h3>resumoTarefasHojeArray</h3>
+<p>Este par&acirc;metro &eacute; um array do tipo <span class="pre"><a href="#resumoTarefasHoje"><span class="lightBlue">resumoTarefasHoje</span></a></span></p>
+<p>Lista de resumoTarefasHoje</p>
+</div>
+<div class="complexTypeItem">
+<a name="resumoTarefasRealizadas" class="anchorScroll"></a>
+<h3>resumoTarefasRealizadas</h3>
+<p>Lista das tarefas realizadas.</p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">dDia</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Data da consulta</div><div class="more"><a href="javascript:void(0)">+</a><div><BR>Preenchimento opcional.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nTarefas</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Quantidade de tarefas.</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="resumoTarefasRealizadasArray" class="anchorScroll"></a>
+<h3>resumoTarefasRealizadasArray</h3>
+<p>Este par&acirc;metro &eacute; um array do tipo <span class="pre"><a href="#resumoTarefasRealizadas"><span class="lightBlue">resumoTarefasRealizadas</span></a></span></p>
+<p>Lista de resumoTarefasRealizadas</p>
+</div>
+<div class="complexTypeItem">
+<a name="resumoTarefasTodos" class="anchorScroll"></a>
+<h3>resumoTarefasTodos</h3>
+<p>Lista de todas as tarefas encontradas.</p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">dDia</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Data da consulta</div><div class="more"><a href="javascript:void(0)">+</a><div><BR>Preenchimento opcional.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nTarefas</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Quantidade de tarefas.</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="resumoTarefasTodosArray" class="anchorScroll"></a>
+<h3>resumoTarefasTodosArray</h3>
+<p>Este par&acirc;metro &eacute; um array do tipo <span class="pre"><a href="#resumoTarefasTodos"><span class="lightBlue">resumoTarefasTodos</span></a></span></p>
+<p>Lista de resumoTarefasTodos</p>
+</div>
+</div>
+<div class="col-md-3">
+<div id="affix-menu" data-spy="affix" data-offset-top="294">
+<h2>M&eacute;todos</h2>
+<nav id="index" class="hidden-print hidden-xs hidden-sm">
+<ul class="nav">
+<li><a href="#ObterDetalhesTarefa">ObterDetalhesTarefa</a></li>
+<li><a href="#ObterListaTarefas">ObterListaTarefas</a></li>
+<li><a href="#ObterResumoTarefas">ObterResumoTarefas</a></li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+</body>
+</html>

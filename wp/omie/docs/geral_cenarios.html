@@ -1,0 +1,670 @@
+<nav class="navbar navbar-expand-lg bg-azul">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="https://developer.omie.com.br/">
+            <img class="lozad img-logo" data-src="https://static.omie.com.br/images/logo/logo-omie-topo.png" src="https://static.omie.com.br/images/logo/logo-omie-topo.png" data-loaded="true">
+        </a>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <span class="borda-hover"></span>
+                    <a class="nav-link" href="https://developer.omie.com.br/my-apps/"> Aplicativos </a>
+                </li>
+                <li class="nav-item ">
+                    <span class="borda-hover"></span>
+                    <a class="nav-link" href="https://developer.omie.com.br/service-list/">
+                        Lista das API's
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <span class="borda-hover"></span>
+                    <a class="nav-link" href="https://ajuda.omie.com.br/pt-BR/collections/3045828-apis" target="_blank"> Ajuda </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<html>
+<head>
+<title>CenariosImpostos</title>
+<style type="text/css" media="all">
+  [id] { scroll-margin-top: 68px; }
+</style>
+<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+<script src="https://cdn.omie.com.br/omie-assets/js/omie-compat-v2.min.js"></script>
+<script src="/developer/themes/omie/developer.js?ts=2021.008"></script>
+<link rel="stylesheet" href="//app.omie.com.br/wp-content/themes/omie/bootstrap/css/bootstrap.min.css" async/>
+<link href="https://cdn.omie.com.br/assets/developer/css/site.css?ts=2021.008" media="all" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="/developer/themes/omie/developer.css?ts=2021.008" async/>
+</head>
+<body>
+<div class="jumbotron banner bg-azul">
+<div class="container">
+<img src="https://cdn.omie.com.br/assets/developer/images/seta-azuis.png" alt="" class="img-setas">
+<div class="row align-items-center">
+<div class="col-12">
+<h1>CenariosImpostos</h1>
+<ul class="nav nav-tabs" role="tablist">
+  <li role="presentation" class="active"><a href="#section-endpoint" aria-controls="section-endpoint" role="tab" data-toggle="tab">Endpoint</a></li>
+  <li role="presentation" class="pull-right"><a href="#section-wsdl" aria-controls="section-wsdl" role="tab" data-toggle="tab">WSDL</a></li>
+  <li role="presentation" class="pull-right"><a href="#section-php-soap" aria-controls="section-php-soap" role="tab" data-toggle="tab">PHP SOAP</a></li>
+  <li role="presentation" class="pull-right"><a href="#section-json" aria-controls="section-json" role="tab" data-toggle="tab">JSON</a></li>
+</ul>
+<div class="tab-content">
+  <div role="tabpanel" class="tab-pane fade in active" id="section-endpoint">
+    <h4>Endpoint URI</h4>
+    <a class="highlight" href="https://app.omie.com.br/api/v1/geral/cenarios/"><pre><code>https://app.omie.com.br/api/v1/geral/cenarios/</code></pre></a>
+  </div>
+  <div role="tabpanel" class="tab-pane fade" id="section-wsdl">
+    <h4>WSDL URI</h4>
+    <a class="highlight" href="https://app.omie.com.br/api/v1/geral/cenarios/?WSDL"><pre><code>https://app.omie.com.br/api/v1/geral/cenarios/?WSDL</code></pre></a>
+  </div>
+  <div role="tabpanel" class="tab-pane fade" id="section-php-soap">
+    <h4>PHP SOAP client download</h4>
+    <a class="highlight" href="https://app.omie.com.br/api/v1/geral/cenarios/?PHPSOAPCLIENT""><pre><code>https://app.omie.com.br/api/v1/geral/cenarios/?PHPSOAPCLIENT</code></pre></a>
+  </div>
+  <div role="tabpanel" class="tab-pane fade" id="section-json">
+    <h4>JSON client download URI</h4>
+    <h5>PHP</h5>
+    <a class="highlight" href="https://app.omie.com.br/api/v1/geral/cenarios/?PHPJSONCLIENT"><pre><code>https://app.omie.com.br/api/v1/geral/cenarios/?PHPJSONCLIENT</code></pre></a>
+    <h5>JavaScript (recomendado para uso apenas do lado do servidor)</h5>
+    <a class="highlight" href="https://app.omie.com.br/api/v1/geral/cenarios/?JSJSONCLIENT"><pre><code>https://app.omie.com.br/api/v1/geral/cenarios/?JSJSONCLIENT</code></pre></a>
+  </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="container">
+<div class="row">
+<div class="col-md-9">
+<h2>M&eacute;todos</h2>
+<p>Veja abaixo a documenta&ccedil;&atilde;o de cada m&eacute;todo dispon&iacute;vel para este servi&ccedil;o.</p>
+<div id="ListarCenarios" class="methodItem">
+<h3 class="method-name">ListarCenarios</h3>
+<p>
+
+</p>
+<div class="panel panel-default method">
+<div class="panel-heading"> Par&acirc;metros:
+</div>
+<table class="table table-condensed table-hover">
+<tr>
+<td class="">&nbsp;</td>
+<td class="method-parameter-type"><a href="#cenariosListarRequest">cenariosListarRequest</a></td>
+<td class="method-parameter-name">cenariosListarRequest</td><td class="method-parameter-docs"><div class="first">Solicitação de listagem de Cenários de Impostos.</div></td>
+</tr>
+</table>
+<div class="panel-footer">
+Retorno <span class="pre"><a href="#cenariosListarResponse"><span class="lightBlue">cenariosListarResponse</span></a></span>: 
+</div>
+</div>
+<div class="method-example-area">
+<h5>Exemplo:</h5>
+<pre class="method-example-code">{<BR>  "nPagina": 1,<BR>  "nRegPorPagina": 20,<BR>  "cNome": ""<BR>}</pre>
+<button class="btn btn-success method-example" data-method="ListarCenarios" data-example="%7B++%22nPagina%22%3A+1%2C++%22nRegPorPagina%22%3A+20%2C++%22cNome%22%3A+%22%22%7D">Teste agora mesmo</button>
+</div>
+</div>
+<div id="ListarImpostosCenario" class="methodItem">
+<h3 class="method-name">ListarImpostosCenario</h3>
+<p>
+
+</p>
+<div class="panel panel-default method">
+<div class="panel-heading"> Par&acirc;metros:
+</div>
+<table class="table table-condensed table-hover">
+<tr>
+<td class="">&nbsp;</td>
+<td class="method-parameter-type"><a href="#cenariosImpostosListarRequest">cenariosImpostosListarRequest</a></td>
+<td class="method-parameter-name">cenariosImpostosListarRequest</td><td class="method-parameter-docs"><div class="first">Solicitação de listagem dos Impostos do Cenário para o produto e cliente.</div></td>
+</tr>
+</table>
+<div class="panel-footer">
+Retorno <span class="pre"><a href="#cenariosImpostosListarResponse"><span class="lightBlue">cenariosImpostosListarResponse</span></a></span>: 
+</div>
+</div>
+<div class="method-example-area">
+<h5>Exemplo:</h5>
+<pre class="method-example-code">{<BR>    "codigo_cliente_integracao": "CLI00001",<BR>    "consumo_final": "N",<BR>    "codigo_produto_integracao": "PRD00001",<BR>    "codigo_cenario": 152055<BR>  }</pre>
+<button class="btn btn-success method-example" data-method="ListarImpostosCenario" data-example="%7B++++%22codigo_cliente_integracao%22%3A+%22CLI00001%22%2C++++%22consumo_final%22%3A+%22N%22%2C++++%22codigo_produto_integracao%22%3A+%22PRD00001%22%2C++++%22codigo_cenario%22%3A+152055++%7D">Teste agora mesmo</button>
+</div>
+</div>
+<h2>Tipos Complexos</h2>
+<div class="complexTypeItem">
+<a name="cenariosEncontrados" class="anchorScroll"></a>
+<h3>cenariosEncontrados</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">nCodigo</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código do Cenário de Impostos.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cNome</td>
+<td class="parameter-type">string<span class="parameter-lenght">50</span></td><td class="parameter-docs"><div class="first">Nome do Cenário de Impostos.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">padrao</td>
+<td class="parameter-type">boolean</td><td class="parameter-docs"><div class="first">Indica se o Cenário de Impostos é padrão.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">industria</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Indica se o cenário se aplica a Indústria.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">comercioVarejista</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Indica se o Cenário de Impostos se aplica ao Comércio (Varejista).</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">comercioAtacadista</td>
+<td class="parameter-type">boolean</td><td class="parameter-docs"><div class="first">Indica se o Cenário de Impostos se aplica ao Comércio (Atacadista).</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">prestadorServico</td>
+<td class="parameter-type">boolean</td><td class="parameter-docs"><div class="first">Indica se o Cenário de Impostos se aplica a Prestação de Serviço.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">construcaoCivil</td>
+<td class="parameter-type">boolean</td><td class="parameter-docs"><div class="first">Indica se o Cenário de Impostos se aplica a Construção Civil.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">inativo</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Indica se o cenário está inativo [S/N]</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">dInc</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Data de Inclusão.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">hInc</td>
+<td class="parameter-type">string<span class="parameter-lenght">8</span></td><td class="parameter-docs"><div class="first">Hora de inclusão.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">uInc</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Código do usuário que realizou a inclusão.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">dAlt</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Data de alteração.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">hAlt</td>
+<td class="parameter-type">string<span class="parameter-lenght">8</span></td><td class="parameter-docs"><div class="first">Hora de alteração.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">uAlt</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Código do usuário que realizou a alteração.</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="cenariosEncontradosArray" class="anchorScroll"></a>
+<h3>cenariosEncontradosArray</h3>
+<p>Este par&acirc;metro &eacute; um array do tipo <span class="pre"><a href="#cenariosEncontrados"><span class="lightBlue">cenariosEncontrados</span></a></span></p>
+<p>Lista de cenariosEncontrados</p>
+</div>
+<div class="complexTypeItem">
+<a name="cenariosImpostosListarRequest" class="anchorScroll"></a>
+<h3>cenariosImpostosListarRequest</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">codigo_cliente_omie</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código interno de identificação do cliente</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">codigo_cliente_integracao</td>
+<td class="parameter-type">string<span class="parameter-lenght">60</span></td><td class="parameter-docs"><div class="first">Código de Integração par ao cliente.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">consumo_final</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Indicação se a operação é uma venda para consumo final</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">codigo</td>
+<td class="parameter-type">string<span class="parameter-lenght">60</span></td><td class="parameter-docs"><div class="first">É o código do produto que é exibido na tela do Omie.</div><div class="more"><a href="javascript:void(0)">+</a><div>Ele pode ser alterado a qualquer momento.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">codigo_produto</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">(Código interno utilizado apenas na API).</div><div class="more"><a href="javascript:void(0)">+</a><div>Esse código não aparece na tela do Omie.<BR>Utilize esse código para identificar um produto via API, para obter uma melhor performance.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">codigo_produto_integracao</td>
+<td class="parameter-type">string<span class="parameter-lenght">60</span></td><td class="parameter-docs"><div class="first">Código de integração do produto.</div><div class="more"><a href="javascript:void(0)">+</a><div>(Utilizado para integração via API)<BR>Esse código não aparece na tela do Omie.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">codigo_cenario</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código do Cenário de Impostos</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="cenariosImpostosListarResponse" class="anchorScroll"></a>
+<h3>cenariosImpostosListarResponse</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">codigo_empresa</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código interno identificador da Empresa.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">codigo_cenario</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código do Cenário de Impostos</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">codigo_cliente_omie</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código interno de identificação do cliente</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">codigo_cliente_integracao</td>
+<td class="parameter-type">string<span class="parameter-lenght">60</span></td><td class="parameter-docs"><div class="first">Código de Integração par ao cliente.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">codigo_produto</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">(Código interno utilizado apenas na API).</div><div class="more"><a href="javascript:void(0)">+</a><div>Esse código não aparece na tela do Omie.<BR>Utilize esse código para identificar um produto via API, para obter uma melhor performance.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">codigo_produto_integracao</td>
+<td class="parameter-type">string<span class="parameter-lenght">60</span></td><td class="parameter-docs"><div class="first">Código de integração do produto.</div><div class="more"><a href="javascript:void(0)">+</a><div>(Utilizado para integração via API)<BR>Esse código não aparece na tela do Omie.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">codigo</td>
+<td class="parameter-type">string<span class="parameter-lenght">60</span></td><td class="parameter-docs"><div class="first">É o código do produto que é exibido na tela do Omie.</div><div class="more"><a href="javascript:void(0)">+</a><div>Ele pode ser alterado a qualquer momento.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">ncm</td>
+<td class="parameter-type">string<span class="parameter-lenght">13</span></td><td class="parameter-docs"><div class="first">NCM do produto utilizado na pesquisa</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">consumo_final</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Indicação se a operação é uma venda para consumo final</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">uf_cliente</td>
+<td class="parameter-type">string<span class="parameter-lenght">2</span></td><td class="parameter-docs"><div class="first">Estado onde o cliente está localizado.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">uf_empresa</td>
+<td class="parameter-type">string<span class="parameter-lenght">2</span></td><td class="parameter-docs"><div class="first">Estado onde a Empresa está localizada.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cnae_cliente</td>
+<td class="parameter-type">string<span class="parameter-lenght">7</span></td><td class="parameter-docs"><div class="first">CNAE do cliente</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">contribuinte_cliente</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Indicativo se o cliente é contribuinte.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">impostos</td>
+<td class="parameter-type"><a href="#impostos">impostos</a></td><td class="parameter-docs"><div class="first">Impostos do cenário fiscal para o produto e cliente</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="cenariosListarRequest" class="anchorScroll"></a>
+<h3>cenariosListarRequest</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">nPagina</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Número da página que será listada.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nRegPorPagina</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Número de registros retornados.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cNome</td>
+<td class="parameter-type">string<span class="parameter-lenght">50</span></td><td class="parameter-docs"><div class="first">Nome do Cenário de Impostos.</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="cenariosListarResponse" class="anchorScroll"></a>
+<h3>cenariosListarResponse</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">nPagina</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Número da página que será listada.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nTotPaginas</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Total de páginas encontradas.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nRegistros</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Número de registros retornados.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nTotRegistros</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Total de registros encontrados.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cenariosEncontrados</td>
+<td class="parameter-type"><a href="#cenariosEncontradosArray">cenariosEncontradosArray</a></td><td class="parameter-docs"><div class="first">Lista de Cenários de Impostos encontrados.</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="impostos" class="anchorScroll"></a>
+<h3>impostos</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">cfop</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">CFOP  - Código Fiscal da Operação Fiscal configurado.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">inf_adicional_item</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Informação adicional para o item no documento fiscal</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">inf_adicional_nf</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Informação adicional para o documento fiscal</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nao_gera_conta_receb</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Indica que não deve gerar conta a receber para o item</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nao_mov_estoque</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Indica que não deve movimentar estoque</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cst_icms</td>
+<td class="parameter-type">string<span class="parameter-lenght">2</span></td><td class="parameter-docs"><div class="first">Código da Situação Tributária para o ICMS</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">modalidade_bc_icms</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Modalidade da base de cálculo para o ICMS</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">reducao_bc_icms</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Redução da base de cálculo de ICMS</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">aliquota_icms</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Alíquota de ICMS</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">perc_diferimento_icms</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Percentual de Diferimento de ICMS</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">motivo_desoneracao_icms</td>
+<td class="parameter-type">string<span class="parameter-lenght">2</span></td><td class="parameter-docs"><div class="first">Motivo da Desoneração do ICMS</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">perc_fcp_icms</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Percentual para o Fundo de Combate a Pobreza para o ICMS.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">csosn</td>
+<td class="parameter-type">string<span class="parameter-lenght">3</span></td><td class="parameter-docs"><div class="first">CSOSN - Código da Situação da Operação do Simples Nacional.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">aliquota_icms_simples</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Alíquota para cálculo do crédito do ICMS por empresa do Simples Nacional</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">modalidade_bc_st</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Modalidade de cálculo para a base do ICMS-ST</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">margem_st</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Margem de Valor Agregado para base de cálculo do ICMS-ST.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">aliquota_st</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Alíquota do ICMS-ST</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">aliquota_icms_op</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Alíquota do ICMS da operacação própria, para cálculo do ICMS-ST.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">carga_media_mt</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Carga média para cálculo do ICMS-ST</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">reducao_bc_st</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Redução da base de cálculo do ICMS-ST</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">zera_mva_cf</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Indica que deve zerar o MVA na venda para consumo final</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">id_pauta_icms</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código identificador do cadastro da pauta de ICMS</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">valor_pauta_icms</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Valor da Pauta do ICMS-ST</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">perc_fcp_st</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Percentual para o Fundo de Combate a Pobreza relativa ao ICMS-ST.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">al_icms_interes_destino</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Alíquota para o ICMS interestadual para o estado de destino</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">al_icms_interestadual</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Alíquota do ICMS próprio utilizada para o cálculo do ICMS interestadual.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">al_icms_interes_fcp</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Alíquota para o fundo de combate a pobreza para o estado destino relativo ao ICMS Interestadual</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">al_icms_interes_partilha</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Percentual de partilha do ICMS Interestadual</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cst_ipi</td>
+<td class="parameter-type">string<span class="parameter-lenght">2</span></td><td class="parameter-docs"><div class="first">Código da Situação Tributária para o IPI</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">tipo_calculo_ipi</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Tipo de cálculo para o IPI</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">reducao_bc_ipi</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Redução de base de cálculo para o IPI</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">aliquota_ipi</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Alíquota do IPI</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">valor_trib_ipi</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Valor tributável de IPI por unidade</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">enq_ipi</td>
+<td class="parameter-type">string<span class="parameter-lenght">3</span></td><td class="parameter-docs"><div class="first">Enquadramento do IPI</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cst_pis</td>
+<td class="parameter-type">string<span class="parameter-lenght">2</span></td><td class="parameter-docs"><div class="first">Código da Situação Tributária do PIS</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">tipo_calculo_pis</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Tipo do Cálculo do PIS</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">reducao_bc_pis</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Redução de base de cálculo do PIS</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">aliquota_pis</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Alíquota de PIS</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">valor_trib_pis</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Valor tributável de PIS por unidade</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">margem_pis_st</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Margem de cálculo para PIS-ST</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">aliquota_pis_st</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Alíquota de PIS-ST</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">tipo_calculo_pis_st</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Tipo de Cálculo para o PIS-ST</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">valor_trib_pis_st</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Valor tributado de PIS-ST por unidade</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cst_cofins</td>
+<td class="parameter-type">string<span class="parameter-lenght">2</span></td><td class="parameter-docs"><div class="first">Código da Situação Tributária do PIS</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">tipo_calculo_cofins</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Tipo do cálculo de COFINS</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">reducao_bc_cofins</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Percentual de Redução de base de cálculo para COFINS</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">aliquota_cofins</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Alíquota para o cálculo de COFINS</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">valor_trib_cofins</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Valor tributado de COFINS por unidade</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">margem_cofins_st</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Margem de Valor agregado para o cálculo do COFINS-ST</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">aliquota_cofins_st</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Alíquota para o cálculo de COFINS-ST</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">tipo_calculo_cofins_st</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Tipo de cálculo para o COFINS-ST</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">valor_trib_cofins_st</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Valor tributário de COFINS-ST por unidade</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cst_ibs_cbs</td>
+<td class="parameter-type">string<span class="parameter-lenght">3</span></td><td class="parameter-docs"><div class="first">Código de Situação Tributária do IBS e CBS</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">class_trib</td>
+<td class="parameter-type">string<span class="parameter-lenght">6</span></td><td class="parameter-docs"><div class="first">Código de Classificação Tributária do IBS e CBS</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">aliquota_ibs_uf</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Alíquota do IBS de competência das UF</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">perc_dif_ibs_uf</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Percentual do Diferimento - IBS UF</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">perc_red_ibs_uf</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Percentual da redução de alíquota do cClassTrib - IBS UF</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">aliquota_ibs_mu</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Alíquota do IBS de competência do Município</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">perc_dif_ibs_mu</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Percentual do diferimento - UBS Município</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">perc_red_ibs_mu</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Percentual da redução de alíquota do cClassTrib - IBS Município</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">aliquota_cbs</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Alíquota da CBS</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">perc_dif_cbs</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Percentual do diferimento - CBS</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">perc_red_cbs</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Percentual da redução de alíquota do cClassTrib - CBS</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cst_reg_ibs_cst</td>
+<td class="parameter-type">string<span class="parameter-lenght">3</span></td><td class="parameter-docs"><div class="first">Código da Situação Tributária Regular do IBS e CBS</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">class_trib_reg</td>
+<td class="parameter-type">string<span class="parameter-lenght">6</span></td><td class="parameter-docs"><div class="first">Código de Classificação Tributária Regular do IBS e CBS</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">aliquota_reg_ibs_uf</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Valor da alíquota Regular do IBS da UF</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">aliquota_reg_ibs_mu</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Valor da alíquota Regular do IBS do Município</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">aliquota_reg_cbs</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Valor da alíquota Regular da CBS</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">tipo_cred_prez</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Tipo de classificação de acordo com o Art. 450 para o cálculo de crédido presumido na ZFM</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="omie_fail" class="anchorScroll"></a>
+<h3>omie_fail</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">code</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Codigo do erro</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">description</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Descricao do erro</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-required">referer</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Origem do erro</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-required">fatal</td>
+<td class="parameter-type">boolean</td><td class="parameter-docs"><div class="first">Indica se eh um erro fatal</div></td>
+<tr>
+</table>
+</div>
+</div>
+<div class="col-md-3">
+<div id="affix-menu" data-spy="affix" data-offset-top="294">
+<h2>M&eacute;todos</h2>
+<nav id="index" class="hidden-print hidden-xs hidden-sm">
+<ul class="nav">
+<li><a href="#ListarCenarios">ListarCenarios</a></li>
+<li><a href="#ListarImpostosCenario">ListarImpostosCenario</a></li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+</body>
+</html>

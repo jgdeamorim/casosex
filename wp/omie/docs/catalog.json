@@ -1,0 +1,830 @@
+[
+  {
+    "category": "contador",
+    "service": "resumo",
+    "url": "https://app.omie.com.br/api/v1/contador/resumo/",
+    "file": "contador_resumo.html"
+  },
+  {
+    "category": "contador",
+    "service": "xml",
+    "url": "https://app.omie.com.br/api/v1/contador/xml/",
+    "file": "contador_xml.html"
+  },
+  {
+    "category": "crm",
+    "service": "concorrentes",
+    "url": "https://app.omie.com.br/api/v1/crm/concorrentes/",
+    "file": "crm_concorrentes.html"
+  },
+  {
+    "category": "crm",
+    "service": "contas",
+    "url": "https://app.omie.com.br/api/v1/crm/contas/",
+    "file": "crm_contas.html"
+  },
+  {
+    "category": "crm",
+    "service": "contascaract",
+    "url": "https://app.omie.com.br/api/v1/crm/contascaract/",
+    "file": "crm_contascaract.html"
+  },
+  {
+    "category": "crm",
+    "service": "contatos",
+    "url": "https://app.omie.com.br/api/v1/crm/contatos/",
+    "file": "crm_contatos.html"
+  },
+  {
+    "category": "crm",
+    "service": "fases",
+    "url": "https://app.omie.com.br/api/v1/crm/fases/",
+    "file": "crm_fases.html"
+  },
+  {
+    "category": "crm",
+    "service": "finders",
+    "url": "https://app.omie.com.br/api/v1/crm/finders/",
+    "file": "crm_finders.html"
+  },
+  {
+    "category": "crm",
+    "service": "motivos",
+    "url": "https://app.omie.com.br/api/v1/crm/motivos/",
+    "file": "crm_motivos.html"
+  },
+  {
+    "category": "crm",
+    "service": "oportunidades-resumo",
+    "url": "https://app.omie.com.br/api/v1/crm/oportunidades-resumo/",
+    "file": "crm_oportunidades-resumo.html"
+  },
+  {
+    "category": "crm",
+    "service": "oportunidades",
+    "url": "https://app.omie.com.br/api/v1/crm/oportunidades/",
+    "file": "crm_oportunidades.html"
+  },
+  {
+    "category": "crm",
+    "service": "origens",
+    "url": "https://app.omie.com.br/api/v1/crm/origens/",
+    "file": "crm_origens.html"
+  },
+  {
+    "category": "crm",
+    "service": "parceiros",
+    "url": "https://app.omie.com.br/api/v1/crm/parceiros/",
+    "file": "crm_parceiros.html"
+  },
+  {
+    "category": "crm",
+    "service": "solucoes",
+    "url": "https://app.omie.com.br/api/v1/crm/solucoes/",
+    "file": "crm_solucoes.html"
+  },
+  {
+    "category": "crm",
+    "service": "status",
+    "url": "https://app.omie.com.br/api/v1/crm/status/",
+    "file": "crm_status.html"
+  },
+  {
+    "category": "crm",
+    "service": "tarefas-resumo",
+    "url": "https://app.omie.com.br/api/v1/crm/tarefas-resumo/",
+    "file": "crm_tarefas-resumo.html"
+  },
+  {
+    "category": "crm",
+    "service": "tarefas",
+    "url": "https://app.omie.com.br/api/v1/crm/tarefas/",
+    "file": "crm_tarefas.html"
+  },
+  {
+    "category": "crm",
+    "service": "tipos",
+    "url": "https://app.omie.com.br/api/v1/crm/tipos/",
+    "file": "crm_tipos.html"
+  },
+  {
+    "category": "crm",
+    "service": "tipostarefa",
+    "url": "https://app.omie.com.br/api/v1/crm/tipostarefa/",
+    "file": "crm_tipostarefa.html"
+  },
+  {
+    "category": "crm",
+    "service": "usuarios",
+    "url": "https://app.omie.com.br/api/v1/crm/usuarios/",
+    "file": "crm_usuarios.html"
+  },
+  {
+    "category": "crm",
+    "service": "verticais",
+    "url": "https://app.omie.com.br/api/v1/crm/verticais/",
+    "file": "crm_verticais.html"
+  },
+  {
+    "category": "estoque",
+    "service": "ajuste",
+    "url": "https://app.omie.com.br/api/v1/estoque/ajuste/",
+    "file": "estoque_ajuste.html"
+  },
+  {
+    "category": "estoque",
+    "service": "comprador",
+    "url": "https://app.omie.com.br/api/v1/estoque/comprador/",
+    "file": "estoque_comprador.html"
+  },
+  {
+    "category": "estoque",
+    "service": "consulta",
+    "url": "https://app.omie.com.br/api/v1/estoque/consulta/",
+    "file": "estoque_consulta.html"
+  },
+  {
+    "category": "estoque",
+    "service": "local",
+    "url": "https://app.omie.com.br/api/v1/estoque/local/",
+    "file": "estoque_local.html"
+  },
+  {
+    "category": "estoque",
+    "service": "movestoque",
+    "url": "https://app.omie.com.br/api/v1/estoque/movestoque/",
+    "file": "estoque_movestoque.html"
+  },
+  {
+    "category": "estoque",
+    "service": "produtofornecedor",
+    "url": "https://app.omie.com.br/api/v1/estoque/produtofornecedor/",
+    "file": "estoque_produtofornecedor.html"
+  },
+  {
+    "category": "estoque",
+    "service": "resumo",
+    "url": "https://app.omie.com.br/api/v1/estoque/resumo/",
+    "file": "estoque_resumo.html"
+  },
+  {
+    "category": "financas",
+    "service": "caixa",
+    "url": "https://app.omie.com.br/api/v1/financas/caixa/",
+    "file": "financas_caixa.html"
+  },
+  {
+    "category": "financas",
+    "service": "contacorrentelancamentos",
+    "url": "https://app.omie.com.br/api/v1/financas/contacorrentelancamentos/",
+    "file": "financas_contacorrentelancamentos.html"
+  },
+  {
+    "category": "financas",
+    "service": "contapagar",
+    "url": "https://app.omie.com.br/api/v1/financas/contapagar/",
+    "file": "financas_contapagar.html"
+  },
+  {
+    "category": "financas",
+    "service": "contareceber",
+    "url": "https://app.omie.com.br/api/v1/financas/contareceber/",
+    "file": "financas_contareceber.html"
+  },
+  {
+    "category": "financas",
+    "service": "contareceberboleto",
+    "url": "https://app.omie.com.br/api/v1/financas/contareceberboleto/",
+    "file": "financas_contareceberboleto.html"
+  },
+  {
+    "category": "financas",
+    "service": "extrato",
+    "url": "https://app.omie.com.br/api/v1/financas/extrato/",
+    "file": "financas_extrato.html"
+  },
+  {
+    "category": "financas",
+    "service": "mf",
+    "url": "https://app.omie.com.br/api/v1/financas/mf/",
+    "file": "financas_mf.html"
+  },
+  {
+    "category": "financas",
+    "service": "pesquisartitulos",
+    "url": "https://app.omie.com.br/api/v1/financas/pesquisartitulos/",
+    "file": "financas_pesquisartitulos.html"
+  },
+  {
+    "category": "financas",
+    "service": "pix",
+    "url": "https://app.omie.com.br/api/v1/financas/pix/",
+    "file": "financas_pix.html"
+  },
+  {
+    "category": "financas",
+    "service": "resumo",
+    "url": "https://app.omie.com.br/api/v1/financas/resumo/",
+    "file": "financas_resumo.html"
+  },
+  {
+    "category": "geral",
+    "service": "anexo",
+    "url": "https://app.omie.com.br/api/v1/geral/anexo/",
+    "file": "geral_anexo.html"
+  },
+  {
+    "category": "geral",
+    "service": "bancos",
+    "url": "https://app.omie.com.br/api/v1/geral/bancos/",
+    "file": "geral_bancos.html"
+  },
+  {
+    "category": "geral",
+    "service": "bandeiracartao",
+    "url": "https://app.omie.com.br/api/v1/geral/bandeiracartao/",
+    "file": "geral_bandeiracartao.html"
+  },
+  {
+    "category": "geral",
+    "service": "caracteristicas",
+    "url": "https://app.omie.com.br/api/v1/geral/caracteristicas/",
+    "file": "geral_caracteristicas.html"
+  },
+  {
+    "category": "geral",
+    "service": "categorias",
+    "url": "https://app.omie.com.br/api/v1/geral/categorias/",
+    "file": "geral_categorias.html"
+  },
+  {
+    "category": "geral",
+    "service": "cenarios",
+    "url": "https://app.omie.com.br/api/v1/geral/cenarios/",
+    "file": "geral_cenarios.html"
+  },
+  {
+    "category": "geral",
+    "service": "cidades",
+    "url": "https://app.omie.com.br/api/v1/geral/cidades/",
+    "file": "geral_cidades.html"
+  },
+  {
+    "category": "geral",
+    "service": "clientes",
+    "url": "https://app.omie.com.br/api/v1/geral/clientes/",
+    "file": "geral_clientes.html"
+  },
+  {
+    "category": "geral",
+    "service": "clientescaract",
+    "url": "https://app.omie.com.br/api/v1/geral/clientescaract/",
+    "file": "geral_clientescaract.html"
+  },
+  {
+    "category": "geral",
+    "service": "clientetag",
+    "url": "https://app.omie.com.br/api/v1/geral/clientetag/",
+    "file": "geral_clientetag.html"
+  },
+  {
+    "category": "geral",
+    "service": "contacorrente",
+    "url": "https://app.omie.com.br/api/v1/geral/contacorrente/",
+    "file": "geral_contacorrente.html"
+  },
+  {
+    "category": "geral",
+    "service": "departamentos",
+    "url": "https://app.omie.com.br/api/v1/geral/departamentos/",
+    "file": "geral_departamentos.html"
+  },
+  {
+    "category": "geral",
+    "service": "dre",
+    "url": "https://app.omie.com.br/api/v1/geral/dre/",
+    "file": "geral_dre.html"
+  },
+  {
+    "category": "geral",
+    "service": "empresas",
+    "url": "https://app.omie.com.br/api/v1/geral/empresas/",
+    "file": "geral_empresas.html"
+  },
+  {
+    "category": "geral",
+    "service": "familias",
+    "url": "https://app.omie.com.br/api/v1/geral/familias/",
+    "file": "geral_familias.html"
+  },
+  {
+    "category": "geral",
+    "service": "finaltransf",
+    "url": "https://app.omie.com.br/api/v1/geral/finaltransf/",
+    "file": "geral_finaltransf.html"
+  },
+  {
+    "category": "geral",
+    "service": "malha",
+    "url": "https://app.omie.com.br/api/v1/geral/malha/",
+    "file": "geral_malha.html"
+  },
+  {
+    "category": "geral",
+    "service": "meiospagamento",
+    "url": "https://app.omie.com.br/api/v1/geral/meiospagamento/",
+    "file": "geral_meiospagamento.html"
+  },
+  {
+    "category": "geral",
+    "service": "motivodevolucao",
+    "url": "https://app.omie.com.br/api/v1/geral/motivodevolucao/",
+    "file": "geral_motivodevolucao.html"
+  },
+  {
+    "category": "geral",
+    "service": "origemlancamento",
+    "url": "https://app.omie.com.br/api/v1/geral/origemlancamento/",
+    "file": "geral_origemlancamento.html"
+  },
+  {
+    "category": "geral",
+    "service": "origempedido",
+    "url": "https://app.omie.com.br/api/v1/geral/origempedido/",
+    "file": "geral_origempedido.html"
+  },
+  {
+    "category": "geral",
+    "service": "paises",
+    "url": "https://app.omie.com.br/api/v1/geral/paises/",
+    "file": "geral_paises.html"
+  },
+  {
+    "category": "geral",
+    "service": "parcelas",
+    "url": "https://app.omie.com.br/api/v1/geral/parcelas/",
+    "file": "geral_parcelas.html"
+  },
+  {
+    "category": "geral",
+    "service": "prodcaract",
+    "url": "https://app.omie.com.br/api/v1/geral/prodcaract/",
+    "file": "geral_prodcaract.html"
+  },
+  {
+    "category": "geral",
+    "service": "produtos",
+    "url": "https://app.omie.com.br/api/v1/geral/produtos/",
+    "file": "geral_produtos.html"
+  },
+  {
+    "category": "geral",
+    "service": "produtoskit",
+    "url": "https://app.omie.com.br/api/v1/geral/produtoskit/",
+    "file": "geral_produtoskit.html"
+  },
+  {
+    "category": "geral",
+    "service": "projetos",
+    "url": "https://app.omie.com.br/api/v1/geral/projetos/",
+    "file": "geral_projetos.html"
+  },
+  {
+    "category": "geral",
+    "service": "tarefas",
+    "url": "https://app.omie.com.br/api/v1/geral/tarefas/",
+    "file": "geral_tarefas.html"
+  },
+  {
+    "category": "geral",
+    "service": "tipoassinante",
+    "url": "https://app.omie.com.br/api/v1/geral/tipoassinante/",
+    "file": "geral_tipoassinante.html"
+  },
+  {
+    "category": "geral",
+    "service": "tipocc",
+    "url": "https://app.omie.com.br/api/v1/geral/tipocc/",
+    "file": "geral_tipocc.html"
+  },
+  {
+    "category": "geral",
+    "service": "tiposanexo",
+    "url": "https://app.omie.com.br/api/v1/geral/tiposanexo/",
+    "file": "geral_tiposanexo.html"
+  },
+  {
+    "category": "geral",
+    "service": "tiposdoc",
+    "url": "https://app.omie.com.br/api/v1/geral/tiposdoc/",
+    "file": "geral_tiposdoc.html"
+  },
+  {
+    "category": "geral",
+    "service": "tiposentrega",
+    "url": "https://app.omie.com.br/api/v1/geral/tiposentrega/",
+    "file": "geral_tiposentrega.html"
+  },
+  {
+    "category": "geral",
+    "service": "tpativ",
+    "url": "https://app.omie.com.br/api/v1/geral/tpativ/",
+    "file": "geral_tpativ.html"
+  },
+  {
+    "category": "geral",
+    "service": "unidade",
+    "url": "https://app.omie.com.br/api/v1/geral/unidade/",
+    "file": "geral_unidade.html"
+  },
+  {
+    "category": "geral",
+    "service": "vendedores",
+    "url": "https://app.omie.com.br/api/v1/geral/vendedores/",
+    "file": "geral_vendedores.html"
+  },
+  {
+    "category": "produtos",
+    "service": "cest",
+    "url": "https://app.omie.com.br/api/v1/produtos/cest/",
+    "file": "produtos_cest.html"
+  },
+  {
+    "category": "produtos",
+    "service": "cfop",
+    "url": "https://app.omie.com.br/api/v1/produtos/cfop/",
+    "file": "produtos_cfop.html"
+  },
+  {
+    "category": "produtos",
+    "service": "classtrib",
+    "url": "https://app.omie.com.br/api/v1/produtos/classtrib/",
+    "file": "produtos_classtrib.html"
+  },
+  {
+    "category": "produtos",
+    "service": "cnae",
+    "url": "https://app.omie.com.br/api/v1/produtos/cnae/",
+    "file": "produtos_cnae.html"
+  },
+  {
+    "category": "produtos",
+    "service": "cofinscst",
+    "url": "https://app.omie.com.br/api/v1/produtos/cofinscst/",
+    "file": "produtos_cofinscst.html"
+  },
+  {
+    "category": "produtos",
+    "service": "compras-resumo",
+    "url": "https://app.omie.com.br/api/v1/produtos/compras-resumo/",
+    "file": "produtos_compras-resumo.html"
+  },
+  {
+    "category": "produtos",
+    "service": "cte",
+    "url": "https://app.omie.com.br/api/v1/produtos/cte/",
+    "file": "produtos_cte.html"
+  },
+  {
+    "category": "produtos",
+    "service": "cupomfiscal",
+    "url": "https://app.omie.com.br/api/v1/produtos/cupomfiscal/",
+    "file": "produtos_cupomfiscal.html"
+  },
+  {
+    "category": "produtos",
+    "service": "cupomfiscalconsultar",
+    "url": "https://app.omie.com.br/api/v1/produtos/cupomfiscalconsultar/",
+    "file": "produtos_cupomfiscalconsultar.html"
+  },
+  {
+    "category": "produtos",
+    "service": "cupomfiscalincluir",
+    "url": "https://app.omie.com.br/api/v1/produtos/cupomfiscalincluir/",
+    "file": "produtos_cupomfiscalincluir.html"
+  },
+  {
+    "category": "produtos",
+    "service": "devolucaovendafaturamento",
+    "url": "https://app.omie.com.br/api/v1/produtos/devolucaovendafaturamento/",
+    "file": "produtos_devolucaovendafaturamento.html"
+  },
+  {
+    "category": "produtos",
+    "service": "dfedocs",
+    "url": "https://app.omie.com.br/api/v1/produtos/dfedocs/",
+    "file": "produtos_dfedocs.html"
+  },
+  {
+    "category": "produtos",
+    "service": "etapafat",
+    "url": "https://app.omie.com.br/api/v1/produtos/etapafat/",
+    "file": "produtos_etapafat.html"
+  },
+  {
+    "category": "produtos",
+    "service": "formaspagcompras",
+    "url": "https://app.omie.com.br/api/v1/produtos/formaspagcompras/",
+    "file": "produtos_formaspagcompras.html"
+  },
+  {
+    "category": "produtos",
+    "service": "formaspagvendas",
+    "url": "https://app.omie.com.br/api/v1/produtos/formaspagvendas/",
+    "file": "produtos_formaspagvendas.html"
+  },
+  {
+    "category": "produtos",
+    "service": "icbscst",
+    "url": "https://app.omie.com.br/api/v1/produtos/icbscst/",
+    "file": "produtos_icbscst.html"
+  },
+  {
+    "category": "produtos",
+    "service": "icmscsosn",
+    "url": "https://app.omie.com.br/api/v1/produtos/icmscsosn/",
+    "file": "produtos_icmscsosn.html"
+  },
+  {
+    "category": "produtos",
+    "service": "icmscst",
+    "url": "https://app.omie.com.br/api/v1/produtos/icmscst/",
+    "file": "produtos_icmscst.html"
+  },
+  {
+    "category": "produtos",
+    "service": "icmsorigem",
+    "url": "https://app.omie.com.br/api/v1/produtos/icmsorigem/",
+    "file": "produtos_icmsorigem.html"
+  },
+  {
+    "category": "produtos",
+    "service": "ipicst",
+    "url": "https://app.omie.com.br/api/v1/produtos/ipicst/",
+    "file": "produtos_ipicst.html"
+  },
+  {
+    "category": "produtos",
+    "service": "ipienq",
+    "url": "https://app.omie.com.br/api/v1/produtos/ipienq/",
+    "file": "produtos_ipienq.html"
+  },
+  {
+    "category": "produtos",
+    "service": "ncm",
+    "url": "https://app.omie.com.br/api/v1/produtos/ncm/",
+    "file": "produtos_ncm.html"
+  },
+  {
+    "category": "produtos",
+    "service": "nfce",
+    "url": "https://app.omie.com.br/api/v1/produtos/nfce/",
+    "file": "produtos_nfce.html"
+  },
+  {
+    "category": "produtos",
+    "service": "nfconsultar",
+    "url": "https://app.omie.com.br/api/v1/produtos/nfconsultar/",
+    "file": "produtos_nfconsultar.html"
+  },
+  {
+    "category": "produtos",
+    "service": "nfe",
+    "url": "https://app.omie.com.br/api/v1/produtos/nfe/",
+    "file": "produtos_nfe.html"
+  },
+  {
+    "category": "produtos",
+    "service": "notaentrada",
+    "url": "https://app.omie.com.br/api/v1/produtos/notaentrada/",
+    "file": "produtos_notaentrada.html"
+  },
+  {
+    "category": "produtos",
+    "service": "notaentradafat",
+    "url": "https://app.omie.com.br/api/v1/produtos/notaentradafat/",
+    "file": "produtos_notaentradafat.html"
+  },
+  {
+    "category": "produtos",
+    "service": "notafiscalutil",
+    "url": "https://app.omie.com.br/api/v1/produtos/notafiscalutil/",
+    "file": "produtos_notafiscalutil.html"
+  },
+  {
+    "category": "produtos",
+    "service": "op",
+    "url": "https://app.omie.com.br/api/v1/produtos/op/",
+    "file": "produtos_op.html"
+  },
+  {
+    "category": "produtos",
+    "service": "pedido",
+    "url": "https://app.omie.com.br/api/v1/produtos/pedido/",
+    "file": "produtos_pedido.html"
+  },
+  {
+    "category": "produtos",
+    "service": "pedidocompra",
+    "url": "https://app.omie.com.br/api/v1/produtos/pedidocompra/",
+    "file": "produtos_pedidocompra.html"
+  },
+  {
+    "category": "produtos",
+    "service": "pedidoetapas",
+    "url": "https://app.omie.com.br/api/v1/produtos/pedidoetapas/",
+    "file": "produtos_pedidoetapas.html"
+  },
+  {
+    "category": "produtos",
+    "service": "pedidovenda",
+    "url": "https://app.omie.com.br/api/v1/produtos/pedidovenda/",
+    "file": "produtos_pedidovenda.html"
+  },
+  {
+    "category": "produtos",
+    "service": "pedidovendafat",
+    "url": "https://app.omie.com.br/api/v1/produtos/pedidovendafat/",
+    "file": "produtos_pedidovendafat.html"
+  },
+  {
+    "category": "produtos",
+    "service": "piscst",
+    "url": "https://app.omie.com.br/api/v1/produtos/piscst/",
+    "file": "produtos_piscst.html"
+  },
+  {
+    "category": "produtos",
+    "service": "produtoslote",
+    "url": "https://app.omie.com.br/api/v1/produtos/produtoslote/",
+    "file": "produtos_produtoslote.html"
+  },
+  {
+    "category": "produtos",
+    "service": "recebimentonfe",
+    "url": "https://app.omie.com.br/api/v1/produtos/recebimentonfe/",
+    "file": "produtos_recebimentonfe.html"
+  },
+  {
+    "category": "produtos",
+    "service": "remessa",
+    "url": "https://app.omie.com.br/api/v1/produtos/remessa/",
+    "file": "produtos_remessa.html"
+  },
+  {
+    "category": "produtos",
+    "service": "remessafat",
+    "url": "https://app.omie.com.br/api/v1/produtos/remessafat/",
+    "file": "produtos_remessafat.html"
+  },
+  {
+    "category": "produtos",
+    "service": "requisicaocompra",
+    "url": "https://app.omie.com.br/api/v1/produtos/requisicaocompra/",
+    "file": "produtos_requisicaocompra.html"
+  },
+  {
+    "category": "produtos",
+    "service": "sat",
+    "url": "https://app.omie.com.br/api/v1/produtos/sat/",
+    "file": "produtos_sat.html"
+  },
+  {
+    "category": "produtos",
+    "service": "tabelaprecos",
+    "url": "https://app.omie.com.br/api/v1/produtos/tabelaprecos/",
+    "file": "produtos_tabelaprecos.html"
+  },
+  {
+    "category": "produtos",
+    "service": "tpcalc",
+    "url": "https://app.omie.com.br/api/v1/produtos/tpcalc/",
+    "file": "produtos_tpcalc.html"
+  },
+  {
+    "category": "produtos",
+    "service": "variacao",
+    "url": "https://app.omie.com.br/api/v1/produtos/variacao/",
+    "file": "produtos_variacao.html"
+  },
+  {
+    "category": "produtos",
+    "service": "vendas-resumo",
+    "url": "https://app.omie.com.br/api/v1/produtos/vendas-resumo/",
+    "file": "produtos_vendas-resumo.html"
+  },
+  {
+    "category": "servicos",
+    "service": "classificacaoservico",
+    "url": "https://app.omie.com.br/api/v1/servicos/classificacaoservico/",
+    "file": "servicos_classificacaoservico.html"
+  },
+  {
+    "category": "servicos",
+    "service": "contrato",
+    "url": "https://app.omie.com.br/api/v1/servicos/contrato/",
+    "file": "servicos_contrato.html"
+  },
+  {
+    "category": "servicos",
+    "service": "contratofat",
+    "url": "https://app.omie.com.br/api/v1/servicos/contratofat/",
+    "file": "servicos_contratofat.html"
+  },
+  {
+    "category": "servicos",
+    "service": "contratolote",
+    "url": "https://app.omie.com.br/api/v1/servicos/contratolote/",
+    "file": "servicos_contratolote.html"
+  },
+  {
+    "category": "servicos",
+    "service": "contratotpfat",
+    "url": "https://app.omie.com.br/api/v1/servicos/contratotpfat/",
+    "file": "servicos_contratotpfat.html"
+  },
+  {
+    "category": "servicos",
+    "service": "ibpt",
+    "url": "https://app.omie.com.br/api/v1/servicos/ibpt/",
+    "file": "servicos_ibpt.html"
+  },
+  {
+    "category": "servicos",
+    "service": "indoper",
+    "url": "https://app.omie.com.br/api/v1/servicos/indoper/",
+    "file": "servicos_indoper.html"
+  },
+  {
+    "category": "servicos",
+    "service": "lc116",
+    "url": "https://app.omie.com.br/api/v1/servicos/lc116/",
+    "file": "servicos_lc116.html"
+  },
+  {
+    "category": "servicos",
+    "service": "listaservico",
+    "url": "https://app.omie.com.br/api/v1/servicos/listaservico/",
+    "file": "servicos_listaservico.html"
+  },
+  {
+    "category": "servicos",
+    "service": "nbs",
+    "url": "https://app.omie.com.br/api/v1/servicos/nbs/",
+    "file": "servicos_nbs.html"
+  },
+  {
+    "category": "servicos",
+    "service": "nfse",
+    "url": "https://app.omie.com.br/api/v1/servicos/nfse/",
+    "file": "servicos_nfse.html"
+  },
+  {
+    "category": "servicos",
+    "service": "os",
+    "url": "https://app.omie.com.br/api/v1/servicos/os/",
+    "file": "servicos_os.html"
+  },
+  {
+    "category": "servicos",
+    "service": "osdocs",
+    "url": "https://app.omie.com.br/api/v1/servicos/osdocs/",
+    "file": "servicos_osdocs.html"
+  },
+  {
+    "category": "servicos",
+    "service": "oslote",
+    "url": "https://app.omie.com.br/api/v1/servicos/oslote/",
+    "file": "servicos_oslote.html"
+  },
+  {
+    "category": "servicos",
+    "service": "osp",
+    "url": "https://app.omie.com.br/api/v1/servicos/osp/",
+    "file": "servicos_osp.html"
+  },
+  {
+    "category": "servicos",
+    "service": "resumo",
+    "url": "https://app.omie.com.br/api/v1/servicos/resumo/",
+    "file": "servicos_resumo.html"
+  },
+  {
+    "category": "servicos",
+    "service": "servico",
+    "url": "https://app.omie.com.br/api/v1/servicos/servico/",
+    "file": "servicos_servico.html"
+  },
+  {
+    "category": "servicos",
+    "service": "tipotrib",
+    "url": "https://app.omie.com.br/api/v1/servicos/tipotrib/",
+    "file": "servicos_tipotrib.html"
+  },
+  {
+    "category": "servicos",
+    "service": "tipoutilizacao",
+    "url": "https://app.omie.com.br/api/v1/servicos/tipoutilizacao/",
+    "file": "servicos_tipoutilizacao.html"
+  }
+]

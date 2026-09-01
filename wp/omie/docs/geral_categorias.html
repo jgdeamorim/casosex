@@ -1,0 +1,589 @@
+<nav class="navbar navbar-expand-lg bg-azul">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="https://developer.omie.com.br/">
+            <img class="lozad img-logo" data-src="https://static.omie.com.br/images/logo/logo-omie-topo.png" src="https://static.omie.com.br/images/logo/logo-omie-topo.png" data-loaded="true">
+        </a>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <span class="borda-hover"></span>
+                    <a class="nav-link" href="https://developer.omie.com.br/my-apps/"> Aplicativos </a>
+                </li>
+                <li class="nav-item ">
+                    <span class="borda-hover"></span>
+                    <a class="nav-link" href="https://developer.omie.com.br/service-list/">
+                        Lista das API's
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <span class="borda-hover"></span>
+                    <a class="nav-link" href="https://ajuda.omie.com.br/pt-BR/collections/3045828-apis" target="_blank"> Ajuda </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<html>
+<head>
+<title>CategoriasCadastro</title>
+<style type="text/css" media="all">
+  [id] { scroll-margin-top: 68px; }
+</style>
+<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+<script src="https://cdn.omie.com.br/omie-assets/js/omie-compat-v2.min.js"></script>
+<script src="/developer/themes/omie/developer.js?ts=2021.008"></script>
+<link rel="stylesheet" href="//app.omie.com.br/wp-content/themes/omie/bootstrap/css/bootstrap.min.css" async/>
+<link href="https://cdn.omie.com.br/assets/developer/css/site.css?ts=2021.008" media="all" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="/developer/themes/omie/developer.css?ts=2021.008" async/>
+</head>
+<body>
+<div class="jumbotron banner bg-azul">
+<div class="container">
+<img src="https://cdn.omie.com.br/assets/developer/images/seta-azuis.png" alt="" class="img-setas">
+<div class="row align-items-center">
+<div class="col-12">
+<h1>CategoriasCadastro</h1>
+<ul class="nav nav-tabs" role="tablist">
+  <li role="presentation" class="active"><a href="#section-endpoint" aria-controls="section-endpoint" role="tab" data-toggle="tab">Endpoint</a></li>
+  <li role="presentation" class="pull-right"><a href="#section-wsdl" aria-controls="section-wsdl" role="tab" data-toggle="tab">WSDL</a></li>
+  <li role="presentation" class="pull-right"><a href="#section-php-soap" aria-controls="section-php-soap" role="tab" data-toggle="tab">PHP SOAP</a></li>
+  <li role="presentation" class="pull-right"><a href="#section-json" aria-controls="section-json" role="tab" data-toggle="tab">JSON</a></li>
+</ul>
+<div class="tab-content">
+  <div role="tabpanel" class="tab-pane fade in active" id="section-endpoint">
+    <h4>Endpoint URI</h4>
+    <a class="highlight" href="https://app.omie.com.br/api/v1/geral/categorias/"><pre><code>https://app.omie.com.br/api/v1/geral/categorias/</code></pre></a>
+  </div>
+  <div role="tabpanel" class="tab-pane fade" id="section-wsdl">
+    <h4>WSDL URI</h4>
+    <a class="highlight" href="https://app.omie.com.br/api/v1/geral/categorias/?WSDL"><pre><code>https://app.omie.com.br/api/v1/geral/categorias/?WSDL</code></pre></a>
+  </div>
+  <div role="tabpanel" class="tab-pane fade" id="section-php-soap">
+    <h4>PHP SOAP client download</h4>
+    <a class="highlight" href="https://app.omie.com.br/api/v1/geral/categorias/?PHPSOAPCLIENT""><pre><code>https://app.omie.com.br/api/v1/geral/categorias/?PHPSOAPCLIENT</code></pre></a>
+  </div>
+  <div role="tabpanel" class="tab-pane fade" id="section-json">
+    <h4>JSON client download URI</h4>
+    <h5>PHP</h5>
+    <a class="highlight" href="https://app.omie.com.br/api/v1/geral/categorias/?PHPJSONCLIENT"><pre><code>https://app.omie.com.br/api/v1/geral/categorias/?PHPJSONCLIENT</code></pre></a>
+    <h5>JavaScript (recomendado para uso apenas do lado do servidor)</h5>
+    <a class="highlight" href="https://app.omie.com.br/api/v1/geral/categorias/?JSJSONCLIENT"><pre><code>https://app.omie.com.br/api/v1/geral/categorias/?JSJSONCLIENT</code></pre></a>
+  </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="container">
+<div class="row">
+<div class="col-md-9">
+<h2>M&eacute;todos</h2>
+<p>Veja abaixo a documenta&ccedil;&atilde;o de cada m&eacute;todo dispon&iacute;vel para este servi&ccedil;o.</p>
+<div id="AlterarCategoria" class="methodItem">
+<h3 class="method-name">AlterarCategoria</h3>
+<p>
+
+</p>
+<div class="panel panel-default method">
+<div class="panel-heading"> Par&acirc;metros:
+</div>
+<table class="table table-condensed table-hover">
+<tr>
+<td class="">&nbsp;</td>
+<td class="method-parameter-type"><a href="#categoria_alterar">categoria_alterar</a></td>
+<td class="method-parameter-name">categoria_alterar</td><td class="method-parameter-docs"><div class="first">Alteração de uma categoria.</div></td>
+</tr>
+</table>
+<div class="panel-footer">
+Retorno <span class="pre"><a href="#categoria_cadastro_response"><span class="lightBlue">categoria_cadastro_response</span></a></span>: Status de retorno do cadastro da categoria.
+</div>
+</div>
+<div class="method-example-area">
+<h5>Exemplo:</h5>
+<pre class="method-example-code">{<BR>   "codigo": "",<BR>   "descricao": "",<BR>   "natureza": "",<BR>   "tipo_categoria": "",<BR>   "codigo_dre": "",<BR>   "conta_inativa": ""<BR>}</pre>
+<button class="btn btn-success method-example" data-method="AlterarCategoria" data-example="%7B+++%22codigo%22%3A+%22%22%2C+++%22descricao%22%3A+%22%22%2C+++%22natureza%22%3A+%22%22%2C+++%22tipo_categoria%22%3A+%22%22%2C+++%22codigo_dre%22%3A+%22%22%2C+++%22conta_inativa%22%3A+%22%22%7D">Teste agora mesmo</button>
+</div>
+</div>
+<div id="AlterarGrupoCategoria" class="methodItem">
+<h3 class="method-name">AlterarGrupoCategoria</h3>
+<p>
+
+</p>
+<div class="panel panel-default method">
+<div class="panel-heading"> Par&acirc;metros:
+</div>
+<table class="table table-condensed table-hover">
+<tr>
+<td class="">&nbsp;</td>
+<td class="method-parameter-type"><a href="#categoria_grupo_alterar">categoria_grupo_alterar</a></td>
+<td class="method-parameter-name">categoria_grupo_alterar</td><td class="method-parameter-docs"><div class="first">Alteração de um grupo totalizador de categoria.</div></td>
+</tr>
+</table>
+<div class="panel-footer">
+Retorno <span class="pre"><a href="#categoria_cadastro_response"><span class="lightBlue">categoria_cadastro_response</span></a></span>: Status de retorno do cadastro da categoria.
+</div>
+</div>
+<div class="method-example-area">
+<h5>Exemplo:</h5>
+<pre class="method-example-code">{<BR>   "codigo": "",<BR>   "descricao": "",<BR>   "natureza": ""<BR>}</pre>
+<button class="btn btn-success method-example" data-method="AlterarGrupoCategoria" data-example="%7B+++%22codigo%22%3A+%22%22%2C+++%22descricao%22%3A+%22%22%2C+++%22natureza%22%3A+%22%22%7D">Teste agora mesmo</button>
+</div>
+</div>
+<div id="ConsultarCategoria" class="methodItem">
+<h3 class="method-name">ConsultarCategoria</h3>
+<p>
+Consulta uma categoria
+</p>
+<div class="panel panel-default method">
+<div class="panel-heading"> Par&acirc;metros:
+</div>
+<table class="table table-condensed table-hover">
+<tr>
+<td class="">&nbsp;</td>
+<td class="method-parameter-type"><a href="#categoria_consultar">categoria_consultar</a></td>
+<td class="method-parameter-name">categoria_consultar</td><td class="method-parameter-docs"><div class="first">Consulta um código de categoria</div></td>
+</tr>
+</table>
+<div class="panel-footer">
+Retorno <span class="pre"><a href="#categoria_cadastro"><span class="lightBlue">categoria_cadastro</span></a></span>: Cadastro de Categorias
+</div>
+</div>
+<div class="method-example-area">
+<h5>Exemplo:</h5>
+<pre class="method-example-code">{<BR>   "codigo": ""<BR>}<BR></pre>
+<button class="btn btn-success method-example" data-method="ConsultarCategoria" data-example="%7B+++%22codigo%22%3A+%22%22%7D">Teste agora mesmo</button>
+</div>
+</div>
+<div id="IncluirCategoria" class="methodItem">
+<h3 class="method-name">IncluirCategoria</h3>
+<p>
+
+</p>
+<div class="panel panel-default method">
+<div class="panel-heading"> Par&acirc;metros:
+</div>
+<table class="table table-condensed table-hover">
+<tr>
+<td class="">&nbsp;</td>
+<td class="method-parameter-type"><a href="#categoria_incluir">categoria_incluir</a></td>
+<td class="method-parameter-name">categoria_incluir</td><td class="method-parameter-docs"><div class="first">Inclusão de uma categoria.</div></td>
+</tr>
+</table>
+<div class="panel-footer">
+Retorno <span class="pre"><a href="#categoria_cadastro_response"><span class="lightBlue">categoria_cadastro_response</span></a></span>: Status de retorno do cadastro da categoria.
+</div>
+</div>
+<div class="method-example-area">
+<h5>Exemplo:</h5>
+<pre class="method-example-code">{<BR>   "categoria_superior": "",<BR>   "descricao": "",<BR>   "natureza": "",<BR>   "tipo_categoria": "",<BR>   "codigo_dre": ""<BR>}</pre>
+<button class="btn btn-success method-example" data-method="IncluirCategoria" data-example="%7B+++%22categoria_superior%22%3A+%22%22%2C+++%22descricao%22%3A+%22%22%2C+++%22natureza%22%3A+%22%22%2C+++%22tipo_categoria%22%3A+%22%22%2C+++%22codigo_dre%22%3A+%22%22%7D">Teste agora mesmo</button>
+</div>
+</div>
+<div id="IncluirGrupoCategoria" class="methodItem">
+<h3 class="method-name">IncluirGrupoCategoria</h3>
+<p>
+
+</p>
+<div class="panel panel-default method">
+<div class="panel-heading"> Par&acirc;metros:
+</div>
+<table class="table table-condensed table-hover">
+<tr>
+<td class="">&nbsp;</td>
+<td class="method-parameter-type"><a href="#categoria_grupo_incluir">categoria_grupo_incluir</a></td>
+<td class="method-parameter-name">categoria_grupo_incluir</td><td class="method-parameter-docs"><div class="first">Inclusão de um grupo totalizador de categoria.</div></td>
+</tr>
+</table>
+<div class="panel-footer">
+Retorno <span class="pre"><a href="#categoria_cadastro_response"><span class="lightBlue">categoria_cadastro_response</span></a></span>: Status de retorno do cadastro da categoria.
+</div>
+</div>
+<div class="method-example-area">
+<h5>Exemplo:</h5>
+<pre class="method-example-code">{<BR>   "descricao": "",<BR>   "tipo_grupo": "",<BR>   "natureza": ""<BR>}</pre>
+<button class="btn btn-success method-example" data-method="IncluirGrupoCategoria" data-example="%7B+++%22descricao%22%3A+%22%22%2C+++%22tipo_grupo%22%3A+%22%22%2C+++%22natureza%22%3A+%22%22%7D">Teste agora mesmo</button>
+</div>
+</div>
+<div id="ListarCategorias" class="methodItem">
+<h3 class="method-name">ListarCategorias</h3>
+<p>
+Lista as categorias cadastradas
+</p>
+<div class="panel panel-default method">
+<div class="panel-heading"> Par&acirc;metros:
+</div>
+<table class="table table-condensed table-hover">
+<tr>
+<td class="">&nbsp;</td>
+<td class="method-parameter-type"><a href="#categoria_list_request">categoria_list_request</a></td>
+<td class="method-parameter-name">categoria_list_request</td><td class="method-parameter-docs"><div class="first">Lista as categorias cadastradas.</div></td>
+</tr>
+</table>
+<div class="panel-footer">
+Retorno <span class="pre"><a href="#categoria_listfull_response"><span class="lightBlue">categoria_listfull_response</span></a></span>: Retorna a lista de categorias existentes no Omie.
+</div>
+</div>
+<div class="method-example-area">
+<h5>Exemplo:</h5>
+<pre class="method-example-code">{<BR>  "pagina": 1,<BR>  "registros_por_pagina": 50,<BR>  "descricao": ""<BR>}</pre>
+<button class="btn btn-success method-example" data-method="ListarCategorias" data-example="%7B++%22pagina%22%3A+1%2C++%22registros_por_pagina%22%3A+50%2C++%22descricao%22%3A+%22%22%7D">Teste agora mesmo</button>
+</div>
+</div>
+<h2>Tipos Complexos</h2>
+<div class="complexTypeItem">
+<a name="categoria_alterar" class="anchorScroll"></a>
+<h3>categoria_alterar</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">codigo</td>
+<td class="parameter-type">string<span class="parameter-lenght">20</span></td><td class="parameter-docs"><div class="first">Código para a Categoria.</div><div class="more"><a href="javascript:void(0)">+</a><div>Informação obrigatória para o método AlterarCategoria.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">descricao</td>
+<td class="parameter-type">string<span class="parameter-lenght">50</span></td><td class="parameter-docs"><div class="first">Descrição para a Categoria</div><div class="more"><a href="javascript:void(0)">+</a><div>Informação obrigatória para os métodos IncluirCategoria e IncluirGrupoCategoria.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">natureza</td>
+<td class="parameter-type">string<span class="parameter-lenght">50</span></td><td class="parameter-docs"><div class="first">Descrição da Natureza da conta, equivalente ao campo "Observação" da categoria no ERP</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">tipo_categoria</td>
+<td class="parameter-type">string<span class="parameter-lenght">3</span></td><td class="parameter-docs"><div class="first">Tipo de gasto/receita realizado com esta categoria</div><div class="more"><a href="javascript:void(0)">+</a><div>Para inclusão ou alteração essa informação pode ser obtida pela API:<BR>/api/v1/geral/tipocategoria/<BR>Utilizando o método ListarTipoCategoria, o código é retornado na tag "cCodigo"<BR>Para que esse código seja válido, é necessário que:<BR>Inclusão:<BR>- "categoria_superior" começar com "1", então "cTipo" deve ser igual a "R"<BR>- "categoria_superior" começar com "2", então "cTipo" deve ser igual a "P"<BR><BR>Alteração:<BR>- "codigo" começar com "1", então "cTipo" deve ser igual a "R"<BR>- "codigo" começar com "2", então "cTipo" deve ser igual a "P"</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">codigo_dre</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Código no DRE (Demonstrativo de Resultados do Exercício)</div><div class="more"><a href="javascript:void(0)">+</a><div>Para inclusão ou alteração essa informação pode ser obtida pela API:<BR>/api/v1/geral/dre/<BR>Utilizando o método ListarCadastroDRE, o código é retornado na tag "codigoDRE"<BR>Para que esse código seja válido, é necessário que:<BR>- "nivelDRE" seja igual a 3<BR>- "naoExibirDRE" seja igual a "N"<BR>- "totalizaDRE" seja igual a "N"</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">conta_inativa</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Indica que a categoria ou grupo de categoria está inativo.</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="categoria_cadastro" class="anchorScroll"></a>
+<h3>categoria_cadastro</h3>
+<p>Cadastro de Categorias</p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">codigo</td>
+<td class="parameter-type">string<span class="parameter-lenght">20</span></td><td class="parameter-docs"><div class="first">Código para a Categoria.</div><div class="more"><a href="javascript:void(0)">+</a><div>Informação obrigatória para o método AlterarCategoria.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">descricao</td>
+<td class="parameter-type">string<span class="parameter-lenght">50</span></td><td class="parameter-docs"><div class="first">Descrição para a Categoria</div><div class="more"><a href="javascript:void(0)">+</a><div>Informação obrigatória para os métodos IncluirCategoria e IncluirGrupoCategoria.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">descricao_padrao</td>
+<td class="parameter-type">string<span class="parameter-lenght">50</span></td><td class="parameter-docs"><div class="first">Descrição Padrão para a Categoria</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">tipo_categoria</td>
+<td class="parameter-type">string<span class="parameter-lenght">3</span></td><td class="parameter-docs"><div class="first">Tipo de gasto/receita realizado com esta categoria</div><div class="more"><a href="javascript:void(0)">+</a><div>Para inclusão ou alteração essa informação pode ser obtida pela API:<BR>/api/v1/geral/tipocategoria/<BR>Utilizando o método ListarTipoCategoria, o código é retornado na tag "cCodigo"<BR>Para que esse código seja válido, é necessário que:<BR>Inclusão:<BR>- "categoria_superior" começar com "1", então "cTipo" deve ser igual a "R"<BR>- "categoria_superior" começar com "2", então "cTipo" deve ser igual a "P"<BR><BR>Alteração:<BR>- "codigo" começar com "1", então "cTipo" deve ser igual a "R"<BR>- "codigo" começar com "2", então "cTipo" deve ser igual a "P"</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">conta_inativa</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Indica que a categoria ou grupo de categoria está inativo.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">definida_pelo_usuario</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Indica que a conta financeira é definida pelo usuário</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">id_conta_contabil</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">ID da Conta Contábil</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">tag_conta_contabil</td>
+<td class="parameter-type">string<span class="parameter-lenght">20</span></td><td class="parameter-docs"><div class="first">Tag para Conta Contábil</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">conta_despesa</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Quando S, indica que é conta de despesa</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">conta_receita</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Quando S, indica que é conta de receita</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nao_exibir</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Indica que a Categoria não deve ser exibida em ComboBox</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">natureza</td>
+<td class="parameter-type">string<span class="parameter-lenght">50</span></td><td class="parameter-docs"><div class="first">Descrição da Natureza da conta, equivalente ao campo "Observação" da categoria no ERP</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">totalizadora</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Quando S, indica que é totalizadora de conta</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">transferencia</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Quando S, indica que é categoria de transferência</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">codigo_dre</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Código no DRE (Demonstrativo de Resultados do Exercício)</div><div class="more"><a href="javascript:void(0)">+</a><div>Para inclusão ou alteração essa informação pode ser obtida pela API:<BR>/api/v1/geral/dre/<BR>Utilizando o método ListarCadastroDRE, o código é retornado na tag "codigoDRE"<BR>Para que esse código seja válido, é necessário que:<BR>- "nivelDRE" seja igual a 3<BR>- "naoExibirDRE" seja igual a "N"<BR>- "totalizaDRE" seja igual a "N"</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">categoria_superior</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Código do grupo da categoria</div><div class="more"><a href="javascript:void(0)">+</a><div>Para inclusão essa informação pode ser obtida pela API:<BR>/api/v1/geral/categorias/<BR><BR>Utilizando o método ListarCategorias, o código é retornado na tag "codigo"<BR>Para que esse código seja válido, é necessário que:<BR>- "codigo" tenha 4 dígitos<BR>- "totalizadora" deve ser igual a "S"</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">dadosDRE</td>
+<td class="parameter-type"><a href="#dadosDRE">dadosDRE</a></td><td class="parameter-docs"><div class="first">Detalhes da conta do DRE.</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="categoria_cadastroArray" class="anchorScroll"></a>
+<h3>categoria_cadastroArray</h3>
+<p>Este par&acirc;metro &eacute; um array do tipo <span class="pre"><a href="#categoria_cadastro"><span class="lightBlue">categoria_cadastro</span></a></span></p>
+<p>Lista de categoria_cadastro</p>
+</div>
+<div class="complexTypeItem">
+<a name="categoria_cadastro_response" class="anchorScroll"></a>
+<h3>categoria_cadastro_response</h3>
+<p>Status de retorno do cadastro da categoria.</p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">codigo_status</td>
+<td class="parameter-type">string<span class="parameter-lenght">4</span></td><td class="parameter-docs"><div class="first">Código do status do processamento.</div><div class="more"><a href="javascript:void(0)">+</a><div>Se o retorno for '0' significa que a solicitação foi executada com sucesso.<BR>Se o retorno for maior que '0' ocorreu algum erro durante o processamento da solicitação.<BR>A tag 'cDesStatus' descreve o problema ocorrido.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">descricao_status</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Descrição do status do processamento.</div><div class="more"><a href="javascript:void(0)">+</a><div>Essa tag explica o resultado da tag 'cCodigoStatus'.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">codigo</td>
+<td class="parameter-type">string<span class="parameter-lenght">20</span></td><td class="parameter-docs"><div class="first">Código para a Categoria.</div><div class="more"><a href="javascript:void(0)">+</a><div>Informação obrigatória para o método AlterarCategoria.</div></div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="categoria_consultar" class="anchorScroll"></a>
+<h3>categoria_consultar</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">codigo</td>
+<td class="parameter-type">string<span class="parameter-lenght">20</span></td><td class="parameter-docs"><div class="first">Código para a Categoria.</div><div class="more"><a href="javascript:void(0)">+</a><div>Informação obrigatória para o método AlterarCategoria.</div></div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="categoria_grupo_alterar" class="anchorScroll"></a>
+<h3>categoria_grupo_alterar</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">codigo</td>
+<td class="parameter-type">string<span class="parameter-lenght">20</span></td><td class="parameter-docs"><div class="first">Código para a Categoria.</div><div class="more"><a href="javascript:void(0)">+</a><div>Informação obrigatória para o método AlterarCategoria.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">descricao</td>
+<td class="parameter-type">string<span class="parameter-lenght">50</span></td><td class="parameter-docs"><div class="first">Descrição para a Categoria</div><div class="more"><a href="javascript:void(0)">+</a><div>Informação obrigatória para os métodos IncluirCategoria e IncluirGrupoCategoria.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">natureza</td>
+<td class="parameter-type">string<span class="parameter-lenght">50</span></td><td class="parameter-docs"><div class="first">Descrição da Natureza da conta, equivalente ao campo "Observação" da categoria no ERP</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="categoria_grupo_incluir" class="anchorScroll"></a>
+<h3>categoria_grupo_incluir</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">descricao</td>
+<td class="parameter-type">string<span class="parameter-lenght">50</span></td><td class="parameter-docs"><div class="first">Descrição para a Categoria</div><div class="more"><a href="javascript:void(0)">+</a><div>Informação obrigatória para os métodos IncluirCategoria e IncluirGrupoCategoria.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">tipo_grupo</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Tipo de grupo de categorias ( R = Receita ou D = Despesa ).</div><div class="more"><a href="javascript:void(0)">+</a><div>Informação obrigatória para o método IncluirGrupoCategoria.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">natureza</td>
+<td class="parameter-type">string<span class="parameter-lenght">50</span></td><td class="parameter-docs"><div class="first">Descrição da Natureza da conta, equivalente ao campo "Observação" da categoria no ERP</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="categoria_inativar" class="anchorScroll"></a>
+<h3>categoria_inativar</h3>
+<p>Inativar uma categoria ou um grupo totalizador de categoria</p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">codigo</td>
+<td class="parameter-type">string<span class="parameter-lenght">20</span></td><td class="parameter-docs"><div class="first">Código para a Categoria.</div><div class="more"><a href="javascript:void(0)">+</a><div>Informação obrigatória para o método AlterarCategoria.</div></div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="categoria_incluir" class="anchorScroll"></a>
+<h3>categoria_incluir</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">categoria_superior</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Código do grupo da categoria</div><div class="more"><a href="javascript:void(0)">+</a><div>Para inclusão essa informação pode ser obtida pela API:<BR>/api/v1/geral/categorias/<BR><BR>Utilizando o método ListarCategorias, o código é retornado na tag "codigo"<BR>Para que esse código seja válido, é necessário que:<BR>- "codigo" tenha 4 dígitos<BR>- "totalizadora" deve ser igual a "S"</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">descricao</td>
+<td class="parameter-type">string<span class="parameter-lenght">50</span></td><td class="parameter-docs"><div class="first">Descrição para a Categoria</div><div class="more"><a href="javascript:void(0)">+</a><div>Informação obrigatória para os métodos IncluirCategoria e IncluirGrupoCategoria.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">natureza</td>
+<td class="parameter-type">string<span class="parameter-lenght">50</span></td><td class="parameter-docs"><div class="first">Descrição da Natureza da conta, equivalente ao campo "Observação" da categoria no ERP</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">tipo_categoria</td>
+<td class="parameter-type">string<span class="parameter-lenght">3</span></td><td class="parameter-docs"><div class="first">Tipo de gasto/receita realizado com esta categoria</div><div class="more"><a href="javascript:void(0)">+</a><div>Para inclusão ou alteração essa informação pode ser obtida pela API:<BR>/api/v1/geral/tipocategoria/<BR>Utilizando o método ListarTipoCategoria, o código é retornado na tag "cCodigo"<BR>Para que esse código seja válido, é necessário que:<BR>Inclusão:<BR>- "categoria_superior" começar com "1", então "cTipo" deve ser igual a "R"<BR>- "categoria_superior" começar com "2", então "cTipo" deve ser igual a "P"<BR><BR>Alteração:<BR>- "codigo" começar com "1", então "cTipo" deve ser igual a "R"<BR>- "codigo" começar com "2", então "cTipo" deve ser igual a "P"</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">codigo_dre</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Código no DRE (Demonstrativo de Resultados do Exercício)</div><div class="more"><a href="javascript:void(0)">+</a><div>Para inclusão ou alteração essa informação pode ser obtida pela API:<BR>/api/v1/geral/dre/<BR>Utilizando o método ListarCadastroDRE, o código é retornado na tag "codigoDRE"<BR>Para que esse código seja válido, é necessário que:<BR>- "nivelDRE" seja igual a 3<BR>- "naoExibirDRE" seja igual a "N"<BR>- "totalizaDRE" seja igual a "N"</div></div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="categoria_list_request" class="anchorScroll"></a>
+<h3>categoria_list_request</h3>
+<p>Lista as categorias cadastradas.</p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">pagina</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Número da página retornada</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">registros_por_pagina</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Número de registros retornados na página.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">apenas_importado_api</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">DEPRECATED</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">ordenar_por</td>
+<td class="parameter-type">string<span class="parameter-lenght">100</span></td><td class="parameter-docs"><div class="first">DEPRECATED</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">ordem_descrescente</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">DEPRECATED</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">filtrar_apenas_ativo</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Fitrar apenas categorias ativas</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">filtrar_por_tipo</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Filtrar categorias por tipo</div><div class="more"><a href="javascript:void(0)">+</a><div>Pode ser: <BR>R - Receita<BR>D - Despesa<BR><BR>Retorna apenas as categorias ativas, não totalizadoras e que estejam configuradas para serem exibidas.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">descricao</td>
+<td class="parameter-type">string<span class="parameter-lenght">50</span></td><td class="parameter-docs"><div class="first">Descrição para a Categoria</div><div class="more"><a href="javascript:void(0)">+</a><div>Informação obrigatória para os métodos IncluirCategoria e IncluirGrupoCategoria.</div></div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="categoria_listfull_response" class="anchorScroll"></a>
+<h3>categoria_listfull_response</h3>
+<p>Retorna a lista de categorias existentes no Omie.</p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">pagina</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Número da página retornada</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">total_de_paginas</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Número total de páginas</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">registros</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Número de registros retornados na página.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">total_de_registros</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">total de registros encontrados</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">categoria_cadastro</td>
+<td class="parameter-type"><a href="#categoria_cadastroArray">categoria_cadastroArray</a></td><td class="parameter-docs"><div class="first">Cadastro de Categorias</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="dadosDRE" class="anchorScroll"></a>
+<h3>dadosDRE</h3>
+<p>Detalhes da conta do DRE.</p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">codigoDRE</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Código da Conta do DRE.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">descricaoDRE</td>
+<td class="parameter-type">string<span class="parameter-lenght">40</span></td><td class="parameter-docs"><div class="first">Descrição da Conta do DRE.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">naoExibirDRE</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Indica se a Conta está marcada para não exibir no DRE.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nivelDRE</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Nível da Conta da DRE.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">sinalDRE</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Sinal da Conta para o DRE.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">totalizaDRE</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Indica se a Conta do DRE é Totalizadora.</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="omie_fail" class="anchorScroll"></a>
+<h3>omie_fail</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">code</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Codigo do erro</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">description</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Descricao do erro</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-required">referer</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Origem do erro</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-required">fatal</td>
+<td class="parameter-type">boolean</td><td class="parameter-docs"><div class="first">Indica se eh um erro fatal</div></td>
+<tr>
+</table>
+</div>
+</div>
+<div class="col-md-3">
+<div id="affix-menu" data-spy="affix" data-offset-top="294">
+<h2>M&eacute;todos</h2>
+<nav id="index" class="hidden-print hidden-xs hidden-sm">
+<ul class="nav">
+<li><a href="#AlterarCategoria">AlterarCategoria</a></li>
+<li><a href="#AlterarGrupoCategoria">AlterarGrupoCategoria</a></li>
+<li><a href="#ConsultarCategoria">ConsultarCategoria</a></li>
+<li><a href="#IncluirCategoria">IncluirCategoria</a></li>
+<li><a href="#IncluirGrupoCategoria">IncluirGrupoCategoria</a></li>
+<li><a href="#ListarCategorias">ListarCategorias</a></li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+</body>
+</html>

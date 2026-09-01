@@ -1,0 +1,1165 @@
+<nav class="navbar navbar-expand-lg bg-azul">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="https://developer.omie.com.br/">
+            <img class="lozad img-logo" data-src="https://static.omie.com.br/images/logo/logo-omie-topo.png" src="https://static.omie.com.br/images/logo/logo-omie-topo.png" data-loaded="true">
+        </a>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <span class="borda-hover"></span>
+                    <a class="nav-link" href="https://developer.omie.com.br/my-apps/"> Aplicativos </a>
+                </li>
+                <li class="nav-item ">
+                    <span class="borda-hover"></span>
+                    <a class="nav-link" href="https://developer.omie.com.br/service-list/">
+                        Lista das API's
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <span class="borda-hover"></span>
+                    <a class="nav-link" href="https://ajuda.omie.com.br/pt-BR/collections/3045828-apis" target="_blank"> Ajuda </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<html>
+<head>
+<title>ClientesCadastro</title>
+<style type="text/css" media="all">
+  [id] { scroll-margin-top: 68px; }
+</style>
+<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+<script src="https://cdn.omie.com.br/omie-assets/js/omie-compat-v2.min.js"></script>
+<script src="/developer/themes/omie/developer.js?ts=2021.008"></script>
+<link rel="stylesheet" href="//app.omie.com.br/wp-content/themes/omie/bootstrap/css/bootstrap.min.css" async/>
+<link href="https://cdn.omie.com.br/assets/developer/css/site.css?ts=2021.008" media="all" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="/developer/themes/omie/developer.css?ts=2021.008" async/>
+</head>
+<body>
+<div class="jumbotron banner bg-azul">
+<div class="container">
+<img src="https://cdn.omie.com.br/assets/developer/images/seta-azuis.png" alt="" class="img-setas">
+<div class="row align-items-center">
+<div class="col-12">
+<h1>ClientesCadastro</h1>
+<ul class="nav nav-tabs" role="tablist">
+  <li role="presentation" class="active"><a href="#section-endpoint" aria-controls="section-endpoint" role="tab" data-toggle="tab">Endpoint</a></li>
+  <li role="presentation" class="pull-right"><a href="#section-wsdl" aria-controls="section-wsdl" role="tab" data-toggle="tab">WSDL</a></li>
+  <li role="presentation" class="pull-right"><a href="#section-php-soap" aria-controls="section-php-soap" role="tab" data-toggle="tab">PHP SOAP</a></li>
+  <li role="presentation" class="pull-right"><a href="#section-json" aria-controls="section-json" role="tab" data-toggle="tab">JSON</a></li>
+</ul>
+<div class="tab-content">
+  <div role="tabpanel" class="tab-pane fade in active" id="section-endpoint">
+    <h4>Endpoint URI</h4>
+    <a class="highlight" href="https://app.omie.com.br/api/v1/geral/clientes/"><pre><code>https://app.omie.com.br/api/v1/geral/clientes/</code></pre></a>
+  </div>
+  <div role="tabpanel" class="tab-pane fade" id="section-wsdl">
+    <h4>WSDL URI</h4>
+    <a class="highlight" href="https://app.omie.com.br/api/v1/geral/clientes/?WSDL"><pre><code>https://app.omie.com.br/api/v1/geral/clientes/?WSDL</code></pre></a>
+  </div>
+  <div role="tabpanel" class="tab-pane fade" id="section-php-soap">
+    <h4>PHP SOAP client download</h4>
+    <a class="highlight" href="https://app.omie.com.br/api/v1/geral/clientes/?PHPSOAPCLIENT""><pre><code>https://app.omie.com.br/api/v1/geral/clientes/?PHPSOAPCLIENT</code></pre></a>
+  </div>
+  <div role="tabpanel" class="tab-pane fade" id="section-json">
+    <h4>JSON client download URI</h4>
+    <h5>PHP</h5>
+    <a class="highlight" href="https://app.omie.com.br/api/v1/geral/clientes/?PHPJSONCLIENT"><pre><code>https://app.omie.com.br/api/v1/geral/clientes/?PHPJSONCLIENT</code></pre></a>
+    <h5>JavaScript (recomendado para uso apenas do lado do servidor)</h5>
+    <a class="highlight" href="https://app.omie.com.br/api/v1/geral/clientes/?JSJSONCLIENT"><pre><code>https://app.omie.com.br/api/v1/geral/clientes/?JSJSONCLIENT</code></pre></a>
+  </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="container">
+<div class="row">
+<div class="col-md-9">
+<h2>M&eacute;todos</h2>
+<p>Veja abaixo a documenta&ccedil;&atilde;o de cada m&eacute;todo dispon&iacute;vel para este servi&ccedil;o.</p>
+<div id="AlterarCliente" class="methodItem">
+<h3 class="method-name">AlterarCliente</h3>
+<p>
+Altera os dados do cliente
+</p>
+<div class="panel panel-default method">
+<div class="panel-heading"> Par&acirc;metros:
+</div>
+<table class="table table-condensed table-hover">
+<tr>
+<td class="">&nbsp;</td>
+<td class="method-parameter-type"><a href="#clientes_cadastro">clientes_cadastro</a></td>
+<td class="method-parameter-name">clientes_cadastro</td><td class="method-parameter-docs"><div class="first">Cadastro completo de clientes</div></td>
+</tr>
+</table>
+<div class="panel-footer">
+Retorno <span class="pre"><a href="#clientes_status"><span class="lightBlue">clientes_status</span></a></span>: Status de retorno do cadastro de clientes.
+</div>
+</div>
+<div class="method-example-area">
+<h5>Exemplo:</h5>
+<pre class="method-example-code">{<BR>  "codigo_cliente_integracao": "CodigoInterno0001",<BR>  "email": "primeiro@ccliente.com.br",<BR>  "razao_social": "Primeiro Cliente  Ltda Me",<BR>  "nome_fantasia": "Primeiro Cliente"<BR>}</pre>
+<button class="btn btn-success method-example" data-method="AlterarCliente" data-example="%7B++%22codigo_cliente_integracao%22%3A+%22CodigoInterno0001%22%2C++%22email%22%3A+%22primeiro%40ccliente.com.br%22%2C++%22razao_social%22%3A+%22Primeiro+Cliente++Ltda+Me%22%2C++%22nome_fantasia%22%3A+%22Primeiro+Cliente%22%7D">Teste agora mesmo</button>
+</div>
+</div>
+<div id="AssociarCodIntCliente" class="methodItem">
+<h3 class="method-name">AssociarCodIntCliente</h3>
+<p>
+
+</p>
+<div class="panel panel-default method">
+<div class="panel-heading"> Par&acirc;metros:
+</div>
+<table class="table table-condensed table-hover">
+<tr>
+<td class="">&nbsp;</td>
+<td class="method-parameter-type"><a href="#clientes_cadastro_chave">clientes_cadastro_chave</a></td>
+<td class="method-parameter-name">clientes_cadastro_chave</td><td class="method-parameter-docs"><div class="first">Chave para pesquisa do cadastro de clientes.</div></td>
+</tr>
+</table>
+<div class="panel-footer">
+Retorno <span class="pre"><a href="#clientes_status"><span class="lightBlue">clientes_status</span></a></span>: Status de retorno do cadastro de clientes.
+</div>
+</div>
+<div class="method-example-area">
+<h5>Exemplo:</h5>
+<pre class="method-example-code">{<BR>  "codigo_cliente_omie": 0,<BR>  "codigo_cliente_integracao": ""<BR>}</pre>
+<button class="btn btn-success method-example" data-method="AssociarCodIntCliente" data-example="%7B++%22codigo_cliente_omie%22%3A+0%2C++%22codigo_cliente_integracao%22%3A+%22%22%7D">Teste agora mesmo</button>
+</div>
+</div>
+<div id="ConsultarCliente" class="methodItem">
+<h3 class="method-name">ConsultarCliente</h3>
+<p>
+Consulta os dados de um cliente
+</p>
+<div class="panel panel-default method">
+<div class="panel-heading"> Par&acirc;metros:
+</div>
+<table class="table table-condensed table-hover">
+<tr>
+<td class="">&nbsp;</td>
+<td class="method-parameter-type"><a href="#clientes_cadastro_chave">clientes_cadastro_chave</a></td>
+<td class="method-parameter-name">clientes_cadastro_chave</td><td class="method-parameter-docs"><div class="first">Chave para pesquisa do cadastro de clientes.</div></td>
+</tr>
+</table>
+<div class="panel-footer">
+Retorno <span class="pre"><a href="#clientes_cadastro"><span class="lightBlue">clientes_cadastro</span></a></span>: Cadastro completo de clientes
+</div>
+</div>
+<div class="method-example-area">
+<h5>Exemplo:</h5>
+<pre class="method-example-code">{<BR>  "codigo_cliente_omie": 0,<BR>  "codigo_cliente_integracao": ""<BR>}</pre>
+<button class="btn btn-success method-example" data-method="ConsultarCliente" data-example="%7B++%22codigo_cliente_omie%22%3A+0%2C++%22codigo_cliente_integracao%22%3A+%22%22%7D">Teste agora mesmo</button>
+</div>
+</div>
+<div id="ExcluirCliente" class="methodItem">
+<h3 class="method-name">ExcluirCliente</h3>
+<p>
+Exclui um cliente da base de dados.
+</p>
+<div class="panel panel-default method">
+<div class="panel-heading"> Par&acirc;metros:
+</div>
+<table class="table table-condensed table-hover">
+<tr>
+<td class="">&nbsp;</td>
+<td class="method-parameter-type"><a href="#clientes_cadastro_chave">clientes_cadastro_chave</a></td>
+<td class="method-parameter-name">clientes_cadastro_chave</td><td class="method-parameter-docs"><div class="first">Chave para pesquisa do cadastro de clientes.</div></td>
+</tr>
+</table>
+<div class="panel-footer">
+Retorno <span class="pre"><a href="#clientes_status"><span class="lightBlue">clientes_status</span></a></span>: Status de retorno do cadastro de clientes.
+</div>
+</div>
+<div class="method-example-area">
+<h5>Exemplo:</h5>
+<pre class="method-example-code">{<BR>  "codigo_cliente_omie": 0,<BR>  "codigo_cliente_integracao": ""<BR>}</pre>
+<button class="btn btn-success method-example" data-method="ExcluirCliente" data-example="%7B++%22codigo_cliente_omie%22%3A+0%2C++%22codigo_cliente_integracao%22%3A+%22%22%7D">Teste agora mesmo</button>
+</div>
+</div>
+<div id="IncluirCliente" class="methodItem">
+<h3 class="method-name">IncluirCliente</h3>
+<p>
+Inclui o cliente no Omie
+</p>
+<div class="panel panel-default method">
+<div class="panel-heading"> Par&acirc;metros:
+</div>
+<table class="table table-condensed table-hover">
+<tr>
+<td class="">&nbsp;</td>
+<td class="method-parameter-type"><a href="#clientes_cadastro">clientes_cadastro</a></td>
+<td class="method-parameter-name">clientes_cadastro</td><td class="method-parameter-docs"><div class="first">Cadastro completo de clientes</div></td>
+</tr>
+</table>
+<div class="panel-footer">
+Retorno <span class="pre"><a href="#clientes_status"><span class="lightBlue">clientes_status</span></a></span>: Status de retorno do cadastro de clientes.
+</div>
+</div>
+<div class="method-example-area">
+<h5>Exemplo:</h5>
+<pre class="method-example-code">{<BR>  "codigo_cliente_integracao": "CodigoInterno0001",<BR>  "email": "primeiro@ccliente.com.br",<BR>  "razao_social": "Primeiro Cliente  Ltda Me",<BR>  "nome_fantasia": "Primeiro Cliente"<BR>}</pre>
+<button class="btn btn-success method-example" data-method="IncluirCliente" data-example="%7B++%22codigo_cliente_integracao%22%3A+%22CodigoInterno0001%22%2C++%22email%22%3A+%22primeiro%40ccliente.com.br%22%2C++%22razao_social%22%3A+%22Primeiro+Cliente++Ltda+Me%22%2C++%22nome_fantasia%22%3A+%22Primeiro+Cliente%22%7D">Teste agora mesmo</button>
+</div>
+</div>
+<div id="IncluirClientesPorLote" class="methodItem">
+<h3 class="method-name">IncluirClientesPorLote</h3>
+<p>
+DEPRECATED
+</p>
+<div class="panel panel-default method">
+<div class="panel-heading"> Par&acirc;metros:
+</div>
+<table class="table table-condensed table-hover">
+<tr>
+<td class="">&nbsp;</td>
+<td class="method-parameter-type"><a href="#clientes_lote_request">clientes_lote_request</a></td>
+<td class="method-parameter-name">clientes_lote_request</td><td class="method-parameter-docs"><div class="first">Lote de cadastros de clientes para inclusão, limitado a 50 ocorrências por requisição.</div></td>
+</tr>
+</table>
+<div class="panel-footer">
+Retorno <span class="pre"><a href="#clientes_lote_response"><span class="lightBlue">clientes_lote_response</span></a></span>: Resposta do processamento do lote de clientes cadastrados.
+</div>
+</div>
+<div class="method-example-area">
+<h5>Exemplo:</h5>
+<pre class="method-example-code">{<BR>  "clientes_cadastro": [<BR>      {<BR>          "codigo_cliente_integracao": "CodigoInterno0001",<BR>          "email": "primeiro@cliente.com.br",<BR>          "nome_fantasia": "Primeiro Cliente",<BR>          "razao_social": "Primeiro Cliente  Ltda Me"<BR>      },<BR>      {<BR>          "codigo_cliente_integracao": "CodigoInterno0002",<BR>          "email": "segundo@cliente.com.br",<BR>          "nome_fantasia": "Segundo Cliente",<BR>          "razao_social": "Segundo Cliente  Ltda Me"<BR>      }<BR>  ],<BR>  "lote": 1<BR>}</pre>
+<button class="btn btn-success method-example" data-method="IncluirClientesPorLote" data-example="%7B++%22clientes_cadastro%22%3A+%5B++++++%7B++++++++++%22codigo_cliente_integracao%22%3A+%22CodigoInterno0001%22%2C++++++++++%22email%22%3A+%22primeiro%40cliente.com.br%22%2C++++++++++%22nome_fantasia%22%3A+%22Primeiro+Cliente%22%2C++++++++++%22razao_social%22%3A+%22Primeiro+Cliente++Ltda+Me%22++++++%7D%2C++++++%7B++++++++++%22codigo_cliente_integracao%22%3A+%22CodigoInterno0002%22%2C++++++++++%22email%22%3A+%22segundo%40cliente.com.br%22%2C++++++++++%22nome_fantasia%22%3A+%22Segundo+Cliente%22%2C++++++++++%22razao_social%22%3A+%22Segundo+Cliente++Ltda+Me%22++++++%7D++%5D%2C++%22lote%22%3A+1%7D">Teste agora mesmo</button>
+</div>
+</div>
+<div id="ListarClientes" class="methodItem">
+<h3 class="method-name">ListarClientes</h3>
+<p>
+Lista os clientes cadastrados
+</p>
+<div class="panel panel-default method">
+<div class="panel-heading"> Par&acirc;metros:
+</div>
+<table class="table table-condensed table-hover">
+<tr>
+<td class="">&nbsp;</td>
+<td class="method-parameter-type"><a href="#clientes_list_request">clientes_list_request</a></td>
+<td class="method-parameter-name">clientes_list_request</td><td class="method-parameter-docs"><div class="first">Lista os clientes cadastrados</div></td>
+</tr>
+</table>
+<div class="panel-footer">
+Retorno <span class="pre"><a href="#clientes_listfull_response"><span class="lightBlue">clientes_listfull_response</span></a></span>: Lista de clientes cadastrados no omie.
+</div>
+</div>
+<div class="method-example-area">
+<h5>Exemplo:</h5>
+<pre class="method-example-code">{<BR>  "pagina": 1,<BR>  "registros_por_pagina": 50,<BR>  "apenas_importado_api": "N"<BR>}</pre>
+<button class="btn btn-success method-example" data-method="ListarClientes" data-example="%7B++%22pagina%22%3A+1%2C++%22registros_por_pagina%22%3A+50%2C++%22apenas_importado_api%22%3A+%22N%22%7D">Teste agora mesmo</button>
+</div>
+</div>
+<div id="ListarClientesResumido" class="methodItem">
+<h3 class="method-name">ListarClientesResumido</h3>
+<p>
+Realiza pesquisa dos clientes
+</p>
+<div class="panel panel-default method">
+<div class="panel-heading"> Par&acirc;metros:
+</div>
+<table class="table table-condensed table-hover">
+<tr>
+<td class="">&nbsp;</td>
+<td class="method-parameter-type"><a href="#clientes_list_request">clientes_list_request</a></td>
+<td class="method-parameter-name">clientes_list_request</td><td class="method-parameter-docs"><div class="first">Lista os clientes cadastrados</div></td>
+</tr>
+</table>
+<div class="panel-footer">
+Retorno <span class="pre"><a href="#clientes_list_response"><span class="lightBlue">clientes_list_response</span></a></span>: Lista de clientes cadastrados no omie.
+</div>
+</div>
+<div class="method-example-area">
+<h5>Exemplo:</h5>
+<pre class="method-example-code">{<BR>  "pagina": 1,<BR>  "registros_por_pagina": 50,<BR>  "apenas_importado_api": "N"<BR>}</pre>
+<button class="btn btn-success method-example" data-method="ListarClientesResumido" data-example="%7B++%22pagina%22%3A+1%2C++%22registros_por_pagina%22%3A+50%2C++%22apenas_importado_api%22%3A+%22N%22%7D">Teste agora mesmo</button>
+</div>
+</div>
+<div id="UpsertCliente" class="methodItem">
+<h3 class="method-name">UpsertCliente</h3>
+<p>
+
+</p>
+<div class="panel panel-default method">
+<div class="panel-heading"> Par&acirc;metros:
+</div>
+<table class="table table-condensed table-hover">
+<tr>
+<td class="">&nbsp;</td>
+<td class="method-parameter-type"><a href="#clientes_cadastro">clientes_cadastro</a></td>
+<td class="method-parameter-name">clientes_cadastro</td><td class="method-parameter-docs"><div class="first">Cadastro completo de clientes</div></td>
+</tr>
+</table>
+<div class="panel-footer">
+Retorno <span class="pre"><a href="#clientes_status"><span class="lightBlue">clientes_status</span></a></span>: Status de retorno do cadastro de clientes.
+</div>
+</div>
+<div class="method-example-area">
+<h5>Exemplo:</h5>
+<pre class="method-example-code">{<BR>  "codigo_cliente_integracao": "CodigoInterno0001",<BR>  "email": "primeiro@ccliente.com.br",<BR>  "razao_social": "Primeiro Cliente  Ltda Me",<BR>  "nome_fantasia": "Primeiro Cliente"<BR>}</pre>
+<button class="btn btn-success method-example" data-method="UpsertCliente" data-example="%7B++%22codigo_cliente_integracao%22%3A+%22CodigoInterno0001%22%2C++%22email%22%3A+%22primeiro%40ccliente.com.br%22%2C++%22razao_social%22%3A+%22Primeiro+Cliente++Ltda+Me%22%2C++%22nome_fantasia%22%3A+%22Primeiro+Cliente%22%7D">Teste agora mesmo</button>
+</div>
+</div>
+<div id="UpsertClienteCpfCnpj" class="methodItem">
+<h3 class="method-name">UpsertClienteCpfCnpj</h3>
+<p>
+
+</p>
+<div class="panel panel-default method">
+<div class="panel-heading"> Par&acirc;metros:
+</div>
+<table class="table table-condensed table-hover">
+<tr>
+<td class="">&nbsp;</td>
+<td class="method-parameter-type"><a href="#clientes_cadastro">clientes_cadastro</a></td>
+<td class="method-parameter-name">clientes_cadastro</td><td class="method-parameter-docs"><div class="first">Cadastro completo de clientes</div></td>
+</tr>
+</table>
+<div class="panel-footer">
+Retorno <span class="pre"><a href="#clientes_status"><span class="lightBlue">clientes_status</span></a></span>: Status de retorno do cadastro de clientes.
+</div>
+</div>
+<div class="method-example-area">
+<h5>Exemplo:</h5>
+<pre class="method-example-code">{<BR>  "cnpj_cpf": "80.716.929/0001-50",<BR>  "email": "primeiro@ccliente.com.br",<BR>  "razao_social": "Primeiro Cliente  Ltda Me",<BR>  "nome_fantasia": "Primeiro Cliente"<BR>}<BR></pre>
+<button class="btn btn-success method-example" data-method="UpsertClienteCpfCnpj" data-example="%7B++%22cnpj_cpf%22%3A+%2280.716.929%2F0001-50%22%2C++%22email%22%3A+%22primeiro%40ccliente.com.br%22%2C++%22razao_social%22%3A+%22Primeiro+Cliente++Ltda+Me%22%2C++%22nome_fantasia%22%3A+%22Primeiro+Cliente%22%7D">Teste agora mesmo</button>
+</div>
+</div>
+<div id="UpsertClientesPorLote" class="methodItem">
+<h3 class="method-name">UpsertClientesPorLote</h3>
+<p>
+DEPRECATED
+</p>
+<div class="panel panel-default method">
+<div class="panel-heading"> Par&acirc;metros:
+</div>
+<table class="table table-condensed table-hover">
+<tr>
+<td class="">&nbsp;</td>
+<td class="method-parameter-type"><a href="#clientes_lote_request">clientes_lote_request</a></td>
+<td class="method-parameter-name">clientes_lote_request</td><td class="method-parameter-docs"><div class="first">Lote de cadastros de clientes para inclusão, limitado a 50 ocorrências por requisição.</div></td>
+</tr>
+</table>
+<div class="panel-footer">
+Retorno <span class="pre"><a href="#clientes_lote_response"><span class="lightBlue">clientes_lote_response</span></a></span>: Resposta do processamento do lote de clientes cadastrados.
+</div>
+</div>
+<div class="method-example-area">
+<h5>Exemplo:</h5>
+<pre class="method-example-code">{<BR>  "clientes_cadastro": [<BR>      {<BR>          "codigo_cliente_integracao": "CodigoInterno0001",<BR>          "email": "primeiro@cliente.com.br",<BR>          "nome_fantasia": "Primeiro Cliente",<BR>          "razao_social": "Primeiro Cliente  Ltda Me"<BR>      },<BR>      {<BR>          "codigo_cliente_integracao": "CodigoInterno0002",<BR>          "email": "segundo@cliente.com.br",<BR>          "nome_fantasia": "Segundo Cliente",<BR>          "razao_social": "Segundo Cliente  Ltda Me"<BR>      }<BR>  ],<BR>  "lote": 1<BR>}</pre>
+<button class="btn btn-success method-example" data-method="UpsertClientesPorLote" data-example="%7B++%22clientes_cadastro%22%3A+%5B++++++%7B++++++++++%22codigo_cliente_integracao%22%3A+%22CodigoInterno0001%22%2C++++++++++%22email%22%3A+%22primeiro%40cliente.com.br%22%2C++++++++++%22nome_fantasia%22%3A+%22Primeiro+Cliente%22%2C++++++++++%22razao_social%22%3A+%22Primeiro+Cliente++Ltda+Me%22++++++%7D%2C++++++%7B++++++++++%22codigo_cliente_integracao%22%3A+%22CodigoInterno0002%22%2C++++++++++%22email%22%3A+%22segundo%40cliente.com.br%22%2C++++++++++%22nome_fantasia%22%3A+%22Segundo+Cliente%22%2C++++++++++%22razao_social%22%3A+%22Segundo+Cliente++Ltda+Me%22++++++%7D++%5D%2C++%22lote%22%3A+1%7D">Teste agora mesmo</button>
+</div>
+</div>
+<h2>Tipos Complexos</h2>
+<div class="complexTypeItem">
+<a name="caracteristicas" class="anchorScroll"></a>
+<h3>caracteristicas</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">campo</td>
+<td class="parameter-type">string<span class="parameter-lenght">30</span></td><td class="parameter-docs"><div class="first">Nome da característica.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento obrigatório. <BR>Caso não encontre a característica um novo cadastro será adicionado.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">conteudo</td>
+<td class="parameter-type">string<span class="parameter-lenght">60</span></td><td class="parameter-docs"><div class="first">Conteúdo do característica.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento obrigatório na inclusão. <BR><BR>Caso o valor desse campo não seja informado a característica <BR>será excluída para o cliente/fornecedor.</div></div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="caracteristicasArray" class="anchorScroll"></a>
+<h3>caracteristicasArray</h3>
+<p>Este par&acirc;metro &eacute; um array do tipo <span class="pre"><a href="#caracteristicas"><span class="lightBlue">caracteristicas</span></a></span></p>
+<p>Lista de caracteristicas</p>
+</div>
+<div class="complexTypeItem">
+<a name="clientesFiltro" class="anchorScroll"></a>
+<h3>clientesFiltro</h3>
+<p>Filtrar cadastro de clientes</p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">codigo_cliente_omie</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código de Cliente / Fornecedor</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">codigo_cliente_integracao</td>
+<td class="parameter-type">string<span class="parameter-lenght">60</span></td><td class="parameter-docs"><div class="first">Código de Integração com sistemas legados.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cnpj_cpf</td>
+<td class="parameter-type">string<span class="parameter-lenght">20</span></td><td class="parameter-docs"><div class="first">CNPJ / CPF</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento Obrigatório para emissão de NF-e/NFS-e.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">razao_social</td>
+<td class="parameter-type">string<span class="parameter-lenght">60</span></td><td class="parameter-docs"><div class="first">Razão Social</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento Obrigatório.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nome_fantasia</td>
+<td class="parameter-type">string<span class="parameter-lenght">100</span></td><td class="parameter-docs"><div class="first">Nome Fantasia</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento Obrigatório para emissão de NF-e/NFS-e.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">endereco</td>
+<td class="parameter-type">string<span class="parameter-lenght">60</span></td><td class="parameter-docs"><div class="first">Endereço</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento Opcional.<BR>Preenchimento Obrigatório para emissão de NF-e/NFS-e.<BR><BR>Informação localizada na Aba "Endereço" do cadastro do Cliente.<BR><BR>DEPRECATED para a estrutura "clientesFiltrar".</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">bairro</td>
+<td class="parameter-type">string<span class="parameter-lenght">60</span></td><td class="parameter-docs"><div class="first">Bairro</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento Opcional.<BR>Preenchimento Obrigatório para emissão de NF-e/NFS-e.<BR><BR>Informação localizada na Aba "Endereço" do cadastro do Cliente.<BR><BR>DEPRECATED para a estrutura "clientesFiltrar".</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cidade</td>
+<td class="parameter-type">string<span class="parameter-lenght">40</span></td><td class="parameter-docs"><div class="first">Código da Cidade</div><div class="more"><a href="javascript:void(0)">+</a><div>Recebe o código ibge ou o nome da cidade.<BR><BR>Preenchimento Opcional caso seja enviado o codigo IBGE no campo "cidade_ibge"<BR><BR>Informação localizada na Aba "Endereço" do cadastro do Cliente.<BR><BR>Utilize a tag "nCodIBGE" do método "PesquisarCidades" da API<BR>/api/v1/geral/cidades/<BR>para obter essa informação.<BR><BR>Utilize a tag "cCod" do método "PesquisarCidades" da API<BR>/api/v1/geral/cidades/<BR>para obter essa informação.<BR><BR>DEPRECATED para a estrutura "clientesFiltrar".</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">estado</td>
+<td class="parameter-type">string<span class="parameter-lenght">2</span></td><td class="parameter-docs"><div class="first">Sigla do Estado</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento Opcional.<BR>Preenchimento Obrigatório para emissão de NF-e/NFS-e.<BR><BR>Informação localizada na Aba "Endereço" do cadastro do Cliente.<BR><BR>Utilize a tag "cSigla" do método "ListarEstados" da API<BR>/api/v1/geral/estados/<BR>para obter essa informação.<BR><BR>DEPRECATED para a estrutura "clientesFiltro".</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cep</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">CEP</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento Opcional.<BR>Preenchimento Obrigatório para emissão de NF-e/NFS-e.<BR><BR>Informação localizada na Aba "Endereço" do cadastro do Cliente.<BR><BR>DEPRECATED para a estrutura "clientesFiltrar".</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">contato</td>
+<td class="parameter-type">string<span class="parameter-lenght">100</span></td><td class="parameter-docs"><div class="first">Nome para contato</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento Opcional.<BR><BR>DEPRECATED para a estrutura "clientesFiltrar".</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">email</td>
+<td class="parameter-type">string<span class="parameter-lenght">500</span></td><td class="parameter-docs"><div class="first">E-Mail</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento Opcional.<BR>Preenchimento Obrigatório para emissão de NF-e/NFS-e.<BR><BR>Informação localizada na Aba "Telefones e E-mail" do cadastro do Cliente.<BR><BR>DEPRECATED para a estrutura "clientesFiltrar".</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">homepage</td>
+<td class="parameter-type">string<span class="parameter-lenght">100</span></td><td class="parameter-docs"><div class="first">WebSite</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento Opcional.<BR><BR>Informação localizada na Aba "Telefones e E-mail" do cadastro do Cliente.<BR><BR>DEPRECATED para a estrutura "clientesFiltrar".</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">inscricao_municipal</td>
+<td class="parameter-type">string<span class="parameter-lenght">20</span></td><td class="parameter-docs"><div class="first">Inscrição Municipal</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento Opcional.<BR><BR>Informação localizada na Aba "Inscrições CNAE e Outros" do cadastro do Cliente.<BR><BR>DEPRECATED para a estrutura "clientesFiltrar".</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">inscricao_estadual</td>
+<td class="parameter-type">string<span class="parameter-lenght">20</span></td><td class="parameter-docs"><div class="first">Inscrição Estadual</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento Opcional.<BR><BR>Informação localizada na Aba "Inscrições CNAE e Outros" do cadastro do Cliente.<BR><BR>DEPRECATED para a estrutura "clientesFiltrar".</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">inscricao_suframa</td>
+<td class="parameter-type">string<span class="parameter-lenght">20</span></td><td class="parameter-docs"><div class="first">Inscrição Suframa</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento Opcional.<BR><BR>Informação localizada na Aba "Inscrições CNAE e Outros" do cadastro do Cliente.<BR><BR>DEPRECATED para a estrutura "clientesFiltrar".</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">pessoa_fisica</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Indica se o cadastro é Pessoa Física.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento automático - Não informar.<BR><BR>Essa tag é funcional apenas no retorno dos métodos de consulta e listagem.<BR><BR>DEPRECATED para a estrutura "clientesFiltro" e métodos de inclusão/alteração</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">optante_simples_nacional</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Indica se o Cliente / Fornecedor é Optante do Simples Nacional </div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento Opcional.<BR>Preenchimento Obrigatório para emissão de NF-e/NFS-e.<BR><BR>Informar "S" ou "N".<BR><BR>Informação localizada na Aba "Inscrições CNAE e Outros" do cadastro do Cliente.<BR><BR>DEPRECATED para a estrutura "clientesFiltrar".</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">inativo</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Indica se o cliente está inativo [S/N]</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">tags</td>
+<td class="parameter-type"><a href="#tagsArray">tagsArray</a></td><td class="parameter-docs"><div class="first">Tags do Cliente ou Fornecedor</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento Opcional.</div></div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="clientesPorCodigo" class="anchorScroll"></a>
+<h3>clientesPorCodigo</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">codigo_cliente_omie</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código de Cliente / Fornecedor</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">codigo_cliente_integracao</td>
+<td class="parameter-type">string<span class="parameter-lenght">60</span></td><td class="parameter-docs"><div class="first">Código de Integração com sistemas legados.</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="clientesPorCodigoArray" class="anchorScroll"></a>
+<h3>clientesPorCodigoArray</h3>
+<p>Este par&acirc;metro &eacute; um array do tipo <span class="pre"><a href="#clientesPorCodigo"><span class="lightBlue">clientesPorCodigo</span></a></span></p>
+<p>Lista de clientesPorCodigo</p>
+</div>
+<div class="complexTypeItem">
+<a name="clientes_cadastro" class="anchorScroll"></a>
+<h3>clientes_cadastro</h3>
+<p>Cadastro completo de clientes</p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">codigo_cliente_omie</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código de Cliente / Fornecedor</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">codigo_cliente_integracao</td>
+<td class="parameter-type">string<span class="parameter-lenght">60</span></td><td class="parameter-docs"><div class="first">Código de Integração com sistemas legados.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">razao_social</td>
+<td class="parameter-type">string<span class="parameter-lenght">60</span></td><td class="parameter-docs"><div class="first">Razão Social</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento Obrigatório.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cnpj_cpf</td>
+<td class="parameter-type">string<span class="parameter-lenght">20</span></td><td class="parameter-docs"><div class="first">CNPJ / CPF</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento Obrigatório para emissão de NF-e/NFS-e.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nome_fantasia</td>
+<td class="parameter-type">string<span class="parameter-lenght">100</span></td><td class="parameter-docs"><div class="first">Nome Fantasia</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento Obrigatório para emissão de NF-e/NFS-e.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">telefone1_ddd</td>
+<td class="parameter-type">string<span class="parameter-lenght">5</span></td><td class="parameter-docs"><div class="first">DDD Telefone</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento Opcional.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">telefone1_numero</td>
+<td class="parameter-type">string<span class="parameter-lenght">15</span></td><td class="parameter-docs"><div class="first">Telefone para Contato</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento Opcional.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">contato</td>
+<td class="parameter-type">string<span class="parameter-lenght">100</span></td><td class="parameter-docs"><div class="first">Nome para contato</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento Opcional.<BR><BR>DEPRECATED para a estrutura "clientesFiltrar".</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">endereco</td>
+<td class="parameter-type">string<span class="parameter-lenght">60</span></td><td class="parameter-docs"><div class="first">Endereço</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento Opcional.<BR>Preenchimento Obrigatório para emissão de NF-e/NFS-e.<BR><BR>Informação localizada na Aba "Endereço" do cadastro do Cliente.<BR><BR>DEPRECATED para a estrutura "clientesFiltrar".</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">endereco_numero</td>
+<td class="parameter-type">string<span class="parameter-lenght">60</span></td><td class="parameter-docs"><div class="first">Número do Endereço</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento Opcional.<BR>Preenchimento Obrigatório para emissão de NF-e/NFS-e.<BR><BR>Informação localizada na Aba "Endereço" do cadastro do Cliente.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">bairro</td>
+<td class="parameter-type">string<span class="parameter-lenght">60</span></td><td class="parameter-docs"><div class="first">Bairro</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento Opcional.<BR>Preenchimento Obrigatório para emissão de NF-e/NFS-e.<BR><BR>Informação localizada na Aba "Endereço" do cadastro do Cliente.<BR><BR>DEPRECATED para a estrutura "clientesFiltrar".</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">complemento</td>
+<td class="parameter-type">string<span class="parameter-lenght">60</span></td><td class="parameter-docs"><div class="first">Complemento para o Número do Endereço</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento Opcional.<BR>Preenchimento Obrigatório para emissão de NF-e/NFS-e.<BR><BR>Informação localizada na Aba "Endereço" do cadastro do Cliente.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">estado</td>
+<td class="parameter-type">string<span class="parameter-lenght">2</span></td><td class="parameter-docs"><div class="first">Sigla do Estado</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento Opcional.<BR>Preenchimento Obrigatório para emissão de NF-e/NFS-e.<BR><BR>Informação localizada na Aba "Endereço" do cadastro do Cliente.<BR><BR>Utilize a tag "cSigla" do método "ListarEstados" da API<BR>/api/v1/geral/estados/<BR>para obter essa informação.<BR><BR>DEPRECATED para a estrutura "clientesFiltro".</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cidade</td>
+<td class="parameter-type">string<span class="parameter-lenght">40</span></td><td class="parameter-docs"><div class="first">Código da Cidade</div><div class="more"><a href="javascript:void(0)">+</a><div>Recebe o código ibge ou o nome da cidade.<BR><BR>Preenchimento Opcional caso seja enviado o codigo IBGE no campo "cidade_ibge"<BR><BR>Informação localizada na Aba "Endereço" do cadastro do Cliente.<BR><BR>Utilize a tag "nCodIBGE" do método "PesquisarCidades" da API<BR>/api/v1/geral/cidades/<BR>para obter essa informação.<BR><BR>Utilize a tag "cCod" do método "PesquisarCidades" da API<BR>/api/v1/geral/cidades/<BR>para obter essa informação.<BR><BR>DEPRECATED para a estrutura "clientesFiltrar".</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cep</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">CEP</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento Opcional.<BR>Preenchimento Obrigatório para emissão de NF-e/NFS-e.<BR><BR>Informação localizada na Aba "Endereço" do cadastro do Cliente.<BR><BR>DEPRECATED para a estrutura "clientesFiltrar".</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">codigo_pais</td>
+<td class="parameter-type">string<span class="parameter-lenght">4</span></td><td class="parameter-docs"><div class="first">Código do País</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento Opcional.<BR>Preenchimento Obrigatório para emissão de NF-e/NFS-e.<BR><BR>Informação localizada na Aba "Endereço" do cadastro do Cliente.<BR><BR>Utilize as tags "cCodigo","cDescricao" ou "cCodigoISO" do método "ListarPaises" da API<BR>/api/v1/geral/paises/<BR>para obter essa informação.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">separar_endereco</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Separar endereço. </div><div class="more"><a href="javascript:void(0)">+</a><div>Valores possível S ou N, sendo N o padrão.<BR>Quando igual S separa do endereço o número o e complemento, caso existirem.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">pesquisar_cep</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Pesquisar CEP.</div><div class="more"><a href="javascript:void(0)">+</a><div>Valores possível S ou N, sendo N o padrão.<BR><BR>Quando igual a S o sistema irá preencher os campos do endereço que estiverem vazios (logradouro, bairro e cidade) conforme os dados do CEP</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">telefone2_ddd</td>
+<td class="parameter-type">string<span class="parameter-lenght">5</span></td><td class="parameter-docs"><div class="first">DDD Telefone 2</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento Opcional.<BR><BR>Informação localizada na Aba "Telefones e E-mail" do cadastro do Cliente.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">telefone2_numero</td>
+<td class="parameter-type">string<span class="parameter-lenght">15</span></td><td class="parameter-docs"><div class="first">Telefone 2</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento Opcional.<BR><BR>Informação localizada na Aba "Telefones e E-mail" do cadastro do Cliente.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">fax_ddd</td>
+<td class="parameter-type">string<span class="parameter-lenght">5</span></td><td class="parameter-docs"><div class="first">DDD Fax</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento Opcional.<BR><BR>Informação localizada na Aba "Telefones e E-mail" do cadastro do Cliente.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">fax_numero</td>
+<td class="parameter-type">string<span class="parameter-lenght">15</span></td><td class="parameter-docs"><div class="first">Fax</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento Opcional.<BR><BR>Informação localizada na Aba "Telefones e E-mail" do cadastro do Cliente.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">email</td>
+<td class="parameter-type">string<span class="parameter-lenght">500</span></td><td class="parameter-docs"><div class="first">E-Mail</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento Opcional.<BR>Preenchimento Obrigatório para emissão de NF-e/NFS-e.<BR><BR>Informação localizada na Aba "Telefones e E-mail" do cadastro do Cliente.<BR><BR>DEPRECATED para a estrutura "clientesFiltrar".</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">homepage</td>
+<td class="parameter-type">string<span class="parameter-lenght">100</span></td><td class="parameter-docs"><div class="first">WebSite</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento Opcional.<BR><BR>Informação localizada na Aba "Telefones e E-mail" do cadastro do Cliente.<BR><BR>DEPRECATED para a estrutura "clientesFiltrar".</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">inscricao_estadual</td>
+<td class="parameter-type">string<span class="parameter-lenght">20</span></td><td class="parameter-docs"><div class="first">Inscrição Estadual</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento Opcional.<BR><BR>Informação localizada na Aba "Inscrições CNAE e Outros" do cadastro do Cliente.<BR><BR>DEPRECATED para a estrutura "clientesFiltrar".</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">inscricao_municipal</td>
+<td class="parameter-type">string<span class="parameter-lenght">20</span></td><td class="parameter-docs"><div class="first">Inscrição Municipal</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento Opcional.<BR><BR>Informação localizada na Aba "Inscrições CNAE e Outros" do cadastro do Cliente.<BR><BR>DEPRECATED para a estrutura "clientesFiltrar".</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">inscricao_suframa</td>
+<td class="parameter-type">string<span class="parameter-lenght">20</span></td><td class="parameter-docs"><div class="first">Inscrição Suframa</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento Opcional.<BR><BR>Informação localizada na Aba "Inscrições CNAE e Outros" do cadastro do Cliente.<BR><BR>DEPRECATED para a estrutura "clientesFiltrar".</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">optante_simples_nacional</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Indica se o Cliente / Fornecedor é Optante do Simples Nacional </div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento Opcional.<BR>Preenchimento Obrigatório para emissão de NF-e/NFS-e.<BR><BR>Informar "S" ou "N".<BR><BR>Informação localizada na Aba "Inscrições CNAE e Outros" do cadastro do Cliente.<BR><BR>DEPRECATED para a estrutura "clientesFiltrar".</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">tipo_atividade</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Tipo da Atividade</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento Opcional.<BR><BR>Informação localizada na Aba "Inscrições CNAE e Outros" do cadastro do Cliente.<BR><BR>Utilize a tag "cCodigo" do método "ListarTipoAtiv" da API<BR>/api/v1/geral/tpativ/<BR>para obter essa informação.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cnae</td>
+<td class="parameter-type">string<span class="parameter-lenght">7</span></td><td class="parameter-docs"><div class="first">Código do CNAE - Fiscal</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento Opcional.<BR><BR>Informação localizada na Aba "Inscrições CNAE e Outros" do cadastro do Cliente.<BR><BR>Utilize a tag "nCodigo" do método "ListarCNAE" da API<BR>/api/v1/produtos/cnae/<BR>para obter essa informação.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">produtor_rural</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Indica se o Cliente / Fornecedor é um Produtor Rural</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento Opcional.<BR><BR>Informar "S" ou "N".<BR><BR>Informação localizada na Aba "Inscrições CNAE e Outros" do cadastro do Cliente.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">contribuinte</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Indica se o cliente é contribuinte (S/N).</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento Opcional.<BR>Preenchimento Obrigatório para emissão de NF-e/NFS-e.<BR><BR>Informar "S" ou "N".<BR><BR>Informação localizada na Aba "Inscrições CNAE e Outros" do cadastro do Cliente.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">observacao</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Observações Internas</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento Opcional.<BR><BR>Informação localizada na Aba "Inscrições CNAE e Outros" do cadastro do Cliente.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">obs_detalhadas</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Observações Detalhadas.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento Opcional.<BR><BR>Informação localizada na Aba "Inscrições CNAE e Outros" do cadastro do Cliente.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">recomendacao_atraso</td>
+<td class="parameter-type">string<span class="parameter-lenght">2</span></td><td class="parameter-docs"><div class="first">Código da Instrução de Protesto</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento Opcional.<BR><BR>Informação localizada na Aba "Recomendações" do cadastro do Cliente.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">tags</td>
+<td class="parameter-type"><a href="#tagsArray">tagsArray</a></td><td class="parameter-docs"><div class="first">Tags do Cliente ou Fornecedor</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento Opcional.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">pessoa_fisica</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Indica se o cadastro é Pessoa Física.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento automático - Não informar.<BR><BR>Essa tag é funcional apenas no retorno dos métodos de consulta e listagem.<BR><BR>DEPRECATED para a estrutura "clientesFiltro" e métodos de inclusão/alteração</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">exterior</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Indica que é um tomador de serviço localizado no exterior</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento automático - Não informar.<BR><BR>Informar "S" ou "N".</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">logradouro</td>
+<td class="parameter-type">string<span class="parameter-lenght">6</span></td><td class="parameter-docs"><div class="first">DEPRECATED</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">importado_api</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Importado pela API (S/N).</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">bloqueado</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">DEPRECATED</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cidade_ibge</td>
+<td class="parameter-type">string<span class="parameter-lenght">7</span></td><td class="parameter-docs"><div class="first">Código do IBGE para a Cidade.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento Opcional caso seja enviado o nome da cidade no campo "cidade"<BR><BR>Utilize a tag "nCodIBGE" do método "PesquisarCidades" da API<BR>/api/v1/geral/cidades/<BR>para obter essa informação.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">valor_limite_credito</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Valor do Limite de Crédito Total.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento opcional.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">bloquear_faturamento</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Bloquear o faturamento para o cliente (S/N).</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento opcional.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">recomendacoes</td>
+<td class="parameter-type"><a href="#recomendacoes">recomendacoes</a></td><td class="parameter-docs"><div class="first">Recomendações do cliente.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">enderecoEntrega</td>
+<td class="parameter-type"><a href="#enderecoEntrega">enderecoEntrega</a></td><td class="parameter-docs"><div class="first">Dados do Endereço de Entrega.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nif</td>
+<td class="parameter-type">string<span class="parameter-lenght">100</span></td><td class="parameter-docs"><div class="first">NIF - Número de Identificação Fiscal.</div><div class="more"><a href="javascript:void(0)">+</a><div>Apenas para estrangeiros.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">documento_exterior</td>
+<td class="parameter-type">string<span class="parameter-lenght">20</span></td><td class="parameter-docs"><div class="first">Documento no exterior para clientes estrangeiros.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">inativo</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Indica se o cliente está inativo [S/N]</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">dadosBancarios</td>
+<td class="parameter-type"><a href="#dadosBancarios">dadosBancarios</a></td><td class="parameter-docs"><div class="first">Dados Bancários do cliente.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">caracteristicas</td>
+<td class="parameter-type"><a href="#caracteristicasArray">caracteristicasArray</a></td><td class="parameter-docs"><div class="first">Características do cliente.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">enviar_anexos</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Enviar anexos por e-mail (S/N).</div><div class="more"><a href="javascript:void(0)">+</a><div>Valores possíveis S ou N, sendo N o padrão.<BR><BR>Enviar anexos por e-mail além do link para o Portal Omie para o cliente cadastrado.<BR><BR>Esta função só poderá ser utilizada se o Portal Omie estiver ativo.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">info</td>
+<td class="parameter-type"><a href="#info">info</a></td><td class="parameter-docs"><div class="first">Informações sobre o cadastro do cliente.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">bloquear_exclusao</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Bloqueia a exclusão do registro. (S/N)</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="clientes_cadastroArray" class="anchorScroll"></a>
+<h3>clientes_cadastroArray</h3>
+<p>Este par&acirc;metro &eacute; um array do tipo <span class="pre"><a href="#clientes_cadastro"><span class="lightBlue">clientes_cadastro</span></a></span></p>
+<p>Lista de clientes_cadastro</p>
+</div>
+<div class="complexTypeItem">
+<a name="clientes_cadastro_chave" class="anchorScroll"></a>
+<h3>clientes_cadastro_chave</h3>
+<p>Chave para pesquisa do cadastro de clientes.</p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">codigo_cliente_omie</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código de Cliente / Fornecedor</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">codigo_cliente_integracao</td>
+<td class="parameter-type">string<span class="parameter-lenght">60</span></td><td class="parameter-docs"><div class="first">Código de Integração com sistemas legados.</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="clientes_cadastro_resumido" class="anchorScroll"></a>
+<h3>clientes_cadastro_resumido</h3>
+<p>Cadastro reduzido de clientes.</p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">codigo_cliente</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código de Cliente / Fornecedor</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">codigo_cliente_integracao</td>
+<td class="parameter-type">string<span class="parameter-lenght">60</span></td><td class="parameter-docs"><div class="first">Código de Integração com sistemas legados.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">razao_social</td>
+<td class="parameter-type">string<span class="parameter-lenght">60</span></td><td class="parameter-docs"><div class="first">Razão Social</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento Obrigatório.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nome_fantasia</td>
+<td class="parameter-type">string<span class="parameter-lenght">100</span></td><td class="parameter-docs"><div class="first">Nome Fantasia</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento Obrigatório para emissão de NF-e/NFS-e.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cnpj_cpf</td>
+<td class="parameter-type">string<span class="parameter-lenght">20</span></td><td class="parameter-docs"><div class="first">CNPJ / CPF</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento Obrigatório para emissão de NF-e/NFS-e.</div></div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="clientes_cadastro_resumidoArray" class="anchorScroll"></a>
+<h3>clientes_cadastro_resumidoArray</h3>
+<p>Este par&acirc;metro &eacute; um array do tipo <span class="pre"><a href="#clientes_cadastro_resumido"><span class="lightBlue">clientes_cadastro_resumido</span></a></span></p>
+<p>Lista de clientes_cadastro_resumido</p>
+</div>
+<div class="complexTypeItem">
+<a name="clientes_list_request" class="anchorScroll"></a>
+<h3>clientes_list_request</h3>
+<p>Lista os clientes cadastrados</p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">pagina</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Número da página retornada</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">registros_por_pagina</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Número de registros retornados na página.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">apenas_importado_api</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Exibir apenas os registros gerados pela API</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">ordenar_por</td>
+<td class="parameter-type">string<span class="parameter-lenght">100</span></td><td class="parameter-docs"><div class="first">DEPRECATED</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">ordem_decrescente</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">DEPRECATED</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">filtrar_por_data_de</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Filtrar os registros a partir de uma data.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">filtrar_por_data_ate</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Filtrar os registros até uma data.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">filtrar_por_hora_de</td>
+<td class="parameter-type">string<span class="parameter-lenght">8</span></td><td class="parameter-docs"><div class="first">Filtro por hora a apartir de.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">filtrar_por_hora_ate</td>
+<td class="parameter-type">string<span class="parameter-lenght">8</span></td><td class="parameter-docs"><div class="first">Filtro por hora até.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">filtrar_apenas_inclusao</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Filtrar apenas os registros incluídos.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">filtrar_apenas_alteracao</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Filtrar apenas os registros alterados.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">clientesFiltro</td>
+<td class="parameter-type"><a href="#clientesFiltro">clientesFiltro</a></td><td class="parameter-docs"><div class="first">Filtrar cadastro de clientes&nbsp;&nbsp;</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">clientesPorCodigo</td>
+<td class="parameter-type"><a href="#clientesPorCodigoArray">clientesPorCodigoArray</a></td><td class="parameter-docs"><div class="first">Lista de Códigos para filtro de clientes</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">exibir_caracteristicas</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Exibe as caracteristicas do cliente.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">exibir_obs</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Exibir as observações do cliente (S/N).</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento Opcional.<BR><BR>Preencher com "S" ou "N".<BR><BR>Default "N"</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">ordem_descrescente</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">DEPRECATED</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="clientes_list_response" class="anchorScroll"></a>
+<h3>clientes_list_response</h3>
+<p>Lista de clientes cadastrados no omie.</p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">pagina</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Número da página retornada</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">total_de_paginas</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Número total de páginas</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">registros</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Número de registros retornados na página.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">total_de_registros</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">total de registros encontrados</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">clientes_cadastro_resumido</td>
+<td class="parameter-type"><a href="#clientes_cadastro_resumidoArray">clientes_cadastro_resumidoArray</a></td><td class="parameter-docs"><div class="first">Cadastro reduzido de clientes.</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="clientes_listfull_response" class="anchorScroll"></a>
+<h3>clientes_listfull_response</h3>
+<p>Lista de clientes cadastrados no omie.</p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">pagina</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Número da página retornada</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">total_de_paginas</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Número total de páginas</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">registros</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Número de registros retornados na página.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">total_de_registros</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">total de registros encontrados</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">clientes_cadastro</td>
+<td class="parameter-type"><a href="#clientes_cadastroArray">clientes_cadastroArray</a></td><td class="parameter-docs"><div class="first">Cadastro completo de clientes</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="clientes_lote_request" class="anchorScroll"></a>
+<h3>clientes_lote_request</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">lote</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Número do lote</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">clientes_cadastro</td>
+<td class="parameter-type"><a href="#clientes_cadastroArray">clientes_cadastroArray</a></td><td class="parameter-docs"><div class="first">Cadastro completo de clientes</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="clientes_lote_response" class="anchorScroll"></a>
+<h3>clientes_lote_response</h3>
+<p>Resposta do processamento do lote de clientes cadastrados.</p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">lote</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Número do lote</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">codigo_status</td>
+<td class="parameter-type">string<span class="parameter-lenght">4</span></td><td class="parameter-docs"><div class="first">Código do status do processamento.</div><div class="more"><a href="javascript:void(0)">+</a><div>Se o retorno for '0' significa que a solicitação foi executada com sucesso.<BR>Se o retorno for maior que '0' ocorreu algum erro durante o processamento da solicitação.<BR>A tag 'cDesStatus' descreve o problema ocorrido.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">descricao_status</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Descrição do status do processamento.</div><div class="more"><a href="javascript:void(0)">+</a><div>Essa tag explica o resultado da tag 'cCodigoStatus'.</div></div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="clientes_status" class="anchorScroll"></a>
+<h3>clientes_status</h3>
+<p>Status de retorno do cadastro de clientes.</p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">codigo_cliente_omie</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código de Cliente / Fornecedor</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">codigo_cliente_integracao</td>
+<td class="parameter-type">string<span class="parameter-lenght">60</span></td><td class="parameter-docs"><div class="first">Código de Integração com sistemas legados.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">codigo_status</td>
+<td class="parameter-type">string<span class="parameter-lenght">4</span></td><td class="parameter-docs"><div class="first">Código do status do processamento.</div><div class="more"><a href="javascript:void(0)">+</a><div>Se o retorno for '0' significa que a solicitação foi executada com sucesso.<BR>Se o retorno for maior que '0' ocorreu algum erro durante o processamento da solicitação.<BR>A tag 'cDesStatus' descreve o problema ocorrido.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">descricao_status</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Descrição do status do processamento.</div><div class="more"><a href="javascript:void(0)">+</a><div>Essa tag explica o resultado da tag 'cCodigoStatus'.</div></div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="dadosBancarios" class="anchorScroll"></a>
+<h3>dadosBancarios</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">codigo_banco</td>
+<td class="parameter-type">string<span class="parameter-lenght">3</span></td><td class="parameter-docs"><div class="first">Código do Banco.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">agencia</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Agência</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">conta_corrente</td>
+<td class="parameter-type">string<span class="parameter-lenght">25</span></td><td class="parameter-docs"><div class="first">Número da Conta Corrente.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">doc_titular</td>
+<td class="parameter-type">string<span class="parameter-lenght">20</span></td><td class="parameter-docs"><div class="first">CNPJ ou CPF do titular.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nome_titular</td>
+<td class="parameter-type">string<span class="parameter-lenght">60</span></td><td class="parameter-docs"><div class="first">Nome do titular.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">transf_padrao</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Definir transferência como forma de pagamento padrão</div><div class="more"><a href="javascript:void(0)">+</a><div>Pode ser:<BR>"S" para SIM<BR>"N" para NÃO</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cChavePix</td>
+<td class="parameter-type">string<span class="parameter-lenght">60</span></td><td class="parameter-docs"><div class="first">Chave PIX.</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="enderecoEntrega" class="anchorScroll"></a>
+<h3>enderecoEntrega</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">entRazaoSocial</td>
+<td class="parameter-type">string<span class="parameter-lenght">60</span></td><td class="parameter-docs"><div class="first">Nome / Razão Social</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">entCnpjCpf</td>
+<td class="parameter-type">string<span class="parameter-lenght">20</span></td><td class="parameter-docs"><div class="first">CNPJ / CPF do recebedor.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">entEndereco</td>
+<td class="parameter-type">string<span class="parameter-lenght">60</span></td><td class="parameter-docs"><div class="first">Endereço.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">entNumero</td>
+<td class="parameter-type">string<span class="parameter-lenght">60</span></td><td class="parameter-docs"><div class="first">Número do endereço.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">entComplemento</td>
+<td class="parameter-type">string<span class="parameter-lenght">60</span></td><td class="parameter-docs"><div class="first">Complemento do endereço.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">entBairro</td>
+<td class="parameter-type">string<span class="parameter-lenght">60</span></td><td class="parameter-docs"><div class="first">Bairro.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">entCEP</td>
+<td class="parameter-type">string<span class="parameter-lenght">9</span></td><td class="parameter-docs"><div class="first">CEP</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">entEstado</td>
+<td class="parameter-type">string<span class="parameter-lenght">2</span></td><td class="parameter-docs"><div class="first">Estado.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">entCidade</td>
+<td class="parameter-type">string<span class="parameter-lenght">40</span></td><td class="parameter-docs"><div class="first">Cidade</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">entSepararEndereco</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Separar endereço. </div><div class="more"><a href="javascript:void(0)">+</a><div>Valores possível S ou N, sendo N o padrão.<BR>Quando igual S separa do endereço o número o e complemento, caso existirem.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">entTelefone</td>
+<td class="parameter-type">string<span class="parameter-lenght">15</span></td><td class="parameter-docs"><div class="first">Telefone</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">entIE</td>
+<td class="parameter-type">string<span class="parameter-lenght">14</span></td><td class="parameter-docs"><div class="first">Inscrição Estadual</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="info" class="anchorScroll"></a>
+<h3>info</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">dInc</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Data da Inclusão.</div><div class="more"><a href="javascript:void(0)">+</a><div>No formato dd/mm/aaaa.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">hInc</td>
+<td class="parameter-type">string<span class="parameter-lenght">8</span></td><td class="parameter-docs"><div class="first">Hora da Inclusão.</div><div class="more"><a href="javascript:void(0)">+</a><div>No formato hh:mm:ss.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">uInc</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Usuário da Inclusão.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">dAlt</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Data da Alteração.</div><div class="more"><a href="javascript:void(0)">+</a><div>No formato dd/mm/aaaa.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">hAlt</td>
+<td class="parameter-type">string<span class="parameter-lenght">8</span></td><td class="parameter-docs"><div class="first">Hora da Alteração.</div><div class="more"><a href="javascript:void(0)">+</a><div>No formato hh:mm:ss.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">uAlt</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Usuário da Alteração.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cImpAPI</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Importado pela API (S/N).</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="omie_fail" class="anchorScroll"></a>
+<h3>omie_fail</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">code</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Codigo do erro</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">description</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Descricao do erro</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-required">referer</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Origem do erro</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-required">fatal</td>
+<td class="parameter-type">boolean</td><td class="parameter-docs"><div class="first">Indica se eh um erro fatal</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="recomendacoes" class="anchorScroll"></a>
+<h3>recomendacoes</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">numero_parcelas</td>
+<td class="parameter-type">string<span class="parameter-lenght">3</span></td><td class="parameter-docs"><div class="first">Número de Parcelas padrão para as Vendas.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">codigo_vendedor</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código do Vendedor padrão.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">email_fatura</td>
+<td class="parameter-type">string<span class="parameter-lenght">200</span></td><td class="parameter-docs"><div class="first">Enviar a NF-e e Boleto para outro e-mail?</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">gerar_boletos</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Por padrão: Gerar Boletos ao Emitir NF-e?</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">codigo_transportadora</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código da Transportadora padrão.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">tipo_assinante</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Tipo de Assinante utilizado para notas fiscais via única (modelo 21 e 22).</div><div class="more"><a href="javascript:void(0)">+</a><div>Utilize a tag "cCodigo" do método "ListarTipoAssinante" da API<BR>/api/v1/geral/tipoassinante/ para obter essa informação.</div></div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="tags" class="anchorScroll"></a>
+<h3>tags</h3>
+<p>Tags do Cliente ou Fornecedor</p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">tag</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Tag do Cliente ou Fornecedor</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="tagsArray" class="anchorScroll"></a>
+<h3>tagsArray</h3>
+<p>Este par&acirc;metro &eacute; um array do tipo <span class="pre"><a href="#tags"><span class="lightBlue">tags</span></a></span></p>
+<p>Lista de tags</p>
+</div>
+</div>
+<div class="col-md-3">
+<div id="affix-menu" data-spy="affix" data-offset-top="294">
+<h2>M&eacute;todos</h2>
+<nav id="index" class="hidden-print hidden-xs hidden-sm">
+<ul class="nav">
+<li><a href="#AlterarCliente">AlterarCliente</a></li>
+<li><a href="#AssociarCodIntCliente">AssociarCodIntCliente</a></li>
+<li><a href="#ConsultarCliente">ConsultarCliente</a></li>
+<li><a href="#ExcluirCliente">ExcluirCliente</a></li>
+<li><a href="#IncluirCliente">IncluirCliente</a></li>
+<li><a href="#IncluirClientesPorLote">IncluirClientesPorLote</a></li>
+<li><a href="#ListarClientes">ListarClientes</a></li>
+<li><a href="#ListarClientesResumido">ListarClientesResumido</a></li>
+<li><a href="#UpsertCliente">UpsertCliente</a></li>
+<li><a href="#UpsertClienteCpfCnpj">UpsertClienteCpfCnpj</a></li>
+<li><a href="#UpsertClientesPorLote">UpsertClientesPorLote</a></li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+</body>
+</html>

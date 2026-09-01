@@ -1,0 +1,844 @@
+<nav class="navbar navbar-expand-lg bg-azul">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="https://developer.omie.com.br/">
+            <img class="lozad img-logo" data-src="https://static.omie.com.br/images/logo/logo-omie-topo.png" src="https://static.omie.com.br/images/logo/logo-omie-topo.png" data-loaded="true">
+        </a>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <span class="borda-hover"></span>
+                    <a class="nav-link" href="https://developer.omie.com.br/my-apps/"> Aplicativos </a>
+                </li>
+                <li class="nav-item ">
+                    <span class="borda-hover"></span>
+                    <a class="nav-link" href="https://developer.omie.com.br/service-list/">
+                        Lista das API's
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <span class="borda-hover"></span>
+                    <a class="nav-link" href="https://ajuda.omie.com.br/pt-BR/collections/3045828-apis" target="_blank"> Ajuda </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<html>
+<head>
+<title>ProdutosEstrutura</title>
+<style type="text/css" media="all">
+  [id] { scroll-margin-top: 68px; }
+</style>
+<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+<script src="https://cdn.omie.com.br/omie-assets/js/omie-compat-v2.min.js"></script>
+<script src="/developer/themes/omie/developer.js?ts=2021.008"></script>
+<link rel="stylesheet" href="//app.omie.com.br/wp-content/themes/omie/bootstrap/css/bootstrap.min.css" async/>
+<link href="https://cdn.omie.com.br/assets/developer/css/site.css?ts=2021.008" media="all" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="/developer/themes/omie/developer.css?ts=2021.008" async/>
+</head>
+<body>
+<div class="jumbotron banner bg-azul">
+<div class="container">
+<img src="https://cdn.omie.com.br/assets/developer/images/seta-azuis.png" alt="" class="img-setas">
+<div class="row align-items-center">
+<div class="col-12">
+<h1>ProdutosEstrutura</h1>
+<ul class="nav nav-tabs" role="tablist">
+  <li role="presentation" class="active"><a href="#section-endpoint" aria-controls="section-endpoint" role="tab" data-toggle="tab">Endpoint</a></li>
+  <li role="presentation" class="pull-right"><a href="#section-wsdl" aria-controls="section-wsdl" role="tab" data-toggle="tab">WSDL</a></li>
+  <li role="presentation" class="pull-right"><a href="#section-php-soap" aria-controls="section-php-soap" role="tab" data-toggle="tab">PHP SOAP</a></li>
+  <li role="presentation" class="pull-right"><a href="#section-json" aria-controls="section-json" role="tab" data-toggle="tab">JSON</a></li>
+</ul>
+<div class="tab-content">
+  <div role="tabpanel" class="tab-pane fade in active" id="section-endpoint">
+    <h4>Endpoint URI</h4>
+    <a class="highlight" href="https://app.omie.com.br/api/v1/geral/malha/"><pre><code>https://app.omie.com.br/api/v1/geral/malha/</code></pre></a>
+  </div>
+  <div role="tabpanel" class="tab-pane fade" id="section-wsdl">
+    <h4>WSDL URI</h4>
+    <a class="highlight" href="https://app.omie.com.br/api/v1/geral/malha/?WSDL"><pre><code>https://app.omie.com.br/api/v1/geral/malha/?WSDL</code></pre></a>
+  </div>
+  <div role="tabpanel" class="tab-pane fade" id="section-php-soap">
+    <h4>PHP SOAP client download</h4>
+    <a class="highlight" href="https://app.omie.com.br/api/v1/geral/malha/?PHPSOAPCLIENT""><pre><code>https://app.omie.com.br/api/v1/geral/malha/?PHPSOAPCLIENT</code></pre></a>
+  </div>
+  <div role="tabpanel" class="tab-pane fade" id="section-json">
+    <h4>JSON client download URI</h4>
+    <h5>PHP</h5>
+    <a class="highlight" href="https://app.omie.com.br/api/v1/geral/malha/?PHPJSONCLIENT"><pre><code>https://app.omie.com.br/api/v1/geral/malha/?PHPJSONCLIENT</code></pre></a>
+    <h5>JavaScript (recomendado para uso apenas do lado do servidor)</h5>
+    <a class="highlight" href="https://app.omie.com.br/api/v1/geral/malha/?JSJSONCLIENT"><pre><code>https://app.omie.com.br/api/v1/geral/malha/?JSJSONCLIENT</code></pre></a>
+  </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="container">
+<div class="row">
+<div class="col-md-9">
+<h2>M&eacute;todos</h2>
+<p>Veja abaixo a documenta&ccedil;&atilde;o de cada m&eacute;todo dispon&iacute;vel para este servi&ccedil;o.</p>
+<div id="AlterarEstrutura" class="methodItem">
+<h3 class="method-name">AlterarEstrutura</h3>
+<p>
+Alterar a estrutura de um produto.
+</p>
+<div class="panel panel-default method">
+<div class="panel-heading"> Par&acirc;metros:
+</div>
+<table class="table table-condensed table-hover">
+<tr>
+<td class="">&nbsp;</td>
+<td class="method-parameter-type"><a href="#malhaAlterarRequest">malhaAlterarRequest</a></td>
+<td class="method-parameter-name">malhaAlterarRequest</td><td class="method-parameter-docs"><div class="first">Alteração de item da estrutura do produto.</div></td>
+</tr>
+</table>
+<div class="panel-footer">
+Retorno <span class="pre"><a href="#malhaAlterarResponse"><span class="lightBlue">malhaAlterarResponse</span></a></span>: 
+</div>
+</div>
+<div class="method-example-area">
+<h5>Exemplo:</h5>
+<pre class="method-example-code">{<BR>   "idProduto": 0,<BR>   "intProduto": "",<BR>   "itemMalhaAlterar" : [<BR>      {<BR>         "idMalha": 0,<BR>         "intMalha": "",<BR>         "idProdMalha": 0,<BR>         "intProdMalha": "",<BR>         "quantProdMalha": 0,<BR>         "percPerdaProdMalha": 0,<BR>         "obsProdMalha": ""<BR>      }<BR>   ]<BR>}<BR></pre>
+<button class="btn btn-success method-example" data-method="AlterarEstrutura" data-example="%7B+++%22idProduto%22%3A+0%2C+++%22intProduto%22%3A+%22%22%2C+++%22itemMalhaAlterar%22+%3A+%5B++++++%7B+++++++++%22idMalha%22%3A+0%2C+++++++++%22intMalha%22%3A+%22%22%2C+++++++++%22idProdMalha%22%3A+0%2C+++++++++%22intProdMalha%22%3A+%22%22%2C+++++++++%22quantProdMalha%22%3A+0%2C+++++++++%22percPerdaProdMalha%22%3A+0%2C+++++++++%22obsProdMalha%22%3A+%22%22++++++%7D+++%5D%7D">Teste agora mesmo</button>
+</div>
+</div>
+<div id="ConsultarEstrutura" class="methodItem">
+<h3 class="method-name">ConsultarEstrutura</h3>
+<p>
+Consulta a estrutura do produto.
+</p>
+<div class="panel panel-default method">
+<div class="panel-heading"> Par&acirc;metros:
+</div>
+<table class="table table-condensed table-hover">
+<tr>
+<td class="">&nbsp;</td>
+<td class="method-parameter-type"><a href="#malhaConsultarRequest">malhaConsultarRequest</a></td>
+<td class="method-parameter-name">malhaConsultarRequest</td><td class="method-parameter-docs"><div class="first">Consulta uma malha/estrutura de um produto.</div></td>
+</tr>
+</table>
+<div class="panel-footer">
+Retorno <span class="pre"><a href="#malhaConsultarResponse"><span class="lightBlue">malhaConsultarResponse</span></a></span>: 
+</div>
+</div>
+<div class="method-example-area">
+<h5>Exemplo:</h5>
+<pre class="method-example-code">{<BR>   "idProduto": 0,<BR>   "intProduto": "",<BR>   "codProduto": ""<BR>}<BR></pre>
+<button class="btn btn-success method-example" data-method="ConsultarEstrutura" data-example="%7B+++%22idProduto%22%3A+0%2C+++%22intProduto%22%3A+%22%22%2C+++%22codProduto%22%3A+%22%22%7D">Teste agora mesmo</button>
+</div>
+</div>
+<div id="ExcluirEstrutura" class="methodItem">
+<h3 class="method-name">ExcluirEstrutura</h3>
+<p>
+Excluir item da estrutura de um produto.
+</p>
+<div class="panel panel-default method">
+<div class="panel-heading"> Par&acirc;metros:
+</div>
+<table class="table table-condensed table-hover">
+<tr>
+<td class="">&nbsp;</td>
+<td class="method-parameter-type"><a href="#malhaExcluirRequest">malhaExcluirRequest</a></td>
+<td class="method-parameter-name">malhaExcluirRequest</td><td class="method-parameter-docs"><div class="first">Exclusão de um item da estrutura de um produto.</div></td>
+</tr>
+</table>
+<div class="panel-footer">
+Retorno <span class="pre"><a href="#malhaExcluirResponse"><span class="lightBlue">malhaExcluirResponse</span></a></span>: 
+</div>
+</div>
+<div class="method-example-area">
+<h5>Exemplo:</h5>
+<pre class="method-example-code">{<BR>   "idProduto": 0,<BR>   "intProduto": "",<BR>   "idMalha": 0,<BR>   "intMalha": ""<BR>}</pre>
+<button class="btn btn-success method-example" data-method="ExcluirEstrutura" data-example="%7B+++%22idProduto%22%3A+0%2C+++%22intProduto%22%3A+%22%22%2C+++%22idMalha%22%3A+0%2C+++%22intMalha%22%3A+%22%22%7D">Teste agora mesmo</button>
+</div>
+</div>
+<div id="IncluirEstrutura" class="methodItem">
+<h3 class="method-name">IncluirEstrutura</h3>
+<p>
+
+</p>
+<div class="panel panel-default method">
+<div class="panel-heading"> Par&acirc;metros:
+</div>
+<table class="table table-condensed table-hover">
+<tr>
+<td class="">&nbsp;</td>
+<td class="method-parameter-type"><a href="#malhaIncluirRequest">malhaIncluirRequest</a></td>
+<td class="method-parameter-name">malhaIncluirRequest</td><td class="method-parameter-docs"><div class="first">Inclusão de item da estrutura do produto.</div></td>
+</tr>
+</table>
+<div class="panel-footer">
+Retorno <span class="pre"><a href="#malhaIncluirResponse"><span class="lightBlue">malhaIncluirResponse</span></a></span>: 
+</div>
+</div>
+<div class="method-example-area">
+<h5>Exemplo:</h5>
+<pre class="method-example-code">{<BR>   "idProduto": 0,<BR>   "intProduto": "",<BR>   "itemMalhaIncluir" : [<BR>      {<BR>         "intMalha": "",<BR>         "idProdMalha": 0,<BR>         "intProdMalha": "",<BR>         "quantProdMalha": 0,<BR>         "percPerdaProdMalha": 0,<BR>         "obsProdMalha": ""<BR>      }<BR>   ]<BR>}</pre>
+<button class="btn btn-success method-example" data-method="IncluirEstrutura" data-example="%7B+++%22idProduto%22%3A+0%2C+++%22intProduto%22%3A+%22%22%2C+++%22itemMalhaIncluir%22+%3A+%5B++++++%7B+++++++++%22intMalha%22%3A+%22%22%2C+++++++++%22idProdMalha%22%3A+0%2C+++++++++%22intProdMalha%22%3A+%22%22%2C+++++++++%22quantProdMalha%22%3A+0%2C+++++++++%22percPerdaProdMalha%22%3A+0%2C+++++++++%22obsProdMalha%22%3A+%22%22++++++%7D+++%5D%7D">Teste agora mesmo</button>
+</div>
+</div>
+<div id="ListarEstruturas" class="methodItem">
+<h3 class="method-name">ListarEstruturas</h3>
+<p>
+Lista as estruturas de produtos.
+</p>
+<div class="panel panel-default method">
+<div class="panel-heading"> Par&acirc;metros:
+</div>
+<table class="table table-condensed table-hover">
+<tr>
+<td class="">&nbsp;</td>
+<td class="method-parameter-type"><a href="#malhaPesquisarRequest">malhaPesquisarRequest</a></td>
+<td class="method-parameter-name">malhaPesquisarRequest</td><td class="method-parameter-docs"><div class="first">Solicitação de Listagem de estruturas de produtos.</div></td>
+</tr>
+</table>
+<div class="panel-footer">
+Retorno <span class="pre"><a href="#malhaPesquisarResponse"><span class="lightBlue">malhaPesquisarResponse</span></a></span>: Resultado da pesquisa de estrutura de produtos.
+</div>
+</div>
+<div class="method-example-area">
+<h5>Exemplo:</h5>
+<pre class="method-example-code">{<BR>  "nPagina": 1,<BR>  "nRegPorPagina": 100<BR>}</pre>
+<button class="btn btn-success method-example" data-method="ListarEstruturas" data-example="%7B++%22nPagina%22%3A+1%2C++%22nRegPorPagina%22%3A+100%7D">Teste agora mesmo</button>
+</div>
+</div>
+<h2>Tipos Complexos</h2>
+<div class="complexTypeItem">
+<a name="custoProducao" class="anchorScroll"></a>
+<h3>custoProducao</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">vMOD</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Valor da Mão de Obra Direta (MOD).</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">vGGF</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Valor dos Gastos Gerais de Fabricação (GGF).</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="ident" class="anchorScroll"></a>
+<h3>ident</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">idProduto</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código interno de identificação do produto.</div><div class="more"><a href="javascript:void(0)">+</a><div>(Interno, utilizado apenas na integração via API, não é exibido na tela).<BR>O conteúdo desse campo é o código interno do produto gerado pelo Omie.<BR></div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">intProduto</td>
+<td class="parameter-type">string<span class="parameter-lenght">60</span></td><td class="parameter-docs"><div class="first">Código de integração do produto.</div><div class="more"><a href="javascript:void(0)">+</a><div>(Interno, utilizado apenas na Integração via API, não aparece na tela).<BR>Utilize esse campo para informar o código utilizado no seu aplicativo quando incluir um produto no Omie. <BR>Assim, poderá utilizá-lo para resgatar as informações do produto desejado.<BR>Caso informe esse campo, não informe a tag nCodProd. Caso isso aconteça, o conteúdo dessa tag será desconsiderada.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">codProduto</td>
+<td class="parameter-type">string<span class="parameter-lenght">60</span></td><td class="parameter-docs"><div class="first">Código do produto.</div><div class="more"><a href="javascript:void(0)">+</a><div>Conforme é exibido na tela do cadastro do produto.<BR></div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">descrProduto</td>
+<td class="parameter-type">string<span class="parameter-lenght">120</span></td><td class="parameter-docs"><div class="first">Descrição do produto.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">tipoProduto</td>
+<td class="parameter-type">string<span class="parameter-lenght">2</span></td><td class="parameter-docs"><div class="first">Tipo do Produto.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">idFamilia</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Id da Familia.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">codFamilia</td>
+<td class="parameter-type">string<span class="parameter-lenght">50</span></td><td class="parameter-docs"><div class="first">Código da Familia.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">descrFamilia</td>
+<td class="parameter-type">string<span class="parameter-lenght">50</span></td><td class="parameter-docs"><div class="first">Descrição da Familia.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">unidProduto</td>
+<td class="parameter-type">string<span class="parameter-lenght">6</span></td><td class="parameter-docs"><div class="first">Unidade do produto.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">pesoLiqProduto</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Peso Líquido do produto em Kg.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">pesoBrutoProduto</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Peso Bruto do Produto em Kg.</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="itemMalhaAlterar" class="anchorScroll"></a>
+<h3>itemMalhaAlterar</h3>
+<p>Item da estrutura do produto.</p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">idMalha</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Id da Malha.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">intMalha</td>
+<td class="parameter-type">string<span class="parameter-lenght">20</span></td><td class="parameter-docs"><div class="first">Código de Integração da Malha.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">idProdMalha</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código interno de identificação do produto filho da estrutura.</div><div class="more"><a href="javascript:void(0)">+</a><div></div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">intProdMalha</td>
+<td class="parameter-type">string<span class="parameter-lenght">20</span></td><td class="parameter-docs"><div class="first">Código de integração do produto filho da estrutura.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">quantProdMalha</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Quantidade do item da estrutura do produto.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">percPerdaProdMalha</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Percentual de perda</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">obsProdMalha</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Observações do item da estrutura do produto.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">codigo_local_estoque</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código do Local do Estoque.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento opcional.</div></div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="itemMalhaAlterarArray" class="anchorScroll"></a>
+<h3>itemMalhaAlterarArray</h3>
+<p>Este par&acirc;metro &eacute; um array do tipo <span class="pre"><a href="#itemMalhaAlterar"><span class="lightBlue">itemMalhaAlterar</span></a></span></p>
+<p>Lista de itemMalhaAlterar</p>
+</div>
+<div class="complexTypeItem">
+<a name="itemMalhaIncluir" class="anchorScroll"></a>
+<h3>itemMalhaIncluir</h3>
+<p>Item da estrutura do produto.</p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">intMalha</td>
+<td class="parameter-type">string<span class="parameter-lenght">20</span></td><td class="parameter-docs"><div class="first">Código de Integração da Malha.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">idProdMalha</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código interno de identificação do produto filho da estrutura.</div><div class="more"><a href="javascript:void(0)">+</a><div></div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">intProdMalha</td>
+<td class="parameter-type">string<span class="parameter-lenght">20</span></td><td class="parameter-docs"><div class="first">Código de integração do produto filho da estrutura.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">quantProdMalha</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Quantidade do item da estrutura do produto.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">percPerdaProdMalha</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Percentual de perda</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">obsProdMalha</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Observações do item da estrutura do produto.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">codigo_local_estoque</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código do Local do Estoque.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento opcional.</div></div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="itemMalhaIncluirArray" class="anchorScroll"></a>
+<h3>itemMalhaIncluirArray</h3>
+<p>Este par&acirc;metro &eacute; um array do tipo <span class="pre"><a href="#itemMalhaIncluir"><span class="lightBlue">itemMalhaIncluir</span></a></span></p>
+<p>Lista de itemMalhaIncluir</p>
+</div>
+<div class="complexTypeItem">
+<a name="itemMalhaStatus" class="anchorScroll"></a>
+<h3>itemMalhaStatus</h3>
+<p>Status do item da estrutura do produto.</p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">idProdMalha</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código interno de identificação do produto filho da estrutura.</div><div class="more"><a href="javascript:void(0)">+</a><div></div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">intProdMalha</td>
+<td class="parameter-type">string<span class="parameter-lenght">20</span></td><td class="parameter-docs"><div class="first">Código de integração do produto filho da estrutura.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">idMalha</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Id da Malha.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">intMalha</td>
+<td class="parameter-type">string<span class="parameter-lenght">20</span></td><td class="parameter-docs"><div class="first">Código de Integração da Malha.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">codStatus</td>
+<td class="parameter-type">string<span class="parameter-lenght">4</span></td><td class="parameter-docs"><div class="first">Código do status</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">descrStatus</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Descrição do Status</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="itemMalhaStatusArray" class="anchorScroll"></a>
+<h3>itemMalhaStatusArray</h3>
+<p>Este par&acirc;metro &eacute; um array do tipo <span class="pre"><a href="#itemMalhaStatus"><span class="lightBlue">itemMalhaStatus</span></a></span></p>
+<p>Lista de itemMalhaStatus</p>
+</div>
+<div class="complexTypeItem">
+<a name="itens" class="anchorScroll"></a>
+<h3>itens</h3>
+<p>Itens da estrutura de produto.</p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">idMalha</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Id da Malha.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">intMalha</td>
+<td class="parameter-type">string<span class="parameter-lenght">20</span></td><td class="parameter-docs"><div class="first">Código de Integração da Malha.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">idProdMalha</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código interno de identificação do produto filho da estrutura.</div><div class="more"><a href="javascript:void(0)">+</a><div></div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">intProdMalha</td>
+<td class="parameter-type">string<span class="parameter-lenght">20</span></td><td class="parameter-docs"><div class="first">Código de integração do produto filho da estrutura.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">codProdMalha</td>
+<td class="parameter-type">string<span class="parameter-lenght">60</span></td><td class="parameter-docs"><div class="first">Código do produto.</div><div class="more"><a href="javascript:void(0)">+</a><div>Conforme é exibido na tela do cadastro do produto.<BR></div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">descrProdMalha</td>
+<td class="parameter-type">string<span class="parameter-lenght">120</span></td><td class="parameter-docs"><div class="first">Descrição do produto.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">quantProdMalha</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Quantidade do item da estrutura do produto.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">unidProdMalha</td>
+<td class="parameter-type">string<span class="parameter-lenght">6</span></td><td class="parameter-docs"><div class="first">Unidade do produto.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">tipoProdMalha</td>
+<td class="parameter-type">string<span class="parameter-lenght">2</span></td><td class="parameter-docs"><div class="first">Tipo do Produto.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">idFamMalha</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Id da Familia.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">codFamMalha</td>
+<td class="parameter-type">string<span class="parameter-lenght">50</span></td><td class="parameter-docs"><div class="first">Código da Familia.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">descrFamMalha</td>
+<td class="parameter-type">string<span class="parameter-lenght">50</span></td><td class="parameter-docs"><div class="first">Descrição da Familia.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">pesoLiqProdMalha</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Peso Líquido do produto em Kg.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">pesoBrutoProdMalha</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Peso Bruto do Produto em Kg.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">percPerdaProdMalha</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Percentual de perda</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">obsProdMalha</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Observações do item da estrutura do produto.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">dIncProdMalha</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Data de Inclusão do item da estrutura do produto.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">hIncProdMalha</td>
+<td class="parameter-type">string<span class="parameter-lenght">8</span></td><td class="parameter-docs"><div class="first">Hora de Inclusão do item da estrutura do produto.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">uIncProdMalha</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Usuário da Inclusão do item da estrutura do produto.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">dAltProdMalha</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Data de Alteração do item da estrutura do produto.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">hAltProdMalha</td>
+<td class="parameter-type">string<span class="parameter-lenght">8</span></td><td class="parameter-docs"><div class="first">Hora de Alteração do item da estrutura do produto.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">uAltProdMalha</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Usuário da Alteração do item da estrutura do produto.</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="itensArray" class="anchorScroll"></a>
+<h3>itensArray</h3>
+<p>Este par&acirc;metro &eacute; um array do tipo <span class="pre"><a href="#itens"><span class="lightBlue">itens</span></a></span></p>
+<p>Lista de itens</p>
+</div>
+<div class="complexTypeItem">
+<a name="malhaAlterarRequest" class="anchorScroll"></a>
+<h3>malhaAlterarRequest</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">idProduto</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código interno de identificação do produto.</div><div class="more"><a href="javascript:void(0)">+</a><div>(Interno, utilizado apenas na integração via API, não é exibido na tela).<BR>O conteúdo desse campo é o código interno do produto gerado pelo Omie.<BR></div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">intProduto</td>
+<td class="parameter-type">string<span class="parameter-lenght">60</span></td><td class="parameter-docs"><div class="first">Código de integração do produto.</div><div class="more"><a href="javascript:void(0)">+</a><div>(Interno, utilizado apenas na Integração via API, não aparece na tela).<BR>Utilize esse campo para informar o código utilizado no seu aplicativo quando incluir um produto no Omie. <BR>Assim, poderá utilizá-lo para resgatar as informações do produto desejado.<BR>Caso informe esse campo, não informe a tag nCodProd. Caso isso aconteça, o conteúdo dessa tag será desconsiderada.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">itemMalhaAlterar</td>
+<td class="parameter-type"><a href="#itemMalhaAlterarArray">itemMalhaAlterarArray</a></td><td class="parameter-docs"><div class="first">Item da estrutura do produto.</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="malhaAlterarResponse" class="anchorScroll"></a>
+<h3>malhaAlterarResponse</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">idProduto</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código interno de identificação do produto.</div><div class="more"><a href="javascript:void(0)">+</a><div>(Interno, utilizado apenas na integração via API, não é exibido na tela).<BR>O conteúdo desse campo é o código interno do produto gerado pelo Omie.<BR></div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">intProduto</td>
+<td class="parameter-type">string<span class="parameter-lenght">60</span></td><td class="parameter-docs"><div class="first">Código de integração do produto.</div><div class="more"><a href="javascript:void(0)">+</a><div>(Interno, utilizado apenas na Integração via API, não aparece na tela).<BR>Utilize esse campo para informar o código utilizado no seu aplicativo quando incluir um produto no Omie. <BR>Assim, poderá utilizá-lo para resgatar as informações do produto desejado.<BR>Caso informe esse campo, não informe a tag nCodProd. Caso isso aconteça, o conteúdo dessa tag será desconsiderada.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">codStatus</td>
+<td class="parameter-type">string<span class="parameter-lenght">4</span></td><td class="parameter-docs"><div class="first">Código do status</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">descrStatus</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Descrição do Status</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">itemMalhaStatus</td>
+<td class="parameter-type"><a href="#itemMalhaStatusArray">itemMalhaStatusArray</a></td><td class="parameter-docs"><div class="first">Status do item da estrutura do produto.</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="malhaConsultarRequest" class="anchorScroll"></a>
+<h3>malhaConsultarRequest</h3>
+<p>Consulta uma malha/estrutura de um produto.</p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">idProduto</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código interno de identificação do produto.</div><div class="more"><a href="javascript:void(0)">+</a><div>(Interno, utilizado apenas na integração via API, não é exibido na tela).<BR>O conteúdo desse campo é o código interno do produto gerado pelo Omie.<BR></div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">intProduto</td>
+<td class="parameter-type">string<span class="parameter-lenght">60</span></td><td class="parameter-docs"><div class="first">Código de integração do produto.</div><div class="more"><a href="javascript:void(0)">+</a><div>(Interno, utilizado apenas na Integração via API, não aparece na tela).<BR>Utilize esse campo para informar o código utilizado no seu aplicativo quando incluir um produto no Omie. <BR>Assim, poderá utilizá-lo para resgatar as informações do produto desejado.<BR>Caso informe esse campo, não informe a tag nCodProd. Caso isso aconteça, o conteúdo dessa tag será desconsiderada.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">codProduto</td>
+<td class="parameter-type">string<span class="parameter-lenght">60</span></td><td class="parameter-docs"><div class="first">Código do produto.</div><div class="more"><a href="javascript:void(0)">+</a><div>Conforme é exibido na tela do cadastro do produto.<BR></div></div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="malhaConsultarResponse" class="anchorScroll"></a>
+<h3>malhaConsultarResponse</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">ident</td>
+<td class="parameter-type"><a href="#ident">ident</a></td><td class="parameter-docs"><div class="first">Identificação do produto.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">observacoes</td>
+<td class="parameter-type"><a href="#observacoes">observacoes</a></td><td class="parameter-docs"><div class="first">Observações.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">custoProducao</td>
+<td class="parameter-type"><a href="#custoProducao">custoProducao</a></td><td class="parameter-docs"><div class="first">Custo de Produção.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">itens</td>
+<td class="parameter-type"><a href="#itensArray">itensArray</a></td><td class="parameter-docs"><div class="first">Itens da estrutura de produto.</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="malhaExcluirRequest" class="anchorScroll"></a>
+<h3>malhaExcluirRequest</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">idProduto</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código interno de identificação do produto.</div><div class="more"><a href="javascript:void(0)">+</a><div>(Interno, utilizado apenas na integração via API, não é exibido na tela).<BR>O conteúdo desse campo é o código interno do produto gerado pelo Omie.<BR></div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">intProduto</td>
+<td class="parameter-type">string<span class="parameter-lenght">60</span></td><td class="parameter-docs"><div class="first">Código de integração do produto.</div><div class="more"><a href="javascript:void(0)">+</a><div>(Interno, utilizado apenas na Integração via API, não aparece na tela).<BR>Utilize esse campo para informar o código utilizado no seu aplicativo quando incluir um produto no Omie. <BR>Assim, poderá utilizá-lo para resgatar as informações do produto desejado.<BR>Caso informe esse campo, não informe a tag nCodProd. Caso isso aconteça, o conteúdo dessa tag será desconsiderada.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">idMalha</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Id da Malha.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">intMalha</td>
+<td class="parameter-type">string<span class="parameter-lenght">20</span></td><td class="parameter-docs"><div class="first">Código de Integração da Malha.</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="malhaExcluirResponse" class="anchorScroll"></a>
+<h3>malhaExcluirResponse</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">idProduto</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código interno de identificação do produto.</div><div class="more"><a href="javascript:void(0)">+</a><div>(Interno, utilizado apenas na integração via API, não é exibido na tela).<BR>O conteúdo desse campo é o código interno do produto gerado pelo Omie.<BR></div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">intProduto</td>
+<td class="parameter-type">string<span class="parameter-lenght">60</span></td><td class="parameter-docs"><div class="first">Código de integração do produto.</div><div class="more"><a href="javascript:void(0)">+</a><div>(Interno, utilizado apenas na Integração via API, não aparece na tela).<BR>Utilize esse campo para informar o código utilizado no seu aplicativo quando incluir um produto no Omie. <BR>Assim, poderá utilizá-lo para resgatar as informações do produto desejado.<BR>Caso informe esse campo, não informe a tag nCodProd. Caso isso aconteça, o conteúdo dessa tag será desconsiderada.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">idMalha</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Id da Malha.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">intMalha</td>
+<td class="parameter-type">string<span class="parameter-lenght">20</span></td><td class="parameter-docs"><div class="first">Código de Integração da Malha.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">codStatus</td>
+<td class="parameter-type">string<span class="parameter-lenght">4</span></td><td class="parameter-docs"><div class="first">Código do status</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">descrStatus</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Descrição do Status</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="malhaIncluirRequest" class="anchorScroll"></a>
+<h3>malhaIncluirRequest</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">idProduto</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código interno de identificação do produto.</div><div class="more"><a href="javascript:void(0)">+</a><div>(Interno, utilizado apenas na integração via API, não é exibido na tela).<BR>O conteúdo desse campo é o código interno do produto gerado pelo Omie.<BR></div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">intProduto</td>
+<td class="parameter-type">string<span class="parameter-lenght">60</span></td><td class="parameter-docs"><div class="first">Código de integração do produto.</div><div class="more"><a href="javascript:void(0)">+</a><div>(Interno, utilizado apenas na Integração via API, não aparece na tela).<BR>Utilize esse campo para informar o código utilizado no seu aplicativo quando incluir um produto no Omie. <BR>Assim, poderá utilizá-lo para resgatar as informações do produto desejado.<BR>Caso informe esse campo, não informe a tag nCodProd. Caso isso aconteça, o conteúdo dessa tag será desconsiderada.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">itemMalhaIncluir</td>
+<td class="parameter-type"><a href="#itemMalhaIncluirArray">itemMalhaIncluirArray</a></td><td class="parameter-docs"><div class="first">Item da estrutura do produto.</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="malhaIncluirResponse" class="anchorScroll"></a>
+<h3>malhaIncluirResponse</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">idProduto</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código interno de identificação do produto.</div><div class="more"><a href="javascript:void(0)">+</a><div>(Interno, utilizado apenas na integração via API, não é exibido na tela).<BR>O conteúdo desse campo é o código interno do produto gerado pelo Omie.<BR></div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">intProduto</td>
+<td class="parameter-type">string<span class="parameter-lenght">60</span></td><td class="parameter-docs"><div class="first">Código de integração do produto.</div><div class="more"><a href="javascript:void(0)">+</a><div>(Interno, utilizado apenas na Integração via API, não aparece na tela).<BR>Utilize esse campo para informar o código utilizado no seu aplicativo quando incluir um produto no Omie. <BR>Assim, poderá utilizá-lo para resgatar as informações do produto desejado.<BR>Caso informe esse campo, não informe a tag nCodProd. Caso isso aconteça, o conteúdo dessa tag será desconsiderada.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">codStatus</td>
+<td class="parameter-type">string<span class="parameter-lenght">4</span></td><td class="parameter-docs"><div class="first">Código do status</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">descrStatus</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Descrição do Status</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">itemMalhaStatus</td>
+<td class="parameter-type"><a href="#itemMalhaStatusArray">itemMalhaStatusArray</a></td><td class="parameter-docs"><div class="first">Status do item da estrutura do produto.</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="malhaPesquisarRequest" class="anchorScroll"></a>
+<h3>malhaPesquisarRequest</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">nPagina</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Número da página que será listada.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nRegPorPagina</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Número de registros retornados</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cOrdenarPor</td>
+<td class="parameter-type">string<span class="parameter-lenght">100</span></td><td class="parameter-docs"><div class="first">Ordem de exibição do dados.</div><div class="more"><a href="javascript:void(0)">+</a><div>Pode ser:<BR>CODIGO<BR>CODIGO_INTEGRACAO</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">dIncProdMalhaIni</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Data de Inclusão do item da estrutura do produto.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">dIncProdMalhaFim</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Data de Inclusão do item da estrutura do produto.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">hIncProdMalhaIni</td>
+<td class="parameter-type">string<span class="parameter-lenght">8</span></td><td class="parameter-docs"><div class="first">Hora de Inclusão do item da estrutura do produto.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">hIncProdMalhaFim</td>
+<td class="parameter-type">string<span class="parameter-lenght">8</span></td><td class="parameter-docs"><div class="first">Hora de Inclusão do item da estrutura do produto.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">dAltProdMalhaIni</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Data de Alteração do item da estrutura do produto.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">dAltProdMalhaFim</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Data de Alteração do item da estrutura do produto.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">hAltProdMalhaIni</td>
+<td class="parameter-type">string<span class="parameter-lenght">8</span></td><td class="parameter-docs"><div class="first">Hora de Alteração do item da estrutura do produto.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">hAltProdMalhaFim</td>
+<td class="parameter-type">string<span class="parameter-lenght">8</span></td><td class="parameter-docs"><div class="first">Hora de Alteração do item da estrutura do produto.</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="malhaPesquisarResponse" class="anchorScroll"></a>
+<h3>malhaPesquisarResponse</h3>
+<p>Resultado da pesquisa de estrutura de produtos.</p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">nPagina</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Número da página que será listada.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nTotPaginas</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Total de páginas encontradas.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nRegistros</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Número de registros retornados</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nTotRegistros</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Total de registros encontrados.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">produtosEncontrados</td>
+<td class="parameter-type"><a href="#produtosEncontradosArray">produtosEncontradosArray</a></td><td class="parameter-docs"><div class="first">Resultado da pesquisa de estrutura de produtos.</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="observacoes" class="anchorScroll"></a>
+<h3>observacoes</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">obsRelevantes</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Observações (recomendações ou instruções) relevantes para a produção desse produto.</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="omie_fail" class="anchorScroll"></a>
+<h3>omie_fail</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">code</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Codigo do erro</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">description</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Descricao do erro</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-required">referer</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Origem do erro</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-required">fatal</td>
+<td class="parameter-type">boolean</td><td class="parameter-docs"><div class="first">Indica se eh um erro fatal</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="produtosEncontrados" class="anchorScroll"></a>
+<h3>produtosEncontrados</h3>
+<p>Resultado da pesquisa de estrutura de produtos.</p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">ident</td>
+<td class="parameter-type"><a href="#ident">ident</a></td><td class="parameter-docs"><div class="first">Identificação do produto.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">observacoes</td>
+<td class="parameter-type"><a href="#observacoes">observacoes</a></td><td class="parameter-docs"><div class="first">Observações.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">custoProducao</td>
+<td class="parameter-type"><a href="#custoProducao">custoProducao</a></td><td class="parameter-docs"><div class="first">Custo de Produção.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">itens</td>
+<td class="parameter-type"><a href="#itensArray">itensArray</a></td><td class="parameter-docs"><div class="first">Itens da estrutura de produto.</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="produtosEncontradosArray" class="anchorScroll"></a>
+<h3>produtosEncontradosArray</h3>
+<p>Este par&acirc;metro &eacute; um array do tipo <span class="pre"><a href="#produtosEncontrados"><span class="lightBlue">produtosEncontrados</span></a></span></p>
+<p>Lista de produtosEncontrados</p>
+</div>
+</div>
+<div class="col-md-3">
+<div id="affix-menu" data-spy="affix" data-offset-top="294">
+<h2>M&eacute;todos</h2>
+<nav id="index" class="hidden-print hidden-xs hidden-sm">
+<ul class="nav">
+<li><a href="#AlterarEstrutura">AlterarEstrutura</a></li>
+<li><a href="#ConsultarEstrutura">ConsultarEstrutura</a></li>
+<li><a href="#ExcluirEstrutura">ExcluirEstrutura</a></li>
+<li><a href="#IncluirEstrutura">IncluirEstrutura</a></li>
+<li><a href="#ListarEstruturas">ListarEstruturas</a></li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+</body>
+</html>

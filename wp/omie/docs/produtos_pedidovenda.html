@@ -1,0 +1,872 @@
+<nav class="navbar navbar-expand-lg bg-azul">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="https://developer.omie.com.br/">
+            <img class="lozad img-logo" data-src="https://static.omie.com.br/images/logo/logo-omie-topo.png" src="https://static.omie.com.br/images/logo/logo-omie-topo.png" data-loaded="true">
+        </a>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <span class="borda-hover"></span>
+                    <a class="nav-link" href="https://developer.omie.com.br/my-apps/"> Aplicativos </a>
+                </li>
+                <li class="nav-item ">
+                    <span class="borda-hover"></span>
+                    <a class="nav-link" href="https://developer.omie.com.br/service-list/">
+                        Lista das API's
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <span class="borda-hover"></span>
+                    <a class="nav-link" href="https://ajuda.omie.com.br/pt-BR/collections/3045828-apis" target="_blank"> Ajuda </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<html>
+<head>
+<title>PedidoVenda</title>
+<style type="text/css" media="all">
+  [id] { scroll-margin-top: 68px; }
+</style>
+<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+<script src="https://cdn.omie.com.br/omie-assets/js/omie-compat-v2.min.js"></script>
+<script src="/developer/themes/omie/developer.js?ts=2021.008"></script>
+<link rel="stylesheet" href="//app.omie.com.br/wp-content/themes/omie/bootstrap/css/bootstrap.min.css" async/>
+<link href="https://cdn.omie.com.br/assets/developer/css/site.css?ts=2021.008" media="all" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="/developer/themes/omie/developer.css?ts=2021.008" async/>
+</head>
+<body>
+<div class="jumbotron banner bg-azul">
+<div class="container">
+<img src="https://cdn.omie.com.br/assets/developer/images/seta-azuis.png" alt="" class="img-setas">
+<div class="row align-items-center">
+<div class="col-12">
+<h1>PedidoVenda</h1>
+<ul class="nav nav-tabs" role="tablist">
+  <li role="presentation" class="active"><a href="#section-endpoint" aria-controls="section-endpoint" role="tab" data-toggle="tab">Endpoint</a></li>
+  <li role="presentation" class="pull-right"><a href="#section-wsdl" aria-controls="section-wsdl" role="tab" data-toggle="tab">WSDL</a></li>
+  <li role="presentation" class="pull-right"><a href="#section-php-soap" aria-controls="section-php-soap" role="tab" data-toggle="tab">PHP SOAP</a></li>
+  <li role="presentation" class="pull-right"><a href="#section-json" aria-controls="section-json" role="tab" data-toggle="tab">JSON</a></li>
+</ul>
+<div class="tab-content">
+  <div role="tabpanel" class="tab-pane fade in active" id="section-endpoint">
+    <h4>Endpoint URI</h4>
+    <a class="highlight" href="https://app.omie.com.br/api/v1/produtos/pedidovenda/"><pre><code>https://app.omie.com.br/api/v1/produtos/pedidovenda/</code></pre></a>
+  </div>
+  <div role="tabpanel" class="tab-pane fade" id="section-wsdl">
+    <h4>WSDL URI</h4>
+    <a class="highlight" href="https://app.omie.com.br/api/v1/produtos/pedidovenda/?WSDL"><pre><code>https://app.omie.com.br/api/v1/produtos/pedidovenda/?WSDL</code></pre></a>
+  </div>
+  <div role="tabpanel" class="tab-pane fade" id="section-php-soap">
+    <h4>PHP SOAP client download</h4>
+    <a class="highlight" href="https://app.omie.com.br/api/v1/produtos/pedidovenda/?PHPSOAPCLIENT""><pre><code>https://app.omie.com.br/api/v1/produtos/pedidovenda/?PHPSOAPCLIENT</code></pre></a>
+  </div>
+  <div role="tabpanel" class="tab-pane fade" id="section-json">
+    <h4>JSON client download URI</h4>
+    <h5>PHP</h5>
+    <a class="highlight" href="https://app.omie.com.br/api/v1/produtos/pedidovenda/?PHPJSONCLIENT"><pre><code>https://app.omie.com.br/api/v1/produtos/pedidovenda/?PHPJSONCLIENT</code></pre></a>
+    <h5>JavaScript (recomendado para uso apenas do lado do servidor)</h5>
+    <a class="highlight" href="https://app.omie.com.br/api/v1/produtos/pedidovenda/?JSJSONCLIENT"><pre><code>https://app.omie.com.br/api/v1/produtos/pedidovenda/?JSJSONCLIENT</code></pre></a>
+  </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="container">
+<div class="row">
+<div class="col-md-9">
+<h2>M&eacute;todos</h2>
+<p>Veja abaixo a documenta&ccedil;&atilde;o de cada m&eacute;todo dispon&iacute;vel para este servi&ccedil;o.</p>
+<div id="AdicionarPedido" class="methodItem">
+<h3 class="method-name">AdicionarPedido</h3>
+<p>
+
+</p>
+<div class="panel panel-default method">
+<div class="panel-heading"> Par&acirc;metros:
+</div>
+<table class="table table-condensed table-hover">
+<tr>
+<td class="">&nbsp;</td>
+<td class="method-parameter-type"><a href="#AdicionarPedidoRequest">AdicionarPedidoRequest</a></td>
+<td class="method-parameter-name">AdicionarPedidoRequest</td><td class="method-parameter-docs"><div class="first">Estrutura para Inclusão de Pedido de Venda</div></td>
+</tr>
+</table>
+<div class="panel-footer">
+Retorno <span class="pre"><a href="#AdicionarPedidoResponse"><span class="lightBlue">AdicionarPedidoResponse</span></a></span>: 
+</div>
+</div>
+<div class="method-example-area">
+<h5>Exemplo:</h5>
+<pre class="method-example-code">{<BR>   "codigo_pedido_integracao":"123456",<BR>   "codigo_cliente":45621546,<BR>   "codigo_cenario_impostos":65468465,<BR>   "itens":[<BR>      {<BR>         "codigo_produto":0,<BR>         "quantidade":1,<BR>         "valor_unitario":1,<BR>         "cfop":"",<BR>         "codigo_cenario_impostos_item":0<BR>      }<BR>   ]<BR>}</pre>
+<button class="btn btn-success method-example" data-method="AdicionarPedido" data-example="%7B+++%22codigo_pedido_integracao%22%3A%22123456%22%2C+++%22codigo_cliente%22%3A45621546%2C+++%22codigo_cenario_impostos%22%3A65468465%2C+++%22itens%22%3A%5B++++++%7B+++++++++%22codigo_produto%22%3A0%2C+++++++++%22quantidade%22%3A1%2C+++++++++%22valor_unitario%22%3A1%2C+++++++++%22cfop%22%3A%22%22%2C+++++++++%22codigo_cenario_impostos_item%22%3A0++++++%7D+++%5D%7D">Teste agora mesmo</button>
+</div>
+</div>
+<div id="AlterarItemPedido" class="methodItem">
+<h3 class="method-name">AlterarItemPedido</h3>
+<p>
+Altera um item no pedido de venda.
+</p>
+<div class="panel panel-default method">
+<div class="panel-heading"> Par&acirc;metros:
+</div>
+<table class="table table-condensed table-hover">
+<tr>
+<td class="">&nbsp;</td>
+<td class="method-parameter-type"><a href="#alterarItemPedidoRequest">alterarItemPedidoRequest</a></td>
+<td class="method-parameter-name">alterarItemPedidoRequest</td><td class="method-parameter-docs"><div class="first">Solicitação de Alteração de um item no Pedido de Venda</div></td>
+</tr>
+</table>
+<div class="panel-footer">
+Retorno <span class="pre"><a href="#alterarItemPedidoResponse"><span class="lightBlue">alterarItemPedidoResponse</span></a></span>: 
+</div>
+</div>
+<div class="method-example-area">
+<h5>Exemplo:</h5>
+<pre class="method-example-code">{<BR>   "codigo_pedido": 0,<BR>   "codigo_item_integracao": "",<BR>   "codigo_item": 0,<BR>   "codigo_produto": 0,<BR>   "quantidade": 1,<BR>   "valor_unitario": 1<BR>}</pre>
+<button class="btn btn-success method-example" data-method="AlterarItemPedido" data-example="%7B+++%22codigo_pedido%22%3A+0%2C+++%22codigo_item_integracao%22%3A+%22%22%2C+++%22codigo_item%22%3A+0%2C+++%22codigo_produto%22%3A+0%2C+++%22quantidade%22%3A+1%2C+++%22valor_unitario%22%3A+1%7D">Teste agora mesmo</button>
+</div>
+</div>
+<div id="ExcluirItemPedido" class="methodItem">
+<h3 class="method-name">ExcluirItemPedido</h3>
+<p>
+Exclui um item no pedido de venda.
+</p>
+<div class="panel panel-default method">
+<div class="panel-heading"> Par&acirc;metros:
+</div>
+<table class="table table-condensed table-hover">
+<tr>
+<td class="">&nbsp;</td>
+<td class="method-parameter-type"><a href="#excluirItemPedidoRequest">excluirItemPedidoRequest</a></td>
+<td class="method-parameter-name">excluirItemPedidoRequest</td><td class="method-parameter-docs"><div class="first">Solicitação de Exclusão de um item no Pedido de Venda.</div></td>
+</tr>
+</table>
+<div class="panel-footer">
+Retorno <span class="pre"><a href="#excluirItemPedidoResponse"><span class="lightBlue">excluirItemPedidoResponse</span></a></span>: 
+</div>
+</div>
+<div class="method-example-area">
+<h5>Exemplo:</h5>
+<pre class="method-example-code">{<BR>   "codigo_pedido": 0,<BR>   "codigo_item_integracao": "",<BR>   "codigo_item":0<BR>}</pre>
+<button class="btn btn-success method-example" data-method="ExcluirItemPedido" data-example="%7B+++%22codigo_pedido%22%3A+0%2C+++%22codigo_item_integracao%22%3A+%22%22%2C+++%22codigo_item%22%3A0%7D">Teste agora mesmo</button>
+</div>
+</div>
+<div id="ExcluirItensPedido" class="methodItem">
+<h3 class="method-name">ExcluirItensPedido</h3>
+<p>
+Exclui todos os itens do pedido de venda.
+</p>
+<div class="panel panel-default method">
+<div class="panel-heading"> Par&acirc;metros:
+</div>
+<table class="table table-condensed table-hover">
+<tr>
+<td class="">&nbsp;</td>
+<td class="method-parameter-type"><a href="#excluirItensPedidoRequest">excluirItensPedidoRequest</a></td>
+<td class="method-parameter-name">excluirItensPedidoRequest</td><td class="method-parameter-docs"><div class="first">Solicitação de Exclusão de todos os itens no Pedido de Venda.</div></td>
+</tr>
+</table>
+<div class="panel-footer">
+Retorno <span class="pre"><a href="#excluirItensPedidoResponse"><span class="lightBlue">excluirItensPedidoResponse</span></a></span>: 
+</div>
+</div>
+<div class="method-example-area">
+<h5>Exemplo:</h5>
+<pre class="method-example-code">{<BR>   "codigo_pedido": 0<BR>}</pre>
+<button class="btn btn-success method-example" data-method="ExcluirItensPedido" data-example="%7B+++%22codigo_pedido%22%3A+0%7D">Teste agora mesmo</button>
+</div>
+</div>
+<div id="IncluirItemPedido" class="methodItem">
+<h3 class="method-name">IncluirItemPedido</h3>
+<p>
+Inclui um item no pedido de venda.
+</p>
+<div class="panel panel-default method">
+<div class="panel-heading"> Par&acirc;metros:
+</div>
+<table class="table table-condensed table-hover">
+<tr>
+<td class="">&nbsp;</td>
+<td class="method-parameter-type"><a href="#incluirItemPedidoRequest">incluirItemPedidoRequest</a></td>
+<td class="method-parameter-name">incluirItemPedidoRequest</td><td class="method-parameter-docs"><div class="first">Solicitação da inclusão de um Item no Pedido de Venda.</div></td>
+</tr>
+</table>
+<div class="panel-footer">
+Retorno <span class="pre"><a href="#incluirItemPedidoResponse"><span class="lightBlue">incluirItemPedidoResponse</span></a></span>: 
+</div>
+</div>
+<div class="method-example-area">
+<h5>Exemplo:</h5>
+<pre class="method-example-code">{<BR>   "codigo_pedido": 0,<BR>   "codigo_item_integracao": "",<BR>   "codigo_produto": 0,<BR>   "quantidade": 1,<BR>   "valor_unitario": 1,<BR>   "cfop": "",<BR>   "codigo_cenario_impostos_item": 0<BR>}</pre>
+<button class="btn btn-success method-example" data-method="IncluirItemPedido" data-example="%7B+++%22codigo_pedido%22%3A+0%2C+++%22codigo_item_integracao%22%3A+%22%22%2C+++%22codigo_produto%22%3A+0%2C+++%22quantidade%22%3A+1%2C+++%22valor_unitario%22%3A+1%2C+++%22cfop%22%3A+%22%22%2C+++%22codigo_cenario_impostos_item%22%3A+0%7D">Teste agora mesmo</button>
+</div>
+</div>
+<div id="TotalizarPedido" class="methodItem">
+<h3 class="method-name">TotalizarPedido</h3>
+<p>
+Recalcula os totais do pedido de venda.
+</p>
+<div class="panel panel-default method">
+<div class="panel-heading"> Par&acirc;metros:
+</div>
+<table class="table table-condensed table-hover">
+<tr>
+<td class="">&nbsp;</td>
+<td class="method-parameter-type"><a href="#totalizarPedidoRequest">totalizarPedidoRequest</a></td>
+<td class="method-parameter-name">totalizarPedidoRequest</td><td class="method-parameter-docs"><div class="first">Realiza a totalização do pedido de venda.</div></td>
+</tr>
+</table>
+<div class="panel-footer">
+Retorno <span class="pre"><a href="#totalizarPedidoResponse"><span class="lightBlue">totalizarPedidoResponse</span></a></span>: 
+</div>
+</div>
+<div class="method-example-area">
+<h5>Exemplo:</h5>
+<pre class="method-example-code">{<BR>   "codigo_pedido": 0<BR>}</pre>
+<button class="btn btn-success method-example" data-method="TotalizarPedido" data-example="%7B+++%22codigo_pedido%22%3A+0%7D">Teste agora mesmo</button>
+</div>
+</div>
+<h2>Tipos Complexos</h2>
+<div class="complexTypeItem">
+<a name="AdicionarPedidoRequest" class="anchorScroll"></a>
+<h3>AdicionarPedidoRequest</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">codigo_pedido_integracao</td>
+<td class="parameter-type">string<span class="parameter-lenght">60</span></td><td class="parameter-docs"><div class="first">Código de integração do pedido de venda.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento Obrigatório na inclusão/alteração.<BR>Preenchimento Opcional na Consulta/Pesquisa.<BR><BR>Preencha esse campo com o código do pedido no aplicativo que você está integração com o Omie. A função dele é servir como uma mapa de relacionamento entre as aplicações. Ao realizar uma consulta/listagem de pedidos você conseguirá ver a relação entre o id do pedido gerado no Omie e o código de pedido existente em sua aplicação.<BR><BR></div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">codigo_cliente</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código do cliente.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento Obrigatório.<BR><BR>Utilize a tag "codigo_cliente_omie" do método "ListarClientes" da API<BR>/api/v1/geral/clientes/<BR>para obter essa informação.<BR></div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">codigo_cliente_integracao</td>
+<td class="parameter-type">string<span class="parameter-lenght">60</span></td><td class="parameter-docs"><div class="first">Código de Integração do Cliente</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento Opcional.<BR><BR>Esse campo deve ser informado apenas se você incluiu o cliente via API e informou um código de integração para o cliente. Do contrário, informe sempre a tag "codigo_cliente".<BR></div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">data_previsao</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Data de Previsão de Faturamento.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento Obrigatório.<BR><BR>Utilize o formato "dd/mm/aaaa".<BR><BR>Esse campo indica a data da previsão do faturamento do pedido e deve ser informado com uma data igual ou superior a data corrente.<BR></div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">etapa</td>
+<td class="parameter-type">string<span class="parameter-lenght">2</span></td><td class="parameter-docs"><div class="first">Etapa do pedido de venda.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento Obrigatório.<BR><BR>Esse campo indica em que coluna o pedido de venda irá figurar no processo de faturamento do Omie.<BR><BR>Utilize a tag "codigo" do método "ListarEtapasFaturamento" da API<BR>/api/v1/produtos/etapafat/<BR>para obter essa informação.<BR><BR>Os valores são fixos, mas as descrições (funções atribuídas a cada coluna pode mudar. A API irá indicar a descrição de cada coluna.<BR><BR>Os valores disponíveis para esse campo podem ser:<BR><BR>"10" - Primeira coluna<BR>"20" - Segunda coluna<BR>"30" - Terceira coluna<BR>"40" - Quarta coluna<BR>"50" - Faturar<BR></div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">codigo_parcela</td>
+<td class="parameter-type">string<span class="parameter-lenght">3</span></td><td class="parameter-docs"><div class="first">Código da parcela/Condição de pagamento.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento Obrigatório.<BR><BR>Utilize a tag "nCodigo" do método "ListarFormasPagVendas" da API<BR>/api/v1/produtos/formaspagvendas/<BR>para obter essa informação.<BR><BR>O código "999" é o único que permite uma definição de forma de pagamento customizada. Caso você escolha essa opção, deve também informar a tag "qtde_parcelas" e a estrutura "lista_parcelas".<BR><BR>Alguns dos valores disponíveis são:<BR><BR>"000" - A Vista                                                     <BR>"A03" - Para 3 dias                                                 <BR>"A05" - Para 5 dias                                                 <BR>"A07" - Para 7 dias                                                 <BR>"A08" - Para 8 dias                                                 <BR>"A09" - Para 9 dias                                                 <BR>"A10" - Para 10 dias                                                <BR>"A13" - Para 13 dias                                                <BR>"A14" - Para 14 dias                                                <BR>"A15" - Para 15 dias                                                <BR>"A17" - Para 17 dias                                                <BR>"A20" - Para 20 dias                                                <BR>"A21" - Para 21 dias                                                <BR>"A25" - Para 25 dias                                                <BR>"A26" - Para 26 dias                                                <BR>"A28" - Para 28 dias                                                <BR>"A35" - Para 35 dias                                                <BR>"A36" - Para 36 dias                                                <BR>"A40" - Para 40 dias                                                <BR>"A42" - Para 42 dias                                                <BR>"A45" - Para 45 dias                                                <BR>"A50" - Para 50 dias                                                <BR>"A56" - Para 56 dias                                                <BR>"A60" - Para 60 dias                                                <BR>"A70" - Para 70 dias                                                <BR>"A75" - Para 75 dias                                                <BR>"A90" - Para 90 dias                                                <BR>"A98" - Para 98 dias                                                <BR>"B20" - Para 120 dias                                               <BR>"001" - 1 Parcela (para 30 dias)                                    <BR>"002" - 2 Parcelas                                                  <BR>"003" - 3 Parcelas                                                  <BR>"004" - 4 Parcelas                                                  <BR>"005" - 5 Parcelas                                                  <BR>"006" - 6 Parcelas                                                  <BR>"007" - 7 Parcelas                                                  <BR>"010" - 10 Parcelas                                                 <BR>"012" - 12 Parcelas                                                 <BR>"024" - 24 Parcelas                                                 <BR>"036" - 36 Parcelas                                                 <BR>"048" - 48 Parcelas                                                 <BR>"S01" - 30/60                                                       <BR>"S02" - 45/60                                                       <BR>"S03" - 21/28/35                                                    <BR>"S04" - 21/28/35/42                                                 <BR>"S05" - 28/35/42                                                    <BR>"S06" - 28/35/42/49                                                 <BR>"S07" - 30/45/60/75/90                                              <BR>"S08" - 25/56                                                       <BR>"S09" - 30/45                                                       <BR>"S10" - 28/56                                                       <BR>"S11" - 10/30/60                                                    <BR>"S12" - 15/30/60                                                    <BR>"S13" - 28/35                                                       <BR>"S14" - 7/14/21                                                     <BR>"S15" - 10/30/60/90                                                 <BR>"S16" - 60/90/120                                                   <BR>"S17" - 45/60/90                                                    <BR>"S18" - 30/60/90                                                    <BR>"S19" - 14/21                                                       <BR>"S20" - 7/14                                                        <BR>"S21" - 14/21/28                                                    <BR>"S22" - 45/75                                                       <BR>"S23" - 30/45/60                                                    <BR>"S24" - 3/20/40                                                     <BR>"S25" - 30/60/90/120                                                <BR>"S26" - 21/28                                                       <BR>"S27" - a Vista/15                                                  <BR>"S28" - a Vista/30                                                  <BR>"S29" - a Vista/30/60                                               <BR>"S30" - a Vista/30/60/90                                            <BR>"S31" - a Vista/30/60/90/120/150                                    <BR>"S41" - 28/42/56                                                    <BR>"S32" - 15/45/75                                                    <BR>"S33" - 14/28/42                                                    <BR>"S34" - 14/21/28/35/42                                              <BR>"S35" - 30/42/54/66/78/90                                           <BR>"S36" - 14/21/28/35                                                 <BR>"S37" - 28/42                                                       <BR>"S38" - 30/45/60                                                    <BR>"S39" - 35/42/49/56                                                 <BR>"S40" - 28/42/56/70                                                 <BR>"S42" - 30/40/50/60                                                 <BR>"S43" - 30/50/70/90                                                 <BR>"S44" - 14/28                                                       <BR>"S45" - 45/60/75/90                                                 <BR>"S46" - a Vista/30/60/90/120                                        <BR>"S47" - a vista/20/40/60                                            <BR>"S48" - 21/42                                                       <BR>"S49" - 15/30/45                                                    <BR>"S50" - 14/42                                                       <BR>"S51" - 21/35                                                       <BR>"S52" - 28/56/84                                                    <BR>"S53" - 28/42/56/70/84                                              <BR>"S54" - a Vista/30/45                                               <BR>"S55" - 21/45                                                       <BR>"S56" - a Vista/28                                                  <BR>"S57" - a Vista/60/90                                               <BR>"S58" - 35/45/55                                                    <BR>"S59" - 28/35/42/56                                                 <BR>"S60" - 30/45/60/75                                                 <BR>"S61" - 28/35/42/49/56                                              <BR>"S62" - 40/70/100                                                   <BR>"S63" - 42/56                                                       <BR>"S64" - a Vista/28/35                                               <BR>"S65" - 35/42                                                       <BR>"S66" - 20/40                                                       <BR>"S67" - a Vista/28/35/42</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">origem_pedido</td>
+<td class="parameter-type">string<span class="parameter-lenght">3</span></td><td class="parameter-docs"><div class="first">Origem do Pedido.</div><div class="more"><a href="javascript:void(0)">+</a><div>Default: <BR>API - Importado via API.<BR>MLV - Mercado Livre<BR></div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">codigo_cenario_impostos</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código do Cenário de Impostos.</div><div class="more"><a href="javascript:void(0)">+</a><div>Se não informado, será assumido o cenário padrão.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">codigo_categoria</td>
+<td class="parameter-type">string<span class="parameter-lenght">20</span></td><td class="parameter-docs"><div class="first">Código da categoria.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento Obrigatório.<BR><BR>Informação localizada na Aba "Informações Adicionais" do Pedido de Venda.<BR><BR>Utilize a tag "codigo" do método "ListarCategorias" da API<BR>/api/v1/geral/categorias/<BR>para obter essa informação.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">codigo_conta_corrente</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código da Conta Corrente.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento Obrigatório.<BR><BR>Informação localizada na Aba "Informações Adicionais" do Pedido de Venda.<BR><BR>Utilize a tag "codigo" do método "PesquisarContaCorrente" da API<BR>/api/v1/geral/contacorrente/<BR>para obter essa informação.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">numero_pedido_cliente</td>
+<td class="parameter-type">string<span class="parameter-lenght">30</span></td><td class="parameter-docs"><div class="first">Número do pedido do cliente.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento Opcional.<BR><BR>Informação localizada na Aba "Informações Adicionais" do Pedido de Venda.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">numero_contrato</td>
+<td class="parameter-type">string<span class="parameter-lenght">60</span></td><td class="parameter-docs"><div class="first">Número do Contrato de Venda.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento Opcional.<BR><BR>Informação localizada na Aba "Informações Adicionais" do Pedido de Venda.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">contato</td>
+<td class="parameter-type">string<span class="parameter-lenght">100</span></td><td class="parameter-docs"><div class="first">Contato.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento Opcional.<BR><BR>Informação localizada na Aba "Informações Adicionais" do Pedido de Venda.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">consumidor_final</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Nota Fiscal para Consumo Final.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento Obrigatório.<BR><BR>Informar "S" ou "N".<BR><BR>Informação localizada na Aba "Informações Adicionais" do Pedido de Venda.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">utilizar_emails</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Utilizar os seguintes endereços de e-mail.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento Obrigatório.<BR><BR>Informar a lista de e-mail que receberão a Nota Fiscal.<BR>Utilize a virgula (,) como separador.<BR><BR>Informação localizada na Aba "E-mail para o Cliente" do Pedido de Venda.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">enviar_email</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Enviar e-mail com o boleto de cobrança gerado pelo faturamento (juntamente com o DANFE e o XML da NF-e).</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento Opcional.<BR><BR>Informar "S" ou "N".<BR>Default "N"<BR><BR>Informação localizada na Aba "E-mail para o Cliente" do Pedido de Venda.<BR><BR>É permitido somente o preenchimento de uma das tags "enviar_pix" ou "enviar_email</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">enviar_pix</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Enviar e-mail com o PIX de cobrança gerado pelo faturamento (juntamente com o DANFE e o XML da NF-e).</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento Opcional.<BR><BR>Informar "S" ou "N".<BR>Default "N"<BR><BR>Informação localizada na Aba "E-mail para o Cliente" do Pedido de Venda.<BR><BR>É permitido somente o preenchimento de uma das tags "enviar_pix" ou "enviar_email</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">codVend</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código do Vendedor.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento Opcional.<BR><BR>Informação localizada no cabeçalho do Pedido de Venda.<BR><BR>Utilize a tag "codigo" do método "ListarVendedores" da API<BR>/api/v1/geral/vendedores/<BR>para obter essa informação.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">codProj</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código do Projeto.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento Opcional.<BR><BR>Informação localizada na Aba "Informações Adicionais" do Pedido de Venda.<BR><BR>Utilize a tag "codigo" do método "ListarProjetos" da API<BR>/api/v1/geral/projetos/<BR>para obter essa informação.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">dados_adicionais_nf</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Dados adicionais para a Nota Fiscal.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento Opcional.<BR><BR>Utilize o caracter pipe ( | ) como separador de linha.<BR><BR>Informação localizada na Aba "Informações Adicionais" do Pedido de Venda.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">itens</td>
+<td class="parameter-type"><a href="#itensArray">itensArray</a></td><td class="parameter-docs"><div class="first">Array de Itens do pedido de Venda</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="AdicionarPedidoResponse" class="anchorScroll"></a>
+<h3>AdicionarPedidoResponse</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">codigo_pedido</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">ID do pedido do venda.</div><div class="more"><a href="javascript:void(0)">+</a><div>Identificação do pedido de venda, esse campo não é exibido na tela do Omie. <BR>É uma informação interna, utilizada apenas nas APIs.<BR><BR>Preenchimento obrigatório.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">codigo_status</td>
+<td class="parameter-type">string<span class="parameter-lenght">4</span></td><td class="parameter-docs"><div class="first">Código do status do processamento.</div><div class="more"><a href="javascript:void(0)">+</a><div>Se o retorno for "0" significa que a solicitação foi executada com sucesso.<BR>Se o retorno for maior que "0" ocorreu algum erro duranteo o processamento da solicitação.<BR>A tag "codigo_status" descreve o problema ocorrido.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">descricao_status</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Descrição do status do processamento.</div><div class="more"><a href="javascript:void(0)">+</a><div>Essa tag explica o resultado da tag "codigo_status".</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">numero_pedido</td>
+<td class="parameter-type">string<span class="parameter-lenght">15</span></td><td class="parameter-docs"><div class="first">Número do Pedido</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="alterarItemPedidoRequest" class="anchorScroll"></a>
+<h3>alterarItemPedidoRequest</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">codigo_pedido</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">ID do pedido do venda.</div><div class="more"><a href="javascript:void(0)">+</a><div>Identificação do pedido de venda, esse campo não é exibido na tela do Omie. <BR>É uma informação interna, utilizada apenas nas APIs.<BR><BR>Preenchimento obrigatório.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">codigo_item</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">ID do Item do Pedido.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento automático, gerado internamente pelo Omie.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">codigo_item_integracao</td>
+<td class="parameter-type">string<span class="parameter-lenght">30</span></td><td class="parameter-docs"><div class="first">Código de Integração do Item do Pedido de Venda.</div><div class="more"><a href="javascript:void(0)">+</a><div>Informe a identificação do Item do Pedido de Venda. Caso você não tenha essa informação no seu aplicativo, informe o número sequencial de cada item do pedido.<BR><BR>Informa de 1 a 199.<BR><BR>Preenchimento opcional.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">codigo_produto</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">ID do Produto.</div><div class="more"><a href="javascript:void(0)">+</a><div>Esse campo não é exibido na tela do Pedido de Vendas. <BR>É uma informação interna, utilizada apenas nas APIs.<BR><BR>Utilize a tag "codigo_produto" do método "ListarProdutos" da API<BR>/api/v1/geral/produtos/<BR>para obter essa informação.<BR><BR>Preenchimento obrigatório.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">quantidade</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Quantidade</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento obrigatório.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cfop</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">CFOP - Código Fiscal de Operações e Prestações.</div><div class="more"><a href="javascript:void(0)">+</a><div>Utilize a tag "nCodigo" do método "ListarCFOP" da API<BR>/api/v1/produtos/cfop/<BR>para obter essa informação.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">valor_unitario</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Valor Unitário</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento obrigatório.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">tipo_desconto</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Tipo de Desconto.</div><div class="more"><a href="javascript:void(0)">+</a><div>Pode ser:<BR>V - Valor<BR>P - Percentual<BR><BR>Preenchimento opcional.<BR><BR>Ao informar o desconto na capa do pedido o mesmo será distribuído proporcionalmente para os itens. Uma vez realizada a distribuição os valores do desconto serão exibidos apenas nos itens.<BR><BR>IMPORTANTE:<BR>- Não será permitido informar desconto na capa caso já exista distribuição pelos itens.<BR>- Na alteração o desconto será aplicado para todos os itens do pedido.<BR></div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">percentual_desconto</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Percentual de Desconto.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento opcional.<BR><BR>Ao informar o desconto na capa do pedido o mesmo será distribuído proporcionalmente para os itens. Uma vez realizada a distribuição os valores do desconto serão exibidos apenas nos itens.<BR><BR>IMPORTANTE:<BR>- Não será permitido informar desconto na capa caso já exista distribuição pelos itens.<BR>- Na alteração o desconto será aplicado para todos os itens do pedido.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">valor_desconto</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Valor do Desconto</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento opcional.<BR><BR>Ao informar o desconto na capa do pedido o mesmo será distribuído proporcionalmente para os itens. Uma vez realizada a distribuição os valores do desconto serão exibidos apenas nos itens.<BR><BR>IMPORTANTE:<BR>- Não será permitido informar desconto na capa caso já exista distribuição pelos itens.<BR>- Na alteração o desconto será aplicado para todos os itens do pedido.<BR>- Se o desconto for superior ao valor do pedido ele não será aplicado.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">codigo_tabela_preco</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código da tabela de preço.</div><div class="more"><a href="javascript:void(0)">+</a><div>(Código Interno, utilizado apenas na integração via API, não é exibido na tela).<BR>Deve ser informada opcionalmente, caso a tabela de preços esteja configurada no Omie.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">codigo_local_estoque</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código do Local do Estoque.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento opcional.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">lote_validade</td>
+<td class="parameter-type"><a href="#lote_validadeArray">lote_validadeArray</a></td><td class="parameter-docs"><div class="first">Informações referentes ao lote e validade do produto.</div><div class="more"><a href="javascript:void(0)">+</a><div>A tag só deve ser informada se o produto possuir controle de lote e se a intenção é informar os lotes "manualmente" por API.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">codigo_cenario_impostos_item</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código do Cenário de Impostos.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento opcional.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">numero_pedido_compra</td>
+<td class="parameter-type">string<span class="parameter-lenght">15</span></td><td class="parameter-docs"><div class="first">Número do Pedido de Compra.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento Opcional.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">item_pedido_compra</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Item do Pedido de Compra.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento Opcional.<BR></div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">quantidade_trib</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Quantidade do Item - Tributável</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">unidade_trib</td>
+<td class="parameter-type">string<span class="parameter-lenght">6</span></td><td class="parameter-docs"><div class="first">Código da Unidade - Tributável</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">dados_adicionais_item</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Informações para a Nota Fiscal.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento Opcional.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nao_movimentar_estoque</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Não gerar a saída de estoque deste item ao emitir NF-e.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento Opcional.<BR><BR>Informar "S" ou "N".<BR>(informe "S" para ativar essa opção).</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nao_gerar_financeiro</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Não gerar conta a receber para este item.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento Opcional.<BR><BR>Informar "S" ou "N".<BR>(Informe "S" para ativar essa opção).</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nao_somar_total</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Indica se não deve somar o item no total do documento.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">codigo_categoria_item</td>
+<td class="parameter-type">string<span class="parameter-lenght">20</span></td><td class="parameter-docs"><div class="first">Código da Categoria do item.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento opcional.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">obs_item</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Observações do item (elas não serão exibidas na Nota Fisca, mas serão impressas no pedido de venda).</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento Opcional.<BR><BR>Informação localizada na Aba "Observações" do Item do Pedido de Venda.</div></div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="alterarItemPedidoResponse" class="anchorScroll"></a>
+<h3>alterarItemPedidoResponse</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">codigo_pedido</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">ID do pedido do venda.</div><div class="more"><a href="javascript:void(0)">+</a><div>Identificação do pedido de venda, esse campo não é exibido na tela do Omie. <BR>É uma informação interna, utilizada apenas nas APIs.<BR><BR>Preenchimento obrigatório.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">codigo_item_integracao</td>
+<td class="parameter-type">string<span class="parameter-lenght">30</span></td><td class="parameter-docs"><div class="first">Código de Integração do Item do Pedido de Venda.</div><div class="more"><a href="javascript:void(0)">+</a><div>Informe a identificação do Item do Pedido de Venda. Caso você não tenha essa informação no seu aplicativo, informe o número sequencial de cada item do pedido.<BR><BR>Informa de 1 a 199.<BR><BR>Preenchimento opcional.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">codigo_item</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">ID do Item do Pedido.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento automático, gerado internamente pelo Omie.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">codigo_status</td>
+<td class="parameter-type">string<span class="parameter-lenght">4</span></td><td class="parameter-docs"><div class="first">Código do status do processamento.</div><div class="more"><a href="javascript:void(0)">+</a><div>Se o retorno for "0" significa que a solicitação foi executada com sucesso.<BR>Se o retorno for maior que "0" ocorreu algum erro duranteo o processamento da solicitação.<BR>A tag "codigo_status" descreve o problema ocorrido.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">descricao_status</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Descrição do status do processamento.</div><div class="more"><a href="javascript:void(0)">+</a><div>Essa tag explica o resultado da tag "codigo_status".</div></div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="excluirItemPedidoRequest" class="anchorScroll"></a>
+<h3>excluirItemPedidoRequest</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">codigo_pedido</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">ID do pedido do venda.</div><div class="more"><a href="javascript:void(0)">+</a><div>Identificação do pedido de venda, esse campo não é exibido na tela do Omie. <BR>É uma informação interna, utilizada apenas nas APIs.<BR><BR>Preenchimento obrigatório.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">codigo_item</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">ID do Item do Pedido.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento automático, gerado internamente pelo Omie.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">codigo_item_integracao</td>
+<td class="parameter-type">string<span class="parameter-lenght">30</span></td><td class="parameter-docs"><div class="first">Código de Integração do Item do Pedido de Venda.</div><div class="more"><a href="javascript:void(0)">+</a><div>Informe a identificação do Item do Pedido de Venda. Caso você não tenha essa informação no seu aplicativo, informe o número sequencial de cada item do pedido.<BR><BR>Informa de 1 a 199.<BR><BR>Preenchimento opcional.</div></div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="excluirItemPedidoResponse" class="anchorScroll"></a>
+<h3>excluirItemPedidoResponse</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">codigo_pedido</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">ID do pedido do venda.</div><div class="more"><a href="javascript:void(0)">+</a><div>Identificação do pedido de venda, esse campo não é exibido na tela do Omie. <BR>É uma informação interna, utilizada apenas nas APIs.<BR><BR>Preenchimento obrigatório.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">codigo_item_integracao</td>
+<td class="parameter-type">string<span class="parameter-lenght">30</span></td><td class="parameter-docs"><div class="first">Código de Integração do Item do Pedido de Venda.</div><div class="more"><a href="javascript:void(0)">+</a><div>Informe a identificação do Item do Pedido de Venda. Caso você não tenha essa informação no seu aplicativo, informe o número sequencial de cada item do pedido.<BR><BR>Informa de 1 a 199.<BR><BR>Preenchimento opcional.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">codigo_item</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">ID do Item do Pedido.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento automático, gerado internamente pelo Omie.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">codigo_status</td>
+<td class="parameter-type">string<span class="parameter-lenght">4</span></td><td class="parameter-docs"><div class="first">Código do status do processamento.</div><div class="more"><a href="javascript:void(0)">+</a><div>Se o retorno for "0" significa que a solicitação foi executada com sucesso.<BR>Se o retorno for maior que "0" ocorreu algum erro duranteo o processamento da solicitação.<BR>A tag "codigo_status" descreve o problema ocorrido.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">descricao_status</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Descrição do status do processamento.</div><div class="more"><a href="javascript:void(0)">+</a><div>Essa tag explica o resultado da tag "codigo_status".</div></div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="excluirItensPedidoRequest" class="anchorScroll"></a>
+<h3>excluirItensPedidoRequest</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">codigo_pedido</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">ID do pedido do venda.</div><div class="more"><a href="javascript:void(0)">+</a><div>Identificação do pedido de venda, esse campo não é exibido na tela do Omie. <BR>É uma informação interna, utilizada apenas nas APIs.<BR><BR>Preenchimento obrigatório.</div></div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="excluirItensPedidoResponse" class="anchorScroll"></a>
+<h3>excluirItensPedidoResponse</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">codigo_pedido</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">ID do pedido do venda.</div><div class="more"><a href="javascript:void(0)">+</a><div>Identificação do pedido de venda, esse campo não é exibido na tela do Omie. <BR>É uma informação interna, utilizada apenas nas APIs.<BR><BR>Preenchimento obrigatório.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">codigo_status</td>
+<td class="parameter-type">string<span class="parameter-lenght">4</span></td><td class="parameter-docs"><div class="first">Código do status do processamento.</div><div class="more"><a href="javascript:void(0)">+</a><div>Se o retorno for "0" significa que a solicitação foi executada com sucesso.<BR>Se o retorno for maior que "0" ocorreu algum erro duranteo o processamento da solicitação.<BR>A tag "codigo_status" descreve o problema ocorrido.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">descricao_status</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Descrição do status do processamento.</div><div class="more"><a href="javascript:void(0)">+</a><div>Essa tag explica o resultado da tag "codigo_status".</div></div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="incluirItemPedidoRequest" class="anchorScroll"></a>
+<h3>incluirItemPedidoRequest</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">codigo_pedido</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">ID do pedido do venda.</div><div class="more"><a href="javascript:void(0)">+</a><div>Identificação do pedido de venda, esse campo não é exibido na tela do Omie. <BR>É uma informação interna, utilizada apenas nas APIs.<BR><BR>Preenchimento obrigatório.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">codigo_item_integracao</td>
+<td class="parameter-type">string<span class="parameter-lenght">30</span></td><td class="parameter-docs"><div class="first">Código de Integração do Item do Pedido de Venda.</div><div class="more"><a href="javascript:void(0)">+</a><div>Informe a identificação do Item do Pedido de Venda. Caso você não tenha essa informação no seu aplicativo, informe o número sequencial de cada item do pedido.<BR><BR>Informa de 1 a 199.<BR><BR>Preenchimento opcional.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">codigo_produto</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">ID do Produto.</div><div class="more"><a href="javascript:void(0)">+</a><div>Esse campo não é exibido na tela do Pedido de Vendas. <BR>É uma informação interna, utilizada apenas nas APIs.<BR><BR>Utilize a tag "codigo_produto" do método "ListarProdutos" da API<BR>/api/v1/geral/produtos/<BR>para obter essa informação.<BR><BR>Preenchimento obrigatório.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">quantidade</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Quantidade</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento obrigatório.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cfop</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">CFOP - Código Fiscal de Operações e Prestações.</div><div class="more"><a href="javascript:void(0)">+</a><div>Utilize a tag "nCodigo" do método "ListarCFOP" da API<BR>/api/v1/produtos/cfop/<BR>para obter essa informação.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">valor_unitario</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Valor Unitário</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento obrigatório.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">tipo_desconto</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Tipo de Desconto.</div><div class="more"><a href="javascript:void(0)">+</a><div>Pode ser:<BR>V - Valor<BR>P - Percentual<BR><BR>Preenchimento opcional.<BR><BR>Ao informar o desconto na capa do pedido o mesmo será distribuído proporcionalmente para os itens. Uma vez realizada a distribuição os valores do desconto serão exibidos apenas nos itens.<BR><BR>IMPORTANTE:<BR>- Não será permitido informar desconto na capa caso já exista distribuição pelos itens.<BR>- Na alteração o desconto será aplicado para todos os itens do pedido.<BR></div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">percentual_desconto</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Percentual de Desconto.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento opcional.<BR><BR>Ao informar o desconto na capa do pedido o mesmo será distribuído proporcionalmente para os itens. Uma vez realizada a distribuição os valores do desconto serão exibidos apenas nos itens.<BR><BR>IMPORTANTE:<BR>- Não será permitido informar desconto na capa caso já exista distribuição pelos itens.<BR>- Na alteração o desconto será aplicado para todos os itens do pedido.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">valor_desconto</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Valor do Desconto</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento opcional.<BR><BR>Ao informar o desconto na capa do pedido o mesmo será distribuído proporcionalmente para os itens. Uma vez realizada a distribuição os valores do desconto serão exibidos apenas nos itens.<BR><BR>IMPORTANTE:<BR>- Não será permitido informar desconto na capa caso já exista distribuição pelos itens.<BR>- Na alteração o desconto será aplicado para todos os itens do pedido.<BR>- Se o desconto for superior ao valor do pedido ele não será aplicado.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">codigo_tabela_preco</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código da tabela de preço.</div><div class="more"><a href="javascript:void(0)">+</a><div>(Código Interno, utilizado apenas na integração via API, não é exibido na tela).<BR>Deve ser informada opcionalmente, caso a tabela de preços esteja configurada no Omie.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">codigo_local_estoque</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código do Local do Estoque.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento opcional.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">codigo_cenario_impostos_item</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código do Cenário de Impostos.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento opcional.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">numero_pedido_compra</td>
+<td class="parameter-type">string<span class="parameter-lenght">15</span></td><td class="parameter-docs"><div class="first">Número do Pedido de Compra.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento Opcional.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">item_pedido_compra</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Item do Pedido de Compra.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento Opcional.<BR></div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">quantidade_trib</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Quantidade do Item - Tributável</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">unidade_trib</td>
+<td class="parameter-type">string<span class="parameter-lenght">6</span></td><td class="parameter-docs"><div class="first">Código da Unidade - Tributável</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">dados_adicionais_item</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Informações para a Nota Fiscal.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento Opcional.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nao_movimentar_estoque</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Não gerar a saída de estoque deste item ao emitir NF-e.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento Opcional.<BR><BR>Informar "S" ou "N".<BR>(informe "S" para ativar essa opção).</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nao_gerar_financeiro</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Não gerar conta a receber para este item.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento Opcional.<BR><BR>Informar "S" ou "N".<BR>(Informe "S" para ativar essa opção).</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nao_somar_total</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Indica se não deve somar o item no total do documento.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">codigo_categoria_item</td>
+<td class="parameter-type">string<span class="parameter-lenght">20</span></td><td class="parameter-docs"><div class="first">Código da Categoria do item.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento opcional.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">obs_item</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Observações do item (elas não serão exibidas na Nota Fisca, mas serão impressas no pedido de venda).</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento Opcional.<BR><BR>Informação localizada na Aba "Observações" do Item do Pedido de Venda.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">lote_validade</td>
+<td class="parameter-type"><a href="#lote_validadeArray">lote_validadeArray</a></td><td class="parameter-docs"><div class="first">Informações referentes ao lote e validade do produto.</div><div class="more"><a href="javascript:void(0)">+</a><div>A tag só deve ser informada se o produto possuir controle de lote e se a intenção é informar os lotes "manualmente" por API.</div></div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="incluirItemPedidoResponse" class="anchorScroll"></a>
+<h3>incluirItemPedidoResponse</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">codigo_pedido</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">ID do pedido do venda.</div><div class="more"><a href="javascript:void(0)">+</a><div>Identificação do pedido de venda, esse campo não é exibido na tela do Omie. <BR>É uma informação interna, utilizada apenas nas APIs.<BR><BR>Preenchimento obrigatório.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">codigo_item_integracao</td>
+<td class="parameter-type">string<span class="parameter-lenght">30</span></td><td class="parameter-docs"><div class="first">Código de Integração do Item do Pedido de Venda.</div><div class="more"><a href="javascript:void(0)">+</a><div>Informe a identificação do Item do Pedido de Venda. Caso você não tenha essa informação no seu aplicativo, informe o número sequencial de cada item do pedido.<BR><BR>Informa de 1 a 199.<BR><BR>Preenchimento opcional.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">codigo_item</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">ID do Item do Pedido.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento automático, gerado internamente pelo Omie.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">codigo_status</td>
+<td class="parameter-type">string<span class="parameter-lenght">4</span></td><td class="parameter-docs"><div class="first">Código do status do processamento.</div><div class="more"><a href="javascript:void(0)">+</a><div>Se o retorno for "0" significa que a solicitação foi executada com sucesso.<BR>Se o retorno for maior que "0" ocorreu algum erro duranteo o processamento da solicitação.<BR>A tag "codigo_status" descreve o problema ocorrido.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">descricao_status</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Descrição do status do processamento.</div><div class="more"><a href="javascript:void(0)">+</a><div>Essa tag explica o resultado da tag "codigo_status".</div></div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="itens" class="anchorScroll"></a>
+<h3>itens</h3>
+<p>Array de Itens do pedido de Venda</p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">codigo_pedido</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">ID do pedido do venda.</div><div class="more"><a href="javascript:void(0)">+</a><div>Identificação do pedido de venda, esse campo não é exibido na tela do Omie. <BR>É uma informação interna, utilizada apenas nas APIs.<BR><BR>Preenchimento obrigatório.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">codigo_produto</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">ID do Produto.</div><div class="more"><a href="javascript:void(0)">+</a><div>Esse campo não é exibido na tela do Pedido de Vendas. <BR>É uma informação interna, utilizada apenas nas APIs.<BR><BR>Utilize a tag "codigo_produto" do método "ListarProdutos" da API<BR>/api/v1/geral/produtos/<BR>para obter essa informação.<BR><BR>Preenchimento obrigatório.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">quantidade</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Quantidade</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento obrigatório.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cfop</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">CFOP - Código Fiscal de Operações e Prestações.</div><div class="more"><a href="javascript:void(0)">+</a><div>Utilize a tag "nCodigo" do método "ListarCFOP" da API<BR>/api/v1/produtos/cfop/<BR>para obter essa informação.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">valor_unitario</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Valor Unitário</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento obrigatório.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">tipo_desconto</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Tipo de Desconto.</div><div class="more"><a href="javascript:void(0)">+</a><div>Pode ser:<BR>V - Valor<BR>P - Percentual<BR><BR>Preenchimento opcional.<BR><BR>Ao informar o desconto na capa do pedido o mesmo será distribuído proporcionalmente para os itens. Uma vez realizada a distribuição os valores do desconto serão exibidos apenas nos itens.<BR><BR>IMPORTANTE:<BR>- Não será permitido informar desconto na capa caso já exista distribuição pelos itens.<BR>- Na alteração o desconto será aplicado para todos os itens do pedido.<BR></div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">percentual_desconto</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Percentual de Desconto.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento opcional.<BR><BR>Ao informar o desconto na capa do pedido o mesmo será distribuído proporcionalmente para os itens. Uma vez realizada a distribuição os valores do desconto serão exibidos apenas nos itens.<BR><BR>IMPORTANTE:<BR>- Não será permitido informar desconto na capa caso já exista distribuição pelos itens.<BR>- Na alteração o desconto será aplicado para todos os itens do pedido.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">valor_desconto</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Valor do Desconto</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento opcional.<BR><BR>Ao informar o desconto na capa do pedido o mesmo será distribuído proporcionalmente para os itens. Uma vez realizada a distribuição os valores do desconto serão exibidos apenas nos itens.<BR><BR>IMPORTANTE:<BR>- Não será permitido informar desconto na capa caso já exista distribuição pelos itens.<BR>- Na alteração o desconto será aplicado para todos os itens do pedido.<BR>- Se o desconto for superior ao valor do pedido ele não será aplicado.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">codigo_tabela_preco</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código da tabela de preço.</div><div class="more"><a href="javascript:void(0)">+</a><div>(Código Interno, utilizado apenas na integração via API, não é exibido na tela).<BR>Deve ser informada opcionalmente, caso a tabela de preços esteja configurada no Omie.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">codigo_local_estoque</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código do Local do Estoque.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento opcional.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">codigo_cenario_impostos_item</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código do Cenário de Impostos.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento opcional.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">numero_pedido_compra</td>
+<td class="parameter-type">string<span class="parameter-lenght">15</span></td><td class="parameter-docs"><div class="first">Número do Pedido de Compra.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento Opcional.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">item_pedido_compra</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Item do Pedido de Compra.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento Opcional.<BR></div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">quantidade_trib</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Quantidade do Item - Tributável</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">unidade_trib</td>
+<td class="parameter-type">string<span class="parameter-lenght">6</span></td><td class="parameter-docs"><div class="first">Código da Unidade - Tributável</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">dados_adicionais_item</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Informações para a Nota Fiscal.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento Opcional.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nao_movimentar_estoque</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Não gerar a saída de estoque deste item ao emitir NF-e.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento Opcional.<BR><BR>Informar "S" ou "N".<BR>(informe "S" para ativar essa opção).</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nao_gerar_financeiro</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Não gerar conta a receber para este item.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento Opcional.<BR><BR>Informar "S" ou "N".<BR>(Informe "S" para ativar essa opção).</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nao_somar_total</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Indica se não deve somar o item no total do documento.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">codigo_categoria_item</td>
+<td class="parameter-type">string<span class="parameter-lenght">20</span></td><td class="parameter-docs"><div class="first">Código da Categoria do item.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento opcional.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">obs_item</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Observações do item (elas não serão exibidas na Nota Fisca, mas serão impressas no pedido de venda).</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento Opcional.<BR><BR>Informação localizada na Aba "Observações" do Item do Pedido de Venda.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">lote_validade</td>
+<td class="parameter-type"><a href="#lote_validadeArray">lote_validadeArray</a></td><td class="parameter-docs"><div class="first">Informações referentes ao lote e validade do produto.</div><div class="more"><a href="javascript:void(0)">+</a><div>A tag só deve ser informada se o produto possuir controle de lote e se a intenção é informar os lotes "manualmente" por API.</div></div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="itensArray" class="anchorScroll"></a>
+<h3>itensArray</h3>
+<p>Este par&acirc;metro &eacute; um array do tipo <span class="pre"><a href="#itens"><span class="lightBlue">itens</span></a></span></p>
+<p>Lista de itens</p>
+</div>
+<div class="complexTypeItem">
+<a name="lote_validade" class="anchorScroll"></a>
+<h3>lote_validade</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">nIdLote</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Id do Lote do produto.</div><div class="more"><a href="javascript:void(0)">+</a><div>Obrigatório quando o produto possui controle de lote e o método do consumo do lote está definido como 'Manual' nas configurações..</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nQtdLote</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Informe aqui a quantidade do Lote para o produto.</div><div class="more"><a href="javascript:void(0)">+</a><div>É obrigatório quando o produto possui controle de lote e o método do consumo do lote está definido como 'Manual' nas configurações.</div></div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="lote_validadeArray" class="anchorScroll"></a>
+<h3>lote_validadeArray</h3>
+<p>Este par&acirc;metro &eacute; um array do tipo <span class="pre"><a href="#lote_validade"><span class="lightBlue">lote_validade</span></a></span></p>
+<p>Lista de lote_validade</p>
+</div>
+<div class="complexTypeItem">
+<a name="omie_fail" class="anchorScroll"></a>
+<h3>omie_fail</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">code</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Codigo do erro</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">description</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Descricao do erro</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-required">referer</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Origem do erro</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-required">fatal</td>
+<td class="parameter-type">boolean</td><td class="parameter-docs"><div class="first">Indica se eh um erro fatal</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="totalizarPedidoRequest" class="anchorScroll"></a>
+<h3>totalizarPedidoRequest</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">codigo_pedido</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">ID do pedido do venda.</div><div class="more"><a href="javascript:void(0)">+</a><div>Identificação do pedido de venda, esse campo não é exibido na tela do Omie. <BR>É uma informação interna, utilizada apenas nas APIs.<BR><BR>Preenchimento obrigatório.</div></div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="totalizarPedidoResponse" class="anchorScroll"></a>
+<h3>totalizarPedidoResponse</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">codigo_pedido</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">ID do pedido do venda.</div><div class="more"><a href="javascript:void(0)">+</a><div>Identificação do pedido de venda, esse campo não é exibido na tela do Omie. <BR>É uma informação interna, utilizada apenas nas APIs.<BR><BR>Preenchimento obrigatório.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">codigo_status</td>
+<td class="parameter-type">string<span class="parameter-lenght">4</span></td><td class="parameter-docs"><div class="first">Código do status do processamento.</div><div class="more"><a href="javascript:void(0)">+</a><div>Se o retorno for "0" significa que a solicitação foi executada com sucesso.<BR>Se o retorno for maior que "0" ocorreu algum erro duranteo o processamento da solicitação.<BR>A tag "codigo_status" descreve o problema ocorrido.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">descricao_status</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Descrição do status do processamento.</div><div class="more"><a href="javascript:void(0)">+</a><div>Essa tag explica o resultado da tag "codigo_status".</div></div></td>
+<tr>
+</table>
+</div>
+</div>
+<div class="col-md-3">
+<div id="affix-menu" data-spy="affix" data-offset-top="294">
+<h2>M&eacute;todos</h2>
+<nav id="index" class="hidden-print hidden-xs hidden-sm">
+<ul class="nav">
+<li><a href="#AdicionarPedido">AdicionarPedido</a></li>
+<li><a href="#AlterarItemPedido">AlterarItemPedido</a></li>
+<li><a href="#ExcluirItemPedido">ExcluirItemPedido</a></li>
+<li><a href="#ExcluirItensPedido">ExcluirItensPedido</a></li>
+<li><a href="#IncluirItemPedido">IncluirItemPedido</a></li>
+<li><a href="#TotalizarPedido">TotalizarPedido</a></li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+</body>
+</html>

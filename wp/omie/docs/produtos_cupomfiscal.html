@@ -1,0 +1,952 @@
+<nav class="navbar navbar-expand-lg bg-azul">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="https://developer.omie.com.br/">
+            <img class="lozad img-logo" data-src="https://static.omie.com.br/images/logo/logo-omie-topo.png" src="https://static.omie.com.br/images/logo/logo-omie-topo.png" data-loaded="true">
+        </a>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <span class="borda-hover"></span>
+                    <a class="nav-link" href="https://developer.omie.com.br/my-apps/"> Aplicativos </a>
+                </li>
+                <li class="nav-item ">
+                    <span class="borda-hover"></span>
+                    <a class="nav-link" href="https://developer.omie.com.br/service-list/">
+                        Lista das API's
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <span class="borda-hover"></span>
+                    <a class="nav-link" href="https://ajuda.omie.com.br/pt-BR/collections/3045828-apis" target="_blank"> Ajuda </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<html>
+<head>
+<title>CupomFiscal</title>
+<style type="text/css" media="all">
+  [id] { scroll-margin-top: 68px; }
+</style>
+<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+<script src="https://cdn.omie.com.br/omie-assets/js/omie-compat-v2.min.js"></script>
+<script src="/developer/themes/omie/developer.js?ts=2021.008"></script>
+<link rel="stylesheet" href="//app.omie.com.br/wp-content/themes/omie/bootstrap/css/bootstrap.min.css" async/>
+<link href="https://cdn.omie.com.br/assets/developer/css/site.css?ts=2021.008" media="all" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="/developer/themes/omie/developer.css?ts=2021.008" async/>
+</head>
+<body>
+<div class="jumbotron banner bg-azul">
+<div class="container">
+<img src="https://cdn.omie.com.br/assets/developer/images/seta-azuis.png" alt="" class="img-setas">
+<div class="row align-items-center">
+<div class="col-12">
+<h1>CupomFiscal</h1>
+<ul class="nav nav-tabs" role="tablist">
+  <li role="presentation" class="active"><a href="#section-endpoint" aria-controls="section-endpoint" role="tab" data-toggle="tab">Endpoint</a></li>
+  <li role="presentation" class="pull-right"><a href="#section-wsdl" aria-controls="section-wsdl" role="tab" data-toggle="tab">WSDL</a></li>
+  <li role="presentation" class="pull-right"><a href="#section-php-soap" aria-controls="section-php-soap" role="tab" data-toggle="tab">PHP SOAP</a></li>
+  <li role="presentation" class="pull-right"><a href="#section-json" aria-controls="section-json" role="tab" data-toggle="tab">JSON</a></li>
+</ul>
+<div class="tab-content">
+  <div role="tabpanel" class="tab-pane fade in active" id="section-endpoint">
+    <h4>Endpoint URI</h4>
+    <a class="highlight" href="https://app.omie.com.br/api/v1/produtos/cupomfiscal/"><pre><code>https://app.omie.com.br/api/v1/produtos/cupomfiscal/</code></pre></a>
+  </div>
+  <div role="tabpanel" class="tab-pane fade" id="section-wsdl">
+    <h4>WSDL URI</h4>
+    <a class="highlight" href="https://app.omie.com.br/api/v1/produtos/cupomfiscal/?WSDL"><pre><code>https://app.omie.com.br/api/v1/produtos/cupomfiscal/?WSDL</code></pre></a>
+  </div>
+  <div role="tabpanel" class="tab-pane fade" id="section-php-soap">
+    <h4>PHP SOAP client download</h4>
+    <a class="highlight" href="https://app.omie.com.br/api/v1/produtos/cupomfiscal/?PHPSOAPCLIENT""><pre><code>https://app.omie.com.br/api/v1/produtos/cupomfiscal/?PHPSOAPCLIENT</code></pre></a>
+  </div>
+  <div role="tabpanel" class="tab-pane fade" id="section-json">
+    <h4>JSON client download URI</h4>
+    <h5>PHP</h5>
+    <a class="highlight" href="https://app.omie.com.br/api/v1/produtos/cupomfiscal/?PHPJSONCLIENT"><pre><code>https://app.omie.com.br/api/v1/produtos/cupomfiscal/?PHPJSONCLIENT</code></pre></a>
+    <h5>JavaScript (recomendado para uso apenas do lado do servidor)</h5>
+    <a class="highlight" href="https://app.omie.com.br/api/v1/produtos/cupomfiscal/?JSJSONCLIENT"><pre><code>https://app.omie.com.br/api/v1/produtos/cupomfiscal/?JSJSONCLIENT</code></pre></a>
+  </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="container">
+<div class="row">
+<div class="col-md-9">
+<h2>M&eacute;todos</h2>
+<p>Veja abaixo a documenta&ccedil;&atilde;o de cada m&eacute;todo dispon&iacute;vel para este servi&ccedil;o.</p>
+<div id="CancelarCupom" class="methodItem">
+<h3 class="method-name">CancelarCupom</h3>
+<p>
+Cancela um cupom Fiscal
+</p>
+<div class="panel panel-default method">
+<div class="panel-heading"> Par&acirc;metros:
+</div>
+<table class="table table-condensed table-hover">
+<tr>
+<td class="">&nbsp;</td>
+<td class="method-parameter-type"><a href="#cfCancelarRequest">cfCancelarRequest</a></td>
+<td class="method-parameter-name">cfCancelarRequest</td><td class="method-parameter-docs"><div class="first">Solicitação de cancelamento do Cupom Fiscal.</div></td>
+</tr>
+</table>
+<div class="panel-footer">
+Retorno <span class="pre"><a href="#cfCancelarResponse"><span class="lightBlue">cfCancelarResponse</span></a></span>: 
+</div>
+</div>
+<div class="method-example-area">
+<h5>Exemplo:</h5>
+<pre class="method-example-code">{<BR>  "nIdCupom": 0<BR>}</pre>
+<button class="btn btn-success method-example" data-method="CancelarCupom" data-example="%7B++%22nIdCupom%22%3A+0%7D">Teste agora mesmo</button>
+</div>
+</div>
+<div id="CancelarNFCE" class="methodItem">
+<h3 class="method-name">CancelarNFCE</h3>
+<p>
+Cancelar NFC-e.
+</p>
+<div class="panel panel-default method">
+<div class="panel-heading"> Par&acirc;metros:
+</div>
+<table class="table table-condensed table-hover">
+<tr>
+<td class="">&nbsp;</td>
+<td class="method-parameter-type"><a href="#cfCancelarNfceRequest">cfCancelarNfceRequest</a></td>
+<td class="method-parameter-name">cfCancelarNfceRequest</td><td class="method-parameter-docs"><div class="first">Solicitação de cancelamento de NFC-e.</div></td>
+</tr>
+</table>
+<div class="panel-footer">
+Retorno <span class="pre"><a href="#cfCancelarNfceResponse"><span class="lightBlue">cfCancelarNfceResponse</span></a></span>: 
+</div>
+</div>
+<div class="method-example-area">
+<h5>Exemplo:</h5>
+<pre class="method-example-code">{<BR>   "nCodigoPDV": 0,<BR>   "nNumeroCaixa": 0,<BR>   "cDataEmissao": "",<BR>   "IdenticacaoNFCE": {<BR>      "nNumeroNFCE": 0,<BR>      "nSerieNFCE": 0,<BR>      "nChaveNFCE": ""<BR>   },<BR>   "DadosCancNFCE": {<BR>      "nProtCancNFCE": 0,<BR>      "nChaveCancNFCE": "",<BR>      "cXmlCancNFCE": "",<BR>      "cDataCancelamento": "",<BR>      "cHoraCancelamento": ""<BR>   }<BR>}</pre>
+<button class="btn btn-success method-example" data-method="CancelarNFCE" data-example="%7B+++%22nCodigoPDV%22%3A+0%2C+++%22nNumeroCaixa%22%3A+0%2C+++%22cDataEmissao%22%3A+%22%22%2C+++%22IdenticacaoNFCE%22%3A+%7B++++++%22nNumeroNFCE%22%3A+0%2C++++++%22nSerieNFCE%22%3A+0%2C++++++%22nChaveNFCE%22%3A+%22%22+++%7D%2C+++%22DadosCancNFCE%22%3A+%7B++++++%22nProtCancNFCE%22%3A+0%2C++++++%22nChaveCancNFCE%22%3A+%22%22%2C++++++%22cXmlCancNFCE%22%3A+%22%22%2C++++++%22cDataCancelamento%22%3A+%22%22%2C++++++%22cHoraCancelamento%22%3A+%22%22+++%7D%7D">Teste agora mesmo</button>
+</div>
+</div>
+<div id="CancelarSAT" class="methodItem">
+<h3 class="method-name">CancelarSAT</h3>
+<p>
+Cancelar CF-e-SAT.
+</p>
+<div class="panel panel-default method">
+<div class="panel-heading"> Par&acirc;metros:
+</div>
+<table class="table table-condensed table-hover">
+<tr>
+<td class="">&nbsp;</td>
+<td class="method-parameter-type"><a href="#cfCancelarSatRequest">cfCancelarSatRequest</a></td>
+<td class="method-parameter-name">cfCancelarSatRequest</td><td class="method-parameter-docs"><div class="first">Solicitação de cancelamento de SAT.</div></td>
+</tr>
+</table>
+<div class="panel-footer">
+Retorno <span class="pre"><a href="#cfCancelarSatResponse"><span class="lightBlue">cfCancelarSatResponse</span></a></span>: 
+</div>
+</div>
+<div class="method-example-area">
+<h5>Exemplo:</h5>
+<pre class="method-example-code">{<BR>   "nCodigoPDV": 0,<BR>   "nNumeroCaixa": 0,<BR>   "cDataEmissao": "",<BR>   "IdenticacaoSAT": {<BR>      "nNumeroSAT": 0,<BR>      "nChaveSAT": "",<BR>      "cNumeroSerieSAT": ""<BR>   },<BR>   "DadosCancSAT": {<BR>      "nProtCancSAT": 0,<BR>      "nChaveCancSAT": "",<BR>      "cXmlCancSAT": "",<BR>      "cDataCancelamento": "",<BR>      "cHoraCancelamento": ""<BR>   }<BR>}</pre>
+<button class="btn btn-success method-example" data-method="CancelarSAT" data-example="%7B+++%22nCodigoPDV%22%3A+0%2C+++%22nNumeroCaixa%22%3A+0%2C+++%22cDataEmissao%22%3A+%22%22%2C+++%22IdenticacaoSAT%22%3A+%7B++++++%22nNumeroSAT%22%3A+0%2C++++++%22nChaveSAT%22%3A+%22%22%2C++++++%22cNumeroSerieSAT%22%3A+%22%22+++%7D%2C+++%22DadosCancSAT%22%3A+%7B++++++%22nProtCancSAT%22%3A+0%2C++++++%22nChaveCancSAT%22%3A+%22%22%2C++++++%22cXmlCancSAT%22%3A+%22%22%2C++++++%22cDataCancelamento%22%3A+%22%22%2C++++++%22cHoraCancelamento%22%3A+%22%22+++%7D%7D">Teste agora mesmo</button>
+</div>
+</div>
+<div id="DevolverCupom" class="methodItem">
+<h3 class="method-name">DevolverCupom</h3>
+<p>
+
+</p>
+<div class="panel panel-default method">
+<div class="panel-heading"> Par&acirc;metros:
+</div>
+<table class="table table-condensed table-hover">
+<tr>
+<td class="">&nbsp;</td>
+<td class="method-parameter-type"><a href="#cfDevolverCupomRequest">cfDevolverCupomRequest</a></td>
+<td class="method-parameter-name">cfDevolverCupomRequest</td><td class="method-parameter-docs"><div class="first">Solicitação da inclusão da devolução do Cupom Fiscal.</div></td>
+</tr>
+</table>
+<div class="panel-footer">
+Retorno <span class="pre"><a href="#cfDevolverCupomResponse"><span class="lightBlue">cfDevolverCupomResponse</span></a></span>: 
+</div>
+</div>
+<div class="method-example-area">
+<h5>Exemplo:</h5>
+<pre class="method-example-code">{<BR>  "nIdCupom": 0,<BR>  "nIdMotivDevol": 0,<BR>  "itens": [<BR>    {<BR>      "nIdItem": 0,<BR>      "nQuant": 0<BR>    }<BR>  ]<BR>}</pre>
+<button class="btn btn-success method-example" data-method="DevolverCupom" data-example="%7B++%22nIdCupom%22%3A+0%2C++%22nIdMotivDevol%22%3A+0%2C++%22itens%22%3A+%5B++++%7B++++++%22nIdItem%22%3A+0%2C++++++%22nQuant%22%3A+0++++%7D++%5D%7D">Teste agora mesmo</button>
+</div>
+</div>
+<div id="ExcluirCupom" class="methodItem">
+<h3 class="method-name">ExcluirCupom</h3>
+<p>
+Exclui um Cupom Fiscal.
+</p>
+<div class="panel panel-default method">
+<div class="panel-heading"> Par&acirc;metros:
+</div>
+<table class="table table-condensed table-hover">
+<tr>
+<td class="">&nbsp;</td>
+<td class="method-parameter-type"><a href="#cfExcluirRequest">cfExcluirRequest</a></td>
+<td class="method-parameter-name">cfExcluirRequest</td><td class="method-parameter-docs"><div class="first">Solicitação de exclusão de Cupom Fiscal.</div></td>
+</tr>
+</table>
+<div class="panel-footer">
+Retorno <span class="pre"><a href="#cfExcluirResponse"><span class="lightBlue">cfExcluirResponse</span></a></span>: 
+</div>
+</div>
+<div class="method-example-area">
+<h5>Exemplo:</h5>
+<pre class="method-example-code">{<BR>  "nIdCupom": 0<BR>}</pre>
+<button class="btn btn-success method-example" data-method="ExcluirCupom" data-example="%7B++%22nIdCupom%22%3A+0%7D">Teste agora mesmo</button>
+</div>
+</div>
+<div id="ExcluirCuponsPorNumero" class="methodItem">
+<h3 class="method-name">ExcluirCuponsPorNumero</h3>
+<p>
+
+</p>
+<div class="panel panel-default method">
+<div class="panel-heading"> Par&acirc;metros:
+</div>
+<table class="table table-condensed table-hover">
+<tr>
+<td class="">&nbsp;</td>
+<td class="method-parameter-type"><a href="#cfExcluirPorNumRequest">cfExcluirPorNumRequest</a></td>
+<td class="method-parameter-name">cfExcluirPorNumRequest</td><td class="method-parameter-docs"><div class="first">Solicitação de exclusão de Cupom Fiscal por Número.</div></td>
+</tr>
+</table>
+<div class="panel-footer">
+Retorno <span class="pre"><a href="#cfExcluirPorNumResponse"><span class="lightBlue">cfExcluirPorNumResponse</span></a></span>: 
+</div>
+</div>
+<div class="method-example-area">
+<h5>Exemplo:</h5>
+<pre class="method-example-code">{<BR>   "nCodigoPDV": 0,<BR>   "nNumeroCaixa": 0,<BR>   "cDataEmissao": "",<BR>   "nNumCupom": 0<BR>}</pre>
+<button class="btn btn-success method-example" data-method="ExcluirCuponsPorNumero" data-example="%7B+++%22nCodigoPDV%22%3A+0%2C+++%22nNumeroCaixa%22%3A+0%2C+++%22cDataEmissao%22%3A+%22%22%2C+++%22nNumCupom%22%3A+0%7D">Teste agora mesmo</button>
+</div>
+</div>
+<div id="ExcluirLote" class="methodItem">
+<h3 class="method-name">ExcluirLote</h3>
+<p>
+Excluir o lote
+</p>
+<div class="panel panel-default method">
+<div class="panel-heading"> Par&acirc;metros:
+</div>
+<table class="table table-condensed table-hover">
+<tr>
+<td class="">&nbsp;</td>
+<td class="method-parameter-type"><a href="#cfExcluirLoteRequest">cfExcluirLoteRequest</a></td>
+<td class="method-parameter-name">cfExcluirLoteRequest</td><td class="method-parameter-docs"><div class="first">Solicitação de exclusão de Lote de Cupom Fiscal.</div></td>
+</tr>
+</table>
+<div class="panel-footer">
+Retorno <span class="pre"><a href="#cfExcluirLoteResponse"><span class="lightBlue">cfExcluirLoteResponse</span></a></span>: 
+</div>
+</div>
+<div class="method-example-area">
+<h5>Exemplo:</h5>
+<pre class="method-example-code">{<BR>  "nNumLote": 0<BR>}</pre>
+<button class="btn btn-success method-example" data-method="ExcluirLote" data-example="%7B++%22nNumLote%22%3A+0%7D">Teste agora mesmo</button>
+</div>
+</div>
+<div id="ListarCupons" class="methodItem">
+<h3 class="method-name">ListarCupons</h3>
+<p>
+Lista os Cupons Fiscais.
+</p>
+<div class="panel panel-default method">
+<div class="panel-heading"> Par&acirc;metros:
+</div>
+<table class="table table-condensed table-hover">
+<tr>
+<td class="">&nbsp;</td>
+<td class="method-parameter-type"><a href="#cfListarRequest">cfListarRequest</a></td>
+<td class="method-parameter-name">cfListarRequest</td><td class="method-parameter-docs"><div class="first">Listagem de cupons fiscais.</div></td>
+</tr>
+</table>
+<div class="panel-footer">
+Retorno <span class="pre"><a href="#cfListarResponse"><span class="lightBlue">cfListarResponse</span></a></span>: 
+</div>
+</div>
+<div class="method-example-area">
+<h5>Exemplo:</h5>
+<pre class="method-example-code">{<BR>  "nPagina": 1,<BR>  "nRegPorPagina": 50,<BR>  "dDtEmisInicial": "",<BR>  "dDtEmisFinal": ""<BR>}</pre>
+<button class="btn btn-success method-example" data-method="ListarCupons" data-example="%7B++%22nPagina%22%3A+1%2C++%22nRegPorPagina%22%3A+50%2C++%22dDtEmisInicial%22%3A+%22%22%2C++%22dDtEmisFinal%22%3A+%22%22%7D">Teste agora mesmo</button>
+</div>
+</div>
+<div id="ObterProximoLote" class="methodItem">
+<h3 class="method-name">ObterProximoLote</h3>
+<p>
+
+</p>
+<div class="panel panel-default method">
+<div class="panel-heading"> Par&acirc;metros:
+</div>
+<table class="table table-condensed table-hover">
+<tr>
+<td class="">&nbsp;</td>
+<td class="method-parameter-type"><a href="#cfObterProxLoteRequest">cfObterProxLoteRequest</a></td>
+<td class="method-parameter-name">cfObterProxLoteRequest</td><td class="method-parameter-docs"><div class="first">Resposta da solicitação de listagem de cupons fiscais.</div></td>
+</tr>
+</table>
+<div class="panel-footer">
+Retorno <span class="pre"><a href="#cfObterProxLoteResponse"><span class="lightBlue">cfObterProxLoteResponse</span></a></span>: 
+</div>
+</div>
+<div class="method-example-area">
+<h5>Exemplo:</h5>
+<pre class="method-example-code">{<BR> "nCodigoPDV": ""<BR>}</pre>
+<button class="btn btn-success method-example" data-method="ObterProximoLote" data-example="%7B+%22nCodigoPDV%22%3A+%22%22%7D">Teste agora mesmo</button>
+</div>
+</div>
+<h2>Tipos Complexos</h2>
+<div class="complexTypeItem">
+<a name="DadosCancNFCE" class="anchorScroll"></a>
+<h3>DadosCancNFCE</h3>
+<p>Dados do Cancelamento da NFC-e.</p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">nProtCancNFCE</td>
+<td class="parameter-type">string<span class="parameter-lenght">30</span></td><td class="parameter-docs"><div class="first">Número do Protocolo de Cancelamento da NFC-e.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nChaveCancNFCE</td>
+<td class="parameter-type">string<span class="parameter-lenght">44</span></td><td class="parameter-docs"><div class="first">Chave de Cancelamento da NFC-e.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cXmlCancNFCE</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">XML de Cancelamento da NFC-e.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cDataCancelamento</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Data de Cancelamento.</div><div class="more"><a href="javascript:void(0)">+</a><div>No formato "dd/mm/aaaa".</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cHoraCancelamento</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Hora de Cancelamento.</div><div class="more"><a href="javascript:void(0)">+</a><div>No formato "hh:mm:ss".<BR></div></div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="DadosCancSAT" class="anchorScroll"></a>
+<h3>DadosCancSAT</h3>
+<p>Dados do Cancelamento do CF-e-SAT.</p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">nProtCancSAT</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Número do Protocolo de Cancelamento do CF-e-SAT.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nChaveCancSAT</td>
+<td class="parameter-type">string<span class="parameter-lenght">44</span></td><td class="parameter-docs"><div class="first">Número do Protocolo de Cancelamento do CF-e-SAT.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cXmlCancSAT</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">XML de Cancelamento do CF-e-SAT.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cDataCancelamento</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Data de Cancelamento.</div><div class="more"><a href="javascript:void(0)">+</a><div>No formato "dd/mm/aaaa".</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cHoraCancelamento</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Hora de Cancelamento.</div><div class="more"><a href="javascript:void(0)">+</a><div>No formato "hh:mm:ss".<BR></div></div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="IdenticacaoNFCE" class="anchorScroll"></a>
+<h3>IdenticacaoNFCE</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">nNumeroNFCE</td>
+<td class="parameter-type">string<span class="parameter-lenght">20</span></td><td class="parameter-docs"><div class="first">Número do NFC-e.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nSerieNFCE</td>
+<td class="parameter-type">string<span class="parameter-lenght">4</span></td><td class="parameter-docs"><div class="first">Número de Série da NFC-e.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nChaveNFCE</td>
+<td class="parameter-type">string<span class="parameter-lenght">44</span></td><td class="parameter-docs"><div class="first">Chave do Cupom Fiscal.</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="IdenticacaoSAT" class="anchorScroll"></a>
+<h3>IdenticacaoSAT</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">nNumeroSAT</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Número do CF-e-SAT.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nChaveSAT</td>
+<td class="parameter-type">string<span class="parameter-lenght">44</span></td><td class="parameter-docs"><div class="first">Chave da CF-e-SAT.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cNumeroSerieSAT</td>
+<td class="parameter-type">string<span class="parameter-lenght">20</span></td><td class="parameter-docs"><div class="first">Número de Série do Equipamento SAT.</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="cfCancelarNfceRequest" class="anchorScroll"></a>
+<h3>cfCancelarNfceRequest</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">nCodigoPDV</td>
+<td class="parameter-type">string<span class="parameter-lenght">20</span></td><td class="parameter-docs"><div class="first">Código do PDV.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento opcional.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nNumeroCaixa</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Número do Movimento (Caixa).</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cDataEmissao</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Data de emissão do Cupom Fiscal.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">IdenticacaoNFCE</td>
+<td class="parameter-type"><a href="#IdenticacaoNFCE">IdenticacaoNFCE</a></td><td class="parameter-docs"><div class="first">Indicação da NFC-e.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">DadosCancNFCE</td>
+<td class="parameter-type"><a href="#DadosCancNFCE">DadosCancNFCE</a></td><td class="parameter-docs"><div class="first">Dados do Cancelamento da NFC-e.</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="cfCancelarNfceResponse" class="anchorScroll"></a>
+<h3>cfCancelarNfceResponse</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">nIdCupom</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">ID do Cupom Fiscal.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCodStatus</td>
+<td class="parameter-type">string<span class="parameter-lenght">4</span></td><td class="parameter-docs"><div class="first">Código do Status do processamento.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cDesStatus</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Descrição do status de processamento.</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="cfCancelarRequest" class="anchorScroll"></a>
+<h3>cfCancelarRequest</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">nIdCupom</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">ID do Cupom Fiscal.</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="cfCancelarResponse" class="anchorScroll"></a>
+<h3>cfCancelarResponse</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">nIdCupom</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">ID do Cupom Fiscal.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCodStatus</td>
+<td class="parameter-type">string<span class="parameter-lenght">4</span></td><td class="parameter-docs"><div class="first">Código do Status do processamento.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cDesStatus</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Descrição do status de processamento.</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="cfCancelarSatRequest" class="anchorScroll"></a>
+<h3>cfCancelarSatRequest</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">nCodigoPDV</td>
+<td class="parameter-type">string<span class="parameter-lenght">20</span></td><td class="parameter-docs"><div class="first">Código do PDV.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento opcional.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nNumeroCaixa</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Número do Movimento (Caixa).</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cDataEmissao</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Data de emissão do Cupom Fiscal.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">IdenticacaoSAT</td>
+<td class="parameter-type"><a href="#IdenticacaoSAT">IdenticacaoSAT</a></td><td class="parameter-docs"><div class="first">Indicação do CF-e-SAT.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">DadosCancSAT</td>
+<td class="parameter-type"><a href="#DadosCancSAT">DadosCancSAT</a></td><td class="parameter-docs"><div class="first">Dados do Cancelamento do CF-e-SAT.</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="cfCancelarSatResponse" class="anchorScroll"></a>
+<h3>cfCancelarSatResponse</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">nIdCupom</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">ID do Cupom Fiscal.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCodStatus</td>
+<td class="parameter-type">string<span class="parameter-lenght">4</span></td><td class="parameter-docs"><div class="first">Código do Status do processamento.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cDesStatus</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Descrição do status de processamento.</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="cfDevolverCupomRequest" class="anchorScroll"></a>
+<h3>cfDevolverCupomRequest</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">nIdCupom</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">ID do Cupom Fiscal.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nIdMotivDevol</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">ID do motivo da devolução.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento obrigatório.<BR><BR>Lista de motivo de devolução em:<BR>/api/v1/geral/motivodevolucao/</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nIdCliente</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código do cliente.</div><div class="more"><a href="javascript:void(0)">+</a><div>Caso o cliente não seja informado, será assumido o cliente apontado no Cupom Fiscal<BR><BR>Utilize a tag "codigo_cliente_omie" do método "ListarClientes" da API<BR>/api/v1/geral/clientes/ <BR>para obter essa informação.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">itens</td>
+<td class="parameter-type"><a href="#itensArray">itensArray</a></td><td class="parameter-docs"><div class="first">Informações dos produtos que serão devolvidos.</div><div class="more"><a href="javascript:void(0)">+</a><div>Caso essa tag não seja preenchida será realizado a devolução integral de todos os produtos do cupom fiscal.<BR><BR>Preenchimento opcional.</div></div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="cfDevolverCupomResponse" class="anchorScroll"></a>
+<h3>cfDevolverCupomResponse</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">nIdDevolucao</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">ID da devolução.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCodStatus</td>
+<td class="parameter-type">string<span class="parameter-lenght">4</span></td><td class="parameter-docs"><div class="first">Código do Status do processamento.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cDesStatus</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Descrição do status de processamento.</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="cfExcluirLoteRequest" class="anchorScroll"></a>
+<h3>cfExcluirLoteRequest</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">nNumLote</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Número do Lote do Cupom Fiscal.</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="cfExcluirLoteResponse" class="anchorScroll"></a>
+<h3>cfExcluirLoteResponse</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">nNumLote</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Número do Lote do Cupom Fiscal.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCodStatus</td>
+<td class="parameter-type">string<span class="parameter-lenght">4</span></td><td class="parameter-docs"><div class="first">Código do Status do processamento.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cDesStatus</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Descrição do status de processamento.</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="cfExcluirPorNumRequest" class="anchorScroll"></a>
+<h3>cfExcluirPorNumRequest</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">nCodigoPDV</td>
+<td class="parameter-type">string<span class="parameter-lenght">20</span></td><td class="parameter-docs"><div class="first">Código do PDV.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento opcional.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nNumeroCaixa</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Número do Movimento (Caixa).</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cDataEmissao</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Data de emissão do Cupom Fiscal.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nNumCupom</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Número do Cupom Fiscal.</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="cfExcluirPorNumResponse" class="anchorScroll"></a>
+<h3>cfExcluirPorNumResponse</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">nIdCupom</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">ID do Cupom Fiscal.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCodStatus</td>
+<td class="parameter-type">string<span class="parameter-lenght">4</span></td><td class="parameter-docs"><div class="first">Código do Status do processamento.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cDesStatus</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Descrição do status de processamento.</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="cfExcluirRequest" class="anchorScroll"></a>
+<h3>cfExcluirRequest</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">nIdCupom</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">ID do Cupom Fiscal.</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="cfExcluirResponse" class="anchorScroll"></a>
+<h3>cfExcluirResponse</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">nIdCupom</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">ID do Cupom Fiscal.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCodStatus</td>
+<td class="parameter-type">string<span class="parameter-lenght">4</span></td><td class="parameter-docs"><div class="first">Código do Status do processamento.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cDesStatus</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Descrição do status de processamento.</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="cfListarRequest" class="anchorScroll"></a>
+<h3>cfListarRequest</h3>
+<p>Listagem de cupons fiscais.</p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">nPagina</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Número da página resgatada.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nRegPorPagina</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Número de registros retornados na página.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cOrdenarPor</td>
+<td class="parameter-type">string<span class="parameter-lenght">100</span></td><td class="parameter-docs"><div class="first">Ordem os resultados da página por:</div><div class="more"><a href="javascript:void(0)">+</a><div>NUMCUPOM - Número do Cupom Fiscal.<BR>NUMVENDA - Número da Venda.<BR>DATAEMISSAO - Data de Emissão.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cOrdemDecrescente</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Indica se a ordem de exibição é Decrescente caso seja informado "S".</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">dDtEmisInicial</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Data de emissão inicial.</div><div class="more"><a href="javascript:void(0)">+</a><div>No formato dd/mm/aaaa.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">dDtEmisFinal</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Data de emissão final.</div><div class="more"><a href="javascript:void(0)">+</a><div>No formato dd/mm/aaaa.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nNumLote</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Número do Lote do Cupom Fiscal.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nNumMovimento</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Número do Movimento (Caixa).</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cAcao</td>
+<td class="parameter-type">string<span class="parameter-lenght">3</span></td><td class="parameter-docs"><div class="first">Ação realizada.</div><div class="more"><a href="javascript:void(0)">+</a><div>Pode ser:<BR>ADD - Adiciona um cupom.<BR>TMP - Adiciona um cupom de um caixa em aberto.<BR>CAN - Cupom Cancelado.<BR>CTG - Cupom em Contingência.<BR>INU - Cupom Inutilizado.<BR>EXC - Cupom Excluído.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cModelo</td>
+<td class="parameter-type">string<span class="parameter-lenght">2</span></td><td class="parameter-docs"><div class="first">Modelo de Cupom Fiscal.</div><div class="more"><a href="javascript:void(0)">+</a><div>Pode ser:<BR>00 - ECF<BR>59 - CFe-SAT<BR>65 - NFC-e</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cProcessado</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Cupom Fiscal foi processado (S/N)?</div><div class="more"><a href="javascript:void(0)">+</a><div>Também como retornar como 'E' indicando que o cupom foi excluído.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCaixaFechado</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Caixa está fechado (S/N)?</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCancelado</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Cupom Fiscal Cancelado (S/N)?</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cErro</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Cupom Fiscal com erro no processamento (S/N)?</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nCOO</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Número do COO.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nCCF</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Número do CCF.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cNumeroSerieECF</td>
+<td class="parameter-type">string<span class="parameter-lenght">20</span></td><td class="parameter-docs"><div class="first">Número de Série da Impressora Fiscal.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nNumeroSAT</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Número do CF-e-SAT.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nChaveSAT</td>
+<td class="parameter-type">string<span class="parameter-lenght">44</span></td><td class="parameter-docs"><div class="first">Chave da CF-e-SAT.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nNumeroNFCE</td>
+<td class="parameter-type">string<span class="parameter-lenght">20</span></td><td class="parameter-docs"><div class="first">Número do NFC-e.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nSerieNFCE</td>
+<td class="parameter-type">string<span class="parameter-lenght">4</span></td><td class="parameter-docs"><div class="first">Número de Série da NFC-e.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nChaveNFCE</td>
+<td class="parameter-type">string<span class="parameter-lenght">44</span></td><td class="parameter-docs"><div class="first">Chave do Cupom Fiscal.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nCodigoPDV</td>
+<td class="parameter-type">string<span class="parameter-lenght">20</span></td><td class="parameter-docs"><div class="first">Código do PDV.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento opcional.</div></div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="cfListarResponse" class="anchorScroll"></a>
+<h3>cfListarResponse</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">nPagina</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Número da página resgatada.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nTotPaginas</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Número total de páginas encontradas.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nRegistros</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Número de registros retornados na página.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nTotRegistros</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Número total de registros encontrados.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">listaCupons</td>
+<td class="parameter-type"><a href="#listaCuponsArray">listaCuponsArray</a></td><td class="parameter-docs"><div class="first">Lista de Cupons Fiscais.</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="cfObterProxLoteRequest" class="anchorScroll"></a>
+<h3>cfObterProxLoteRequest</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">nCodigoPDV</td>
+<td class="parameter-type">string<span class="parameter-lenght">20</span></td><td class="parameter-docs"><div class="first">Código do PDV.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento opcional.</div></div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="cfObterProxLoteResponse" class="anchorScroll"></a>
+<h3>cfObterProxLoteResponse</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">nNumLote</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Número do Lote do Cupom Fiscal.</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="itens" class="anchorScroll"></a>
+<h3>itens</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">nIdItem</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">ID do item do cupom fiscal.</div><div class="more"><a href="javascript:void(0)">+</a><div>Essa informação não é exibida nas telas do Omie.<BR><BR>Preenchimento obrigatório.<BR><BR>Lista com os itens do cupom em:<BR>/api/v1/produtos/cupomfiscalconsultar/#CuponsFiscais</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nQuant</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Quantidade do produto a ser devolvida.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento opcional.<BR><BR>Caso não seja preenchida será feita a devolução integral do produto.</div></div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="itensArray" class="anchorScroll"></a>
+<h3>itensArray</h3>
+<p>Este par&acirc;metro &eacute; um array do tipo <span class="pre"><a href="#itens"><span class="lightBlue">itens</span></a></span></p>
+<p>Lista de itens</p>
+</div>
+<div class="complexTypeItem">
+<a name="listaCupons" class="anchorScroll"></a>
+<h3>listaCupons</h3>
+<p>Lista de Cupons Fiscais.</p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">nNumLote</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Número do Lote do Cupom Fiscal.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nNumMovimento</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Número do Movimento (Caixa).</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">dDtEmissao</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Data de emissão do Cupom Fiscal.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cHrEmisao</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Hora de emissão de Cupom Fiscal.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nNumVenda</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Número do Cupom Fiscal.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nNumCupom</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Número do Cupom Fiscal.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nValorNF</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Valor do Cupom Fiscal.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cProcessado</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Cupom Fiscal foi processado (S/N)?</div><div class="more"><a href="javascript:void(0)">+</a><div>Também como retornar como 'E' indicando que o cupom foi excluído.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCaixaFechado</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Caixa está fechado (S/N)?</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCancelado</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Cupom Fiscal Cancelado (S/N)?</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cErro</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Cupom Fiscal com erro no processamento (S/N)?</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cAcao</td>
+<td class="parameter-type">string<span class="parameter-lenght">3</span></td><td class="parameter-docs"><div class="first">Ação realizada.</div><div class="more"><a href="javascript:void(0)">+</a><div>Pode ser:<BR>ADD - Adiciona um cupom.<BR>TMP - Adiciona um cupom de um caixa em aberto.<BR>CAN - Cupom Cancelado.<BR>CTG - Cupom em Contingência.<BR>INU - Cupom Inutilizado.<BR>EXC - Cupom Excluído.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cModelo</td>
+<td class="parameter-type">string<span class="parameter-lenght">2</span></td><td class="parameter-docs"><div class="first">Modelo de Cupom Fiscal.</div><div class="more"><a href="javascript:void(0)">+</a><div>Pode ser:<BR>00 - ECF<BR>59 - CFe-SAT<BR>65 - NFC-e</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cChave</td>
+<td class="parameter-type">string<span class="parameter-lenght">44</span></td><td class="parameter-docs"><div class="first">Chave do Cupom Fiscal.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nIdCupom</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">ID do Cupom Fiscal.</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="listaCuponsArray" class="anchorScroll"></a>
+<h3>listaCuponsArray</h3>
+<p>Este par&acirc;metro &eacute; um array do tipo <span class="pre"><a href="#listaCupons"><span class="lightBlue">listaCupons</span></a></span></p>
+<p>Lista de listaCupons</p>
+</div>
+<div class="complexTypeItem">
+<a name="omie_fail" class="anchorScroll"></a>
+<h3>omie_fail</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">code</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Codigo do erro</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">description</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Descricao do erro</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-required">referer</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Origem do erro</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-required">fatal</td>
+<td class="parameter-type">boolean</td><td class="parameter-docs"><div class="first">Indica se eh um erro fatal</div></td>
+<tr>
+</table>
+</div>
+</div>
+<div class="col-md-3">
+<div id="affix-menu" data-spy="affix" data-offset-top="294">
+<h2>M&eacute;todos</h2>
+<nav id="index" class="hidden-print hidden-xs hidden-sm">
+<ul class="nav">
+<li><a href="#CancelarCupom">CancelarCupom</a></li>
+<li><a href="#CancelarNFCE">CancelarNFCE</a></li>
+<li><a href="#CancelarSAT">CancelarSAT</a></li>
+<li><a href="#DevolverCupom">DevolverCupom</a></li>
+<li><a href="#ExcluirCupom">ExcluirCupom</a></li>
+<li><a href="#ExcluirCuponsPorNumero">ExcluirCuponsPorNumero</a></li>
+<li><a href="#ExcluirLote">ExcluirLote</a></li>
+<li><a href="#ListarCupons">ListarCupons</a></li>
+<li><a href="#ObterProximoLote">ObterProximoLote</a></li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+</body>
+</html>

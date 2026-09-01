@@ -1,0 +1,511 @@
+<nav class="navbar navbar-expand-lg bg-azul">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="https://developer.omie.com.br/">
+            <img class="lozad img-logo" data-src="https://static.omie.com.br/images/logo/logo-omie-topo.png" src="https://static.omie.com.br/images/logo/logo-omie-topo.png" data-loaded="true">
+        </a>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <span class="borda-hover"></span>
+                    <a class="nav-link" href="https://developer.omie.com.br/my-apps/"> Aplicativos </a>
+                </li>
+                <li class="nav-item ">
+                    <span class="borda-hover"></span>
+                    <a class="nav-link" href="https://developer.omie.com.br/service-list/">
+                        Lista das API's
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <span class="borda-hover"></span>
+                    <a class="nav-link" href="https://ajuda.omie.com.br/pt-BR/collections/3045828-apis" target="_blank"> Ajuda </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<html>
+<head>
+<title>PedidoVendaFaturamento</title>
+<style type="text/css" media="all">
+  [id] { scroll-margin-top: 68px; }
+</style>
+<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+<script src="https://cdn.omie.com.br/omie-assets/js/omie-compat-v2.min.js"></script>
+<script src="/developer/themes/omie/developer.js?ts=2021.008"></script>
+<link rel="stylesheet" href="//app.omie.com.br/wp-content/themes/omie/bootstrap/css/bootstrap.min.css" async/>
+<link href="https://cdn.omie.com.br/assets/developer/css/site.css?ts=2021.008" media="all" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="/developer/themes/omie/developer.css?ts=2021.008" async/>
+</head>
+<body>
+<div class="jumbotron banner bg-azul">
+<div class="container">
+<img src="https://cdn.omie.com.br/assets/developer/images/seta-azuis.png" alt="" class="img-setas">
+<div class="row align-items-center">
+<div class="col-12">
+<h1>PedidoVendaFaturamento</h1>
+<ul class="nav nav-tabs" role="tablist">
+  <li role="presentation" class="active"><a href="#section-endpoint" aria-controls="section-endpoint" role="tab" data-toggle="tab">Endpoint</a></li>
+  <li role="presentation" class="pull-right"><a href="#section-wsdl" aria-controls="section-wsdl" role="tab" data-toggle="tab">WSDL</a></li>
+  <li role="presentation" class="pull-right"><a href="#section-php-soap" aria-controls="section-php-soap" role="tab" data-toggle="tab">PHP SOAP</a></li>
+  <li role="presentation" class="pull-right"><a href="#section-json" aria-controls="section-json" role="tab" data-toggle="tab">JSON</a></li>
+</ul>
+<div class="tab-content">
+  <div role="tabpanel" class="tab-pane fade in active" id="section-endpoint">
+    <h4>Endpoint URI</h4>
+    <a class="highlight" href="https://app.omie.com.br/api/v1/produtos/pedidovendafat/"><pre><code>https://app.omie.com.br/api/v1/produtos/pedidovendafat/</code></pre></a>
+  </div>
+  <div role="tabpanel" class="tab-pane fade" id="section-wsdl">
+    <h4>WSDL URI</h4>
+    <a class="highlight" href="https://app.omie.com.br/api/v1/produtos/pedidovendafat/?WSDL"><pre><code>https://app.omie.com.br/api/v1/produtos/pedidovendafat/?WSDL</code></pre></a>
+  </div>
+  <div role="tabpanel" class="tab-pane fade" id="section-php-soap">
+    <h4>PHP SOAP client download</h4>
+    <a class="highlight" href="https://app.omie.com.br/api/v1/produtos/pedidovendafat/?PHPSOAPCLIENT""><pre><code>https://app.omie.com.br/api/v1/produtos/pedidovendafat/?PHPSOAPCLIENT</code></pre></a>
+  </div>
+  <div role="tabpanel" class="tab-pane fade" id="section-json">
+    <h4>JSON client download URI</h4>
+    <h5>PHP</h5>
+    <a class="highlight" href="https://app.omie.com.br/api/v1/produtos/pedidovendafat/?PHPJSONCLIENT"><pre><code>https://app.omie.com.br/api/v1/produtos/pedidovendafat/?PHPJSONCLIENT</code></pre></a>
+    <h5>JavaScript (recomendado para uso apenas do lado do servidor)</h5>
+    <a class="highlight" href="https://app.omie.com.br/api/v1/produtos/pedidovendafat/?JSJSONCLIENT"><pre><code>https://app.omie.com.br/api/v1/produtos/pedidovendafat/?JSJSONCLIENT</code></pre></a>
+  </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="container">
+<div class="row">
+<div class="col-md-9">
+<h2>M&eacute;todos</h2>
+<p>Veja abaixo a documenta&ccedil;&atilde;o de cada m&eacute;todo dispon&iacute;vel para este servi&ccedil;o.</p>
+<div id="AssociarCodIntPedidoVenda" class="methodItem">
+<h3 class="method-name">AssociarCodIntPedidoVenda</h3>
+<p>
+
+</p>
+<div class="panel panel-default method">
+<div class="panel-heading"> Par&acirc;metros:
+</div>
+<table class="table table-condensed table-hover">
+<tr>
+<td class="">&nbsp;</td>
+<td class="method-parameter-type"><a href="#pvpAssociarCodIntRequest">pvpAssociarCodIntRequest</a></td>
+<td class="method-parameter-name">pvpAssociarCodIntRequest</td><td class="method-parameter-docs"><div class="first">Solicitação de alteração do código de integração do Pedido de Venda de Produto.</div></td>
+</tr>
+</table>
+<div class="panel-footer">
+Retorno <span class="pre"><a href="#pvpAssociarCodIntResponse"><span class="lightBlue">pvpAssociarCodIntResponse</span></a></span>: 
+</div>
+</div>
+<div class="method-example-area">
+<h5>Exemplo:</h5>
+<pre class="method-example-code">{<BR>  "cCodIntPed": "",<BR>  "nCodPed": 0<BR>}</pre>
+<button class="btn btn-success method-example" data-method="AssociarCodIntPedidoVenda" data-example="%7B++%22cCodIntPed%22%3A+%22%22%2C++%22nCodPed%22%3A+0%7D">Teste agora mesmo</button>
+</div>
+</div>
+<div id="CancelarPedidoVenda" class="methodItem">
+<h3 class="method-name">CancelarPedidoVenda</h3>
+<p>
+Cancela um pedido de venda de produto.
+</p>
+<div class="panel panel-default method">
+<div class="panel-heading"> Par&acirc;metros:
+</div>
+<table class="table table-condensed table-hover">
+<tr>
+<td class="">&nbsp;</td>
+<td class="method-parameter-type"><a href="#pvpCancelarRequest">pvpCancelarRequest</a></td>
+<td class="method-parameter-name">pvpCancelarRequest</td><td class="method-parameter-docs"><div class="first">Solicitação de cancelamento da Pedido de Venda de Produto.</div></td>
+</tr>
+</table>
+<div class="panel-footer">
+Retorno <span class="pre"><a href="#pvpCancelarResponse"><span class="lightBlue">pvpCancelarResponse</span></a></span>: 
+</div>
+</div>
+<div class="method-example-area">
+<h5>Exemplo:</h5>
+<pre class="method-example-code">{<BR>  "cCodIntPed": "",<BR>  "nCodPed": 0<BR>}</pre>
+<button class="btn btn-success method-example" data-method="CancelarPedidoVenda" data-example="%7B++%22cCodIntPed%22%3A+%22%22%2C++%22nCodPed%22%3A+0%7D">Teste agora mesmo</button>
+</div>
+</div>
+<div id="DuplicarPedidoVenda" class="methodItem">
+<h3 class="method-name">DuplicarPedidoVenda</h3>
+<p>
+Duplica um pedido de venda de produto.
+</p>
+<div class="panel panel-default method">
+<div class="panel-heading"> Par&acirc;metros:
+</div>
+<table class="table table-condensed table-hover">
+<tr>
+<td class="">&nbsp;</td>
+<td class="method-parameter-type"><a href="#pvpDuplicarRequest">pvpDuplicarRequest</a></td>
+<td class="method-parameter-name">pvpDuplicarRequest</td><td class="method-parameter-docs"><div class="first">Solicitação de cópia do Pedido de Venda de Produto.</div></td>
+</tr>
+</table>
+<div class="panel-footer">
+Retorno <span class="pre"><a href="#pvpDuplicarResponse"><span class="lightBlue">pvpDuplicarResponse</span></a></span>: 
+</div>
+</div>
+<div class="method-example-area">
+<h5>Exemplo:</h5>
+<pre class="method-example-code">{<BR>  "cCodIntPed": "",<BR>  "nCodPed": 0<BR>}</pre>
+<button class="btn btn-success method-example" data-method="DuplicarPedidoVenda" data-example="%7B++%22cCodIntPed%22%3A+%22%22%2C++%22nCodPed%22%3A+0%7D">Teste agora mesmo</button>
+</div>
+</div>
+<div id="FaturarPedidoVenda" class="methodItem">
+<h3 class="method-name">FaturarPedidoVenda</h3>
+<p>
+Fatura um pedido de venda de produto.
+</p>
+<div class="panel panel-default method">
+<div class="panel-heading"> Par&acirc;metros:
+</div>
+<table class="table table-condensed table-hover">
+<tr>
+<td class="">&nbsp;</td>
+<td class="method-parameter-type"><a href="#pvpFaturarRequest">pvpFaturarRequest</a></td>
+<td class="method-parameter-name">pvpFaturarRequest</td><td class="method-parameter-docs"><div class="first">Solicitação de faturamento da Pedido de Venda de Produto.</div></td>
+</tr>
+</table>
+<div class="panel-footer">
+Retorno <span class="pre"><a href="#pvpFaturarResponse"><span class="lightBlue">pvpFaturarResponse</span></a></span>: 
+</div>
+</div>
+<div class="method-example-area">
+<h5>Exemplo:</h5>
+<pre class="method-example-code">{<BR>  "cCodIntPed": "",<BR>  "nCodPed": 0<BR>}</pre>
+<button class="btn btn-success method-example" data-method="FaturarPedidoVenda" data-example="%7B++%22cCodIntPed%22%3A+%22%22%2C++%22nCodPed%22%3A+0%7D">Teste agora mesmo</button>
+</div>
+</div>
+<div id="ObterPedidosVenda" class="methodItem">
+<h3 class="method-name">ObterPedidosVenda</h3>
+<p>
+Retorna a lista de pedidos de venda a serem faturados.
+</p>
+<div class="panel panel-default method">
+<div class="panel-heading"> Par&acirc;metros:
+</div>
+<table class="table table-condensed table-hover">
+<tr>
+<td class="">&nbsp;</td>
+<td class="method-parameter-type"><a href="#pvpObterRequest">pvpObterRequest</a></td>
+<td class="method-parameter-name">pvpObterRequest</td><td class="method-parameter-docs"><div class="first">Solicitação da obtenção de Pedidos de Venda em etapa a Faturar</div></td>
+</tr>
+</table>
+<div class="panel-footer">
+Retorno <span class="pre"><a href="#pvpObterResponse"><span class="lightBlue">pvpObterResponse</span></a></span>: 
+</div>
+</div>
+<div class="method-example-area">
+<h5>Exemplo:</h5>
+<pre class="method-example-code">{<BR>  "cEtapa":"50"<BR>}</pre>
+<button class="btn btn-success method-example" data-method="ObterPedidosVenda" data-example="%7B++%22cEtapa%22%3A%2250%22%7D">Teste agora mesmo</button>
+</div>
+</div>
+<div id="ValidarPedidoVenda" class="methodItem">
+<h3 class="method-name">ValidarPedidoVenda</h3>
+<p>
+Valida um pedido de venda de produto para faturamento.
+</p>
+<div class="panel panel-default method">
+<div class="panel-heading"> Par&acirc;metros:
+</div>
+<table class="table table-condensed table-hover">
+<tr>
+<td class="">&nbsp;</td>
+<td class="method-parameter-type"><a href="#pvpValidarRequest">pvpValidarRequest</a></td>
+<td class="method-parameter-name">pvpValidarRequest</td><td class="method-parameter-docs"><div class="first">Solicitação de validação da Pedido de Venda de Produto.</div></td>
+</tr>
+</table>
+<div class="panel-footer">
+Retorno <span class="pre"><a href="#pvpValidarResponse"><span class="lightBlue">pvpValidarResponse</span></a></span>: 
+</div>
+</div>
+<div class="method-example-area">
+<h5>Exemplo:</h5>
+<pre class="method-example-code">{<BR>  "cCodIntPed": "",<BR>  "nCodPed": 0<BR>}</pre>
+<button class="btn btn-success method-example" data-method="ValidarPedidoVenda" data-example="%7B++%22cCodIntPed%22%3A+%22%22%2C++%22nCodPed%22%3A+0%7D">Teste agora mesmo</button>
+</div>
+</div>
+<h2>Tipos Complexos</h2>
+<div class="complexTypeItem">
+<a name="listaPedidosVenda" class="anchorScroll"></a>
+<h3>listaPedidosVenda</h3>
+<p>Lista de Pedidos encontrados na etapa solicitada</p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">nIdPed</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código do Pedido de Venda</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cNumPedido</td>
+<td class="parameter-type">string<span class="parameter-lenght">15</span></td><td class="parameter-docs"><div class="first">Número do Pedido de Venda</div><div class="more"><a href="javascript:void(0)">+</a><div></div></div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="listaPedidosVendaArray" class="anchorScroll"></a>
+<h3>listaPedidosVendaArray</h3>
+<p>Este par&acirc;metro &eacute; um array do tipo <span class="pre"><a href="#listaPedidosVenda"><span class="lightBlue">listaPedidosVenda</span></a></span></p>
+<p>Lista de listaPedidosVenda</p>
+</div>
+<div class="complexTypeItem">
+<a name="omie_fail" class="anchorScroll"></a>
+<h3>omie_fail</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">code</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Codigo do erro</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">description</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Descricao do erro</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-required">referer</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Origem do erro</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-required">fatal</td>
+<td class="parameter-type">boolean</td><td class="parameter-docs"><div class="first">Indica se eh um erro fatal</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="pvpAssociarCodIntRequest" class="anchorScroll"></a>
+<h3>pvpAssociarCodIntRequest</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">cCodIntPed</td>
+<td class="parameter-type">string<span class="parameter-lenght">60</span></td><td class="parameter-docs"><div class="first">Código de Integração do Pedido de Venda de Produto.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nCodPed</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código do Pedido de Venda</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="pvpAssociarCodIntResponse" class="anchorScroll"></a>
+<h3>pvpAssociarCodIntResponse</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">cCodIntPed</td>
+<td class="parameter-type">string<span class="parameter-lenght">60</span></td><td class="parameter-docs"><div class="first">Código de Integração do Pedido de Venda de Produto.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nCodPed</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código do Pedido de Venda</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCodStatus</td>
+<td class="parameter-type">string<span class="parameter-lenght">4</span></td><td class="parameter-docs"><div class="first">Código do Status</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cDescStatus</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Descrição do Status</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="pvpCancelarRequest" class="anchorScroll"></a>
+<h3>pvpCancelarRequest</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">cCodIntPed</td>
+<td class="parameter-type">string<span class="parameter-lenght">60</span></td><td class="parameter-docs"><div class="first">Código de Integração do Pedido de Venda de Produto.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nCodPed</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código do Pedido de Venda</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="pvpCancelarResponse" class="anchorScroll"></a>
+<h3>pvpCancelarResponse</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">cCodIntPed</td>
+<td class="parameter-type">string<span class="parameter-lenght">60</span></td><td class="parameter-docs"><div class="first">Código de Integração do Pedido de Venda de Produto.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nCodPed</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código do Pedido de Venda</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCodStatus</td>
+<td class="parameter-type">string<span class="parameter-lenght">4</span></td><td class="parameter-docs"><div class="first">Código do Status</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cDescStatus</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Descrição do Status</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="pvpDuplicarRequest" class="anchorScroll"></a>
+<h3>pvpDuplicarRequest</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">cCodIntPed</td>
+<td class="parameter-type">string<span class="parameter-lenght">60</span></td><td class="parameter-docs"><div class="first">Código de Integração do Pedido de Venda de Produto.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nCodPed</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código do Pedido de Venda</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="pvpDuplicarResponse" class="anchorScroll"></a>
+<h3>pvpDuplicarResponse</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">cCodIntPed</td>
+<td class="parameter-type">string<span class="parameter-lenght">60</span></td><td class="parameter-docs"><div class="first">Código de Integração do Pedido de Venda de Produto.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nCodPed</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código do Pedido de Venda</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCodStatus</td>
+<td class="parameter-type">string<span class="parameter-lenght">4</span></td><td class="parameter-docs"><div class="first">Código do Status</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cDescStatus</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Descrição do Status</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="pvpFaturarRequest" class="anchorScroll"></a>
+<h3>pvpFaturarRequest</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">cCodIntPed</td>
+<td class="parameter-type">string<span class="parameter-lenght">60</span></td><td class="parameter-docs"><div class="first">Código de Integração do Pedido de Venda de Produto.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nCodPed</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código do Pedido de Venda</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="pvpFaturarResponse" class="anchorScroll"></a>
+<h3>pvpFaturarResponse</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">cCodIntPed</td>
+<td class="parameter-type">string<span class="parameter-lenght">60</span></td><td class="parameter-docs"><div class="first">Código de Integração do Pedido de Venda de Produto.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nCodPed</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código do Pedido de Venda</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCodStatus</td>
+<td class="parameter-type">string<span class="parameter-lenght">4</span></td><td class="parameter-docs"><div class="first">Código do Status</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cDescStatus</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Descrição do Status</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="pvpObterRequest" class="anchorScroll"></a>
+<h3>pvpObterRequest</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">cEtapa</td>
+<td class="parameter-type">string<span class="parameter-lenght">2</span></td><td class="parameter-docs"><div class="first">Código de Etapa do Pedido de Venda de Produto.</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="pvpObterResponse" class="anchorScroll"></a>
+<h3>pvpObterResponse</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">cEtapa</td>
+<td class="parameter-type">string<span class="parameter-lenght">2</span></td><td class="parameter-docs"><div class="first">Código de Etapa do Pedido de Venda de Produto.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">listaPedidosVenda</td>
+<td class="parameter-type"><a href="#listaPedidosVendaArray">listaPedidosVendaArray</a></td><td class="parameter-docs"><div class="first">Lista de Pedidos encontrados na etapa solicitada</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="pvpValidarRequest" class="anchorScroll"></a>
+<h3>pvpValidarRequest</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">cCodIntPed</td>
+<td class="parameter-type">string<span class="parameter-lenght">60</span></td><td class="parameter-docs"><div class="first">Código de Integração do Pedido de Venda de Produto.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nCodPed</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código do Pedido de Venda</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="pvpValidarResponse" class="anchorScroll"></a>
+<h3>pvpValidarResponse</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">cCodIntPed</td>
+<td class="parameter-type">string<span class="parameter-lenght">60</span></td><td class="parameter-docs"><div class="first">Código de Integração do Pedido de Venda de Produto.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nCodPed</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código do Pedido de Venda</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCodStatus</td>
+<td class="parameter-type">string<span class="parameter-lenght">4</span></td><td class="parameter-docs"><div class="first">Código do Status</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cDescStatus</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Descrição do Status</div></td>
+<tr>
+</table>
+</div>
+</div>
+<div class="col-md-3">
+<div id="affix-menu" data-spy="affix" data-offset-top="294">
+<h2>M&eacute;todos</h2>
+<nav id="index" class="hidden-print hidden-xs hidden-sm">
+<ul class="nav">
+<li><a href="#AssociarCodIntPedidoVenda">AssociarCodIntPedidoVenda</a></li>
+<li><a href="#CancelarPedidoVenda">CancelarPedidoVenda</a></li>
+<li><a href="#DuplicarPedidoVenda">DuplicarPedidoVenda</a></li>
+<li><a href="#FaturarPedidoVenda">FaturarPedidoVenda</a></li>
+<li><a href="#ObterPedidosVenda">ObterPedidosVenda</a></li>
+<li><a href="#ValidarPedidoVenda">ValidarPedidoVenda</a></li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+</body>
+</html>

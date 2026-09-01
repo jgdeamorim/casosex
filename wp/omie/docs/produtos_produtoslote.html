@@ -1,0 +1,367 @@
+<nav class="navbar navbar-expand-lg bg-azul">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="https://developer.omie.com.br/">
+            <img class="lozad img-logo" data-src="https://static.omie.com.br/images/logo/logo-omie-topo.png" src="https://static.omie.com.br/images/logo/logo-omie-topo.png" data-loaded="true">
+        </a>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <span class="borda-hover"></span>
+                    <a class="nav-link" href="https://developer.omie.com.br/my-apps/"> Aplicativos </a>
+                </li>
+                <li class="nav-item ">
+                    <span class="borda-hover"></span>
+                    <a class="nav-link" href="https://developer.omie.com.br/service-list/">
+                        Lista das API's
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <span class="borda-hover"></span>
+                    <a class="nav-link" href="https://ajuda.omie.com.br/pt-BR/collections/3045828-apis" target="_blank"> Ajuda </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<html>
+<head>
+<title>ProdutosLote</title>
+<style type="text/css" media="all">
+  [id] { scroll-margin-top: 68px; }
+</style>
+<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+<script src="https://cdn.omie.com.br/omie-assets/js/omie-compat-v2.min.js"></script>
+<script src="/developer/themes/omie/developer.js?ts=2021.008"></script>
+<link rel="stylesheet" href="//app.omie.com.br/wp-content/themes/omie/bootstrap/css/bootstrap.min.css" async/>
+<link href="https://cdn.omie.com.br/assets/developer/css/site.css?ts=2021.008" media="all" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="/developer/themes/omie/developer.css?ts=2021.008" async/>
+</head>
+<body>
+<div class="jumbotron banner bg-azul">
+<div class="container">
+<img src="https://cdn.omie.com.br/assets/developer/images/seta-azuis.png" alt="" class="img-setas">
+<div class="row align-items-center">
+<div class="col-12">
+<h1>ProdutosLote</h1>
+<ul class="nav nav-tabs" role="tablist">
+  <li role="presentation" class="active"><a href="#section-endpoint" aria-controls="section-endpoint" role="tab" data-toggle="tab">Endpoint</a></li>
+  <li role="presentation" class="pull-right"><a href="#section-wsdl" aria-controls="section-wsdl" role="tab" data-toggle="tab">WSDL</a></li>
+  <li role="presentation" class="pull-right"><a href="#section-php-soap" aria-controls="section-php-soap" role="tab" data-toggle="tab">PHP SOAP</a></li>
+  <li role="presentation" class="pull-right"><a href="#section-json" aria-controls="section-json" role="tab" data-toggle="tab">JSON</a></li>
+</ul>
+<div class="tab-content">
+  <div role="tabpanel" class="tab-pane fade in active" id="section-endpoint">
+    <h4>Endpoint URI</h4>
+    <a class="highlight" href="https://app.omie.com.br/api/v1/produtos/produtoslote/"><pre><code>https://app.omie.com.br/api/v1/produtos/produtoslote/</code></pre></a>
+  </div>
+  <div role="tabpanel" class="tab-pane fade" id="section-wsdl">
+    <h4>WSDL URI</h4>
+    <a class="highlight" href="https://app.omie.com.br/api/v1/produtos/produtoslote/?WSDL"><pre><code>https://app.omie.com.br/api/v1/produtos/produtoslote/?WSDL</code></pre></a>
+  </div>
+  <div role="tabpanel" class="tab-pane fade" id="section-php-soap">
+    <h4>PHP SOAP client download</h4>
+    <a class="highlight" href="https://app.omie.com.br/api/v1/produtos/produtoslote/?PHPSOAPCLIENT""><pre><code>https://app.omie.com.br/api/v1/produtos/produtoslote/?PHPSOAPCLIENT</code></pre></a>
+  </div>
+  <div role="tabpanel" class="tab-pane fade" id="section-json">
+    <h4>JSON client download URI</h4>
+    <h5>PHP</h5>
+    <a class="highlight" href="https://app.omie.com.br/api/v1/produtos/produtoslote/?PHPJSONCLIENT"><pre><code>https://app.omie.com.br/api/v1/produtos/produtoslote/?PHPJSONCLIENT</code></pre></a>
+    <h5>JavaScript (recomendado para uso apenas do lado do servidor)</h5>
+    <a class="highlight" href="https://app.omie.com.br/api/v1/produtos/produtoslote/?JSJSONCLIENT"><pre><code>https://app.omie.com.br/api/v1/produtos/produtoslote/?JSJSONCLIENT</code></pre></a>
+  </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="container">
+<div class="row">
+<div class="col-md-9">
+<h2>M&eacute;todos</h2>
+<p>Veja abaixo a documenta&ccedil;&atilde;o de cada m&eacute;todo dispon&iacute;vel para este servi&ccedil;o.</p>
+<div id="ConsultarLote" class="methodItem">
+<h3 class="method-name">ConsultarLote</h3>
+<p>
+
+</p>
+<div class="panel panel-default method">
+<div class="panel-heading"> Par&acirc;metros:
+</div>
+<table class="table table-condensed table-hover">
+<tr>
+<td class="">&nbsp;</td>
+<td class="method-parameter-type"><a href="#loteProdutoConsultarRequest">loteProdutoConsultarRequest</a></td>
+<td class="method-parameter-name">loteProdutoConsultarRequest</td><td class="method-parameter-docs"><div class="first">Solicitação da consulta de lote.</div></td>
+</tr>
+</table>
+<div class="panel-footer">
+Retorno <span class="pre"><a href="#loteProdutoConsultarResponse"><span class="lightBlue">loteProdutoConsultarResponse</span></a></span>: 
+</div>
+</div>
+<div class="method-example-area">
+<h5>Exemplo:</h5>
+<pre class="method-example-code">{<BR>  "nCodProd": 0,<BR>  "cCodIntProd": "",<BR>  "nIdLocal": 0<BR>}</pre>
+<button class="btn btn-success method-example" data-method="ConsultarLote" data-example="%7B++%22nCodProd%22%3A+0%2C++%22cCodIntProd%22%3A+%22%22%2C++%22nIdLocal%22%3A+0%7D">Teste agora mesmo</button>
+</div>
+</div>
+<div id="ListarLotes" class="methodItem">
+<h3 class="method-name">ListarLotes</h3>
+<p>
+
+</p>
+<div class="panel panel-default method">
+<div class="panel-heading"> Par&acirc;metros:
+</div>
+<table class="table table-condensed table-hover">
+<tr>
+<td class="">&nbsp;</td>
+<td class="method-parameter-type"><a href="#loteProdutoListarRequest">loteProdutoListarRequest</a></td>
+<td class="method-parameter-name">loteProdutoListarRequest</td><td class="method-parameter-docs"><div class="first">Requisição da consulta de lote.</div></td>
+</tr>
+</table>
+<div class="panel-footer">
+Retorno <span class="pre"><a href="#loteProdutoListarResponse"><span class="lightBlue">loteProdutoListarResponse</span></a></span>: Retorno da lista de lote.
+</div>
+</div>
+<div class="method-example-area">
+<h5>Exemplo:</h5>
+<pre class="method-example-code">{<BR>  "nPagina": 1,<BR>  "nRegPorPagina": 50<BR>}</pre>
+<button class="btn btn-success method-example" data-method="ListarLotes" data-example="%7B++%22nPagina%22%3A+1%2C++%22nRegPorPagina%22%3A+50%7D">Teste agora mesmo</button>
+</div>
+</div>
+<h2>Tipos Complexos</h2>
+<div class="complexTypeItem">
+<a name="ident" class="anchorScroll"></a>
+<h3>ident</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">nCodProd</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código do produto.</div><div class="more"><a href="javascript:void(0)">+</a><div>É o ID do produto e será utilizado apenas nas APIs como chave principal para localizar um produto.<BR><BR>Quando um produto for incluído via API, você receberá um ID para esse novo produto.<BR>Recomendamos que você guarde essa informação no aplicativo que estiver integrando.<BR><BR>Utilize a tag "codigo_produto" do método "ListarProdutos" da API<BR>/api/v1/geral/produtos/<BR>para obter essa informação.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCodIntProd</td>
+<td class="parameter-type">string<span class="parameter-lenght">60</span></td><td class="parameter-docs"><div class="first">Código de integração do produto.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento Opcional.<BR><BR>Esse campo deve ser informado apenas se você incluiu o produto via API e informou um código de integração para o produto. Do contrário, informe sempre a tag "nCodProd".</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCodProduto</td>
+<td class="parameter-type">string<span class="parameter-lenght">60</span></td><td class="parameter-docs"><div class="first">Código do Produto exibido na tela de Produtos.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento Opcional.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cDescrProduto</td>
+<td class="parameter-type">string<span class="parameter-lenght">120</span></td><td class="parameter-docs"><div class="first">Descrição do produto.</div><div class="more"><a href="javascript:void(0)">+</a><div>Descrição do nome do produto no Omie.</div></div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="listaLotes" class="anchorScroll"></a>
+<h3>listaLotes</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">ident</td>
+<td class="parameter-type"><a href="#ident">ident</a></td><td class="parameter-docs"><div class="first">Identificação do produto.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">lotes</td>
+<td class="parameter-type"><a href="#lotesArray">lotesArray</a></td><td class="parameter-docs"><div class="first">Informações dos lotes do produto.</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="listaLotesArray" class="anchorScroll"></a>
+<h3>listaLotesArray</h3>
+<p>Este par&acirc;metro &eacute; um array do tipo <span class="pre"><a href="#listaLotes"><span class="lightBlue">listaLotes</span></a></span></p>
+<p>Lista de listaLotes</p>
+</div>
+<div class="complexTypeItem">
+<a name="loteProdutoConsultarRequest" class="anchorScroll"></a>
+<h3>loteProdutoConsultarRequest</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">nCodProd</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código do produto.</div><div class="more"><a href="javascript:void(0)">+</a><div>É o ID do produto e será utilizado apenas nas APIs como chave principal para localizar um produto.<BR><BR>Quando um produto for incluído via API, você receberá um ID para esse novo produto.<BR>Recomendamos que você guarde essa informação no aplicativo que estiver integrando.<BR><BR>Utilize a tag "codigo_produto" do método "ListarProdutos" da API<BR>/api/v1/geral/produtos/<BR>para obter essa informação.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCodIntProd</td>
+<td class="parameter-type">string<span class="parameter-lenght">60</span></td><td class="parameter-docs"><div class="first">Código de integração do produto.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento Opcional.<BR><BR>Esse campo deve ser informado apenas se você incluiu o produto via API e informou um código de integração para o produto. Do contrário, informe sempre a tag "nCodProd".</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nIdLocal</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código interno de identificação do local(Estoque).</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="loteProdutoConsultarResponse" class="anchorScroll"></a>
+<h3>loteProdutoConsultarResponse</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">ident</td>
+<td class="parameter-type"><a href="#ident">ident</a></td><td class="parameter-docs"><div class="first">Identificação do produto.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">lotes</td>
+<td class="parameter-type"><a href="#lotesArray">lotesArray</a></td><td class="parameter-docs"><div class="first">Informações dos lotes do produto.</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="loteProdutoListarRequest" class="anchorScroll"></a>
+<h3>loteProdutoListarRequest</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">nPagina</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Número da página que será listada.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nRegPorPagina</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Número de registros retornados.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cFiltrarApenasInclusao</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Filtrar apenas registros incluídos (S/N)</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cFiltrarApenasAlteracao</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Filtrar apenas registros alterados (S/N)</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cFiltrarPorDataDe</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Data para filtro inicial</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cFiltrarPorDataAte</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Data para filtro final</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="loteProdutoListarResponse" class="anchorScroll"></a>
+<h3>loteProdutoListarResponse</h3>
+<p>Retorno da lista de lote.</p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">nPagina</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Número da página que será listada.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nTotPaginas</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Total de páginas encontradas.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nRegistros</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Número de registros retornados.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nTotRegistros</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Total de registros encontrados.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">listaLotes</td>
+<td class="parameter-type"><a href="#listaLotesArray">listaLotesArray</a></td><td class="parameter-docs"><div class="first">Informações dos lotes do produto.</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="lotes" class="anchorScroll"></a>
+<h3>lotes</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">nIdLote</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código interno de identificação do lote.</div><div class="more"><a href="javascript:void(0)">+</a><div>É o ID do lote e será utilizado apenas nas APIs como chave principal para localizar um lote.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nIdLocal</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código interno de identificação do local(Estoque).</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cNumLote</td>
+<td class="parameter-type">string<span class="parameter-lenght">60</span></td><td class="parameter-docs"><div class="first">Numero do lote.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">dDataFabricacao</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Data fabricação do lote.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">dDataValidade</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Data validade do lote.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nQuantDisponivel</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Quantidade disponível do lote.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nQuantEntrada</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Quantidade entrada do lote.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nQuantSaida</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Quantidade de saídas do lote.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nSaldoLote</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Quantidade da entrada do produto menos a saída do produto.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nQuantReservada</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Quantidade reservada do lote.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCodAgregado</td>
+<td class="parameter-type">string<span class="parameter-lenght">20</span></td><td class="parameter-docs"><div class="first">Código agregado do lote.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cObs</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Observação.</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="lotesArray" class="anchorScroll"></a>
+<h3>lotesArray</h3>
+<p>Este par&acirc;metro &eacute; um array do tipo <span class="pre"><a href="#lotes"><span class="lightBlue">lotes</span></a></span></p>
+<p>Lista de lotes</p>
+</div>
+<div class="complexTypeItem">
+<a name="omie_fail" class="anchorScroll"></a>
+<h3>omie_fail</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">code</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Codigo do erro</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">description</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Descricao do erro</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-required">referer</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Origem do erro</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-required">fatal</td>
+<td class="parameter-type">boolean</td><td class="parameter-docs"><div class="first">Indica se eh um erro fatal</div></td>
+<tr>
+</table>
+</div>
+</div>
+<div class="col-md-3">
+<div id="affix-menu" data-spy="affix" data-offset-top="294">
+<h2>M&eacute;todos</h2>
+<nav id="index" class="hidden-print hidden-xs hidden-sm">
+<ul class="nav">
+<li><a href="#ConsultarLote">ConsultarLote</a></li>
+<li><a href="#ListarLotes">ListarLotes</a></li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+</body>
+</html>

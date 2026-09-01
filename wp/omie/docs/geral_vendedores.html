@@ -1,0 +1,671 @@
+<nav class="navbar navbar-expand-lg bg-azul">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="https://developer.omie.com.br/">
+            <img class="lozad img-logo" data-src="https://static.omie.com.br/images/logo/logo-omie-topo.png" src="https://static.omie.com.br/images/logo/logo-omie-topo.png" data-loaded="true">
+        </a>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <span class="borda-hover"></span>
+                    <a class="nav-link" href="https://developer.omie.com.br/my-apps/"> Aplicativos </a>
+                </li>
+                <li class="nav-item ">
+                    <span class="borda-hover"></span>
+                    <a class="nav-link" href="https://developer.omie.com.br/service-list/">
+                        Lista das API's
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <span class="borda-hover"></span>
+                    <a class="nav-link" href="https://ajuda.omie.com.br/pt-BR/collections/3045828-apis" target="_blank"> Ajuda </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<html>
+<head>
+<title>VendedoresCadastro</title>
+<style type="text/css" media="all">
+  [id] { scroll-margin-top: 68px; }
+</style>
+<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+<script src="https://cdn.omie.com.br/omie-assets/js/omie-compat-v2.min.js"></script>
+<script src="/developer/themes/omie/developer.js?ts=2021.008"></script>
+<link rel="stylesheet" href="//app.omie.com.br/wp-content/themes/omie/bootstrap/css/bootstrap.min.css" async/>
+<link href="https://cdn.omie.com.br/assets/developer/css/site.css?ts=2021.008" media="all" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="/developer/themes/omie/developer.css?ts=2021.008" async/>
+</head>
+<body>
+<div class="jumbotron banner bg-azul">
+<div class="container">
+<img src="https://cdn.omie.com.br/assets/developer/images/seta-azuis.png" alt="" class="img-setas">
+<div class="row align-items-center">
+<div class="col-12">
+<h1>VendedoresCadastro</h1>
+<ul class="nav nav-tabs" role="tablist">
+  <li role="presentation" class="active"><a href="#section-endpoint" aria-controls="section-endpoint" role="tab" data-toggle="tab">Endpoint</a></li>
+  <li role="presentation" class="pull-right"><a href="#section-wsdl" aria-controls="section-wsdl" role="tab" data-toggle="tab">WSDL</a></li>
+  <li role="presentation" class="pull-right"><a href="#section-php-soap" aria-controls="section-php-soap" role="tab" data-toggle="tab">PHP SOAP</a></li>
+  <li role="presentation" class="pull-right"><a href="#section-json" aria-controls="section-json" role="tab" data-toggle="tab">JSON</a></li>
+</ul>
+<div class="tab-content">
+  <div role="tabpanel" class="tab-pane fade in active" id="section-endpoint">
+    <h4>Endpoint URI</h4>
+    <a class="highlight" href="https://app.omie.com.br/api/v1/geral/vendedores/"><pre><code>https://app.omie.com.br/api/v1/geral/vendedores/</code></pre></a>
+  </div>
+  <div role="tabpanel" class="tab-pane fade" id="section-wsdl">
+    <h4>WSDL URI</h4>
+    <a class="highlight" href="https://app.omie.com.br/api/v1/geral/vendedores/?WSDL"><pre><code>https://app.omie.com.br/api/v1/geral/vendedores/?WSDL</code></pre></a>
+  </div>
+  <div role="tabpanel" class="tab-pane fade" id="section-php-soap">
+    <h4>PHP SOAP client download</h4>
+    <a class="highlight" href="https://app.omie.com.br/api/v1/geral/vendedores/?PHPSOAPCLIENT""><pre><code>https://app.omie.com.br/api/v1/geral/vendedores/?PHPSOAPCLIENT</code></pre></a>
+  </div>
+  <div role="tabpanel" class="tab-pane fade" id="section-json">
+    <h4>JSON client download URI</h4>
+    <h5>PHP</h5>
+    <a class="highlight" href="https://app.omie.com.br/api/v1/geral/vendedores/?PHPJSONCLIENT"><pre><code>https://app.omie.com.br/api/v1/geral/vendedores/?PHPJSONCLIENT</code></pre></a>
+    <h5>JavaScript (recomendado para uso apenas do lado do servidor)</h5>
+    <a class="highlight" href="https://app.omie.com.br/api/v1/geral/vendedores/?JSJSONCLIENT"><pre><code>https://app.omie.com.br/api/v1/geral/vendedores/?JSJSONCLIENT</code></pre></a>
+  </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="container">
+<div class="row">
+<div class="col-md-9">
+<h2>M&eacute;todos</h2>
+<p>Veja abaixo a documenta&ccedil;&atilde;o de cada m&eacute;todo dispon&iacute;vel para este servi&ccedil;o.</p>
+<div id="AlterarVendedor" class="methodItem">
+<h3 class="method-name">AlterarVendedor</h3>
+<p>
+Altera os dados de um vendedor
+</p>
+<div class="panel panel-default method">
+<div class="panel-heading"> Par&acirc;metros:
+</div>
+<table class="table table-condensed table-hover">
+<tr>
+<td class="">&nbsp;</td>
+<td class="method-parameter-type"><a href="#vendAlterarRequest">vendAlterarRequest</a></td>
+<td class="method-parameter-name">vendAlterarRequest</td><td class="method-parameter-docs"><div class="first">Solicitação de Alteração de um vendedor</div></td>
+</tr>
+</table>
+<div class="panel-footer">
+Retorno <span class="pre"><a href="#vendAlterarResponse"><span class="lightBlue">vendAlterarResponse</span></a></span>: 
+</div>
+</div>
+<div class="method-example-area">
+<h5>Exemplo:</h5>
+<pre class="method-example-code">{<BR>   "codigo": 0,<BR>   "codInt": "123",<BR>   "nome": "",<BR>   "inativo": "N",<BR>   "email": "teste@minhaempresa.com.br",<BR>   "fatura_pedido": "S",<BR>   "visualiza_pedido": "N",<BR>   "comissao": 10.00<BR>}</pre>
+<button class="btn btn-success method-example" data-method="AlterarVendedor" data-example="%7B+++%22codigo%22%3A+0%2C+++%22codInt%22%3A+%22123%22%2C+++%22nome%22%3A+%22%22%2C+++%22inativo%22%3A+%22N%22%2C+++%22email%22%3A+%22teste%40minhaempresa.com.br%22%2C+++%22fatura_pedido%22%3A+%22S%22%2C+++%22visualiza_pedido%22%3A+%22N%22%2C+++%22comissao%22%3A+10.00%7D">Teste agora mesmo</button>
+</div>
+</div>
+<div id="ConsultarVendedor" class="methodItem">
+<h3 class="method-name">ConsultarVendedor</h3>
+<p>
+Consulta os dados de um vendedor
+</p>
+<div class="panel panel-default method">
+<div class="panel-heading"> Par&acirc;metros:
+</div>
+<table class="table table-condensed table-hover">
+<tr>
+<td class="">&nbsp;</td>
+<td class="method-parameter-type"><a href="#vendConsultarRequest">vendConsultarRequest</a></td>
+<td class="method-parameter-name">vendConsultarRequest</td><td class="method-parameter-docs"><div class="first">Solicitação de Consulta de um Vendedor</div></td>
+</tr>
+</table>
+<div class="panel-footer">
+Retorno <span class="pre"><a href="#vendConsultarResponse"><span class="lightBlue">vendConsultarResponse</span></a></span>: Reposta da consulta de Vendedores
+</div>
+</div>
+<div class="method-example-area">
+<h5>Exemplo:</h5>
+<pre class="method-example-code">{<BR>   "codigo": 0,<BR>   "codInt": "123"<BR>}</pre>
+<button class="btn btn-success method-example" data-method="ConsultarVendedor" data-example="%7B+++%22codigo%22%3A+0%2C+++%22codInt%22%3A+%22123%22%7D">Teste agora mesmo</button>
+</div>
+</div>
+<div id="ExcluirVendedor" class="methodItem">
+<h3 class="method-name">ExcluirVendedor</h3>
+<p>
+Exclui um vendedor
+</p>
+<div class="panel panel-default method">
+<div class="panel-heading"> Par&acirc;metros:
+</div>
+<table class="table table-condensed table-hover">
+<tr>
+<td class="">&nbsp;</td>
+<td class="method-parameter-type"><a href="#vendExcluirRequest">vendExcluirRequest</a></td>
+<td class="method-parameter-name">vendExcluirRequest</td><td class="method-parameter-docs"><div class="first">Solicitação de Exclusão de um fornecedor.</div></td>
+</tr>
+</table>
+<div class="panel-footer">
+Retorno <span class="pre"><a href="#vendExcluirResponse"><span class="lightBlue">vendExcluirResponse</span></a></span>: 
+</div>
+</div>
+<div class="method-example-area">
+<h5>Exemplo:</h5>
+<pre class="method-example-code">{<BR>   "codigo": 0,<BR>   "codInt": "123"<BR>}</pre>
+<button class="btn btn-success method-example" data-method="ExcluirVendedor" data-example="%7B+++%22codigo%22%3A+0%2C+++%22codInt%22%3A+%22123%22%7D">Teste agora mesmo</button>
+</div>
+</div>
+<div id="IncluirVendedor" class="methodItem">
+<h3 class="method-name">IncluirVendedor</h3>
+<p>
+Inclui um vendedor
+</p>
+<div class="panel panel-default method">
+<div class="panel-heading"> Par&acirc;metros:
+</div>
+<table class="table table-condensed table-hover">
+<tr>
+<td class="">&nbsp;</td>
+<td class="method-parameter-type"><a href="#vendincluirRequest">vendincluirRequest</a></td>
+<td class="method-parameter-name">vendincluirRequest</td><td class="method-parameter-docs"><div class="first">Solicitação de Inclusão de um vendedor</div></td>
+</tr>
+</table>
+<div class="panel-footer">
+Retorno <span class="pre"><a href="#vendIncluirResponse"><span class="lightBlue">vendIncluirResponse</span></a></span>: 
+</div>
+</div>
+<div class="method-example-area">
+<h5>Exemplo:</h5>
+<pre class="method-example-code">{<BR>   "codInt": "123",<BR>   "nome": "",<BR>   "inativo": "N",<BR>   "email": "teste@minhaempresa.com.br",<BR>   "fatura_pedido": "S",<BR>   "visualiza_pedido": "N",<BR>   "comissao": 10.00<BR>}</pre>
+<button class="btn btn-success method-example" data-method="IncluirVendedor" data-example="%7B+++%22codInt%22%3A+%22123%22%2C+++%22nome%22%3A+%22%22%2C+++%22inativo%22%3A+%22N%22%2C+++%22email%22%3A+%22teste%40minhaempresa.com.br%22%2C+++%22fatura_pedido%22%3A+%22S%22%2C+++%22visualiza_pedido%22%3A+%22N%22%2C+++%22comissao%22%3A+10.00%7D">Teste agora mesmo</button>
+</div>
+</div>
+<div id="ListarVendedores" class="methodItem">
+<h3 class="method-name">ListarVendedores</h3>
+<p>
+Listagem de Vendedores
+</p>
+<div class="panel panel-default method">
+<div class="panel-heading"> Par&acirc;metros:
+</div>
+<table class="table table-condensed table-hover">
+<tr>
+<td class="">&nbsp;</td>
+<td class="method-parameter-type"><a href="#vendListarRequest">vendListarRequest</a></td>
+<td class="method-parameter-name">vendListarRequest</td><td class="method-parameter-docs"><div class="first">Solicitação de Listagem de Vendedores</div></td>
+</tr>
+</table>
+<div class="panel-footer">
+Retorno <span class="pre"><a href="#vendListarResponse"><span class="lightBlue">vendListarResponse</span></a></span>: Resposta da listagem de Vendedores
+</div>
+</div>
+<div class="method-example-area">
+<h5>Exemplo:</h5>
+<pre class="method-example-code">{<BR>  "pagina": 1,<BR>  "registros_por_pagina": 100,<BR>  "apenas_importado_api": "N"<BR>}</pre>
+<button class="btn btn-success method-example" data-method="ListarVendedores" data-example="%7B++%22pagina%22%3A+1%2C++%22registros_por_pagina%22%3A+100%2C++%22apenas_importado_api%22%3A+%22N%22%7D">Teste agora mesmo</button>
+</div>
+</div>
+<div id="UpsertVendedor" class="methodItem">
+<h3 class="method-name">UpsertVendedor</h3>
+<p>
+Inclui / Altera um vendedor
+</p>
+<div class="panel panel-default method">
+<div class="panel-heading"> Par&acirc;metros:
+</div>
+<table class="table table-condensed table-hover">
+<tr>
+<td class="">&nbsp;</td>
+<td class="method-parameter-type"><a href="#vendUpsertRequest">vendUpsertRequest</a></td>
+<td class="method-parameter-name">vendUpsertRequest</td><td class="method-parameter-docs"><div class="first">Solicitação de Inclusão/Alteração de um vendedor</div></td>
+</tr>
+</table>
+<div class="panel-footer">
+Retorno <span class="pre"><a href="#vendUpsertResponse"><span class="lightBlue">vendUpsertResponse</span></a></span>: 
+</div>
+</div>
+<div class="method-example-area">
+<h5>Exemplo:</h5>
+<pre class="method-example-code">{<BR>   "codigo": 0,<BR>   "codInt": "123",<BR>   "nome": "",<BR>   "inativo": "N",<BR>   "email": "teste@minhaempresa.com.br",<BR>   "fatura_pedido": "S",<BR>   "visualiza_pedido": "N",<BR>   "comissao": 10.00<BR>}</pre>
+<button class="btn btn-success method-example" data-method="UpsertVendedor" data-example="%7B+++%22codigo%22%3A+0%2C+++%22codInt%22%3A+%22123%22%2C+++%22nome%22%3A+%22%22%2C+++%22inativo%22%3A+%22N%22%2C+++%22email%22%3A+%22teste%40minhaempresa.com.br%22%2C+++%22fatura_pedido%22%3A+%22S%22%2C+++%22visualiza_pedido%22%3A+%22N%22%2C+++%22comissao%22%3A+10.00%7D">Teste agora mesmo</button>
+</div>
+</div>
+<h2>Tipos Complexos</h2>
+<div class="complexTypeItem">
+<a name="cadastro" class="anchorScroll"></a>
+<h3>cadastro</h3>
+<p>Cadastro de Vendedores</p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">codigo</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código do Vendedor</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">codInt</td>
+<td class="parameter-type">string<span class="parameter-lenght">30</span></td><td class="parameter-docs"><div class="first">Código de Integração do Vendedor</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nome</td>
+<td class="parameter-type">string<span class="parameter-lenght">70</span></td><td class="parameter-docs"><div class="first">Nome do Vendedor</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">inativo</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Indica se o vendedor está inativo [S/N]</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">email</td>
+<td class="parameter-type">string<span class="parameter-lenght">100</span></td><td class="parameter-docs"><div class="first">E-mail do vendedor.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">fatura_pedido</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">O vendedor pode faturar um pedido?</div><div class="more"><a href="javascript:void(0)">+</a><div>Informe "S" ou "N".<BR><BR></div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">visualiza_pedido</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Visualiza apenas os pedidos em que é o vendedor.</div><div class="more"><a href="javascript:void(0)">+</a><div>Informar "S" ou "N".<BR></div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">comissao</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Percentual de Comissão.</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="cadastroArray" class="anchorScroll"></a>
+<h3>cadastroArray</h3>
+<p>Este par&acirc;metro &eacute; um array do tipo <span class="pre"><a href="#cadastro"><span class="lightBlue">cadastro</span></a></span></p>
+<p>Lista de cadastro</p>
+</div>
+<div class="complexTypeItem">
+<a name="omie_fail" class="anchorScroll"></a>
+<h3>omie_fail</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">code</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Codigo do erro</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">description</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Descricao do erro</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-required">referer</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Origem do erro</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-required">fatal</td>
+<td class="parameter-type">boolean</td><td class="parameter-docs"><div class="first">Indica se eh um erro fatal</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="vendAlterarRequest" class="anchorScroll"></a>
+<h3>vendAlterarRequest</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">codigo</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código do Vendedor</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">codInt</td>
+<td class="parameter-type">string<span class="parameter-lenght">30</span></td><td class="parameter-docs"><div class="first">Código de Integração do Vendedor</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nome</td>
+<td class="parameter-type">string<span class="parameter-lenght">70</span></td><td class="parameter-docs"><div class="first">Nome do Vendedor</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">inativo</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Indica se o vendedor está inativo [S/N]</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">email</td>
+<td class="parameter-type">string<span class="parameter-lenght">100</span></td><td class="parameter-docs"><div class="first">E-mail do vendedor.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">fatura_pedido</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">O vendedor pode faturar um pedido?</div><div class="more"><a href="javascript:void(0)">+</a><div>Informe "S" ou "N".<BR><BR></div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">visualiza_pedido</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Visualiza apenas os pedidos em que é o vendedor.</div><div class="more"><a href="javascript:void(0)">+</a><div>Informar "S" ou "N".<BR></div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">comissao</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Percentual de Comissão.</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="vendAlterarResponse" class="anchorScroll"></a>
+<h3>vendAlterarResponse</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">codigo</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código do Vendedor</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">codInt</td>
+<td class="parameter-type">string<span class="parameter-lenght">30</span></td><td class="parameter-docs"><div class="first">Código de Integração do Vendedor</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">status</td>
+<td class="parameter-type">string<span class="parameter-lenght">4</span></td><td class="parameter-docs"><div class="first">Status do processamento</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">descricao</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Descrição do status</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="vendConsultarRequest" class="anchorScroll"></a>
+<h3>vendConsultarRequest</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">codigo</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código do Vendedor</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">codInt</td>
+<td class="parameter-type">string<span class="parameter-lenght">30</span></td><td class="parameter-docs"><div class="first">Código de Integração do Vendedor</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="vendConsultarResponse" class="anchorScroll"></a>
+<h3>vendConsultarResponse</h3>
+<p>Reposta da consulta de Vendedores</p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">codigo</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código do Vendedor</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">codInt</td>
+<td class="parameter-type">string<span class="parameter-lenght">30</span></td><td class="parameter-docs"><div class="first">Código de Integração do Vendedor</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nome</td>
+<td class="parameter-type">string<span class="parameter-lenght">70</span></td><td class="parameter-docs"><div class="first">Nome do Vendedor</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">inativo</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Indica se o vendedor está inativo [S/N]</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">email</td>
+<td class="parameter-type">string<span class="parameter-lenght">100</span></td><td class="parameter-docs"><div class="first">E-mail do vendedor.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">fatura_pedido</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">O vendedor pode faturar um pedido?</div><div class="more"><a href="javascript:void(0)">+</a><div>Informe "S" ou "N".<BR><BR></div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">visualiza_pedido</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Visualiza apenas os pedidos em que é o vendedor.</div><div class="more"><a href="javascript:void(0)">+</a><div>Informar "S" ou "N".<BR></div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">comissao</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Percentual de Comissão.</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="vendExcluirRequest" class="anchorScroll"></a>
+<h3>vendExcluirRequest</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">codigo</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código do Vendedor</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">codInt</td>
+<td class="parameter-type">string<span class="parameter-lenght">30</span></td><td class="parameter-docs"><div class="first">Código de Integração do Vendedor</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="vendExcluirResponse" class="anchorScroll"></a>
+<h3>vendExcluirResponse</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">codigo</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código do Vendedor</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">codInt</td>
+<td class="parameter-type">string<span class="parameter-lenght">30</span></td><td class="parameter-docs"><div class="first">Código de Integração do Vendedor</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">status</td>
+<td class="parameter-type">string<span class="parameter-lenght">4</span></td><td class="parameter-docs"><div class="first">Status do processamento</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">descricao</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Descrição do status</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="vendIncluirResponse" class="anchorScroll"></a>
+<h3>vendIncluirResponse</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">codigo</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código do Vendedor</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">codInt</td>
+<td class="parameter-type">string<span class="parameter-lenght">30</span></td><td class="parameter-docs"><div class="first">Código de Integração do Vendedor</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">status</td>
+<td class="parameter-type">string<span class="parameter-lenght">4</span></td><td class="parameter-docs"><div class="first">Status do processamento</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">descricao</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Descrição do status</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="vendListarRequest" class="anchorScroll"></a>
+<h3>vendListarRequest</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">pagina</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Número da página que será listada.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">registros_por_pagina</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Número de registros retornados.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">apenas_importado_api</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">DEPRECATED</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">ordenar_por</td>
+<td class="parameter-type">string<span class="parameter-lenght">100</span></td><td class="parameter-docs"><div class="first">Ordenar o resultado da página por:</div><div class="more"><a href="javascript:void(0)">+</a><div>CODIGO - Código do lançamento do Omie;<BR>INTEGRACAO - Código do lançamento interno do seu sistema;<BR>DATA_LANCAMENTO - Data do lançamento.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">ordem_descrescente</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Indica se a ordem de exibição é decrescente caso seja informado "S".</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">filtrar_por_data_de</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Filtrar lançamentos incluídos e/ou alterados até a data</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">filtrar_por_data_ate</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Filtrar lançamentos incluídos e/ou alterados até a data</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">filtrar_apenas_inclusao</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Filtrar apenas registros incluídos (S/N)</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">filtrar_apenas_alteracao</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Filtrar apenas registros alterados (S/N)</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">filtrar_por_email</td>
+<td class="parameter-type">string<span class="parameter-lenght">100</span></td><td class="parameter-docs"><div class="first">Filtrar os vendedores por e-mail</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">filtrar_por_nome</td>
+<td class="parameter-type">string<span class="parameter-lenght">100</span></td><td class="parameter-docs"><div class="first">Filtrar os vendedores por nome</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="vendListarResponse" class="anchorScroll"></a>
+<h3>vendListarResponse</h3>
+<p>Resposta da listagem de Vendedores</p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">pagina</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Número da página que será listada.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">total_de_paginas</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Total de páginas encontradas.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">registros</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Número de registros retornados.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">total_de_registros</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Total de registros encontrados.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cadastro</td>
+<td class="parameter-type"><a href="#cadastroArray">cadastroArray</a></td><td class="parameter-docs"><div class="first">Cadastro de Vendedores</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="vendUpsertRequest" class="anchorScroll"></a>
+<h3>vendUpsertRequest</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">codigo</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código do Vendedor</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">codInt</td>
+<td class="parameter-type">string<span class="parameter-lenght">30</span></td><td class="parameter-docs"><div class="first">Código de Integração do Vendedor</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nome</td>
+<td class="parameter-type">string<span class="parameter-lenght">70</span></td><td class="parameter-docs"><div class="first">Nome do Vendedor</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">inativo</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Indica se o vendedor está inativo [S/N]</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">email</td>
+<td class="parameter-type">string<span class="parameter-lenght">100</span></td><td class="parameter-docs"><div class="first">E-mail do vendedor.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">fatura_pedido</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">O vendedor pode faturar um pedido?</div><div class="more"><a href="javascript:void(0)">+</a><div>Informe "S" ou "N".<BR><BR></div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">visualiza_pedido</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Visualiza apenas os pedidos em que é o vendedor.</div><div class="more"><a href="javascript:void(0)">+</a><div>Informar "S" ou "N".<BR></div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">comissao</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Percentual de Comissão.</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="vendUpsertResponse" class="anchorScroll"></a>
+<h3>vendUpsertResponse</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">codigo</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código do Vendedor</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">codInt</td>
+<td class="parameter-type">string<span class="parameter-lenght">30</span></td><td class="parameter-docs"><div class="first">Código de Integração do Vendedor</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">status</td>
+<td class="parameter-type">string<span class="parameter-lenght">4</span></td><td class="parameter-docs"><div class="first">Status do processamento</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">descricao</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Descrição do status</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="vendincluirRequest" class="anchorScroll"></a>
+<h3>vendincluirRequest</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">codInt</td>
+<td class="parameter-type">string<span class="parameter-lenght">30</span></td><td class="parameter-docs"><div class="first">Código de Integração do Vendedor</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nome</td>
+<td class="parameter-type">string<span class="parameter-lenght">70</span></td><td class="parameter-docs"><div class="first">Nome do Vendedor</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">inativo</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Indica se o vendedor está inativo [S/N]</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">email</td>
+<td class="parameter-type">string<span class="parameter-lenght">100</span></td><td class="parameter-docs"><div class="first">E-mail do vendedor.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">fatura_pedido</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">O vendedor pode faturar um pedido?</div><div class="more"><a href="javascript:void(0)">+</a><div>Informe "S" ou "N".<BR><BR></div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">visualiza_pedido</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Visualiza apenas os pedidos em que é o vendedor.</div><div class="more"><a href="javascript:void(0)">+</a><div>Informar "S" ou "N".<BR></div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">comissao</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Percentual de Comissão.</div></td>
+<tr>
+</table>
+</div>
+</div>
+<div class="col-md-3">
+<div id="affix-menu" data-spy="affix" data-offset-top="294">
+<h2>M&eacute;todos</h2>
+<nav id="index" class="hidden-print hidden-xs hidden-sm">
+<ul class="nav">
+<li><a href="#AlterarVendedor">AlterarVendedor</a></li>
+<li><a href="#ConsultarVendedor">ConsultarVendedor</a></li>
+<li><a href="#ExcluirVendedor">ExcluirVendedor</a></li>
+<li><a href="#IncluirVendedor">IncluirVendedor</a></li>
+<li><a href="#ListarVendedores">ListarVendedores</a></li>
+<li><a href="#UpsertVendedor">UpsertVendedor</a></li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+</body>
+</html>

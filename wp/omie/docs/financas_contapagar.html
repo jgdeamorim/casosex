@@ -1,0 +1,1167 @@
+<nav class="navbar navbar-expand-lg bg-azul">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="https://developer.omie.com.br/">
+            <img class="lozad img-logo" data-src="https://static.omie.com.br/images/logo/logo-omie-topo.png" src="https://static.omie.com.br/images/logo/logo-omie-topo.png" data-loaded="true">
+        </a>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <span class="borda-hover"></span>
+                    <a class="nav-link" href="https://developer.omie.com.br/my-apps/"> Aplicativos </a>
+                </li>
+                <li class="nav-item ">
+                    <span class="borda-hover"></span>
+                    <a class="nav-link" href="https://developer.omie.com.br/service-list/">
+                        Lista das API's
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <span class="borda-hover"></span>
+                    <a class="nav-link" href="https://ajuda.omie.com.br/pt-BR/collections/3045828-apis" target="_blank"> Ajuda </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<html>
+<head>
+<title>LancamentoContaPagar</title>
+<style type="text/css" media="all">
+  [id] { scroll-margin-top: 68px; }
+</style>
+<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+<script src="https://cdn.omie.com.br/omie-assets/js/omie-compat-v2.min.js"></script>
+<script src="/developer/themes/omie/developer.js?ts=2021.008"></script>
+<link rel="stylesheet" href="//app.omie.com.br/wp-content/themes/omie/bootstrap/css/bootstrap.min.css" async/>
+<link href="https://cdn.omie.com.br/assets/developer/css/site.css?ts=2021.008" media="all" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="/developer/themes/omie/developer.css?ts=2021.008" async/>
+</head>
+<body>
+<div class="jumbotron banner bg-azul">
+<div class="container">
+<img src="https://cdn.omie.com.br/assets/developer/images/seta-azuis.png" alt="" class="img-setas">
+<div class="row align-items-center">
+<div class="col-12">
+<h1>LancamentoContaPagar</h1>
+<ul class="nav nav-tabs" role="tablist">
+  <li role="presentation" class="active"><a href="#section-endpoint" aria-controls="section-endpoint" role="tab" data-toggle="tab">Endpoint</a></li>
+  <li role="presentation" class="pull-right"><a href="#section-wsdl" aria-controls="section-wsdl" role="tab" data-toggle="tab">WSDL</a></li>
+  <li role="presentation" class="pull-right"><a href="#section-php-soap" aria-controls="section-php-soap" role="tab" data-toggle="tab">PHP SOAP</a></li>
+  <li role="presentation" class="pull-right"><a href="#section-json" aria-controls="section-json" role="tab" data-toggle="tab">JSON</a></li>
+</ul>
+<div class="tab-content">
+  <div role="tabpanel" class="tab-pane fade in active" id="section-endpoint">
+    <h4>Endpoint URI</h4>
+    <a class="highlight" href="https://app.omie.com.br/api/v1/financas/contapagar/"><pre><code>https://app.omie.com.br/api/v1/financas/contapagar/</code></pre></a>
+  </div>
+  <div role="tabpanel" class="tab-pane fade" id="section-wsdl">
+    <h4>WSDL URI</h4>
+    <a class="highlight" href="https://app.omie.com.br/api/v1/financas/contapagar/?WSDL"><pre><code>https://app.omie.com.br/api/v1/financas/contapagar/?WSDL</code></pre></a>
+  </div>
+  <div role="tabpanel" class="tab-pane fade" id="section-php-soap">
+    <h4>PHP SOAP client download</h4>
+    <a class="highlight" href="https://app.omie.com.br/api/v1/financas/contapagar/?PHPSOAPCLIENT""><pre><code>https://app.omie.com.br/api/v1/financas/contapagar/?PHPSOAPCLIENT</code></pre></a>
+  </div>
+  <div role="tabpanel" class="tab-pane fade" id="section-json">
+    <h4>JSON client download URI</h4>
+    <h5>PHP</h5>
+    <a class="highlight" href="https://app.omie.com.br/api/v1/financas/contapagar/?PHPJSONCLIENT"><pre><code>https://app.omie.com.br/api/v1/financas/contapagar/?PHPJSONCLIENT</code></pre></a>
+    <h5>JavaScript (recomendado para uso apenas do lado do servidor)</h5>
+    <a class="highlight" href="https://app.omie.com.br/api/v1/financas/contapagar/?JSJSONCLIENT"><pre><code>https://app.omie.com.br/api/v1/financas/contapagar/?JSJSONCLIENT</code></pre></a>
+  </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="container">
+<div class="row">
+<div class="col-md-9">
+<h2>M&eacute;todos</h2>
+<p>Veja abaixo a documenta&ccedil;&atilde;o de cada m&eacute;todo dispon&iacute;vel para este servi&ccedil;o.</p>
+<div id="AlterarContaPagar" class="methodItem">
+<h3 class="method-name">AlterarContaPagar</h3>
+<p>
+Altera uma conta a pagar
+</p>
+<div class="panel panel-default method">
+<div class="panel-heading"> Par&acirc;metros:
+</div>
+<table class="table table-condensed table-hover">
+<tr>
+<td class="">&nbsp;</td>
+<td class="method-parameter-type"><a href="#conta_pagar_cadastro">conta_pagar_cadastro</a></td>
+<td class="method-parameter-name">conta_pagar_cadastro</td><td class="method-parameter-docs"><div class="first">Cadastro de contas a pagar.</div></td>
+</tr>
+</table>
+<div class="panel-footer">
+Retorno <span class="pre"><a href="#conta_pagar_cadastro_response"><span class="lightBlue">conta_pagar_cadastro_response</span></a></span>: Resposta do Cadastro de Contas a Pagar
+</div>
+</div>
+<div class="method-example-area">
+<h5>Exemplo:</h5>
+<pre class="method-example-code">{<BR>   "codigo_lancamento_integracao": "1788304281",<BR>   "codigo_cliente_fornecedor": 4214850,<BR>   "data_vencimento": "01/09/2026",<BR>   "valor_documento": 100.00,<BR>   "codigo_categoria": "2.04.01",<BR>   "data_previsao": "01/09/2026",<BR>   "id_conta_corrente": 4243124<BR>}</pre>
+<button class="btn btn-success method-example" data-method="AlterarContaPagar" data-example="%7B+++%22codigo_lancamento_integracao%22%3A+%221788304281%22%2C+++%22codigo_cliente_fornecedor%22%3A+4214850%2C+++%22data_vencimento%22%3A+%2201%2F09%2F2026%22%2C+++%22valor_documento%22%3A+100.00%2C+++%22codigo_categoria%22%3A+%222.04.01%22%2C+++%22data_previsao%22%3A+%2201%2F09%2F2026%22%2C+++%22id_conta_corrente%22%3A+4243124%7D">Teste agora mesmo</button>
+</div>
+</div>
+<div id="CancelarPagamento" class="methodItem">
+<h3 class="method-name">CancelarPagamento</h3>
+<p>
+Cancela um pagamento realizado no Contas a Pagar
+</p>
+<div class="panel panel-default method">
+<div class="panel-heading"> Par&acirc;metros:
+</div>
+<table class="table table-condensed table-hover">
+<tr>
+<td class="">&nbsp;</td>
+<td class="method-parameter-type"><a href="#conta_pagar_cancelar_pagamento">conta_pagar_cancelar_pagamento</a></td>
+<td class="method-parameter-name">conta_pagar_cancelar_pagamento</td><td class="method-parameter-docs"><div class="first">Cancela um pagamento realizado para um título do Contas a Pagar.</div></td>
+</tr>
+</table>
+<div class="panel-footer">
+Retorno <span class="pre"><a href="#conta_pagar_cancelar_pagamento_resposta"><span class="lightBlue">conta_pagar_cancelar_pagamento_resposta</span></a></span>: 
+</div>
+</div>
+<div class="method-example-area">
+<h5>Exemplo:</h5>
+<pre class="method-example-code">{<BR> "codigo_baixa": 0<BR>}<BR></pre>
+<button class="btn btn-success method-example" data-method="CancelarPagamento" data-example="%7B+%22codigo_baixa%22%3A+0%7D">Teste agora mesmo</button>
+</div>
+</div>
+<div id="ConsultarContaPagar" class="methodItem">
+<h3 class="method-name">ConsultarContaPagar</h3>
+<p>
+Consulta uma conta a pagar
+</p>
+<div class="panel panel-default method">
+<div class="panel-heading"> Par&acirc;metros:
+</div>
+<table class="table table-condensed table-hover">
+<tr>
+<td class="">&nbsp;</td>
+<td class="method-parameter-type"><a href="#conta_pagar_cadastro_chave">conta_pagar_cadastro_chave</a></td>
+<td class="method-parameter-name">conta_pagar_cadastro_chave</td><td class="method-parameter-docs"><div class="first">Chave da conta a pagar</div></td>
+</tr>
+</table>
+<div class="panel-footer">
+Retorno <span class="pre"><a href="#conta_pagar_cadastro"><span class="lightBlue">conta_pagar_cadastro</span></a></span>: Cadastro de contas a pagar.
+</div>
+</div>
+<div class="method-example-area">
+<h5>Exemplo:</h5>
+<pre class="method-example-code">{<BR>   "codigo_lancamento_omie": 0,<BR>   "codigo_lancamento_integracao": ""<BR> }</pre>
+<button class="btn btn-success method-example" data-method="ConsultarContaPagar" data-example="%7B+++%22codigo_lancamento_omie%22%3A+0%2C+++%22codigo_lancamento_integracao%22%3A+%22%22+%7D">Teste agora mesmo</button>
+</div>
+</div>
+<div id="ExcluirContaPagar" class="methodItem">
+<h3 class="method-name">ExcluirContaPagar</h3>
+<p>
+Exclui uma conta a pagar
+</p>
+<div class="panel panel-default method">
+<div class="panel-heading"> Par&acirc;metros:
+</div>
+<table class="table table-condensed table-hover">
+<tr>
+<td class="">&nbsp;</td>
+<td class="method-parameter-type"><a href="#conta_pagar_cadastro_chave">conta_pagar_cadastro_chave</a></td>
+<td class="method-parameter-name">conta_pagar_cadastro_chave</td><td class="method-parameter-docs"><div class="first">Chave da conta a pagar</div></td>
+</tr>
+</table>
+<div class="panel-footer">
+Retorno <span class="pre"><a href="#conta_pagar_cadastro_response"><span class="lightBlue">conta_pagar_cadastro_response</span></a></span>: Resposta do Cadastro de Contas a Pagar
+</div>
+</div>
+<div class="method-example-area">
+<h5>Exemplo:</h5>
+<pre class="method-example-code">{<BR>   "codigo_lancamento_omie": 0,<BR>   "codigo_lancamento_integracao": ""<BR> }</pre>
+<button class="btn btn-success method-example" data-method="ExcluirContaPagar" data-example="%7B+++%22codigo_lancamento_omie%22%3A+0%2C+++%22codigo_lancamento_integracao%22%3A+%22%22+%7D">Teste agora mesmo</button>
+</div>
+</div>
+<div id="IncluirContaPagar" class="methodItem">
+<h3 class="method-name">IncluirContaPagar</h3>
+<p>
+Inclui uma conta a Pagar.
+</p>
+<div class="panel panel-default method">
+<div class="panel-heading"> Par&acirc;metros:
+</div>
+<table class="table table-condensed table-hover">
+<tr>
+<td class="">&nbsp;</td>
+<td class="method-parameter-type"><a href="#conta_pagar_cadastro">conta_pagar_cadastro</a></td>
+<td class="method-parameter-name">conta_pagar_cadastro</td><td class="method-parameter-docs"><div class="first">Cadastro de contas a pagar.</div></td>
+</tr>
+</table>
+<div class="panel-footer">
+Retorno <span class="pre"><a href="#conta_pagar_cadastro_response"><span class="lightBlue">conta_pagar_cadastro_response</span></a></span>: Resposta do Cadastro de Contas a Pagar
+</div>
+</div>
+<div class="method-example-area">
+<h5>Exemplo:</h5>
+<pre class="method-example-code">{<BR>   "codigo_lancamento_integracao": "1788304281",<BR>   "codigo_cliente_fornecedor": 4214850,<BR>   "data_vencimento": "01/09/2026",<BR>   "valor_documento": 100.00,<BR>   "codigo_categoria": "2.04.01",<BR>   "data_previsao": "01/09/2026",<BR>   "id_conta_corrente": 4243124<BR>}</pre>
+<button class="btn btn-success method-example" data-method="IncluirContaPagar" data-example="%7B+++%22codigo_lancamento_integracao%22%3A+%221788304281%22%2C+++%22codigo_cliente_fornecedor%22%3A+4214850%2C+++%22data_vencimento%22%3A+%2201%2F09%2F2026%22%2C+++%22valor_documento%22%3A+100.00%2C+++%22codigo_categoria%22%3A+%222.04.01%22%2C+++%22data_previsao%22%3A+%2201%2F09%2F2026%22%2C+++%22id_conta_corrente%22%3A+4243124%7D">Teste agora mesmo</button>
+</div>
+</div>
+<div id="IncluirContaPagarPorLote" class="methodItem">
+<h3 class="method-name">IncluirContaPagarPorLote</h3>
+<p>
+
+</p>
+<div class="panel panel-default method">
+<div class="panel-heading"> Par&acirc;metros:
+</div>
+<table class="table table-condensed table-hover">
+<tr>
+<td class="">&nbsp;</td>
+<td class="method-parameter-type"><a href="#conta_pagar_lote">conta_pagar_lote</a></td>
+<td class="method-parameter-name">conta_pagar_lote</td><td class="method-parameter-docs"><div class="first">Inclusão em Lote de contas a pagar&nbsp;</div></td>
+</tr>
+</table>
+<div class="panel-footer">
+Retorno <span class="pre"><a href="#conta_pagar_lote_response"><span class="lightBlue">conta_pagar_lote_response</span></a></span>: 
+</div>
+</div>
+<div class="method-example-area">
+<h5>Exemplo:</h5>
+<pre class="method-example-code">{<BR>   "lote": 100,<BR>   "conta_pagar_cadastro": [<BR>      {<BR>         "codigo_lancamento_integracao": "1788304281",<BR>         "codigo_cliente_fornecedor": 4214850,<BR>         "data_vencimento": "01/09/2026",<BR>         "valor_documento": 100.00,<BR>         "codigo_categoria": "2.04.01",<BR>         "data_previsao": "01/09/2026",<BR>         "id_conta_corrente": 4243124<BR>      },<BR>      {<BR>         "codigo_lancamento_integracao": "1788304281",<BR>         "codigo_cliente_fornecedor": 4214850,<BR>         "data_vencimento": "01/09/2026",<BR>         "valor_documento": 120.00,<BR>         "codigo_categoria": "2.04.01",<BR>         "data_previsao": "01/09/2026",<BR>         "id_conta_corrente": 4243124<BR>      }      <BR>   ]<BR> }</pre>
+<button class="btn btn-success method-example" data-method="IncluirContaPagarPorLote" data-example="%7B+++%22lote%22%3A+100%2C+++%22conta_pagar_cadastro%22%3A+%5B++++++%7B+++++++++%22codigo_lancamento_integracao%22%3A+%221788304281%22%2C+++++++++%22codigo_cliente_fornecedor%22%3A+4214850%2C+++++++++%22data_vencimento%22%3A+%2201%2F09%2F2026%22%2C+++++++++%22valor_documento%22%3A+100.00%2C+++++++++%22codigo_categoria%22%3A+%222.04.01%22%2C+++++++++%22data_previsao%22%3A+%2201%2F09%2F2026%22%2C+++++++++%22id_conta_corrente%22%3A+4243124++++++%7D%2C++++++%7B+++++++++%22codigo_lancamento_integracao%22%3A+%221788304281%22%2C+++++++++%22codigo_cliente_fornecedor%22%3A+4214850%2C+++++++++%22data_vencimento%22%3A+%2201%2F09%2F2026%22%2C+++++++++%22valor_documento%22%3A+120.00%2C+++++++++%22codigo_categoria%22%3A+%222.04.01%22%2C+++++++++%22data_previsao%22%3A+%2201%2F09%2F2026%22%2C+++++++++%22id_conta_corrente%22%3A+4243124++++++%7D+++++++++%5D+%7D">Teste agora mesmo</button>
+</div>
+</div>
+<div id="LancarPagamento" class="methodItem">
+<h3 class="method-name">LancarPagamento</h3>
+<p>
+Efetua a baixa de um pagamento do contas a pagar.
+</p>
+<div class="panel panel-default method">
+<div class="panel-heading"> Par&acirc;metros:
+</div>
+<table class="table table-condensed table-hover">
+<tr>
+<td class="">&nbsp;</td>
+<td class="method-parameter-type"><a href="#conta_pagar_lancar_pagamento">conta_pagar_lancar_pagamento</a></td>
+<td class="method-parameter-name">conta_pagar_lancar_pagamento</td><td class="method-parameter-docs"><div class="first">Informações para realizar a Baixa do Contas a Pagar.</div></td>
+</tr>
+</table>
+<div class="panel-footer">
+Retorno <span class="pre"><a href="#conta_pagar_lancar_pagamento_resposta"><span class="lightBlue">conta_pagar_lancar_pagamento_resposta</span></a></span>: 
+</div>
+</div>
+<div class="method-example-area">
+<h5>Exemplo:</h5>
+<pre class="method-example-code">{<BR>   "codigo_lancamento": 0,<BR>   "codigo_lancamento_integracao": "",<BR>   "codigo_baixa_integracao": "",<BR>   "codigo_conta_corrente": "",<BR>   "valor": 100.20,<BR>   "desconto": 0,<BR>   "juros": 0,<BR>   "multa": 0,<BR>   "data": "01/09/2026",<BR>   "observacao": "Baixa de documento realizada via API."<BR> }<BR></pre>
+<button class="btn btn-success method-example" data-method="LancarPagamento" data-example="%7B+++%22codigo_lancamento%22%3A+0%2C+++%22codigo_lancamento_integracao%22%3A+%22%22%2C+++%22codigo_baixa_integracao%22%3A+%22%22%2C+++%22codigo_conta_corrente%22%3A+%22%22%2C+++%22valor%22%3A+100.20%2C+++%22desconto%22%3A+0%2C+++%22juros%22%3A+0%2C+++%22multa%22%3A+0%2C+++%22data%22%3A+%2201%2F09%2F2026%22%2C+++%22observacao%22%3A+%22Baixa+de+documento+realizada+via+API.%22+%7D">Teste agora mesmo</button>
+</div>
+</div>
+<div id="ListarContasPagar" class="methodItem">
+<h3 class="method-name">ListarContasPagar</h3>
+<p>
+Listar as Contas a Pagar
+</p>
+<div class="panel panel-default method">
+<div class="panel-heading"> Par&acirc;metros:
+</div>
+<table class="table table-condensed table-hover">
+<tr>
+<td class="">&nbsp;</td>
+<td class="method-parameter-type"><a href="#lcpListarRequest">lcpListarRequest</a></td>
+<td class="method-parameter-name">lcpListarRequest</td><td class="method-parameter-docs"><div class="first">Solicitação de Listagem de Contas a Pagar</div></td>
+</tr>
+</table>
+<div class="panel-footer">
+Retorno <span class="pre"><a href="#lcpListarResponse"><span class="lightBlue">lcpListarResponse</span></a></span>: Resposta da listagem de Contas a Pagar
+</div>
+</div>
+<div class="method-example-area">
+<h5>Exemplo:</h5>
+<pre class="method-example-code">{<BR>       "pagina": 1,<BR>       "registros_por_pagina": 20,<BR>       "apenas_importado_api": "N"<BR>}</pre>
+<button class="btn btn-success method-example" data-method="ListarContasPagar" data-example="%7B+++++++%22pagina%22%3A+1%2C+++++++%22registros_por_pagina%22%3A+20%2C+++++++%22apenas_importado_api%22%3A+%22N%22%7D">Teste agora mesmo</button>
+</div>
+</div>
+<div id="UpsertContaPagar" class="methodItem">
+<h3 class="method-name">UpsertContaPagar</h3>
+<p>
+Upsert do Contas a Pagar
+</p>
+<div class="panel panel-default method">
+<div class="panel-heading"> Par&acirc;metros:
+</div>
+<table class="table table-condensed table-hover">
+<tr>
+<td class="">&nbsp;</td>
+<td class="method-parameter-type"><a href="#conta_pagar_cadastro">conta_pagar_cadastro</a></td>
+<td class="method-parameter-name">conta_pagar_cadastro</td><td class="method-parameter-docs"><div class="first">Cadastro de contas a pagar.</div></td>
+</tr>
+</table>
+<div class="panel-footer">
+Retorno <span class="pre"><a href="#conta_pagar_cadastro_response"><span class="lightBlue">conta_pagar_cadastro_response</span></a></span>: Resposta do Cadastro de Contas a Pagar
+</div>
+</div>
+<div class="method-example-area">
+<h5>Exemplo:</h5>
+<pre class="method-example-code">{<BR>   "codigo_lancamento_integracao": "1788304281",<BR>   "codigo_cliente_fornecedor": 4214850,<BR>   "data_vencimento": "01/09/2026",<BR>   "valor_documento": 100.00,<BR>   "codigo_categoria": "2.04.01",<BR>   "data_previsao": "01/09/2026",<BR>   "id_conta_corrente": 4243124<BR>}</pre>
+<button class="btn btn-success method-example" data-method="UpsertContaPagar" data-example="%7B+++%22codigo_lancamento_integracao%22%3A+%221788304281%22%2C+++%22codigo_cliente_fornecedor%22%3A+4214850%2C+++%22data_vencimento%22%3A+%2201%2F09%2F2026%22%2C+++%22valor_documento%22%3A+100.00%2C+++%22codigo_categoria%22%3A+%222.04.01%22%2C+++%22data_previsao%22%3A+%2201%2F09%2F2026%22%2C+++%22id_conta_corrente%22%3A+4243124%7D">Teste agora mesmo</button>
+</div>
+</div>
+<div id="UpsertContaPagarPorLote" class="methodItem">
+<h3 class="method-name">UpsertContaPagarPorLote</h3>
+<p>
+Efetua o UPSERT do Contas a Pagar por Lote
+</p>
+<div class="panel panel-default method">
+<div class="panel-heading"> Par&acirc;metros:
+</div>
+<table class="table table-condensed table-hover">
+<tr>
+<td class="">&nbsp;</td>
+<td class="method-parameter-type"><a href="#conta_pagar_lote">conta_pagar_lote</a></td>
+<td class="method-parameter-name">conta_pagar_lote</td><td class="method-parameter-docs"><div class="first">Inclusão em Lote de contas a pagar&nbsp;</div></td>
+</tr>
+</table>
+<div class="panel-footer">
+Retorno <span class="pre"><a href="#conta_pagar_lote_response"><span class="lightBlue">conta_pagar_lote_response</span></a></span>: 
+</div>
+</div>
+<div class="method-example-area">
+<h5>Exemplo:</h5>
+<pre class="method-example-code">{<BR>   "lote": 100,<BR>   "conta_pagar_cadastro": [<BR>      {<BR>         "codigo_lancamento_integracao": "1788304281",<BR>         "codigo_cliente_fornecedor": 4214850,<BR>         "data_vencimento": "01/09/2026",<BR>         "valor_documento": 100.00,<BR>         "codigo_categoria": "2.04.01",<BR>         "data_previsao": "01/09/2026",<BR>         "id_conta_corrente": 4243124<BR>      },<BR>      {<BR>         "codigo_lancamento_integracao": "1788304281",<BR>         "codigo_cliente_fornecedor": 4214850,<BR>         "data_vencimento": "01/09/2026",<BR>         "valor_documento": 120.00,<BR>         "codigo_categoria": "2.04.01",<BR>         "data_previsao": "01/09/2026",<BR>         "id_conta_corrente": 4243124<BR>      }      <BR>   ]<BR> }</pre>
+<button class="btn btn-success method-example" data-method="UpsertContaPagarPorLote" data-example="%7B+++%22lote%22%3A+100%2C+++%22conta_pagar_cadastro%22%3A+%5B++++++%7B+++++++++%22codigo_lancamento_integracao%22%3A+%221788304281%22%2C+++++++++%22codigo_cliente_fornecedor%22%3A+4214850%2C+++++++++%22data_vencimento%22%3A+%2201%2F09%2F2026%22%2C+++++++++%22valor_documento%22%3A+100.00%2C+++++++++%22codigo_categoria%22%3A+%222.04.01%22%2C+++++++++%22data_previsao%22%3A+%2201%2F09%2F2026%22%2C+++++++++%22id_conta_corrente%22%3A+4243124++++++%7D%2C++++++%7B+++++++++%22codigo_lancamento_integracao%22%3A+%221788304281%22%2C+++++++++%22codigo_cliente_fornecedor%22%3A+4214850%2C+++++++++%22data_vencimento%22%3A+%2201%2F09%2F2026%22%2C+++++++++%22valor_documento%22%3A+120.00%2C+++++++++%22codigo_categoria%22%3A+%222.04.01%22%2C+++++++++%22data_previsao%22%3A+%2201%2F09%2F2026%22%2C+++++++++%22id_conta_corrente%22%3A+4243124++++++%7D+++++++++%5D+%7D">Teste agora mesmo</button>
+</div>
+</div>
+<h2>Tipos Complexos</h2>
+<div class="complexTypeItem">
+<a name="categorias" class="anchorScroll"></a>
+<h3>categorias</h3>
+<p>Rateio de Categoria</p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">codigo_categoria</td>
+<td class="parameter-type">string<span class="parameter-lenght">20</span></td><td class="parameter-docs"><div class="first">Código da Categoria</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">valor</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Valor do Rateio</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">percentual</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Percentual da categoria</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="categoriasArray" class="anchorScroll"></a>
+<h3>categoriasArray</h3>
+<p>Este par&acirc;metro &eacute; um array do tipo <span class="pre"><a href="#categorias"><span class="lightBlue">categorias</span></a></span></p>
+<p>Lista de categorias</p>
+</div>
+<div class="complexTypeItem">
+<a name="cnab_integracao_bancaria" class="anchorScroll"></a>
+<h3>cnab_integracao_bancaria</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">codigo_forma_pagamento</td>
+<td class="parameter-type">string<span class="parameter-lenght">3</span></td><td class="parameter-docs"><div class="first">Código da Forma de Pagamento.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento Opcional.<BR><BR>Pode ser:<BR><BR>TRA - Transferência Bancária.<BR>BOL - Pagamento de Boleto.<BR>PIX - Transferência via PIX por QR Code.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">banco_transferencia</td>
+<td class="parameter-type">string<span class="parameter-lenght">3</span></td><td class="parameter-docs"><div class="first">Código do Banco para Transferência Bancária.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento obrigatório quando informado "TRA" no Código da Forma de Pagamento.<BR></div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">agencia_transferencia</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Número da Agência para Transferência Bancária.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento obrigatório quando informado "TRA" no Código da Forma de Pagamento.<BR></div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">conta_corrente_transferencia</td>
+<td class="parameter-type">string<span class="parameter-lenght">25</span></td><td class="parameter-docs"><div class="first">Número da Conta Corrente para Transferência Bancária.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento obrigatório quando informado "TRA" no Código da Forma de Pagamento.<BR></div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">finalidade_transferencia</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Finalidade da transferência.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento obrigatório quando informado "TRA" no Código da Forma de Pagamento.<BR><BR>Verificar código da Finalidade de acordo com o banco vinculado ao cadastro da conta corrente informada na tag ["id_conta_corrente"]<BR><BR>Pode ser:<BR>00001 - Pagamento de Impostos, Tributos e Taxas<BR>00002 - Pagamento a Concessionárias de Serviço Público<BR>00003 - Pagamento de Dividendos<BR>00004 - Pagamento de Salários<BR>00005 - Pagamento de Fornecedores<BR>00006 - Pagamento de Honorários<BR>00007 - Pagamento de Aluguéis e Taxas e Condomínio<BR>00008 - Pagamento de Duplicatas e Títulos<BR>00009 - Pagamento de Honorários<BR>00010 - Crédito em Conta<BR>00011 - Pagamento a Corretoras<BR>00016 - Crédito em Conta Investimento<BR>00100 - Depósito Judicial<BR>00101 - Pensão Alimentícia<BR>00200 - Transferência Internacional de Reais<BR>00201 - Ajuste Posição Mercado Futuro<BR>00202 - Repasse de valores do BNDES<BR>00203 - Liquidação de compromisso com BNDES <BR>00204 - Compra/Venda de Ações - Bolsas de Valores e Mercado de Balcão<BR>00205 - Contrato referenciado em Ações/Índices de Ações - BV/BMF<BR>00300 - Restituição de Imposto de Renda<BR>00500 - Restitiuição de Prêmio de Seguros<BR>00501 - Pagamento de indenização de Sinistro de Seguro<BR>00502 - Pagamento de Prêmio de Co-seguro<BR>00503 - Restituição de prêmio de Co-seguro<BR>00504 - Pagamento de indenização de Co-seguro<BR>00505 - Pagamento de prêmio de Resseguro<BR>00506 - Restituição de prêmio de Resseguro<BR>00507 - Pagamento de Indenização de Sinistro de Resseguro<BR>00508 - Restituição de Indenização de Sinistro de Resseguro<BR>00509 - Pagamento de Despesas com Sinistros<BR>00510 - Pagamento de Inspeções/Vistorias Prévias<BR>00511 - Pagamento de Resgate de Título de Capitalização<BR>00512 - Pagamento de Sorteio de Título de Capitalização<BR>00513 - Pagamento de Devolução de Mensalidade de Título de Capitalização<BR>00514 - Restituição de Contribuição de Plano Previdenciário<BR>00515 - Pagamento de Benefício Previdenciário de Pecúlio<BR>00516 - Pagamento de Benefício Previdenciário de Pensão<BR>00517 - Pagamento de Benefício Previdenciário de Aposentadoria<BR>00518 - Pagamento de Resgate Previdenciário<BR>00519 - Pagamento de Comissão de Corretagem<BR>00520 - Pagamento de Transferências/Portabilidade de Reserva de Seguro/Previdência<BR>01 - Crédito em Conta<BR>01 - Crédito em Conta Corrente<BR>01.3 - Transferência por Chave PIX (Obrigatório informar a chave pix na tag "pix_qrcode")<BR>02 - Pagamento de Aluguel / Condomínio<BR>03 - Pagamento de Duplicatas e Títulos<BR>04 - Pagamento de Dividendos<BR>05 - Pagamento de Mensalidades Escolares<BR>07 - Pagamento a Fornecedor / Honorários<BR>08 - Pagamento de Câmbio / Fundos / Bolsas<BR>09 - Repasse de Arrecadação / Pagamento de Tributos<BR>11 - DOC / TED para Poupança<BR>12 - DOC / TED para Depósito Judicial<BR>13 - Pensão Alimentícia<BR>14 - Restituição de Imposto de Renda<BR>99 - Outros<BR>99999 - Outros</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cpf_cnpj_transferencia</td>
+<td class="parameter-type">string<span class="parameter-lenght">20</span></td><td class="parameter-docs"><div class="first">CNPJ ou CPF do Titular.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento obrigatório quando informado "TRA" no Código da Forma de Pagamento.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nome_transferencia</td>
+<td class="parameter-type">string<span class="parameter-lenght">60</span></td><td class="parameter-docs"><div class="first">Nome do Titular da Conta Corrente.</div><div class="more"><a href="javascript:void(0)">+</a><div> <BR>Preenchimento obrigatório quando informado "TRA" no Código da Forma de Pagamento.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">codigo_barras_boleto</td>
+<td class="parameter-type">string<span class="parameter-lenght">70</span></td><td class="parameter-docs"><div class="first">Código de Barras (de Cobrança Bancária, de Concessionária ou de Impostos)</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento obrigatório quando informado "BOL" no Código da Forma de Pagamento.<BR></div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">juros_boleto</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Percentual de Juros ao Mês do Boleto.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento Opcional.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">multa_boleto</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Percentual de Multa por Atraso do Boleto.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento Opcional.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">pix_qrcode</td>
+<td class="parameter-type">string<span class="parameter-lenght">300</span></td><td class="parameter-docs"><div class="first">QR Code do PIX.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento obrigatório quando informado "PIX" no Código da Forma de Pagamento.<BR>Preenchimento obrigatório quando informado "TRA" no Código da Forma de Pagamento e a tag "finalidade_transferencia" for preenchida com "1.03".</div></div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="conta_pagar_cadastro" class="anchorScroll"></a>
+<h3>conta_pagar_cadastro</h3>
+<p>Cadastro de contas a pagar.</p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">codigo_lancamento_omie</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código do Lançamento de Contas a Pagar.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento automático na inclusão.<BR>Informe esse campo somente para pesquisa.<BR><BR>Esse campo não é exibido na tela do Contas a Pagar mas é a chave de integração via API. <BR>É uma informação interna, utilizada apenas nas APIs.<BR></div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">codigo_lancamento_integracao</td>
+<td class="parameter-type">string<span class="parameter-lenght">60</span></td><td class="parameter-docs"><div class="first">Código de Integração do Lançamento de Contas a Pagar.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento Obrigatório na inclusão.<BR>Preenchimento Opcional na Alteração/Consulta/Pesquisa.<BR><BR>Preencha esse campo com o código do lançamento do Contas a Pagar no aplicativo que você está integração com o Omie. <BR>A função dele é servir como uma mapa de relacionamento entre as aplicações. <BR>Ao realizar uma consulta/listagem de Contas a Pagar você conseguirá ver a relação entre o id do Contas a Pagar gerado no Omie e o código do Contas a Pagar existente em sua aplicação.<BR></div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">codigo_cliente_fornecedor</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código do Favorecido / Fornecedor.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento Obrigatório.<BR><BR>Utilize a tag "codigo_cliente_omie" do método "ListarClientes" da API<BR>/api/v1/geral/clientes/<BR>para obter essa informação.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">codigo_cliente_fornecedor_integracao</td>
+<td class="parameter-type">string<span class="parameter-lenght">60</span></td><td class="parameter-docs"><div class="first">Código de Integração do Favorecido / Fornecedor.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento Opcional.<BR><BR>Esse campo deve ser informado apenas se você incluiu o cliente via API e informou um código de integração para o cliente. Do contrário, informe sempre a tag "codigo_cliente_omie".<BR></div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">data_vencimento</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Data de Vencimento.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento Obrigatório.<BR><BR>Utilize o formato "dd/mm/aaaa".<BR><BR>Esse campo indica a data da vencimento do título e deve ser informado com uma data igual ou superior a data corrente.<BR></div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">valor_documento</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Valor da Conta.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento Obrigatório.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">codigo_categoria</td>
+<td class="parameter-type">string<span class="parameter-lenght">20</span></td><td class="parameter-docs"><div class="first">Código da Categoria</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">categorias</td>
+<td class="parameter-type"><a href="#categoriasArray">categoriasArray</a></td><td class="parameter-docs"><div class="first">Rateio de Categoria</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">data_previsao</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Data da Previsão de Pagamento.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento Obrigatório.<BR><BR>Utilize o formato "dd/mm/aaaa".<BR><BR>Caso não informado, assumirá a data de vencimento informada.<BR><BR>Esse campo indica a data da previsão do título e deve ser informado com uma data igual ou superior a data corrente.<BR></div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">id_conta_corrente</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código da Conta Corrente.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento Opcional.<BR><BR>Caso não informado, assumirá o padrão para o fornecedor. Caso não haja um padrão definido, retornará erro até que uma Conta Corrente válida seja informada.<BR><BR>Utilize a tag "codigo" do método "PesquisarContaCorrente" da API<BR>/api/v1/geral/contacorrente/<BR>para obter essa informação.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">numero_documento_fiscal</td>
+<td class="parameter-type">string<span class="parameter-lenght">20</span></td><td class="parameter-docs"><div class="first">Número da Nota Fiscal.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">data_emissao</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Data de Emissão.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento Opcional.<BR><BR>Caso não informado, assumirá a data corrente.<BR><BR>Informação localizada na Aba "Detalhes" do Contas a Pagar.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">data_entrada</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Data de Registro.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento Opcional.<BR><BR>Caso não informado, assumirá a data corrente.<BR><BR>Informação localizada na Aba "Detalhes" do Contas a Pagar.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">codigo_projeto</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código do Projeto.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento Opcional.<BR><BR>Informação localizada na Aba "Detalhes" do Contas a Pagar.<BR><BR>Utilize a tag "codigo" do método "ListarProjetos" da API<BR>/api/v1/geral/projetos/<BR>para obter essa informação.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">observacao</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Observação da Baixa do Contas a Receber.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">valor_pis</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Valor do PIS.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">retem_pis</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Reter PIS.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento Opcional.<BR><BR>Informar "S" ou "N".<BR><BR>Se não informado, será assumido "N" por padrão.<BR><BR>Informação localizada na Aba "Impostos Retidos" do Contas a Pagar.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">valor_cofins</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Valor do PIS.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">retem_cofins</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Reter COFINS.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento Opcional.<BR><BR>Informar "S" ou "N".<BR><BR>Se não informado, será assumido "N" por padrão.<BR><BR>Informação localizada na Aba "Impostos Retidos" do Contas a Pagar.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">valor_csll</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Valor CSLL.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento Opcional.<BR><BR>Informação localizada na Aba "Impostos Retidos" do Contas a Pagar.<BR></div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">retem_csll</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Reter CSLL.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento Opcional.<BR><BR>Informar "S" ou "N".<BR><BR>Se não informado, será assumido "N" por padrão.<BR><BR>Informação localizada na Aba "Impostos Retidos" do Contas a Pagar.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">valor_ir</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Valor IR.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento Opcional.<BR><BR>Informação localizada na Aba "Impostos Retidos" do Contas a Pagar.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">retem_ir</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Reter IR.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento Opcional.<BR><BR>Informar "S" ou "N".<BR><BR>Se não informado, será assumido "N" por padrão.<BR><BR>Informação localizada na Aba "Impostos Retidos" do Contas a Pagar.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">valor_iss</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Valor ISS.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento Opcional.<BR><BR>Informação localizada na Aba "Impostos Retidos" do Contas a Pagar.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">retem_iss</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Reter ISS.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento Opcional.<BR><BR>Informar "S" ou "N".<BR><BR>Se não informado, será assumido "N" por padrão.<BR><BR>Informação localizada na Aba "Impostos Retidos" do Contas a Pagar.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">valor_inss</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Valor INSS.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento Opcional.<BR><BR>Informação localizada na Aba "Impostos Retidos" do Contas a Pagar.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">retem_inss</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Reter INSS.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento Opcional.<BR><BR>Informar "S" ou "N".<BR><BR>Se não informado, será assumido "N" por padrão.<BR><BR>Informação localizada na Aba "Impostos Retidos" do Contas a Pagar.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">distribuicao</td>
+<td class="parameter-type"><a href="#distribuicaoArray">distribuicaoArray</a></td><td class="parameter-docs"><div class="first">Distribuição por Departamentos.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento Opcional.<BR><BR></div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">numero_pedido</td>
+<td class="parameter-type">string<span class="parameter-lenght">15</span></td><td class="parameter-docs"><div class="first">Número do Pedido.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento Opcional.<BR><BR>Informação localizada na Aba "Diversos" do Contas a Pagar.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">codigo_tipo_documento</td>
+<td class="parameter-type">string<span class="parameter-lenght">5</span></td><td class="parameter-docs"><div class="first">Código do Tipo de Documento.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento Opcional.<BR><BR>Informação localizada na Aba "Diversos" do Contas a Pagar.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">numero_documento</td>
+<td class="parameter-type">string<span class="parameter-lenght">20</span></td><td class="parameter-docs"><div class="first">Número do Documento.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento Opcional.<BR><BR>Informação localizada na Aba "Diversos" do Contas a Pagar.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">numero_parcela</td>
+<td class="parameter-type">string<span class="parameter-lenght">7</span></td><td class="parameter-docs"><div class="first">Número da parcela.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento Opcional.<BR><BR>Utilizar o formato "999/999".<BR><BR>Para 1 parcela utilize "001/001"<BR><BR>Se não informado assumirá o valor "001/001".<BR>Informação localizada na Aba "Diversos" do Contas a Pagar.<BR><BR></div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">chave_nfe</td>
+<td class="parameter-type">string<span class="parameter-lenght">44</span></td><td class="parameter-docs"><div class="first">Chave da NF.e.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento Opcional.<BR><BR>Informação localizada na Aba "Diversos" do Contas a Pagar.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">codigo_barras_ficha_compensacao</td>
+<td class="parameter-type">string<span class="parameter-lenght">70</span></td><td class="parameter-docs"><div class="first">Código de Barras (de Cobrança Bancária, de Concessionária ou de Impostos)</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento obrigatório quando informado "BOL" no Código da Forma de Pagamento.<BR></div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">codigo_vendedor</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código do Vendedor.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento Opcional.<BR><BR>Informação localizada na Aba "Diversos" do Contas a Pagar.<BR><BR>Utilize a tag "codigo" do método "ListarVendedores" da API<BR>/api/v1/geral/vendedores/<BR>para obter essa informação.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">id_origem</td>
+<td class="parameter-type">string<span class="parameter-lenght">4</span></td><td class="parameter-docs"><div class="first">Código da Origem.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento automático - Não informar.<BR><BR>Informação localizada na Aba "Diversos" do Contas a Pagar.<BR><BR>Os valores disponíveis são:<BR><BR>"APIP" - Integração de Conta a Pagar<BR>"BARP" - Conta a Pagar Importada por Código de Barras<BR>"COMP" - Parcela a Pagar de Compras<BR>"CTEP" - Parcela a Pagar de um CT-e<BR>"DEVP" - Conta a Pagar da Devolução de Venda<BR>"IMPP" - Parcela a Pagar de uma Nota de Importação<BR>"MANP" - Lançamento Manual de Conta a Pagar<BR>"NFEP" - Conta a Pagar Importada de uma NF-e<BR>"RPTP" - Repetição de Contas a Pagar<BR>"XMLP" - Conta a Pagar Importada de um arquivo XML</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">info</td>
+<td class="parameter-type"><a href="#info">info</a></td><td class="parameter-docs"><div class="first">Informações sobre a criação/alteração do lançamento de Contas a Pagar.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento automático - Não informar.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">operacao</td>
+<td class="parameter-type">string<span class="parameter-lenght">2</span></td><td class="parameter-docs"><div class="first">Código da Operação. .</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento Automático - Não preencher.<BR><BR>Esse campo indica qual tipo de operação está associada ao lançamento de Contas a Pagar.<BR><BR>Os valores disponíveis são:<BR><BR>"01" - Venda de Serviço<BR>"11" - Venda de Produto<BR>"12" - Venda de Produto pelo PDV<BR>"13" - Devolução de Venda<BR>"14" - Remessa de Produto<BR>"16" - Nota Complementar de Saída</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">status_titulo</td>
+<td class="parameter-type">string<span class="parameter-lenght">3</span></td><td class="parameter-docs"><div class="first">Status do Título.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento automático - Não informar.<BR><BR>Essa informação é retornada na consulta/pesquisa dos lançamentos de Contas a Pagar.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nsu</td>
+<td class="parameter-type">string<span class="parameter-lenght">100</span></td><td class="parameter-docs"><div class="first">DEPRECATED.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">acao</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">DEPRECATED</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">id_conta_corrente_integracao</td>
+<td class="parameter-type">string<span class="parameter-lenght">20</span></td><td class="parameter-docs"><div class="first">DEPRECATED</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">bloqueado</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">DEPRECATED</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">baixa_bloqueada</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">DEPRECATED</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">codigo_cmc7_cheque</td>
+<td class="parameter-type">string<span class="parameter-lenght">40</span></td><td class="parameter-docs"><div class="first">DEPRECATED</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">importado_api</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Importado pela API (S/N).</div><div class="more"><a href="javascript:void(0)">+</a><div>Não deve ser informado na Inclusão/Alteração.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">bloquear_exclusao</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Bloqueia a exclusão do registro. (S/N)</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cnab_integracao_bancaria</td>
+<td class="parameter-type"><a href="#cnab_integracao_bancaria">cnab_integracao_bancaria</a></td><td class="parameter-docs"><div class="first">Dados do CNAB e Integração Bancária.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">servico_tomado</td>
+<td class="parameter-type"><a href="#servico_tomado">servico_tomado</a></td><td class="parameter-docs"><div class="first">Informações da aba de Serviço Tomado da Ordem de Serviço.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">valor_pag</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Valor a pagar.</div><div class="more"><a href="javascript:void(0)">+</a><div>Disponível apenas para os métodos de consulta e listagem.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">aprendizado_rateio</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Aprendizado de rateio de departamento.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preencher com "S" ou "N".<BR><BR>Default "N"<BR><BR>Quando essa tag for preenchida com "S" será assumido o rateio de departamento para a categoria informada na tag "codigo_categoria".<BR><BR>Essa tag é utilizada apenas nos métodos de inclusão e alteração.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">baixar_documento</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Efetua a baixa automática do documento.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">conciliar_documento</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Efetua a conciliação do documento automaticamente. Opcional.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preencher com S/N.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">pagamento</td>
+<td class="parameter-type"><a href="#pagamento">pagamento</a></td><td class="parameter-docs"><div class="first">Detalhes do pagamento(baixa).</div><div class="more"><a href="javascript:void(0)">+</a><div>Informe aqui os detalhes do pagamento do lançamento.<BR><BR>Ao preencher esse campo é possível detalhar informações da baixa do documento, como: Valor pago, Desconto, Juros, Multa, etc.<BR>   <BR>Quando essa tag estiver preenchida é obrigatório o preenchimento da tag "baixar_documento" com "S" <BR><BR>Caso essa tag não seja preenchida o lançamento será baixado de forma integral de acordo com os valores do lançamento.<BR><BR>Essa tag é utilizada apenas nos métodos de Inclusão e Alteração.<BR><BR>Informação localizada na Aba "Pagamentos" no cadastro do lançamento.<BR><BR>Preenchimento opcional.</div></div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="conta_pagar_cadastroArray" class="anchorScroll"></a>
+<h3>conta_pagar_cadastroArray</h3>
+<p>Este par&acirc;metro &eacute; um array do tipo <span class="pre"><a href="#conta_pagar_cadastro"><span class="lightBlue">conta_pagar_cadastro</span></a></span></p>
+<p>Lista de conta_pagar_cadastro</p>
+</div>
+<div class="complexTypeItem">
+<a name="conta_pagar_cadastro_chave" class="anchorScroll"></a>
+<h3>conta_pagar_cadastro_chave</h3>
+<p>Chave da conta a pagar</p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">codigo_lancamento_omie</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código do Lançamento de Contas a Pagar.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento automático na inclusão.<BR>Informe esse campo somente para pesquisa.<BR><BR>Esse campo não é exibido na tela do Contas a Pagar mas é a chave de integração via API. <BR>É uma informação interna, utilizada apenas nas APIs.<BR></div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">codigo_lancamento_integracao</td>
+<td class="parameter-type">string<span class="parameter-lenght">60</span></td><td class="parameter-docs"><div class="first">Código de Integração do Lançamento de Contas a Pagar.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento Obrigatório na inclusão.<BR>Preenchimento Opcional na Alteração/Consulta/Pesquisa.<BR><BR>Preencha esse campo com o código do lançamento do Contas a Pagar no aplicativo que você está integração com o Omie. <BR>A função dele é servir como uma mapa de relacionamento entre as aplicações. <BR>Ao realizar uma consulta/listagem de Contas a Pagar você conseguirá ver a relação entre o id do Contas a Pagar gerado no Omie e o código do Contas a Pagar existente em sua aplicação.<BR></div></div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="conta_pagar_cadastro_response" class="anchorScroll"></a>
+<h3>conta_pagar_cadastro_response</h3>
+<p>Resposta do Cadastro de Contas a Pagar</p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">codigo_lancamento_omie</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código do Lançamento de Contas a Pagar.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento automático na inclusão.<BR>Informe esse campo somente para pesquisa.<BR><BR>Esse campo não é exibido na tela do Contas a Pagar mas é a chave de integração via API. <BR>É uma informação interna, utilizada apenas nas APIs.<BR></div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">codigo_lancamento_integracao</td>
+<td class="parameter-type">string<span class="parameter-lenght">60</span></td><td class="parameter-docs"><div class="first">Código de Integração do Lançamento de Contas a Pagar.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento Obrigatório na inclusão.<BR>Preenchimento Opcional na Alteração/Consulta/Pesquisa.<BR><BR>Preencha esse campo com o código do lançamento do Contas a Pagar no aplicativo que você está integração com o Omie. <BR>A função dele é servir como uma mapa de relacionamento entre as aplicações. <BR>Ao realizar uma consulta/listagem de Contas a Pagar você conseguirá ver a relação entre o id do Contas a Pagar gerado no Omie e o código do Contas a Pagar existente em sua aplicação.<BR></div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">codigo_status</td>
+<td class="parameter-type">string<span class="parameter-lenght">4</span></td><td class="parameter-docs"><div class="first">Código do Status da baixa do contas a pagar.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">descricao_status</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Descrição do Status da baixa do contas a pagar.</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="conta_pagar_cancelar_pagamento" class="anchorScroll"></a>
+<h3>conta_pagar_cancelar_pagamento</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">codigo_baixa</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código para identificar a baixa do título no Contas a Pagar.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">codigo_baixa_integracao</td>
+<td class="parameter-type">string<span class="parameter-lenght">20</span></td><td class="parameter-docs"><div class="first">Código da baixa do integrador para identificar a baixa de um título do contas a pagar.</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="conta_pagar_cancelar_pagamento_resposta" class="anchorScroll"></a>
+<h3>conta_pagar_cancelar_pagamento_resposta</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">codigo_baixa</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código para identificar a baixa do título no Contas a Pagar.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">codigo_baixa_integracao</td>
+<td class="parameter-type">string<span class="parameter-lenght">20</span></td><td class="parameter-docs"><div class="first">Código da baixa do integrador para identificar a baixa de um título do contas a pagar.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">codigo_status</td>
+<td class="parameter-type">string<span class="parameter-lenght">4</span></td><td class="parameter-docs"><div class="first">Código do Status da baixa do contas a pagar.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">descricao_status</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Descrição do Status da baixa do contas a pagar.</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="conta_pagar_lancar_pagamento" class="anchorScroll"></a>
+<h3>conta_pagar_lancar_pagamento</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">codigo_lancamento</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código do lançamento no contas a pagar.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">codigo_lancamento_integracao</td>
+<td class="parameter-type">string<span class="parameter-lenght">60</span></td><td class="parameter-docs"><div class="first">Código de Integração do Lançamento de Contas a Pagar.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento Obrigatório na inclusão.<BR>Preenchimento Opcional na Alteração/Consulta/Pesquisa.<BR><BR>Preencha esse campo com o código do lançamento do Contas a Pagar no aplicativo que você está integração com o Omie. <BR>A função dele é servir como uma mapa de relacionamento entre as aplicações. <BR>Ao realizar uma consulta/listagem de Contas a Pagar você conseguirá ver a relação entre o id do Contas a Pagar gerado no Omie e o código do Contas a Pagar existente em sua aplicação.<BR></div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">codigo_baixa</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código para identificar a baixa do título no Contas a Pagar.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">codigo_baixa_integracao</td>
+<td class="parameter-type">string<span class="parameter-lenght">20</span></td><td class="parameter-docs"><div class="first">Código da baixa do integrador para identificar a baixa de um título do contas a pagar.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">codigo_conta_corrente</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código da Conta Corrente.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">codigo_conta_corrente_integracao</td>
+<td class="parameter-type">string<span class="parameter-lenght">20</span></td><td class="parameter-docs"><div class="first">DEPRECATED</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">valor</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Valor a ser baixado.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">desconto</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Valor do desconto.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">juros</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Valor do Juros.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">multa</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Valor da multa.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">data</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Data da Baixa</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">observacao</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Observação da Baixa do Contas a Receber.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">conciliar_documento</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Efetua a conciliação do documento automaticamente. Opcional.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preencher com S/N.</div></div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="conta_pagar_lancar_pagamento_resposta" class="anchorScroll"></a>
+<h3>conta_pagar_lancar_pagamento_resposta</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">codigo_lancamento</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código do lançamento no contas a pagar.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">codigo_lancamento_integracao</td>
+<td class="parameter-type">string<span class="parameter-lenght">60</span></td><td class="parameter-docs"><div class="first">Código de Integração do Lançamento de Contas a Pagar.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento Obrigatório na inclusão.<BR>Preenchimento Opcional na Alteração/Consulta/Pesquisa.<BR><BR>Preencha esse campo com o código do lançamento do Contas a Pagar no aplicativo que você está integração com o Omie. <BR>A função dele é servir como uma mapa de relacionamento entre as aplicações. <BR>Ao realizar uma consulta/listagem de Contas a Pagar você conseguirá ver a relação entre o id do Contas a Pagar gerado no Omie e o código do Contas a Pagar existente em sua aplicação.<BR></div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">codigo_baixa</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código para identificar a baixa do título no Contas a Pagar.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">codigo_baixa_integracao</td>
+<td class="parameter-type">string<span class="parameter-lenght">20</span></td><td class="parameter-docs"><div class="first">Código da baixa do integrador para identificar a baixa de um título do contas a pagar.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">liquidado</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Indica que o recebimento liquidado.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">valor_baixado</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Valor a ser baixado.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">codigo_status</td>
+<td class="parameter-type">string<span class="parameter-lenght">4</span></td><td class="parameter-docs"><div class="first">Código do Status da baixa do contas a pagar.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">descricao_status</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Descrição do Status da baixa do contas a pagar.</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="conta_pagar_lote" class="anchorScroll"></a>
+<h3>conta_pagar_lote</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">lote</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Número do lote processado</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">conta_pagar_cadastro</td>
+<td class="parameter-type"><a href="#conta_pagar_cadastroArray">conta_pagar_cadastroArray</a></td><td class="parameter-docs"><div class="first">Cadastro de contas a pagar.</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="conta_pagar_lote_response" class="anchorScroll"></a>
+<h3>conta_pagar_lote_response</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">lote</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Número do lote processado</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">codigo_status</td>
+<td class="parameter-type">string<span class="parameter-lenght">4</span></td><td class="parameter-docs"><div class="first">Código do Status da baixa do contas a pagar.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">descricao_status</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Descrição do Status da baixa do contas a pagar.</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="distribuicao" class="anchorScroll"></a>
+<h3>distribuicao</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">cCodDep</td>
+<td class="parameter-type">string<span class="parameter-lenght">40</span></td><td class="parameter-docs"><div class="first">Código do Departamento</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cDesDep</td>
+<td class="parameter-type">string<span class="parameter-lenght">50</span></td><td class="parameter-docs"><div class="first">Descrição do Departamento</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nValDep</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Valor do rateio</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nPerDep</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Percentual do rateio</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="distribuicaoArray" class="anchorScroll"></a>
+<h3>distribuicaoArray</h3>
+<p>Este par&acirc;metro &eacute; um array do tipo <span class="pre"><a href="#distribuicao"><span class="lightBlue">distribuicao</span></a></span></p>
+<p>Lista de distribuicao</p>
+</div>
+<div class="complexTypeItem">
+<a name="info" class="anchorScroll"></a>
+<h3>info</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">dInc</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Data da Inclusão.</div><div class="more"><a href="javascript:void(0)">+</a><div>No formato dd/mm/aaaa.<BR><BR>Não deve ser informado na Inclusão/Alteração.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">hInc</td>
+<td class="parameter-type">string<span class="parameter-lenght">8</span></td><td class="parameter-docs"><div class="first">Hora da Inclusão.</div><div class="more"><a href="javascript:void(0)">+</a><div>No formato hh:mm:ss.<BR><BR>Não deve ser informado na Inclusão/Alteração.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">uInc</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Usuário da Inclusão.</div><div class="more"><a href="javascript:void(0)">+</a><div>Não deve ser informado na Inclusão/Alteração.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">dAlt</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Data da Alteração.</div><div class="more"><a href="javascript:void(0)">+</a><div>No formato dd/mm/aaaa.<BR><BR>Não deve ser informado na Inclusão/Alteração.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">hAlt</td>
+<td class="parameter-type">string<span class="parameter-lenght">8</span></td><td class="parameter-docs"><div class="first">Hora da Alteração.</div><div class="more"><a href="javascript:void(0)">+</a><div>No formato hh:mm:ss.<BR><BR>Não deve ser informado na Inclusão/Alteração.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">uAlt</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Usuário da Alteração.</div><div class="more"><a href="javascript:void(0)">+</a><div>Não deve ser informado na Inclusão/Alteração.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cImpAPI</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Importado pela API (S/N).</div><div class="more"><a href="javascript:void(0)">+</a><div>Não deve ser informado na Inclusão/Alteração.</div></div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="lcpListarRequest" class="anchorScroll"></a>
+<h3>lcpListarRequest</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">pagina</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Número da página que será listada.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">registros_por_pagina</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Número de registros retornados</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">apenas_importado_api</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Exibir apenas os registros gerados pela API.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento Opcional.<BR><BR>Informar "S" ou "N".<BR><BR>O valor padrão para esse campo é "N".</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">ordenar_por</td>
+<td class="parameter-type">string<span class="parameter-lenght">100</span></td><td class="parameter-docs"><div class="first">Ordem de exibição dos dados. </div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento Opcional.<BR><BR>O valor padrão para esse campo é "CODIGO".<BR><BR>Os valores disponíveis são:<BR>"CODIGO"<BR>"CODIGO_INTEGRACAO"</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">ordem_descrescente</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Exibir em Ordem Crescente ou Decrescente</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento Opcional.<BR><BR>Informar "S" para exibir os dados em Ordem Descrescente ou "N" para exibir os dados em Ordem Crescente.<BR><BR>O valor padrão para esse campo é "N".</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">filtrar_por_data_de</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Data de fim do filtro.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento Opcional.<BR><BR>Utilize o formato "dd/mm/aaaa".<BR><BR>Serão consideradas as datas de inclusão e alteração do lançamento de Contas a Pagar conforme definido nos campos "filtrar_apenas_inclusao" e "filtrar_apenas_alteracao".<BR></div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">filtrar_por_data_ate</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Data de fim do filtro.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento Opcional.<BR><BR>Utilize o formato "dd/mm/aaaa".<BR><BR>Serão consideradas as datas de inclusão e alteração do lançamento de Contas a Pagar conforme definido nos campos "filtrar_apenas_inclusao" e "filtrar_apenas_alteracao".<BR></div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">filtrar_apenas_inclusao</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Filtra os registros exibindos apenas os incluídos.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento Opcional.<BR><BR>Informar "S" ou "N".<BR><BR>O valor padrão para esse campo é "N".</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">filtrar_apenas_alteracao</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Filtra os registros exibindos apenas os alterados.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento Opcional.<BR><BR>Informar "S" ou "N".<BR><BR>O valor padrão para esse campo é "N".</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">filtrar_por_emissao_de</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Data de alteração inicial (Filtrar os registros a partir da data especificada).</div><div class="more"><a href="javascript:void(0)">+</a><div>No formato dd/mm/aaaa.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">filtrar_por_registro_de</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Filtra os registros a partir da data</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">filtrar_por_emissao_ate</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Data de alteração final (Filtra os registros até a data especificada).</div><div class="more"><a href="javascript:void(0)">+</a><div>No formato dd/mm/aaaa.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">filtrar_por_registro_ate</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Filtra os registros até a data especificada</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">filtrar_conta_corrente</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Filtrar os lançamentos de Contas a Pagar por código da conta corrente.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento Opcional.<BR><BR>Utilize a tag "codigo" do método "PesquisarContaCorrente" da API<BR>/api/v1/geral/contacorrente/<BR>para obter essa informação.<BR></div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">filtrar_cliente</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Filtrar os lançamentos de Contas a Pagar por código do cliente.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento Opcional.<BR><BR>Utilize a tag "codigo_cliente_omie" do método "ListarClientes" da API<BR>/api/v1/geral/clientes/<BR>para obter essa informação.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">filtrar_por_cpf_cnpj</td>
+<td class="parameter-type">string<span class="parameter-lenght">20</span></td><td class="parameter-docs"><div class="first">Filtrar os títulos por CPF/CNPJ.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento Opcional.<BR><BR>Informar apenas números.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">filtrar_por_status</td>
+<td class="parameter-type">string<span class="parameter-lenght">100</span></td><td class="parameter-docs"><div class="first">Filtrar por status.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento Opcional.<BR><BR>Valores disponíveis:<BR>CANCELADO, <BR>PAGO,<BR>LIQUIDADO <BR>EMABERTO<BR>PAGTO_PARCIAL<BR>VENCEHOJE <BR>AVENCER<BR>ATRASADO</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">filtrar_por_projeto</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código do Projeto.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento Opcional.<BR><BR>Informação localizada na Aba "Detalhes" do Contas a Pagar.<BR><BR>Utilize a tag "codigo" do método "ListarProjetos" da API<BR>/api/v1/geral/projetos/<BR>para obter essa informação.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">filtrar_por_vendedor</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código do Vendedor.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento Opcional.<BR><BR>Informação localizada na Aba "Diversos" do Contas a Pagar.<BR><BR>Utilize a tag "codigo" do método "ListarVendedores" da API<BR>/api/v1/geral/vendedores/<BR>para obter essa informação.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">filtrar_apenas_titulos_em_aberto</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">DEPRECATED.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">exibir_obs</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Exibir as observações do lançamento (S/N).</div><div class="more"><a href="javascript:void(0)">+</a><div>Preencher com "S" ou "N".<BR><BR>Default "N"<BR><BR>Preenchimento Opcional.</div></div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="lcpListarResponse" class="anchorScroll"></a>
+<h3>lcpListarResponse</h3>
+<p>Resposta da listagem de Contas a Pagar</p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">pagina</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Número da página que será listada.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">total_de_paginas</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Total de páginas encontradas.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">registros</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Número de registros retornados</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">total_de_registros</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Total de registros encontrados.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">conta_pagar_cadastro</td>
+<td class="parameter-type"><a href="#conta_pagar_cadastroArray">conta_pagar_cadastroArray</a></td><td class="parameter-docs"><div class="first">Cadastro de contas a pagar.</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="omie_fail" class="anchorScroll"></a>
+<h3>omie_fail</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">code</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Codigo do erro</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">description</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Descricao do erro</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-required">referer</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Origem do erro</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-required">fatal</td>
+<td class="parameter-type">boolean</td><td class="parameter-docs"><div class="first">Indica se eh um erro fatal</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="pagamento" class="anchorScroll"></a>
+<h3>pagamento</h3>
+<p>Detalhes do pagamento(baixa).</p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">codigo_pagamento_integracao</td>
+<td class="parameter-type">string<span class="parameter-lenght">20</span></td><td class="parameter-docs"><div class="first">Código interno do lançamento da conta corrente.</div><div class="more"><a href="javascript:void(0)">+</a><div>(Interno, utilizado apenas na Integração via API, não aparece na tela).<BR>Utilize esse campo para informar código do lançamento da conta corrente utilizado no seu aplicativo quando incluir um lançamento no Omie.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">codigo_conta_corrente</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código da Conta Corrente.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">valor</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Valor a ser baixado.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">desconto</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Valor do desconto.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">juros</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Valor do Juros.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">multa</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Valor da multa.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">data</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Data da Baixa</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">observacao</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Observação da Baixa do Contas a Receber.</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="servico_tomado" class="anchorScroll"></a>
+<h3>servico_tomado</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">numero_nf</td>
+<td class="parameter-type">string<span class="parameter-lenght">20</span></td><td class="parameter-docs"><div class="first">Número da Nota Fiscal.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">serie_nf</td>
+<td class="parameter-type">string<span class="parameter-lenght">20</span></td><td class="parameter-docs"><div class="first">Série da Nota Fiscal.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">codigo_servico</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Código do serviço (LC116).</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">valor_nf</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Valor total da Nota Fiscal.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cst_pis</td>
+<td class="parameter-type">string<span class="parameter-lenght">2</span></td><td class="parameter-docs"><div class="first">CST do PIS (Código da Situação Tributária).</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">base_pis</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Base de cálculo do PIS.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">aliquota_pis</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Alíquota do PIS (%).</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">valor_pis</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Valor do PIS.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cst_cofins</td>
+<td class="parameter-type">string<span class="parameter-lenght">2</span></td><td class="parameter-docs"><div class="first">CST do COFINS (Código da Situação Tributária).</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">base_cofins</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Base de cálculo do COFINS.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">aliquota_cofins</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Alíquota do COFINS (%).</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">valor_cofins</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Valor do PIS.</div></td>
+<tr>
+</table>
+</div>
+</div>
+<div class="col-md-3">
+<div id="affix-menu" data-spy="affix" data-offset-top="294">
+<h2>M&eacute;todos</h2>
+<nav id="index" class="hidden-print hidden-xs hidden-sm">
+<ul class="nav">
+<li><a href="#AlterarContaPagar">AlterarContaPagar</a></li>
+<li><a href="#CancelarPagamento">CancelarPagamento</a></li>
+<li><a href="#ConsultarContaPagar">ConsultarContaPagar</a></li>
+<li><a href="#ExcluirContaPagar">ExcluirContaPagar</a></li>
+<li><a href="#IncluirContaPagar">IncluirContaPagar</a></li>
+<li><a href="#IncluirContaPagarPorLote">IncluirContaPagarPorLote</a></li>
+<li><a href="#LancarPagamento">LancarPagamento</a></li>
+<li><a href="#ListarContasPagar">ListarContasPagar</a></li>
+<li><a href="#UpsertContaPagar">UpsertContaPagar</a></li>
+<li><a href="#UpsertContaPagarPorLote">UpsertContaPagarPorLote</a></li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+</body>
+</html>

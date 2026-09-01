@@ -1,0 +1,650 @@
+<nav class="navbar navbar-expand-lg bg-azul">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="https://developer.omie.com.br/">
+            <img class="lozad img-logo" data-src="https://static.omie.com.br/images/logo/logo-omie-topo.png" src="https://static.omie.com.br/images/logo/logo-omie-topo.png" data-loaded="true">
+        </a>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <span class="borda-hover"></span>
+                    <a class="nav-link" href="https://developer.omie.com.br/my-apps/"> Aplicativos </a>
+                </li>
+                <li class="nav-item ">
+                    <span class="borda-hover"></span>
+                    <a class="nav-link" href="https://developer.omie.com.br/service-list/">
+                        Lista das API's
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <span class="borda-hover"></span>
+                    <a class="nav-link" href="https://ajuda.omie.com.br/pt-BR/collections/3045828-apis" target="_blank"> Ajuda </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<html>
+<head>
+<title>DocumentoAnexo</title>
+<style type="text/css" media="all">
+  [id] { scroll-margin-top: 68px; }
+</style>
+<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+<script src="https://cdn.omie.com.br/omie-assets/js/omie-compat-v2.min.js"></script>
+<script src="/developer/themes/omie/developer.js?ts=2021.008"></script>
+<link rel="stylesheet" href="//app.omie.com.br/wp-content/themes/omie/bootstrap/css/bootstrap.min.css" async/>
+<link href="https://cdn.omie.com.br/assets/developer/css/site.css?ts=2021.008" media="all" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="/developer/themes/omie/developer.css?ts=2021.008" async/>
+</head>
+<body>
+<div class="jumbotron banner bg-azul">
+<div class="container">
+<img src="https://cdn.omie.com.br/assets/developer/images/seta-azuis.png" alt="" class="img-setas">
+<div class="row align-items-center">
+<div class="col-12">
+<h1>DocumentoAnexo</h1>
+<ul class="nav nav-tabs" role="tablist">
+  <li role="presentation" class="active"><a href="#section-endpoint" aria-controls="section-endpoint" role="tab" data-toggle="tab">Endpoint</a></li>
+  <li role="presentation" class="pull-right"><a href="#section-wsdl" aria-controls="section-wsdl" role="tab" data-toggle="tab">WSDL</a></li>
+  <li role="presentation" class="pull-right"><a href="#section-php-soap" aria-controls="section-php-soap" role="tab" data-toggle="tab">PHP SOAP</a></li>
+  <li role="presentation" class="pull-right"><a href="#section-json" aria-controls="section-json" role="tab" data-toggle="tab">JSON</a></li>
+</ul>
+<div class="tab-content">
+  <div role="tabpanel" class="tab-pane fade in active" id="section-endpoint">
+    <h4>Endpoint URI</h4>
+    <a class="highlight" href="https://app.omie.com.br/api/v1/geral/anexo/"><pre><code>https://app.omie.com.br/api/v1/geral/anexo/</code></pre></a>
+  </div>
+  <div role="tabpanel" class="tab-pane fade" id="section-wsdl">
+    <h4>WSDL URI</h4>
+    <a class="highlight" href="https://app.omie.com.br/api/v1/geral/anexo/?WSDL"><pre><code>https://app.omie.com.br/api/v1/geral/anexo/?WSDL</code></pre></a>
+  </div>
+  <div role="tabpanel" class="tab-pane fade" id="section-php-soap">
+    <h4>PHP SOAP client download</h4>
+    <a class="highlight" href="https://app.omie.com.br/api/v1/geral/anexo/?PHPSOAPCLIENT""><pre><code>https://app.omie.com.br/api/v1/geral/anexo/?PHPSOAPCLIENT</code></pre></a>
+  </div>
+  <div role="tabpanel" class="tab-pane fade" id="section-json">
+    <h4>JSON client download URI</h4>
+    <h5>PHP</h5>
+    <a class="highlight" href="https://app.omie.com.br/api/v1/geral/anexo/?PHPJSONCLIENT"><pre><code>https://app.omie.com.br/api/v1/geral/anexo/?PHPJSONCLIENT</code></pre></a>
+    <h5>JavaScript (recomendado para uso apenas do lado do servidor)</h5>
+    <a class="highlight" href="https://app.omie.com.br/api/v1/geral/anexo/?JSJSONCLIENT"><pre><code>https://app.omie.com.br/api/v1/geral/anexo/?JSJSONCLIENT</code></pre></a>
+  </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="container">
+<div class="row">
+<div class="col-md-9">
+<h2>M&eacute;todos</h2>
+<p>Veja abaixo a documenta&ccedil;&atilde;o de cada m&eacute;todo dispon&iacute;vel para este servi&ccedil;o.</p>
+<div id="ConsultarAnexo" class="methodItem">
+<h3 class="method-name">ConsultarAnexo</h3>
+<div class="panel panel-default method">
+<div class="panel-heading"> Par&acirc;metros:
+</div>
+<table class="table table-condensed table-hover">
+<tr>
+<td class="">&nbsp;</td>
+<td class="method-parameter-type"><a href="#docConsultarAnexoRequest">docConsultarAnexoRequest</a></td>
+<td class="method-parameter-name">docConsultarAnexoRequest</td><td class="method-parameter-docs"><div class="first">Consulta o anexo de um documento.</div></td>
+</tr>
+</table>
+<div class="panel-footer">
+Retorno <span class="pre"><a href="#docConsultarAnexoResponse"><span class="lightBlue">docConsultarAnexoResponse</span></a></span>: 
+</div>
+</div>
+<div class="method-example-area">
+<h5>Exemplo:</h5>
+<pre class="method-example-code">{<BR>   "cCodIntAnexo": "",<BR>   "cTabela": "",<BR>   "nId": 0,<BR>   "nIdAnexo": 0,<BR>   "cNomeArquivo": ""<BR>}</pre>
+<button class="btn btn-success method-example" data-method="ConsultarAnexo" data-example="%7B+++%22cCodIntAnexo%22%3A+%22%22%2C+++%22cTabela%22%3A+%22%22%2C+++%22nId%22%3A+0%2C+++%22nIdAnexo%22%3A+0%2C+++%22cNomeArquivo%22%3A+%22%22%7D">Teste agora mesmo</button>
+</div>
+</div>
+<div id="ExcluirAnexo" class="methodItem">
+<h3 class="method-name">ExcluirAnexo</h3>
+<div class="panel panel-default method">
+<div class="panel-heading"> Par&acirc;metros:
+</div>
+<table class="table table-condensed table-hover">
+<tr>
+<td class="">&nbsp;</td>
+<td class="method-parameter-type"><a href="#docExcluirAnexoRequest">docExcluirAnexoRequest</a></td>
+<td class="method-parameter-name">docExcluirAnexoRequest</td><td class="method-parameter-docs"><div class="first">Exclui um anexo de um Documento.</div></td>
+</tr>
+</table>
+<div class="panel-footer">
+Retorno <span class="pre"><a href="#docExcluirAnexoResponse"><span class="lightBlue">docExcluirAnexoResponse</span></a></span>: 
+</div>
+</div>
+<div class="method-example-area">
+<h5>Exemplo:</h5>
+<pre class="method-example-code">{<BR>   "cCodIntAnexo": "",<BR>   "cTabela": "",<BR>   "nId": 0,<BR>   "nIdAnexo": 0,<BR>   "cNomeArquivo": ""<BR>}</pre>
+<button class="btn btn-success method-example" data-method="ExcluirAnexo" data-example="%7B+++%22cCodIntAnexo%22%3A+%22%22%2C+++%22cTabela%22%3A+%22%22%2C+++%22nId%22%3A+0%2C+++%22nIdAnexo%22%3A+0%2C+++%22cNomeArquivo%22%3A+%22%22%7D">Teste agora mesmo</button>
+</div>
+</div>
+<div id="IncluirAnexo" class="methodItem">
+<h3 class="method-name">IncluirAnexo</h3>
+<p>
+Inclui o anexo para um documento.
+</p>
+<div class="panel panel-default method">
+<div class="panel-heading"> Par&acirc;metros:
+</div>
+<table class="table table-condensed table-hover">
+<tr>
+<td class="">&nbsp;</td>
+<td class="method-parameter-type"><a href="#docIncluirAnexoRequest">docIncluirAnexoRequest</a></td>
+<td class="method-parameter-name">docIncluirAnexoRequest</td><td class="method-parameter-docs"><div class="first">Inclui um anexo de um Documento.</div></td>
+</tr>
+</table>
+<div class="panel-footer">
+Retorno <span class="pre"><a href="#docIncluirAnexoResponse"><span class="lightBlue">docIncluirAnexoResponse</span></a></span>: 
+</div>
+</div>
+<div class="method-example-area">
+<h5>Exemplo:</h5>
+<pre class="method-example-code">{<BR>  "cCodIntAnexo": "",<BR>  "cTabela": "",<BR>  "nId": 0,<BR>  "cNomeArquivo": "",<BR>  "cTipoArquivo": "",<BR>  "cArquivo": "",  <BR>  "cMd5": ""<BR>}</pre>
+<button class="btn btn-success method-example" data-method="IncluirAnexo" data-example="%7B++%22cCodIntAnexo%22%3A+%22%22%2C++%22cTabela%22%3A+%22%22%2C++%22nId%22%3A+0%2C++%22cNomeArquivo%22%3A+%22%22%2C++%22cTipoArquivo%22%3A+%22%22%2C++%22cArquivo%22%3A+%22%22%2C++++%22cMd5%22%3A+%22%22%7D">Teste agora mesmo</button>
+</div>
+</div>
+<div id="ListarAnexo" class="methodItem">
+<h3 class="method-name">ListarAnexo</h3>
+<div class="panel panel-default method">
+<div class="panel-heading"> Par&acirc;metros:
+</div>
+<table class="table table-condensed table-hover">
+<tr>
+<td class="">&nbsp;</td>
+<td class="method-parameter-type"><a href="#docListarAnexosRequest">docListarAnexosRequest</a></td>
+<td class="method-parameter-name">docListarAnexosRequest</td><td class="method-parameter-docs"><div class="first">Solicitação de listagem de anexos de um Documento.</div></td>
+</tr>
+</table>
+<div class="panel-footer">
+Retorno <span class="pre"><a href="#docListarAnexosResponse"><span class="lightBlue">docListarAnexosResponse</span></a></span>: 
+</div>
+</div>
+<div class="method-example-area">
+<h5>Exemplo:</h5>
+<pre class="method-example-code">{<BR>  "nPagina": 1,<BR>  "nRegPorPagina": 50,<BR>  "nId": 0,<BR>  "cTabela":""<BR>}<BR></pre>
+<button class="btn btn-success method-example" data-method="ListarAnexo" data-example="%7B++%22nPagina%22%3A+1%2C++%22nRegPorPagina%22%3A+50%2C++%22nId%22%3A+0%2C++%22cTabela%22%3A%22%22%7D">Teste agora mesmo</button>
+</div>
+</div>
+<div id="ObterAnexo" class="methodItem">
+<h3 class="method-name">ObterAnexo</h3>
+<div class="panel panel-default method">
+<div class="panel-heading"> Par&acirc;metros:
+</div>
+<table class="table table-condensed table-hover">
+<tr>
+<td class="">&nbsp;</td>
+<td class="method-parameter-type"><a href="#docObterAnexoRequest">docObterAnexoRequest</a></td>
+<td class="method-parameter-name">docObterAnexoRequest</td><td class="method-parameter-docs"><div class="first">Obtém um anexo de um documento.</div></td>
+</tr>
+</table>
+<div class="panel-footer">
+Retorno <span class="pre"><a href="#docObterAnexoResponse"><span class="lightBlue">docObterAnexoResponse</span></a></span>: 
+</div>
+</div>
+<div class="method-example-area">
+<h5>Exemplo:</h5>
+<pre class="method-example-code">{<BR>   "cCodIntAnexo": "",<BR>   "cTabela": "",<BR>   "nId": 0,<BR>   "nIdAnexo": 0,<BR>   "cNomeArquivo": ""<BR>}</pre>
+<button class="btn btn-success method-example" data-method="ObterAnexo" data-example="%7B+++%22cCodIntAnexo%22%3A+%22%22%2C+++%22cTabela%22%3A+%22%22%2C+++%22nId%22%3A+0%2C+++%22nIdAnexo%22%3A+0%2C+++%22cNomeArquivo%22%3A+%22%22%7D">Teste agora mesmo</button>
+</div>
+</div>
+<h2>Tipos Complexos</h2>
+<div class="complexTypeItem">
+<a name="docConsultarAnexoRequest" class="anchorScroll"></a>
+<h3>docConsultarAnexoRequest</h3>
+<p>Consulta o anexo de um documento.</p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">cCodIntAnexo</td>
+<td class="parameter-type">string<span class="parameter-lenght">20</span></td><td class="parameter-docs"><div class="first">Código de integração do anexo.</div><div class="more"><a href="javascript:void(0)">+</a><div>(Interno, utilizado apenas na integração via API, não é exibido na tela).<BR>Utilize esse campo para informar o código do anexo utilizado no seu aplicativo quando incluir o anexo no Omie. <BR>Assim, poderá utilizar esse campo para resgatar o anexo desejado.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cTabela</td>
+<td class="parameter-type">string<span class="parameter-lenght">100</span></td><td class="parameter-docs"><div class="first">Nome da tabela onde o anexo está incluído.</div><div class="more"><a href="javascript:void(0)">+</a><div>Pode ser: <BR>cliente<BR>produto<BR>servico<BR>pedido-venda<BR>remessa-produto<BR>ordem-servico<BR>contrato-servico<BR>pedido-compra<BR>nota-entrada<BR>ordem-producao<BR>conta-pagar<BR>conta-receber<BR>conta-corrente<BR>conta-corrente-lancamento<BR>crm-contas<BR>crm-contatos<BR>crm-oportunidades<BR>com-recebimento</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nId</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">ID do documento de acordo com a tabela especificada.</div><div class="more"><a href="javascript:void(0)">+</a><div>Por exemplo:<BR>Caso você informe "cliente" na tag "cTabela" você deve informar o ID do cliente neste campo.<BR><BR>Preenchimento obrigatório.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nIdAnexo</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">ID do anexo.</div><div class="more"><a href="javascript:void(0)">+</a><div>Gerado automático na inclusão.<BR>Informe esse campo para Obter, Consultar e Excluir o anexo.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cNomeArquivo</td>
+<td class="parameter-type">string<span class="parameter-lenght">100</span></td><td class="parameter-docs"><div class="first">Nome do arquivo que foi adicionado.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preencha essa tag, apenas se você não tiver ou souber qual é o código de integração do anexo (tag cCodIntAnexo).<BR>Caso a tag cCodIntAnexo esteja preenchida, o conteúdo dessa tag será desconsiderado.</div></div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="docConsultarAnexoResponse" class="anchorScroll"></a>
+<h3>docConsultarAnexoResponse</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">cCodIntAnexo</td>
+<td class="parameter-type">string<span class="parameter-lenght">20</span></td><td class="parameter-docs"><div class="first">Código de integração do anexo.</div><div class="more"><a href="javascript:void(0)">+</a><div>(Interno, utilizado apenas na integração via API, não é exibido na tela).<BR>Utilize esse campo para informar o código do anexo utilizado no seu aplicativo quando incluir o anexo no Omie. <BR>Assim, poderá utilizar esse campo para resgatar o anexo desejado.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cTabela</td>
+<td class="parameter-type">string<span class="parameter-lenght">100</span></td><td class="parameter-docs"><div class="first">Nome da tabela onde o anexo está incluído.</div><div class="more"><a href="javascript:void(0)">+</a><div>Pode ser: <BR>cliente<BR>produto<BR>servico<BR>pedido-venda<BR>remessa-produto<BR>ordem-servico<BR>contrato-servico<BR>pedido-compra<BR>nota-entrada<BR>ordem-producao<BR>conta-pagar<BR>conta-receber<BR>conta-corrente<BR>conta-corrente-lancamento<BR>crm-contas<BR>crm-contatos<BR>crm-oportunidades<BR>com-recebimento</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nId</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">ID do documento de acordo com a tabela especificada.</div><div class="more"><a href="javascript:void(0)">+</a><div>Por exemplo:<BR>Caso você informe "cliente" na tag "cTabela" você deve informar o ID do cliente neste campo.<BR><BR>Preenchimento obrigatório.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nIdAnexo</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">ID do anexo.</div><div class="more"><a href="javascript:void(0)">+</a><div>Gerado automático na inclusão.<BR>Informe esse campo para Obter, Consultar e Excluir o anexo.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cNomeArquivo</td>
+<td class="parameter-type">string<span class="parameter-lenght">100</span></td><td class="parameter-docs"><div class="first">Nome do arquivo que foi adicionado.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preencha essa tag, apenas se você não tiver ou souber qual é o código de integração do anexo (tag cCodIntAnexo).<BR>Caso a tag cCodIntAnexo esteja preenchida, o conteúdo dessa tag será desconsiderado.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cTipoArquivo</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Tipo de Arquivo.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento Opcional.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">info</td>
+<td class="parameter-type"><a href="#info">info</a></td><td class="parameter-docs"><div class="first">Informações complementares do anexo.</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="docExcluirAnexoRequest" class="anchorScroll"></a>
+<h3>docExcluirAnexoRequest</h3>
+<p>Exclui um anexo de um Documento.</p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">cCodIntAnexo</td>
+<td class="parameter-type">string<span class="parameter-lenght">20</span></td><td class="parameter-docs"><div class="first">Código de integração do anexo.</div><div class="more"><a href="javascript:void(0)">+</a><div>(Interno, utilizado apenas na integração via API, não é exibido na tela).<BR>Utilize esse campo para informar o código do anexo utilizado no seu aplicativo quando incluir o anexo no Omie. <BR>Assim, poderá utilizar esse campo para resgatar o anexo desejado.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cTabela</td>
+<td class="parameter-type">string<span class="parameter-lenght">100</span></td><td class="parameter-docs"><div class="first">Nome da tabela onde o anexo está incluído.</div><div class="more"><a href="javascript:void(0)">+</a><div>Pode ser: <BR>cliente<BR>produto<BR>servico<BR>pedido-venda<BR>remessa-produto<BR>ordem-servico<BR>contrato-servico<BR>pedido-compra<BR>nota-entrada<BR>ordem-producao<BR>conta-pagar<BR>conta-receber<BR>conta-corrente<BR>conta-corrente-lancamento<BR>crm-contas<BR>crm-contatos<BR>crm-oportunidades<BR>com-recebimento</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nId</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">ID do documento de acordo com a tabela especificada.</div><div class="more"><a href="javascript:void(0)">+</a><div>Por exemplo:<BR>Caso você informe "cliente" na tag "cTabela" você deve informar o ID do cliente neste campo.<BR><BR>Preenchimento obrigatório.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nIdAnexo</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">ID do anexo.</div><div class="more"><a href="javascript:void(0)">+</a><div>Gerado automático na inclusão.<BR>Informe esse campo para Obter, Consultar e Excluir o anexo.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cNomeArquivo</td>
+<td class="parameter-type">string<span class="parameter-lenght">100</span></td><td class="parameter-docs"><div class="first">Nome do arquivo que foi adicionado.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preencha essa tag, apenas se você não tiver ou souber qual é o código de integração do anexo (tag cCodIntAnexo).<BR>Caso a tag cCodIntAnexo esteja preenchida, o conteúdo dessa tag será desconsiderado.</div></div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="docExcluirAnexoResponse" class="anchorScroll"></a>
+<h3>docExcluirAnexoResponse</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">cCodIntAnexo</td>
+<td class="parameter-type">string<span class="parameter-lenght">20</span></td><td class="parameter-docs"><div class="first">Código de integração do anexo.</div><div class="more"><a href="javascript:void(0)">+</a><div>(Interno, utilizado apenas na integração via API, não é exibido na tela).<BR>Utilize esse campo para informar o código do anexo utilizado no seu aplicativo quando incluir o anexo no Omie. <BR>Assim, poderá utilizar esse campo para resgatar o anexo desejado.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cTabela</td>
+<td class="parameter-type">string<span class="parameter-lenght">100</span></td><td class="parameter-docs"><div class="first">Nome da tabela onde o anexo está incluído.</div><div class="more"><a href="javascript:void(0)">+</a><div>Pode ser: <BR>cliente<BR>produto<BR>servico<BR>pedido-venda<BR>remessa-produto<BR>ordem-servico<BR>contrato-servico<BR>pedido-compra<BR>nota-entrada<BR>ordem-producao<BR>conta-pagar<BR>conta-receber<BR>conta-corrente<BR>conta-corrente-lancamento<BR>crm-contas<BR>crm-contatos<BR>crm-oportunidades<BR>com-recebimento</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nId</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">ID do documento de acordo com a tabela especificada.</div><div class="more"><a href="javascript:void(0)">+</a><div>Por exemplo:<BR>Caso você informe "cliente" na tag "cTabela" você deve informar o ID do cliente neste campo.<BR><BR>Preenchimento obrigatório.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nIdAnexo</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">ID do anexo.</div><div class="more"><a href="javascript:void(0)">+</a><div>Gerado automático na inclusão.<BR>Informe esse campo para Obter, Consultar e Excluir o anexo.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cNomeArquivo</td>
+<td class="parameter-type">string<span class="parameter-lenght">100</span></td><td class="parameter-docs"><div class="first">Nome do arquivo que foi adicionado.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preencha essa tag, apenas se você não tiver ou souber qual é o código de integração do anexo (tag cCodIntAnexo).<BR>Caso a tag cCodIntAnexo esteja preenchida, o conteúdo dessa tag será desconsiderado.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCodStatus</td>
+<td class="parameter-type">string<span class="parameter-lenght">4</span></td><td class="parameter-docs"><div class="first">Código do status do processamento.</div><div class="more"><a href="javascript:void(0)">+</a><div>Se o retorno for '0' significa que a solicitação foi executada com sucesso.<BR>Se o retorno for maior que '0' ocorreu algum erro duranteo o processamento da solicitação.<BR>A tag 'cDesStatus' descreve o problema ocorrido.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cDesStatus</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Descrição do status do processamento.</div><div class="more"><a href="javascript:void(0)">+</a><div>Essa tag explica o resultado da tag 'cCodigoStatus'.</div></div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="docIncluirAnexoRequest" class="anchorScroll"></a>
+<h3>docIncluirAnexoRequest</h3>
+<p>Inclui um anexo de um Documento.</p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">cCodIntAnexo</td>
+<td class="parameter-type">string<span class="parameter-lenght">20</span></td><td class="parameter-docs"><div class="first">Código de integração do anexo.</div><div class="more"><a href="javascript:void(0)">+</a><div>(Interno, utilizado apenas na integração via API, não é exibido na tela).<BR>Utilize esse campo para informar o código do anexo utilizado no seu aplicativo quando incluir o anexo no Omie. <BR>Assim, poderá utilizar esse campo para resgatar o anexo desejado.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cTabela</td>
+<td class="parameter-type">string<span class="parameter-lenght">100</span></td><td class="parameter-docs"><div class="first">Nome da tabela onde o anexo está incluído.</div><div class="more"><a href="javascript:void(0)">+</a><div>Pode ser: <BR>cliente<BR>produto<BR>servico<BR>pedido-venda<BR>remessa-produto<BR>ordem-servico<BR>contrato-servico<BR>pedido-compra<BR>nota-entrada<BR>ordem-producao<BR>conta-pagar<BR>conta-receber<BR>conta-corrente<BR>conta-corrente-lancamento<BR>crm-contas<BR>crm-contatos<BR>crm-oportunidades<BR>com-recebimento</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nId</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">ID do documento de acordo com a tabela especificada.</div><div class="more"><a href="javascript:void(0)">+</a><div>Por exemplo:<BR>Caso você informe "cliente" na tag "cTabela" você deve informar o ID do cliente neste campo.<BR><BR>Preenchimento obrigatório.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cNomeArquivo</td>
+<td class="parameter-type">string<span class="parameter-lenght">100</span></td><td class="parameter-docs"><div class="first">Nome do arquivo que foi adicionado.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preencha essa tag, apenas se você não tiver ou souber qual é o código de integração do anexo (tag cCodIntAnexo).<BR>Caso a tag cCodIntAnexo esteja preenchida, o conteúdo dessa tag será desconsiderado.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cTipoArquivo</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Tipo de Arquivo.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento Opcional.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cArquivo</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Conteúdo do arquivo a ser anexado, compactado (zip) e convertido   em base 64.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cMd5</td>
+<td class="parameter-type">string<span class="parameter-lenght">32</span></td><td class="parameter-docs"><div class="first">MD5 do arquivo enviado na tag 'cArquivo'.</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="docIncluirAnexoResponse" class="anchorScroll"></a>
+<h3>docIncluirAnexoResponse</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">cCodIntAnexo</td>
+<td class="parameter-type">string<span class="parameter-lenght">20</span></td><td class="parameter-docs"><div class="first">Código de integração do anexo.</div><div class="more"><a href="javascript:void(0)">+</a><div>(Interno, utilizado apenas na integração via API, não é exibido na tela).<BR>Utilize esse campo para informar o código do anexo utilizado no seu aplicativo quando incluir o anexo no Omie. <BR>Assim, poderá utilizar esse campo para resgatar o anexo desejado.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cTabela</td>
+<td class="parameter-type">string<span class="parameter-lenght">100</span></td><td class="parameter-docs"><div class="first">Nome da tabela onde o anexo está incluído.</div><div class="more"><a href="javascript:void(0)">+</a><div>Pode ser: <BR>cliente<BR>produto<BR>servico<BR>pedido-venda<BR>remessa-produto<BR>ordem-servico<BR>contrato-servico<BR>pedido-compra<BR>nota-entrada<BR>ordem-producao<BR>conta-pagar<BR>conta-receber<BR>conta-corrente<BR>conta-corrente-lancamento<BR>crm-contas<BR>crm-contatos<BR>crm-oportunidades<BR>com-recebimento</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nId</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">ID do documento de acordo com a tabela especificada.</div><div class="more"><a href="javascript:void(0)">+</a><div>Por exemplo:<BR>Caso você informe "cliente" na tag "cTabela" você deve informar o ID do cliente neste campo.<BR><BR>Preenchimento obrigatório.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nIdAnexo</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">ID do anexo.</div><div class="more"><a href="javascript:void(0)">+</a><div>Gerado automático na inclusão.<BR>Informe esse campo para Obter, Consultar e Excluir o anexo.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cNomeArquivo</td>
+<td class="parameter-type">string<span class="parameter-lenght">100</span></td><td class="parameter-docs"><div class="first">Nome do arquivo que foi adicionado.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preencha essa tag, apenas se você não tiver ou souber qual é o código de integração do anexo (tag cCodIntAnexo).<BR>Caso a tag cCodIntAnexo esteja preenchida, o conteúdo dessa tag será desconsiderado.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCodStatus</td>
+<td class="parameter-type">string<span class="parameter-lenght">4</span></td><td class="parameter-docs"><div class="first">Código do status do processamento.</div><div class="more"><a href="javascript:void(0)">+</a><div>Se o retorno for '0' significa que a solicitação foi executada com sucesso.<BR>Se o retorno for maior que '0' ocorreu algum erro duranteo o processamento da solicitação.<BR>A tag 'cDesStatus' descreve o problema ocorrido.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cDesStatus</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Descrição do status do processamento.</div><div class="more"><a href="javascript:void(0)">+</a><div>Essa tag explica o resultado da tag 'cCodigoStatus'.</div></div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="docListarAnexosRequest" class="anchorScroll"></a>
+<h3>docListarAnexosRequest</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">nPagina</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Número da página resgatada.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nRegPorPagina</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Número de registros retornados na página.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cOrdenarPor</td>
+<td class="parameter-type">string<span class="parameter-lenght">100</span></td><td class="parameter-docs"><div class="first">Ordem os resultados da página por:</div><div class="more"><a href="javascript:void(0)">+</a><div>ARQUIVO - Nome do arquivo.<BR></div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cOrdemDecrescente</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Indica se a ordem de exibição é Decrescente caso seja informado "S".</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">dDtIncDe</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Data de inclusão inicial.</div><div class="more"><a href="javascript:void(0)">+</a><div>No formato dd/mm/aaaa.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">dDtIncAte</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Data de inclusão final.</div><div class="more"><a href="javascript:void(0)">+</a><div>No formato dd/mm/aaaa.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">dDtAltDe</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Data de alteração inicial.</div><div class="more"><a href="javascript:void(0)">+</a><div>No formato dd/mm/aaaa.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">dDtAltAte</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Data de alteração final.</div><div class="more"><a href="javascript:void(0)">+</a><div>No formato dd/mm/aaaa.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nId</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">ID do documento de acordo com a tabela especificada.</div><div class="more"><a href="javascript:void(0)">+</a><div>Por exemplo:<BR>Caso você informe "cliente" na tag "cTabela" você deve informar o ID do cliente neste campo.<BR><BR>Preenchimento obrigatório.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cTabela</td>
+<td class="parameter-type">string<span class="parameter-lenght">100</span></td><td class="parameter-docs"><div class="first">Nome da tabela onde o anexo está incluído.</div><div class="more"><a href="javascript:void(0)">+</a><div>Pode ser: <BR>cliente<BR>produto<BR>servico<BR>pedido-venda<BR>remessa-produto<BR>ordem-servico<BR>contrato-servico<BR>pedido-compra<BR>nota-entrada<BR>ordem-producao<BR>conta-pagar<BR>conta-receber<BR>conta-corrente<BR>conta-corrente-lancamento<BR>crm-contas<BR>crm-contatos<BR>crm-oportunidades<BR>com-recebimento</div></div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="docListarAnexosResponse" class="anchorScroll"></a>
+<h3>docListarAnexosResponse</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">nPagina</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Número da página resgatada.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nTotPaginas</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Número total de páginas encontradas.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nRegistros</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Número de registros retornados na página.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nTotRegistros</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Número total de registros encontrados.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">listaAnexos</td>
+<td class="parameter-type"><a href="#listaAnexosArray">listaAnexosArray</a></td><td class="parameter-docs"><div class="first">Lista de anexos do título do contas a receber encontrados.</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="docObterAnexoRequest" class="anchorScroll"></a>
+<h3>docObterAnexoRequest</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">cCodIntAnexo</td>
+<td class="parameter-type">string<span class="parameter-lenght">20</span></td><td class="parameter-docs"><div class="first">Código de integração do anexo.</div><div class="more"><a href="javascript:void(0)">+</a><div>(Interno, utilizado apenas na integração via API, não é exibido na tela).<BR>Utilize esse campo para informar o código do anexo utilizado no seu aplicativo quando incluir o anexo no Omie. <BR>Assim, poderá utilizar esse campo para resgatar o anexo desejado.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cTabela</td>
+<td class="parameter-type">string<span class="parameter-lenght">100</span></td><td class="parameter-docs"><div class="first">Nome da tabela onde o anexo está incluído.</div><div class="more"><a href="javascript:void(0)">+</a><div>Pode ser: <BR>cliente<BR>produto<BR>servico<BR>pedido-venda<BR>remessa-produto<BR>ordem-servico<BR>contrato-servico<BR>pedido-compra<BR>nota-entrada<BR>ordem-producao<BR>conta-pagar<BR>conta-receber<BR>conta-corrente<BR>conta-corrente-lancamento<BR>crm-contas<BR>crm-contatos<BR>crm-oportunidades<BR>com-recebimento</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nId</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">ID do documento de acordo com a tabela especificada.</div><div class="more"><a href="javascript:void(0)">+</a><div>Por exemplo:<BR>Caso você informe "cliente" na tag "cTabela" você deve informar o ID do cliente neste campo.<BR><BR>Preenchimento obrigatório.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nIdAnexo</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">ID do anexo.</div><div class="more"><a href="javascript:void(0)">+</a><div>Gerado automático na inclusão.<BR>Informe esse campo para Obter, Consultar e Excluir o anexo.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cNomeArquivo</td>
+<td class="parameter-type">string<span class="parameter-lenght">100</span></td><td class="parameter-docs"><div class="first">Nome do arquivo que foi adicionado.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preencha essa tag, apenas se você não tiver ou souber qual é o código de integração do anexo (tag cCodIntAnexo).<BR>Caso a tag cCodIntAnexo esteja preenchida, o conteúdo dessa tag será desconsiderado.</div></div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="docObterAnexoResponse" class="anchorScroll"></a>
+<h3>docObterAnexoResponse</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">cCodIntAnexo</td>
+<td class="parameter-type">string<span class="parameter-lenght">20</span></td><td class="parameter-docs"><div class="first">Código de integração do anexo.</div><div class="more"><a href="javascript:void(0)">+</a><div>(Interno, utilizado apenas na integração via API, não é exibido na tela).<BR>Utilize esse campo para informar o código do anexo utilizado no seu aplicativo quando incluir o anexo no Omie. <BR>Assim, poderá utilizar esse campo para resgatar o anexo desejado.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cTabela</td>
+<td class="parameter-type">string<span class="parameter-lenght">100</span></td><td class="parameter-docs"><div class="first">Nome da tabela onde o anexo está incluído.</div><div class="more"><a href="javascript:void(0)">+</a><div>Pode ser: <BR>cliente<BR>produto<BR>servico<BR>pedido-venda<BR>remessa-produto<BR>ordem-servico<BR>contrato-servico<BR>pedido-compra<BR>nota-entrada<BR>ordem-producao<BR>conta-pagar<BR>conta-receber<BR>conta-corrente<BR>conta-corrente-lancamento<BR>crm-contas<BR>crm-contatos<BR>crm-oportunidades<BR>com-recebimento</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nId</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">ID do documento de acordo com a tabela especificada.</div><div class="more"><a href="javascript:void(0)">+</a><div>Por exemplo:<BR>Caso você informe "cliente" na tag "cTabela" você deve informar o ID do cliente neste campo.<BR><BR>Preenchimento obrigatório.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nIdAnexo</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">ID do anexo.</div><div class="more"><a href="javascript:void(0)">+</a><div>Gerado automático na inclusão.<BR>Informe esse campo para Obter, Consultar e Excluir o anexo.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cNomeArquivo</td>
+<td class="parameter-type">string<span class="parameter-lenght">100</span></td><td class="parameter-docs"><div class="first">Nome do arquivo que foi adicionado.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preencha essa tag, apenas se você não tiver ou souber qual é o código de integração do anexo (tag cCodIntAnexo).<BR>Caso a tag cCodIntAnexo esteja preenchida, o conteúdo dessa tag será desconsiderado.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cLinkDownload</td>
+<td class="parameter-type">string<span class="parameter-lenght">500</span></td><td class="parameter-docs"><div class="first">URL para download do anexo solicitado.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">dDtExpiracao</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Data de expiração da url disponibilizada.</div><div class="more"><a href="javascript:void(0)">+</a><div>No formato dd/mm/aaaa.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCodStatus</td>
+<td class="parameter-type">string<span class="parameter-lenght">4</span></td><td class="parameter-docs"><div class="first">Código do status do processamento.</div><div class="more"><a href="javascript:void(0)">+</a><div>Se o retorno for '0' significa que a solicitação foi executada com sucesso.<BR>Se o retorno for maior que '0' ocorreu algum erro duranteo o processamento da solicitação.<BR>A tag 'cDesStatus' descreve o problema ocorrido.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cDesStatus</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Descrição do status do processamento.</div><div class="more"><a href="javascript:void(0)">+</a><div>Essa tag explica o resultado da tag 'cCodigoStatus'.</div></div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="info" class="anchorScroll"></a>
+<h3>info</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">dInc</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Data da Inclusão.</div><div class="more"><a href="javascript:void(0)">+</a><div>No formato dd/mm/aaaa.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">hInc</td>
+<td class="parameter-type">string<span class="parameter-lenght">8</span></td><td class="parameter-docs"><div class="first">Hora da Inclusão.</div><div class="more"><a href="javascript:void(0)">+</a><div>No formato hh:mm:ss.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">uInc</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Usuário da Inclusão.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">dAlt</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Data da Alteração.</div><div class="more"><a href="javascript:void(0)">+</a><div>No formato dd/mm/aaaa.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">hAlt</td>
+<td class="parameter-type">string<span class="parameter-lenght">8</span></td><td class="parameter-docs"><div class="first">Hora da Alteração.</div><div class="more"><a href="javascript:void(0)">+</a><div>No formato hh:mm:ss.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">uAlt</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Usuário da Alteração.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cImpAPI</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Importado pela API (S/N).</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="listaAnexos" class="anchorScroll"></a>
+<h3>listaAnexos</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">cCodIntAnexo</td>
+<td class="parameter-type">string<span class="parameter-lenght">20</span></td><td class="parameter-docs"><div class="first">Código de integração do anexo.</div><div class="more"><a href="javascript:void(0)">+</a><div>(Interno, utilizado apenas na integração via API, não é exibido na tela).<BR>Utilize esse campo para informar o código do anexo utilizado no seu aplicativo quando incluir o anexo no Omie. <BR>Assim, poderá utilizar esse campo para resgatar o anexo desejado.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cTipoArquivo</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Tipo de Arquivo.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento Opcional.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nId</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">ID do documento de acordo com a tabela especificada.</div><div class="more"><a href="javascript:void(0)">+</a><div>Por exemplo:<BR>Caso você informe "cliente" na tag "cTabela" você deve informar o ID do cliente neste campo.<BR><BR>Preenchimento obrigatório.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nIdAnexo</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">ID do anexo.</div><div class="more"><a href="javascript:void(0)">+</a><div>Gerado automático na inclusão.<BR>Informe esse campo para Obter, Consultar e Excluir o anexo.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cNomeArquivo</td>
+<td class="parameter-type">string<span class="parameter-lenght">100</span></td><td class="parameter-docs"><div class="first">Nome do arquivo que foi adicionado.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preencha essa tag, apenas se você não tiver ou souber qual é o código de integração do anexo (tag cCodIntAnexo).<BR>Caso a tag cCodIntAnexo esteja preenchida, o conteúdo dessa tag será desconsiderado.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cTabela</td>
+<td class="parameter-type">string<span class="parameter-lenght">100</span></td><td class="parameter-docs"><div class="first">Nome da tabela onde o anexo está incluído.</div><div class="more"><a href="javascript:void(0)">+</a><div>Pode ser: <BR>cliente<BR>produto<BR>servico<BR>pedido-venda<BR>remessa-produto<BR>ordem-servico<BR>contrato-servico<BR>pedido-compra<BR>nota-entrada<BR>ordem-producao<BR>conta-pagar<BR>conta-receber<BR>conta-corrente<BR>conta-corrente-lancamento<BR>crm-contas<BR>crm-contatos<BR>crm-oportunidades<BR>com-recebimento</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">info</td>
+<td class="parameter-type"><a href="#info">info</a></td><td class="parameter-docs"><div class="first">Informações complementares do anexo.</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="listaAnexosArray" class="anchorScroll"></a>
+<h3>listaAnexosArray</h3>
+<p>Este par&acirc;metro &eacute; um array do tipo <span class="pre"><a href="#listaAnexos"><span class="lightBlue">listaAnexos</span></a></span></p>
+<p>Lista de listaAnexos</p>
+</div>
+<div class="complexTypeItem">
+<a name="omie_fail" class="anchorScroll"></a>
+<h3>omie_fail</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">code</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Codigo do erro</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">description</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Descricao do erro</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-required">referer</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Origem do erro</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-required">fatal</td>
+<td class="parameter-type">boolean</td><td class="parameter-docs"><div class="first">Indica se eh um erro fatal</div></td>
+<tr>
+</table>
+</div>
+</div>
+<div class="col-md-3">
+<div id="affix-menu" data-spy="affix" data-offset-top="294">
+<h2>M&eacute;todos</h2>
+<nav id="index" class="hidden-print hidden-xs hidden-sm">
+<ul class="nav">
+<li><a href="#ConsultarAnexo">ConsultarAnexo</a></li>
+<li><a href="#ExcluirAnexo">ExcluirAnexo</a></li>
+<li><a href="#IncluirAnexo">IncluirAnexo</a></li>
+<li><a href="#ListarAnexo">ListarAnexo</a></li>
+<li><a href="#ObterAnexo">ObterAnexo</a></li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+</body>
+</html>

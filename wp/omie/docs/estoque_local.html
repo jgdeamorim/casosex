@@ -1,0 +1,475 @@
+<nav class="navbar navbar-expand-lg bg-azul">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="https://developer.omie.com.br/">
+            <img class="lozad img-logo" data-src="https://static.omie.com.br/images/logo/logo-omie-topo.png" src="https://static.omie.com.br/images/logo/logo-omie-topo.png" data-loaded="true">
+        </a>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <span class="borda-hover"></span>
+                    <a class="nav-link" href="https://developer.omie.com.br/my-apps/"> Aplicativos </a>
+                </li>
+                <li class="nav-item ">
+                    <span class="borda-hover"></span>
+                    <a class="nav-link" href="https://developer.omie.com.br/service-list/">
+                        Lista das API's
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <span class="borda-hover"></span>
+                    <a class="nav-link" href="https://ajuda.omie.com.br/pt-BR/collections/3045828-apis" target="_blank"> Ajuda </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<html>
+<head>
+<title>LocalEstoque</title>
+<style type="text/css" media="all">
+  [id] { scroll-margin-top: 68px; }
+</style>
+<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+<script src="https://cdn.omie.com.br/omie-assets/js/omie-compat-v2.min.js"></script>
+<script src="/developer/themes/omie/developer.js?ts=2021.008"></script>
+<link rel="stylesheet" href="//app.omie.com.br/wp-content/themes/omie/bootstrap/css/bootstrap.min.css" async/>
+<link href="https://cdn.omie.com.br/assets/developer/css/site.css?ts=2021.008" media="all" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="/developer/themes/omie/developer.css?ts=2021.008" async/>
+</head>
+<body>
+<div class="jumbotron banner bg-azul">
+<div class="container">
+<img src="https://cdn.omie.com.br/assets/developer/images/seta-azuis.png" alt="" class="img-setas">
+<div class="row align-items-center">
+<div class="col-12">
+<h1>LocalEstoque</h1>
+<ul class="nav nav-tabs" role="tablist">
+  <li role="presentation" class="active"><a href="#section-endpoint" aria-controls="section-endpoint" role="tab" data-toggle="tab">Endpoint</a></li>
+  <li role="presentation" class="pull-right"><a href="#section-wsdl" aria-controls="section-wsdl" role="tab" data-toggle="tab">WSDL</a></li>
+  <li role="presentation" class="pull-right"><a href="#section-php-soap" aria-controls="section-php-soap" role="tab" data-toggle="tab">PHP SOAP</a></li>
+  <li role="presentation" class="pull-right"><a href="#section-json" aria-controls="section-json" role="tab" data-toggle="tab">JSON</a></li>
+</ul>
+<div class="tab-content">
+  <div role="tabpanel" class="tab-pane fade in active" id="section-endpoint">
+    <h4>Endpoint URI</h4>
+    <a class="highlight" href="https://app.omie.com.br/api/v1/estoque/local/"><pre><code>https://app.omie.com.br/api/v1/estoque/local/</code></pre></a>
+  </div>
+  <div role="tabpanel" class="tab-pane fade" id="section-wsdl">
+    <h4>WSDL URI</h4>
+    <a class="highlight" href="https://app.omie.com.br/api/v1/estoque/local/?WSDL"><pre><code>https://app.omie.com.br/api/v1/estoque/local/?WSDL</code></pre></a>
+  </div>
+  <div role="tabpanel" class="tab-pane fade" id="section-php-soap">
+    <h4>PHP SOAP client download</h4>
+    <a class="highlight" href="https://app.omie.com.br/api/v1/estoque/local/?PHPSOAPCLIENT""><pre><code>https://app.omie.com.br/api/v1/estoque/local/?PHPSOAPCLIENT</code></pre></a>
+  </div>
+  <div role="tabpanel" class="tab-pane fade" id="section-json">
+    <h4>JSON client download URI</h4>
+    <h5>PHP</h5>
+    <a class="highlight" href="https://app.omie.com.br/api/v1/estoque/local/?PHPJSONCLIENT"><pre><code>https://app.omie.com.br/api/v1/estoque/local/?PHPJSONCLIENT</code></pre></a>
+    <h5>JavaScript (recomendado para uso apenas do lado do servidor)</h5>
+    <a class="highlight" href="https://app.omie.com.br/api/v1/estoque/local/?JSJSONCLIENT"><pre><code>https://app.omie.com.br/api/v1/estoque/local/?JSJSONCLIENT</code></pre></a>
+  </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="container">
+<div class="row">
+<div class="col-md-9">
+<h2>M&eacute;todos</h2>
+<p>Veja abaixo a documenta&ccedil;&atilde;o de cada m&eacute;todo dispon&iacute;vel para este servi&ccedil;o.</p>
+<div id="AlterarLocalEstoque" class="methodItem">
+<h3 class="method-name">AlterarLocalEstoque</h3>
+<p>
+Alterar local de Estoque
+</p>
+<div class="panel panel-default method">
+<div class="panel-heading"> Par&acirc;metros:
+</div>
+<table class="table table-condensed table-hover">
+<tr>
+<td class="">&nbsp;</td>
+<td class="method-parameter-type"><a href="#alterarLocalRequest">alterarLocalRequest</a></td>
+<td class="method-parameter-name">alterarLocalRequest</td><td class="method-parameter-docs"><div class="first">Requisição para alteração do Local de Estoque cadastrado.</div></td>
+</tr>
+</table>
+<div class="panel-footer">
+Retorno <span class="pre"><a href="#alterarLocalResponse"><span class="lightBlue">alterarLocalResponse</span></a></span>: 
+</div>
+</div>
+<div class="method-example-area">
+<h5>Exemplo:</h5>
+<pre class="method-example-code">{<BR>  "codigo": "L0",<BR>  "descricao": "descrição de teste",<BR>  "tipo": "1",<BR>  "dispOrdemProducao": "N",<BR>  "codigo_cliente": 0,<BR>  "dispConsumoOP": "N",<BR>  "dispRemessa": "N",<BR>  "dispVenda": "N"<BR>}</pre>
+<button class="btn btn-success method-example" data-method="AlterarLocalEstoque" data-example="%7B++%22codigo%22%3A+%22L0%22%2C++%22descricao%22%3A+%22descri%E7%E3o+de+teste%22%2C++%22tipo%22%3A+%221%22%2C++%22dispOrdemProducao%22%3A+%22N%22%2C++%22codigo_cliente%22%3A+0%2C++%22dispConsumoOP%22%3A+%22N%22%2C++%22dispRemessa%22%3A+%22N%22%2C++%22dispVenda%22%3A+%22N%22%7D">Teste agora mesmo</button>
+</div>
+</div>
+<div id="IncluirLocalEstoque" class="methodItem">
+<h3 class="method-name">IncluirLocalEstoque</h3>
+<p>
+Adiciona um local de estoque
+</p>
+<div class="panel panel-default method">
+<div class="panel-heading"> Par&acirc;metros:
+</div>
+<table class="table table-condensed table-hover">
+<tr>
+<td class="">&nbsp;</td>
+<td class="method-parameter-type"><a href="#IncluirLocalRequest">IncluirLocalRequest</a></td>
+<td class="method-parameter-name">IncluirLocalRequest</td><td class="method-parameter-docs"><div class="first">Solicitação de inclusão de Local de Estoque.</div></td>
+</tr>
+</table>
+<div class="panel-footer">
+Retorno <span class="pre"><a href="#incluirLocalResponse"><span class="lightBlue">incluirLocalResponse</span></a></span>: 
+</div>
+</div>
+<div class="method-example-area">
+<h5>Exemplo:</h5>
+<pre class="method-example-code">{<BR>  "codigo": "L0",<BR>  "descricao": "descrição de teste",<BR>  "tipo": "1",<BR>  "dispOrdemProducao": "N",<BR>  "dispConsumoOP": "N",<BR>  "dispRemessa": "N",<BR>  "dispVenda": "N",<BR>  "consiSugeCompra":"N"<BR>}</pre>
+<button class="btn btn-success method-example" data-method="IncluirLocalEstoque" data-example="%7B++%22codigo%22%3A+%22L0%22%2C++%22descricao%22%3A+%22descri%E7%E3o+de+teste%22%2C++%22tipo%22%3A+%221%22%2C++%22dispOrdemProducao%22%3A+%22N%22%2C++%22dispConsumoOP%22%3A+%22N%22%2C++%22dispRemessa%22%3A+%22N%22%2C++%22dispVenda%22%3A+%22N%22%2C++%22consiSugeCompra%22%3A%22N%22%7D">Teste agora mesmo</button>
+</div>
+</div>
+<div id="ListarLocaisEstoque" class="methodItem">
+<h3 class="method-name">ListarLocaisEstoque</h3>
+<p>
+Lista os Locais de Estoque encontrados.
+</p>
+<div class="panel panel-default method">
+<div class="panel-heading"> Par&acirc;metros:
+</div>
+<table class="table table-condensed table-hover">
+<tr>
+<td class="">&nbsp;</td>
+<td class="method-parameter-type"><a href="#locaisListarRequest">locaisListarRequest</a></td>
+<td class="method-parameter-name">locaisListarRequest</td><td class="method-parameter-docs"><div class="first">Solicitação de listagem de Locais de Estoque.</div></td>
+</tr>
+</table>
+<div class="panel-footer">
+Retorno <span class="pre"><a href="#locaisListarResponse"><span class="lightBlue">locaisListarResponse</span></a></span>: 
+</div>
+</div>
+<div class="method-example-area">
+<h5>Exemplo:</h5>
+<pre class="method-example-code">{<BR>  "nPagina": 1,<BR>  "nRegPorPagina": 20<BR>}</pre>
+<button class="btn btn-success method-example" data-method="ListarLocaisEstoque" data-example="%7B++%22nPagina%22%3A+1%2C++%22nRegPorPagina%22%3A+20%7D">Teste agora mesmo</button>
+</div>
+</div>
+<h2>Tipos Complexos</h2>
+<div class="complexTypeItem">
+<a name="IncluirLocalRequest" class="anchorScroll"></a>
+<h3>IncluirLocalRequest</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">codigo</td>
+<td class="parameter-type">string<span class="parameter-lenght">50</span></td><td class="parameter-docs"><div class="first">Código do Local do Estoque.</div><div class="more"><a href="javascript:void(0)">+</a><div>Conforme informado na tela de cadastro do Local do Estoque.<BR><BR>Para identificação do Local do Estoque via API utilize o campo "codigo_local_estoque".<BR></div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">descricao</td>
+<td class="parameter-type">string<span class="parameter-lenght">250</span></td><td class="parameter-docs"><div class="first">Descrição do Local de Estoque.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">tipo</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Tipo de Local de Estoque.</div><div class="more"><a href="javascript:void(0)">+</a><div>Pode ser:<BR>1 - Estoque próprio da Empresa<BR>2 - Estoque próprio da Empresa em poder de terceiros<BR>3 - Estoque de terceiros em poder da Empresa&nbsp;<BR></div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">consiSugeCompra</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Indica se o Local de Estoque deve ser considerado na sugestão de compra</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">codigo_cliente</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código do cliente/fornecedor.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">dispOrdemProducao</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Indica se o Local do Estoque está disponível para Ordem de Produção (S/N).</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">dispConsumoOP</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Indica se o Local do Estoque está disponível para consumo da Ordem de Produção (S/N).</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">dispRemessa</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Indica se o Local do Estoque está disponível para Remessa (S/N).</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">dispVenda</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Indica se o Local do Estoque está disponível para Venda (S/N).</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="alterarLocalRequest" class="anchorScroll"></a>
+<h3>alterarLocalRequest</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">codigo_local_estoque</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código do Local do Estoque.</div><div class="more"><a href="javascript:void(0)">+</a><div>Utilize esse ID para identificar os locais do estoque que serão utilizados nas demais APIs.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">codigo</td>
+<td class="parameter-type">string<span class="parameter-lenght">50</span></td><td class="parameter-docs"><div class="first">Código do Local do Estoque.</div><div class="more"><a href="javascript:void(0)">+</a><div>Conforme informado na tela de cadastro do Local do Estoque.<BR><BR>Para identificação do Local do Estoque via API utilize o campo "codigo_local_estoque".<BR></div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">descricao</td>
+<td class="parameter-type">string<span class="parameter-lenght">250</span></td><td class="parameter-docs"><div class="first">Descrição do Local de Estoque.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">tipo</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Tipo de Local de Estoque.</div><div class="more"><a href="javascript:void(0)">+</a><div>Pode ser:<BR>1 - Estoque próprio da Empresa<BR>2 - Estoque próprio da Empresa em poder de terceiros<BR>3 - Estoque de terceiros em poder da Empresa&nbsp;<BR></div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">consiSugeCompra</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Indica se o Local de Estoque deve ser considerado na sugestão de compra</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">codigo_cliente</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código do cliente/fornecedor.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">dispOrdemProducao</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Indica se o Local do Estoque está disponível para Ordem de Produção (S/N).</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">dispConsumoOP</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Indica se o Local do Estoque está disponível para consumo da Ordem de Produção (S/N).</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">dispRemessa</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Indica se o Local do Estoque está disponível para Remessa (S/N).</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">dispVenda</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Indica se o Local do Estoque está disponível para Venda (S/N).</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="alterarLocalResponse" class="anchorScroll"></a>
+<h3>alterarLocalResponse</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">codigo_local_estoque</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código do Local do Estoque.</div><div class="more"><a href="javascript:void(0)">+</a><div>Utilize esse ID para identificar os locais do estoque que serão utilizados nas demais APIs.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCodStatus</td>
+<td class="parameter-type">string<span class="parameter-lenght">4</span></td><td class="parameter-docs"><div class="first">Codigo de Status</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cDesStatus</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Descricao do Status</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="incluirLocalResponse" class="anchorScroll"></a>
+<h3>incluirLocalResponse</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">codigo_local_estoque</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código do Local do Estoque.</div><div class="more"><a href="javascript:void(0)">+</a><div>Utilize esse ID para identificar os locais do estoque que serão utilizados nas demais APIs.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">codigo</td>
+<td class="parameter-type">string<span class="parameter-lenght">50</span></td><td class="parameter-docs"><div class="first">Código do Local do Estoque.</div><div class="more"><a href="javascript:void(0)">+</a><div>Conforme informado na tela de cadastro do Local do Estoque.<BR><BR>Para identificação do Local do Estoque via API utilize o campo "codigo_local_estoque".<BR></div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCodStatus</td>
+<td class="parameter-type">string<span class="parameter-lenght">4</span></td><td class="parameter-docs"><div class="first">Codigo de Status</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cDesStatus</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Descricao do Status</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="locaisEncontrados" class="anchorScroll"></a>
+<h3>locaisEncontrados</h3>
+<p>Lista de Locais de Estoque encontrados.</p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">codigo_local_estoque</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código do Local do Estoque.</div><div class="more"><a href="javascript:void(0)">+</a><div>Utilize esse ID para identificar os locais do estoque que serão utilizados nas demais APIs.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">codigo</td>
+<td class="parameter-type">string<span class="parameter-lenght">50</span></td><td class="parameter-docs"><div class="first">Código do Local do Estoque.</div><div class="more"><a href="javascript:void(0)">+</a><div>Conforme informado na tela de cadastro do Local do Estoque.<BR><BR>Para identificação do Local do Estoque via API utilize o campo "codigo_local_estoque".<BR></div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">descricao</td>
+<td class="parameter-type">string<span class="parameter-lenght">250</span></td><td class="parameter-docs"><div class="first">Descrição do Local de Estoque.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">tipo</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Tipo de Local de Estoque.</div><div class="more"><a href="javascript:void(0)">+</a><div>Pode ser:<BR>1 - Estoque próprio da Empresa<BR>2 - Estoque próprio da Empresa em poder de terceiros<BR>3 - Estoque de terceiros em poder da Empresa&nbsp;<BR></div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">padrao</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Indica se o Local do Estoque é padrão (S/N).</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">inativo</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Indica se o Local do Estoque está inativo (S/N).</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">codigo_cliente</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código do cliente/fornecedor.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">dispOrdemProducao</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Indica se o Local do Estoque está disponível para Ordem de Produção (S/N).</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">dispConsumoOP</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Indica se o Local do Estoque está disponível para consumo da Ordem de Produção (S/N).</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">dispRemessa</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Indica se o Local do Estoque está disponível para Remessa (S/N).</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">dispVenda</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Indica se o Local do Estoque está disponível para Venda (S/N).</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">dInc</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Data de Inclusão.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">hInc</td>
+<td class="parameter-type">string<span class="parameter-lenght">8</span></td><td class="parameter-docs"><div class="first">Hora de inclusão.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">uInc</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Código do usuário que realizou a inclusão.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">dAlt</td>
+<td class="parameter-type">string<span class="parameter-lenght">8</span></td><td class="parameter-docs"><div class="first">Hora de alteração.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">hAlt</td>
+<td class="parameter-type">string<span class="parameter-lenght">8</span></td><td class="parameter-docs"><div class="first">Hora de alteração.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">uAlt</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Código do usuário que realizou a alteração.</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="locaisEncontradosArray" class="anchorScroll"></a>
+<h3>locaisEncontradosArray</h3>
+<p>Este par&acirc;metro &eacute; um array do tipo <span class="pre"><a href="#locaisEncontrados"><span class="lightBlue">locaisEncontrados</span></a></span></p>
+<p>Lista de locaisEncontrados</p>
+</div>
+<div class="complexTypeItem">
+<a name="locaisListarRequest" class="anchorScroll"></a>
+<h3>locaisListarRequest</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">nPagina</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Número da página que será listada.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nRegPorPagina</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Número de registros retornados</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">filtrar_por_data_de</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Filtrar os registros a partir de uma data.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento Opcional.<BR><BR>Formato: "dd/mm/aaaa"</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">filtrar_por_hora_de</td>
+<td class="parameter-type">string<span class="parameter-lenght">8</span></td><td class="parameter-docs"><div class="first">Filtrar a partir da hora.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento Opcional.<BR><BR>Formato: "hh:mm:ss"</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">filtrar_por_data_ate</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Filtrar os registros até uma data.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento Opcional.<BR><BR>Formato: "dd/mm/aaaa"</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">filtrar_por_hora_ate</td>
+<td class="parameter-type">string<span class="parameter-lenght">8</span></td><td class="parameter-docs"><div class="first">Filtrar até a hora.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento Opcional.<BR><BR>Formato: "hh:mm:ss"</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">filtrar_apenas_inclusao</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Filtrar apenas os registros incluídos (S/N).</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento Opcional.<BR><BR>Preencher com "S" ou "N".</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">filtrar_apenas_alteracao</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Filtrar apenas os registros alterados (S/N).</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento Opcional.<BR><BR>Preencher com "S" ou "N".</div></div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="locaisListarResponse" class="anchorScroll"></a>
+<h3>locaisListarResponse</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">nPagina</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Número da página que será listada.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nTotPaginas</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Total de páginas encontradas.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nRegistros</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Número de registros retornados</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nTotRegistros</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Total de registros encontrados.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">locaisEncontrados</td>
+<td class="parameter-type"><a href="#locaisEncontradosArray">locaisEncontradosArray</a></td><td class="parameter-docs"><div class="first">Lista de Locais de Estoque encontrados.</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="omie_fail" class="anchorScroll"></a>
+<h3>omie_fail</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">code</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Codigo do erro</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">description</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Descricao do erro</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-required">referer</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Origem do erro</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-required">fatal</td>
+<td class="parameter-type">boolean</td><td class="parameter-docs"><div class="first">Indica se eh um erro fatal</div></td>
+<tr>
+</table>
+</div>
+</div>
+<div class="col-md-3">
+<div id="affix-menu" data-spy="affix" data-offset-top="294">
+<h2>M&eacute;todos</h2>
+<nav id="index" class="hidden-print hidden-xs hidden-sm">
+<ul class="nav">
+<li><a href="#AlterarLocalEstoque">AlterarLocalEstoque</a></li>
+<li><a href="#IncluirLocalEstoque">IncluirLocalEstoque</a></li>
+<li><a href="#ListarLocaisEstoque">ListarLocaisEstoque</a></li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+</body>
+</html>

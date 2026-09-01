@@ -1,0 +1,1285 @@
+<nav class="navbar navbar-expand-lg bg-azul">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="https://developer.omie.com.br/">
+            <img class="lozad img-logo" data-src="https://static.omie.com.br/images/logo/logo-omie-topo.png" src="https://static.omie.com.br/images/logo/logo-omie-topo.png" data-loaded="true">
+        </a>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <span class="borda-hover"></span>
+                    <a class="nav-link" href="https://developer.omie.com.br/my-apps/"> Aplicativos </a>
+                </li>
+                <li class="nav-item ">
+                    <span class="borda-hover"></span>
+                    <a class="nav-link" href="https://developer.omie.com.br/service-list/">
+                        Lista das API's
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <span class="borda-hover"></span>
+                    <a class="nav-link" href="https://ajuda.omie.com.br/pt-BR/collections/3045828-apis" target="_blank"> Ajuda </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<html>
+<head>
+<title>TabelaPrecos</title>
+<style type="text/css" media="all">
+  [id] { scroll-margin-top: 68px; }
+</style>
+<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+<script src="https://cdn.omie.com.br/omie-assets/js/omie-compat-v2.min.js"></script>
+<script src="/developer/themes/omie/developer.js?ts=2021.008"></script>
+<link rel="stylesheet" href="//app.omie.com.br/wp-content/themes/omie/bootstrap/css/bootstrap.min.css" async/>
+<link href="https://cdn.omie.com.br/assets/developer/css/site.css?ts=2021.008" media="all" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="/developer/themes/omie/developer.css?ts=2021.008" async/>
+</head>
+<body>
+<div class="jumbotron banner bg-azul">
+<div class="container">
+<img src="https://cdn.omie.com.br/assets/developer/images/seta-azuis.png" alt="" class="img-setas">
+<div class="row align-items-center">
+<div class="col-12">
+<h1>TabelaPrecos</h1>
+<ul class="nav nav-tabs" role="tablist">
+  <li role="presentation" class="active"><a href="#section-endpoint" aria-controls="section-endpoint" role="tab" data-toggle="tab">Endpoint</a></li>
+  <li role="presentation" class="pull-right"><a href="#section-wsdl" aria-controls="section-wsdl" role="tab" data-toggle="tab">WSDL</a></li>
+  <li role="presentation" class="pull-right"><a href="#section-php-soap" aria-controls="section-php-soap" role="tab" data-toggle="tab">PHP SOAP</a></li>
+  <li role="presentation" class="pull-right"><a href="#section-json" aria-controls="section-json" role="tab" data-toggle="tab">JSON</a></li>
+</ul>
+<div class="tab-content">
+  <div role="tabpanel" class="tab-pane fade in active" id="section-endpoint">
+    <h4>Endpoint URI</h4>
+    <a class="highlight" href="https://app.omie.com.br/api/v1/produtos/tabelaprecos/"><pre><code>https://app.omie.com.br/api/v1/produtos/tabelaprecos/</code></pre></a>
+  </div>
+  <div role="tabpanel" class="tab-pane fade" id="section-wsdl">
+    <h4>WSDL URI</h4>
+    <a class="highlight" href="https://app.omie.com.br/api/v1/produtos/tabelaprecos/?WSDL"><pre><code>https://app.omie.com.br/api/v1/produtos/tabelaprecos/?WSDL</code></pre></a>
+  </div>
+  <div role="tabpanel" class="tab-pane fade" id="section-php-soap">
+    <h4>PHP SOAP client download</h4>
+    <a class="highlight" href="https://app.omie.com.br/api/v1/produtos/tabelaprecos/?PHPSOAPCLIENT""><pre><code>https://app.omie.com.br/api/v1/produtos/tabelaprecos/?PHPSOAPCLIENT</code></pre></a>
+  </div>
+  <div role="tabpanel" class="tab-pane fade" id="section-json">
+    <h4>JSON client download URI</h4>
+    <h5>PHP</h5>
+    <a class="highlight" href="https://app.omie.com.br/api/v1/produtos/tabelaprecos/?PHPJSONCLIENT"><pre><code>https://app.omie.com.br/api/v1/produtos/tabelaprecos/?PHPJSONCLIENT</code></pre></a>
+    <h5>JavaScript (recomendado para uso apenas do lado do servidor)</h5>
+    <a class="highlight" href="https://app.omie.com.br/api/v1/produtos/tabelaprecos/?JSJSONCLIENT"><pre><code>https://app.omie.com.br/api/v1/produtos/tabelaprecos/?JSJSONCLIENT</code></pre></a>
+  </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="container">
+<div class="row">
+<div class="col-md-9">
+<h2>M&eacute;todos</h2>
+<p>Veja abaixo a documenta&ccedil;&atilde;o de cada m&eacute;todo dispon&iacute;vel para este servi&ccedil;o.</p>
+<div id="AlterarPrecoItem" class="methodItem">
+<h3 class="method-name">AlterarPrecoItem</h3>
+<p>
+
+</p>
+<div class="panel panel-default method">
+<div class="panel-heading"> Par&acirc;metros:
+</div>
+<table class="table table-condensed table-hover">
+<tr>
+<td class="">&nbsp;</td>
+<td class="method-parameter-type"><a href="#tprAltPrecoItemRequest">tprAltPrecoItemRequest</a></td>
+<td class="method-parameter-name">tprAltPrecoItemRequest</td><td class="method-parameter-docs"><div class="first">Solicitação de alteração do preço de um item de uma Tabela de Preços.</div></td>
+</tr>
+</table>
+<div class="panel-footer">
+Retorno <span class="pre"><a href="#tprAltPrecoItemResponse"><span class="lightBlue">tprAltPrecoItemResponse</span></a></span>: 
+</div>
+</div>
+<div class="method-example-area">
+<h5>Exemplo:</h5>
+<pre class="method-example-code">{<BR>  "nCodTabPreco": 0,<BR>  "nCodProd": 0,<BR>  "nValorTabela": 0<BR>}</pre>
+<button class="btn btn-success method-example" data-method="AlterarPrecoItem" data-example="%7B++%22nCodTabPreco%22%3A+0%2C++%22nCodProd%22%3A+0%2C++%22nValorTabela%22%3A+0%7D">Teste agora mesmo</button>
+</div>
+</div>
+<div id="AlterarTabelaPreco" class="methodItem">
+<h3 class="method-name">AlterarTabelaPreco</h3>
+<p>
+
+</p>
+<div class="panel panel-default method">
+<div class="panel-heading"> Par&acirc;metros:
+</div>
+<table class="table table-condensed table-hover">
+<tr>
+<td class="">&nbsp;</td>
+<td class="method-parameter-type"><a href="#tprAlterarRequest">tprAlterarRequest</a></td>
+<td class="method-parameter-name">tprAlterarRequest</td><td class="method-parameter-docs"><div class="first">Solicitação de Alteração de uma Tabela de Preços.</div></td>
+</tr>
+</table>
+<div class="panel-footer">
+Retorno <span class="pre"><a href="#tprAlterarResponse"><span class="lightBlue">tprAlterarResponse</span></a></span>: 
+</div>
+</div>
+<div class="method-example-area">
+<h5>Exemplo:</h5>
+<pre class="method-example-code">{<BR>   "nCodTabPreco" : 0,<BR>   "cCodIntTabPreco": "TP1788306302",<BR>   "cNome": "",<BR>   "cCodigo": "",<BR>   "cOrigem": "",<BR>   "produtos": {<BR>      "cTodosProdutos": "S",<BR>      "nCodFamilia": 0,<BR>      "cNCM": "",<BR>      "nCodCaract": 0,<BR>      "cConteudo": "",<BR>      "nCodFornec": 0<BR>   },<BR>   "clientes": {<BR>      "cTodosClientes": "S",<BR>      "nCodTag": 0,<BR>      "cTag": "",<BR>      "cUF": ""<BR>   },<BR>   "outrasInfo": {<BR>      "nCodOrigTab": 0,<BR>      "nPercAcrescimo": 0,<BR>      "nPercDesconto": 0<BR>   },<BR>   "caracteristicas": {<BR>      "cTemValidade": "S",<BR>      "dDtInicial": "01/09/2026",<BR>      "dDtFinal": "01/09/2026",<BR>      "cTemDesconto": "",<BR>      "nDescSugerido": 0,<BR>      "nPercDescMax": 0,<BR>      "cArredPreco": "N"<BR>   }<BR>}</pre>
+<button class="btn btn-success method-example" data-method="AlterarTabelaPreco" data-example="%7B+++%22nCodTabPreco%22+%3A+0%2C+++%22cCodIntTabPreco%22%3A+%22TP1788306302%22%2C+++%22cNome%22%3A+%22%22%2C+++%22cCodigo%22%3A+%22%22%2C+++%22cOrigem%22%3A+%22%22%2C+++%22produtos%22%3A+%7B++++++%22cTodosProdutos%22%3A+%22S%22%2C++++++%22nCodFamilia%22%3A+0%2C++++++%22cNCM%22%3A+%22%22%2C++++++%22nCodCaract%22%3A+0%2C++++++%22cConteudo%22%3A+%22%22%2C++++++%22nCodFornec%22%3A+0+++%7D%2C+++%22clientes%22%3A+%7B++++++%22cTodosClientes%22%3A+%22S%22%2C++++++%22nCodTag%22%3A+0%2C++++++%22cTag%22%3A+%22%22%2C++++++%22cUF%22%3A+%22%22+++%7D%2C+++%22outrasInfo%22%3A+%7B++++++%22nCodOrigTab%22%3A+0%2C++++++%22nPercAcrescimo%22%3A+0%2C++++++%22nPercDesconto%22%3A+0+++%7D%2C+++%22caracteristicas%22%3A+%7B++++++%22cTemValidade%22%3A+%22S%22%2C++++++%22dDtInicial%22%3A+%2201%2F09%2F2026%22%2C++++++%22dDtFinal%22%3A+%2201%2F09%2F2026%22%2C++++++%22cTemDesconto%22%3A+%22%22%2C++++++%22nDescSugerido%22%3A+0%2C++++++%22nPercDescMax%22%3A+0%2C++++++%22cArredPreco%22%3A+%22N%22+++%7D%7D">Teste agora mesmo</button>
+</div>
+</div>
+<div id="AtivarTabelaPreco" class="methodItem">
+<h3 class="method-name">AtivarTabelaPreco</h3>
+<p>
+
+</p>
+<div class="panel panel-default method">
+<div class="panel-heading"> Par&acirc;metros:
+</div>
+<table class="table table-condensed table-hover">
+<tr>
+<td class="">&nbsp;</td>
+<td class="method-parameter-type"><a href="#tprAtivarRequest">tprAtivarRequest</a></td>
+<td class="method-parameter-name">tprAtivarRequest</td><td class="method-parameter-docs"><div class="first">Solicitação de Ativação de uma Tabela de Preços.</div></td>
+</tr>
+</table>
+<div class="panel-footer">
+Retorno <span class="pre"><a href="#tprAtivarResponse"><span class="lightBlue">tprAtivarResponse</span></a></span>: 
+</div>
+</div>
+<div class="method-example-area">
+<h5>Exemplo:</h5>
+<pre class="method-example-code">{<BR>  "nCodTabPreco": 0,<BR>  "cCodIntTabPreco": ""<BR>}</pre>
+<button class="btn btn-success method-example" data-method="AtivarTabelaPreco" data-example="%7B++%22nCodTabPreco%22%3A+0%2C++%22cCodIntTabPreco%22%3A+%22%22%7D">Teste agora mesmo</button>
+</div>
+</div>
+<div id="AtualizarProdutos" class="methodItem">
+<h3 class="method-name">AtualizarProdutos</h3>
+<p>
+
+</p>
+<div class="panel panel-default method">
+<div class="panel-heading"> Par&acirc;metros:
+</div>
+<table class="table table-condensed table-hover">
+<tr>
+<td class="">&nbsp;</td>
+<td class="method-parameter-type"><a href="#tprAtualizarRequest">tprAtualizarRequest</a></td>
+<td class="method-parameter-name">tprAtualizarRequest</td><td class="method-parameter-docs"><div class="first">Solicitação de Atualização dos produtos de uma Tabela de Preços.</div></td>
+</tr>
+</table>
+<div class="panel-footer">
+Retorno <span class="pre"><a href="#tprAtualizarResponse"><span class="lightBlue">tprAtualizarResponse</span></a></span>: 
+</div>
+</div>
+<div class="method-example-area">
+<h5>Exemplo:</h5>
+<pre class="method-example-code">{<BR>  "nCodTabPreco": 0,<BR>  "cCodIntTabPreco": ""<BR>}<BR></pre>
+<button class="btn btn-success method-example" data-method="AtualizarProdutos" data-example="%7B++%22nCodTabPreco%22%3A+0%2C++%22cCodIntTabPreco%22%3A+%22%22%7D">Teste agora mesmo</button>
+</div>
+</div>
+<div id="ConsultarTabelaPreco" class="methodItem">
+<h3 class="method-name">ConsultarTabelaPreco</h3>
+<p>
+
+</p>
+<div class="panel panel-default method">
+<div class="panel-heading"> Par&acirc;metros:
+</div>
+<table class="table table-condensed table-hover">
+<tr>
+<td class="">&nbsp;</td>
+<td class="method-parameter-type"><a href="#tprConsultarRequest">tprConsultarRequest</a></td>
+<td class="method-parameter-name">tprConsultarRequest</td><td class="method-parameter-docs"><div class="first">Solicitação de Consulta de uma Tabela de Preços.</div></td>
+</tr>
+</table>
+<div class="panel-footer">
+Retorno <span class="pre"><a href="#tprConsultarResponse"><span class="lightBlue">tprConsultarResponse</span></a></span>: 
+</div>
+</div>
+<div class="method-example-area">
+<h5>Exemplo:</h5>
+<pre class="method-example-code">{<BR>  "nCodTabPreco": 0,<BR>  "cCodIntTabPreco": ""<BR>}</pre>
+<button class="btn btn-success method-example" data-method="ConsultarTabelaPreco" data-example="%7B++%22nCodTabPreco%22%3A+0%2C++%22cCodIntTabPreco%22%3A+%22%22%7D">Teste agora mesmo</button>
+</div>
+</div>
+<div id="ExcluirTabelaPreco" class="methodItem">
+<h3 class="method-name">ExcluirTabelaPreco</h3>
+<p>
+
+</p>
+<div class="panel panel-default method">
+<div class="panel-heading"> Par&acirc;metros:
+</div>
+<table class="table table-condensed table-hover">
+<tr>
+<td class="">&nbsp;</td>
+<td class="method-parameter-type"><a href="#tprExcluirRequest">tprExcluirRequest</a></td>
+<td class="method-parameter-name">tprExcluirRequest</td><td class="method-parameter-docs"><div class="first">Solicitação de Exclusão de uma Tabela de Preços.</div></td>
+</tr>
+</table>
+<div class="panel-footer">
+Retorno <span class="pre"><a href="#tprExcluirResponse"><span class="lightBlue">tprExcluirResponse</span></a></span>: 
+</div>
+</div>
+<div class="method-example-area">
+<h5>Exemplo:</h5>
+<pre class="method-example-code">{<BR>  "nCodTabPreco": 0,<BR>  "cCodIntTabPreco": ""<BR>}</pre>
+<button class="btn btn-success method-example" data-method="ExcluirTabelaPreco" data-example="%7B++%22nCodTabPreco%22%3A+0%2C++%22cCodIntTabPreco%22%3A+%22%22%7D">Teste agora mesmo</button>
+</div>
+</div>
+<div id="IncluirTabelaPreco" class="methodItem">
+<h3 class="method-name">IncluirTabelaPreco</h3>
+<p>
+
+</p>
+<div class="panel panel-default method">
+<div class="panel-heading"> Par&acirc;metros:
+</div>
+<table class="table table-condensed table-hover">
+<tr>
+<td class="">&nbsp;</td>
+<td class="method-parameter-type"><a href="#tprIncluirRequest">tprIncluirRequest</a></td>
+<td class="method-parameter-name">tprIncluirRequest</td><td class="method-parameter-docs"><div class="first">Solicitação de Inclusão de uma Tabela de Preços.</div></td>
+</tr>
+</table>
+<div class="panel-footer">
+Retorno <span class="pre"><a href="#tprIncluirResponse"><span class="lightBlue">tprIncluirResponse</span></a></span>: 
+</div>
+</div>
+<div class="method-example-area">
+<h5>Exemplo:</h5>
+<pre class="method-example-code">{<BR>   "cCodIntTabPreco": "TP1788306302",<BR>   "cNome": "",<BR>   "cCodigo": "",<BR>   "cOrigem": "",<BR>   "produtos": {<BR>      "cTodosProdutos": "S",<BR>      "nCodFamilia": 0,<BR>      "cNCM": "",<BR>      "nCodCaract": 0,<BR>      "cConteudo": "",<BR>      "nCodFornec": 0<BR>   },<BR>   "clientes": {<BR>      "cTodosClientes": "S",<BR>      "nCodTag": 0,<BR>      "cTag": "",<BR>      "cUF": ""<BR>   },<BR>   "outrasInfo": {<BR>      "nCodOrigTab": 0,<BR>      "nPercAcrescimo": 0,<BR>      "nPercDesconto": 0<BR>   },<BR>   "caracteristicas": {<BR>      "cTemValidade": "S",<BR>      "dDtInicial": "01/09/2026",<BR>      "dDtFinal": "01/09/2026",<BR>      "cTemDesconto": "",<BR>      "nDescSugerido": 0,<BR>      "nPercDescMax": 0,<BR>      "cArredPreco": "N"<BR>   }<BR>}<BR></pre>
+<button class="btn btn-success method-example" data-method="IncluirTabelaPreco" data-example="%7B+++%22cCodIntTabPreco%22%3A+%22TP1788306302%22%2C+++%22cNome%22%3A+%22%22%2C+++%22cCodigo%22%3A+%22%22%2C+++%22cOrigem%22%3A+%22%22%2C+++%22produtos%22%3A+%7B++++++%22cTodosProdutos%22%3A+%22S%22%2C++++++%22nCodFamilia%22%3A+0%2C++++++%22cNCM%22%3A+%22%22%2C++++++%22nCodCaract%22%3A+0%2C++++++%22cConteudo%22%3A+%22%22%2C++++++%22nCodFornec%22%3A+0+++%7D%2C+++%22clientes%22%3A+%7B++++++%22cTodosClientes%22%3A+%22S%22%2C++++++%22nCodTag%22%3A+0%2C++++++%22cTag%22%3A+%22%22%2C++++++%22cUF%22%3A+%22%22+++%7D%2C+++%22outrasInfo%22%3A+%7B++++++%22nCodOrigTab%22%3A+0%2C++++++%22nPercAcrescimo%22%3A+0%2C++++++%22nPercDesconto%22%3A+0+++%7D%2C+++%22caracteristicas%22%3A+%7B++++++%22cTemValidade%22%3A+%22S%22%2C++++++%22dDtInicial%22%3A+%2201%2F09%2F2026%22%2C++++++%22dDtFinal%22%3A+%2201%2F09%2F2026%22%2C++++++%22cTemDesconto%22%3A+%22%22%2C++++++%22nDescSugerido%22%3A+0%2C++++++%22nPercDescMax%22%3A+0%2C++++++%22cArredPreco%22%3A+%22N%22+++%7D%7D">Teste agora mesmo</button>
+</div>
+</div>
+<div id="ListarTabelaItens" class="methodItem">
+<h3 class="method-name">ListarTabelaItens</h3>
+<p>
+
+</p>
+<div class="panel panel-default method">
+<div class="panel-heading"> Par&acirc;metros:
+</div>
+<table class="table table-condensed table-hover">
+<tr>
+<td class="">&nbsp;</td>
+<td class="method-parameter-type"><a href="#tprItensListarRequest">tprItensListarRequest</a></td>
+<td class="method-parameter-name">tprItensListarRequest</td><td class="method-parameter-docs"><div class="first">Listagem de itens da tabela de preços.</div></td>
+</tr>
+</table>
+<div class="panel-footer">
+Retorno <span class="pre"><a href="#tprItensListarResponse"><span class="lightBlue">tprItensListarResponse</span></a></span>: 
+</div>
+</div>
+<div class="method-example-area">
+<h5>Exemplo:</h5>
+<pre class="method-example-code">{<BR>  "nPagina": 1,<BR>  "nRegPorPagina": 20,<BR>  "nCodTabPreco": 0,<BR>  "cCodIntTabPreco": ""<BR>}<BR></pre>
+<button class="btn btn-success method-example" data-method="ListarTabelaItens" data-example="%7B++%22nPagina%22%3A+1%2C++%22nRegPorPagina%22%3A+20%2C++%22nCodTabPreco%22%3A+0%2C++%22cCodIntTabPreco%22%3A+%22%22%7D">Teste agora mesmo</button>
+</div>
+</div>
+<div id="ListarTabelasPreco" class="methodItem">
+<h3 class="method-name">ListarTabelasPreco</h3>
+<p>
+
+</p>
+<div class="panel panel-default method">
+<div class="panel-heading"> Par&acirc;metros:
+</div>
+<table class="table table-condensed table-hover">
+<tr>
+<td class="">&nbsp;</td>
+<td class="method-parameter-type"><a href="#tprListarRequest">tprListarRequest</a></td>
+<td class="method-parameter-name">tprListarRequest</td><td class="method-parameter-docs"><div class="first">Listagem de tabela de preços.</div></td>
+</tr>
+</table>
+<div class="panel-footer">
+Retorno <span class="pre"><a href="#tprListarResponse"><span class="lightBlue">tprListarResponse</span></a></span>: 
+</div>
+</div>
+<div class="method-example-area">
+<h5>Exemplo:</h5>
+<pre class="method-example-code">{<BR>  "nPagina": 1,<BR>  "nRegPorPagina": 20<BR>}</pre>
+<button class="btn btn-success method-example" data-method="ListarTabelasPreco" data-example="%7B++%22nPagina%22%3A+1%2C++%22nRegPorPagina%22%3A+20%7D">Teste agora mesmo</button>
+</div>
+</div>
+<div id="SuspenderTabelaPreco" class="methodItem">
+<h3 class="method-name">SuspenderTabelaPreco</h3>
+<p>
+
+</p>
+<div class="panel panel-default method">
+<div class="panel-heading"> Par&acirc;metros:
+</div>
+<table class="table table-condensed table-hover">
+<tr>
+<td class="">&nbsp;</td>
+<td class="method-parameter-type"><a href="#tprSuspenderRequest">tprSuspenderRequest</a></td>
+<td class="method-parameter-name">tprSuspenderRequest</td><td class="method-parameter-docs"><div class="first">Solicitação de Suspensão de uma Tabela de Preços.</div></td>
+</tr>
+</table>
+<div class="panel-footer">
+Retorno <span class="pre"><a href="#tprSuspenderResponse"><span class="lightBlue">tprSuspenderResponse</span></a></span>: 
+</div>
+</div>
+<div class="method-example-area">
+<h5>Exemplo:</h5>
+<pre class="method-example-code">{<BR>  "nCodTabPreco": 0,<BR>  "cCodIntTabPreco": ""<BR>}</pre>
+<button class="btn btn-success method-example" data-method="SuspenderTabelaPreco" data-example="%7B++%22nCodTabPreco%22%3A+0%2C++%22cCodIntTabPreco%22%3A+%22%22%7D">Teste agora mesmo</button>
+</div>
+</div>
+<h2>Tipos Complexos</h2>
+<div class="complexTypeItem">
+<a name="caracteristicas" class="anchorScroll"></a>
+<h3>caracteristicas</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">cTemValidade</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Indica se a Tabela de Preço possui Validade (S/N).</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">dDtInicial</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Data Inicial da Validade da Tabela de Preço.</div><div class="more"><a href="javascript:void(0)">+</a><div>No formato dd/mm/aaaa.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">dDtFinal</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Data Final de Validade Tabela de Preço.</div><div class="more"><a href="javascript:void(0)">+</a><div>No formato dd/mm/aaaa.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cTemDesconto</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Indica se a Tabela de Preço possui Desconto Sugerido ou Máximo (S/N).</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nDescSugerido</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Percentual de Desconto Sugerido.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nPercDescMax</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Percentual de Desconto Máximo Permitido.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cArredPreco</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Indica se deve Arredondar o preço do produto (S/N).</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="clientes" class="anchorScroll"></a>
+<h3>clientes</h3>
+<p>Dados dos filtros do cliente.</p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">cTodosClientes</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Considerar todos os clientes nesta tabela de preços? (S/N)</div><div class="more"><a href="javascript:void(0)">+</a><div>O padrão é "S".<BR>Quando informar "S", todos os demais campos deste grupo serão desconsiderados.<BR>Caso informe "N", pelo menos 1 dos campos deste grupo deverá ser informado.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nCodTag</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Considerar apenas os clientes de uma determinada Tag.</div><div class="more"><a href="javascript:void(0)">+</a><div>Será ignorado caso o campo "cTodosClientes" estiver preenhido com "S".</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cTag</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Descrição da tag do cliente informada no campo nCodTag.</div><div class="more"><a href="javascript:void(0)">+</a><div>O conteúdo deste campo é apenas informativo e não tem efeito na inclusão.<BR>Na inclusão utilize a tag "nCodTag".<BR></div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cUF</td>
+<td class="parameter-type">string<span class="parameter-lenght">2</span></td><td class="parameter-docs"><div class="first">Considerar apenas os clientes do Estado.</div><div class="more"><a href="javascript:void(0)">+</a><div>Será ignorado caso o campo "cTodosClientes" estiver preenhido com "S".</div></div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="info" class="anchorScroll"></a>
+<h3>info</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">dInc</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Data da Inclusão.</div><div class="more"><a href="javascript:void(0)">+</a><div>No formato dd/mm/aaaa.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">hInc</td>
+<td class="parameter-type">string<span class="parameter-lenght">8</span></td><td class="parameter-docs"><div class="first">Hora da Inclusão.</div><div class="more"><a href="javascript:void(0)">+</a><div>No formato hh:mm:ss.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">uInc</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Usuário da Inclusão.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">dAlt</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Data da Alteração.</div><div class="more"><a href="javascript:void(0)">+</a><div>No formato dd/mm/aaaa.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">hAlt</td>
+<td class="parameter-type">string<span class="parameter-lenght">8</span></td><td class="parameter-docs"><div class="first">Hora da Alteração.</div><div class="more"><a href="javascript:void(0)">+</a><div>No formato hh:mm:ss.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">uAlt</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Usuário da Alteração.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cImpAPI</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Importado pela API (S/N).</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="itemInfo" class="anchorScroll"></a>
+<h3>itemInfo</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">dIncItem</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Data da Inclusão.</div><div class="more"><a href="javascript:void(0)">+</a><div>No formato dd/mm/aaaa.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">hIncItem</td>
+<td class="parameter-type">string<span class="parameter-lenght">8</span></td><td class="parameter-docs"><div class="first">Hora da Inclusão.</div><div class="more"><a href="javascript:void(0)">+</a><div>No formato hh:mm:ss.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">uIncItem</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Usuário da Inclusão.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">dAltItem</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Data da Alteração.</div><div class="more"><a href="javascript:void(0)">+</a><div>No formato dd/mm/aaaa.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">hAltItem</td>
+<td class="parameter-type">string<span class="parameter-lenght">8</span></td><td class="parameter-docs"><div class="first">Hora da Alteração.</div><div class="more"><a href="javascript:void(0)">+</a><div>No formato hh:mm:ss.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">uAltItem</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Usuário da Alteração.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cImpAPIItem</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Importado pela API (S/N).</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="itensTabela" class="anchorScroll"></a>
+<h3>itensTabela</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">nCodProd</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código do produto.</div><div class="more"><a href="javascript:void(0)">+</a><div>(Interno, utilizado apenas na integração via API, não é exibido na tela).<BR>O conteúdo desse campo é o código interno do produto gerado pelo Omie.<BR></div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCodIntProd</td>
+<td class="parameter-type">string<span class="parameter-lenght">20</span></td><td class="parameter-docs"><div class="first">Código de integração do produto.</div><div class="more"><a href="javascript:void(0)">+</a><div>(Interno, utilizado apenas na Integração via API, não aparece na tela).<BR>Utilize esse campo para informar o código utilizado no seu aplicativo quando incluir um produto no Omie. <BR>Assim, poderá utilizá-lo para resgatar as informações do produto desejado.<BR>Caso informe esse campo, não informe a tag nCodProd. Caso isso aconteça, o conteúdo dessa tag será desconsiderada.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCodigoProduto</td>
+<td class="parameter-type">string<span class="parameter-lenght">60</span></td><td class="parameter-docs"><div class="first">Código do produto.</div><div class="more"><a href="javascript:void(0)">+</a><div>(Exibido na tela do aplicativo).</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cDescricaoProduto</td>
+<td class="parameter-type">string<span class="parameter-lenght">120</span></td><td class="parameter-docs"><div class="first">Descrição do produto.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cNCM</td>
+<td class="parameter-type">string<span class="parameter-lenght">13</span></td><td class="parameter-docs"><div class="first">Código do NCM.</div><div class="more"><a href="javascript:void(0)">+</a><div>No formato 9999.99.99</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cEAN</td>
+<td class="parameter-type">string<span class="parameter-lenght">14</span></td><td class="parameter-docs"><div class="first">EAN do produto.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nCodFamilia</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código da Familia do Produto.</div><div class="more"><a href="javascript:void(0)">+</a><div>(Interno, utilizado apenas na integração via API, não é exibido na tela).<BR>O conteúdo desse campo é o código interno da família gerado pelo Omie.<BR></div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cArredPreco</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Indica se deve Arredondar o preço do produto (S/N).</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cTemDesconto</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Indica se a Tabela de Preço possui Desconto Sugerido ou Máximo (S/N).</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nDescMaximo</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Percentual de Desconto Máximo Permitido.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nDescSugerido</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Percentual de Desconto Sugerido.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cManual</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Indica se o item foi modificado Manualmente (S/N).</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nPercDesconto</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Percentual de Desconto da tabela de preços.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nPercAcrescimo</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Percentual de Acréscimo da tabela de preços.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nValorCalculado</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Valor Calculado.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nValorOriginal</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Valor Original.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nValorTabela</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Valor da Tabela de Preços.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">itemInfo</td>
+<td class="parameter-type"><a href="#itemInfo">itemInfo</a></td><td class="parameter-docs"><div class="first">Informações do cadastro do item.</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="itensTabelaArray" class="anchorScroll"></a>
+<h3>itensTabelaArray</h3>
+<p>Este par&acirc;metro &eacute; um array do tipo <span class="pre"><a href="#itensTabela"><span class="lightBlue">itensTabela</span></a></span></p>
+<p>Lista de itensTabela</p>
+</div>
+<div class="complexTypeItem">
+<a name="listaTabelaPreco" class="anchorScroll"></a>
+<h3>listaTabelaPreco</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">nCodTabPreco</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código da Tabela de Preços.</div><div class="more"><a href="javascript:void(0)">+</a><div>(Interno, utilizado apenas na integração via API, não é exibido na tela).<BR>O conteúdo desse campo é o código interno da Tabela de Preços gerado pelo Omie.<BR></div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCodIntTabPreco</td>
+<td class="parameter-type">string<span class="parameter-lenght">20</span></td><td class="parameter-docs"><div class="first">Código de integração da Tabela de Preços.</div><div class="more"><a href="javascript:void(0)">+</a><div>(Interno, utilizado apenas na Integração via API, não aparece na tela).<BR>Utilize esse campo para informar o código da Tabela de Preços utilizado no seu aplicativo quando incluir uma Tabela de Preços no Omie. <BR>Assim, poderá utilizar esse campo para resgatar as informações da Tabela de Preços desejada.<BR>Caso informe esse campo, não informe a tag nCodTabPreco. Caso isso aconteça, o conteúdo dessa tag será desconsiderada.<BR></div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cNome</td>
+<td class="parameter-type">string<span class="parameter-lenght">50</span></td><td class="parameter-docs"><div class="first">Nome da Tabela de Preço.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCodigo</td>
+<td class="parameter-type">string<span class="parameter-lenght">20</span></td><td class="parameter-docs"><div class="first">Código da Tabela de Preço.</div><div class="more"><a href="javascript:void(0)">+</a><div>(Exibido na tela do aplicativo).</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cAtiva</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Indica se a tabela de preços está ativa (S/N).</div><div class="more"><a href="javascript:void(0)">+</a><div></div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cOrigem</td>
+<td class="parameter-type">string<span class="parameter-lenght">3</span></td><td class="parameter-docs"><div class="first">Origem da Tabela de Preços.</div><div class="more"><a href="javascript:void(0)">+</a><div>Pode ser:<BR>PRD - Lê o preço do cadastro de produtos.<BR>CMC - Lê o preço do CMC do produto.<BR>TBL - Lê o preço de uma tabela específica informada na tag "nCodOrigTab".<BR></div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">itensTabela</td>
+<td class="parameter-type"><a href="#itensTabelaArray">itensTabelaArray</a></td><td class="parameter-docs"><div class="first">Itens da Tabela de Preços.</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="listaTabelasPreco" class="anchorScroll"></a>
+<h3>listaTabelasPreco</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">nCodTabPreco</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código da Tabela de Preços.</div><div class="more"><a href="javascript:void(0)">+</a><div>(Interno, utilizado apenas na integração via API, não é exibido na tela).<BR>O conteúdo desse campo é o código interno da Tabela de Preços gerado pelo Omie.<BR></div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCodIntTabPreco</td>
+<td class="parameter-type">string<span class="parameter-lenght">20</span></td><td class="parameter-docs"><div class="first">Código de integração da Tabela de Preços.</div><div class="more"><a href="javascript:void(0)">+</a><div>(Interno, utilizado apenas na Integração via API, não aparece na tela).<BR>Utilize esse campo para informar o código da Tabela de Preços utilizado no seu aplicativo quando incluir uma Tabela de Preços no Omie. <BR>Assim, poderá utilizar esse campo para resgatar as informações da Tabela de Preços desejada.<BR>Caso informe esse campo, não informe a tag nCodTabPreco. Caso isso aconteça, o conteúdo dessa tag será desconsiderada.<BR></div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cNome</td>
+<td class="parameter-type">string<span class="parameter-lenght">50</span></td><td class="parameter-docs"><div class="first">Nome da Tabela de Preço.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCodigo</td>
+<td class="parameter-type">string<span class="parameter-lenght">20</span></td><td class="parameter-docs"><div class="first">Código da Tabela de Preço.</div><div class="more"><a href="javascript:void(0)">+</a><div>(Exibido na tela do aplicativo).</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cAtiva</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Indica se a tabela de preços está ativa (S/N).</div><div class="more"><a href="javascript:void(0)">+</a><div></div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cOrigem</td>
+<td class="parameter-type">string<span class="parameter-lenght">3</span></td><td class="parameter-docs"><div class="first">Origem da Tabela de Preços.</div><div class="more"><a href="javascript:void(0)">+</a><div>Pode ser:<BR>PRD - Lê o preço do cadastro de produtos.<BR>CMC - Lê o preço do CMC do produto.<BR>TBL - Lê o preço de uma tabela específica informada na tag "nCodOrigTab".<BR></div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">produtos</td>
+<td class="parameter-type"><a href="#produtos">produtos</a></td><td class="parameter-docs"><div class="first">Dados dos filtros por produto.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">clientes</td>
+<td class="parameter-type"><a href="#clientes">clientes</a></td><td class="parameter-docs"><div class="first">Dados dos filtros do cliente.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">outrasInfo</td>
+<td class="parameter-type"><a href="#outrasInfo">outrasInfo</a></td><td class="parameter-docs"><div class="first">Outros filtros da tabela de preços.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">caracteristicas</td>
+<td class="parameter-type"><a href="#caracteristicas">caracteristicas</a></td><td class="parameter-docs"><div class="first">Características da tabela de preço.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">info</td>
+<td class="parameter-type"><a href="#info">info</a></td><td class="parameter-docs"><div class="first">Informações do cadastro da tabela de preços.</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="listaTabelasPrecoArray" class="anchorScroll"></a>
+<h3>listaTabelasPrecoArray</h3>
+<p>Este par&acirc;metro &eacute; um array do tipo <span class="pre"><a href="#listaTabelasPreco"><span class="lightBlue">listaTabelasPreco</span></a></span></p>
+<p>Lista de listaTabelasPreco</p>
+</div>
+<div class="complexTypeItem">
+<a name="omie_fail" class="anchorScroll"></a>
+<h3>omie_fail</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">code</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Codigo do erro</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">description</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Descricao do erro</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-required">referer</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Origem do erro</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-required">fatal</td>
+<td class="parameter-type">boolean</td><td class="parameter-docs"><div class="first">Indica se eh um erro fatal</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="outrasInfo" class="anchorScroll"></a>
+<h3>outrasInfo</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">nCodOrigTab</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código da Tabela de Preço Original.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nPercAcrescimo</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Percentual de Acréscimo da tabela de preços.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nPercDesconto</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Percentual de Desconto da tabela de preços.</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="produtos" class="anchorScroll"></a>
+<h3>produtos</h3>
+<p>Dados dos filtros por produto.</p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">cTodosProdutos</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Considerar todos os produtos nesta tabela de preços? (S/N)</div><div class="more"><a href="javascript:void(0)">+</a><div>O padrão é "S".<BR>Quando informar "S", todos os demais campos deste grupo serão desconsiderados.<BR>Caso informe "N", pelo menos 1 dos campos deste grupo deverá ser informado.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nCodFamilia</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código da Familia do Produto.</div><div class="more"><a href="javascript:void(0)">+</a><div>(Interno, utilizado apenas na integração via API, não é exibido na tela).<BR>O conteúdo desse campo é o código interno da família gerado pelo Omie.<BR></div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cNCM</td>
+<td class="parameter-type">string<span class="parameter-lenght">13</span></td><td class="parameter-docs"><div class="first">Código do NCM.</div><div class="more"><a href="javascript:void(0)">+</a><div>No formato 9999.99.99</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nCodCaract</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código da característica de produto.</div><div class="more"><a href="javascript:void(0)">+</a><div>(Interno, utilizado apenas na integração via API, não é exibido na tela).<BR>O conteúdo desse campo é o código interno da característica do produto gerado pelo Omie.<BR>Será ignorado caso o campo "cTodosProdutos" estiver preenhido com "S".</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cConteudo</td>
+<td class="parameter-type">string<span class="parameter-lenght">60</span></td><td class="parameter-docs"><div class="first">Conteúdo da característica.</div><div class="more"><a href="javascript:void(0)">+</a><div>Será ignorado caso o campo "cTodosProdutos" estiver preenhido com "S".</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nCodFornec</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código do fornecedor.</div><div class="more"><a href="javascript:void(0)">+</a><div>(Interno, utilizado apenas na integração via API, não é exibido na tela).<BR>O conteúdo desse campo é o código interno do fornecedor gerado pelo Omie.<BR>Será ignorado caso o campo "cTodosProdutos" estiver preenhido com "S".</div></div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="tprAltPrecoItemRequest" class="anchorScroll"></a>
+<h3>tprAltPrecoItemRequest</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">nCodTabPreco</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código da Tabela de Preços.</div><div class="more"><a href="javascript:void(0)">+</a><div>(Interno, utilizado apenas na integração via API, não é exibido na tela).<BR>O conteúdo desse campo é o código interno da Tabela de Preços gerado pelo Omie.<BR></div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nCodProd</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código do produto.</div><div class="more"><a href="javascript:void(0)">+</a><div>(Interno, utilizado apenas na integração via API, não é exibido na tela).<BR>O conteúdo desse campo é o código interno do produto gerado pelo Omie.<BR></div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nValorTabela</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Valor Calculado.</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="tprAltPrecoItemResponse" class="anchorScroll"></a>
+<h3>tprAltPrecoItemResponse</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">nCodTabPreco</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código da Tabela de Preços.</div><div class="more"><a href="javascript:void(0)">+</a><div>(Interno, utilizado apenas na integração via API, não é exibido na tela).<BR>O conteúdo desse campo é o código interno da Tabela de Preços gerado pelo Omie.<BR></div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nCodProd</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código do produto.</div><div class="more"><a href="javascript:void(0)">+</a><div>(Interno, utilizado apenas na integração via API, não é exibido na tela).<BR>O conteúdo desse campo é o código interno do produto gerado pelo Omie.<BR></div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCodStatus</td>
+<td class="parameter-type">string<span class="parameter-lenght">4</span></td><td class="parameter-docs"><div class="first">Código do status do processamento.</div><div class="more"><a href="javascript:void(0)">+</a><div>Se o retorno for "0" significa que a solicitação foi executada com sucesso.<BR>Se o retorno for maior que "0" ocorreu algum erro duranteo o processamento da solicitação.<BR>A tag "cDesStatus" descreve o problema ocorrido.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cDesStatus</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Descrição do status do processamento.</div><div class="more"><a href="javascript:void(0)">+</a><div>Essa tag explica o resultado da tag "cCodigoStatus".</div></div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="tprAlterarRequest" class="anchorScroll"></a>
+<h3>tprAlterarRequest</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">nCodTabPreco</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código do produto.</div><div class="more"><a href="javascript:void(0)">+</a><div>(Interno, utilizado apenas na integração via API, não é exibido na tela).<BR>O conteúdo desse campo é o código interno do produto gerado pelo Omie.<BR></div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCodIntTabPreco</td>
+<td class="parameter-type">string<span class="parameter-lenght">20</span></td><td class="parameter-docs"><div class="first">Código de integração da Tabela de Preços.</div><div class="more"><a href="javascript:void(0)">+</a><div>(Interno, utilizado apenas na Integração via API, não aparece na tela).<BR>Utilize esse campo para informar o código da Tabela de Preços utilizado no seu aplicativo quando incluir uma Tabela de Preços no Omie. <BR>Assim, poderá utilizar esse campo para resgatar as informações da Tabela de Preços desejada.<BR>Caso informe esse campo, não informe a tag nCodTabPreco. Caso isso aconteça, o conteúdo dessa tag será desconsiderada.<BR></div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cNome</td>
+<td class="parameter-type">string<span class="parameter-lenght">50</span></td><td class="parameter-docs"><div class="first">Nome da Tabela de Preço.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCodigo</td>
+<td class="parameter-type">string<span class="parameter-lenght">20</span></td><td class="parameter-docs"><div class="first">Código da Tabela de Preço.</div><div class="more"><a href="javascript:void(0)">+</a><div>(Exibido na tela do aplicativo).</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">produtos</td>
+<td class="parameter-type"><a href="#produtos">produtos</a></td><td class="parameter-docs"><div class="first">Dados dos filtros por produto.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">clientes</td>
+<td class="parameter-type"><a href="#clientes">clientes</a></td><td class="parameter-docs"><div class="first">Dados dos filtros do cliente.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">outrasInfo</td>
+<td class="parameter-type"><a href="#outrasInfo">outrasInfo</a></td><td class="parameter-docs"><div class="first">Outros filtros da tabela de preços.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">caracteristicas</td>
+<td class="parameter-type"><a href="#caracteristicas">caracteristicas</a></td><td class="parameter-docs"><div class="first">Características da tabela de preço.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cOrigem</td>
+<td class="parameter-type">string<span class="parameter-lenght">3</span></td><td class="parameter-docs"><div class="first">Origem da Tabela de Preços.</div><div class="more"><a href="javascript:void(0)">+</a><div>Pode ser:<BR>PRD - Lê o preço do cadastro de produtos.<BR>CMC - Lê o preço do CMC do produto.<BR>TBL - Lê o preço de uma tabela específica informada na tag "nCodOrigTab".<BR></div></div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="tprAlterarResponse" class="anchorScroll"></a>
+<h3>tprAlterarResponse</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">nCodTabPreco</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código do produto.</div><div class="more"><a href="javascript:void(0)">+</a><div>(Interno, utilizado apenas na integração via API, não é exibido na tela).<BR>O conteúdo desse campo é o código interno do produto gerado pelo Omie.<BR></div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCodIntTabPreco</td>
+<td class="parameter-type">string<span class="parameter-lenght">20</span></td><td class="parameter-docs"><div class="first">Código de integração da Tabela de Preços.</div><div class="more"><a href="javascript:void(0)">+</a><div>(Interno, utilizado apenas na Integração via API, não aparece na tela).<BR>Utilize esse campo para informar o código da Tabela de Preços utilizado no seu aplicativo quando incluir uma Tabela de Preços no Omie. <BR>Assim, poderá utilizar esse campo para resgatar as informações da Tabela de Preços desejada.<BR>Caso informe esse campo, não informe a tag nCodTabPreco. Caso isso aconteça, o conteúdo dessa tag será desconsiderada.<BR></div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCodStatus</td>
+<td class="parameter-type">string<span class="parameter-lenght">4</span></td><td class="parameter-docs"><div class="first">Código do status do processamento.</div><div class="more"><a href="javascript:void(0)">+</a><div>Se o retorno for "0" significa que a solicitação foi executada com sucesso.<BR>Se o retorno for maior que "0" ocorreu algum erro duranteo o processamento da solicitação.<BR>A tag "cDesStatus" descreve o problema ocorrido.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cDesStatus</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Descrição do status do processamento.</div><div class="more"><a href="javascript:void(0)">+</a><div>Essa tag explica o resultado da tag "cCodigoStatus".</div></div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="tprAtivarRequest" class="anchorScroll"></a>
+<h3>tprAtivarRequest</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">nCodTabPreco</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código da Tabela de Preços.</div><div class="more"><a href="javascript:void(0)">+</a><div>(Interno, utilizado apenas na integração via API, não é exibido na tela).<BR>O conteúdo desse campo é o código interno da Tabela de Preços gerado pelo Omie.<BR></div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCodIntTabPreco</td>
+<td class="parameter-type">string<span class="parameter-lenght">20</span></td><td class="parameter-docs"><div class="first">Código de integração da Tabela de Preços.</div><div class="more"><a href="javascript:void(0)">+</a><div>(Interno, utilizado apenas na Integração via API, não aparece na tela).<BR>Utilize esse campo para informar o código da Tabela de Preços utilizado no seu aplicativo quando incluir uma Tabela de Preços no Omie. <BR>Assim, poderá utilizar esse campo para resgatar as informações da Tabela de Preços desejada.<BR>Caso informe esse campo, não informe a tag nCodTabPreco. Caso isso aconteça, o conteúdo dessa tag será desconsiderada.<BR></div></div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="tprAtivarResponse" class="anchorScroll"></a>
+<h3>tprAtivarResponse</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">nCodTabPreco</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código da Tabela de Preços.</div><div class="more"><a href="javascript:void(0)">+</a><div>(Interno, utilizado apenas na integração via API, não é exibido na tela).<BR>O conteúdo desse campo é o código interno da Tabela de Preços gerado pelo Omie.<BR></div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCodIntTabPreco</td>
+<td class="parameter-type">string<span class="parameter-lenght">20</span></td><td class="parameter-docs"><div class="first">Código de integração da Tabela de Preços.</div><div class="more"><a href="javascript:void(0)">+</a><div>(Interno, utilizado apenas na Integração via API, não aparece na tela).<BR>Utilize esse campo para informar o código da Tabela de Preços utilizado no seu aplicativo quando incluir uma Tabela de Preços no Omie. <BR>Assim, poderá utilizar esse campo para resgatar as informações da Tabela de Preços desejada.<BR>Caso informe esse campo, não informe a tag nCodTabPreco. Caso isso aconteça, o conteúdo dessa tag será desconsiderada.<BR></div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCodStatus</td>
+<td class="parameter-type">string<span class="parameter-lenght">4</span></td><td class="parameter-docs"><div class="first">Código do status do processamento.</div><div class="more"><a href="javascript:void(0)">+</a><div>Se o retorno for "0" significa que a solicitação foi executada com sucesso.<BR>Se o retorno for maior que "0" ocorreu algum erro duranteo o processamento da solicitação.<BR>A tag "cDesStatus" descreve o problema ocorrido.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cDesStatus</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Descrição do status do processamento.</div><div class="more"><a href="javascript:void(0)">+</a><div>Essa tag explica o resultado da tag "cCodigoStatus".</div></div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="tprAtualizarRequest" class="anchorScroll"></a>
+<h3>tprAtualizarRequest</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">nCodTabPreco</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código da Tabela de Preços.</div><div class="more"><a href="javascript:void(0)">+</a><div>(Interno, utilizado apenas na integração via API, não é exibido na tela).<BR>O conteúdo desse campo é o código interno da Tabela de Preços gerado pelo Omie.<BR></div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCodIntTabPreco</td>
+<td class="parameter-type">string<span class="parameter-lenght">20</span></td><td class="parameter-docs"><div class="first">Código de integração da Tabela de Preços.</div><div class="more"><a href="javascript:void(0)">+</a><div>(Interno, utilizado apenas na Integração via API, não aparece na tela).<BR>Utilize esse campo para informar o código da Tabela de Preços utilizado no seu aplicativo quando incluir uma Tabela de Preços no Omie. <BR>Assim, poderá utilizar esse campo para resgatar as informações da Tabela de Preços desejada.<BR>Caso informe esse campo, não informe a tag nCodTabPreco. Caso isso aconteça, o conteúdo dessa tag será desconsiderada.<BR></div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nPercAcrescimo</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Percentual de Acréscimo da tabela de preços.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nPercDesconto</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Percentual de Desconto da tabela de preços.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cArredPreco</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Indica se deve Arredondar o preço do produto (S/N).</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="tprAtualizarResponse" class="anchorScroll"></a>
+<h3>tprAtualizarResponse</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">nCodTabPreco</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código da Tabela de Preços.</div><div class="more"><a href="javascript:void(0)">+</a><div>(Interno, utilizado apenas na integração via API, não é exibido na tela).<BR>O conteúdo desse campo é o código interno da Tabela de Preços gerado pelo Omie.<BR></div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCodIntTabPreco</td>
+<td class="parameter-type">string<span class="parameter-lenght">20</span></td><td class="parameter-docs"><div class="first">Código de integração da Tabela de Preços.</div><div class="more"><a href="javascript:void(0)">+</a><div>(Interno, utilizado apenas na Integração via API, não aparece na tela).<BR>Utilize esse campo para informar o código da Tabela de Preços utilizado no seu aplicativo quando incluir uma Tabela de Preços no Omie. <BR>Assim, poderá utilizar esse campo para resgatar as informações da Tabela de Preços desejada.<BR>Caso informe esse campo, não informe a tag nCodTabPreco. Caso isso aconteça, o conteúdo dessa tag será desconsiderada.<BR></div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCodStatus</td>
+<td class="parameter-type">string<span class="parameter-lenght">4</span></td><td class="parameter-docs"><div class="first">Código do status do processamento.</div><div class="more"><a href="javascript:void(0)">+</a><div>Se o retorno for "0" significa que a solicitação foi executada com sucesso.<BR>Se o retorno for maior que "0" ocorreu algum erro duranteo o processamento da solicitação.<BR>A tag "cDesStatus" descreve o problema ocorrido.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cDesStatus</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Descrição do status do processamento.</div><div class="more"><a href="javascript:void(0)">+</a><div>Essa tag explica o resultado da tag "cCodigoStatus".</div></div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="tprConsultarRequest" class="anchorScroll"></a>
+<h3>tprConsultarRequest</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">nCodTabPreco</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código da Tabela de Preços.</div><div class="more"><a href="javascript:void(0)">+</a><div>(Interno, utilizado apenas na integração via API, não é exibido na tela).<BR>O conteúdo desse campo é o código interno da Tabela de Preços gerado pelo Omie.<BR></div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCodIntTabPreco</td>
+<td class="parameter-type">string<span class="parameter-lenght">20</span></td><td class="parameter-docs"><div class="first">Código de integração da Tabela de Preços.</div><div class="more"><a href="javascript:void(0)">+</a><div>(Interno, utilizado apenas na Integração via API, não aparece na tela).<BR>Utilize esse campo para informar o código da Tabela de Preços utilizado no seu aplicativo quando incluir uma Tabela de Preços no Omie. <BR>Assim, poderá utilizar esse campo para resgatar as informações da Tabela de Preços desejada.<BR>Caso informe esse campo, não informe a tag nCodTabPreco. Caso isso aconteça, o conteúdo dessa tag será desconsiderada.<BR></div></div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="tprConsultarResponse" class="anchorScroll"></a>
+<h3>tprConsultarResponse</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">nCodTabPreco</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código da Tabela de Preços.</div><div class="more"><a href="javascript:void(0)">+</a><div>(Interno, utilizado apenas na integração via API, não é exibido na tela).<BR>O conteúdo desse campo é o código interno da Tabela de Preços gerado pelo Omie.<BR></div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCodIntTabPreco</td>
+<td class="parameter-type">string<span class="parameter-lenght">20</span></td><td class="parameter-docs"><div class="first">Código de integração da Tabela de Preços.</div><div class="more"><a href="javascript:void(0)">+</a><div>(Interno, utilizado apenas na Integração via API, não aparece na tela).<BR>Utilize esse campo para informar o código da Tabela de Preços utilizado no seu aplicativo quando incluir uma Tabela de Preços no Omie. <BR>Assim, poderá utilizar esse campo para resgatar as informações da Tabela de Preços desejada.<BR>Caso informe esse campo, não informe a tag nCodTabPreco. Caso isso aconteça, o conteúdo dessa tag será desconsiderada.<BR></div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cNome</td>
+<td class="parameter-type">string<span class="parameter-lenght">50</span></td><td class="parameter-docs"><div class="first">Nome da Tabela de Preço.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCodigo</td>
+<td class="parameter-type">string<span class="parameter-lenght">20</span></td><td class="parameter-docs"><div class="first">Código da Tabela de Preço.</div><div class="more"><a href="javascript:void(0)">+</a><div>(Exibido na tela do aplicativo).</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cAtiva</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Indica se a tabela de preços está ativa (S/N).</div><div class="more"><a href="javascript:void(0)">+</a><div></div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cOrigem</td>
+<td class="parameter-type">string<span class="parameter-lenght">3</span></td><td class="parameter-docs"><div class="first">Origem da Tabela de Preços.</div><div class="more"><a href="javascript:void(0)">+</a><div>Pode ser:<BR>PRD - Lê o preço do cadastro de produtos.<BR>CMC - Lê o preço do CMC do produto.<BR>TBL - Lê o preço de uma tabela específica informada na tag "nCodOrigTab".<BR></div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">produtos</td>
+<td class="parameter-type"><a href="#produtos">produtos</a></td><td class="parameter-docs"><div class="first">Dados dos filtros por produto.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">clientes</td>
+<td class="parameter-type"><a href="#clientes">clientes</a></td><td class="parameter-docs"><div class="first">Dados dos filtros do cliente.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">outrasInfo</td>
+<td class="parameter-type"><a href="#outrasInfo">outrasInfo</a></td><td class="parameter-docs"><div class="first">Outros filtros da tabela de preços.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">caracteristicas</td>
+<td class="parameter-type"><a href="#caracteristicas">caracteristicas</a></td><td class="parameter-docs"><div class="first">Características da tabela de preço.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">info</td>
+<td class="parameter-type"><a href="#info">info</a></td><td class="parameter-docs"><div class="first">Informações do cadastro da tabela de preços.</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="tprExcluirRequest" class="anchorScroll"></a>
+<h3>tprExcluirRequest</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">nCodTabPreco</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código da Tabela de Preços.</div><div class="more"><a href="javascript:void(0)">+</a><div>(Interno, utilizado apenas na integração via API, não é exibido na tela).<BR>O conteúdo desse campo é o código interno da Tabela de Preços gerado pelo Omie.<BR></div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCodIntTabPreco</td>
+<td class="parameter-type">string<span class="parameter-lenght">20</span></td><td class="parameter-docs"><div class="first">Código de integração da Tabela de Preços.</div><div class="more"><a href="javascript:void(0)">+</a><div>(Interno, utilizado apenas na Integração via API, não aparece na tela).<BR>Utilize esse campo para informar o código da Tabela de Preços utilizado no seu aplicativo quando incluir uma Tabela de Preços no Omie. <BR>Assim, poderá utilizar esse campo para resgatar as informações da Tabela de Preços desejada.<BR>Caso informe esse campo, não informe a tag nCodTabPreco. Caso isso aconteça, o conteúdo dessa tag será desconsiderada.<BR></div></div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="tprExcluirResponse" class="anchorScroll"></a>
+<h3>tprExcluirResponse</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">nCodTabPreco</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código da Tabela de Preços.</div><div class="more"><a href="javascript:void(0)">+</a><div>(Interno, utilizado apenas na integração via API, não é exibido na tela).<BR>O conteúdo desse campo é o código interno da Tabela de Preços gerado pelo Omie.<BR></div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCodIntTabPreco</td>
+<td class="parameter-type">string<span class="parameter-lenght">20</span></td><td class="parameter-docs"><div class="first">Código de integração da Tabela de Preços.</div><div class="more"><a href="javascript:void(0)">+</a><div>(Interno, utilizado apenas na Integração via API, não aparece na tela).<BR>Utilize esse campo para informar o código da Tabela de Preços utilizado no seu aplicativo quando incluir uma Tabela de Preços no Omie. <BR>Assim, poderá utilizar esse campo para resgatar as informações da Tabela de Preços desejada.<BR>Caso informe esse campo, não informe a tag nCodTabPreco. Caso isso aconteça, o conteúdo dessa tag será desconsiderada.<BR></div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCodStatus</td>
+<td class="parameter-type">string<span class="parameter-lenght">4</span></td><td class="parameter-docs"><div class="first">Código do status do processamento.</div><div class="more"><a href="javascript:void(0)">+</a><div>Se o retorno for "0" significa que a solicitação foi executada com sucesso.<BR>Se o retorno for maior que "0" ocorreu algum erro duranteo o processamento da solicitação.<BR>A tag "cDesStatus" descreve o problema ocorrido.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cDesStatus</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Descrição do status do processamento.</div><div class="more"><a href="javascript:void(0)">+</a><div>Essa tag explica o resultado da tag "cCodigoStatus".</div></div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="tprIncluirRequest" class="anchorScroll"></a>
+<h3>tprIncluirRequest</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">cCodIntTabPreco</td>
+<td class="parameter-type">string<span class="parameter-lenght">20</span></td><td class="parameter-docs"><div class="first">Código de integração da Tabela de Preços.</div><div class="more"><a href="javascript:void(0)">+</a><div>(Interno, utilizado apenas na Integração via API, não aparece na tela).<BR>Utilize esse campo para informar o código da Tabela de Preços utilizado no seu aplicativo quando incluir uma Tabela de Preços no Omie. <BR>Assim, poderá utilizar esse campo para resgatar as informações da Tabela de Preços desejada.<BR>Caso informe esse campo, não informe a tag nCodTabPreco. Caso isso aconteça, o conteúdo dessa tag será desconsiderada.<BR></div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cNome</td>
+<td class="parameter-type">string<span class="parameter-lenght">50</span></td><td class="parameter-docs"><div class="first">Nome da Tabela de Preço.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCodigo</td>
+<td class="parameter-type">string<span class="parameter-lenght">20</span></td><td class="parameter-docs"><div class="first">Código da Tabela de Preço.</div><div class="more"><a href="javascript:void(0)">+</a><div>(Exibido na tela do aplicativo).</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">produtos</td>
+<td class="parameter-type"><a href="#produtos">produtos</a></td><td class="parameter-docs"><div class="first">Dados dos filtros por produto.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">clientes</td>
+<td class="parameter-type"><a href="#clientes">clientes</a></td><td class="parameter-docs"><div class="first">Dados dos filtros do cliente.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">outrasInfo</td>
+<td class="parameter-type"><a href="#outrasInfo">outrasInfo</a></td><td class="parameter-docs"><div class="first">Outros filtros da tabela de preços.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">caracteristicas</td>
+<td class="parameter-type"><a href="#caracteristicas">caracteristicas</a></td><td class="parameter-docs"><div class="first">Características da tabela de preço.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cOrigem</td>
+<td class="parameter-type">string<span class="parameter-lenght">3</span></td><td class="parameter-docs"><div class="first">Origem da Tabela de Preços.</div><div class="more"><a href="javascript:void(0)">+</a><div>Pode ser:<BR>PRD - Lê o preço do cadastro de produtos.<BR>CMC - Lê o preço do CMC do produto.<BR>TBL - Lê o preço de uma tabela específica informada na tag "nCodOrigTab".<BR></div></div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="tprIncluirResponse" class="anchorScroll"></a>
+<h3>tprIncluirResponse</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">nCodTabPreco</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código da Tabela de Preços.</div><div class="more"><a href="javascript:void(0)">+</a><div>(Interno, utilizado apenas na integração via API, não é exibido na tela).<BR>O conteúdo desse campo é o código interno da Tabela de Preços gerado pelo Omie.<BR></div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCodIntTabPreco</td>
+<td class="parameter-type">string<span class="parameter-lenght">20</span></td><td class="parameter-docs"><div class="first">Código de integração da Tabela de Preços.</div><div class="more"><a href="javascript:void(0)">+</a><div>(Interno, utilizado apenas na Integração via API, não aparece na tela).<BR>Utilize esse campo para informar o código da Tabela de Preços utilizado no seu aplicativo quando incluir uma Tabela de Preços no Omie. <BR>Assim, poderá utilizar esse campo para resgatar as informações da Tabela de Preços desejada.<BR>Caso informe esse campo, não informe a tag nCodTabPreco. Caso isso aconteça, o conteúdo dessa tag será desconsiderada.<BR></div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCodStatus</td>
+<td class="parameter-type">string<span class="parameter-lenght">4</span></td><td class="parameter-docs"><div class="first">Código do status do processamento.</div><div class="more"><a href="javascript:void(0)">+</a><div>Se o retorno for "0" significa que a solicitação foi executada com sucesso.<BR>Se o retorno for maior que "0" ocorreu algum erro duranteo o processamento da solicitação.<BR>A tag "cDesStatus" descreve o problema ocorrido.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cDesStatus</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Descrição do status do processamento.</div><div class="more"><a href="javascript:void(0)">+</a><div>Essa tag explica o resultado da tag "cCodigoStatus".</div></div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="tprItensListarRequest" class="anchorScroll"></a>
+<h3>tprItensListarRequest</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">nPagina</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Número da página resgatada.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nRegPorPagina</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Número de registros retornados na página.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cOrdenarPor</td>
+<td class="parameter-type">string<span class="parameter-lenght">100</span></td><td class="parameter-docs"><div class="first">Ordem os resultados da página por:</div><div class="more"><a href="javascript:void(0)">+</a><div>CODIGO - Código da Tabela de Preço.<BR>CODINT - Código de Integração da Tabela de Preço.<BR>NOME - Nome da Tabela de Preço.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cOrdemDecrescente</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Indica se a ordem de exibição é Decrescente caso seja informado "S".</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nCodTabPreco</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código da Tabela de Preços.</div><div class="more"><a href="javascript:void(0)">+</a><div>(Interno, utilizado apenas na integração via API, não é exibido na tela).<BR>O conteúdo desse campo é o código interno da Tabela de Preços gerado pelo Omie.<BR></div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCodIntTabPreco</td>
+<td class="parameter-type">string<span class="parameter-lenght">20</span></td><td class="parameter-docs"><div class="first">Código de integração da Tabela de Preços.</div><div class="more"><a href="javascript:void(0)">+</a><div>(Interno, utilizado apenas na Integração via API, não aparece na tela).<BR>Utilize esse campo para informar o código da Tabela de Preços utilizado no seu aplicativo quando incluir uma Tabela de Preços no Omie. <BR>Assim, poderá utilizar esse campo para resgatar as informações da Tabela de Preços desejada.<BR>Caso informe esse campo, não informe a tag nCodTabPreco. Caso isso aconteça, o conteúdo dessa tag será desconsiderada.<BR></div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">dDtIncDe</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Data de inclusão inicial.</div><div class="more"><a href="javascript:void(0)">+</a><div>No formato dd/mm/aaaa.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">dDtIncAte</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Data de inclusão final.</div><div class="more"><a href="javascript:void(0)">+</a><div>No formato dd/mm/aaaa.<BR></div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">dDtAltDe</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Data de alteração inicial.</div><div class="more"><a href="javascript:void(0)">+</a><div>No formato dd/mm/aaaa.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">dDtAltAte</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Data de alteração final.</div><div class="more"><a href="javascript:void(0)">+</a><div>No formato dd/mm/aaaa.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">lApenasItens</td>
+<td class="parameter-type">boolean</td><td class="parameter-docs"><div class="first">Filtrar apenas itens que tiveram alteração no período definido entre dDtAltDe e dDtAltAte.</div><div class="more"><a href="javascript:void(0)">+</a><div>Ativando esse filtro, não serão consideradas alterações no cabeçalho da Tabela de Preços.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cApenasFixado</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Indica se deve retornar apenas itens que foram modificados manualmente (S/N).</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="tprItensListarResponse" class="anchorScroll"></a>
+<h3>tprItensListarResponse</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">nPagina</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Número da página resgatada.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nTotPaginas</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Número total de páginas encontradas.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nRegistros</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Número de registros retornados na página.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nTotRegistros</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Número total de registros encontrados.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">listaTabelaPreco</td>
+<td class="parameter-type"><a href="#listaTabelaPreco">listaTabelaPreco</a></td><td class="parameter-docs"><div class="first">Tabela de preço com itens.</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="tprListarRequest" class="anchorScroll"></a>
+<h3>tprListarRequest</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">nPagina</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Número da página resgatada.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nRegPorPagina</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Número de registros retornados na página.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cOrdenarPor</td>
+<td class="parameter-type">string<span class="parameter-lenght">100</span></td><td class="parameter-docs"><div class="first">Ordem os resultados da página por:</div><div class="more"><a href="javascript:void(0)">+</a><div>CODIGO - Código da Tabela de Preço.<BR>CODINT - Código de Integração da Tabela de Preço.<BR>NOME - Nome da Tabela de Preço.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cOrdemDecrescente</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Indica se a ordem de exibição é Decrescente caso seja informado "S".</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">dDtIncDe</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Data de inclusão inicial.</div><div class="more"><a href="javascript:void(0)">+</a><div>No formato dd/mm/aaaa.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">dDtIncAte</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Data de inclusão final.</div><div class="more"><a href="javascript:void(0)">+</a><div>No formato dd/mm/aaaa.<BR></div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">dDtAltDe</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Data de alteração inicial.</div><div class="more"><a href="javascript:void(0)">+</a><div>No formato dd/mm/aaaa.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">dDtAltAte</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Data de alteração final.</div><div class="more"><a href="javascript:void(0)">+</a><div>No formato dd/mm/aaaa.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nCodTag</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Considerar apenas os clientes de uma determinada Tag.</div><div class="more"><a href="javascript:void(0)">+</a><div>Será ignorado caso o campo "cTodosClientes" estiver preenhido com "S".</div></div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="tprListarResponse" class="anchorScroll"></a>
+<h3>tprListarResponse</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">nPagina</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Número da página resgatada.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nTotPaginas</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Número total de páginas encontradas.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nRegistros</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Número de registros retornados na página.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nTotRegistros</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Número total de registros encontrados.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">listaTabelasPreco</td>
+<td class="parameter-type"><a href="#listaTabelasPrecoArray">listaTabelasPrecoArray</a></td><td class="parameter-docs"><div class="first">Lista das tabelas de preço.</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="tprSuspenderRequest" class="anchorScroll"></a>
+<h3>tprSuspenderRequest</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">nCodTabPreco</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código da Tabela de Preços.</div><div class="more"><a href="javascript:void(0)">+</a><div>(Interno, utilizado apenas na integração via API, não é exibido na tela).<BR>O conteúdo desse campo é o código interno da Tabela de Preços gerado pelo Omie.<BR></div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCodIntTabPreco</td>
+<td class="parameter-type">string<span class="parameter-lenght">20</span></td><td class="parameter-docs"><div class="first">Código de integração da Tabela de Preços.</div><div class="more"><a href="javascript:void(0)">+</a><div>(Interno, utilizado apenas na Integração via API, não aparece na tela).<BR>Utilize esse campo para informar o código da Tabela de Preços utilizado no seu aplicativo quando incluir uma Tabela de Preços no Omie. <BR>Assim, poderá utilizar esse campo para resgatar as informações da Tabela de Preços desejada.<BR>Caso informe esse campo, não informe a tag nCodTabPreco. Caso isso aconteça, o conteúdo dessa tag será desconsiderada.<BR></div></div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="tprSuspenderResponse" class="anchorScroll"></a>
+<h3>tprSuspenderResponse</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">nCodTabPreco</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código da Tabela de Preços.</div><div class="more"><a href="javascript:void(0)">+</a><div>(Interno, utilizado apenas na integração via API, não é exibido na tela).<BR>O conteúdo desse campo é o código interno da Tabela de Preços gerado pelo Omie.<BR></div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCodIntTabPreco</td>
+<td class="parameter-type">string<span class="parameter-lenght">20</span></td><td class="parameter-docs"><div class="first">Código de integração da Tabela de Preços.</div><div class="more"><a href="javascript:void(0)">+</a><div>(Interno, utilizado apenas na Integração via API, não aparece na tela).<BR>Utilize esse campo para informar o código da Tabela de Preços utilizado no seu aplicativo quando incluir uma Tabela de Preços no Omie. <BR>Assim, poderá utilizar esse campo para resgatar as informações da Tabela de Preços desejada.<BR>Caso informe esse campo, não informe a tag nCodTabPreco. Caso isso aconteça, o conteúdo dessa tag será desconsiderada.<BR></div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCodStatus</td>
+<td class="parameter-type">string<span class="parameter-lenght">4</span></td><td class="parameter-docs"><div class="first">Código do status do processamento.</div><div class="more"><a href="javascript:void(0)">+</a><div>Se o retorno for "0" significa que a solicitação foi executada com sucesso.<BR>Se o retorno for maior que "0" ocorreu algum erro duranteo o processamento da solicitação.<BR>A tag "cDesStatus" descreve o problema ocorrido.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cDesStatus</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Descrição do status do processamento.</div><div class="more"><a href="javascript:void(0)">+</a><div>Essa tag explica o resultado da tag "cCodigoStatus".</div></div></td>
+<tr>
+</table>
+</div>
+</div>
+<div class="col-md-3">
+<div id="affix-menu" data-spy="affix" data-offset-top="294">
+<h2>M&eacute;todos</h2>
+<nav id="index" class="hidden-print hidden-xs hidden-sm">
+<ul class="nav">
+<li><a href="#AlterarPrecoItem">AlterarPrecoItem</a></li>
+<li><a href="#AlterarTabelaPreco">AlterarTabelaPreco</a></li>
+<li><a href="#AtivarTabelaPreco">AtivarTabelaPreco</a></li>
+<li><a href="#AtualizarProdutos">AtualizarProdutos</a></li>
+<li><a href="#ConsultarTabelaPreco">ConsultarTabelaPreco</a></li>
+<li><a href="#ExcluirTabelaPreco">ExcluirTabelaPreco</a></li>
+<li><a href="#IncluirTabelaPreco">IncluirTabelaPreco</a></li>
+<li><a href="#ListarTabelaItens">ListarTabelaItens</a></li>
+<li><a href="#ListarTabelasPreco">ListarTabelasPreco</a></li>
+<li><a href="#SuspenderTabelaPreco">SuspenderTabelaPreco</a></li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+</body>
+</html>

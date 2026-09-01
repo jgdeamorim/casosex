@@ -1,0 +1,471 @@
+<nav class="navbar navbar-expand-lg bg-azul">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="https://developer.omie.com.br/">
+            <img class="lozad img-logo" data-src="https://static.omie.com.br/images/logo/logo-omie-topo.png" src="https://static.omie.com.br/images/logo/logo-omie-topo.png" data-loaded="true">
+        </a>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <span class="borda-hover"></span>
+                    <a class="nav-link" href="https://developer.omie.com.br/my-apps/"> Aplicativos </a>
+                </li>
+                <li class="nav-item ">
+                    <span class="borda-hover"></span>
+                    <a class="nav-link" href="https://developer.omie.com.br/service-list/">
+                        Lista das API's
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <span class="borda-hover"></span>
+                    <a class="nav-link" href="https://ajuda.omie.com.br/pt-BR/collections/3045828-apis" target="_blank"> Ajuda </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<html>
+<head>
+<title>TiposTarefa</title>
+<style type="text/css" media="all">
+  [id] { scroll-margin-top: 68px; }
+</style>
+<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+<script src="https://cdn.omie.com.br/omie-assets/js/omie-compat-v2.min.js"></script>
+<script src="/developer/themes/omie/developer.js?ts=2021.008"></script>
+<link rel="stylesheet" href="//app.omie.com.br/wp-content/themes/omie/bootstrap/css/bootstrap.min.css" async/>
+<link href="https://cdn.omie.com.br/assets/developer/css/site.css?ts=2021.008" media="all" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="/developer/themes/omie/developer.css?ts=2021.008" async/>
+</head>
+<body>
+<div class="jumbotron banner bg-azul">
+<div class="container">
+<img src="https://cdn.omie.com.br/assets/developer/images/seta-azuis.png" alt="" class="img-setas">
+<div class="row align-items-center">
+<div class="col-12">
+<h1>TiposTarefa</h1>
+<ul class="nav nav-tabs" role="tablist">
+  <li role="presentation" class="active"><a href="#section-endpoint" aria-controls="section-endpoint" role="tab" data-toggle="tab">Endpoint</a></li>
+  <li role="presentation" class="pull-right"><a href="#section-wsdl" aria-controls="section-wsdl" role="tab" data-toggle="tab">WSDL</a></li>
+  <li role="presentation" class="pull-right"><a href="#section-php-soap" aria-controls="section-php-soap" role="tab" data-toggle="tab">PHP SOAP</a></li>
+  <li role="presentation" class="pull-right"><a href="#section-json" aria-controls="section-json" role="tab" data-toggle="tab">JSON</a></li>
+</ul>
+<div class="tab-content">
+  <div role="tabpanel" class="tab-pane fade in active" id="section-endpoint">
+    <h4>Endpoint URI</h4>
+    <a class="highlight" href="https://app.omie.com.br/api/v1/crm/tipostarefa/"><pre><code>https://app.omie.com.br/api/v1/crm/tipostarefa/</code></pre></a>
+  </div>
+  <div role="tabpanel" class="tab-pane fade" id="section-wsdl">
+    <h4>WSDL URI</h4>
+    <a class="highlight" href="https://app.omie.com.br/api/v1/crm/tipostarefa/?WSDL"><pre><code>https://app.omie.com.br/api/v1/crm/tipostarefa/?WSDL</code></pre></a>
+  </div>
+  <div role="tabpanel" class="tab-pane fade" id="section-php-soap">
+    <h4>PHP SOAP client download</h4>
+    <a class="highlight" href="https://app.omie.com.br/api/v1/crm/tipostarefa/?PHPSOAPCLIENT""><pre><code>https://app.omie.com.br/api/v1/crm/tipostarefa/?PHPSOAPCLIENT</code></pre></a>
+  </div>
+  <div role="tabpanel" class="tab-pane fade" id="section-json">
+    <h4>JSON client download URI</h4>
+    <h5>PHP</h5>
+    <a class="highlight" href="https://app.omie.com.br/api/v1/crm/tipostarefa/?PHPJSONCLIENT"><pre><code>https://app.omie.com.br/api/v1/crm/tipostarefa/?PHPJSONCLIENT</code></pre></a>
+    <h5>JavaScript (recomendado para uso apenas do lado do servidor)</h5>
+    <a class="highlight" href="https://app.omie.com.br/api/v1/crm/tipostarefa/?JSJSONCLIENT"><pre><code>https://app.omie.com.br/api/v1/crm/tipostarefa/?JSJSONCLIENT</code></pre></a>
+  </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="container">
+<div class="row">
+<div class="col-md-9">
+<h2>M&eacute;todos</h2>
+<p>Veja abaixo a documenta&ccedil;&atilde;o de cada m&eacute;todo dispon&iacute;vel para este servi&ccedil;o.</p>
+<div id="AlterarTipoTarefa" class="methodItem">
+<h3 class="method-name">AlterarTipoTarefa</h3>
+<p>
+Alterar tipo de tarefa
+</p>
+<div class="panel panel-default method">
+<div class="panel-heading"> Par&acirc;metros:
+</div>
+<table class="table table-condensed table-hover">
+<tr>
+<td class="">&nbsp;</td>
+<td class="method-parameter-type"><a href="#tipostarefaAlterarRequest">tipostarefaAlterarRequest</a></td>
+<td class="method-parameter-name">tipostarefaAlterarRequest</td><td class="method-parameter-docs"><div class="first">Cadastro do tipo de tarefa</div></td>
+</tr>
+</table>
+<div class="panel-footer">
+Retorno <span class="pre"><a href="#tipostarefaAlterarResponse"><span class="lightBlue">tipostarefaAlterarResponse</span></a></span>: 
+</div>
+</div>
+<div class="method-example-area">
+<h5>Exemplo:</h5>
+<pre class="method-example-code">{<BR>   "nIdTipoTarefa": 0,<BR>   "cDescricao": "",<BR>   "nMinutos": 50,&nbsp;<BR>   "cSyncCalend": "S" <BR>}</pre>
+<button class="btn btn-success method-example" data-method="AlterarTipoTarefa" data-example="%7B+++%22nIdTipoTarefa%22%3A+0%2C+++%22cDescricao%22%3A+%22%22%2C+++%22nMinutos%22%3A+50%2C%26nbsp%3B+++%22cSyncCalend%22%3A+%22S%22+%7D">Teste agora mesmo</button>
+</div>
+</div>
+<div id="ConsultarTipoTarefa" class="methodItem">
+<h3 class="method-name">ConsultarTipoTarefa</h3>
+<p>
+Consulta tipo de tarefa
+</p>
+<div class="panel panel-default method">
+<div class="panel-heading"> Par&acirc;metros:
+</div>
+<table class="table table-condensed table-hover">
+<tr>
+<td class="">&nbsp;</td>
+<td class="method-parameter-type"><a href="#tipostarefaConsultarRequest">tipostarefaConsultarRequest</a></td>
+<td class="method-parameter-name">tipostarefaConsultarRequest</td><td class="method-parameter-docs"><div class="first">Solicitação da consulta de tipo de tarefa</div></td>
+</tr>
+</table>
+<div class="panel-footer">
+Retorno <span class="pre"><a href="#tipostarefaConsultarResponse"><span class="lightBlue">tipostarefaConsultarResponse</span></a></span>: Cadastro do tipo de tarefa
+</div>
+</div>
+<div class="method-example-area">
+<h5>Exemplo:</h5>
+<pre class="method-example-code">{<BR>   "nIdTipoTarefa":0<BR>}</pre>
+<button class="btn btn-success method-example" data-method="ConsultarTipoTarefa" data-example="%7B+++%22nIdTipoTarefa%22%3A0%7D">Teste agora mesmo</button>
+</div>
+</div>
+<div id="ExcluirTipoTarefa" class="methodItem">
+<h3 class="method-name">ExcluirTipoTarefa</h3>
+<p>
+Excluir tipo de tarefa
+</p>
+<div class="panel panel-default method">
+<div class="panel-heading"> Par&acirc;metros:
+</div>
+<table class="table table-condensed table-hover">
+<tr>
+<td class="">&nbsp;</td>
+<td class="method-parameter-type"><a href="#tipostarefaExcluirRequest">tipostarefaExcluirRequest</a></td>
+<td class="method-parameter-name">tipostarefaExcluirRequest</td><td class="method-parameter-docs"><div class="first">Solicitação da exclusão do tipo de tarefa</div></td>
+</tr>
+</table>
+<div class="panel-footer">
+Retorno <span class="pre"><a href="#tipostarefaExcluirResponse"><span class="lightBlue">tipostarefaExcluirResponse</span></a></span>: 
+</div>
+</div>
+<div class="method-example-area">
+<h5>Exemplo:</h5>
+<pre class="method-example-code">{<BR>   "nIdTipoTarefa":0<BR>}</pre>
+<button class="btn btn-success method-example" data-method="ExcluirTipoTarefa" data-example="%7B+++%22nIdTipoTarefa%22%3A0%7D">Teste agora mesmo</button>
+</div>
+</div>
+<div id="IncluirTipoTarefa" class="methodItem">
+<h3 class="method-name">IncluirTipoTarefa</h3>
+<p>
+Incluir tipo de tarefa
+</p>
+<div class="panel panel-default method">
+<div class="panel-heading"> Par&acirc;metros:
+</div>
+<table class="table table-condensed table-hover">
+<tr>
+<td class="">&nbsp;</td>
+<td class="method-parameter-type"><a href="#tipostarefaIncluirRequest">tipostarefaIncluirRequest</a></td>
+<td class="method-parameter-name">tipostarefaIncluirRequest</td><td class="method-parameter-docs"><div class="first">Cadastro do tipo de tarefa</div></td>
+</tr>
+</table>
+<div class="panel-footer">
+Retorno <span class="pre"><a href="#tipostarefaIncluirResponse"><span class="lightBlue">tipostarefaIncluirResponse</span></a></span>: 
+</div>
+</div>
+<div class="method-example-area">
+<h5>Exemplo:</h5>
+<pre class="method-example-code">{<BR>   "cDescricao": "",<BR>   "nMinutos": 50,&nbsp;<BR>   "cSyncCalend": "S" <BR>}</pre>
+<button class="btn btn-success method-example" data-method="IncluirTipoTarefa" data-example="%7B+++%22cDescricao%22%3A+%22%22%2C+++%22nMinutos%22%3A+50%2C%26nbsp%3B+++%22cSyncCalend%22%3A+%22S%22+%7D">Teste agora mesmo</button>
+</div>
+</div>
+<div id="ListarTiposTarefa" class="methodItem">
+<h3 class="method-name">ListarTiposTarefa</h3>
+<p>
+Lista tipos de tarefa
+</p>
+<div class="panel panel-default method">
+<div class="panel-heading"> Par&acirc;metros:
+</div>
+<table class="table table-condensed table-hover">
+<tr>
+<td class="">&nbsp;</td>
+<td class="method-parameter-type"><a href="#tipostarefaListarRequest">tipostarefaListarRequest</a></td>
+<td class="method-parameter-name">tipostarefaListarRequest</td><td class="method-parameter-docs"><div class="first">Solicitação da listagem de tipos de tarefa</div></td>
+</tr>
+</table>
+<div class="panel-footer">
+Retorno <span class="pre"><a href="#tipostarefaListarResponse"><span class="lightBlue">tipostarefaListarResponse</span></a></span>: 
+</div>
+</div>
+<div class="method-example-area">
+<h5>Exemplo:</h5>
+<pre class="method-example-code">{<BR>  "pagina": 1,<BR>  "registros_por_pagina": 50<BR>}</pre>
+<button class="btn btn-success method-example" data-method="ListarTiposTarefa" data-example="%7B++%22pagina%22%3A+1%2C++%22registros_por_pagina%22%3A+50%7D">Teste agora mesmo</button>
+</div>
+</div>
+<h2>Tipos Complexos</h2>
+<div class="complexTypeItem">
+<a name="cadastros" class="anchorScroll"></a>
+<h3>cadastros</h3>
+<p>Lista os tipos de tarefa.</p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">nIdTipoTarefa</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Id do Tipo de Tarefa</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cDescricao</td>
+<td class="parameter-type">string<span class="parameter-lenght">40</span></td><td class="parameter-docs"><div class="first">Descrição para o tipo de tarefa</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nMinutos</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Duração padrão (em minutos) da tarefa</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cSyncCalend</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Indica se deve sincronizar com o calendário.</div><div class="more"><a href="javascript:void(0)">+</a><div>Valores possíveis:<BR><BR>S - Sim<BR>N - Não</div></div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="cadastrosArray" class="anchorScroll"></a>
+<h3>cadastrosArray</h3>
+<p>Este par&acirc;metro &eacute; um array do tipo <span class="pre"><a href="#cadastros"><span class="lightBlue">cadastros</span></a></span></p>
+<p>Lista de cadastros</p>
+</div>
+<div class="complexTypeItem">
+<a name="omie_fail" class="anchorScroll"></a>
+<h3>omie_fail</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">code</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Codigo do erro</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">description</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Descricao do erro</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-required">referer</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Origem do erro</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-required">fatal</td>
+<td class="parameter-type">boolean</td><td class="parameter-docs"><div class="first">Indica se eh um erro fatal</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="tipostarefaAlterarRequest" class="anchorScroll"></a>
+<h3>tipostarefaAlterarRequest</h3>
+<p>Cadastro do tipo de tarefa</p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">nIdTipoTarefa</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Id do Tipo de Tarefa</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cDescricao</td>
+<td class="parameter-type">string<span class="parameter-lenght">40</span></td><td class="parameter-docs"><div class="first">Descrição para o tipo de tarefa</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nMinutos</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Duração padrão (em minutos) da tarefa</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cSyncCalend</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Indica se deve sincronizar com o calendário.</div><div class="more"><a href="javascript:void(0)">+</a><div>Valores possíveis:<BR><BR>S - Sim<BR>N - Não</div></div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="tipostarefaAlterarResponse" class="anchorScroll"></a>
+<h3>tipostarefaAlterarResponse</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">nIdTipoTarefa</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Id do Tipo de Tarefa</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCodStatus</td>
+<td class="parameter-type">string<span class="parameter-lenght">4</span></td><td class="parameter-docs"><div class="first">Código do status</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cDescStatus</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Descrição do status</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="tipostarefaConsultarRequest" class="anchorScroll"></a>
+<h3>tipostarefaConsultarRequest</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">nIdTipoTarefa</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Id do Tipo de Tarefa</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="tipostarefaConsultarResponse" class="anchorScroll"></a>
+<h3>tipostarefaConsultarResponse</h3>
+<p>Cadastro do tipo de tarefa</p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">nIdTipoTarefa</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Id do Tipo de Tarefa</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cDescricao</td>
+<td class="parameter-type">string<span class="parameter-lenght">40</span></td><td class="parameter-docs"><div class="first">Descrição para o tipo de tarefa</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nMinutos</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Duração padrão (em minutos) da tarefa</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cSyncCalend</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Indica se deve sincronizar com o calendário.</div><div class="more"><a href="javascript:void(0)">+</a><div>Valores possíveis:<BR><BR>S - Sim<BR>N - Não</div></div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="tipostarefaExcluirRequest" class="anchorScroll"></a>
+<h3>tipostarefaExcluirRequest</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">nIdTipoTarefa</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Id do Tipo de Tarefa</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="tipostarefaExcluirResponse" class="anchorScroll"></a>
+<h3>tipostarefaExcluirResponse</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">nIdTipoTarefa</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Id do Tipo de Tarefa</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCodStatus</td>
+<td class="parameter-type">string<span class="parameter-lenght">4</span></td><td class="parameter-docs"><div class="first">Código do status</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cDescStatus</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Descrição do status</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="tipostarefaIncluirRequest" class="anchorScroll"></a>
+<h3>tipostarefaIncluirRequest</h3>
+<p>Cadastro do tipo de tarefa</p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">cDescricao</td>
+<td class="parameter-type">string<span class="parameter-lenght">40</span></td><td class="parameter-docs"><div class="first">Descrição para o tipo de tarefa</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nMinutos</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Duração padrão (em minutos) da tarefa</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cSyncCalend</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Indica se deve sincronizar com o calendário.</div><div class="more"><a href="javascript:void(0)">+</a><div>Valores possíveis:<BR><BR>S - Sim<BR>N - Não</div></div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="tipostarefaIncluirResponse" class="anchorScroll"></a>
+<h3>tipostarefaIncluirResponse</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">nIdTipoTarefa</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Id do Tipo de Tarefa</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCodStatus</td>
+<td class="parameter-type">string<span class="parameter-lenght">4</span></td><td class="parameter-docs"><div class="first">Código do status</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cDescStatus</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Descrição do status</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="tipostarefaListarRequest" class="anchorScroll"></a>
+<h3>tipostarefaListarRequest</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">pagina</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Número da página retornada</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">registros_por_pagina</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Número de registros retornados na página.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">ordenar_por</td>
+<td class="parameter-type">string<span class="parameter-lenght">100</span></td><td class="parameter-docs"><div class="first">Ordem de exibição dos dados. Padrão: Código.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">ordem_decrescente</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Se a lista será apresentada em ordem decrescente.</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="tipostarefaListarResponse" class="anchorScroll"></a>
+<h3>tipostarefaListarResponse</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">pagina</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Número da página retornada</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">total_de_paginas</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Número total de páginas</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">registros</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Número de registros retornados na página.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">total_de_registros</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">total de registros encontrados</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cadastros</td>
+<td class="parameter-type"><a href="#cadastrosArray">cadastrosArray</a></td><td class="parameter-docs"><div class="first">Lista os tipos de tarefa.</div></td>
+<tr>
+</table>
+</div>
+</div>
+<div class="col-md-3">
+<div id="affix-menu" data-spy="affix" data-offset-top="294">
+<h2>M&eacute;todos</h2>
+<nav id="index" class="hidden-print hidden-xs hidden-sm">
+<ul class="nav">
+<li><a href="#AlterarTipoTarefa">AlterarTipoTarefa</a></li>
+<li><a href="#ConsultarTipoTarefa">ConsultarTipoTarefa</a></li>
+<li><a href="#ExcluirTipoTarefa">ExcluirTipoTarefa</a></li>
+<li><a href="#IncluirTipoTarefa">IncluirTipoTarefa</a></li>
+<li><a href="#ListarTiposTarefa">ListarTiposTarefa</a></li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,1295 @@
+<nav class="navbar navbar-expand-lg bg-azul">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="https://developer.omie.com.br/">
+            <img class="lozad img-logo" data-src="https://static.omie.com.br/images/logo/logo-omie-topo.png" src="https://static.omie.com.br/images/logo/logo-omie-topo.png" data-loaded="true">
+        </a>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <span class="borda-hover"></span>
+                    <a class="nav-link" href="https://developer.omie.com.br/my-apps/"> Aplicativos </a>
+                </li>
+                <li class="nav-item ">
+                    <span class="borda-hover"></span>
+                    <a class="nav-link" href="https://developer.omie.com.br/service-list/">
+                        Lista das API's
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <span class="borda-hover"></span>
+                    <a class="nav-link" href="https://ajuda.omie.com.br/pt-BR/collections/3045828-apis" target="_blank"> Ajuda </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<html>
+<head>
+<title>Contrato</title>
+<style type="text/css" media="all">
+  [id] { scroll-margin-top: 68px; }
+</style>
+<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+<script src="https://cdn.omie.com.br/omie-assets/js/omie-compat-v2.min.js"></script>
+<script src="/developer/themes/omie/developer.js?ts=2021.008"></script>
+<link rel="stylesheet" href="//app.omie.com.br/wp-content/themes/omie/bootstrap/css/bootstrap.min.css" async/>
+<link href="https://cdn.omie.com.br/assets/developer/css/site.css?ts=2021.008" media="all" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="/developer/themes/omie/developer.css?ts=2021.008" async/>
+</head>
+<body>
+<div class="jumbotron banner bg-azul">
+<div class="container">
+<img src="https://cdn.omie.com.br/assets/developer/images/seta-azuis.png" alt="" class="img-setas">
+<div class="row align-items-center">
+<div class="col-12">
+<h1>Contrato</h1>
+<ul class="nav nav-tabs" role="tablist">
+  <li role="presentation" class="active"><a href="#section-endpoint" aria-controls="section-endpoint" role="tab" data-toggle="tab">Endpoint</a></li>
+  <li role="presentation" class="pull-right"><a href="#section-wsdl" aria-controls="section-wsdl" role="tab" data-toggle="tab">WSDL</a></li>
+  <li role="presentation" class="pull-right"><a href="#section-php-soap" aria-controls="section-php-soap" role="tab" data-toggle="tab">PHP SOAP</a></li>
+  <li role="presentation" class="pull-right"><a href="#section-json" aria-controls="section-json" role="tab" data-toggle="tab">JSON</a></li>
+</ul>
+<div class="tab-content">
+  <div role="tabpanel" class="tab-pane fade in active" id="section-endpoint">
+    <h4>Endpoint URI</h4>
+    <a class="highlight" href="https://app.omie.com.br/api/v1/servicos/contrato/"><pre><code>https://app.omie.com.br/api/v1/servicos/contrato/</code></pre></a>
+  </div>
+  <div role="tabpanel" class="tab-pane fade" id="section-wsdl">
+    <h4>WSDL URI</h4>
+    <a class="highlight" href="https://app.omie.com.br/api/v1/servicos/contrato/?WSDL"><pre><code>https://app.omie.com.br/api/v1/servicos/contrato/?WSDL</code></pre></a>
+  </div>
+  <div role="tabpanel" class="tab-pane fade" id="section-php-soap">
+    <h4>PHP SOAP client download</h4>
+    <a class="highlight" href="https://app.omie.com.br/api/v1/servicos/contrato/?PHPSOAPCLIENT""><pre><code>https://app.omie.com.br/api/v1/servicos/contrato/?PHPSOAPCLIENT</code></pre></a>
+  </div>
+  <div role="tabpanel" class="tab-pane fade" id="section-json">
+    <h4>JSON client download URI</h4>
+    <h5>PHP</h5>
+    <a class="highlight" href="https://app.omie.com.br/api/v1/servicos/contrato/?PHPJSONCLIENT"><pre><code>https://app.omie.com.br/api/v1/servicos/contrato/?PHPJSONCLIENT</code></pre></a>
+    <h5>JavaScript (recomendado para uso apenas do lado do servidor)</h5>
+    <a class="highlight" href="https://app.omie.com.br/api/v1/servicos/contrato/?JSJSONCLIENT"><pre><code>https://app.omie.com.br/api/v1/servicos/contrato/?JSJSONCLIENT</code></pre></a>
+  </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="container">
+<div class="row">
+<div class="col-md-9">
+<h2>M&eacute;todos</h2>
+<p>Veja abaixo a documenta&ccedil;&atilde;o de cada m&eacute;todo dispon&iacute;vel para este servi&ccedil;o.</p>
+<div id="AlterarContrato" class="methodItem">
+<h3 class="method-name">AlterarContrato</h3>
+<p>
+Alterar um Contrato
+</p>
+<div class="panel panel-default method">
+<div class="panel-heading"> Par&acirc;metros:
+</div>
+<table class="table table-condensed table-hover">
+<tr>
+<td class="">&nbsp;</td>
+<td class="method-parameter-type"><a href="#contratoCadastro">contratoCadastro</a></td>
+<td class="method-parameter-name">contratoCadastro</td><td class="method-parameter-docs"><div class="first">Cadastro de Contrato de Serviço</div></td>
+</tr>
+</table>
+<div class="panel-footer">
+Retorno <span class="pre"><a href="#csStatus"><span class="lightBlue">csStatus</span></a></span>: 
+</div>
+</div>
+<div class="method-example-area">
+<h5>Exemplo:</h5>
+<pre class="method-example-code">{<BR>  "cabecalho": {<BR>    "cCodIntCtr": "019289Tb2",<BR>    "cCodSit": "10",<BR>    "cNumCtr": "2020/01001",<BR>    "cTipoFat": "01",<BR>    "dVigFinal": "30/03/2022",<BR>    "dVigInicial": "29/03/2020",<BR>    "nCodCli": 2370765,<BR>    "nDiaFat": 30,<BR>    "nValTotMes": 3302<BR>  },<BR>  "departamentos": [],<BR>  "emailCliente": {<BR>    "cEnviarBoleto": "",<BR>    "cEnviarLinkNfse": "",<BR>    "cEnviarRecibo": "",<BR>    "cUtilizarEmails": ""<BR>  },<BR>  "infAdic": {<BR>    "cCidPrestServ": "PETROPOLIS (RJ)",<BR>    "cCodART": "",<BR>    "cCodCateg": "1.01.02",<BR>    "cCodObra": "",<BR>    "cContato": "",<BR>    "cDadosAdicNF": "",<BR>    "nCodCC": 1208238,<BR>    "nCodProj": 0,<BR>    "nCodVend": 0<BR>  },<BR>  "itensContrato": [<BR>    {<BR>      "itemCabecalho": {<BR>        "codIntItem": "1",<BR>        "cCodCategItem": "",<BR>        "cNaoGerarFinanceiro": "N",<BR>        "codLC116": "3.05",<BR>        "codNBS": "",<BR>        "codServMunic": "01292",<BR>        "codServico": 0,<BR>        "natOperacao": "01",<BR>        "quant": 1,<BR>        "seq": 1,<BR>        "valorDed": 0,<BR>        "valorTotal": 3002,<BR>        "valorUnit": 3002<BR>      },<BR>      "itemDescrServ": {<BR>        "descrCompleta": "Serviços prestados"<BR>      },<BR>      "itemImpostos": {<BR>        "aliqCOFINS": 0,<BR>        "aliqCSLL": 0,<BR>        "aliqINSS": 0,<BR>        "aliqIR": 0,<BR>        "aliqISS": 5,<BR>        "aliqPIS": 0,<BR>        "redBaseINSS": 0,<BR>        "retCOFINS": "",<BR>        "retCSLL": "",<BR>        "retINSS": "",<BR>        "retIR": "",<BR>        "retISS": "N",<BR>        "retPIS": "",<BR>        "valorCOFINS": 0,<BR>        "valorCSLL": 0,<BR>        "valorINSS": 0,<BR>        "valorIR": 0,<BR>        "valorISS": 150.1,<BR>        "valorPIS": 0<BR>      },<BR>      "itemLeiTranspImp": {<BR>        "aliMunicipal": 0,<BR>        "aliqEstadual": 0,<BR>        "aliqFederal": 0,<BR>        "chave": "",<BR>        "fonte": ""<BR>      }<BR>    },<BR>    {<BR>      "itemCabecalho": {<BR>        "codIntItem": "2",<BR>        "cCodCategItem": "",<BR>        "cNaoGerarFinanceiro": "N",<BR>        "codLC116": "17.01",<BR>        "codNBS": "",<BR>        "codServMunic": "0162-8/99",<BR>        "codServico": 3412648,<BR>        "natOperacao": "01",<BR>        "quant": 1,<BR>        "seq": 2,<BR>        "valorDed": 0,<BR>        "valorTotal": 300,<BR>        "valorUnit": 300<BR>      },<BR>      "itemDescrServ": {<BR>        "descrCompleta": "Homologação de processo contábil"<BR>      },<BR>      "itemImpostos": {<BR>        "aliqCOFINS": 0,<BR>        "aliqCSLL": 0,<BR>        "aliqINSS": 0,<BR>        "aliqIR": 0,<BR>        "aliqISS": 3,<BR>        "aliqPIS": 0,<BR>        "redBaseINSS": 0,<BR>        "retCOFINS": "",<BR>        "retCSLL": "",<BR>        "retINSS": "",<BR>        "retIR": "",<BR>        "retISS": "N",<BR>        "retPIS": "",<BR>        "valorCOFINS": 0,<BR>        "valorCSLL": 0,<BR>        "valorINSS": 0,<BR>        "valorIR": 0,<BR>        "valorISS": 9,<BR>        "valorPIS": 0<BR>      },<BR>      "itemLeiTranspImp": {<BR>        "aliMunicipal": 0,<BR>        "aliqEstadual": 0,<BR>        "aliqFederal": 0,<BR>        "chave": "",<BR>        "fonte": ""<BR>      }<BR>    }<BR>  ],<BR>  "observacoes": {<BR>    "cObsContrato": ""<BR>  },<BR>  "vencTextos": {<BR>    "cAdContrato": "N",<BR>    "cAdPeriodo": "N",<BR>    "cAdVenc": " ",<BR>    "cAntecipar": "",<BR>    "cCodPerRef": "001",<BR>    "cDiaFim": 0,<BR>    "cDiaIni": 0,<BR>    "cPostergar": "",<BR>    "cProxMes": "",<BR>    "cTpVenc": "001",<BR>    "nDiaFixo": 0,<BR>    "nDias": 5<BR>  }<BR>}</pre>
+<button class="btn btn-success method-example" data-method="AlterarContrato" data-example="%7B++%22cabecalho%22%3A+%7B++++%22cCodIntCtr%22%3A+%22019289Tb2%22%2C++++%22cCodSit%22%3A+%2210%22%2C++++%22cNumCtr%22%3A+%222020%2F01001%22%2C++++%22cTipoFat%22%3A+%2201%22%2C++++%22dVigFinal%22%3A+%2230%2F03%2F2022%22%2C++++%22dVigInicial%22%3A+%2229%2F03%2F2020%22%2C++++%22nCodCli%22%3A+2370765%2C++++%22nDiaFat%22%3A+30%2C++++%22nValTotMes%22%3A+3302++%7D%2C++%22departamentos%22%3A+%5B%5D%2C++%22emailCliente%22%3A+%7B++++%22cEnviarBoleto%22%3A+%22%22%2C++++%22cEnviarLinkNfse%22%3A+%22%22%2C++++%22cEnviarRecibo%22%3A+%22%22%2C++++%22cUtilizarEmails%22%3A+%22%22++%7D%2C++%22infAdic%22%3A+%7B++++%22cCidPrestServ%22%3A+%22PETROPOLIS+%28RJ%29%22%2C++++%22cCodART%22%3A+%22%22%2C++++%22cCodCateg%22%3A+%221.01.02%22%2C++++%22cCodObra%22%3A+%22%22%2C++++%22cContato%22%3A+%22%22%2C++++%22cDadosAdicNF%22%3A+%22%22%2C++++%22nCodCC%22%3A+1208238%2C++++%22nCodProj%22%3A+0%2C++++%22nCodVend%22%3A+0++%7D%2C++%22itensContrato%22%3A+%5B++++%7B++++++%22itemCabecalho%22%3A+%7B++++++++%22codIntItem%22%3A+%221%22%2C++++++++%22cCodCategItem%22%3A+%22%22%2C++++++++%22cNaoGerarFinanceiro%22%3A+%22N%22%2C++++++++%22codLC116%22%3A+%223.05%22%2C++++++++%22codNBS%22%3A+%22%22%2C++++++++%22codServMunic%22%3A+%2201292%22%2C++++++++%22codServico%22%3A+0%2C++++++++%22natOperacao%22%3A+%2201%22%2C++++++++%22quant%22%3A+1%2C++++++++%22seq%22%3A+1%2C++++++++%22valorDed%22%3A+0%2C++++++++%22valorTotal%22%3A+3002%2C++++++++%22valorUnit%22%3A+3002++++++%7D%2C++++++%22itemDescrServ%22%3A+%7B++++++++%22descrCompleta%22%3A+%22Servi%E7os+prestados%22++++++%7D%2C++++++%22itemImpostos%22%3A+%7B++++++++%22aliqCOFINS%22%3A+0%2C++++++++%22aliqCSLL%22%3A+0%2C++++++++%22aliqINSS%22%3A+0%2C++++++++%22aliqIR%22%3A+0%2C++++++++%22aliqISS%22%3A+5%2C++++++++%22aliqPIS%22%3A+0%2C++++++++%22redBaseINSS%22%3A+0%2C++++++++%22retCOFINS%22%3A+%22%22%2C++++++++%22retCSLL%22%3A+%22%22%2C++++++++%22retINSS%22%3A+%22%22%2C++++++++%22retIR%22%3A+%22%22%2C++++++++%22retISS%22%3A+%22N%22%2C++++++++%22retPIS%22%3A+%22%22%2C++++++++%22valorCOFINS%22%3A+0%2C++++++++%22valorCSLL%22%3A+0%2C++++++++%22valorINSS%22%3A+0%2C++++++++%22valorIR%22%3A+0%2C++++++++%22valorISS%22%3A+150.1%2C++++++++%22valorPIS%22%3A+0++++++%7D%2C++++++%22itemLeiTranspImp%22%3A+%7B++++++++%22aliMunicipal%22%3A+0%2C++++++++%22aliqEstadual%22%3A+0%2C++++++++%22aliqFederal%22%3A+0%2C++++++++%22chave%22%3A+%22%22%2C++++++++%22fonte%22%3A+%22%22++++++%7D++++%7D%2C++++%7B++++++%22itemCabecalho%22%3A+%7B++++++++%22codIntItem%22%3A+%222%22%2C++++++++%22cCodCategItem%22%3A+%22%22%2C++++++++%22cNaoGerarFinanceiro%22%3A+%22N%22%2C++++++++%22codLC116%22%3A+%2217.01%22%2C++++++++%22codNBS%22%3A+%22%22%2C++++++++%22codServMunic%22%3A+%220162-8%2F99%22%2C++++++++%22codServico%22%3A+3412648%2C++++++++%22natOperacao%22%3A+%2201%22%2C++++++++%22quant%22%3A+1%2C++++++++%22seq%22%3A+2%2C++++++++%22valorDed%22%3A+0%2C++++++++%22valorTotal%22%3A+300%2C++++++++%22valorUnit%22%3A+300++++++%7D%2C++++++%22itemDescrServ%22%3A+%7B++++++++%22descrCompleta%22%3A+%22Homologa%E7%E3o+de+processo+cont%E1bil%22++++++%7D%2C++++++%22itemImpostos%22%3A+%7B++++++++%22aliqCOFINS%22%3A+0%2C++++++++%22aliqCSLL%22%3A+0%2C++++++++%22aliqINSS%22%3A+0%2C++++++++%22aliqIR%22%3A+0%2C++++++++%22aliqISS%22%3A+3%2C++++++++%22aliqPIS%22%3A+0%2C++++++++%22redBaseINSS%22%3A+0%2C++++++++%22retCOFINS%22%3A+%22%22%2C++++++++%22retCSLL%22%3A+%22%22%2C++++++++%22retINSS%22%3A+%22%22%2C++++++++%22retIR%22%3A+%22%22%2C++++++++%22retISS%22%3A+%22N%22%2C++++++++%22retPIS%22%3A+%22%22%2C++++++++%22valorCOFINS%22%3A+0%2C++++++++%22valorCSLL%22%3A+0%2C++++++++%22valorINSS%22%3A+0%2C++++++++%22valorIR%22%3A+0%2C++++++++%22valorISS%22%3A+9%2C++++++++%22valorPIS%22%3A+0++++++%7D%2C++++++%22itemLeiTranspImp%22%3A+%7B++++++++%22aliMunicipal%22%3A+0%2C++++++++%22aliqEstadual%22%3A+0%2C++++++++%22aliqFederal%22%3A+0%2C++++++++%22chave%22%3A+%22%22%2C++++++++%22fonte%22%3A+%22%22++++++%7D++++%7D++%5D%2C++%22observacoes%22%3A+%7B++++%22cObsContrato%22%3A+%22%22++%7D%2C++%22vencTextos%22%3A+%7B++++%22cAdContrato%22%3A+%22N%22%2C++++%22cAdPeriodo%22%3A+%22N%22%2C++++%22cAdVenc%22%3A+%22+%22%2C++++%22cAntecipar%22%3A+%22%22%2C++++%22cCodPerRef%22%3A+%22001%22%2C++++%22cDiaFim%22%3A+0%2C++++%22cDiaIni%22%3A+0%2C++++%22cPostergar%22%3A+%22%22%2C++++%22cProxMes%22%3A+%22%22%2C++++%22cTpVenc%22%3A+%22001%22%2C++++%22nDiaFixo%22%3A+0%2C++++%22nDias%22%3A+5++%7D%7D">Teste agora mesmo</button>
+</div>
+</div>
+<div id="ConsultarContrato" class="methodItem">
+<h3 class="method-name">ConsultarContrato</h3>
+<p>
+
+</p>
+<div class="panel panel-default method">
+<div class="panel-heading"> Par&acirc;metros:
+</div>
+<table class="table table-condensed table-hover">
+<tr>
+<td class="">&nbsp;</td>
+<td class="method-parameter-type"><a href="#csConsultarRequest">csConsultarRequest</a></td>
+<td class="method-parameter-name">csConsultarRequest</td><td class="method-parameter-docs"><div class="first">Solicitação da Consulta de Contrato de Serviço</div></td>
+</tr>
+</table>
+<div class="panel-footer">
+Retorno <span class="pre"><a href="#csConsultarResponse"><span class="lightBlue">csConsultarResponse</span></a></span>: 
+</div>
+</div>
+<div class="method-example-area">
+<h5>Exemplo:</h5>
+<pre class="method-example-code">{<BR>  "contratoChave": {<BR>    "nCodCtr": 2203958<BR>  }<BR>}</pre>
+<button class="btn btn-success method-example" data-method="ConsultarContrato" data-example="%7B++%22contratoChave%22%3A+%7B++++%22nCodCtr%22%3A+2203958++%7D%7D">Teste agora mesmo</button>
+</div>
+</div>
+<div id="ExcluirItem" class="methodItem">
+<h3 class="method-name">ExcluirItem</h3>
+<p>
+
+</p>
+<div class="panel panel-default method">
+<div class="panel-heading"> Par&acirc;metros:
+</div>
+<table class="table table-condensed table-hover">
+<tr>
+<td class="">&nbsp;</td>
+<td class="method-parameter-type"><a href="#csExcluirItemRequest">csExcluirItemRequest</a></td>
+<td class="method-parameter-name">csExcluirItemRequest</td><td class="method-parameter-docs"><div class="first">Solicitação da Exclusão de itens do Contrato de Serviço</div></td>
+</tr>
+</table>
+<div class="panel-footer">
+Retorno <span class="pre"><a href="#csExcluirItemResponse"><span class="lightBlue">csExcluirItemResponse</span></a></span>: 
+</div>
+</div>
+<div class="method-example-area">
+<h5>Exemplo:</h5>
+<pre class="method-example-code">{<BR>  "contratoChave": {<BR>    "nCodCtr": 0,<BR>    "cCodIntCtr": ""<BR>  },<BR>  "ItensExclusao": [<BR>    {<BR>      "codItem": 0,<BR>      "codIntItem": ""<BR>    }<BR>  ]<BR>}</pre>
+<button class="btn btn-success method-example" data-method="ExcluirItem" data-example="%7B++%22contratoChave%22%3A+%7B++++%22nCodCtr%22%3A+0%2C++++%22cCodIntCtr%22%3A+%22%22++%7D%2C++%22ItensExclusao%22%3A+%5B++++%7B++++++%22codItem%22%3A+0%2C++++++%22codIntItem%22%3A+%22%22++++%7D++%5D%7D">Teste agora mesmo</button>
+</div>
+</div>
+<div id="IncluirContrato" class="methodItem">
+<h3 class="method-name">IncluirContrato</h3>
+<p>
+
+</p>
+<div class="panel panel-default method">
+<div class="panel-heading"> Par&acirc;metros:
+</div>
+<table class="table table-condensed table-hover">
+<tr>
+<td class="">&nbsp;</td>
+<td class="method-parameter-type"><a href="#contratoCadastro">contratoCadastro</a></td>
+<td class="method-parameter-name">contratoCadastro</td><td class="method-parameter-docs"><div class="first">Cadastro de Contrato de Serviço</div></td>
+</tr>
+</table>
+<div class="panel-footer">
+Retorno <span class="pre"><a href="#csStatus"><span class="lightBlue">csStatus</span></a></span>: 
+</div>
+</div>
+<div class="method-example-area">
+<h5>Exemplo:</h5>
+<pre class="method-example-code">{<BR>  "cabecalho": {<BR>    "cCodIntCtr": "019289Tb2",<BR>    "cCodSit": "10",<BR>    "cNumCtr": "2020/01001",<BR>    "cTipoFat": "01",<BR>    "dVigFinal": "30/03/2022",<BR>    "dVigInicial": "29/03/2020",<BR>    "nCodCli": 2370765,<BR>    "nDiaFat": 30,<BR>    "nValTotMes": 3302<BR>  },<BR>  "departamentos": [],<BR>  "emailCliente": {<BR>    "cEnviarBoleto": "",<BR>    "cEnviarLinkNfse": "",<BR>    "cEnviarRecibo": "",<BR>    "cUtilizarEmails": ""<BR>  },<BR>  "infAdic": {<BR>    "cCidPrestServ": "PETROPOLIS (RJ)",<BR>    "cCodART": "",<BR>    "cCodCateg": "1.01.02",<BR>    "cCodObra": "",<BR>    "cContato": "",<BR>    "cDadosAdicNF": "",<BR>    "nCodCC": 1208238,<BR>    "nCodProj": 0,<BR>    "nCodVend": 0<BR>  },<BR>  "itensContrato": [<BR>    {<BR>      "itemCabecalho": {<BR>        "codIntItem": "1",<BR>        "cCodCategItem": "",<BR>        "cNaoGerarFinanceiro": "N",<BR>        "codLC116": "3.05",<BR>        "codNBS": "",<BR>        "codServMunic": "01292",<BR>        "codServico": 0,<BR>        "natOperacao": "01",<BR>        "quant": 1,<BR>        "seq": 1,<BR>        "valorDed": 0,<BR>        "valorTotal": 3002,<BR>        "valorUnit": 3002<BR>      },<BR>      "itemDescrServ": {<BR>        "descrCompleta": "Serviços prestados"<BR>      },<BR>      "itemImpostos": {<BR>        "aliqCOFINS": 0,<BR>        "aliqCSLL": 0,<BR>        "aliqINSS": 0,<BR>        "aliqIR": 0,<BR>        "aliqISS": 5,<BR>        "aliqPIS": 0,<BR>        "redBaseINSS": 0,<BR>        "retCOFINS": "",<BR>        "retCSLL": "",<BR>        "retINSS": "",<BR>        "retIR": "",<BR>        "retISS": "N",<BR>        "retPIS": "",<BR>        "valorCOFINS": 0,<BR>        "valorCSLL": 0,<BR>        "valorINSS": 0,<BR>        "valorIR": 0,<BR>        "valorISS": 150.1,<BR>        "valorPIS": 0<BR>      },<BR>      "itemLeiTranspImp": {<BR>        "aliMunicipal": 0,<BR>        "aliqEstadual": 0,<BR>        "aliqFederal": 0,<BR>        "chave": "",<BR>        "fonte": ""<BR>      }<BR>    },<BR>    {<BR>      "itemCabecalho": {<BR>        "codIntItem": "2",<BR>        "cCodCategItem": "",<BR>        "cNaoGerarFinanceiro": "N",<BR>        "codLC116": "17.01",<BR>        "codNBS": "",<BR>        "codServMunic": "0162-8/99",<BR>        "codServico": 3412648,<BR>        "natOperacao": "01",<BR>        "quant": 1,<BR>        "seq": 2,<BR>        "valorDed": 0,<BR>        "valorTotal": 300,<BR>        "valorUnit": 300<BR>      },<BR>      "itemDescrServ": {<BR>        "descrCompleta": "Homologação de processo contábil"<BR>      },<BR>      "itemImpostos": {<BR>        "aliqCOFINS": 0,<BR>        "aliqCSLL": 0,<BR>        "aliqINSS": 0,<BR>        "aliqIR": 0,<BR>        "aliqISS": 3,<BR>        "aliqPIS": 0,<BR>        "redBaseINSS": 0,<BR>        "retCOFINS": "",<BR>        "retCSLL": "",<BR>        "retINSS": "",<BR>        "retIR": "",<BR>        "retISS": "N",<BR>        "retPIS": "",<BR>        "valorCOFINS": 0,<BR>        "valorCSLL": 0,<BR>        "valorINSS": 0,<BR>        "valorIR": 0,<BR>        "valorISS": 9,<BR>        "valorPIS": 0<BR>      },<BR>      "itemLeiTranspImp": {<BR>        "aliMunicipal": 0,<BR>        "aliqEstadual": 0,<BR>        "aliqFederal": 0,<BR>        "chave": "",<BR>        "fonte": ""<BR>      }<BR>    }<BR>  ],<BR>  "observacoes": {<BR>    "cObsContrato": ""<BR>  },<BR>  "vencTextos": {<BR>    "cAdContrato": "N",<BR>    "cAdPeriodo": "N",<BR>    "cAdVenc": " ",<BR>    "cAntecipar": "",<BR>    "cCodPerRef": "001",<BR>    "cDiaFim": 0,<BR>    "cDiaIni": 0,<BR>    "cPostergar": "",<BR>    "cProxMes": "",<BR>    "cTpVenc": "001",<BR>    "nDiaFixo": 0,<BR>    "nDias": 5<BR>  }<BR>}</pre>
+<button class="btn btn-success method-example" data-method="IncluirContrato" data-example="%7B++%22cabecalho%22%3A+%7B++++%22cCodIntCtr%22%3A+%22019289Tb2%22%2C++++%22cCodSit%22%3A+%2210%22%2C++++%22cNumCtr%22%3A+%222020%2F01001%22%2C++++%22cTipoFat%22%3A+%2201%22%2C++++%22dVigFinal%22%3A+%2230%2F03%2F2022%22%2C++++%22dVigInicial%22%3A+%2229%2F03%2F2020%22%2C++++%22nCodCli%22%3A+2370765%2C++++%22nDiaFat%22%3A+30%2C++++%22nValTotMes%22%3A+3302++%7D%2C++%22departamentos%22%3A+%5B%5D%2C++%22emailCliente%22%3A+%7B++++%22cEnviarBoleto%22%3A+%22%22%2C++++%22cEnviarLinkNfse%22%3A+%22%22%2C++++%22cEnviarRecibo%22%3A+%22%22%2C++++%22cUtilizarEmails%22%3A+%22%22++%7D%2C++%22infAdic%22%3A+%7B++++%22cCidPrestServ%22%3A+%22PETROPOLIS+%28RJ%29%22%2C++++%22cCodART%22%3A+%22%22%2C++++%22cCodCateg%22%3A+%221.01.02%22%2C++++%22cCodObra%22%3A+%22%22%2C++++%22cContato%22%3A+%22%22%2C++++%22cDadosAdicNF%22%3A+%22%22%2C++++%22nCodCC%22%3A+1208238%2C++++%22nCodProj%22%3A+0%2C++++%22nCodVend%22%3A+0++%7D%2C++%22itensContrato%22%3A+%5B++++%7B++++++%22itemCabecalho%22%3A+%7B++++++++%22codIntItem%22%3A+%221%22%2C++++++++%22cCodCategItem%22%3A+%22%22%2C++++++++%22cNaoGerarFinanceiro%22%3A+%22N%22%2C++++++++%22codLC116%22%3A+%223.05%22%2C++++++++%22codNBS%22%3A+%22%22%2C++++++++%22codServMunic%22%3A+%2201292%22%2C++++++++%22codServico%22%3A+0%2C++++++++%22natOperacao%22%3A+%2201%22%2C++++++++%22quant%22%3A+1%2C++++++++%22seq%22%3A+1%2C++++++++%22valorDed%22%3A+0%2C++++++++%22valorTotal%22%3A+3002%2C++++++++%22valorUnit%22%3A+3002++++++%7D%2C++++++%22itemDescrServ%22%3A+%7B++++++++%22descrCompleta%22%3A+%22Servi%E7os+prestados%22++++++%7D%2C++++++%22itemImpostos%22%3A+%7B++++++++%22aliqCOFINS%22%3A+0%2C++++++++%22aliqCSLL%22%3A+0%2C++++++++%22aliqINSS%22%3A+0%2C++++++++%22aliqIR%22%3A+0%2C++++++++%22aliqISS%22%3A+5%2C++++++++%22aliqPIS%22%3A+0%2C++++++++%22redBaseINSS%22%3A+0%2C++++++++%22retCOFINS%22%3A+%22%22%2C++++++++%22retCSLL%22%3A+%22%22%2C++++++++%22retINSS%22%3A+%22%22%2C++++++++%22retIR%22%3A+%22%22%2C++++++++%22retISS%22%3A+%22N%22%2C++++++++%22retPIS%22%3A+%22%22%2C++++++++%22valorCOFINS%22%3A+0%2C++++++++%22valorCSLL%22%3A+0%2C++++++++%22valorINSS%22%3A+0%2C++++++++%22valorIR%22%3A+0%2C++++++++%22valorISS%22%3A+150.1%2C++++++++%22valorPIS%22%3A+0++++++%7D%2C++++++%22itemLeiTranspImp%22%3A+%7B++++++++%22aliMunicipal%22%3A+0%2C++++++++%22aliqEstadual%22%3A+0%2C++++++++%22aliqFederal%22%3A+0%2C++++++++%22chave%22%3A+%22%22%2C++++++++%22fonte%22%3A+%22%22++++++%7D++++%7D%2C++++%7B++++++%22itemCabecalho%22%3A+%7B++++++++%22codIntItem%22%3A+%222%22%2C++++++++%22cCodCategItem%22%3A+%22%22%2C++++++++%22cNaoGerarFinanceiro%22%3A+%22N%22%2C++++++++%22codLC116%22%3A+%2217.01%22%2C++++++++%22codNBS%22%3A+%22%22%2C++++++++%22codServMunic%22%3A+%220162-8%2F99%22%2C++++++++%22codServico%22%3A+3412648%2C++++++++%22natOperacao%22%3A+%2201%22%2C++++++++%22quant%22%3A+1%2C++++++++%22seq%22%3A+2%2C++++++++%22valorDed%22%3A+0%2C++++++++%22valorTotal%22%3A+300%2C++++++++%22valorUnit%22%3A+300++++++%7D%2C++++++%22itemDescrServ%22%3A+%7B++++++++%22descrCompleta%22%3A+%22Homologa%E7%E3o+de+processo+cont%E1bil%22++++++%7D%2C++++++%22itemImpostos%22%3A+%7B++++++++%22aliqCOFINS%22%3A+0%2C++++++++%22aliqCSLL%22%3A+0%2C++++++++%22aliqINSS%22%3A+0%2C++++++++%22aliqIR%22%3A+0%2C++++++++%22aliqISS%22%3A+3%2C++++++++%22aliqPIS%22%3A+0%2C++++++++%22redBaseINSS%22%3A+0%2C++++++++%22retCOFINS%22%3A+%22%22%2C++++++++%22retCSLL%22%3A+%22%22%2C++++++++%22retINSS%22%3A+%22%22%2C++++++++%22retIR%22%3A+%22%22%2C++++++++%22retISS%22%3A+%22N%22%2C++++++++%22retPIS%22%3A+%22%22%2C++++++++%22valorCOFINS%22%3A+0%2C++++++++%22valorCSLL%22%3A+0%2C++++++++%22valorINSS%22%3A+0%2C++++++++%22valorIR%22%3A+0%2C++++++++%22valorISS%22%3A+9%2C++++++++%22valorPIS%22%3A+0++++++%7D%2C++++++%22itemLeiTranspImp%22%3A+%7B++++++++%22aliMunicipal%22%3A+0%2C++++++++%22aliqEstadual%22%3A+0%2C++++++++%22aliqFederal%22%3A+0%2C++++++++%22chave%22%3A+%22%22%2C++++++++%22fonte%22%3A+%22%22++++++%7D++++%7D++%5D%2C++%22observacoes%22%3A+%7B++++%22cObsContrato%22%3A+%22%22++%7D%2C++%22vencTextos%22%3A+%7B++++%22cAdContrato%22%3A+%22N%22%2C++++%22cAdPeriodo%22%3A+%22N%22%2C++++%22cAdVenc%22%3A+%22+%22%2C++++%22cAntecipar%22%3A+%22%22%2C++++%22cCodPerRef%22%3A+%22001%22%2C++++%22cDiaFim%22%3A+0%2C++++%22cDiaIni%22%3A+0%2C++++%22cPostergar%22%3A+%22%22%2C++++%22cProxMes%22%3A+%22%22%2C++++%22cTpVenc%22%3A+%22001%22%2C++++%22nDiaFixo%22%3A+0%2C++++%22nDias%22%3A+5++%7D%7D">Teste agora mesmo</button>
+</div>
+</div>
+<div id="ListarContratos" class="methodItem">
+<h3 class="method-name">ListarContratos</h3>
+<p>
+Lista os contratos cadastrados.
+</p>
+<div class="panel panel-default method">
+<div class="panel-heading"> Par&acirc;metros:
+</div>
+<table class="table table-condensed table-hover">
+<tr>
+<td class="">&nbsp;</td>
+<td class="method-parameter-type"><a href="#csListarRequest">csListarRequest</a></td>
+<td class="method-parameter-name">csListarRequest</td><td class="method-parameter-docs"><div class="first">Solicitação de Listagem de Contratos de Serviço</div></td>
+</tr>
+</table>
+<div class="panel-footer">
+Retorno <span class="pre"><a href="#csListarResponse"><span class="lightBlue">csListarResponse</span></a></span>: 
+</div>
+</div>
+<div class="method-example-area">
+<h5>Exemplo:</h5>
+<pre class="method-example-code">{<BR>  "pagina": 1,<BR>  "registros_por_pagina": 50,<BR>  "apenas_importado_api": "N"<BR>}</pre>
+<button class="btn btn-success method-example" data-method="ListarContratos" data-example="%7B++%22pagina%22%3A+1%2C++%22registros_por_pagina%22%3A+50%2C++%22apenas_importado_api%22%3A+%22N%22%7D">Teste agora mesmo</button>
+</div>
+</div>
+<div id="UpsertContrato" class="methodItem">
+<h3 class="method-name">UpsertContrato</h3>
+<p>
+Inclui / Altera um contrato
+</p>
+<div class="panel panel-default method">
+<div class="panel-heading"> Par&acirc;metros:
+</div>
+<table class="table table-condensed table-hover">
+<tr>
+<td class="">&nbsp;</td>
+<td class="method-parameter-type"><a href="#contratoCadastro">contratoCadastro</a></td>
+<td class="method-parameter-name">contratoCadastro</td><td class="method-parameter-docs"><div class="first">Cadastro de Contrato de Serviço</div></td>
+</tr>
+</table>
+<div class="panel-footer">
+Retorno <span class="pre"><a href="#csStatus"><span class="lightBlue">csStatus</span></a></span>: 
+</div>
+</div>
+<div class="method-example-area">
+<h5>Exemplo:</h5>
+<pre class="method-example-code">{<BR>  "cabecalho": {<BR>    "cCodIntCtr": "019289Tb2",<BR>    "cCodSit": "10",<BR>    "cNumCtr": "2020/01001",<BR>    "cTipoFat": "01",<BR>    "dVigFinal": "30/03/2022",<BR>    "dVigInicial": "29/03/2020",<BR>    "nCodCli": 2370765,<BR>    "nDiaFat": 30,<BR>    "nValTotMes": 3302<BR>  },<BR>  "departamentos": [],<BR>  "emailCliente": {<BR>    "cEnviarBoleto": "",<BR>    "cEnviarLinkNfse": "",<BR>    "cEnviarRecibo": "",<BR>    "cUtilizarEmails": ""<BR>  },<BR>  "infAdic": {<BR>    "cCidPrestServ": "PETROPOLIS (RJ)",<BR>    "cCodART": "",<BR>    "cCodCateg": "1.01.02",<BR>    "cCodObra": "",<BR>    "cContato": "",<BR>    "cDadosAdicNF": "",<BR>    "nCodCC": 1208238,<BR>    "nCodProj": 0,<BR>    "nCodVend": 0<BR>  },<BR>  "itensContrato": [<BR>    {<BR>      "itemCabecalho": {<BR>        "codIntItem": "1",<BR>        "cCodCategItem": "",<BR>        "cNaoGerarFinanceiro": "N",<BR>        "codLC116": "3.05",<BR>        "codNBS": "",<BR>        "codServMunic": "01292",<BR>        "codServico": 0,<BR>        "natOperacao": "01",<BR>        "quant": 1,<BR>        "seq": 1,<BR>        "valorDed": 0,<BR>        "valorTotal": 3002,<BR>        "valorUnit": 3002<BR>      },<BR>      "itemDescrServ": {<BR>        "descrCompleta": "Serviços prestados"<BR>      },<BR>      "itemImpostos": {<BR>        "aliqCOFINS": 0,<BR>        "aliqCSLL": 0,<BR>        "aliqINSS": 0,<BR>        "aliqIR": 0,<BR>        "aliqISS": 5,<BR>        "aliqPIS": 0,<BR>        "redBaseINSS": 0,<BR>        "retCOFINS": "",<BR>        "retCSLL": "",<BR>        "retINSS": "",<BR>        "retIR": "",<BR>        "retISS": "N",<BR>        "retPIS": "",<BR>        "valorCOFINS": 0,<BR>        "valorCSLL": 0,<BR>        "valorINSS": 0,<BR>        "valorIR": 0,<BR>        "valorISS": 150.1,<BR>        "valorPIS": 0<BR>      },<BR>      "itemLeiTranspImp": {<BR>        "aliMunicipal": 0,<BR>        "aliqEstadual": 0,<BR>        "aliqFederal": 0,<BR>        "chave": "",<BR>        "fonte": ""<BR>      }<BR>    },<BR>    {<BR>      "itemCabecalho": {<BR>        "codIntItem": "2",<BR>        "cCodCategItem": "",<BR>        "cNaoGerarFinanceiro": "N",<BR>        "codLC116": "17.01",<BR>        "codNBS": "",<BR>        "codServMunic": "0162-8/99",<BR>        "codServico": 3412648,<BR>        "natOperacao": "01",<BR>        "quant": 1,<BR>        "seq": 2,<BR>        "valorDed": 0,<BR>        "valorTotal": 300,<BR>        "valorUnit": 300<BR>      },<BR>      "itemDescrServ": {<BR>        "descrCompleta": "Homologação de processo contábil"<BR>      },<BR>      "itemImpostos": {<BR>        "aliqCOFINS": 0,<BR>        "aliqCSLL": 0,<BR>        "aliqINSS": 0,<BR>        "aliqIR": 0,<BR>        "aliqISS": 3,<BR>        "aliqPIS": 0,<BR>        "redBaseINSS": 0,<BR>        "retCOFINS": "",<BR>        "retCSLL": "",<BR>        "retINSS": "",<BR>        "retIR": "",<BR>        "retISS": "N",<BR>        "retPIS": "",<BR>        "valorCOFINS": 0,<BR>        "valorCSLL": 0,<BR>        "valorINSS": 0,<BR>        "valorIR": 0,<BR>        "valorISS": 9,<BR>        "valorPIS": 0<BR>      },<BR>      "itemLeiTranspImp": {<BR>        "aliMunicipal": 0,<BR>        "aliqEstadual": 0,<BR>        "aliqFederal": 0,<BR>        "chave": "",<BR>        "fonte": ""<BR>      }<BR>    }<BR>  ],<BR>  "observacoes": {<BR>    "cObsContrato": ""<BR>  },<BR>  "vencTextos": {<BR>    "cAdContrato": "N",<BR>    "cAdPeriodo": "N",<BR>    "cAdVenc": " ",<BR>    "cAntecipar": "",<BR>    "cCodPerRef": "001",<BR>    "cDiaFim": 0,<BR>    "cDiaIni": 0,<BR>    "cPostergar": "",<BR>    "cProxMes": "",<BR>    "cTpVenc": "001",<BR>    "nDiaFixo": 0,<BR>    "nDias": 5<BR>  }<BR>}</pre>
+<button class="btn btn-success method-example" data-method="UpsertContrato" data-example="%7B++%22cabecalho%22%3A+%7B++++%22cCodIntCtr%22%3A+%22019289Tb2%22%2C++++%22cCodSit%22%3A+%2210%22%2C++++%22cNumCtr%22%3A+%222020%2F01001%22%2C++++%22cTipoFat%22%3A+%2201%22%2C++++%22dVigFinal%22%3A+%2230%2F03%2F2022%22%2C++++%22dVigInicial%22%3A+%2229%2F03%2F2020%22%2C++++%22nCodCli%22%3A+2370765%2C++++%22nDiaFat%22%3A+30%2C++++%22nValTotMes%22%3A+3302++%7D%2C++%22departamentos%22%3A+%5B%5D%2C++%22emailCliente%22%3A+%7B++++%22cEnviarBoleto%22%3A+%22%22%2C++++%22cEnviarLinkNfse%22%3A+%22%22%2C++++%22cEnviarRecibo%22%3A+%22%22%2C++++%22cUtilizarEmails%22%3A+%22%22++%7D%2C++%22infAdic%22%3A+%7B++++%22cCidPrestServ%22%3A+%22PETROPOLIS+%28RJ%29%22%2C++++%22cCodART%22%3A+%22%22%2C++++%22cCodCateg%22%3A+%221.01.02%22%2C++++%22cCodObra%22%3A+%22%22%2C++++%22cContato%22%3A+%22%22%2C++++%22cDadosAdicNF%22%3A+%22%22%2C++++%22nCodCC%22%3A+1208238%2C++++%22nCodProj%22%3A+0%2C++++%22nCodVend%22%3A+0++%7D%2C++%22itensContrato%22%3A+%5B++++%7B++++++%22itemCabecalho%22%3A+%7B++++++++%22codIntItem%22%3A+%221%22%2C++++++++%22cCodCategItem%22%3A+%22%22%2C++++++++%22cNaoGerarFinanceiro%22%3A+%22N%22%2C++++++++%22codLC116%22%3A+%223.05%22%2C++++++++%22codNBS%22%3A+%22%22%2C++++++++%22codServMunic%22%3A+%2201292%22%2C++++++++%22codServico%22%3A+0%2C++++++++%22natOperacao%22%3A+%2201%22%2C++++++++%22quant%22%3A+1%2C++++++++%22seq%22%3A+1%2C++++++++%22valorDed%22%3A+0%2C++++++++%22valorTotal%22%3A+3002%2C++++++++%22valorUnit%22%3A+3002++++++%7D%2C++++++%22itemDescrServ%22%3A+%7B++++++++%22descrCompleta%22%3A+%22Servi%E7os+prestados%22++++++%7D%2C++++++%22itemImpostos%22%3A+%7B++++++++%22aliqCOFINS%22%3A+0%2C++++++++%22aliqCSLL%22%3A+0%2C++++++++%22aliqINSS%22%3A+0%2C++++++++%22aliqIR%22%3A+0%2C++++++++%22aliqISS%22%3A+5%2C++++++++%22aliqPIS%22%3A+0%2C++++++++%22redBaseINSS%22%3A+0%2C++++++++%22retCOFINS%22%3A+%22%22%2C++++++++%22retCSLL%22%3A+%22%22%2C++++++++%22retINSS%22%3A+%22%22%2C++++++++%22retIR%22%3A+%22%22%2C++++++++%22retISS%22%3A+%22N%22%2C++++++++%22retPIS%22%3A+%22%22%2C++++++++%22valorCOFINS%22%3A+0%2C++++++++%22valorCSLL%22%3A+0%2C++++++++%22valorINSS%22%3A+0%2C++++++++%22valorIR%22%3A+0%2C++++++++%22valorISS%22%3A+150.1%2C++++++++%22valorPIS%22%3A+0++++++%7D%2C++++++%22itemLeiTranspImp%22%3A+%7B++++++++%22aliMunicipal%22%3A+0%2C++++++++%22aliqEstadual%22%3A+0%2C++++++++%22aliqFederal%22%3A+0%2C++++++++%22chave%22%3A+%22%22%2C++++++++%22fonte%22%3A+%22%22++++++%7D++++%7D%2C++++%7B++++++%22itemCabecalho%22%3A+%7B++++++++%22codIntItem%22%3A+%222%22%2C++++++++%22cCodCategItem%22%3A+%22%22%2C++++++++%22cNaoGerarFinanceiro%22%3A+%22N%22%2C++++++++%22codLC116%22%3A+%2217.01%22%2C++++++++%22codNBS%22%3A+%22%22%2C++++++++%22codServMunic%22%3A+%220162-8%2F99%22%2C++++++++%22codServico%22%3A+3412648%2C++++++++%22natOperacao%22%3A+%2201%22%2C++++++++%22quant%22%3A+1%2C++++++++%22seq%22%3A+2%2C++++++++%22valorDed%22%3A+0%2C++++++++%22valorTotal%22%3A+300%2C++++++++%22valorUnit%22%3A+300++++++%7D%2C++++++%22itemDescrServ%22%3A+%7B++++++++%22descrCompleta%22%3A+%22Homologa%E7%E3o+de+processo+cont%E1bil%22++++++%7D%2C++++++%22itemImpostos%22%3A+%7B++++++++%22aliqCOFINS%22%3A+0%2C++++++++%22aliqCSLL%22%3A+0%2C++++++++%22aliqINSS%22%3A+0%2C++++++++%22aliqIR%22%3A+0%2C++++++++%22aliqISS%22%3A+3%2C++++++++%22aliqPIS%22%3A+0%2C++++++++%22redBaseINSS%22%3A+0%2C++++++++%22retCOFINS%22%3A+%22%22%2C++++++++%22retCSLL%22%3A+%22%22%2C++++++++%22retINSS%22%3A+%22%22%2C++++++++%22retIR%22%3A+%22%22%2C++++++++%22retISS%22%3A+%22N%22%2C++++++++%22retPIS%22%3A+%22%22%2C++++++++%22valorCOFINS%22%3A+0%2C++++++++%22valorCSLL%22%3A+0%2C++++++++%22valorINSS%22%3A+0%2C++++++++%22valorIR%22%3A+0%2C++++++++%22valorISS%22%3A+9%2C++++++++%22valorPIS%22%3A+0++++++%7D%2C++++++%22itemLeiTranspImp%22%3A+%7B++++++++%22aliMunicipal%22%3A+0%2C++++++++%22aliqEstadual%22%3A+0%2C++++++++%22aliqFederal%22%3A+0%2C++++++++%22chave%22%3A+%22%22%2C++++++++%22fonte%22%3A+%22%22++++++%7D++++%7D++%5D%2C++%22observacoes%22%3A+%7B++++%22cObsContrato%22%3A+%22%22++%7D%2C++%22vencTextos%22%3A+%7B++++%22cAdContrato%22%3A+%22N%22%2C++++%22cAdPeriodo%22%3A+%22N%22%2C++++%22cAdVenc%22%3A+%22+%22%2C++++%22cAntecipar%22%3A+%22%22%2C++++%22cCodPerRef%22%3A+%22001%22%2C++++%22cDiaFim%22%3A+0%2C++++%22cDiaIni%22%3A+0%2C++++%22cPostergar%22%3A+%22%22%2C++++%22cProxMes%22%3A+%22%22%2C++++%22cTpVenc%22%3A+%22001%22%2C++++%22nDiaFixo%22%3A+0%2C++++%22nDias%22%3A+5++%7D%7D">Teste agora mesmo</button>
+</div>
+</div>
+<h2>Tipos Complexos</h2>
+<div class="complexTypeItem">
+<a name="ItensExclusao" class="anchorScroll"></a>
+<h3>ItensExclusao</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">codItem</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Identificação do Item do Contrato.</div><div class="more"><a href="javascript:void(0)">+</a><div>(Gerado automaticamente na Inclusão do item do contrato)</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">codIntItem</td>
+<td class="parameter-type">string<span class="parameter-lenght">30</span></td><td class="parameter-docs"><div class="first">Código de integração do item do contrato.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento opcional.</div></div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="ItensExclusaoArray" class="anchorScroll"></a>
+<h3>ItensExclusaoArray</h3>
+<p>Este par&acirc;metro &eacute; um array do tipo <span class="pre"><a href="#ItensExclusao"><span class="lightBlue">ItensExclusao</span></a></span></p>
+<p>Lista de ItensExclusao</p>
+</div>
+<div class="complexTypeItem">
+<a name="cabecalho" class="anchorScroll"></a>
+<h3>cabecalho</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">nCodCtr</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código do contrato de serviços.</div><div class="more"><a href="javascript:void(0)">+</a><div>(Gerado internamente, não é visualizado na tela)</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCodIntCtr</td>
+<td class="parameter-type">string<span class="parameter-lenght">20</span></td><td class="parameter-docs"><div class="first">Código de integração do contrato de serviços.</div><div class="more"><a href="javascript:void(0)">+</a><div>(Utilizado em contratos criados via API, não é visualizado na tela)</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nCodCli</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código do cliente a que se refere o contrato de serviços.</div><div class="more"><a href="javascript:void(0)">+</a><div>(Gerado internamente, não é visualizado na tela)</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cNumCtr</td>
+<td class="parameter-type">string<span class="parameter-lenght">60</span></td><td class="parameter-docs"><div class="first">Número do contrato de serviços.</div><div class="more"><a href="javascript:void(0)">+</a><div>(Informado pelo usuário / visualizado na tela)</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCodSit</td>
+<td class="parameter-type">string<span class="parameter-lenght">2</span></td><td class="parameter-docs"><div class="first">Código da situação do contrato de serviços.</div><div class="more"><a href="javascript:void(0)">+</a><div>Pode ser:<BR>00 - Em Elaboração<BR>10 - Ativo <BR>90 - Suspenso <BR>99 - Cancelado</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">dVigInicial</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Data da vigência inicial do contrato de serviços.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">dVigFinal</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Data de vigência final do contrato de serviços.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nDiaFat</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Dia de faturamento.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nValTotMes</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Valor total mensal do contrato de serviços.</div><div class="more"><a href="javascript:void(0)">+</a><div>(Calculado automaticamente)</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cTipoFat</td>
+<td class="parameter-type">string<span class="parameter-lenght">2</span></td><td class="parameter-docs"><div class="first">Tipo de Faturamento do Contrato.</div><div class="more"><a href="javascript:void(0)">+</a><div>Pode ser:<BR>01 - Todo Mês (mensal)<BR>02 - A cada 2 meses (bimestral)<BR>03 - A cada 3 meses (trimestral)<BR>06 - A cada 6 meses (semestral)<BR>12 - A cada 12 meses (anual)</div></div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="contratoCadastro" class="anchorScroll"></a>
+<h3>contratoCadastro</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">cabecalho</td>
+<td class="parameter-type"><a href="#cabecalho">cabecalho</a></td><td class="parameter-docs"><div class="first">Cabeçalho do Contrato de Serviços</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">departamentos</td>
+<td class="parameter-type"><a href="#departamentosArray">departamentosArray</a></td><td class="parameter-docs"><div class="first">Distribuição por departamento</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">infAdic</td>
+<td class="parameter-type"><a href="#infAdic">infAdic</a></td><td class="parameter-docs"><div class="first">Informações Adicionais</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">vencTextos</td>
+<td class="parameter-type"><a href="#vencTextos">vencTextos</a></td><td class="parameter-docs"><div class="first">Vencimento e Textos NFS-e</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">itensContrato</td>
+<td class="parameter-type"><a href="#itensContratoArray">itensContratoArray</a></td><td class="parameter-docs"><div class="first">Itens do Contrato de Serviço</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">emailCliente</td>
+<td class="parameter-type"><a href="#emailCliente">emailCliente</a></td><td class="parameter-docs"><div class="first">Dados do envio de e-mail do cliente</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">observacoes</td>
+<td class="parameter-type"><a href="#observacoes">observacoes</a></td><td class="parameter-docs"><div class="first">Observações do contrato</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">despesasReembolsaveis</td>
+<td class="parameter-type"><a href="#despesasReembolsaveis">despesasReembolsaveis</a></td><td class="parameter-docs"><div class="first">Despesas reembolsáveis</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">produtosUtilizados</td>
+<td class="parameter-type"><a href="#produtosUtilizados">produtosUtilizados</a></td><td class="parameter-docs"><div class="first">Produtos Utilizados no contrato.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">infoCadastro</td>
+<td class="parameter-type"><a href="#infoCadastro">infoCadastro</a></td><td class="parameter-docs"><div class="first">Informações complementares do contrato.</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="contratoCadastroArray" class="anchorScroll"></a>
+<h3>contratoCadastroArray</h3>
+<p>Este par&acirc;metro &eacute; um array do tipo <span class="pre"><a href="#contratoCadastro"><span class="lightBlue">contratoCadastro</span></a></span></p>
+<p>Lista de contratoCadastro</p>
+</div>
+<div class="complexTypeItem">
+<a name="contratoChave" class="anchorScroll"></a>
+<h3>contratoChave</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">nCodCtr</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código do contrato de serviços.</div><div class="more"><a href="javascript:void(0)">+</a><div>(Gerado internamente, não é visualizado na tela)</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCodIntCtr</td>
+<td class="parameter-type">string<span class="parameter-lenght">20</span></td><td class="parameter-docs"><div class="first">Código de integração do contrato de serviços.</div><div class="more"><a href="javascript:void(0)">+</a><div>(Utilizado em contratos criados via API, não é visualizado na tela)</div></div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="csConsultarRequest" class="anchorScroll"></a>
+<h3>csConsultarRequest</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">contratoChave</td>
+<td class="parameter-type"><a href="#contratoChave">contratoChave</a></td><td class="parameter-docs"><div class="first">Chave de Pesquisa do Contrato de Serviço.</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="csConsultarResponse" class="anchorScroll"></a>
+<h3>csConsultarResponse</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">contratoCadastro</td>
+<td class="parameter-type"><a href="#contratoCadastro">contratoCadastro</a></td><td class="parameter-docs"><div class="first">Cadastro de Contrato de Serviço</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="csExcluirItemRequest" class="anchorScroll"></a>
+<h3>csExcluirItemRequest</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">contratoChave</td>
+<td class="parameter-type"><a href="#contratoChave">contratoChave</a></td><td class="parameter-docs"><div class="first">Chave de Pesquisa do Contrato de Serviço.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">ItensExclusao</td>
+<td class="parameter-type"><a href="#ItensExclusaoArray">ItensExclusaoArray</a></td><td class="parameter-docs"><div class="first">Itens a serem excluídos do contrato.</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="csExcluirItemResponse" class="anchorScroll"></a>
+<h3>csExcluirItemResponse</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">cCodIntCtr</td>
+<td class="parameter-type">string<span class="parameter-lenght">20</span></td><td class="parameter-docs"><div class="first">Código de integração do contrato de serviços.</div><div class="more"><a href="javascript:void(0)">+</a><div>(Utilizado em contratos criados via API, não é visualizado na tela)</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nCodCtr</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código do contrato de serviços.</div><div class="more"><a href="javascript:void(0)">+</a><div>(Gerado internamente, não é visualizado na tela)</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCodStatus</td>
+<td class="parameter-type">string<span class="parameter-lenght">4</span></td><td class="parameter-docs"><div class="first">Código do Status</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cDescStatus</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Descrição do Status</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="csListarRequest" class="anchorScroll"></a>
+<h3>csListarRequest</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">pagina</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Número da página que será listada.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">registros_por_pagina</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Número de registros retornados</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">apenas_importado_api</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">DEPRECATED</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">ordenar_por</td>
+<td class="parameter-type">string<span class="parameter-lenght">100</span></td><td class="parameter-docs"><div class="first">Ordem de exibição dos dados. Padrão: Código.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">ordem_descrescente</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Indica se a ordem de exibição é decrescente caso seja informado "S".</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">filtrar_por_data_de</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Filtrar lançamentos incluídos e/ou alterados até a data</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">filtrar_por_data_ate</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Filtrar lançamentos incluídos e/ou alterados até a data</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">filtrar_apenas_inclusao</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Filtrar apenas registros incluídos (S/N)</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">filtrar_apenas_alteracao</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Filtrar apenas registros alterados (S/N)</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">filtrar_cnpj_cpf</td>
+<td class="parameter-type">string<span class="parameter-lenght">20</span></td><td class="parameter-docs"><div class="first">Filtrar os contratos por CNPJ/CPF.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">filtrar_cliente</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Filtra os registros exibidos por cliente</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cExibeObs</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">(S/N) Indica se a "Observação / Dados Adicionais" serão retornados na listagem.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cExibirProdutos</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Exibir os produtos utilizados (S/N).</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento Opcional.<BR><BR>Preencher com "S" ou "N".<BR></div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cExibirInfoCadastro</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Exibir as informações complementares do contrato (S/N).</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento Opcional.<BR><BR>Preencher com "S" ou "N".</div></div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="csListarResponse" class="anchorScroll"></a>
+<h3>csListarResponse</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">pagina</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Número da página que será listada.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">total_de_paginas</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Total de páginas encontradas.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">registros</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Número de registros retornados</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">total_de_registros</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Total de registros encontrados.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">contratoCadastro</td>
+<td class="parameter-type"><a href="#contratoCadastroArray">contratoCadastroArray</a></td><td class="parameter-docs"><div class="first">Cadastro de Contrato de Serviço</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="csStatus" class="anchorScroll"></a>
+<h3>csStatus</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">cCodIntCtr</td>
+<td class="parameter-type">string<span class="parameter-lenght">20</span></td><td class="parameter-docs"><div class="first">Código de integração do contrato de serviços.</div><div class="more"><a href="javascript:void(0)">+</a><div>(Utilizado em contratos criados via API, não é visualizado na tela)</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nCodCtr</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código do contrato de serviços.</div><div class="more"><a href="javascript:void(0)">+</a><div>(Gerado internamente, não é visualizado na tela)</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCodStatus</td>
+<td class="parameter-type">string<span class="parameter-lenght">4</span></td><td class="parameter-docs"><div class="first">Código do Status</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cDescStatus</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Descrição do Status</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="departamentos" class="anchorScroll"></a>
+<h3>departamentos</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">cCodDep</td>
+<td class="parameter-type">string<span class="parameter-lenght">40</span></td><td class="parameter-docs"><div class="first">Código do Departamento</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cDesDep</td>
+<td class="parameter-type">string<span class="parameter-lenght">50</span></td><td class="parameter-docs"><div class="first">Descrição do Departamento</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nValDep</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Valor do rateio</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nPerDep</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Percentual do rateio</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="departamentosArray" class="anchorScroll"></a>
+<h3>departamentosArray</h3>
+<p>Este par&acirc;metro &eacute; um array do tipo <span class="pre"><a href="#departamentos"><span class="lightBlue">departamentos</span></a></span></p>
+<p>Lista de departamentos</p>
+</div>
+<div class="complexTypeItem">
+<a name="despesaReembolsavel" class="anchorScroll"></a>
+<h3>despesaReembolsavel</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">cAcaoReemb</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Ação para o reembolso, pode ser: </div><div class="more"><a href="javascript:void(0)">+</a><div>I - Inclusão<BR>A - Alteração<BR>E - Exclusão</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nCodReemb</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">ID do Reembolso</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">dDataReemb</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Data do reembolso</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nValorReemb</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Valor do Reembolso</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cDescReemb</td>
+<td class="parameter-type">string<span class="parameter-lenght">200</span></td><td class="parameter-docs"><div class="first">Descrição do reembolso</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cRecorrenteReemb</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Indica se o reembolso é recorrente. [S/N]</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="despesaReembolsavelArray" class="anchorScroll"></a>
+<h3>despesaReembolsavelArray</h3>
+<p>Este par&acirc;metro &eacute; um array do tipo <span class="pre"><a href="#despesaReembolsavel"><span class="lightBlue">despesaReembolsavel</span></a></span></p>
+<p>Lista de despesaReembolsavel</p>
+</div>
+<div class="complexTypeItem">
+<a name="despesasReembolsaveis" class="anchorScroll"></a>
+<h3>despesasReembolsaveis</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">cCodCategReemb</td>
+<td class="parameter-type">string<span class="parameter-lenght">20</span></td><td class="parameter-docs"><div class="first">Código da categoria para reembolso</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">despesaReembolsavel</td>
+<td class="parameter-type"><a href="#despesaReembolsavelArray">despesaReembolsavelArray</a></td><td class="parameter-docs"><div class="first">Despesa reembolsável</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="emailCliente" class="anchorScroll"></a>
+<h3>emailCliente</h3>
+<p>Dados do envio de e-mail do cliente</p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">cEnviarRecibo</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Enviar um recibo de prestação de serviço (ao invés de NFS-e)</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cEnviarLinkNfse</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Enviar o link da NFS-e gerada na Prefeitura</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cEnviarBoleto</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Enviar também o(s) boleto(s) de cobrança</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cEnviarPix</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Enviar também o(s) PIX(s) de cobrança</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cUtilizarEmails</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Utilizar os seguintes endereços de e-mail</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cEnvViaUnica</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Enviar ao cliente Via Única (Nota Fiscais Modelos 21 e 22).</div><div class="more"><a href="javascript:void(0)">+</a><div>Pode ser: <BR>S - Sim<BR>N - Não</div></div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="infAdic" class="anchorScroll"></a>
+<h3>infAdic</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">cCodCateg</td>
+<td class="parameter-type">string<span class="parameter-lenght">20</span></td><td class="parameter-docs"><div class="first">Código da Categoria</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nCodVend</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código do Vendedor</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nCodProj</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código do Projeto</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nCodCC</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código da Conta Corrente</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cContato</td>
+<td class="parameter-type">string<span class="parameter-lenght">100</span></td><td class="parameter-docs"><div class="first">Nome do Contato</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCidPrestServ</td>
+<td class="parameter-type">string<span class="parameter-lenght">40</span></td><td class="parameter-docs"><div class="first">Cidade da Prestação do Serviço e Estado</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCodObra</td>
+<td class="parameter-type">string<span class="parameter-lenght">15</span></td><td class="parameter-docs"><div class="first">Código da Obra</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCodART</td>
+<td class="parameter-type">string<span class="parameter-lenght">20</span></td><td class="parameter-docs"><div class="first">Código ART</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cNumEncap</td>
+<td class="parameter-type">string<span class="parameter-lenght">15</span></td><td class="parameter-docs"><div class="first">Código de Encapsulamento de notas dedutoras</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cDadosAdicNF</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Dados Adicionais para a Nota Fiscal</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cUsoConsumo</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Uso e consumo pessoal.</div><div class="more"><a href="javascript:void(0)">+</a><div> (0=Não, 1=Sim).</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nIdDestinatario</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">ID Cliente para o Destinatário.</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="infoCadastro" class="anchorScroll"></a>
+<h3>infoCadastro</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">dInc</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Data da Inclusão.</div><div class="more"><a href="javascript:void(0)">+</a><div>No formato dd/mm/aaaa.<BR><BR>Não deve ser informado na Inclusão/Alteração.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">hInc</td>
+<td class="parameter-type">string<span class="parameter-lenght">8</span></td><td class="parameter-docs"><div class="first">Hora da Inclusão.</div><div class="more"><a href="javascript:void(0)">+</a><div>No formato hh:mm:ss.<BR><BR>Não deve ser informado na Inclusão/Alteração.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">uInc</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Usuário da Inclusão.</div><div class="more"><a href="javascript:void(0)">+</a><div>Não deve ser informado na Inclusão/Alteração.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">dAlt</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Data da Alteração.</div><div class="more"><a href="javascript:void(0)">+</a><div>No formato dd/mm/aaaa.<BR><BR>Não deve ser informado na Inclusão/Alteração.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">hAlt</td>
+<td class="parameter-type">string<span class="parameter-lenght">8</span></td><td class="parameter-docs"><div class="first">Hora da Alteração.</div><div class="more"><a href="javascript:void(0)">+</a><div>No formato hh:mm:ss.<BR><BR>Não deve ser informado na Inclusão/Alteração.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">uAlt</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Usuário da Alteração.</div><div class="more"><a href="javascript:void(0)">+</a><div>Não deve ser informado na Inclusão/Alteração.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cImpAPI</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Importado pela API (S/N).</div><div class="more"><a href="javascript:void(0)">+</a><div>Não deve ser informado na Inclusão/Alteração.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cOrigem</td>
+<td class="parameter-type">string<span class="parameter-lenght">3</span></td><td class="parameter-docs"><div class="first">Origem do Contrato de Serviço.</div><div class="more"><a href="javascript:void(0)">+</a><div>Informado na Inclusão.</div></div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="itemCabecalho" class="anchorScroll"></a>
+<h3>itemCabecalho</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">codItem</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Identificação do Item do Contrato.</div><div class="more"><a href="javascript:void(0)">+</a><div>(Gerado automaticamente na Inclusão do item do contrato)</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">codIntItem</td>
+<td class="parameter-type">string<span class="parameter-lenght">30</span></td><td class="parameter-docs"><div class="first">Código de integração do item do contrato.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento opcional.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">seq</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Sequência do Item do Contrato.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento opcional.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">codServico</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código Interno do Serviço conforme cadastrado na tabela de serviços.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento opcional.<BR><BR>Caso preenchido, irá assumir as informações do cadastro de serviço.<BR><BR>Se não for preenchido, assumirá os valores informados na API.<BR><BR></div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">natOperacao</td>
+<td class="parameter-type">string<span class="parameter-lenght">2</span></td><td class="parameter-docs"><div class="first">Natureza da Operação ou Tipo de Tributação dos Serviços.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento obrigatório.<BR><BR>Caso tenha informado a tag "codServico" o preenchimento passa a ser opcional e irá assumir o valor informado no cadastro do respectivo serviço.<BR><BR>Valores pode variar de acordo com o município. Verifique a legislação da sua cidade para obter os tipos de tributação disponíveis.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">codServMunic</td>
+<td class="parameter-type">string<span class="parameter-lenght">20</span></td><td class="parameter-docs"><div class="first">Código do Serviço Municipal ou CNAE.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento obrigatório.<BR><BR>Caso tenha informado a tag "codServico" o preenchimento passa a ser opcional e irá assumir o valor informado no cadastro do respectivo serviço.<BR><BR>Valores pode variar de acordo com o município. Verifique a legislação da sua cidade para obter os códigos de serviço disponíveis.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">codLC116</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Código do Serviço conforme Lei Complementar (LC 116).</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento obrigatório.<BR><BR>Caso tenha informado a tag "codServico" o preenchimento passa a ser opcional e irá assumir o valor informado no cadastro do respectivo serviço.<BR><BR>Tabela única para todos os municípios.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">quant</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Quantidade de serviços.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento obrigatório.<BR><BR>Caso tenha informado a tag "codServico" o preenchimento passa a ser opcional e irá assumir o valor padrão 1.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">valorUnit</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Valor Unitário do serviço.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento obrigatório.<BR><BR>Caso tenha informado a tag "codServico" o preenchimento passa a ser opcional e irá assumir o valor informado no cadastro do respectivo serviço.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cTpDesconto</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Tipo de Desconto.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento opcional.<BR><BR>Pode ser:<BR>P - Percentual<BR>V - Valor</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">valorDesconto</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Valor do Desconto.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento opcional.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">aliqDesconto</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Aliquota do Desconto.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento opcional.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">valorOutrasRetencoes</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Valor de Outras Retenções.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento opcional.<BR><BR>(Disponível apenas para cidades que oferecem esse recurso.)</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">valorAcrescimo</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Valor de Acréscimos e taxas.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento opcional.<BR><BR>(Disponível apenas para cidades que oferecem esse recurso.)</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">codNBS</td>
+<td class="parameter-type">string<span class="parameter-lenght">9</span></td><td class="parameter-docs"><div class="first">Código da Nomenclatura Brasileira de Serviços (NBS).</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento opcional.<BR><BR>Caso tenha informado a tag "codServico" irá assumir o valor informado no cadastro do respectivo serviço.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cNaoGerarFinanceiro</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Não gerar conta a receber para este item.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento opcional.<BR><BR>Informar "S" para não gerar movimento financeiro.<BR>Informar "N" para gerar movimento financeiro.<BR><BR></div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCodCategItem</td>
+<td class="parameter-type">string<span class="parameter-lenght">20</span></td><td class="parameter-docs"><div class="first">Código da Categoria.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento Opcional.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">valorDed</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Valor de Deduções.</div><div class="more"><a href="javascript:void(0)">+</a><div>Esse campo é calculado automaticamente pelo Omie e não deve ser informado na inclusão/alteração.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">valorTotal</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Valor total do item.</div><div class="more"><a href="javascript:void(0)">+</a><div>Esse campo é calculado automaticamente pelo Omie e não deve ser informado na inclusão/alteração.</div></div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="itemDescrServ" class="anchorScroll"></a>
+<h3>itemDescrServ</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">descrCompleta</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Informe a descrição completa do serviço prestado</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="itemImpostos" class="anchorScroll"></a>
+<h3>itemImpostos</h3>
+<p>Vencimento e Textos NFS-e</p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">aliqISS</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Alíquota de ISS.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento opcional.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">valorISS</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Valor do ISS.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento opcional.<BR><BR>Esse campo é calculado automaticamente pelo Omie e não deve ser informado na inclusão/alteração.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">retISS</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Retém ISS  (S/N).</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento opcional. Padrão é "N".<BR><BR>Indica se o imposto deve ser retido ou não.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cUtilizaValorImposto</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Indica se o valor informado para os Impostos Federais deverá ser mantido ao invés de ser recalculado a partir da alíquota.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento opcional. O padrão é "N".<BR><BR>Assim:<BR><BR>Caso seja informado "N", indica que valor do imposto deve ser calculado a partir da alíquota e base de cálculo.<BR><BR>Caso seja informado "S", indica que o valor do imposto será mantido e a alíquota será recalculada a partir do valor do imposto e base de cálculo.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">aliqIR</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Alíquota de IR.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento opcional.<BR><BR>Para o cálculo do imposto o preenchimento é obrigatório caso a tag [cUtilizaValorImposto] seja diferente de "S". <BR><BR>Lembre-se também de indicar se o imposto deve ser retido ou não na tag correspondente.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">valorIR</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Valor do IR.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento opcional.<BR><BR>Esse campo é calculado automaticamente pelo Omie e não deve ser informado na inclusão/alteração caso a tag [cUtilizarValorImposto] seja diferente de "S".<BR><BR>Caso a tag [cUtilizarValorImposto] seja preenchida com "S", indicará que o valor informado deve ser preservado e que a respectiva alíquota deve ser calculada ao invés do valor do imposto. Nesse caso, o alíquota informada na tag correspondente será desprezada.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">retIR</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Retém IR  (S/N).</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento opcional. Padrão é "N".<BR><BR>Indica se o imposto deve ser retido ou não.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">aliqPIS</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Alíquota de PIS.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento opcional.<BR><BR>Para o cálculo do imposto o preenchimento é obrigatório caso a tag [cUtilizaValorImposto] seja diferente de "S". <BR><BR>Lembre-se também de indicar se o imposto deve ser retido ou não na tag correspondente.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">valorPIS</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Valor do PIS.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento opcional.<BR><BR>Esse campo é calculado automaticamente pelo Omie e não deve ser informado na inclusão/alteração caso a tag [cUtilizarValorImposto] seja diferente de "S".<BR><BR>Caso a tag [cUtilizarValorImposto] seja preenchida com "S", indicará que o valor informado deve ser preservado e que a respectiva alíquota deve ser calculada ao invés do valor do imposto. Nesse caso, o alíquota informada na tag correspondente será desprezada.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">retPIS</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Retém PIS  (S/N).</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento opcional. Padrão é "N".<BR><BR>Indica se o imposto deve ser retido ou não.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">aliqCOFINS</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Indica se o imposto foi alterado pelo usuário ou informado via importação de planilha ou API.</div><div class="more"><a href="javascript:void(0)">+</a><div>Esse campo é preenchido automaticamente pelo Omie e não deve ser informado na inclusão/alteração.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">valorCOFINS</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Alíquota de COFINS.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento opcional.<BR><BR>Para o cálculo do imposto o preenchimento é obrigatório caso a tag [cUtilizaValorImposto] seja diferente de "S". <BR><BR>Lembre-se também de indicar se o imposto deve ser retido ou não na tag correspondente.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">retCOFINS</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Retém COFINS  (S/N).</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento opcional. Padrão é "N".<BR><BR>Indica se o imposto deve ser retido ou não.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">aliqCSLL</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Alíquota de CSLL.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento opcional.<BR><BR>Para o cálculo do imposto o preenchimento é obrigatório caso a tag [cUtilizaValorImposto] seja diferente de "S". <BR><BR>Lembre-se também de indicar se o imposto deve ser retido ou não na tag correspondente.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">valorCSLL</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Valor de CSLL.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento opcional.<BR><BR>Esse campo é calculado automaticamente pelo Omie e não deve ser informado na inclusão/alteração caso a tag [cUtilizarValorImposto] seja diferente de "S".<BR><BR>Caso a tag [cUtilizarValorImposto] seja preenchida com "S", indicará que o valor informado deve ser preservado e que a respectiva alíquota deve ser calculada ao invés do valor do imposto. Nesse caso, o alíquota informada na tag correspondente será desprezada.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">retCSLL</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Retém CSLL  (S/N).</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento opcional. Padrão é "N".<BR><BR>Indica se o imposto deve ser retido ou não.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">aliqINSS</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Alíquota de INSS.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento opcional.<BR><BR>Para o cálculo do imposto o preenchimento é obrigatório caso a tag [cUtilizaValorImposto] seja diferente de "S". <BR><BR>Lembre-se também de indicar se o imposto deve ser retido ou não na tag correspondente.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">valorINSS</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Valor de INSS.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento opcional.<BR><BR>Esse campo é calculado automaticamente pelo Omie e não deve ser informado na inclusão/alteração caso a tag [cUtilizarValorImposto] seja diferente de "S".<BR><BR>Caso a tag [cUtilizarValorImposto] seja preenchida com "S", indicará que o valor informado deve ser preservado e que a respectiva alíquota deve ser calculada ao invés do valor do imposto. Nesse caso, o alíquota informada na tag correspondente será desprezada.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">retINSS</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Retém INSS  (S/N).</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento opcional. Padrão é "N".<BR><BR>Indica se o imposto deve ser retido ou não.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">redBaseINSS</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Percentual de Redução da Base de Cálculo do INSS.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento opcional.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">redBasePIS</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Percentual de Redução da Base de Cálculo do PIS.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento opcional.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">redBaseCOFINS</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Percentual de Redução da Base de Cálculo do COFINS.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento opcional.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">lDeduzISS</td>
+<td class="parameter-type">boolean</td><td class="parameter-docs"><div class="first">Deduz o ISS da Base de Cálculo de PIS e COFINS</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cstIbsCbs</td>
+<td class="parameter-type">string<span class="parameter-lenght">3</span></td><td class="parameter-docs"><div class="first">Código da Situação Tributária IBS/CBS.</div><div class="more"><a href="javascript:void(0)">+</a><div>Caso não preenchido para um novo item nos métodos de inclusão e alteração, esse campo será preenchido conforme o cadastro do serviço ou configuração padrão da reforma tributária no Omie.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">aliqCbs</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Alíquota do CBS.</div><div class="more"><a href="javascript:void(0)">+</a><div>Caso não preenchido para um novo item nos métodos de inclusão e alteração, esse campo será preenchido conforme o cadastro do serviço ou configuração padrão da reforma tributária no Omie.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">aliqIbsUf</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Alíquota do IBS Estadual.</div><div class="more"><a href="javascript:void(0)">+</a><div>Caso não preenchido para um novo item nos métodos de inclusão e alteração, esse campo será preenchido conforme o cadastro do serviço ou configuração padrão da reforma tributária no Omie.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">aliqIbsMun</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Alíquota do Alíquota do IBS Municipal.</div><div class="more"><a href="javascript:void(0)">+</a><div>Caso não preenchido para um novo item nos métodos de inclusão e alteração, esse campo será preenchido conforme o cadastro do serviço ou configuração padrão da reforma tributária no Omie.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">percReducaoIbsUf</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Percentual redução IBS municipal.</div><div class="more"><a href="javascript:void(0)">+</a><div>Caso não preenchido para um novo item nos métodos de inclusão e alteração, esse campo será preenchido conforme o cadastro do serviço ou configuração padrão da reforma tributária no Omie.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">percReducaoIbsMun</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Percentual redução IBS estadual.</div><div class="more"><a href="javascript:void(0)">+</a><div>Caso não preenchido para um novo item nos métodos de inclusão e alteração, esse campo será preenchido conforme o cadastro do serviço ou configuração padrão da reforma tributária no Omie.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">percReducaoCbs</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Percentual redução CBS.</div><div class="more"><a href="javascript:void(0)">+</a><div>Caso não preenchido para um novo item nos métodos de inclusão e alteração, esse campo será preenchido conforme o cadastro do serviço ou configuração padrão da reforma tributária no Omie.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">classTrib</td>
+<td class="parameter-type">string<span class="parameter-lenght">6</span></td><td class="parameter-docs"><div class="first">Código de Classificação Tributária.</div><div class="more"><a href="javascript:void(0)">+</a><div>Caso não preenchido para um novo item nos métodos de inclusão e alteração, esse campo será preenchido conforme o cadastro do serviço ou configuração padrão da reforma tributária no Omie.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">indOper</td>
+<td class="parameter-type">string<span class="parameter-lenght">6</span></td><td class="parameter-docs"><div class="first">Código Indicador de Operação.</div><div class="more"><a href="javascript:void(0)">+</a><div>Caso não preenchido para um novo item nos métodos de inclusão e alteração, esse campo será preenchido conforme o cadastro do serviço ou configuração padrão da reforma tributária no Omie.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">manIbsMun</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Indica que houve alteração manual da alíquota de IBS Municipal.</div><div class="more"><a href="javascript:void(0)">+</a><div>Não deve ser informado na Inclusão/Alteração. Campo disponível apenas para consulta.<BR><BR>Para os métodos de inclusão e alteração, esse campo será preenchido conforme o cadastro do serviço no Omie.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">manIbsUf</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Indica que houve alteração manual da alíquota de IBS Estadual.</div><div class="more"><a href="javascript:void(0)">+</a><div>Não deve ser informado na Inclusão/Alteração. Campo disponível apenas para consulta.<BR><BR>Para os métodos de inclusão e alteração, esse campo será preenchido conforme o cadastro do serviço no Omie.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">manCbs</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Indica que houve alteração manual da alíquota de CBS.</div><div class="more"><a href="javascript:void(0)">+</a><div>Não deve ser informado na Inclusão/Alteração. Campo disponível apenas para consulta.<BR><BR>Para os métodos de inclusão e alteração, esse campo será preenchido conforme o cadastro do serviço no Omie.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">valorCbs</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Valor do CBS.</div><div class="more"><a href="javascript:void(0)">+</a><div>Não deve ser informado na Inclusão/Alteração. Campo disponível apenas para consulta.<BR><BR>Para os métodos de inclusão e alteração, esse campo será preenchido conforme o cadastro do serviço no Omie.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">valorIbsUf</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Valor do IBS Estadual.</div><div class="more"><a href="javascript:void(0)">+</a><div>Não deve ser informado na Inclusão/Alteração. Campo disponível apenas para consulta.<BR><BR>Para os métodos de inclusão e alteração, esse campo será preenchido conforme o cadastro do serviço no Omie.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">valorIbsMun</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Valor do IBS Municipal.</div><div class="more"><a href="javascript:void(0)">+</a><div>Não deve ser informado na Inclusão/Alteração. Campo disponível apenas para consulta.<BR><BR>Para os métodos de inclusão e alteração, esse campo será preenchido conforme o cadastro do serviço no Omie.</div></div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="itemLeiTranspImp" class="anchorScroll"></a>
+<h3>itemLeiTranspImp</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">aliqFederal</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Alíquota da Carga Tributária Aprox. Federal</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">aliqEstadual</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Alíquota Carga Trib. Aprox. Estadual</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">aliMunicipal</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Alíquota Carga Trib. Aprox. Municipal</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">chave</td>
+<td class="parameter-type">string<span class="parameter-lenght">6</span></td><td class="parameter-docs"><div class="first">Chave do IBPT</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">fonte</td>
+<td class="parameter-type">string<span class="parameter-lenght">34</span></td><td class="parameter-docs"><div class="first">Fonte do IBPT</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="itemOutrasInf" class="anchorScroll"></a>
+<h3>itemOutrasInf</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">dItVigInicial</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Data da vigência inicial do item do contrato de serviços</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">dItVigFinal</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Data da vigência final do item do contrato de serviços</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nTipoItVigFinal</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Tipo da vigência final do item do contrato de serviços.</div><div class="more"><a href="javascript:void(0)">+</a><div>Valores possiveis:<BR><BR>1 - Data especifica<BR>2 - Segue a vigência final do contrato<BR>3 - Apenas para o proximo faturamento</div></div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="itemViaUnica" class="anchorScroll"></a>
+<h3>itemViaUnica</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">cModeloNF</td>
+<td class="parameter-type">string<span class="parameter-lenght">2</span></td><td class="parameter-docs"><div class="first">Indica qual modelo de NF será emitida para o serviço.</div><div class="more"><a href="javascript:void(0)">+</a><div>Obrigatório quando a tag cEnvViaUnica for igual a "S".<BR><BR>Pode ser: <BR>21 - Nota Fiscal de Serviço de Comunicação<BR>22 - Nota Fiscal de Serviço de Telecomunicação</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCFOP</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Código CFOP para NF Via Única (Modelos 21 e 22).</div><div class="more"><a href="javascript:void(0)">+</a><div>Obrigatório quando a tag cEnvViaUnica for igual a "S".<BR><BR>Utilize a tag "nCodigo" do método "ListarCFOP" da API  /api/v1/produtos/cfop/ para obter essa informação.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cClassifServico</td>
+<td class="parameter-type">string<span class="parameter-lenght">4</span></td><td class="parameter-docs"><div class="first">Código da Classificação para NF Via Única (Modelos 21 e 22).</div><div class="more"><a href="javascript:void(0)">+</a><div>Obrigatório quando a tag cEnvViaUnica for igual a "S".<BR><BR>Utilize a tag "cCodigo" do método "ListarClassificacaoServico" da API<BR>/api/v1/servicos/classificacaoservico/ para obter essa informação.<BR></div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cTipoReceita</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Indicador do Tipo de Receita para NF Via Única (Modelos 21 e 22).</div><div class="more"><a href="javascript:void(0)">+</a><div>Obrigatório quando a tag cEnvViaUnica for igual a "S".<BR><BR>Pode ser:<BR>0 - Receita própria - serviços prestados<BR>1 - Receita própria - cobrança de débitos<BR>2 - Receita própria - venda de mercadorias<BR>3 - Receita própria - venda de serviço pré-pago<BR>4 - Outras receitas próprias<BR>5 - Receitas de terceiros (co-faturamento)<BR>9 - Outras receitas de terceiros</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cTipoUtilizacao</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Código do tipo de utilização para NF Via Única (Modelos 21 e 22).</div><div class="more"><a href="javascript:void(0)">+</a><div>Obrigatório quando a tag cEnvViaUnica for igual a "S".<BR><BR>Utilize a tag "cCodigo" do método "ListarTipoUtilizacao" da API<BR>/api/v1/servicos/tipoutilizacao/ para obter essa informação.</div></div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="itensContrato" class="anchorScroll"></a>
+<h3>itensContrato</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">itemCabecalho</td>
+<td class="parameter-type"><a href="#itemCabecalho">itemCabecalho</a></td><td class="parameter-docs"><div class="first">Cabeçalho do Item</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">itemDescrServ</td>
+<td class="parameter-type"><a href="#itemDescrServ">itemDescrServ</a></td><td class="parameter-docs"><div class="first">Descrição dos Serviços</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">itemImpostos</td>
+<td class="parameter-type"><a href="#itemImpostos">itemImpostos</a></td><td class="parameter-docs"><div class="first">Vencimento e Textos NFS-e</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">itemLeiTranspImp</td>
+<td class="parameter-type"><a href="#itemLeiTranspImp">itemLeiTranspImp</a></td><td class="parameter-docs"><div class="first">Lei de Transparência dos Impostos</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">itemOutrasInf</td>
+<td class="parameter-type"><a href="#itemOutrasInf">itemOutrasInf</a></td><td class="parameter-docs"><div class="first">Outras informações do item do contrato de serviços</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">itemViaUnica</td>
+<td class="parameter-type"><a href="#itemViaUnica">itemViaUnica</a></td><td class="parameter-docs"><div class="first">Informações referente ao serviço da NF modelo 21 ou 22.</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="itensContratoArray" class="anchorScroll"></a>
+<h3>itensContratoArray</h3>
+<p>Este par&acirc;metro &eacute; um array do tipo <span class="pre"><a href="#itensContrato"><span class="lightBlue">itensContrato</span></a></span></p>
+<p>Lista de itensContrato</p>
+</div>
+<div class="complexTypeItem">
+<a name="lote_validade" class="anchorScroll"></a>
+<h3>lote_validade</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">nIdLote</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Id do lote do produto.</div><div class="more"><a href="javascript:void(0)">+</a><div>Obrigatório quando o produto possui controle de lote e o método do consumo do lote está definido como 'Manual' nas configurações..</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nQtdLote</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Informe aqui a quantidade do lote para o produto.</div><div class="more"><a href="javascript:void(0)">+</a><div>É obrigatório quando o produto possui controle de lote e o método do consumo do lote está definido como 'Manual' nas configurações.</div></div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="lote_validadeArray" class="anchorScroll"></a>
+<h3>lote_validadeArray</h3>
+<p>Este par&acirc;metro &eacute; um array do tipo <span class="pre"><a href="#lote_validade"><span class="lightBlue">lote_validade</span></a></span></p>
+<p>Lista de lote_validade</p>
+</div>
+<div class="complexTypeItem">
+<a name="observacoes" class="anchorScroll"></a>
+<h3>observacoes</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">cObsContrato</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Observações do Contrato. Essas informação não serão exibidas na Nota Fiscal).</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="omie_fail" class="anchorScroll"></a>
+<h3>omie_fail</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">code</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Codigo do erro</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">description</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Descricao do erro</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-required">referer</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Origem do erro</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-required">fatal</td>
+<td class="parameter-type">boolean</td><td class="parameter-docs"><div class="first">Indica se eh um erro fatal</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="produtoUtilizado" class="anchorScroll"></a>
+<h3>produtoUtilizado</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">nIdItemPU</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">(Código interno utilizado apenas na API). </div><div class="more"><a href="javascript:void(0)">+</a><div>Não informar na inclusão.<BR><BR>Esse código não aparece na tela do Omie.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cAcaoItemPU</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Pode ser:</div><div class="more"><a href="javascript:void(0)">+</a><div>"A" - Alterar o item.<BR>"E" - Excluir o item.<BR>"I" - Incluir o item na alteração.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nCodProdutoPU</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código interno do produto.</div><div class="more"><a href="javascript:void(0)">+</a><div>(utilizado apenas na API).<BR>Esse código não aparece na tela do Omie.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nQtdePU</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Quantidade.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento obrigatório</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">codigo_local_estoque</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código do Local do Estoque.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento opcional.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">lote_validade</td>
+<td class="parameter-type"><a href="#lote_validadeArray">lote_validadeArray</a></td><td class="parameter-docs"><div class="first">Informações referentes ao lote e validade do produto.</div><div class="more"><a href="javascript:void(0)">+</a><div>A tag só deve ser informada se o produto possuir controle de lote e se a intenção é informar os lotes "manualmente" por API.</div></div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="produtoUtilizadoArray" class="anchorScroll"></a>
+<h3>produtoUtilizadoArray</h3>
+<p>Este par&acirc;metro &eacute; um array do tipo <span class="pre"><a href="#produtoUtilizado"><span class="lightBlue">produtoUtilizado</span></a></span></p>
+<p>Lista de produtoUtilizado</p>
+</div>
+<div class="complexTypeItem">
+<a name="produtosUtilizados" class="anchorScroll"></a>
+<h3>produtosUtilizados</h3>
+<p>Produtos Utilizados no contrato.</p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">cAcaoProdUtilizados</td>
+<td class="parameter-type">string<span class="parameter-lenght">3</span></td><td class="parameter-docs"><div class="first">Pode ser:</div><div class="more"><a href="javascript:void(0)">+</a><div>REM - Será gerado uma remessa dos produtos para o cliente.<BR>EST - Será gerado uma saída de estoque.  <BR>PED - Será gerado um pedido de venda.<BR><BR>Obrigatório na inclusão.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCodCategRem</td>
+<td class="parameter-type">string<span class="parameter-lenght">20</span></td><td class="parameter-docs"><div class="first">Código da Categoria da Remessa ou Pedido de Venda.</div><div class="more"><a href="javascript:void(0)">+</a><div>Obrigatório quando usar [cAcaoFaturamento] como 'REM' ou 'PED'.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">produtoUtilizado</td>
+<td class="parameter-type"><a href="#produtoUtilizadoArray">produtoUtilizadoArray</a></td><td class="parameter-docs"><div class="first">Produtos utilizados no serviço.</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="vencTextos" class="anchorScroll"></a>
+<h3>vencTextos</h3>
+<p>Vencimento e Textos NFS-e</p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">cTpVenc</td>
+<td class="parameter-type">string<span class="parameter-lenght">3</span></td><td class="parameter-docs"><div class="first">Tipo de Vencimento.</div><div class="more"><a href="javascript:void(0)">+</a><div>Pode ser:<BR>001-Número de dias após faturar.<BR>002-Fixar dia do mês (1 a 31).<BR></div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nDias</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Número de Dias para a gerar o contas a receber</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nDiaFixo</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Dia de vencimento fixo para a gerar o contas a receber</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cProxMes</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Define se o vencimento ocorrerá somente no mês seguinte.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cAntecipar</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Define se deve antecipar o vencimento ao considerar apenas dias úteis</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cPostergar</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Postergar Sábados, Domingos e Feriados Nacionais</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cAdPeriodo</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Adicionar o período de referência associado ao faturamento</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cAdContrato</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Adicionar o "Nº do Contrato" à descrição dos serviços na NFS-e</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cAdVenc</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Adicionar o vencimento da parcela à descrição dos serviços na NFS-e</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCodPerRef</td>
+<td class="parameter-type">string<span class="parameter-lenght">3</span></td><td class="parameter-docs"><div class="first">Período de Referência - Código do período de referência para o faturamento.</div><div class="more"><a href="javascript:void(0)">+</a><div>Pode ser:<BR>001 Mês do faturamento<BR>002 Mês Anterior ao faturamento<BR>003 Mês Posterior ao faturamento<BR>004 Período Anterior ao faturamento<BR>005 Período Posterior ao faturamento<BR>006 Período Anterior específico<BR>007 Número da Parcela<BR>008 Período Posterior específico<BR>009 Período Atual específico</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cDiaIni</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Dia Inicial - Dia para a data inicial do período de referência associado ao faturamentDia Inicial</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cDiaFim</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Dia Final - Dia para a data final do período de referência associado ao faturamento</div></td>
+<tr>
+</table>
+</div>
+</div>
+<div class="col-md-3">
+<div id="affix-menu" data-spy="affix" data-offset-top="294">
+<h2>M&eacute;todos</h2>
+<nav id="index" class="hidden-print hidden-xs hidden-sm">
+<ul class="nav">
+<li><a href="#AlterarContrato">AlterarContrato</a></li>
+<li><a href="#ConsultarContrato">ConsultarContrato</a></li>
+<li><a href="#ExcluirItem">ExcluirItem</a></li>
+<li><a href="#IncluirContrato">IncluirContrato</a></li>
+<li><a href="#ListarContratos">ListarContratos</a></li>
+<li><a href="#UpsertContrato">UpsertContrato</a></li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+</body>
+</html>

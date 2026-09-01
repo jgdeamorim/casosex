@@ -1,0 +1,568 @@
+<nav class="navbar navbar-expand-lg bg-azul">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="https://developer.omie.com.br/">
+            <img class="lozad img-logo" data-src="https://static.omie.com.br/images/logo/logo-omie-topo.png" src="https://static.omie.com.br/images/logo/logo-omie-topo.png" data-loaded="true">
+        </a>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <span class="borda-hover"></span>
+                    <a class="nav-link" href="https://developer.omie.com.br/my-apps/"> Aplicativos </a>
+                </li>
+                <li class="nav-item ">
+                    <span class="borda-hover"></span>
+                    <a class="nav-link" href="https://developer.omie.com.br/service-list/">
+                        Lista das API's
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <span class="borda-hover"></span>
+                    <a class="nav-link" href="https://ajuda.omie.com.br/pt-BR/collections/3045828-apis" target="_blank"> Ajuda </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<html>
+<head>
+<title>AjusteEstoque</title>
+<style type="text/css" media="all">
+  [id] { scroll-margin-top: 68px; }
+</style>
+<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+<script src="https://cdn.omie.com.br/omie-assets/js/omie-compat-v2.min.js"></script>
+<script src="/developer/themes/omie/developer.js?ts=2021.008"></script>
+<link rel="stylesheet" href="//app.omie.com.br/wp-content/themes/omie/bootstrap/css/bootstrap.min.css" async/>
+<link href="https://cdn.omie.com.br/assets/developer/css/site.css?ts=2021.008" media="all" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="/developer/themes/omie/developer.css?ts=2021.008" async/>
+</head>
+<body>
+<div class="jumbotron banner bg-azul">
+<div class="container">
+<img src="https://cdn.omie.com.br/assets/developer/images/seta-azuis.png" alt="" class="img-setas">
+<div class="row align-items-center">
+<div class="col-12">
+<h1>AjusteEstoque</h1>
+<ul class="nav nav-tabs" role="tablist">
+  <li role="presentation" class="active"><a href="#section-endpoint" aria-controls="section-endpoint" role="tab" data-toggle="tab">Endpoint</a></li>
+  <li role="presentation" class="pull-right"><a href="#section-wsdl" aria-controls="section-wsdl" role="tab" data-toggle="tab">WSDL</a></li>
+  <li role="presentation" class="pull-right"><a href="#section-php-soap" aria-controls="section-php-soap" role="tab" data-toggle="tab">PHP SOAP</a></li>
+  <li role="presentation" class="pull-right"><a href="#section-json" aria-controls="section-json" role="tab" data-toggle="tab">JSON</a></li>
+</ul>
+<div class="tab-content">
+  <div role="tabpanel" class="tab-pane fade in active" id="section-endpoint">
+    <h4>Endpoint URI</h4>
+    <a class="highlight" href="https://app.omie.com.br/api/v1/estoque/ajuste/"><pre><code>https://app.omie.com.br/api/v1/estoque/ajuste/</code></pre></a>
+  </div>
+  <div role="tabpanel" class="tab-pane fade" id="section-wsdl">
+    <h4>WSDL URI</h4>
+    <a class="highlight" href="https://app.omie.com.br/api/v1/estoque/ajuste/?WSDL"><pre><code>https://app.omie.com.br/api/v1/estoque/ajuste/?WSDL</code></pre></a>
+  </div>
+  <div role="tabpanel" class="tab-pane fade" id="section-php-soap">
+    <h4>PHP SOAP client download</h4>
+    <a class="highlight" href="https://app.omie.com.br/api/v1/estoque/ajuste/?PHPSOAPCLIENT""><pre><code>https://app.omie.com.br/api/v1/estoque/ajuste/?PHPSOAPCLIENT</code></pre></a>
+  </div>
+  <div role="tabpanel" class="tab-pane fade" id="section-json">
+    <h4>JSON client download URI</h4>
+    <h5>PHP</h5>
+    <a class="highlight" href="https://app.omie.com.br/api/v1/estoque/ajuste/?PHPJSONCLIENT"><pre><code>https://app.omie.com.br/api/v1/estoque/ajuste/?PHPJSONCLIENT</code></pre></a>
+    <h5>JavaScript (recomendado para uso apenas do lado do servidor)</h5>
+    <a class="highlight" href="https://app.omie.com.br/api/v1/estoque/ajuste/?JSJSONCLIENT"><pre><code>https://app.omie.com.br/api/v1/estoque/ajuste/?JSJSONCLIENT</code></pre></a>
+  </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="container">
+<div class="row">
+<div class="col-md-9">
+<h2>M&eacute;todos</h2>
+<p>Veja abaixo a documenta&ccedil;&atilde;o de cada m&eacute;todo dispon&iacute;vel para este servi&ccedil;o.</p>
+<div id="AlterarEstoqueMinimo" class="methodItem">
+<h3 class="method-name">AlterarEstoqueMinimo</h3>
+<p>
+
+</p>
+<div class="panel panel-default method">
+<div class="panel-heading"> Par&acirc;metros:
+</div>
+<table class="table table-condensed table-hover">
+<tr>
+<td class="">&nbsp;</td>
+<td class="method-parameter-type"><a href="#estoque_mov_ajuste_estoque_minimo">estoque_mov_ajuste_estoque_minimo</a></td>
+<td class="method-parameter-name">estoque_mov_ajuste_estoque_minimo</td><td class="method-parameter-docs"><div class="first">Registro do movimento de ajuste de estoque mínimo</div></td>
+</tr>
+</table>
+<div class="panel-footer">
+Retorno <span class="pre"><a href="#estoque_mov_ajuste_estoque_minimo_resposta"><span class="lightBlue">estoque_mov_ajuste_estoque_minimo_resposta</span></a></span>: 
+</div>
+</div>
+<div class="method-example-area">
+<h5>Exemplo:</h5>
+<pre class="method-example-code">{<BR>  "codigo_local_estoque": 0,<BR>  "id_prod": 16487740,<BR>  "cod_int": "",<BR>  "quan_min": "15"<BR>}</pre>
+<button class="btn btn-success method-example" data-method="AlterarEstoqueMinimo" data-example="%7B++%22codigo_local_estoque%22%3A+0%2C++%22id_prod%22%3A+16487740%2C++%22cod_int%22%3A+%22%22%2C++%22quan_min%22%3A+%2215%22%7D">Teste agora mesmo</button>
+</div>
+</div>
+<div id="ExcluirAjusteEstoque" class="methodItem">
+<h3 class="method-name">ExcluirAjusteEstoque</h3>
+<p>
+Excluir um Movimento de Ajuste de Estoque.
+</p>
+<div class="panel panel-default method">
+<div class="panel-heading"> Par&acirc;metros:
+</div>
+<table class="table table-condensed table-hover">
+<tr>
+<td class="">&nbsp;</td>
+<td class="method-parameter-type"><a href="#ajusteestoque_excluirajusteestoque_request">ajusteestoque_excluirajusteestoque_request</a></td>
+<td class="method-parameter-name">ajusteestoque_excluirajusteestoque_request</td><td class="method-parameter-docs"><div class="first">ExcluirAjusteEstoque Request</div></td>
+</tr>
+</table>
+<div class="panel-footer">
+Retorno <span class="pre"><a href="#ajusteestoque_excluirajusteestoque_response"><span class="lightBlue">ajusteestoque_excluirajusteestoque_response</span></a></span>: ExcluirAjusteEstoque Response
+</div>
+</div>
+<div class="method-example-area">
+<h5>Exemplo:</h5>
+<pre class="method-example-code">{<BR>  "id_ajuste": 0<BR>}</pre>
+<button class="btn btn-success method-example" data-method="ExcluirAjusteEstoque" data-example="%7B++%22id_ajuste%22%3A+0%7D">Teste agora mesmo</button>
+</div>
+</div>
+<div id="IncluirAjusteEstoque" class="methodItem">
+<h3 class="method-name">IncluirAjusteEstoque</h3>
+<p>
+Incluir um Ajuste de Estoque.
+</p>
+<div class="panel panel-default method">
+<div class="panel-heading"> Par&acirc;metros:
+</div>
+<table class="table table-condensed table-hover">
+<tr>
+<td class="">&nbsp;</td>
+<td class="method-parameter-type"><a href="#ajusteestoque_incluirajusteestoque_request">ajusteestoque_incluirajusteestoque_request</a></td>
+<td class="method-parameter-name">ajusteestoque_incluirajusteestoque_request</td><td class="method-parameter-docs"><div class="first">IncluirAjusteEstoque Request</div></td>
+</tr>
+</table>
+<div class="panel-footer">
+Retorno <span class="pre"><a href="#ajusteestoque_incluirajusteestoque_response"><span class="lightBlue">ajusteestoque_incluirajusteestoque_response</span></a></span>: IncluirAjusteEstoque Response
+</div>
+</div>
+<div class="method-example-area">
+<h5>Exemplo:</h5>
+<pre class="method-example-code">{<BR>   "codigo_local_estoque": 0,<BR>   "id_prod": 16487740,<BR>   "data": "01/09/2026",<BR>   "quan": "15",<BR>   "obs": "Ajuste feito pela ferramenta de Teste de API (85637)",<BR>   "origem": "AJU",<BR>   "tipo": "SLD",<BR>   "motivo": "INV",<BR>   "valor": 10<BR>}</pre>
+<button class="btn btn-success method-example" data-method="IncluirAjusteEstoque" data-example="%7B+++%22codigo_local_estoque%22%3A+0%2C+++%22id_prod%22%3A+16487740%2C+++%22data%22%3A+%2201%2F09%2F2026%22%2C+++%22quan%22%3A+%2215%22%2C+++%22obs%22%3A+%22Ajuste+feito+pela+ferramenta+de+Teste+de+API+%2885637%29%22%2C+++%22origem%22%3A+%22AJU%22%2C+++%22tipo%22%3A+%22SLD%22%2C+++%22motivo%22%3A+%22INV%22%2C+++%22valor%22%3A+10%7D">Teste agora mesmo</button>
+</div>
+</div>
+<div id="ListarAjusteEstoque" class="methodItem">
+<h3 class="method-name">ListarAjusteEstoque</h3>
+<p>
+Listar os ajuste de estoque.
+</p>
+<div class="panel panel-default method">
+<div class="panel-heading"> Par&acirc;metros:
+</div>
+<table class="table table-condensed table-hover">
+<tr>
+<td class="">&nbsp;</td>
+<td class="method-parameter-type"><a href="#ajusteestoque_listarajusteestoque_request">ajusteestoque_listarajusteestoque_request</a></td>
+<td class="method-parameter-name">ajusteestoque_listarajusteestoque_request</td><td class="method-parameter-docs"><div class="first">ListarAjusteEstoque Request</div></td>
+</tr>
+</table>
+<div class="panel-footer">
+Retorno <span class="pre"><a href="#ajusteestoque_listarajusteestoque_response"><span class="lightBlue">ajusteestoque_listarajusteestoque_response</span></a></span>: ListarAjusteEstoque Response
+</div>
+</div>
+<div class="method-example-area">
+<h5>Exemplo:</h5>
+<pre class="method-example-code">{<BR>  "pagina": 1,<BR>  "registros_por_pagina": 100,<BR>  "apenas_importado_api": "N"<BR>}</pre>
+<button class="btn btn-success method-example" data-method="ListarAjusteEstoque" data-example="%7B++%22pagina%22%3A+1%2C++%22registros_por_pagina%22%3A+100%2C++%22apenas_importado_api%22%3A+%22N%22%7D">Teste agora mesmo</button>
+</div>
+</div>
+<h2>Tipos Complexos</h2>
+<div class="complexTypeItem">
+<a name="ajuste_estoque_lista" class="anchorScroll"></a>
+<h3>ajuste_estoque_lista</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">id_ajuste</td>
+<td class="parameter-type">integer</td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cod_int_ajuste</td>
+<td class="parameter-type">string<span class="parameter-lenght">60</span></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">codigo_local_estoque</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código do local do estoque.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">id_prod</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código do produto.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">data</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Data do ajuste.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">obs</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Observação do movimento de estoque.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">id_local_ds</td>
+<td class="parameter-type">integer</td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">quantidade</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Quantidade do movimento.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">valor</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Valor do Movimento.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">tipo</td>
+<td class="parameter-type">string<span class="parameter-lenght">3</span></td><td class="parameter-docs"><div class="first">Tipo do Ajuste de Estoque.</div><div class="more"><a href="javascript:void(0)">+</a><div>Pode ser:<BR>ENT - Efetua uma entrada no estoque.<BR>SAI - Efetua uma saída no estoque.<BR>SLD - Efetua um ajuste do estoque.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">origem</td>
+<td class="parameter-type">string<span class="parameter-lenght">3</span></td><td class="parameter-docs"><div class="first">Origem do Movimento de Estoque.</div><div class="more"><a href="javascript:void(0)">+</a><div>Pode ser:<BR>AJU - Ajuste manual de estoque.<BR>PDV - Ajuste realizado pelo PDV.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">motivo</td>
+<td class="parameter-type">string<span class="parameter-lenght">3</span></td><td class="parameter-docs"><div class="first">Motivo do ajuste.</div><div class="more"><a href="javascript:void(0)">+</a><div>Pode ser:<BR>Entrada:<BR>INV - Ajuste por Inventário.<BR>OPE - Integração com Ordem de Produção - Entrada.<BR>PDV - Integração com PDV.<BR>INI - Ajuste por Inventário (Estoque Inicial).<BR>Saída:<BR>INV - Ajuste por Inventário.<BR>PER - Baixa por Perda ou Quebra.<BR>OPS - Integração com Ordem de Produção - Saída.<BR>PDV - Integração com PDV.<BR>Ajuste saldo estoque:<BR>INV - Ajuste por Inventário.<BR>INI - Ajuste por Inventário (Estoque Inicial).<BR>CMC - Ajuste do Valor do CMC.<BR>PDV - Integração com PDV.<BR>Transferência entre locais:<BR>TPQ - Transferência por Perda ou Quebra.<BR>TRF - Transferência entre Locais de Estoque.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">bloqueado</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">imp_api</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="ajuste_estoque_listaArray" class="anchorScroll"></a>
+<h3>ajuste_estoque_listaArray</h3>
+<p>Este par&acirc;metro &eacute; um array do tipo <span class="pre"><a href="#ajuste_estoque_lista"><span class="lightBlue">ajuste_estoque_lista</span></a></span></p>
+<p>Lista de ajuste_estoque_lista</p>
+</div>
+<div class="complexTypeItem">
+<a name="ajusteestoque_excluirajusteestoque_request" class="anchorScroll"></a>
+<h3>ajusteestoque_excluirajusteestoque_request</h3>
+<p>ExcluirAjusteEstoque Request</p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">id_ajuste</td>
+<td class="parameter-type">integer</td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="ajusteestoque_excluirajusteestoque_response" class="anchorScroll"></a>
+<h3>ajusteestoque_excluirajusteestoque_response</h3>
+<p>ExcluirAjusteEstoque Response</p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">codigo_status</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Código do Status de Resposta do Movimento de Estoque.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">descricao_status</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Descrição do Status de Resposta do Movimento de Ajuste de Estoque.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">id_movest</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">ID do Movimento de Ajuste de Estoque (Original).</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">id_ajuste</td>
+<td class="parameter-type">integer</td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="ajusteestoque_incluirajusteestoque_request" class="anchorScroll"></a>
+<h3>ajusteestoque_incluirajusteestoque_request</h3>
+<p>IncluirAjusteEstoque Request</p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">codigo_local_estoque</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código do local do estoque.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">id_prod</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código do produto.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cod_int</td>
+<td class="parameter-type">string<span class="parameter-lenght">20</span></td><td class="parameter-docs"><div class="first">Código de Integração do Produto.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preencha esse campo apenas se não tiver preenchido o campo "id_prod".</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cod_int_ajuste</td>
+<td class="parameter-type">string<span class="parameter-lenght">60</span></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">data</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Data do ajuste.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-required">tipo</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Tipo do Ajuste de Estoque.</div><div class="more"><a href="javascript:void(0)">+</a><div>Pode ser:<BR>ENT - Efetua uma entrada no estoque.<BR>SAI - Efetua uma saída no estoque.<BR>SLD - Efetua um ajuste do estoque.<BR>TRF - Efetua uma transferência entre locais de estoque.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">quan</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Quantidade do Movimento.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">valor</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Valor do Movimento.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">obs</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Observação do Movimento de Estoque.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">origem</td>
+<td class="parameter-type">string<span class="parameter-lenght">3</span></td><td class="parameter-docs"><div class="first">Origem do Movimento de Estoque.</div><div class="more"><a href="javascript:void(0)">+</a><div>Pode ser:<BR>AJU - Ajuste manual de estoque.<BR>PDV - Ajuste realizado pelo PDV.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">motivo</td>
+<td class="parameter-type">string<span class="parameter-lenght">3</span></td><td class="parameter-docs"><div class="first">Motivo do ajuste.</div><div class="more"><a href="javascript:void(0)">+</a><div>Pode ser:<BR>Entrada:<BR>INV - Ajuste por Inventário.<BR>OPE - Integração com Ordem de Produção - Entrada.<BR>PDV - Integração com PDV.<BR>INI - Ajuste por Inventário (Estoque Inicial).<BR>Saída:<BR>INV - Ajuste por Inventário.<BR>PER - Baixa por Perda ou Quebra.<BR>OPS - Integração com Ordem de Produção - Saída.<BR>PDV - Integração com PDV.<BR>Ajuste saldo estoque:<BR>INV - Ajuste por Inventário.<BR>INI - Ajuste por Inventário (Estoque Inicial).<BR>CMC - Ajuste do Valor do CMC.<BR>PDV - Integração com PDV.<BR>Transferência entre locais:<BR>TPQ - Transferência por Perda ou Quebra.<BR>TRF - Transferência entre Locais de Estoque.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">codigo_local_estoque_destino</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Obrigatório quando utilizar Tipo = "TRF"</div><div class="more"><a href="javascript:void(0)">+</a><div>Código do local de estoque destino para a transferência.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">lote_validade</td>
+<td class="parameter-type"><a href="#lote_validadeArray">lote_validadeArray</a></td><td class="parameter-docs"><div class="first">Informações referente ao lote e validade do produto.</div><div class="more"><a href="javascript:void(0)">+</a><div>Obrigatório preenchimento para produtos que possuem controle de lote.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">empresa</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código da empresa.</div><div class="more"><a href="javascript:void(0)">+</a><div>DEPRECATED.<BR>Não é necessário informar esse campo.</div></div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="ajusteestoque_incluirajusteestoque_response" class="anchorScroll"></a>
+<h3>ajusteestoque_incluirajusteestoque_response</h3>
+<p>IncluirAjusteEstoque Response</p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">codigo_status</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Código do Status de Resposta do Movimento de Estoque.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">descricao_status</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Descrição do Status de Resposta do Movimento de Ajuste de Estoque.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">id_movest</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">ID do Movimento de Ajuste de Estoque (Original).</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">id_ajuste</td>
+<td class="parameter-type">integer</td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="ajusteestoque_listarajusteestoque_request" class="anchorScroll"></a>
+<h3>ajusteestoque_listarajusteestoque_request</h3>
+<p>ListarAjusteEstoque Request</p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">pagina</td>
+<td class="parameter-type">integer</td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">registros_por_pagina</td>
+<td class="parameter-type">integer</td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">ordenar_por</td>
+<td class="parameter-type">string<span class="parameter-lenght">100</span></td><td class="parameter-docs"><div class="first">Ordenar o resultado da página por:</div><div class="more"><a href="javascript:void(0)">+</a><div>DATA_MOVIMENTO<BR>LOCAL_ESTOQUE<BR>PRODUTO.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cod_int_ajuste</td>
+<td class="parameter-type">string<span class="parameter-lenght">60</span></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">codigo_local_estoque</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código do local do estoque.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">id_prod</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código do produto.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">tipo</td>
+<td class="parameter-type">string<span class="parameter-lenght">3</span></td><td class="parameter-docs"><div class="first">Tipo do Ajuste de Estoque.</div><div class="more"><a href="javascript:void(0)">+</a><div>Pode ser:<BR>ENT - Efetua uma entrada no estoque.<BR>SAI - Efetua uma saída no estoque.<BR>SLD - Efetua um ajuste do estoque.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">origem</td>
+<td class="parameter-type">string<span class="parameter-lenght">3</span></td><td class="parameter-docs"><div class="first">Origem do Movimento de Estoque.</div><div class="more"><a href="javascript:void(0)">+</a><div>Pode ser:<BR>AJU - Ajuste manual de estoque.<BR>PDV - Ajuste realizado pelo PDV.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">motivo</td>
+<td class="parameter-type">string<span class="parameter-lenght">3</span></td><td class="parameter-docs"><div class="first">Motivo do ajuste.</div><div class="more"><a href="javascript:void(0)">+</a><div>Pode ser:<BR>Entrada:<BR>INV - Ajuste por Inventário.<BR>OPE - Integração com Ordem de Produção - Entrada.<BR>PDV - Integração com PDV.<BR>INI - Ajuste por Inventário (Estoque Inicial).<BR>Saída:<BR>INV - Ajuste por Inventário.<BR>PER - Baixa por Perda ou Quebra.<BR>OPS - Integração com Ordem de Produção - Saída.<BR>PDV - Integração com PDV.<BR>Ajuste saldo estoque:<BR>INV - Ajuste por Inventário.<BR>INI - Ajuste por Inventário (Estoque Inicial).<BR>CMC - Ajuste do Valor do CMC.<BR>PDV - Integração com PDV.<BR>Transferência entre locais:<BR>TPQ - Transferência por Perda ou Quebra.<BR>TRF - Transferência entre Locais de Estoque.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">data_movimento_de</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Data do Movimento inicio.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">data_movimento_ate</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Data movimento final.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">apenas_importado_api</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Preencher com "S" ou "N".</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="ajusteestoque_listarajusteestoque_response" class="anchorScroll"></a>
+<h3>ajusteestoque_listarajusteestoque_response</h3>
+<p>ListarAjusteEstoque Response</p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">pagina</td>
+<td class="parameter-type">integer</td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">total_de_paginas</td>
+<td class="parameter-type">integer</td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">registros</td>
+<td class="parameter-type">integer</td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">total_de_registros</td>
+<td class="parameter-type">integer</td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">ajuste_estoque_lista</td>
+<td class="parameter-type"><a href="#ajuste_estoque_listaArray">ajuste_estoque_listaArray</a></td><td class="parameter-docs"><div class="first">Estoque mínimo para o produto.</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="estoque_mov_ajuste_estoque_minimo" class="anchorScroll"></a>
+<h3>estoque_mov_ajuste_estoque_minimo</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">codigo_local_estoque</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código do local do estoque.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento opcional.<BR><BR>Se não for preenchido assumirá o local do estoque padrão.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cod_int</td>
+<td class="parameter-type">string<span class="parameter-lenght">20</span></td><td class="parameter-docs"><div class="first">Código de Integração do Produto.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento opcional.<BR><BR>Preencha esse campo apenas se não tiver preenchido o campo "id_prod".</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">id_prod</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código do produto.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento obrigatório.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">quan_min</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Novo valor para quantidade mínima no estoque.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento obrigatório.</div></div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="estoque_mov_ajuste_estoque_minimo_resposta" class="anchorScroll"></a>
+<h3>estoque_mov_ajuste_estoque_minimo_resposta</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">codigo_status</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Código do status de resposta do ajuste de estoque mínimo</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">descricao_status</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Descrição do status de resposta do ajuste de estoque mínimo</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="lote_validade" class="anchorScroll"></a>
+<h3>lote_validade</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">nIdLote</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Id do lote do produto.</div><div class="more"><a href="javascript:void(0)">+</a><div>Obrigatório quando o produto possui controle de lote e a tag [tipo] for diferente de 'ENT' (entrada).</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nQtdLote</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Informe aqui a quantidade do lote para o produto.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cNumLote</td>
+<td class="parameter-type">string<span class="parameter-lenght">60</span></td><td class="parameter-docs"><div class="first">Número do lote do produto.</div><div class="more"><a href="javascript:void(0)">+</a><div>Deve ser informado apenas quando a tag [tipo] for 'ENT' (entrada) e a tag [nIdLote] não for informada, com isso, será criado um novo lote a partir do número informado.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCodAgreg</td>
+<td class="parameter-type">string<span class="parameter-lenght">20</span></td><td class="parameter-docs"><div class="first">Código de agregação do lote do produto.</div><div class="more"><a href="javascript:void(0)">+</a><div>Deve ser informado apenas quando a tag [tipo] for 'ENT' (entrada) e a tag [nIdLote] não for informada.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">dDataFab</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Data de fabricação do lote.</div><div class="more"><a href="javascript:void(0)">+</a><div>Deve ser informado apenas quando a tag [tipo] for 'ENT' (entrada) e a tag [nIdLote] não for informada.<BR>Como default é utilizado a data atual.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">dDataVal</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Data de validade do lote.</div><div class="more"><a href="javascript:void(0)">+</a><div>Deve ser informado apenas quando a tag [tipo] for 'ENT' (entrada) e a tag [nIdLote] não for informada.</div></div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="lote_validadeArray" class="anchorScroll"></a>
+<h3>lote_validadeArray</h3>
+<p>Este par&acirc;metro &eacute; um array do tipo <span class="pre"><a href="#lote_validade"><span class="lightBlue">lote_validade</span></a></span></p>
+<p>Lista de lote_validade</p>
+</div>
+<div class="complexTypeItem">
+<a name="omie_fail" class="anchorScroll"></a>
+<h3>omie_fail</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">code</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Codigo do erro</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">description</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Descricao do erro</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-required">referer</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Origem do erro</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-required">fatal</td>
+<td class="parameter-type">boolean</td><td class="parameter-docs"><div class="first">Indica se eh um erro fatal</div></td>
+<tr>
+</table>
+</div>
+</div>
+<div class="col-md-3">
+<div id="affix-menu" data-spy="affix" data-offset-top="294">
+<h2>M&eacute;todos</h2>
+<nav id="index" class="hidden-print hidden-xs hidden-sm">
+<ul class="nav">
+<li><a href="#AlterarEstoqueMinimo">AlterarEstoqueMinimo</a></li>
+<li><a href="#ExcluirAjusteEstoque">ExcluirAjusteEstoque</a></li>
+<li><a href="#IncluirAjusteEstoque">IncluirAjusteEstoque</a></li>
+<li><a href="#ListarAjusteEstoque">ListarAjusteEstoque</a></li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+</body>
+</html>

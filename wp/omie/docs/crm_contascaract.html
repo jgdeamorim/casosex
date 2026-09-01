@@ -1,0 +1,469 @@
+<nav class="navbar navbar-expand-lg bg-azul">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="https://developer.omie.com.br/">
+            <img class="lozad img-logo" data-src="https://static.omie.com.br/images/logo/logo-omie-topo.png" src="https://static.omie.com.br/images/logo/logo-omie-topo.png" data-loaded="true">
+        </a>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <span class="borda-hover"></span>
+                    <a class="nav-link" href="https://developer.omie.com.br/my-apps/"> Aplicativos </a>
+                </li>
+                <li class="nav-item ">
+                    <span class="borda-hover"></span>
+                    <a class="nav-link" href="https://developer.omie.com.br/service-list/">
+                        Lista das API's
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <span class="borda-hover"></span>
+                    <a class="nav-link" href="https://ajuda.omie.com.br/pt-BR/collections/3045828-apis" target="_blank"> Ajuda </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<html>
+<head>
+<title>ContasCaracteristicas</title>
+<style type="text/css" media="all">
+  [id] { scroll-margin-top: 68px; }
+</style>
+<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+<script src="https://cdn.omie.com.br/omie-assets/js/omie-compat-v2.min.js"></script>
+<script src="/developer/themes/omie/developer.js?ts=2021.008"></script>
+<link rel="stylesheet" href="//app.omie.com.br/wp-content/themes/omie/bootstrap/css/bootstrap.min.css" async/>
+<link href="https://cdn.omie.com.br/assets/developer/css/site.css?ts=2021.008" media="all" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="/developer/themes/omie/developer.css?ts=2021.008" async/>
+</head>
+<body>
+<div class="jumbotron banner bg-azul">
+<div class="container">
+<img src="https://cdn.omie.com.br/assets/developer/images/seta-azuis.png" alt="" class="img-setas">
+<div class="row align-items-center">
+<div class="col-12">
+<h1>ContasCaracteristicas</h1>
+<ul class="nav nav-tabs" role="tablist">
+  <li role="presentation" class="active"><a href="#section-endpoint" aria-controls="section-endpoint" role="tab" data-toggle="tab">Endpoint</a></li>
+  <li role="presentation" class="pull-right"><a href="#section-wsdl" aria-controls="section-wsdl" role="tab" data-toggle="tab">WSDL</a></li>
+  <li role="presentation" class="pull-right"><a href="#section-php-soap" aria-controls="section-php-soap" role="tab" data-toggle="tab">PHP SOAP</a></li>
+  <li role="presentation" class="pull-right"><a href="#section-json" aria-controls="section-json" role="tab" data-toggle="tab">JSON</a></li>
+</ul>
+<div class="tab-content">
+  <div role="tabpanel" class="tab-pane fade in active" id="section-endpoint">
+    <h4>Endpoint URI</h4>
+    <a class="highlight" href="https://app.omie.com.br/api/v1/crm/contascaract/"><pre><code>https://app.omie.com.br/api/v1/crm/contascaract/</code></pre></a>
+  </div>
+  <div role="tabpanel" class="tab-pane fade" id="section-wsdl">
+    <h4>WSDL URI</h4>
+    <a class="highlight" href="https://app.omie.com.br/api/v1/crm/contascaract/?WSDL"><pre><code>https://app.omie.com.br/api/v1/crm/contascaract/?WSDL</code></pre></a>
+  </div>
+  <div role="tabpanel" class="tab-pane fade" id="section-php-soap">
+    <h4>PHP SOAP client download</h4>
+    <a class="highlight" href="https://app.omie.com.br/api/v1/crm/contascaract/?PHPSOAPCLIENT""><pre><code>https://app.omie.com.br/api/v1/crm/contascaract/?PHPSOAPCLIENT</code></pre></a>
+  </div>
+  <div role="tabpanel" class="tab-pane fade" id="section-json">
+    <h4>JSON client download URI</h4>
+    <h5>PHP</h5>
+    <a class="highlight" href="https://app.omie.com.br/api/v1/crm/contascaract/?PHPJSONCLIENT"><pre><code>https://app.omie.com.br/api/v1/crm/contascaract/?PHPJSONCLIENT</code></pre></a>
+    <h5>JavaScript (recomendado para uso apenas do lado do servidor)</h5>
+    <a class="highlight" href="https://app.omie.com.br/api/v1/crm/contascaract/?JSJSONCLIENT"><pre><code>https://app.omie.com.br/api/v1/crm/contascaract/?JSJSONCLIENT</code></pre></a>
+  </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="container">
+<div class="row">
+<div class="col-md-9">
+<h2>M&eacute;todos</h2>
+<p>Veja abaixo a documenta&ccedil;&atilde;o de cada m&eacute;todo dispon&iacute;vel para este servi&ccedil;o.</p>
+<div id="AlterarCaractConta" class="methodItem">
+<h3 class="method-name">AlterarCaractConta</h3>
+<p>
+
+</p>
+<div class="panel panel-default method">
+<div class="panel-heading"> Par&acirc;metros:
+</div>
+<table class="table table-condensed table-hover">
+<tr>
+<td class="">&nbsp;</td>
+<td class="method-parameter-type"><a href="#AlterarCaractCRMContaRequest">AlterarCaractCRMContaRequest</a></td>
+<td class="method-parameter-name">AlterarCaractCRMContaRequest</td><td class="method-parameter-docs"><div class="first">Altera uma característica de uma conta</div></td>
+</tr>
+</table>
+<div class="panel-footer">
+Retorno <span class="pre"><a href="#AlterarCaractCRMContaResponse"><span class="lightBlue">AlterarCaractCRMContaResponse</span></a></span>: 
+</div>
+</div>
+<div class="method-example-area">
+<h5>Exemplo:</h5>
+<pre class="method-example-code">{<BR>  "nCod": 0,<BR>  "cCodInt": "",<BR>  "campo": "",<BR>  "conteudo": ""<BR>}</pre>
+<button class="btn btn-success method-example" data-method="AlterarCaractConta" data-example="%7B++%22nCod%22%3A+0%2C++%22cCodInt%22%3A+%22%22%2C++%22campo%22%3A+%22%22%2C++%22conteudo%22%3A+%22%22%7D">Teste agora mesmo</button>
+</div>
+</div>
+<div id="ConsultarCaractConta" class="methodItem">
+<h3 class="method-name">ConsultarCaractConta</h3>
+<p>
+
+</p>
+<div class="panel panel-default method">
+<div class="panel-heading"> Par&acirc;metros:
+</div>
+<table class="table table-condensed table-hover">
+<tr>
+<td class="">&nbsp;</td>
+<td class="method-parameter-type"><a href="#ConsultarCaractCRMContaRequest">ConsultarCaractCRMContaRequest</a></td>
+<td class="method-parameter-name">ConsultarCaractCRMContaRequest</td><td class="method-parameter-docs"><div class="first">Consulta todas as características de uma conta.</div></td>
+</tr>
+</table>
+<div class="panel-footer">
+Retorno <span class="pre"><a href="#ConsultarCaractCRMContaResponse"><span class="lightBlue">ConsultarCaractCRMContaResponse</span></a></span>: 
+</div>
+</div>
+<div class="method-example-area">
+<h5>Exemplo:</h5>
+<pre class="method-example-code">{<BR>  "nCod": 0,<BR>  "cCodInt": ""<BR>}<BR></pre>
+<button class="btn btn-success method-example" data-method="ConsultarCaractConta" data-example="%7B++%22nCod%22%3A+0%2C++%22cCodInt%22%3A+%22%22%7D">Teste agora mesmo</button>
+</div>
+</div>
+<div id="ExcluirCaractConta" class="methodItem">
+<h3 class="method-name">ExcluirCaractConta</h3>
+<p>
+
+</p>
+<div class="panel panel-default method">
+<div class="panel-heading"> Par&acirc;metros:
+</div>
+<table class="table table-condensed table-hover">
+<tr>
+<td class="">&nbsp;</td>
+<td class="method-parameter-type"><a href="#ExcluirCaractCRMContaRequest">ExcluirCaractCRMContaRequest</a></td>
+<td class="method-parameter-name">ExcluirCaractCRMContaRequest</td><td class="method-parameter-docs"><div class="first">Exclui uma característica de uma contar.</div></td>
+</tr>
+</table>
+<div class="panel-footer">
+Retorno <span class="pre"><a href="#ExcluirCaractCRMContaResponse"><span class="lightBlue">ExcluirCaractCRMContaResponse</span></a></span>: 
+</div>
+</div>
+<div class="method-example-area">
+<h5>Exemplo:</h5>
+<pre class="method-example-code">{<BR>  "nCod": 0,<BR>  "cCodInt": "",<BR>  "campo": ""<BR>}</pre>
+<button class="btn btn-success method-example" data-method="ExcluirCaractConta" data-example="%7B++%22nCod%22%3A+0%2C++%22cCodInt%22%3A+%22%22%2C++%22campo%22%3A+%22%22%7D">Teste agora mesmo</button>
+</div>
+</div>
+<div id="ExcluirTodasCaractConta" class="methodItem">
+<h3 class="method-name">ExcluirTodasCaractConta</h3>
+<p>
+
+</p>
+<div class="panel panel-default method">
+<div class="panel-heading"> Par&acirc;metros:
+</div>
+<table class="table table-condensed table-hover">
+<tr>
+<td class="">&nbsp;</td>
+<td class="method-parameter-type"><a href="#ExcluirTodasCaractCRMContaRequest">ExcluirTodasCaractCRMContaRequest</a></td>
+<td class="method-parameter-name">ExcluirTodasCaractCRMContaRequest</td><td class="method-parameter-docs"><div class="first">Exclui todas as características de uma conta.</div></td>
+</tr>
+</table>
+<div class="panel-footer">
+Retorno <span class="pre"><a href="#ExcluirTodasCaractCRMContaResponse"><span class="lightBlue">ExcluirTodasCaractCRMContaResponse</span></a></span>: 
+</div>
+</div>
+<div class="method-example-area">
+<h5>Exemplo:</h5>
+<pre class="method-example-code">{<BR>  "nCod": 0,<BR>  "cCodInt": ""<BR>}</pre>
+<button class="btn btn-success method-example" data-method="ExcluirTodasCaractConta" data-example="%7B++%22nCod%22%3A+0%2C++%22cCodInt%22%3A+%22%22%7D">Teste agora mesmo</button>
+</div>
+</div>
+<div id="IncluirCaractConta" class="methodItem">
+<h3 class="method-name">IncluirCaractConta</h3>
+<p>
+
+</p>
+<div class="panel panel-default method">
+<div class="panel-heading"> Par&acirc;metros:
+</div>
+<table class="table table-condensed table-hover">
+<tr>
+<td class="">&nbsp;</td>
+<td class="method-parameter-type"><a href="#IncluirCaractCRMContaRequest">IncluirCaractCRMContaRequest</a></td>
+<td class="method-parameter-name">IncluirCaractCRMContaRequest</td><td class="method-parameter-docs"><div class="first">Inclui uma característica para uma conta</div></td>
+</tr>
+</table>
+<div class="panel-footer">
+Retorno <span class="pre"><a href="#IncluirCaractCRMContaResponse"><span class="lightBlue">IncluirCaractCRMContaResponse</span></a></span>: 
+</div>
+</div>
+<div class="method-example-area">
+<h5>Exemplo:</h5>
+<pre class="method-example-code">{<BR>  "nCod": 0,<BR>  "cCodInt": "",<BR>  "campo": "",<BR>  "conteudo": ""<BR>}</pre>
+<button class="btn btn-success method-example" data-method="IncluirCaractConta" data-example="%7B++%22nCod%22%3A+0%2C++%22cCodInt%22%3A+%22%22%2C++%22campo%22%3A+%22%22%2C++%22conteudo%22%3A+%22%22%7D">Teste agora mesmo</button>
+</div>
+</div>
+<h2>Tipos Complexos</h2>
+<div class="complexTypeItem">
+<a name="AlterarCaractCRMContaRequest" class="anchorScroll"></a>
+<h3>AlterarCaractCRMContaRequest</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">nCod</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código da conta</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCodInt</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Código de integração com sistemas legados</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">campo</td>
+<td class="parameter-type">string<span class="parameter-lenght">30</span></td><td class="parameter-docs"><div class="first">Nome da característica.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento obrigatório. <BR>Caso não encontre a característica um novo cadastro será adicionado.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">conteudo</td>
+<td class="parameter-type">string<span class="parameter-lenght">60</span></td><td class="parameter-docs"><div class="first">Conteúdo do característica.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento obrigatório na inclusão. <BR><BR>Caso o valor desse campo não seja informado a característica <BR>será excluída da conta.</div></div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="AlterarCaractCRMContaResponse" class="anchorScroll"></a>
+<h3>AlterarCaractCRMContaResponse</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">nCod</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código da conta</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCodInt</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Código de integração com sistemas legados</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCodStatus</td>
+<td class="parameter-type">string<span class="parameter-lenght">4</span></td><td class="parameter-docs"><div class="first">Código do status de processamento</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cDesStatus</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Descrição do status de processamento</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="ConsultarCaractCRMContaRequest" class="anchorScroll"></a>
+<h3>ConsultarCaractCRMContaRequest</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">nCod</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código da conta</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCodInt</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Código de integração com sistemas legados</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="ConsultarCaractCRMContaResponse" class="anchorScroll"></a>
+<h3>ConsultarCaractCRMContaResponse</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">nCod</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código da conta</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCodInt</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Código de integração com sistemas legados</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">caracteristicas</td>
+<td class="parameter-type"><a href="#caracteristicas">caracteristicas</a></td><td class="parameter-docs"><div class="first">Características da conta</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="ExcluirCaractCRMContaRequest" class="anchorScroll"></a>
+<h3>ExcluirCaractCRMContaRequest</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">nCod</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código da conta</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCodInt</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Código de integração com sistemas legados</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">campo</td>
+<td class="parameter-type">string<span class="parameter-lenght">30</span></td><td class="parameter-docs"><div class="first">Nome da característica.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento obrigatório. <BR>Caso não encontre a característica um novo cadastro será adicionado.</div></div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="ExcluirCaractCRMContaResponse" class="anchorScroll"></a>
+<h3>ExcluirCaractCRMContaResponse</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">nCod</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código da conta</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCodInt</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Código de integração com sistemas legados</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCodStatus</td>
+<td class="parameter-type">string<span class="parameter-lenght">4</span></td><td class="parameter-docs"><div class="first">Código do status de processamento</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cDesStatus</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Descrição do status de processamento</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="ExcluirTodasCaractCRMContaRequest" class="anchorScroll"></a>
+<h3>ExcluirTodasCaractCRMContaRequest</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">nCod</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código da conta</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCodInt</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Código de integração com sistemas legados</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="ExcluirTodasCaractCRMContaResponse" class="anchorScroll"></a>
+<h3>ExcluirTodasCaractCRMContaResponse</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">nCod</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código da conta</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCodInt</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Código de integração com sistemas legados</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCodStatus</td>
+<td class="parameter-type">string<span class="parameter-lenght">4</span></td><td class="parameter-docs"><div class="first">Código do status de processamento</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cDesStatus</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Descrição do status de processamento</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="IncluirCaractCRMContaRequest" class="anchorScroll"></a>
+<h3>IncluirCaractCRMContaRequest</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">nCod</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código da conta</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCodInt</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Código de integração com sistemas legados</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">campo</td>
+<td class="parameter-type">string<span class="parameter-lenght">30</span></td><td class="parameter-docs"><div class="first">Nome da característica.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento obrigatório. <BR>Caso não encontre a característica um novo cadastro será adicionado.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">conteudo</td>
+<td class="parameter-type">string<span class="parameter-lenght">60</span></td><td class="parameter-docs"><div class="first">Conteúdo do característica.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento obrigatório na inclusão. <BR><BR>Caso o valor desse campo não seja informado a característica <BR>será excluída da conta.</div></div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="IncluirCaractCRMContaResponse" class="anchorScroll"></a>
+<h3>IncluirCaractCRMContaResponse</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">nCod</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código da conta</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCodInt</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Código de integração com sistemas legados</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCodStatus</td>
+<td class="parameter-type">string<span class="parameter-lenght">4</span></td><td class="parameter-docs"><div class="first">Código do status de processamento</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cDesStatus</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Descrição do status de processamento</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="caracteristicas" class="anchorScroll"></a>
+<h3>caracteristicas</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">campo</td>
+<td class="parameter-type">string<span class="parameter-lenght">30</span></td><td class="parameter-docs"><div class="first">Nome da característica.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento obrigatório. <BR>Caso não encontre a característica um novo cadastro será adicionado.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">conteudo</td>
+<td class="parameter-type">string<span class="parameter-lenght">60</span></td><td class="parameter-docs"><div class="first">Conteúdo do característica.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento obrigatório na inclusão. <BR><BR>Caso o valor desse campo não seja informado a característica <BR>será excluída da conta.</div></div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="omie_fail" class="anchorScroll"></a>
+<h3>omie_fail</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">code</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Codigo do erro</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">description</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Descricao do erro</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-required">referer</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Origem do erro</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-required">fatal</td>
+<td class="parameter-type">boolean</td><td class="parameter-docs"><div class="first">Indica se eh um erro fatal</div></td>
+<tr>
+</table>
+</div>
+</div>
+<div class="col-md-3">
+<div id="affix-menu" data-spy="affix" data-offset-top="294">
+<h2>M&eacute;todos</h2>
+<nav id="index" class="hidden-print hidden-xs hidden-sm">
+<ul class="nav">
+<li><a href="#AlterarCaractConta">AlterarCaractConta</a></li>
+<li><a href="#ConsultarCaractConta">ConsultarCaractConta</a></li>
+<li><a href="#ExcluirCaractConta">ExcluirCaractConta</a></li>
+<li><a href="#ExcluirTodasCaractConta">ExcluirTodasCaractConta</a></li>
+<li><a href="#IncluirCaractConta">IncluirCaractConta</a></li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+</body>
+</html>

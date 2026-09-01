@@ -1,0 +1,486 @@
+<nav class="navbar navbar-expand-lg bg-azul">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="https://developer.omie.com.br/">
+            <img class="lozad img-logo" data-src="https://static.omie.com.br/images/logo/logo-omie-topo.png" src="https://static.omie.com.br/images/logo/logo-omie-topo.png" data-loaded="true">
+        </a>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <span class="borda-hover"></span>
+                    <a class="nav-link" href="https://developer.omie.com.br/my-apps/"> Aplicativos </a>
+                </li>
+                <li class="nav-item ">
+                    <span class="borda-hover"></span>
+                    <a class="nav-link" href="https://developer.omie.com.br/service-list/">
+                        Lista das API's
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <span class="borda-hover"></span>
+                    <a class="nav-link" href="https://ajuda.omie.com.br/pt-BR/collections/3045828-apis" target="_blank"> Ajuda </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<html>
+<head>
+<title>ResumoOportunidades</title>
+<style type="text/css" media="all">
+  [id] { scroll-margin-top: 68px; }
+</style>
+<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+<script src="https://cdn.omie.com.br/omie-assets/js/omie-compat-v2.min.js"></script>
+<script src="/developer/themes/omie/developer.js?ts=2021.008"></script>
+<link rel="stylesheet" href="//app.omie.com.br/wp-content/themes/omie/bootstrap/css/bootstrap.min.css" async/>
+<link href="https://cdn.omie.com.br/assets/developer/css/site.css?ts=2021.008" media="all" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="/developer/themes/omie/developer.css?ts=2021.008" async/>
+</head>
+<body>
+<div class="jumbotron banner bg-azul">
+<div class="container">
+<img src="https://cdn.omie.com.br/assets/developer/images/seta-azuis.png" alt="" class="img-setas">
+<div class="row align-items-center">
+<div class="col-12">
+<h1>ResumoOportunidades</h1>
+<ul class="nav nav-tabs" role="tablist">
+  <li role="presentation" class="active"><a href="#section-endpoint" aria-controls="section-endpoint" role="tab" data-toggle="tab">Endpoint</a></li>
+  <li role="presentation" class="pull-right"><a href="#section-wsdl" aria-controls="section-wsdl" role="tab" data-toggle="tab">WSDL</a></li>
+  <li role="presentation" class="pull-right"><a href="#section-php-soap" aria-controls="section-php-soap" role="tab" data-toggle="tab">PHP SOAP</a></li>
+  <li role="presentation" class="pull-right"><a href="#section-json" aria-controls="section-json" role="tab" data-toggle="tab">JSON</a></li>
+</ul>
+<div class="tab-content">
+  <div role="tabpanel" class="tab-pane fade in active" id="section-endpoint">
+    <h4>Endpoint URI</h4>
+    <a class="highlight" href="https://app.omie.com.br/api/v1/crm/oportunidades-resumo/"><pre><code>https://app.omie.com.br/api/v1/crm/oportunidades-resumo/</code></pre></a>
+  </div>
+  <div role="tabpanel" class="tab-pane fade" id="section-wsdl">
+    <h4>WSDL URI</h4>
+    <a class="highlight" href="https://app.omie.com.br/api/v1/crm/oportunidades-resumo/?WSDL"><pre><code>https://app.omie.com.br/api/v1/crm/oportunidades-resumo/?WSDL</code></pre></a>
+  </div>
+  <div role="tabpanel" class="tab-pane fade" id="section-php-soap">
+    <h4>PHP SOAP client download</h4>
+    <a class="highlight" href="https://app.omie.com.br/api/v1/crm/oportunidades-resumo/?PHPSOAPCLIENT""><pre><code>https://app.omie.com.br/api/v1/crm/oportunidades-resumo/?PHPSOAPCLIENT</code></pre></a>
+  </div>
+  <div role="tabpanel" class="tab-pane fade" id="section-json">
+    <h4>JSON client download URI</h4>
+    <h5>PHP</h5>
+    <a class="highlight" href="https://app.omie.com.br/api/v1/crm/oportunidades-resumo/?PHPJSONCLIENT"><pre><code>https://app.omie.com.br/api/v1/crm/oportunidades-resumo/?PHPJSONCLIENT</code></pre></a>
+    <h5>JavaScript (recomendado para uso apenas do lado do servidor)</h5>
+    <a class="highlight" href="https://app.omie.com.br/api/v1/crm/oportunidades-resumo/?JSJSONCLIENT"><pre><code>https://app.omie.com.br/api/v1/crm/oportunidades-resumo/?JSJSONCLIENT</code></pre></a>
+  </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="container">
+<div class="row">
+<div class="col-md-9">
+<h2>M&eacute;todos</h2>
+<p>Veja abaixo a documenta&ccedil;&atilde;o de cada m&eacute;todo dispon&iacute;vel para este servi&ccedil;o.</p>
+<div id="ObterListaOp" class="methodItem">
+<h3 class="method-name">ObterListaOp</h3>
+<p>
+Lista de Oportunidades.
+</p>
+<div class="panel panel-default method">
+<div class="panel-heading"> Par&acirc;metros:
+</div>
+<table class="table table-condensed table-hover">
+<tr>
+<td class="">&nbsp;</td>
+<td class="method-parameter-type"><a href="#ObterListaOpRequest">ObterListaOpRequest</a></td>
+<td class="method-parameter-name">ObterListaOpRequest</td><td class="method-parameter-docs"><div class="first">Solicitação da listagem de Oportunidades.</div></td>
+</tr>
+</table>
+<div class="panel-footer">
+Retorno <span class="pre"><a href="#ObterListaOpResponse"><span class="lightBlue">ObterListaOpResponse</span></a></span>: 
+</div>
+</div>
+<div class="method-example-area">
+<h5>Exemplo:</h5>
+<pre class="method-example-code">{<BR>   "cMesAno": "04/2022",<BR>   "cTemperatura": "em-processo"<BR>}</pre>
+<button class="btn btn-success method-example" data-method="ObterListaOp" data-example="%7B+++%22cMesAno%22%3A+%2204%2F2022%22%2C+++%22cTemperatura%22%3A+%22em-processo%22%7D">Teste agora mesmo</button>
+</div>
+</div>
+<div id="ObterResumoOp" class="methodItem">
+<h3 class="method-name">ObterResumoOp</h3>
+<p>
+Resumo das oportunidades.
+</p>
+<div class="panel panel-default method">
+<div class="panel-heading"> Par&acirc;metros:
+</div>
+<table class="table table-condensed table-hover">
+<tr>
+<td class="">&nbsp;</td>
+<td class="method-parameter-type"><a href="#resumooportunidades_obterresumoop_request">resumooportunidades_obterresumoop_request</a></td>
+<td class="method-parameter-name">resumooportunidades_obterresumoop_request</td><td class="method-parameter-docs"><div class="first">ObterResumoOp Request</div></td>
+</tr>
+</table>
+<div class="panel-footer">
+Retorno <span class="pre"><a href="#resumooportunidades_obterresumoop_response"><span class="lightBlue">resumooportunidades_obterresumoop_response</span></a></span>: ObterResumoOp Response
+</div>
+</div>
+<div class="method-example-area">
+<h5>Exemplo:</h5>
+<pre class="method-example-code">{<BR>   "nIdVendedor":0,<BR>   "nIdParceiro":0,<BR>   "cMesAno":"02/2022",<BR>   "lApenasResumo": true<BR>}</pre>
+<button class="btn btn-success method-example" data-method="ObterResumoOp" data-example="%7B+++%22nIdVendedor%22%3A0%2C+++%22nIdParceiro%22%3A0%2C+++%22cMesAno%22%3A%2202%2F2022%22%2C+++%22lApenasResumo%22%3A+true%7D">Teste agora mesmo</button>
+</div>
+</div>
+<h2>Tipos Complexos</h2>
+<div class="complexTypeItem">
+<a name="ObterListaOpRequest" class="anchorScroll"></a>
+<h3>ObterListaOpRequest</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">cMesAno</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Mes e ano. (MM/AAAA).</div><div class="more"><a href="javascript:void(0)">+</a><div>Default mês atual.<BR><BR>Preenchimento opcional.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cTemperatura</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Informe a temperatura da Oportundiade.</div><div class="more"><a href="javascript:void(0)">+</a><div>Pode ser:<BR>em-processo<BR>boas-chances<BR>comprometido<BR>conquistado<BR><BR>Preenchimento obrigatório.</div></div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="ObterListaOpResponse" class="anchorScroll"></a>
+<h3>ObterListaOpResponse</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">listaDetalhesOp</td>
+<td class="parameter-type"><a href="#listaDetalhesOpArray">listaDetalhesOpArray</a></td><td class="parameter-docs"><div class="first">Lista de oportunidades.</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="funilOportunidades" class="anchorScroll"></a>
+<h3>funilOportunidades</h3>
+<p>Funil de oportunidades.</p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">mesAtual</td>
+<td class="parameter-type"><a href="#mesAtual">mesAtual</a></td><td class="parameter-docs"><div class="first">Resumo total mês atual.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">proximoMes</td>
+<td class="parameter-type"><a href="#proximoMes">proximoMes</a></td><td class="parameter-docs"><div class="first">Resumo total próximo mês.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">mesesSeguintes</td>
+<td class="parameter-type"><a href="#mesesSeguintes">mesesSeguintes</a></td><td class="parameter-docs"><div class="first">Resumo total próximos meses.</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="listaDetalhesOp" class="anchorScroll"></a>
+<h3>listaDetalhesOp</h3>
+<p>Lista de oportunidades.</p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">nIdOportunidade</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">ID da Oportunidade.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cDescricao</td>
+<td class="parameter-type">string<span class="parameter-lenght">100</span></td><td class="parameter-docs"><div class="first">Descrição da Oportunidade.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nIdConta</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Id da Conta.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cNomeConta</td>
+<td class="parameter-type">string<span class="parameter-lenght">100</span></td><td class="parameter-docs"><div class="first">Nome da Conta.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nIdContato</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">ID do Contato.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cNomeContato</td>
+<td class="parameter-type">string<span class="parameter-lenght">100</span></td><td class="parameter-docs"><div class="first">Nome do Contato.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nIdVendedor</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Id do Vendedor.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cNomeVendedor</td>
+<td class="parameter-type">string<span class="parameter-lenght">100</span></td><td class="parameter-docs"><div class="first">Nome do vendedor.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cNomeSolucao</td>
+<td class="parameter-type">string<span class="parameter-lenght">100</span></td><td class="parameter-docs"><div class="first">Nome da Solução.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nTemperatura</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Temperatura da Oportunidade. (°C)</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cSituacao</td>
+<td class="parameter-type">string<span class="parameter-lenght">100</span></td><td class="parameter-docs"><div class="first">Situação da Oportunidade.</div><div class="more"><a href="javascript:void(0)">+</a><div>Indica se a Oportunidade está como Previsão,Atrasada ou Concluída.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cIcone</td>
+<td class="parameter-type">string<span class="parameter-lenght">100</span></td><td class="parameter-docs"><div class="first">Unicode do Ícone.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCor</td>
+<td class="parameter-type">string<span class="parameter-lenght">100</span></td><td class="parameter-docs"><div class="first">Hexadecimal da cor.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">vTicket</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Valor do Ticket Calculado da Oportunidade.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nQtdeTarefas</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Indica o número de tarefas da oportunidade.</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="listaDetalhesOpArray" class="anchorScroll"></a>
+<h3>listaDetalhesOpArray</h3>
+<p>Este par&acirc;metro &eacute; um array do tipo <span class="pre"><a href="#listaDetalhesOp"><span class="lightBlue">listaDetalhesOp</span></a></span></p>
+<p>Lista de listaDetalhesOp</p>
+</div>
+<div class="complexTypeItem">
+<a name="mesAtual" class="anchorScroll"></a>
+<h3>mesAtual</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">nEmProcesso</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Quantidade em processo.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nBoasChances</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Quantidade boas chances.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nComprometido</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Quantidade Comprometido.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nConquistado</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Quantidade conquistado.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">vEmProcesso</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Valor em processo.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">vBoasChances</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Valor boas chances.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">vComprometido</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Valor comprometido.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">vConquistado</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Valor conquistado.</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="mesesSeguintes" class="anchorScroll"></a>
+<h3>mesesSeguintes</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">nEmProcesso</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Quantidade em processo.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nBoasChances</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Quantidade boas chances.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nComprometido</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Quantidade Comprometido.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">vEmProcesso</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Valor em processo.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">vBoasChances</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Valor boas chances.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">vComprometido</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Valor comprometido.</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="omie_fail" class="anchorScroll"></a>
+<h3>omie_fail</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">code</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Codigo do erro</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">description</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Descricao do erro</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-required">referer</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Origem do erro</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-required">fatal</td>
+<td class="parameter-type">boolean</td><td class="parameter-docs"><div class="first">Indica se eh um erro fatal</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="proximoMes" class="anchorScroll"></a>
+<h3>proximoMes</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">nEmProcesso</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Quantidade em processo.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nBoasChances</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Quantidade boas chances.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nComprometido</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Quantidade Comprometido.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">vEmProcesso</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Valor em processo.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">vBoasChances</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Valor boas chances.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">vComprometido</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Valor comprometido.</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="resumooportunidades_obterresumoop_request" class="anchorScroll"></a>
+<h3>resumooportunidades_obterresumoop_request</h3>
+<p>ObterResumoOp Request</p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">nIdVendedor</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código do usuário / vendedor.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nIdParceiro</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código do parceiro ou equipe.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cMesAno</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Mes e ano. (MM/AAAA).</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">lApenasResumo</td>
+<td class="parameter-type">boolean</td><td class="parameter-docs"><div class="first">Exibir apenas o resumo.</div><div class="more"><a href="javascript:void(0)">+</a><div>Quando true será retornado as estruturas:<BR>funilOportunidades->mesAtual<BR>saudePipeline<BR>Quando false retornará todas as estruturas.<BR>Default = true</div></div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="resumooportunidades_obterresumoop_response" class="anchorScroll"></a>
+<h3>resumooportunidades_obterresumoop_response</h3>
+<p>ObterResumoOp Response</p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">nIdVendedor</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código do usuário / vendedor.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nIdParceiro</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código do parceiro ou equipe.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cMesAno</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Mes e ano. (MM/AAAA).</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">funilOportunidades</td>
+<td class="parameter-type"><a href="#funilOportunidades">funilOportunidades</a></td><td class="parameter-docs"><div class="first">Funil de oportunidades.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">saudePipeline</td>
+<td class="parameter-type"><a href="#saudePipeline">saudePipeline</a></td><td class="parameter-docs"><div class="first">Saúde do pipeline.</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="saudePipeline" class="anchorScroll"></a>
+<h3>saudePipeline</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">vMeta</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Valor meta.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">vConquistado</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Valor conquistado.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nConquistado</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Quantidade conquistado.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">vNecessario</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Valor necessário.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">vARealizar</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Valor a realizar.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">pExistente</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Percentual existente.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nSaude</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Valor saúde.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nIndicador</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Indicador do status do pipeline.</div><div class="more"><a href="javascript:void(0)">+</a><div>Pode ser de 0 até 300.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nMultiplicador</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Multiplicador da meta.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cStatus</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Status da saúde do pipeline.</div><div class="more"><a href="javascript:void(0)">+</a><div>Pode ser:<BR>Se <= 100 = CRÍTICO<BR>Se entre 100 e 200 = ACEITÁVEL<BR>Se maior que 200 = EXCELENTE</div></div></td>
+<tr>
+</table>
+</div>
+</div>
+<div class="col-md-3">
+<div id="affix-menu" data-spy="affix" data-offset-top="294">
+<h2>M&eacute;todos</h2>
+<nav id="index" class="hidden-print hidden-xs hidden-sm">
+<ul class="nav">
+<li><a href="#ObterListaOp">ObterListaOp</a></li>
+<li><a href="#ObterResumoOp">ObterResumoOp</a></li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+</body>
+</html>

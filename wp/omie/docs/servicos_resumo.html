@@ -1,0 +1,788 @@
+<nav class="navbar navbar-expand-lg bg-azul">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="https://developer.omie.com.br/">
+            <img class="lozad img-logo" data-src="https://static.omie.com.br/images/logo/logo-omie-topo.png" src="https://static.omie.com.br/images/logo/logo-omie-topo.png" data-loaded="true">
+        </a>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <span class="borda-hover"></span>
+                    <a class="nav-link" href="https://developer.omie.com.br/my-apps/"> Aplicativos </a>
+                </li>
+                <li class="nav-item ">
+                    <span class="borda-hover"></span>
+                    <a class="nav-link" href="https://developer.omie.com.br/service-list/">
+                        Lista das API's
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <span class="borda-hover"></span>
+                    <a class="nav-link" href="https://ajuda.omie.com.br/pt-BR/collections/3045828-apis" target="_blank"> Ajuda </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<html>
+<head>
+<title>ResumoServicos</title>
+<style type="text/css" media="all">
+  [id] { scroll-margin-top: 68px; }
+</style>
+<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+<script src="https://cdn.omie.com.br/omie-assets/js/omie-compat-v2.min.js"></script>
+<script src="/developer/themes/omie/developer.js?ts=2021.008"></script>
+<link rel="stylesheet" href="//app.omie.com.br/wp-content/themes/omie/bootstrap/css/bootstrap.min.css" async/>
+<link href="https://cdn.omie.com.br/assets/developer/css/site.css?ts=2021.008" media="all" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="/developer/themes/omie/developer.css?ts=2021.008" async/>
+</head>
+<body>
+<div class="jumbotron banner bg-azul">
+<div class="container">
+<img src="https://cdn.omie.com.br/assets/developer/images/seta-azuis.png" alt="" class="img-setas">
+<div class="row align-items-center">
+<div class="col-12">
+<h1>ResumoServicos</h1>
+<ul class="nav nav-tabs" role="tablist">
+  <li role="presentation" class="active"><a href="#section-endpoint" aria-controls="section-endpoint" role="tab" data-toggle="tab">Endpoint</a></li>
+  <li role="presentation" class="pull-right"><a href="#section-wsdl" aria-controls="section-wsdl" role="tab" data-toggle="tab">WSDL</a></li>
+  <li role="presentation" class="pull-right"><a href="#section-php-soap" aria-controls="section-php-soap" role="tab" data-toggle="tab">PHP SOAP</a></li>
+  <li role="presentation" class="pull-right"><a href="#section-json" aria-controls="section-json" role="tab" data-toggle="tab">JSON</a></li>
+</ul>
+<div class="tab-content">
+  <div role="tabpanel" class="tab-pane fade in active" id="section-endpoint">
+    <h4>Endpoint URI</h4>
+    <a class="highlight" href="https://app.omie.com.br/api/v1/servicos/resumo/"><pre><code>https://app.omie.com.br/api/v1/servicos/resumo/</code></pre></a>
+  </div>
+  <div role="tabpanel" class="tab-pane fade" id="section-wsdl">
+    <h4>WSDL URI</h4>
+    <a class="highlight" href="https://app.omie.com.br/api/v1/servicos/resumo/?WSDL"><pre><code>https://app.omie.com.br/api/v1/servicos/resumo/?WSDL</code></pre></a>
+  </div>
+  <div role="tabpanel" class="tab-pane fade" id="section-php-soap">
+    <h4>PHP SOAP client download</h4>
+    <a class="highlight" href="https://app.omie.com.br/api/v1/servicos/resumo/?PHPSOAPCLIENT""><pre><code>https://app.omie.com.br/api/v1/servicos/resumo/?PHPSOAPCLIENT</code></pre></a>
+  </div>
+  <div role="tabpanel" class="tab-pane fade" id="section-json">
+    <h4>JSON client download URI</h4>
+    <h5>PHP</h5>
+    <a class="highlight" href="https://app.omie.com.br/api/v1/servicos/resumo/?PHPJSONCLIENT"><pre><code>https://app.omie.com.br/api/v1/servicos/resumo/?PHPJSONCLIENT</code></pre></a>
+    <h5>JavaScript (recomendado para uso apenas do lado do servidor)</h5>
+    <a class="highlight" href="https://app.omie.com.br/api/v1/servicos/resumo/?JSJSONCLIENT"><pre><code>https://app.omie.com.br/api/v1/servicos/resumo/?JSJSONCLIENT</code></pre></a>
+  </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="container">
+<div class="row">
+<div class="col-md-9">
+<h2>M&eacute;todos</h2>
+<p>Veja abaixo a documenta&ccedil;&atilde;o de cada m&eacute;todo dispon&iacute;vel para este servi&ccedil;o.</p>
+<div id="ObterResumoServicos" class="methodItem">
+<h3 class="method-name">ObterResumoServicos</h3>
+<p>
+
+</p>
+<div class="panel panel-default method">
+<div class="panel-heading"> Par&acirc;metros:
+</div>
+<table class="table table-condensed table-hover">
+<tr>
+<td class="">&nbsp;</td>
+<td class="method-parameter-type"><a href="#resumoservicos_obterresumoservicos_request">resumoservicos_obterresumoservicos_request</a></td>
+<td class="method-parameter-name">resumoservicos_obterresumoservicos_request</td><td class="method-parameter-docs"><div class="first">ObterResumoServicos Request</div></td>
+</tr>
+</table>
+<div class="panel-footer">
+Retorno <span class="pre"><a href="#resumoservicos_obterresumoservicos_response"><span class="lightBlue">resumoservicos_obterresumoservicos_response</span></a></span>: ObterResumoServicos Response
+</div>
+</div>
+<div class="method-example-area">
+<h5>Exemplo:</h5>
+<pre class="method-example-code">{<BR>   "dDataInicio":"01/09/2026",<BR>   "dDataFim":"01/09/2026",<BR>   "lApenasResumo": true<BR>}</pre>
+<button class="btn btn-success method-example" data-method="ObterResumoServicos" data-example="%7B+++%22dDataInicio%22%3A%2201%2F09%2F2026%22%2C+++%22dDataFim%22%3A%2201%2F09%2F2026%22%2C+++%22lApenasResumo%22%3A+true%7D">Teste agora mesmo</button>
+</div>
+</div>
+<h2>Tipos Complexos</h2>
+<div class="complexTypeItem">
+<a name="contratoServico" class="anchorScroll"></a>
+<h3>contratoServico</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">nFaturadas</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Quantidade faturada.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">vFaturadas</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Valor faturado.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cIconeFat</td>
+<td class="parameter-type">string<span class="parameter-lenght">100</span></td><td class="parameter-docs"><div class="first">Unicode do Ícone faturado.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCorFat</td>
+<td class="parameter-type">string<span class="parameter-lenght">100</span></td><td class="parameter-docs"><div class="first">Hexadecimal da cor.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nCanceladas</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Quantidade cancelada.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">vCanceladas</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Valor cancelado.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cIconeCanc</td>
+<td class="parameter-type">string<span class="parameter-lenght">100</span></td><td class="parameter-docs"><div class="first">Unicode do Ícone cancelado.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCorCanc</td>
+<td class="parameter-type">string<span class="parameter-lenght">100</span></td><td class="parameter-docs"><div class="first">Hexadecimal da cor.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nRejeitadas</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Quantidade rejeitada.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">vRejeitadas</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Valor rejeitado.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cIconeRej</td>
+<td class="parameter-type">string<span class="parameter-lenght">100</span></td><td class="parameter-docs"><div class="first">Unicode do Ícone rejeitado.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCorRej</td>
+<td class="parameter-type">string<span class="parameter-lenght">100</span></td><td class="parameter-docs"><div class="first">Hexadecimal da cor.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nPendentes</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Quantidade pendente.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">vPendentes</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Valor pendente.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cIconePend</td>
+<td class="parameter-type">string<span class="parameter-lenght">100</span></td><td class="parameter-docs"><div class="first">Unicode do Ícone pendente.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCorPend</td>
+<td class="parameter-type">string<span class="parameter-lenght">100</span></td><td class="parameter-docs"><div class="first">Hexadecimal da cor.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">emAberto</td>
+<td class="parameter-type"><a href="#emAberto">emAberto</a></td><td class="parameter-docs"><div class="first">Estrutura contendo os valores em aberto.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cIconePed</td>
+<td class="parameter-type">string<span class="parameter-lenght">100</span></td><td class="parameter-docs"><div class="first">Unicode do Ícone pendente.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCorPed</td>
+<td class="parameter-type">string<span class="parameter-lenght">100</span></td><td class="parameter-docs"><div class="first">Hexadecimal da cor.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">faturarHoje</td>
+<td class="parameter-type"><a href="#faturarHoje">faturarHoje</a></td><td class="parameter-docs"><div class="first">Exibe os totais com o faturamento previsto para hoje.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cIconeHoje</td>
+<td class="parameter-type">string<span class="parameter-lenght">100</span></td><td class="parameter-docs"><div class="first">Unicode do Ícone faturar hoje.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCorHoje</td>
+<td class="parameter-type">string<span class="parameter-lenght">100</span></td><td class="parameter-docs"><div class="first">Hexadecimal da cor.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cIcone</td>
+<td class="parameter-type">string<span class="parameter-lenght">100</span></td><td class="parameter-docs"><div class="first">Unicode do Ícone.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCor</td>
+<td class="parameter-type">string<span class="parameter-lenght">100</span></td><td class="parameter-docs"><div class="first">Hexadecimal da cor.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cVisualizar</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Indica se o aplicativo possuí a configuração desse tipo de documento.Pode ser:SN</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="emAberto" class="anchorScroll"></a>
+<h3>emAberto</h3>
+<p>Estrutura contendo os valores em aberto.</p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">nTotal</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Quantidade total.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">vTotal</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Valor total.</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="faturamentoNFSe" class="anchorScroll"></a>
+<h3>faturamentoNFSe</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">cVisualizar</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Indica se o aplicativo possuí a configuração desse tipo de documento.Pode ser:SN</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nFaturadas</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Quantidade faturada.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">vFaturadas</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Valor faturado.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cIconeFat</td>
+<td class="parameter-type">string<span class="parameter-lenght">100</span></td><td class="parameter-docs"><div class="first">Unicode do Ícone faturado.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCorFat</td>
+<td class="parameter-type">string<span class="parameter-lenght">100</span></td><td class="parameter-docs"><div class="first">Hexadecimal da cor.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nCanceladas</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Quantidade cancelada.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">vCanceladas</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Valor cancelado.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cIconeCanc</td>
+<td class="parameter-type">string<span class="parameter-lenght">100</span></td><td class="parameter-docs"><div class="first">Unicode do Ícone cancelado.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCorCanc</td>
+<td class="parameter-type">string<span class="parameter-lenght">100</span></td><td class="parameter-docs"><div class="first">Hexadecimal da cor.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nPendentes</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Quantidade pendente.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">vPendentes</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Valor pendente.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cIconePend</td>
+<td class="parameter-type">string<span class="parameter-lenght">100</span></td><td class="parameter-docs"><div class="first">Unicode do Ícone pendente.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCorPend</td>
+<td class="parameter-type">string<span class="parameter-lenght">100</span></td><td class="parameter-docs"><div class="first">Hexadecimal da cor.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nRejeitadas</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Quantidade rejeitada.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">vRejeitadas</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Valor rejeitado.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cIconeRej</td>
+<td class="parameter-type">string<span class="parameter-lenght">100</span></td><td class="parameter-docs"><div class="first">Unicode do Ícone rejeitado.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCorRej</td>
+<td class="parameter-type">string<span class="parameter-lenght">100</span></td><td class="parameter-docs"><div class="first">Hexadecimal da cor.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nTotal</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Quantidade total.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">vTotal</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Valor total.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cIcone</td>
+<td class="parameter-type">string<span class="parameter-lenght">100</span></td><td class="parameter-docs"><div class="first">Unicode do Ícone.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCor</td>
+<td class="parameter-type">string<span class="parameter-lenght">100</span></td><td class="parameter-docs"><div class="first">Hexadecimal da cor.</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="faturamentoRecibo" class="anchorScroll"></a>
+<h3>faturamentoRecibo</h3>
+<p>Exibe os totais de faturamentos de Recibos.</p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">cVisualizar</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Indica se o aplicativo possuí a configuração desse tipo de documento.Pode ser:SN</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nFaturadas</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Quantidade faturada.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">vFaturadas</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Valor faturado.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cIconeFat</td>
+<td class="parameter-type">string<span class="parameter-lenght">100</span></td><td class="parameter-docs"><div class="first">Unicode do Ícone faturado.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCorFat</td>
+<td class="parameter-type">string<span class="parameter-lenght">100</span></td><td class="parameter-docs"><div class="first">Hexadecimal da cor.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nCanceladas</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Quantidade cancelada.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">vCanceladas</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Valor cancelado.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cIconeCanc</td>
+<td class="parameter-type">string<span class="parameter-lenght">100</span></td><td class="parameter-docs"><div class="first">Unicode do Ícone cancelado.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCorCanc</td>
+<td class="parameter-type">string<span class="parameter-lenght">100</span></td><td class="parameter-docs"><div class="first">Hexadecimal da cor.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nTotal</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Quantidade total.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">vTotal</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Valor total.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cIcone</td>
+<td class="parameter-type">string<span class="parameter-lenght">100</span></td><td class="parameter-docs"><div class="first">Unicode do Ícone.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCor</td>
+<td class="parameter-type">string<span class="parameter-lenght">100</span></td><td class="parameter-docs"><div class="first">Hexadecimal da cor.</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="faturamentoResumo" class="anchorScroll"></a>
+<h3>faturamentoResumo</h3>
+<p>Exibe os totais de faturamentos (NFS-e + Recibos).</p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">nFaturadas</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Quantidade faturada.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">vFaturadas</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Valor faturado.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cIconeFat</td>
+<td class="parameter-type">string<span class="parameter-lenght">100</span></td><td class="parameter-docs"><div class="first">Unicode do Ícone faturado.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCorFat</td>
+<td class="parameter-type">string<span class="parameter-lenght">100</span></td><td class="parameter-docs"><div class="first">Hexadecimal da cor.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nCanceladas</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Quantidade cancelada.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">vCanceladas</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Valor cancelado.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cIconeCanc</td>
+<td class="parameter-type">string<span class="parameter-lenght">100</span></td><td class="parameter-docs"><div class="first">Unicode do Ícone cancelado.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCorCanc</td>
+<td class="parameter-type">string<span class="parameter-lenght">100</span></td><td class="parameter-docs"><div class="first">Hexadecimal da cor.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nPendentes</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Quantidade pendente.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">vPendentes</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Valor pendente.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cIconePend</td>
+<td class="parameter-type">string<span class="parameter-lenght">100</span></td><td class="parameter-docs"><div class="first">Unicode do Ícone pendente.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCorPend</td>
+<td class="parameter-type">string<span class="parameter-lenght">100</span></td><td class="parameter-docs"><div class="first">Hexadecimal da cor.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nRejeitadas</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Quantidade rejeitada.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">vRejeitadas</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Valor rejeitado.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cIconeRej</td>
+<td class="parameter-type">string<span class="parameter-lenght">100</span></td><td class="parameter-docs"><div class="first">Unicode do Ícone rejeitado.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCorRej</td>
+<td class="parameter-type">string<span class="parameter-lenght">100</span></td><td class="parameter-docs"><div class="first">Hexadecimal da cor.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nTotal</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Quantidade total.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">vTotal</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Valor total.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cIcone</td>
+<td class="parameter-type">string<span class="parameter-lenght">100</span></td><td class="parameter-docs"><div class="first">Unicode do Ícone.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCor</td>
+<td class="parameter-type">string<span class="parameter-lenght">100</span></td><td class="parameter-docs"><div class="first">Hexadecimal da cor.</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="faturamentoViaUnica" class="anchorScroll"></a>
+<h3>faturamentoViaUnica</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">cVisualizar</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Indica se o aplicativo possuí a configuração desse tipo de documento.Pode ser:SN</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nFaturadas</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Quantidade faturada.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">vFaturadas</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Valor faturado.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cIconeFat</td>
+<td class="parameter-type">string<span class="parameter-lenght">100</span></td><td class="parameter-docs"><div class="first">Unicode do Ícone faturado.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCorFat</td>
+<td class="parameter-type">string<span class="parameter-lenght">100</span></td><td class="parameter-docs"><div class="first">Hexadecimal da cor.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nCanceladas</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Quantidade cancelada.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">vCanceladas</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Valor cancelado.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cIconeCanc</td>
+<td class="parameter-type">string<span class="parameter-lenght">100</span></td><td class="parameter-docs"><div class="first">Unicode do Ícone cancelado.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCorCanc</td>
+<td class="parameter-type">string<span class="parameter-lenght">100</span></td><td class="parameter-docs"><div class="first">Hexadecimal da cor.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nPendentes</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Quantidade pendente.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">vPendentes</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Valor pendente.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cIconePend</td>
+<td class="parameter-type">string<span class="parameter-lenght">100</span></td><td class="parameter-docs"><div class="first">Unicode do Ícone pendente.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCorPend</td>
+<td class="parameter-type">string<span class="parameter-lenght">100</span></td><td class="parameter-docs"><div class="first">Hexadecimal da cor.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nRejeitadas</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Quantidade rejeitada.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">vRejeitadas</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Valor rejeitado.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cIconeRej</td>
+<td class="parameter-type">string<span class="parameter-lenght">100</span></td><td class="parameter-docs"><div class="first">Unicode do Ícone rejeitado.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCorRej</td>
+<td class="parameter-type">string<span class="parameter-lenght">100</span></td><td class="parameter-docs"><div class="first">Hexadecimal da cor.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nTotal</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Quantidade total.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">vTotal</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Valor total.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cIcone</td>
+<td class="parameter-type">string<span class="parameter-lenght">100</span></td><td class="parameter-docs"><div class="first">Unicode do Ícone.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCor</td>
+<td class="parameter-type">string<span class="parameter-lenght">100</span></td><td class="parameter-docs"><div class="first">Hexadecimal da cor.</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="faturarHoje" class="anchorScroll"></a>
+<h3>faturarHoje</h3>
+<p>Exibe os totais com o faturamento previsto para hoje.</p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">nTotal</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Quantidade total.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">vTotal</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Valor total.</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="omie_fail" class="anchorScroll"></a>
+<h3>omie_fail</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">code</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Codigo do erro</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">description</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Descricao do erro</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-required">referer</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Origem do erro</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-required">fatal</td>
+<td class="parameter-type">boolean</td><td class="parameter-docs"><div class="first">Indica se eh um erro fatal</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="ordemServico" class="anchorScroll"></a>
+<h3>ordemServico</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">cNome</td>
+<td class="parameter-type">string<span class="parameter-lenght">100</span></td><td class="parameter-docs"><div class="first">Descrição da operação ( ordem de serviço / Proposta ).</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cNomePlural</td>
+<td class="parameter-type">string<span class="parameter-lenght">100</span></td><td class="parameter-docs"><div class="first">Descrição da operação no plural ( ordem de serviço / Proposta ).</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">emAberto</td>
+<td class="parameter-type"><a href="#emAberto">emAberto</a></td><td class="parameter-docs"><div class="first">Estrutura contendo os valores em aberto.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cIconePed</td>
+<td class="parameter-type">string<span class="parameter-lenght">100</span></td><td class="parameter-docs"><div class="first">Unicode do Ícone pendente.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCorPed</td>
+<td class="parameter-type">string<span class="parameter-lenght">100</span></td><td class="parameter-docs"><div class="first">Hexadecimal da cor.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">faturarHoje</td>
+<td class="parameter-type"><a href="#faturarHoje">faturarHoje</a></td><td class="parameter-docs"><div class="first">Exibe os totais com o faturamento previsto para hoje.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cIconeHoje</td>
+<td class="parameter-type">string<span class="parameter-lenght">100</span></td><td class="parameter-docs"><div class="first">Unicode do Ícone faturar hoje.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCorHoje</td>
+<td class="parameter-type">string<span class="parameter-lenght">100</span></td><td class="parameter-docs"><div class="first">Hexadecimal da cor.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cIcone</td>
+<td class="parameter-type">string<span class="parameter-lenght">100</span></td><td class="parameter-docs"><div class="first">Unicode do Ícone.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCor</td>
+<td class="parameter-type">string<span class="parameter-lenght">100</span></td><td class="parameter-docs"><div class="first">Hexadecimal da cor.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nFaturadas</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Quantidade faturada.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">vFaturadas</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Valor faturado.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nCanceladas</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Quantidade cancelada.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">vCanceladas</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Valor cancelado.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nRejeitadas</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Quantidade rejeitada.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">vRejeitadas</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Valor rejeitado.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cVisualizar</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Indica se o aplicativo possuí a configuração desse tipo de documento.Pode ser:SN</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="painel" class="anchorScroll"></a>
+<h3>painel</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">faturamentoResumo</td>
+<td class="parameter-type"><a href="#faturamentoResumo">faturamentoResumo</a></td><td class="parameter-docs"><div class="first">Exibe os totais de faturamentos (NFS-e + Recibos).</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">faturamentoNFSe</td>
+<td class="parameter-type"><a href="#faturamentoNFSe">faturamentoNFSe</a></td><td class="parameter-docs"><div class="first">Exibe os totais de faturamentos de notas de serviço (NFS-e).</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">faturamentoRecibo</td>
+<td class="parameter-type"><a href="#faturamentoRecibo">faturamentoRecibo</a></td><td class="parameter-docs"><div class="first">Exibe os totais de faturamentos de Recibos.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">faturamentoViaUnica</td>
+<td class="parameter-type"><a href="#faturamentoViaUnica">faturamentoViaUnica</a></td><td class="parameter-docs"><div class="first">Exibe os totais de faturamentos de notas Via Única.</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="propostaServico" class="anchorScroll"></a>
+<h3>propostaServico</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">cVisualizar</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Indica se o aplicativo possuí a configuração desse tipo de documento.Pode ser:SN</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cNome</td>
+<td class="parameter-type">string<span class="parameter-lenght">100</span></td><td class="parameter-docs"><div class="first">Descrição da operação ( ordem de serviço / Proposta ).</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cNomePlural</td>
+<td class="parameter-type">string<span class="parameter-lenght">100</span></td><td class="parameter-docs"><div class="first">Descrição da operação no plural ( ordem de serviço / Proposta ).</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">emAberto</td>
+<td class="parameter-type"><a href="#emAberto">emAberto</a></td><td class="parameter-docs"><div class="first">Estrutura contendo os valores em aberto.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cIcone</td>
+<td class="parameter-type">string<span class="parameter-lenght">100</span></td><td class="parameter-docs"><div class="first">Unicode do Ícone.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCor</td>
+<td class="parameter-type">string<span class="parameter-lenght">100</span></td><td class="parameter-docs"><div class="first">Hexadecimal da cor.</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="resumoservicos_obterresumoservicos_request" class="anchorScroll"></a>
+<h3>resumoservicos_obterresumoservicos_request</h3>
+<p>ObterResumoServicos Request</p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">dDataInicio</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Data Inicial de Consulta.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">dDataFim</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Data final de Consulta.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">lApenasResumo</td>
+<td class="parameter-type">boolean</td><td class="parameter-docs"><div class="first">Exibir apenas o resumo.Quando true será retornado as estruturas:OrdemServico->faturarHojeContratoServico->faturarHojeQuando false retornará todas as estruturas.Default = true</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="resumoservicos_obterresumoservicos_response" class="anchorScroll"></a>
+<h3>resumoservicos_obterresumoservicos_response</h3>
+<p>ObterResumoServicos Response</p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">dDataInicio</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Data Inicial de Consulta.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">dDataFim</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Data final de Consulta.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">painel</td>
+<td class="parameter-type"><a href="#painel">painel</a></td><td class="parameter-docs"><div class="first">Exibe os totais de faturamento de serviços.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">ordemServico</td>
+<td class="parameter-type"><a href="#ordemServico">ordemServico</a></td><td class="parameter-docs"><div class="first">Exibe os totais de Ordens de Serviço não faturadas.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">contratoServico</td>
+<td class="parameter-type"><a href="#contratoServico">contratoServico</a></td><td class="parameter-docs"><div class="first">Exibe os totais de Contratos de Serviço não faturados.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">propostaServico</td>
+<td class="parameter-type"><a href="#propostaServico">propostaServico</a></td><td class="parameter-docs"><div class="first">Exibe os totais das Propostas de Ordens de Serviço.</div></td>
+<tr>
+</table>
+</div>
+</div>
+<div class="col-md-3">
+<div id="affix-menu" data-spy="affix" data-offset-top="294">
+<h2>M&eacute;todos</h2>
+<nav id="index" class="hidden-print hidden-xs hidden-sm">
+<ul class="nav">
+<li><a href="#ObterResumoServicos">ObterResumoServicos</a></li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+</body>
+</html>

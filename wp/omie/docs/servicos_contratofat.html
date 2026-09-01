@@ -1,0 +1,531 @@
+<nav class="navbar navbar-expand-lg bg-azul">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="https://developer.omie.com.br/">
+            <img class="lozad img-logo" data-src="https://static.omie.com.br/images/logo/logo-omie-topo.png" src="https://static.omie.com.br/images/logo/logo-omie-topo.png" data-loaded="true">
+        </a>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <span class="borda-hover"></span>
+                    <a class="nav-link" href="https://developer.omie.com.br/my-apps/"> Aplicativos </a>
+                </li>
+                <li class="nav-item ">
+                    <span class="borda-hover"></span>
+                    <a class="nav-link" href="https://developer.omie.com.br/service-list/">
+                        Lista das API's
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <span class="borda-hover"></span>
+                    <a class="nav-link" href="https://ajuda.omie.com.br/pt-BR/collections/3045828-apis" target="_blank"> Ajuda </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<html>
+<head>
+<title>ContratoFaturamento</title>
+<style type="text/css" media="all">
+  [id] { scroll-margin-top: 68px; }
+</style>
+<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+<script src="https://cdn.omie.com.br/omie-assets/js/omie-compat-v2.min.js"></script>
+<script src="/developer/themes/omie/developer.js?ts=2021.008"></script>
+<link rel="stylesheet" href="//app.omie.com.br/wp-content/themes/omie/bootstrap/css/bootstrap.min.css" async/>
+<link href="https://cdn.omie.com.br/assets/developer/css/site.css?ts=2021.008" media="all" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="/developer/themes/omie/developer.css?ts=2021.008" async/>
+</head>
+<body>
+<div class="jumbotron banner bg-azul">
+<div class="container">
+<img src="https://cdn.omie.com.br/assets/developer/images/seta-azuis.png" alt="" class="img-setas">
+<div class="row align-items-center">
+<div class="col-12">
+<h1>ContratoFaturamento</h1>
+<ul class="nav nav-tabs" role="tablist">
+  <li role="presentation" class="active"><a href="#section-endpoint" aria-controls="section-endpoint" role="tab" data-toggle="tab">Endpoint</a></li>
+  <li role="presentation" class="pull-right"><a href="#section-wsdl" aria-controls="section-wsdl" role="tab" data-toggle="tab">WSDL</a></li>
+  <li role="presentation" class="pull-right"><a href="#section-php-soap" aria-controls="section-php-soap" role="tab" data-toggle="tab">PHP SOAP</a></li>
+  <li role="presentation" class="pull-right"><a href="#section-json" aria-controls="section-json" role="tab" data-toggle="tab">JSON</a></li>
+</ul>
+<div class="tab-content">
+  <div role="tabpanel" class="tab-pane fade in active" id="section-endpoint">
+    <h4>Endpoint URI</h4>
+    <a class="highlight" href="https://app.omie.com.br/api/v1/servicos/contratofat/"><pre><code>https://app.omie.com.br/api/v1/servicos/contratofat/</code></pre></a>
+  </div>
+  <div role="tabpanel" class="tab-pane fade" id="section-wsdl">
+    <h4>WSDL URI</h4>
+    <a class="highlight" href="https://app.omie.com.br/api/v1/servicos/contratofat/?WSDL"><pre><code>https://app.omie.com.br/api/v1/servicos/contratofat/?WSDL</code></pre></a>
+  </div>
+  <div role="tabpanel" class="tab-pane fade" id="section-php-soap">
+    <h4>PHP SOAP client download</h4>
+    <a class="highlight" href="https://app.omie.com.br/api/v1/servicos/contratofat/?PHPSOAPCLIENT""><pre><code>https://app.omie.com.br/api/v1/servicos/contratofat/?PHPSOAPCLIENT</code></pre></a>
+  </div>
+  <div role="tabpanel" class="tab-pane fade" id="section-json">
+    <h4>JSON client download URI</h4>
+    <h5>PHP</h5>
+    <a class="highlight" href="https://app.omie.com.br/api/v1/servicos/contratofat/?PHPJSONCLIENT"><pre><code>https://app.omie.com.br/api/v1/servicos/contratofat/?PHPJSONCLIENT</code></pre></a>
+    <h5>JavaScript (recomendado para uso apenas do lado do servidor)</h5>
+    <a class="highlight" href="https://app.omie.com.br/api/v1/servicos/contratofat/?JSJSONCLIENT"><pre><code>https://app.omie.com.br/api/v1/servicos/contratofat/?JSJSONCLIENT</code></pre></a>
+  </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="container">
+<div class="row">
+<div class="col-md-9">
+<h2>M&eacute;todos</h2>
+<p>Veja abaixo a documenta&ccedil;&atilde;o de cada m&eacute;todo dispon&iacute;vel para este servi&ccedil;o.</p>
+<div id="AtivarContrato" class="methodItem">
+<h3 class="method-name">AtivarContrato</h3>
+<p>
+Ativa um contrato
+</p>
+<div class="panel panel-default method">
+<div class="panel-heading"> Par&acirc;metros:
+</div>
+<table class="table table-condensed table-hover">
+<tr>
+<td class="">&nbsp;</td>
+<td class="method-parameter-type"><a href="#ctrAtivarRequest">ctrAtivarRequest</a></td>
+<td class="method-parameter-name">ctrAtivarRequest</td><td class="method-parameter-docs"><div class="first">Solicitação de ativação do Contrato de Serviço.</div></td>
+</tr>
+</table>
+<div class="panel-footer">
+Retorno <span class="pre"><a href="#ctrAtivarResponse"><span class="lightBlue">ctrAtivarResponse</span></a></span>: 
+</div>
+</div>
+<div class="method-example-area">
+<h5>Exemplo:</h5>
+<pre class="method-example-code">{<BR>    "nCodCtr": 0<BR>}</pre>
+<button class="btn btn-success method-example" data-method="AtivarContrato" data-example="%7B++++%22nCodCtr%22%3A+0%7D">Teste agora mesmo</button>
+</div>
+</div>
+<div id="CancelarContrato" class="methodItem">
+<h3 class="method-name">CancelarContrato</h3>
+<p>
+Cancela contrato
+</p>
+<div class="panel panel-default method">
+<div class="panel-heading"> Par&acirc;metros:
+</div>
+<table class="table table-condensed table-hover">
+<tr>
+<td class="">&nbsp;</td>
+<td class="method-parameter-type"><a href="#ctrCancelarRequest">ctrCancelarRequest</a></td>
+<td class="method-parameter-name">ctrCancelarRequest</td><td class="method-parameter-docs"><div class="first">Solicitação de cancelamento do Contrato de Serviço.</div></td>
+</tr>
+</table>
+<div class="panel-footer">
+Retorno <span class="pre"><a href="#ctrCancelarResponse"><span class="lightBlue">ctrCancelarResponse</span></a></span>: 
+</div>
+</div>
+<div class="method-example-area">
+<h5>Exemplo:</h5>
+<pre class="method-example-code">{<BR>    "nCodCtr": 0<BR>}</pre>
+<button class="btn btn-success method-example" data-method="CancelarContrato" data-example="%7B++++%22nCodCtr%22%3A+0%7D">Teste agora mesmo</button>
+</div>
+</div>
+<div id="FaturarContrato" class="methodItem">
+<h3 class="method-name">FaturarContrato</h3>
+<p>
+Fatura um contrato.
+</p>
+<div class="panel panel-default method">
+<div class="panel-heading"> Par&acirc;metros:
+</div>
+<table class="table table-condensed table-hover">
+<tr>
+<td class="">&nbsp;</td>
+<td class="method-parameter-type"><a href="#ctrFaturarRequest">ctrFaturarRequest</a></td>
+<td class="method-parameter-name">ctrFaturarRequest</td><td class="method-parameter-docs"><div class="first">Solicitação de validação do Contrato de Serviço.</div></td>
+</tr>
+</table>
+<div class="panel-footer">
+Retorno <span class="pre"><a href="#ctrFaturarResponse"><span class="lightBlue">ctrFaturarResponse</span></a></span>: 
+</div>
+</div>
+<div class="method-example-area">
+<h5>Exemplo:</h5>
+<pre class="method-example-code">{<BR>    "nCodCtr": 0<BR>}</pre>
+<button class="btn btn-success method-example" data-method="FaturarContrato" data-example="%7B++++%22nCodCtr%22%3A+0%7D">Teste agora mesmo</button>
+</div>
+</div>
+<div id="ObterContratos" class="methodItem">
+<h3 class="method-name">ObterContratos</h3>
+<p>
+
+</p>
+<div class="panel panel-default method">
+<div class="panel-heading"> Par&acirc;metros:
+</div>
+<table class="table table-condensed table-hover">
+<tr>
+<td class="">&nbsp;</td>
+<td class="method-parameter-type"><a href="#ctrObterRequest">ctrObterRequest</a></td>
+<td class="method-parameter-name">ctrObterRequest</td><td class="method-parameter-docs"><div class="first">Lista os Contratos que se encontram em um etapa do processo de faturamento de contratos.</div></td>
+</tr>
+</table>
+<div class="panel-footer">
+Retorno <span class="pre"><a href="#ctrObterResponse"><span class="lightBlue">ctrObterResponse</span></a></span>: 
+</div>
+</div>
+<div class="method-example-area">
+<h5>Exemplo:</h5>
+<pre class="method-example-code">{<BR>   "cEtapa": "50"<BR>}</pre>
+<button class="btn btn-success method-example" data-method="ObterContratos" data-example="%7B+++%22cEtapa%22%3A+%2250%22%7D">Teste agora mesmo</button>
+</div>
+</div>
+<div id="ReativarContrato" class="methodItem">
+<h3 class="method-name">ReativarContrato</h3>
+<p>
+Reativar contrato
+</p>
+<div class="panel panel-default method">
+<div class="panel-heading"> Par&acirc;metros:
+</div>
+<table class="table table-condensed table-hover">
+<tr>
+<td class="">&nbsp;</td>
+<td class="method-parameter-type"><a href="#ctrReativarRequest">ctrReativarRequest</a></td>
+<td class="method-parameter-name">ctrReativarRequest</td><td class="method-parameter-docs"><div class="first">Solicitação de reativação do Contrato de Serviço.</div></td>
+</tr>
+</table>
+<div class="panel-footer">
+Retorno <span class="pre"><a href="#ctrReativarResponse"><span class="lightBlue">ctrReativarResponse</span></a></span>: 
+</div>
+</div>
+<div class="method-example-area">
+<h5>Exemplo:</h5>
+<pre class="method-example-code">{<BR>    "nCodCtr": 0<BR>}</pre>
+<button class="btn btn-success method-example" data-method="ReativarContrato" data-example="%7B++++%22nCodCtr%22%3A+0%7D">Teste agora mesmo</button>
+</div>
+</div>
+<div id="SuspenderContrato" class="methodItem">
+<h3 class="method-name">SuspenderContrato</h3>
+<p>
+Suspende contrato
+</p>
+<div class="panel panel-default method">
+<div class="panel-heading"> Par&acirc;metros:
+</div>
+<table class="table table-condensed table-hover">
+<tr>
+<td class="">&nbsp;</td>
+<td class="method-parameter-type"><a href="#ctrSuspenderRequest">ctrSuspenderRequest</a></td>
+<td class="method-parameter-name">ctrSuspenderRequest</td><td class="method-parameter-docs"><div class="first">Solicitação de suspensão do Contrato de Serviço.</div></td>
+</tr>
+</table>
+<div class="panel-footer">
+Retorno <span class="pre"><a href="#ctrSuspenderResponse"><span class="lightBlue">ctrSuspenderResponse</span></a></span>: 
+</div>
+</div>
+<div class="method-example-area">
+<h5>Exemplo:</h5>
+<pre class="method-example-code">{<BR>    "nCodCtr": 0<BR>}</pre>
+<button class="btn btn-success method-example" data-method="SuspenderContrato" data-example="%7B++++%22nCodCtr%22%3A+0%7D">Teste agora mesmo</button>
+</div>
+</div>
+<div id="ValidarContrato" class="methodItem">
+<h3 class="method-name">ValidarContrato</h3>
+<p>
+Valida os dados de um contrato para faturamento.
+</p>
+<div class="panel panel-default method">
+<div class="panel-heading"> Par&acirc;metros:
+</div>
+<table class="table table-condensed table-hover">
+<tr>
+<td class="">&nbsp;</td>
+<td class="method-parameter-type"><a href="#ctrValidarRequest">ctrValidarRequest</a></td>
+<td class="method-parameter-name">ctrValidarRequest</td><td class="method-parameter-docs"><div class="first">Solicitação de validação do Contrato de Serviço.</div></td>
+</tr>
+</table>
+<div class="panel-footer">
+Retorno <span class="pre"><a href="#ctrValidarResponse"><span class="lightBlue">ctrValidarResponse</span></a></span>: 
+</div>
+</div>
+<div class="method-example-area">
+<h5>Exemplo:</h5>
+<pre class="method-example-code">{<BR>   "nCodCtr": 0<BR>}</pre>
+<button class="btn btn-success method-example" data-method="ValidarContrato" data-example="%7B+++%22nCodCtr%22%3A+0%7D">Teste agora mesmo</button>
+</div>
+</div>
+<h2>Tipos Complexos</h2>
+<div class="complexTypeItem">
+<a name="ctrAtivarRequest" class="anchorScroll"></a>
+<h3>ctrAtivarRequest</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">nCodCtr</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código do Contrato de Serviço.</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="ctrAtivarResponse" class="anchorScroll"></a>
+<h3>ctrAtivarResponse</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">nCodCtr</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código do Contrato de Serviço.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCodStatus</td>
+<td class="parameter-type">string<span class="parameter-lenght">4</span></td><td class="parameter-docs"><div class="first">Código do Status</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cDescStatus</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Descrição do Status</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="ctrCancelarRequest" class="anchorScroll"></a>
+<h3>ctrCancelarRequest</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">nCodCtr</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código do Contrato de Serviço.</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="ctrCancelarResponse" class="anchorScroll"></a>
+<h3>ctrCancelarResponse</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">nCodCtr</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código do Contrato de Serviço.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCodStatus</td>
+<td class="parameter-type">string<span class="parameter-lenght">4</span></td><td class="parameter-docs"><div class="first">Código do Status</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cDescStatus</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Descrição do Status</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="ctrFaturarRequest" class="anchorScroll"></a>
+<h3>ctrFaturarRequest</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">nCodCtr</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código do Contrato de Serviço.</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="ctrFaturarResponse" class="anchorScroll"></a>
+<h3>ctrFaturarResponse</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">nCodCtr</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código do Contrato de Serviço.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nCodOS</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código da Ordem de Serviço gerada.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCodStatus</td>
+<td class="parameter-type">string<span class="parameter-lenght">4</span></td><td class="parameter-docs"><div class="first">Código do Status</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cDescStatus</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Descrição do Status</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="ctrObterRequest" class="anchorScroll"></a>
+<h3>ctrObterRequest</h3>
+<p>Lista os Contratos que se encontram em um etapa do processo de faturamento de contratos.</p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">cEtapa</td>
+<td class="parameter-type">string<span class="parameter-lenght">2</span></td><td class="parameter-docs"><div class="first">Código da Etapa.</div><div class="more"><a href="javascript:void(0)">+</a><div>Valores possíveis: <BR><BR>10 - Lista todos os contratos.<BR><BR>20 - Lista somente os contratos ativos, que devem ser faturados até a data atual, que a data atual esteja dentro do período de vigência e ainda não foram faturados no mês.<BR><BR>30 - Lista os contratos faturados no mês atual. <BR><BR>40 - Lista todos os contratos ativos que precisam ser renovados nos próximos 90 dias.</div></div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="ctrObterResponse" class="anchorScroll"></a>
+<h3>ctrObterResponse</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">cEtapa</td>
+<td class="parameter-type">string<span class="parameter-lenght">2</span></td><td class="parameter-docs"><div class="first">Código da Etapa.</div><div class="more"><a href="javascript:void(0)">+</a><div>Valores possíveis: <BR><BR>10 - Lista todos os contratos.<BR><BR>20 - Lista somente os contratos ativos, que devem ser faturados até a data atual, que a data atual esteja dentro do período de vigência e ainda não foram faturados no mês.<BR><BR>30 - Lista os contratos faturados no mês atual. <BR><BR>40 - Lista todos os contratos ativos que precisam ser renovados nos próximos 90 dias.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">listaContratos</td>
+<td class="parameter-type"><a href="#listaContratosArray">listaContratosArray</a></td><td class="parameter-docs"><div class="first">Lista de contratos encontrados na etapa solicitada.</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="ctrReativarRequest" class="anchorScroll"></a>
+<h3>ctrReativarRequest</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">nCodCtr</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código do Contrato de Serviço.</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="ctrReativarResponse" class="anchorScroll"></a>
+<h3>ctrReativarResponse</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">nCodCtr</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código do Contrato de Serviço.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCodStatus</td>
+<td class="parameter-type">string<span class="parameter-lenght">4</span></td><td class="parameter-docs"><div class="first">Código do Status</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cDescStatus</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Descrição do Status</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="ctrSuspenderRequest" class="anchorScroll"></a>
+<h3>ctrSuspenderRequest</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">nCodCtr</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código do Contrato de Serviço.</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="ctrSuspenderResponse" class="anchorScroll"></a>
+<h3>ctrSuspenderResponse</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">nCodCtr</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código do Contrato de Serviço.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCodStatus</td>
+<td class="parameter-type">string<span class="parameter-lenght">4</span></td><td class="parameter-docs"><div class="first">Código do Status</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cDescStatus</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Descrição do Status</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="ctrValidarRequest" class="anchorScroll"></a>
+<h3>ctrValidarRequest</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">nCodCtr</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código do Contrato de Serviço.</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="ctrValidarResponse" class="anchorScroll"></a>
+<h3>ctrValidarResponse</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">nCodCtr</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código do Contrato de Serviço.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCodStatus</td>
+<td class="parameter-type">string<span class="parameter-lenght">4</span></td><td class="parameter-docs"><div class="first">Código do Status</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cDescStatus</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Descrição do Status</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="listaContratos" class="anchorScroll"></a>
+<h3>listaContratos</h3>
+<p>Lista de contratos encontrados na etapa solicitada.</p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">nCodCtr</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código do Contrato de Serviço.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cNumCtr</td>
+<td class="parameter-type">string<span class="parameter-lenght">20</span></td><td class="parameter-docs"><div class="first">Número do Contrato de Serviços</div><div class="more"><a href="javascript:void(0)">+</a><div>(Informado pelo usuário / visualizado na tela)</div></div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="listaContratosArray" class="anchorScroll"></a>
+<h3>listaContratosArray</h3>
+<p>Este par&acirc;metro &eacute; um array do tipo <span class="pre"><a href="#listaContratos"><span class="lightBlue">listaContratos</span></a></span></p>
+<p>Lista de listaContratos</p>
+</div>
+<div class="complexTypeItem">
+<a name="omie_fail" class="anchorScroll"></a>
+<h3>omie_fail</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">code</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Codigo do erro</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">description</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Descricao do erro</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-required">referer</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Origem do erro</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-required">fatal</td>
+<td class="parameter-type">boolean</td><td class="parameter-docs"><div class="first">Indica se eh um erro fatal</div></td>
+<tr>
+</table>
+</div>
+</div>
+<div class="col-md-3">
+<div id="affix-menu" data-spy="affix" data-offset-top="294">
+<h2>M&eacute;todos</h2>
+<nav id="index" class="hidden-print hidden-xs hidden-sm">
+<ul class="nav">
+<li><a href="#AtivarContrato">AtivarContrato</a></li>
+<li><a href="#CancelarContrato">CancelarContrato</a></li>
+<li><a href="#FaturarContrato">FaturarContrato</a></li>
+<li><a href="#ObterContratos">ObterContratos</a></li>
+<li><a href="#ReativarContrato">ReativarContrato</a></li>
+<li><a href="#SuspenderContrato">SuspenderContrato</a></li>
+<li><a href="#ValidarContrato">ValidarContrato</a></li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,819 @@
+<nav class="navbar navbar-expand-lg bg-azul">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="https://developer.omie.com.br/">
+            <img class="lozad img-logo" data-src="https://static.omie.com.br/images/logo/logo-omie-topo.png" src="https://static.omie.com.br/images/logo/logo-omie-topo.png" data-loaded="true">
+        </a>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <span class="borda-hover"></span>
+                    <a class="nav-link" href="https://developer.omie.com.br/my-apps/"> Aplicativos </a>
+                </li>
+                <li class="nav-item ">
+                    <span class="borda-hover"></span>
+                    <a class="nav-link" href="https://developer.omie.com.br/service-list/">
+                        Lista das API's
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <span class="borda-hover"></span>
+                    <a class="nav-link" href="https://ajuda.omie.com.br/pt-BR/collections/3045828-apis" target="_blank"> Ajuda </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<html>
+<head>
+<title>contas</title>
+<style type="text/css" media="all">
+  [id] { scroll-margin-top: 68px; }
+</style>
+<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+<script src="https://cdn.omie.com.br/omie-assets/js/omie-compat-v2.min.js"></script>
+<script src="/developer/themes/omie/developer.js?ts=2021.008"></script>
+<link rel="stylesheet" href="//app.omie.com.br/wp-content/themes/omie/bootstrap/css/bootstrap.min.css" async/>
+<link href="https://cdn.omie.com.br/assets/developer/css/site.css?ts=2021.008" media="all" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="/developer/themes/omie/developer.css?ts=2021.008" async/>
+</head>
+<body>
+<div class="jumbotron banner bg-azul">
+<div class="container">
+<img src="https://cdn.omie.com.br/assets/developer/images/seta-azuis.png" alt="" class="img-setas">
+<div class="row align-items-center">
+<div class="col-12">
+<h1>contas</h1>
+<ul class="nav nav-tabs" role="tablist">
+  <li role="presentation" class="active"><a href="#section-endpoint" aria-controls="section-endpoint" role="tab" data-toggle="tab">Endpoint</a></li>
+  <li role="presentation" class="pull-right"><a href="#section-wsdl" aria-controls="section-wsdl" role="tab" data-toggle="tab">WSDL</a></li>
+  <li role="presentation" class="pull-right"><a href="#section-php-soap" aria-controls="section-php-soap" role="tab" data-toggle="tab">PHP SOAP</a></li>
+  <li role="presentation" class="pull-right"><a href="#section-json" aria-controls="section-json" role="tab" data-toggle="tab">JSON</a></li>
+</ul>
+<div class="tab-content">
+  <div role="tabpanel" class="tab-pane fade in active" id="section-endpoint">
+    <h4>Endpoint URI</h4>
+    <a class="highlight" href="https://app.omie.com.br/api/v1/crm/contas/"><pre><code>https://app.omie.com.br/api/v1/crm/contas/</code></pre></a>
+  </div>
+  <div role="tabpanel" class="tab-pane fade" id="section-wsdl">
+    <h4>WSDL URI</h4>
+    <a class="highlight" href="https://app.omie.com.br/api/v1/crm/contas/?WSDL"><pre><code>https://app.omie.com.br/api/v1/crm/contas/?WSDL</code></pre></a>
+  </div>
+  <div role="tabpanel" class="tab-pane fade" id="section-php-soap">
+    <h4>PHP SOAP client download</h4>
+    <a class="highlight" href="https://app.omie.com.br/api/v1/crm/contas/?PHPSOAPCLIENT""><pre><code>https://app.omie.com.br/api/v1/crm/contas/?PHPSOAPCLIENT</code></pre></a>
+  </div>
+  <div role="tabpanel" class="tab-pane fade" id="section-json">
+    <h4>JSON client download URI</h4>
+    <h5>PHP</h5>
+    <a class="highlight" href="https://app.omie.com.br/api/v1/crm/contas/?PHPJSONCLIENT"><pre><code>https://app.omie.com.br/api/v1/crm/contas/?PHPJSONCLIENT</code></pre></a>
+    <h5>JavaScript (recomendado para uso apenas do lado do servidor)</h5>
+    <a class="highlight" href="https://app.omie.com.br/api/v1/crm/contas/?JSJSONCLIENT"><pre><code>https://app.omie.com.br/api/v1/crm/contas/?JSJSONCLIENT</code></pre></a>
+  </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="container">
+<div class="row">
+<div class="col-md-9">
+<h2>M&eacute;todos</h2>
+<p>Veja abaixo a documenta&ccedil;&atilde;o de cada m&eacute;todo dispon&iacute;vel para este servi&ccedil;o.</p>
+<div id="AlterarConta" class="methodItem">
+<h3 class="method-name">AlterarConta</h3>
+<div class="panel panel-default method">
+<div class="panel-heading"> Par&acirc;metros:
+</div>
+<table class="table table-condensed table-hover">
+<tr>
+<td class="">&nbsp;</td>
+<td class="method-parameter-type"><a href="#cadastros">cadastros</a></td>
+<td class="method-parameter-name">cadastros</td><td class="method-parameter-docs"><div class="first">Lista os cadastros encontrados.</div></td>
+</tr>
+</table>
+<div class="panel-footer">
+Retorno <span class="pre"><a href="#CRM_CONTAS_RESPOSTA"><span class="lightBlue">CRM_CONTAS_RESPOSTA</span></a></span>: 
+</div>
+</div>
+<div class="method-example-area">
+<h5>Exemplo:</h5>
+<pre class="method-example-code">{<BR>  "identificacao": {<BR>    "cCodInt": "50974" ,<BR>    "cNome": "Omiexperience S/A",<BR>    "cObs": "Conta adicionada via API",<BR>    "dDtReg": "01/09/2026",<BR>    "dDtValid": "26/10/2026" <BR>   },<BR>  "endereco": {<BR>    "cEndereco": "Av. Dr. Chucri Zaidan, 1550",<BR>    "cCEP": "04583-110",<BR>    "cCidade": "SAO PAULO",<BR>    "cUF": "SP",<BR>    "cPais": "Brasil"<BR>  },<BR>  "telefone_email": {<BR>    "cDDDTel": "11",<BR>    "cNumTel": "5171-8888",<BR>    "cEmail": "ajuda@omie.com.br",<BR>    "cWebsite": "http://www.omie.com.br/"<BR>  }<BR>}</pre>
+<button class="btn btn-success method-example" data-method="AlterarConta" data-example="%7B++%22identificacao%22%3A+%7B++++%22cCodInt%22%3A+%2250974%22+%2C++++%22cNome%22%3A+%22Omiexperience+S%2FA%22%2C++++%22cObs%22%3A+%22Conta+adicionada+via+API%22%2C++++%22dDtReg%22%3A+%2201%2F09%2F2026%22%2C++++%22dDtValid%22%3A+%2226%2F10%2F2026%22++++%7D%2C++%22endereco%22%3A+%7B++++%22cEndereco%22%3A+%22Av.+Dr.+Chucri+Zaidan%2C+1550%22%2C++++%22cCEP%22%3A+%2204583-110%22%2C++++%22cCidade%22%3A+%22SAO+PAULO%22%2C++++%22cUF%22%3A+%22SP%22%2C++++%22cPais%22%3A+%22Brasil%22++%7D%2C++%22telefone_email%22%3A+%7B++++%22cDDDTel%22%3A+%2211%22%2C++++%22cNumTel%22%3A+%225171-8888%22%2C++++%22cEmail%22%3A+%22ajuda%40omie.com.br%22%2C++++%22cWebsite%22%3A+%22http%3A%2F%2Fwww.omie.com.br%2F%22++%7D%7D">Teste agora mesmo</button>
+</div>
+</div>
+<div id="ConsultarConta" class="methodItem">
+<h3 class="method-name">ConsultarConta</h3>
+<div class="panel panel-default method">
+<div class="panel-heading"> Par&acirc;metros:
+</div>
+<table class="table table-condensed table-hover">
+<tr>
+<td class="">&nbsp;</td>
+<td class="method-parameter-type"><a href="#CRM_CONTAS_PESQUISA">CRM_CONTAS_PESQUISA</a></td>
+<td class="method-parameter-name">CRM_CONTAS_PESQUISA</td><td class="method-parameter-docs"><div class="first">Pesquisa da conta</div></td>
+</tr>
+</table>
+<div class="panel-footer">
+Retorno <span class="pre"><a href="#cadastros"><span class="lightBlue">cadastros</span></a></span>: Lista os cadastros encontrados.
+</div>
+</div>
+<div class="method-example-area">
+<h5>Exemplo:</h5>
+<pre class="method-example-code">{<BR>  "cCodInt": "0004"<BR>}</pre>
+<button class="btn btn-success method-example" data-method="ConsultarConta" data-example="%7B++%22cCodInt%22%3A+%220004%22%7D">Teste agora mesmo</button>
+</div>
+</div>
+<div id="ExcluirConta" class="methodItem">
+<h3 class="method-name">ExcluirConta</h3>
+<div class="panel panel-default method">
+<div class="panel-heading"> Par&acirc;metros:
+</div>
+<table class="table table-condensed table-hover">
+<tr>
+<td class="">&nbsp;</td>
+<td class="method-parameter-type"><a href="#CRM_CONTAS_PESQUISA">CRM_CONTAS_PESQUISA</a></td>
+<td class="method-parameter-name">CRM_CONTAS_PESQUISA</td><td class="method-parameter-docs"><div class="first">Pesquisa da conta</div></td>
+</tr>
+</table>
+<div class="panel-footer">
+Retorno <span class="pre"><a href="#CRM_CONTAS_RESPOSTA"><span class="lightBlue">CRM_CONTAS_RESPOSTA</span></a></span>: 
+</div>
+</div>
+<div class="method-example-area">
+<h5>Exemplo:</h5>
+<pre class="method-example-code">{<BR>   "nCod": 0,<BR>   "cCodInt": ""<BR>}</pre>
+<button class="btn btn-success method-example" data-method="ExcluirConta" data-example="%7B+++%22nCod%22%3A+0%2C+++%22cCodInt%22%3A+%22%22%7D">Teste agora mesmo</button>
+</div>
+</div>
+<div id="IncluirConta" class="methodItem">
+<h3 class="method-name">IncluirConta</h3>
+<div class="panel panel-default method">
+<div class="panel-heading"> Par&acirc;metros:
+</div>
+<table class="table table-condensed table-hover">
+<tr>
+<td class="">&nbsp;</td>
+<td class="method-parameter-type"><a href="#cadastros">cadastros</a></td>
+<td class="method-parameter-name">cadastros</td><td class="method-parameter-docs"><div class="first">Lista os cadastros encontrados.</div></td>
+</tr>
+</table>
+<div class="panel-footer">
+Retorno <span class="pre"><a href="#CRM_CONTAS_RESPOSTA"><span class="lightBlue">CRM_CONTAS_RESPOSTA</span></a></span>: 
+</div>
+</div>
+<div class="method-example-area">
+<h5>Exemplo:</h5>
+<pre class="method-example-code">{<BR>  "identificacao": {<BR>    "cCodInt": "54104" ,<BR>    "cNome": "Omiexperience S/A",<BR>    "cObs": "Conta adicionada via API",<BR>    "dDtReg": "01/09/2026",<BR>    "dDtValid": "11/11/2026" <BR>   },<BR>  "endereco": {<BR>    "cEndereco": "Av. Dr. Chucri Zaidan, 1550",<BR>    "cCEP": "04583-110",<BR>    "cCidade": "SAO PAULO",<BR>    "cUF": "SP",<BR>    "cPais": "Brasil"<BR>  },<BR>  "telefone_email": {<BR>    "cDDDTel": "11",<BR>    "cNumTel": "5171-8888",<BR>    "cEmail": "ajuda@omie.com.br",<BR>    "cWebsite": "http://www.omie.com.br/"<BR>  }<BR>}</pre>
+<button class="btn btn-success method-example" data-method="IncluirConta" data-example="%7B++%22identificacao%22%3A+%7B++++%22cCodInt%22%3A+%2254104%22+%2C++++%22cNome%22%3A+%22Omiexperience+S%2FA%22%2C++++%22cObs%22%3A+%22Conta+adicionada+via+API%22%2C++++%22dDtReg%22%3A+%2201%2F09%2F2026%22%2C++++%22dDtValid%22%3A+%2211%2F11%2F2026%22++++%7D%2C++%22endereco%22%3A+%7B++++%22cEndereco%22%3A+%22Av.+Dr.+Chucri+Zaidan%2C+1550%22%2C++++%22cCEP%22%3A+%2204583-110%22%2C++++%22cCidade%22%3A+%22SAO+PAULO%22%2C++++%22cUF%22%3A+%22SP%22%2C++++%22cPais%22%3A+%22Brasil%22++%7D%2C++%22telefone_email%22%3A+%7B++++%22cDDDTel%22%3A+%2211%22%2C++++%22cNumTel%22%3A+%225171-8888%22%2C++++%22cEmail%22%3A+%22ajuda%40omie.com.br%22%2C++++%22cWebsite%22%3A+%22http%3A%2F%2Fwww.omie.com.br%2F%22++%7D%7D">Teste agora mesmo</button>
+</div>
+</div>
+<div id="ListarContas" class="methodItem">
+<h3 class="method-name">ListarContas</h3>
+<p>
+Lista as contas do CRM.
+</p>
+<div class="panel panel-default method">
+<div class="panel-heading"> Par&acirc;metros:
+</div>
+<table class="table table-condensed table-hover">
+<tr>
+<td class="">&nbsp;</td>
+<td class="method-parameter-type"><a href="#contaListarRequest">contaListarRequest</a></td>
+<td class="method-parameter-name">contaListarRequest</td><td class="method-parameter-docs"><div class="first">Solicitação da listagem de Contas.</div></td>
+</tr>
+</table>
+<div class="panel-footer">
+Retorno <span class="pre"><a href="#contaListarResponse"><span class="lightBlue">contaListarResponse</span></a></span>: 
+</div>
+</div>
+<div class="method-example-area">
+<h5>Exemplo:</h5>
+<pre class="method-example-code">{<BR>   "pagina": 1,<BR>   "registros_por_pagina": 20<BR>}</pre>
+<button class="btn btn-success method-example" data-method="ListarContas" data-example="%7B+++%22pagina%22%3A+1%2C+++%22registros_por_pagina%22%3A+20%7D">Teste agora mesmo</button>
+</div>
+</div>
+<div id="UpsertConta" class="methodItem">
+<h3 class="method-name">UpsertConta</h3>
+<div class="panel panel-default method">
+<div class="panel-heading"> Par&acirc;metros:
+</div>
+<table class="table table-condensed table-hover">
+<tr>
+<td class="">&nbsp;</td>
+<td class="method-parameter-type"><a href="#cadastros">cadastros</a></td>
+<td class="method-parameter-name">cadastros</td><td class="method-parameter-docs"><div class="first">Lista os cadastros encontrados.</div></td>
+</tr>
+</table>
+<div class="panel-footer">
+Retorno <span class="pre"><a href="#CRM_CONTAS_RESPOSTA"><span class="lightBlue">CRM_CONTAS_RESPOSTA</span></a></span>: 
+</div>
+</div>
+<div class="method-example-area">
+<h5>Exemplo:</h5>
+<pre class="method-example-code">{<BR>  "identificacao": {<BR>    "cCodInt": "0004",<BR>    "cNome": "Omiexperience S/A",<BR>    "cObs": "Conta adicionada via API (1788306287)",<BR>    "dDtReg": "01/09/2026",<BR>    "dDtValid": "26/02/2027"<BR>  },<BR>  "endereco": {<BR>    "cEndereco": "Av. Dr. Chucri Zaidan, 1550",<BR>    "cCEP": "04583-110",<BR>    "cCidade": "SAO PAULO",<BR>    "cUF": "SP",<BR>    "cPais": "Brasil"<BR>  },<BR>  "telefone_email": {<BR>    "cDDDTel": "11",<BR>    "cNumTel": "5171-8888",<BR>    "cEmail": "ajuda@omie.com.br",<BR>    "cWebsite": "http://www.omie.com.br/"<BR>  }<BR>}</pre>
+<button class="btn btn-success method-example" data-method="UpsertConta" data-example="%7B++%22identificacao%22%3A+%7B++++%22cCodInt%22%3A+%220004%22%2C++++%22cNome%22%3A+%22Omiexperience+S%2FA%22%2C++++%22cObs%22%3A+%22Conta+adicionada+via+API+%281788306287%29%22%2C++++%22dDtReg%22%3A+%2201%2F09%2F2026%22%2C++++%22dDtValid%22%3A+%2226%2F02%2F2027%22++%7D%2C++%22endereco%22%3A+%7B++++%22cEndereco%22%3A+%22Av.+Dr.+Chucri+Zaidan%2C+1550%22%2C++++%22cCEP%22%3A+%2204583-110%22%2C++++%22cCidade%22%3A+%22SAO+PAULO%22%2C++++%22cUF%22%3A+%22SP%22%2C++++%22cPais%22%3A+%22Brasil%22++%7D%2C++%22telefone_email%22%3A+%7B++++%22cDDDTel%22%3A+%2211%22%2C++++%22cNumTel%22%3A+%225171-8888%22%2C++++%22cEmail%22%3A+%22ajuda%40omie.com.br%22%2C++++%22cWebsite%22%3A+%22http%3A%2F%2Fwww.omie.com.br%2F%22++%7D%7D">Teste agora mesmo</button>
+</div>
+</div>
+<div id="VerificarConta" class="methodItem">
+<h3 class="method-name">VerificarConta</h3>
+<p>
+Verifica se uma conta foi criada a partir do nome e e-mail.
+</p>
+<div class="panel panel-default method">
+<div class="panel-heading"> Par&acirc;metros:
+</div>
+<table class="table table-condensed table-hover">
+<tr>
+<td class="">&nbsp;</td>
+<td class="method-parameter-type"><a href="#contaVerificarRequest">contaVerificarRequest</a></td>
+<td class="method-parameter-name">contaVerificarRequest</td><td class="method-parameter-docs"><div class="first">Verifica se uma conta existe a partir do nome e e-mail.</div></td>
+</tr>
+</table>
+<div class="panel-footer">
+Retorno <span class="pre"><a href="#contaVerificarResponse"><span class="lightBlue">contaVerificarResponse</span></a></span>: 
+</div>
+</div>
+<div class="method-example-area">
+<h5>Exemplo:</h5>
+<pre class="method-example-code">{<BR>   "cNome": "",<BR>   "cEmail": ""<BR>}</pre>
+<button class="btn btn-success method-example" data-method="VerificarConta" data-example="%7B+++%22cNome%22%3A+%22%22%2C+++%22cEmail%22%3A+%22%22%7D">Teste agora mesmo</button>
+</div>
+</div>
+<h2>Tipos Complexos</h2>
+<div class="complexTypeItem">
+<a name="CRM_CONTAS_PESQUISA" class="anchorScroll"></a>
+<h3>CRM_CONTAS_PESQUISA</h3>
+<p>Pesquisa da conta</p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">nCod</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código da Conta</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCodInt</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Código de Integração</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="CRM_CONTAS_RESPOSTA" class="anchorScroll"></a>
+<h3>CRM_CONTAS_RESPOSTA</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">nCod</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código da Conta</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCodInt</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Código de Integração</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCodStatus</td>
+<td class="parameter-type">string<span class="parameter-lenght">4</span></td><td class="parameter-docs"><div class="first">Código do Status</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cDesStatus</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Descrição do Status</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="cadastros" class="anchorScroll"></a>
+<h3>cadastros</h3>
+<p>Lista os cadastros encontrados.</p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">identificacao</td>
+<td class="parameter-type"><a href="#identificacao">identificacao</a></td><td class="parameter-docs"><div class="first">Identificação da conta</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">endereco</td>
+<td class="parameter-type"><a href="#endereco">endereco</a></td><td class="parameter-docs"><div class="first">Endereço da conta</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">telefone_email</td>
+<td class="parameter-type"><a href="#telefone_email">telefone_email</a></td><td class="parameter-docs"><div class="first">Informações de contato com a conta</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">informacoesAdicionais</td>
+<td class="parameter-type"><a href="#informacoesAdicionais">informacoesAdicionais</a></td><td class="parameter-docs"><div class="first">Informações adicionais da conta</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">tags</td>
+<td class="parameter-type"><a href="#tagsArray">tagsArray</a></td><td class="parameter-docs"><div class="first">Tags da conta</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento opcional</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">caracteristicas</td>
+<td class="parameter-type"><a href="#caracteristicasArray">caracteristicasArray</a></td><td class="parameter-docs"><div class="first">Caracteristicas da conta</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento opcional<BR><BR></div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">contatos</td>
+<td class="parameter-type"><a href="#contatosArray">contatosArray</a></td><td class="parameter-docs"><div class="first">Contatos da Conta</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="cadastrosArray" class="anchorScroll"></a>
+<h3>cadastrosArray</h3>
+<p>Este par&acirc;metro &eacute; um array do tipo <span class="pre"><a href="#cadastros"><span class="lightBlue">cadastros</span></a></span></p>
+<p>Lista de cadastros</p>
+</div>
+<div class="complexTypeItem">
+<a name="caracteristicas" class="anchorScroll"></a>
+<h3>caracteristicas</h3>
+<p>Caracteristicas da conta</p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">campo</td>
+<td class="parameter-type">string<span class="parameter-lenght">30</span></td><td class="parameter-docs"><div class="first">Nome da característica.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento obrigatório. <BR>Caso não encontre a característica um novo cadastro será adicionado.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">conteudo</td>
+<td class="parameter-type">string<span class="parameter-lenght">60</span></td><td class="parameter-docs"><div class="first">Conteúdo do característica.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento obrigatório na inclusão. <BR><BR>Caso o valor desse campo não seja informado a característica <BR>será excluída da conta.</div></div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="caracteristicasArray" class="anchorScroll"></a>
+<h3>caracteristicasArray</h3>
+<p>Este par&acirc;metro &eacute; um array do tipo <span class="pre"><a href="#caracteristicas"><span class="lightBlue">caracteristicas</span></a></span></p>
+<p>Lista de caracteristicas</p>
+</div>
+<div class="complexTypeItem">
+<a name="contaListarRequest" class="anchorScroll"></a>
+<h3>contaListarRequest</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">pagina</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Número da página retornada</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">registros_por_pagina</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Número de registros retornados na página.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">apenas_importado_api</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Exibir apenas os registros gerados pela API</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">ordenar_por</td>
+<td class="parameter-type">string<span class="parameter-lenght">100</span></td><td class="parameter-docs"><div class="first">Ordem de exibição dos dados. Padrão: Código.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">ordem_decrescente</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Se a lista será apresentada em ordem decrescente.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cDoc</td>
+<td class="parameter-type">string<span class="parameter-lenght">30</span></td><td class="parameter-docs"><div class="first">Número do Documento: CNPJ ou CPF.</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="contaListarResponse" class="anchorScroll"></a>
+<h3>contaListarResponse</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">pagina</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Número da página retornada</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">total_de_paginas</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Número total de páginas</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">registros</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Número de registros retornados na página.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">total_de_registros</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">total de registros encontrados</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cadastros</td>
+<td class="parameter-type"><a href="#cadastrosArray">cadastrosArray</a></td><td class="parameter-docs"><div class="first">Lista os cadastros encontrados.</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="contaVerificarRequest" class="anchorScroll"></a>
+<h3>contaVerificarRequest</h3>
+<p>Verifica se uma conta existe a partir do nome e e-mail.</p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">cNome</td>
+<td class="parameter-type">string<span class="parameter-lenght">100</span></td><td class="parameter-docs"><div class="first">Nome da Conta</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cEmail</td>
+<td class="parameter-type">string<span class="parameter-lenght">200</span></td><td class="parameter-docs"><div class="first">E-Mail</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cDoc</td>
+<td class="parameter-type">string<span class="parameter-lenght">30</span></td><td class="parameter-docs"><div class="first">Número do Documento: CNPJ ou CPF.</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="contaVerificarResponse" class="anchorScroll"></a>
+<h3>contaVerificarResponse</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">nCod</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código da Conta</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCodInt</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Código de Integração</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCodStatus</td>
+<td class="parameter-type">string<span class="parameter-lenght">4</span></td><td class="parameter-docs"><div class="first">Código do Status</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cDesStatus</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Descrição do Status</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="contatos" class="anchorScroll"></a>
+<h3>contatos</h3>
+<p>Contatos da Conta</p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">alt_data</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Data da Alteração</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">alt_hora</td>
+<td class="parameter-type">string<span class="parameter-lenght">8</span></td><td class="parameter-docs"><div class="first">Hora da Alteração</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">alt_user</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Usuário da Alteração</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">inc_data</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Data de Inclusão</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">inc_hora</td>
+<td class="parameter-type">string<span class="parameter-lenght">8</span></td><td class="parameter-docs"><div class="first">Hora de Inclusão</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">inc_user</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Usuário da Inclusão</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cod_int</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Código de Integração com sistemas legados.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">bairro</td>
+<td class="parameter-type">string<span class="parameter-lenght">60</span></td><td class="parameter-docs"><div class="first">Bairro</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cargo</td>
+<td class="parameter-type">string<span class="parameter-lenght">60</span></td><td class="parameter-docs"><div class="first">Cargo</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">ws_api</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Gerado da API (S/N)</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">celular1</td>
+<td class="parameter-type">string<span class="parameter-lenght">15</span></td><td class="parameter-docs"><div class="first">Celular 1</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">celular2</td>
+<td class="parameter-type">string<span class="parameter-lenght">15</span></td><td class="parameter-docs"><div class="first">Celular 2</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cep</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">CEP</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cidade</td>
+<td class="parameter-type">string<span class="parameter-lenght">50</span></td><td class="parameter-docs"><div class="first">Cidade</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">data</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Data Nascimento</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">ddd_cel1</td>
+<td class="parameter-type">string<span class="parameter-lenght">5</span></td><td class="parameter-docs"><div class="first">DDD Celular 1</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">ddd_cel2</td>
+<td class="parameter-type">string<span class="parameter-lenght">5</span></td><td class="parameter-docs"><div class="first">DDD Celular 2</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">ddd_fax</td>
+<td class="parameter-type">string<span class="parameter-lenght">5</span></td><td class="parameter-docs"><div class="first">DDD Fax</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">ddd_tel</td>
+<td class="parameter-type">string<span class="parameter-lenght">5</span></td><td class="parameter-docs"><div class="first">DDD Telefone</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">email</td>
+<td class="parameter-type">string<span class="parameter-lenght">200</span></td><td class="parameter-docs"><div class="first">Email</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">endereco</td>
+<td class="parameter-type">string<span class="parameter-lenght">200</span></td><td class="parameter-docs"><div class="first">Endereço</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">endereco_c</td>
+<td class="parameter-type">string<span class="parameter-lenght">200</span></td><td class="parameter-docs"><div class="first">Endereço Complemento</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">fax</td>
+<td class="parameter-type">string<span class="parameter-lenght">15</span></td><td class="parameter-docs"><div class="first">Fax</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">id</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">ID do Contato</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">id_conta</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Conta</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">id_img</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">ID da Imagem</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">id_service</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">SFA - ID do Serviço do Portal Aeruss</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">id_telemkt</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Telemarketing</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">id_vend</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Pertence a</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">img_padr</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Indica se é uma Imagem Default</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">latlng</td>
+<td class="parameter-type">string<span class="parameter-lenght">50</span></td><td class="parameter-docs"><div class="first">Latitude / Longitude do Endereço</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">mapaurl</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Endereço URL do mapa</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nome</td>
+<td class="parameter-type">string<span class="parameter-lenght">60</span></td><td class="parameter-docs"><div class="first">Nome</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nome_compl</td>
+<td class="parameter-type">string<span class="parameter-lenght">120</span></td><td class="parameter-docs"><div class="first">Nome Completo do Usuário</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">observacao</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Observação</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">pais</td>
+<td class="parameter-type">string<span class="parameter-lenght">50</span></td><td class="parameter-docs"><div class="first">País</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">sobrenome</td>
+<td class="parameter-type">string<span class="parameter-lenght">60</span></td><td class="parameter-docs"><div class="first">Sobrenome</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">telefone</td>
+<td class="parameter-type">string<span class="parameter-lenght">15</span></td><td class="parameter-docs"><div class="first">Telefone</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">trial</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Provisionamento Trial [S/N]</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">uf</td>
+<td class="parameter-type">string<span class="parameter-lenght">50</span></td><td class="parameter-docs"><div class="first">Estado/Província</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">website</td>
+<td class="parameter-type">string<span class="parameter-lenght">100</span></td><td class="parameter-docs"><div class="first">WebSite</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="contatosArray" class="anchorScroll"></a>
+<h3>contatosArray</h3>
+<p>Este par&acirc;metro &eacute; um array do tipo <span class="pre"><a href="#contatos"><span class="lightBlue">contatos</span></a></span></p>
+<p>Lista de contatos</p>
+</div>
+<div class="complexTypeItem">
+<a name="endereco" class="anchorScroll"></a>
+<h3>endereco</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">cEndereco</td>
+<td class="parameter-type">string<span class="parameter-lenght">200</span></td><td class="parameter-docs"><div class="first">Endereço</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCompl</td>
+<td class="parameter-type">string<span class="parameter-lenght">200</span></td><td class="parameter-docs"><div class="first">Complemento do Endereço</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCEP</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">CEP</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cBairro</td>
+<td class="parameter-type">string<span class="parameter-lenght">60</span></td><td class="parameter-docs"><div class="first">Bairro</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCidade</td>
+<td class="parameter-type">string<span class="parameter-lenght">50</span></td><td class="parameter-docs"><div class="first">Cidade</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cUF</td>
+<td class="parameter-type">string<span class="parameter-lenght">50</span></td><td class="parameter-docs"><div class="first">Estado</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cPais</td>
+<td class="parameter-type">string<span class="parameter-lenght">50</span></td><td class="parameter-docs"><div class="first">País</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="identificacao" class="anchorScroll"></a>
+<h3>identificacao</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">nCod</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código da Conta</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCodInt</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Código de Integração</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cNome</td>
+<td class="parameter-type">string<span class="parameter-lenght">100</span></td><td class="parameter-docs"><div class="first">Nome da Conta</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cNomeFantasia</td>
+<td class="parameter-type">string<span class="parameter-lenght">100</span></td><td class="parameter-docs"><div class="first">Nome fantasia da conta</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cDoc</td>
+<td class="parameter-type">string<span class="parameter-lenght">30</span></td><td class="parameter-docs"><div class="first">Número do Documento: CNPJ ou CPF.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nCodVend</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código do Vendedor</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nCodVert</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código da Vertical</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nCodTelemkt</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código do Telemarketing</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">dDtReg</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Data de Registro</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">dDtValid</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Data de Validade da Reserva</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cObs</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Observação</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="informacoesAdicionais" class="anchorScroll"></a>
+<h3>informacoesAdicionais</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">nNumFunc</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Número de Funcionários</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nFaixaFat</td>
+<td class="parameter-type">string<span class="parameter-lenght">100</span></td><td class="parameter-docs"><div class="first">Faixa de Faturamento</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCnae</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">CNAE Principal</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cRegTrib</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Regime Tributário</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="omie_fail" class="anchorScroll"></a>
+<h3>omie_fail</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">code</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Codigo do erro</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">description</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Descricao do erro</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-required">referer</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Origem do erro</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-required">fatal</td>
+<td class="parameter-type">boolean</td><td class="parameter-docs"><div class="first">Indica se eh um erro fatal</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="tags" class="anchorScroll"></a>
+<h3>tags</h3>
+<p>Tags da conta</p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">tag</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Tag da conta</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="tagsArray" class="anchorScroll"></a>
+<h3>tagsArray</h3>
+<p>Este par&acirc;metro &eacute; um array do tipo <span class="pre"><a href="#tags"><span class="lightBlue">tags</span></a></span></p>
+<p>Lista de tags</p>
+</div>
+<div class="complexTypeItem">
+<a name="telefone_email" class="anchorScroll"></a>
+<h3>telefone_email</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">cDDDTel</td>
+<td class="parameter-type">string<span class="parameter-lenght">5</span></td><td class="parameter-docs"><div class="first">DDD do Telefone</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cNumTel</td>
+<td class="parameter-type">string<span class="parameter-lenght">15</span></td><td class="parameter-docs"><div class="first">Número do Telefone</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cDDDFax</td>
+<td class="parameter-type">string<span class="parameter-lenght">5</span></td><td class="parameter-docs"><div class="first">DDD do Fax</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cNumFax</td>
+<td class="parameter-type">string<span class="parameter-lenght">15</span></td><td class="parameter-docs"><div class="first">Número do Fax</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cEmail</td>
+<td class="parameter-type">string<span class="parameter-lenght">200</span></td><td class="parameter-docs"><div class="first">E-Mail</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cWebsite</td>
+<td class="parameter-type">string<span class="parameter-lenght">100</span></td><td class="parameter-docs"><div class="first">Website</div></td>
+<tr>
+</table>
+</div>
+</div>
+<div class="col-md-3">
+<div id="affix-menu" data-spy="affix" data-offset-top="294">
+<h2>M&eacute;todos</h2>
+<nav id="index" class="hidden-print hidden-xs hidden-sm">
+<ul class="nav">
+<li><a href="#AlterarConta">AlterarConta</a></li>
+<li><a href="#ConsultarConta">ConsultarConta</a></li>
+<li><a href="#ExcluirConta">ExcluirConta</a></li>
+<li><a href="#IncluirConta">IncluirConta</a></li>
+<li><a href="#ListarContas">ListarContas</a></li>
+<li><a href="#UpsertConta">UpsertConta</a></li>
+<li><a href="#VerificarConta">VerificarConta</a></li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+</body>
+</html>

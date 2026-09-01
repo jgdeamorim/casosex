@@ -1,0 +1,559 @@
+<nav class="navbar navbar-expand-lg bg-azul">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="https://developer.omie.com.br/">
+            <img class="lozad img-logo" data-src="https://static.omie.com.br/images/logo/logo-omie-topo.png" src="https://static.omie.com.br/images/logo/logo-omie-topo.png" data-loaded="true">
+        </a>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <span class="borda-hover"></span>
+                    <a class="nav-link" href="https://developer.omie.com.br/my-apps/"> Aplicativos </a>
+                </li>
+                <li class="nav-item ">
+                    <span class="borda-hover"></span>
+                    <a class="nav-link" href="https://developer.omie.com.br/service-list/">
+                        Lista das API's
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <span class="borda-hover"></span>
+                    <a class="nav-link" href="https://ajuda.omie.com.br/pt-BR/collections/3045828-apis" target="_blank"> Ajuda </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<html>
+<head>
+<title>OrdemServicoLote</title>
+<style type="text/css" media="all">
+  [id] { scroll-margin-top: 68px; }
+</style>
+<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+<script src="https://cdn.omie.com.br/omie-assets/js/omie-compat-v2.min.js"></script>
+<script src="/developer/themes/omie/developer.js?ts=2021.008"></script>
+<link rel="stylesheet" href="//app.omie.com.br/wp-content/themes/omie/bootstrap/css/bootstrap.min.css" async/>
+<link href="https://cdn.omie.com.br/assets/developer/css/site.css?ts=2021.008" media="all" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="/developer/themes/omie/developer.css?ts=2021.008" async/>
+</head>
+<body>
+<div class="jumbotron banner bg-azul">
+<div class="container">
+<img src="https://cdn.omie.com.br/assets/developer/images/seta-azuis.png" alt="" class="img-setas">
+<div class="row align-items-center">
+<div class="col-12">
+<h1>OrdemServicoLote</h1>
+<ul class="nav nav-tabs" role="tablist">
+  <li role="presentation" class="active"><a href="#section-endpoint" aria-controls="section-endpoint" role="tab" data-toggle="tab">Endpoint</a></li>
+  <li role="presentation" class="pull-right"><a href="#section-wsdl" aria-controls="section-wsdl" role="tab" data-toggle="tab">WSDL</a></li>
+  <li role="presentation" class="pull-right"><a href="#section-php-soap" aria-controls="section-php-soap" role="tab" data-toggle="tab">PHP SOAP</a></li>
+  <li role="presentation" class="pull-right"><a href="#section-json" aria-controls="section-json" role="tab" data-toggle="tab">JSON</a></li>
+</ul>
+<div class="tab-content">
+  <div role="tabpanel" class="tab-pane fade in active" id="section-endpoint">
+    <h4>Endpoint URI</h4>
+    <a class="highlight" href="https://app.omie.com.br/api/v1/servicos/oslote/"><pre><code>https://app.omie.com.br/api/v1/servicos/oslote/</code></pre></a>
+  </div>
+  <div role="tabpanel" class="tab-pane fade" id="section-wsdl">
+    <h4>WSDL URI</h4>
+    <a class="highlight" href="https://app.omie.com.br/api/v1/servicos/oslote/?WSDL"><pre><code>https://app.omie.com.br/api/v1/servicos/oslote/?WSDL</code></pre></a>
+  </div>
+  <div role="tabpanel" class="tab-pane fade" id="section-php-soap">
+    <h4>PHP SOAP client download</h4>
+    <a class="highlight" href="https://app.omie.com.br/api/v1/servicos/oslote/?PHPSOAPCLIENT""><pre><code>https://app.omie.com.br/api/v1/servicos/oslote/?PHPSOAPCLIENT</code></pre></a>
+  </div>
+  <div role="tabpanel" class="tab-pane fade" id="section-json">
+    <h4>JSON client download URI</h4>
+    <h5>PHP</h5>
+    <a class="highlight" href="https://app.omie.com.br/api/v1/servicos/oslote/?PHPJSONCLIENT"><pre><code>https://app.omie.com.br/api/v1/servicos/oslote/?PHPJSONCLIENT</code></pre></a>
+    <h5>JavaScript (recomendado para uso apenas do lado do servidor)</h5>
+    <a class="highlight" href="https://app.omie.com.br/api/v1/servicos/oslote/?JSJSONCLIENT"><pre><code>https://app.omie.com.br/api/v1/servicos/oslote/?JSJSONCLIENT</code></pre></a>
+  </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="container">
+<div class="row">
+<div class="col-md-9">
+<h2>M&eacute;todos</h2>
+<p>Veja abaixo a documenta&ccedil;&atilde;o de cada m&eacute;todo dispon&iacute;vel para este servi&ccedil;o.</p>
+<div id="FaturarLoteOS" class="methodItem">
+<h3 class="method-name">FaturarLoteOS</h3>
+<p>
+
+</p>
+<div class="panel panel-default method">
+<div class="panel-heading"> Par&acirc;metros:
+</div>
+<table class="table table-condensed table-hover">
+<tr>
+<td class="">&nbsp;</td>
+<td class="method-parameter-type"><a href="#FaturarLoteOSRequest">FaturarLoteOSRequest</a></td>
+<td class="method-parameter-name">FaturarLoteOSRequest</td><td class="method-parameter-docs"><div class="first">Faturar Ordens de serviço em lote a partir da etapa informada.</div></td>
+</tr>
+</table>
+<div class="panel-footer">
+Retorno <span class="pre"><a href="#FaturarLoteOSResponse"><span class="lightBlue">FaturarLoteOSResponse</span></a></span>: 
+</div>
+</div>
+<div class="method-example-area">
+<h5>Exemplo:</h5>
+<pre class="method-example-code">{<BR>    "cEtapa":"50"<BR>}</pre>
+<button class="btn btn-success method-example" data-method="FaturarLoteOS" data-example="%7B++++%22cEtapa%22%3A%2250%22%7D">Teste agora mesmo</button>
+</div>
+</div>
+<div id="ListarLoteNfse" class="methodItem">
+<h3 class="method-name">ListarLoteNfse</h3>
+<p>
+
+</p>
+<div class="panel panel-default method">
+<div class="panel-heading"> Par&acirc;metros:
+</div>
+<table class="table table-condensed table-hover">
+<tr>
+<td class="">&nbsp;</td>
+<td class="method-parameter-type"><a href="#ListarLoteNfseRequest">ListarLoteNfseRequest</a></td>
+<td class="method-parameter-name">ListarLoteNfseRequest</td><td class="method-parameter-docs"><div class="first">Listar Ordens de serviço faturadas a partir do status informado.</div></td>
+</tr>
+</table>
+<div class="panel-footer">
+Retorno <span class="pre"><a href="#ListarLoteNfseResponse"><span class="lightBlue">ListarLoteNfseResponse</span></a></span>: 
+</div>
+</div>
+<div class="method-example-area">
+<h5>Exemplo:</h5>
+<pre class="method-example-code">{<BR>   "dDtFat":"01/09/2026",<BR>   "cStatusLote":"001"<BR>}</pre>
+<button class="btn btn-success method-example" data-method="ListarLoteNfse" data-example="%7B+++%22dDtFat%22%3A%2201%2F09%2F2026%22%2C+++%22cStatusLote%22%3A%22001%22%7D">Teste agora mesmo</button>
+</div>
+</div>
+<div id="ListarLotesOS" class="methodItem">
+<h3 class="method-name">ListarLotesOS</h3>
+<p>
+
+</p>
+<div class="panel panel-default method">
+<div class="panel-heading"> Par&acirc;metros:
+</div>
+<table class="table table-condensed table-hover">
+<tr>
+<td class="">&nbsp;</td>
+<td class="method-parameter-type"><a href="#ListarLotesOSRequest">ListarLotesOSRequest</a></td>
+<td class="method-parameter-name">ListarLotesOSRequest</td><td class="method-parameter-docs"><div class="first">Listar status de faturamento das Ordens de serviço a partir das datas de processamento.</div></td>
+</tr>
+</table>
+<div class="panel-footer">
+Retorno <span class="pre"><a href="#ListarLotesOSResponse"><span class="lightBlue">ListarLotesOSResponse</span></a></span>: 
+</div>
+</div>
+<div class="method-example-area">
+<h5>Exemplo:</h5>
+<pre class="method-example-code">{<BR>   "dDtIncDe":"01/09/2026",<BR>   "dDtIncAte":"01/09/2026"<BR>}</pre>
+<button class="btn btn-success method-example" data-method="ListarLotesOS" data-example="%7B+++%22dDtIncDe%22%3A%2201%2F09%2F2026%22%2C+++%22dDtIncAte%22%3A%2201%2F09%2F2026%22%7D">Teste agora mesmo</button>
+</div>
+</div>
+<div id="StatusLoteOS" class="methodItem">
+<h3 class="method-name">StatusLoteOS</h3>
+<p>
+Status do lote faturado a partir do ID.
+</p>
+<div class="panel panel-default method">
+<div class="panel-heading"> Par&acirc;metros:
+</div>
+<table class="table table-condensed table-hover">
+<tr>
+<td class="">&nbsp;</td>
+<td class="method-parameter-type"><a href="#StatusLoteOsRequest">StatusLoteOsRequest</a></td>
+<td class="method-parameter-name">StatusLoteOsRequest</td><td class="method-parameter-docs"><div class="first">Obtém o status do Lote da Ordem de Serviço</div></td>
+</tr>
+</table>
+<div class="panel-footer">
+Retorno <span class="pre"><a href="#StatusLoteOsResponse"><span class="lightBlue">StatusLoteOsResponse</span></a></span>: 
+</div>
+</div>
+<div class="method-example-area">
+<h5>Exemplo:</h5>
+<pre class="method-example-code">{<BR>    "nIdLoteFat":45223245<BR>}</pre>
+<button class="btn btn-success method-example" data-method="StatusLoteOS" data-example="%7B++++%22nIdLoteFat%22%3A45223245%7D">Teste agora mesmo</button>
+</div>
+</div>
+<h2>Tipos Complexos</h2>
+<div class="complexTypeItem">
+<a name="FaturarLoteOSRequest" class="anchorScroll"></a>
+<h3>FaturarLoteOSRequest</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">cEtapa</td>
+<td class="parameter-type">string<span class="parameter-lenght">2</span></td><td class="parameter-docs"><div class="first">Etapa da Operação de Venda.</div><div class="more"><a href="javascript:void(0)">+</a><div>Utilize a tag 'codigo' do método 'ListarEtapasFaturamento' da API<BR>/api/v1/produtos/etapafat/<BR>para obter essa informação.<BR><BR>Os valores são fixos, mas as descrições (funções atribuídas a cada coluna pode mudar. A API irá indicar a descrição de cada coluna.<BR><BR>Os valores disponíveis para esse campo podem ser:<BR><BR>'10' - Primeira coluna<BR>'20' - Segunda coluna<BR>'30' - Terceira coluna<BR>'40' - Quarta coluna<BR>'50' - Faturar</div></div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="FaturarLoteOSResponse" class="anchorScroll"></a>
+<h3>FaturarLoteOSResponse</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">nQtdeFat</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Qtde de Ordens de Serviço faturadas.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nIdLoteFat</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Id do Lote de Processamento</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCodStatus</td>
+<td class="parameter-type">string<span class="parameter-lenght">4</span></td><td class="parameter-docs"><div class="first">Código do status do processamento.</div><div class="more"><a href="javascript:void(0)">+</a><div>Se o retorno for '0' significa que a solicitação foi executada com sucesso.<BR>Se o retorno for maior que '0' ocorreu algum erro durante o processamento da solicitação.<BR>A tag 'cDesStatus' descreve o problema ocorrido.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cDesStatus</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Descrição do status do processamento.</div><div class="more"><a href="javascript:void(0)">+</a><div>Essa tag explica o resultado da tag 'cCodigoStatus'.</div></div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="ListarLoteNfseRequest" class="anchorScroll"></a>
+<h3>ListarLoteNfseRequest</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">nPagina</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Número da página que será listada.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nRegistros</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Número de registros retornados</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">dDtFat</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Data de Faturamento</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cStatusLote</td>
+<td class="parameter-type">string<span class="parameter-lenght">3</span></td><td class="parameter-docs"><div class="first">Código do status do lote enviado para a prefeitura.</div><div class="more"><a href="javascript:void(0)">+</a><div>Pode ser:<BR><BR>001 - Aguardando envio para a prefeitura.<BR>002 - Enviado para a prefeitura, aguardando processamento.<BR>003 - Processado com erro.<BR>004 - Processado com sucesso.<BR>005 - Cancelado com sucesso.</div></div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="ListarLoteNfseResponse" class="anchorScroll"></a>
+<h3>ListarLoteNfseResponse</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">nPagina</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Número da página que será listada.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nTotPaginas</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Total de páginas encontradas.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nRegistros</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Número de registros retornados</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nTotRegistros</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Total de registros encontrados.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nfseLote</td>
+<td class="parameter-type"><a href="#nfseLoteArray">nfseLoteArray</a></td><td class="parameter-docs"><div class="first">Notas encontradas para o Status e data de faturamento enviadas</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="ListarLotesOSRequest" class="anchorScroll"></a>
+<h3>ListarLotesOSRequest</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">nPagina</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Número da página que será listada.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nRegistros</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Número de registros retornados</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nIdLoteFat</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Id do Lote de Processamento</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cExibirDetalhes</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Exibe detalhamento do processamento por lote (S/N).</div><div class="more"><a href="javascript:void(0)">+</a><div>Default "N"</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">dDtIncDe</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Data de Inclusão do processamento</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">dDtIncAte</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Data de Inclusão até do processamento</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="ListarLotesOSResponse" class="anchorScroll"></a>
+<h3>ListarLotesOSResponse</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">nPagina</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Número da página que será listada.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nTotPaginas</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Total de páginas encontradas.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nRegistros</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Número de registros retornados</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nTotRegistros</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Total de registros encontrados.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">lotes</td>
+<td class="parameter-type"><a href="#lotesArray">lotesArray</a></td><td class="parameter-docs"><div class="first">Notas encontradas para data de faturamento enviadas</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="StatusLoteOsRequest" class="anchorScroll"></a>
+<h3>StatusLoteOsRequest</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">nIdLoteFat</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Id do Lote de Faturamento da Ordem de Serviço</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="StatusLoteOsResponse" class="anchorScroll"></a>
+<h3>StatusLoteOsResponse</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">nIdLoteFat</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Id do Lote de Faturamento da Ordem de Serviço</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nQtdeTotal</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Quantidade de Contrato de Serviço na Fila</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nQtdeProcessadas</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Quantidade de Contrato de Serviços processados</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cOrigem</td>
+<td class="parameter-type">string<span class="parameter-lenght">3</span></td><td class="parameter-docs"><div class="first">Origem do faturamento.</div><div class="more"><a href="javascript:void(0)">+</a><div>MAN-Manual<BR>SCH-Scheduler<BR>API - Integração</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cStatus</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Status do faturamento.</div><div class="more"><a href="javascript:void(0)">+</a><div>RUNNING<BR>DONE<BR>ERROR</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">dUltimaAtual</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Data da última atualização</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">hUltimaAtual</td>
+<td class="parameter-type">string<span class="parameter-lenght">8</span></td><td class="parameter-docs"><div class="first">Hora da última atualização</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">dInicioProc</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Data de Inicio do Faturamento</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">hInicioProc</td>
+<td class="parameter-type">string<span class="parameter-lenght">8</span></td><td class="parameter-docs"><div class="first">Hora de Inicio do Faturamento</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">dConclusaoProc</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Data de conclusão do Faturamento</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">hConclusaoProc</td>
+<td class="parameter-type">string<span class="parameter-lenght">8</span></td><td class="parameter-docs"><div class="first">Hora de conclusão do Faturamento</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="detalhes" class="anchorScroll"></a>
+<h3>detalhes</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">nIdPedido</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Id do pedido processado</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cStatus</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Status do faturamento.</div><div class="more"><a href="javascript:void(0)">+</a><div>RUNNING<BR>DONE<BR>ERROR</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cMensagem</td>
+<td class="parameter-type">string<span class="parameter-lenght">500</span></td><td class="parameter-docs"><div class="first">Detalhamento do Status do processamento.</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="lotes" class="anchorScroll"></a>
+<h3>lotes</h3>
+<p>Notas encontradas para data de faturamento enviadas</p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">nIdLoteFat</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Id do Lote de Faturamento da Ordem de Serviço</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nQtdeTotal</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Quantidade de Contrato de Serviço na Fila</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nQtdeProcessadas</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Quantidade de Contrato de Serviços processados</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cOrigem</td>
+<td class="parameter-type">string<span class="parameter-lenght">3</span></td><td class="parameter-docs"><div class="first">Origem do faturamento.</div><div class="more"><a href="javascript:void(0)">+</a><div>MAN-Manual<BR>SCH-Scheduler<BR>API - Integração</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cStatus</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Status do faturamento.</div><div class="more"><a href="javascript:void(0)">+</a><div>RUNNING<BR>DONE<BR>ERROR</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">dUltimaAtual</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Data da última atualização</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">hUltimaAtual</td>
+<td class="parameter-type">string<span class="parameter-lenght">8</span></td><td class="parameter-docs"><div class="first">Hora da última atualização</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">dInicioProc</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Data de Inicio do Faturamento</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">hInicioProc</td>
+<td class="parameter-type">string<span class="parameter-lenght">8</span></td><td class="parameter-docs"><div class="first">Hora de Inicio do Faturamento</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">dConclusaoProc</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Data de conclusão do Faturamento</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">hConclusaoProc</td>
+<td class="parameter-type">string<span class="parameter-lenght">8</span></td><td class="parameter-docs"><div class="first">Hora de conclusão do Faturamento</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">detalhes</td>
+<td class="parameter-type"><a href="#detalhes">detalhes</a></td><td class="parameter-docs"><div class="first">Ordens de serviços que foram processadas pelo lote filtrado</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="lotesArray" class="anchorScroll"></a>
+<h3>lotesArray</h3>
+<p>Este par&acirc;metro &eacute; um array do tipo <span class="pre"><a href="#lotes"><span class="lightBlue">lotes</span></a></span></p>
+<p>Lista de lotes</p>
+</div>
+<div class="complexTypeItem">
+<a name="nfseLote" class="anchorScroll"></a>
+<h3>nfseLote</h3>
+<p>Notas encontradas para o Status e data de faturamento enviadas</p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">nLote</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Lote da NFS-e gerada.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cNumOs</td>
+<td class="parameter-type">string<span class="parameter-lenght">15</span></td><td class="parameter-docs"><div class="first">Número da Ordem de Serviço</div><div class="more"><a href="javascript:void(0)">+</a><div>(Conforme visualizada em tela pelo cliente)</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cNumContrato</td>
+<td class="parameter-type">string<span class="parameter-lenght">20</span></td><td class="parameter-docs"><div class="first">Número do Contrato</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nCodOS</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">ID da Ordem de Serviço (código interno de controle).</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cNumRps</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Número do Recibo Provisório de Serviços (RPS).</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cNumNfse</td>
+<td class="parameter-type">string<span class="parameter-lenght">20</span></td><td class="parameter-docs"><div class="first">Número da NFS-e gerada.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCodVerif</td>
+<td class="parameter-type">string<span class="parameter-lenght">50</span></td><td class="parameter-docs"><div class="first">Código de Verificação da NFS-e gerada.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nCodNF</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código da Nota Fiscal gerada.</div><div class="more"><a href="javascript:void(0)">+</a><div>(Gerado Internamente, não é exibido na tela)</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">dDtFat</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Data de Faturamento</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cStatusLote</td>
+<td class="parameter-type">string<span class="parameter-lenght">3</span></td><td class="parameter-docs"><div class="first">Código do status do lote enviado para a prefeitura.</div><div class="more"><a href="javascript:void(0)">+</a><div>Pode ser:<BR><BR>001 - Aguardando envio para a prefeitura.<BR>002 - Enviado para a prefeitura, aguardando processamento.<BR>003 - Processado com erro.<BR>004 - Processado com sucesso.<BR>005 - Cancelado com sucesso.</div></div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="nfseLoteArray" class="anchorScroll"></a>
+<h3>nfseLoteArray</h3>
+<p>Este par&acirc;metro &eacute; um array do tipo <span class="pre"><a href="#nfseLote"><span class="lightBlue">nfseLote</span></a></span></p>
+<p>Lista de nfseLote</p>
+</div>
+<div class="complexTypeItem">
+<a name="omie_fail" class="anchorScroll"></a>
+<h3>omie_fail</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">code</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Codigo do erro</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">description</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Descricao do erro</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-required">referer</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Origem do erro</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-required">fatal</td>
+<td class="parameter-type">boolean</td><td class="parameter-docs"><div class="first">Indica se eh um erro fatal</div></td>
+<tr>
+</table>
+</div>
+</div>
+<div class="col-md-3">
+<div id="affix-menu" data-spy="affix" data-offset-top="294">
+<h2>M&eacute;todos</h2>
+<nav id="index" class="hidden-print hidden-xs hidden-sm">
+<ul class="nav">
+<li><a href="#FaturarLoteOS">FaturarLoteOS</a></li>
+<li><a href="#ListarLoteNfse">ListarLoteNfse</a></li>
+<li><a href="#ListarLotesOS">ListarLotesOS</a></li>
+<li><a href="#StatusLoteOS">StatusLoteOS</a></li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+</body>
+</html>

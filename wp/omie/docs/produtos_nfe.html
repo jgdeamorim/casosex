@@ -1,0 +1,848 @@
+<nav class="navbar navbar-expand-lg bg-azul">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="https://developer.omie.com.br/">
+            <img class="lozad img-logo" data-src="https://static.omie.com.br/images/logo/logo-omie-topo.png" src="https://static.omie.com.br/images/logo/logo-omie-topo.png" data-loaded="true">
+        </a>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <span class="borda-hover"></span>
+                    <a class="nav-link" href="https://developer.omie.com.br/my-apps/"> Aplicativos </a>
+                </li>
+                <li class="nav-item ">
+                    <span class="borda-hover"></span>
+                    <a class="nav-link" href="https://developer.omie.com.br/service-list/">
+                        Lista das API's
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <span class="borda-hover"></span>
+                    <a class="nav-link" href="https://ajuda.omie.com.br/pt-BR/collections/3045828-apis" target="_blank"> Ajuda </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<html>
+<head>
+<title>nfe</title>
+<style type="text/css" media="all">
+  [id] { scroll-margin-top: 68px; }
+</style>
+<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+<script src="https://cdn.omie.com.br/omie-assets/js/omie-compat-v2.min.js"></script>
+<script src="/developer/themes/omie/developer.js?ts=2021.008"></script>
+<link rel="stylesheet" href="//app.omie.com.br/wp-content/themes/omie/bootstrap/css/bootstrap.min.css" async/>
+<link href="https://cdn.omie.com.br/assets/developer/css/site.css?ts=2021.008" media="all" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="/developer/themes/omie/developer.css?ts=2021.008" async/>
+</head>
+<body>
+<div class="jumbotron banner bg-azul">
+<div class="container">
+<img src="https://cdn.omie.com.br/assets/developer/images/seta-azuis.png" alt="" class="img-setas">
+<div class="row align-items-center">
+<div class="col-12">
+<h1>nfe</h1>
+<ul class="nav nav-tabs" role="tablist">
+  <li role="presentation" class="active"><a href="#section-endpoint" aria-controls="section-endpoint" role="tab" data-toggle="tab">Endpoint</a></li>
+  <li role="presentation" class="pull-right"><a href="#section-wsdl" aria-controls="section-wsdl" role="tab" data-toggle="tab">WSDL</a></li>
+  <li role="presentation" class="pull-right"><a href="#section-php-soap" aria-controls="section-php-soap" role="tab" data-toggle="tab">PHP SOAP</a></li>
+  <li role="presentation" class="pull-right"><a href="#section-json" aria-controls="section-json" role="tab" data-toggle="tab">JSON</a></li>
+</ul>
+<div class="tab-content">
+  <div role="tabpanel" class="tab-pane fade in active" id="section-endpoint">
+    <h4>Endpoint URI</h4>
+    <a class="highlight" href="https://app.omie.com.br/api/v1/produtos/nfe/"><pre><code>https://app.omie.com.br/api/v1/produtos/nfe/</code></pre></a>
+  </div>
+  <div role="tabpanel" class="tab-pane fade" id="section-wsdl">
+    <h4>WSDL URI</h4>
+    <a class="highlight" href="https://app.omie.com.br/api/v1/produtos/nfe/?WSDL"><pre><code>https://app.omie.com.br/api/v1/produtos/nfe/?WSDL</code></pre></a>
+  </div>
+  <div role="tabpanel" class="tab-pane fade" id="section-php-soap">
+    <h4>PHP SOAP client download</h4>
+    <a class="highlight" href="https://app.omie.com.br/api/v1/produtos/nfe/?PHPSOAPCLIENT""><pre><code>https://app.omie.com.br/api/v1/produtos/nfe/?PHPSOAPCLIENT</code></pre></a>
+  </div>
+  <div role="tabpanel" class="tab-pane fade" id="section-json">
+    <h4>JSON client download URI</h4>
+    <h5>PHP</h5>
+    <a class="highlight" href="https://app.omie.com.br/api/v1/produtos/nfe/?PHPJSONCLIENT"><pre><code>https://app.omie.com.br/api/v1/produtos/nfe/?PHPJSONCLIENT</code></pre></a>
+    <h5>JavaScript (recomendado para uso apenas do lado do servidor)</h5>
+    <a class="highlight" href="https://app.omie.com.br/api/v1/produtos/nfe/?JSJSONCLIENT"><pre><code>https://app.omie.com.br/api/v1/produtos/nfe/?JSJSONCLIENT</code></pre></a>
+  </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="container">
+<div class="row">
+<div class="col-md-9">
+<h2>M&eacute;todos</h2>
+<p>Veja abaixo a documenta&ccedil;&atilde;o de cada m&eacute;todo dispon&iacute;vel para este servi&ccedil;o.</p>
+<div id="ExcluirNFe" class="methodItem">
+<h3 class="method-name">ExcluirNFe</h3>
+<p>
+
+</p>
+<div class="panel panel-default method">
+<div class="panel-heading"> Par&acirc;metros:
+</div>
+<table class="table table-condensed table-hover">
+<tr>
+<td class="">&nbsp;</td>
+<td class="method-parameter-type"><a href="#nfeExcluirRequest">nfeExcluirRequest</a></td>
+<td class="method-parameter-name">nfeExcluirRequest</td><td class="method-parameter-docs"><div class="first">Solicitação da Exclusão de NF-e.</div></td>
+</tr>
+</table>
+<div class="panel-footer">
+Retorno <span class="pre"><a href="#nfeExcluirResponse"><span class="lightBlue">nfeExcluirResponse</span></a></span>: 
+</div>
+</div>
+<div class="method-example-area">
+<h5>Exemplo:</h5>
+<pre class="method-example-code">{<BR>    "cChaveNFe": "",<BR>    "nIdImportacao": 0,<BR>    "nIdNFe": 0<BR>}</pre>
+<button class="btn btn-success method-example" data-method="ExcluirNFe" data-example="%7B++++%22cChaveNFe%22%3A+%22%22%2C++++%22nIdImportacao%22%3A+0%2C++++%22nIdNFe%22%3A+0%7D">Teste agora mesmo</button>
+</div>
+</div>
+<div id="ImportarCancNFe" class="methodItem">
+<h3 class="method-name">ImportarCancNFe</h3>
+<p>
+
+</p>
+<div class="panel panel-default method">
+<div class="panel-heading"> Par&acirc;metros:
+</div>
+<table class="table table-condensed table-hover">
+<tr>
+<td class="">&nbsp;</td>
+<td class="method-parameter-type"><a href="#nfeCancelarRequest">nfeCancelarRequest</a></td>
+<td class="method-parameter-name">nfeCancelarRequest</td><td class="method-parameter-docs"><div class="first">Solicitação de Cancelamento da NF-e.</div></td>
+</tr>
+</table>
+<div class="panel-footer">
+Retorno <span class="pre"><a href="#nfeCancelarResponse"><span class="lightBlue">nfeCancelarResponse</span></a></span>: 
+</div>
+</div>
+<div class="method-example-area">
+<h5>Exemplo:</h5>
+<pre class="method-example-code">{<BR>   "cAppNome": "GeradorNFe",<BR>   "cAppVersao": "1.01.02",<BR>   "cAppId": "NFe01",<BR>   "cChaveNFe": "",<BR>   "cXmlNFeCanc": "",<BR>   "cMd5NFeCanc": ""<BR>}</pre>
+<button class="btn btn-success method-example" data-method="ImportarCancNFe" data-example="%7B+++%22cAppNome%22%3A+%22GeradorNFe%22%2C+++%22cAppVersao%22%3A+%221.01.02%22%2C+++%22cAppId%22%3A+%22NFe01%22%2C+++%22cChaveNFe%22%3A+%22%22%2C+++%22cXmlNFeCanc%22%3A+%22%22%2C+++%22cMd5NFeCanc%22%3A+%22%22%7D">Teste agora mesmo</button>
+</div>
+</div>
+<div id="ImportarNFe" class="methodItem">
+<h3 class="method-name">ImportarNFe</h3>
+<p>
+
+</p>
+<div class="panel panel-default method">
+<div class="panel-heading"> Par&acirc;metros:
+</div>
+<table class="table table-condensed table-hover">
+<tr>
+<td class="">&nbsp;</td>
+<td class="method-parameter-type"><a href="#nfeImportarRequest">nfeImportarRequest</a></td>
+<td class="method-parameter-name">nfeImportarRequest</td><td class="method-parameter-docs"><div class="first">Solicitação do Importação de NF-e.</div></td>
+</tr>
+</table>
+<div class="panel-footer">
+Retorno <span class="pre"><a href="#nfeImportarResponse"><span class="lightBlue">nfeImportarResponse</span></a></span>: 
+</div>
+</div>
+<div class="method-example-area">
+<h5>Exemplo:</h5>
+<pre class="method-example-code">{<BR>   "cAppNome": "GeradorNFe",<BR>   "cAppVersao": "1.01.02",<BR>   "cAppId": "NFe01",<BR>   "cChaveNFe": "",<BR>   "cXmlNFe": "",<BR>   "cMd5NFe": "",<BR>   "cOperacao": "11",<BR>   "cOrigem": "API",<BR>   "nCliente": 0,<BR>   "cCategoria": "1.01.02",<BR>   "nContaCorrente": 0,<BR>   "codigo_local_estoque": 0,<BR>   "lNaoMovEstoque": true,<BR>   "lNaoGerarTitulo": false,<BR>   "lNaoIncluirCliente": false,<BR>   "lNaoIncluirProduto": true<BR>}</pre>
+<button class="btn btn-success method-example" data-method="ImportarNFe" data-example="%7B+++%22cAppNome%22%3A+%22GeradorNFe%22%2C+++%22cAppVersao%22%3A+%221.01.02%22%2C+++%22cAppId%22%3A+%22NFe01%22%2C+++%22cChaveNFe%22%3A+%22%22%2C+++%22cXmlNFe%22%3A+%22%22%2C+++%22cMd5NFe%22%3A+%22%22%2C+++%22cOperacao%22%3A+%2211%22%2C+++%22cOrigem%22%3A+%22API%22%2C+++%22nCliente%22%3A+0%2C+++%22cCategoria%22%3A+%221.01.02%22%2C+++%22nContaCorrente%22%3A+0%2C+++%22codigo_local_estoque%22%3A+0%2C+++%22lNaoMovEstoque%22%3A+true%2C+++%22lNaoGerarTitulo%22%3A+false%2C+++%22lNaoIncluirCliente%22%3A+false%2C+++%22lNaoIncluirProduto%22%3A+true%7D">Teste agora mesmo</button>
+</div>
+</div>
+<div id="ListarNFe" class="methodItem">
+<h3 class="method-name">ListarNFe</h3>
+<p>
+Lista as NFes importadas.
+</p>
+<div class="panel panel-default method">
+<div class="panel-heading"> Par&acirc;metros:
+</div>
+<table class="table table-condensed table-hover">
+<tr>
+<td class="">&nbsp;</td>
+<td class="method-parameter-type"><a href="#nfeListarRequest">nfeListarRequest</a></td>
+<td class="method-parameter-name">nfeListarRequest</td><td class="method-parameter-docs"><div class="first">Listagem de NF-es importadas.</div></td>
+</tr>
+</table>
+<div class="panel-footer">
+Retorno <span class="pre"><a href="#nfeListarResponse"><span class="lightBlue">nfeListarResponse</span></a></span>: 
+</div>
+</div>
+<div class="method-example-area">
+<h5>Exemplo:</h5>
+<pre class="method-example-code">{<BR>  "nPagina": 1,<BR>  "nRegPorPagina": 50,<BR>  "dDataEmissaoInicial": "01/09/2026",<BR>  "dDataEmissaoFinal": "01/09/2026"<BR>}</pre>
+<button class="btn btn-success method-example" data-method="ListarNFe" data-example="%7B++%22nPagina%22%3A+1%2C++%22nRegPorPagina%22%3A+50%2C++%22dDataEmissaoInicial%22%3A+%2201%2F09%2F2026%22%2C++%22dDataEmissaoFinal%22%3A+%2201%2F09%2F2026%22%7D">Teste agora mesmo</button>
+</div>
+</div>
+<h2>Tipos Complexos</h2>
+<div class="complexTypeItem">
+<a name="itens" class="anchorScroll"></a>
+<h3>itens</h3>
+<p>Itens da Nota Fiscal.</p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">nSequencia</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Número da Sequencia.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento obrigatório na Estrutura Itens. Para ItensXml apenas quando for informada a tag lote_validade.<BR><BR>Para os itens da NF identifica qual o item do XML se refere.<BR><BR>Para as parcelas da NF identifica o número da parcela.<BR><BR>Para os lançamentos no Conta Corrente indentifica o lançamento que será gerado.<BR><BR>Permite sequencial de 1 a 999.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nIdProduto</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">ID do produto.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento opcional.<BR><BR>Caso não informado, fará a pesquisa do produto de acordo com os dados do XML da NF-e.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCategoria</td>
+<td class="parameter-type">string<span class="parameter-lenght">20</span></td><td class="parameter-docs"><div class="first">Código da Categoria.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento opcional.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">lNaoGerarTitulo</td>
+<td class="parameter-type">boolean</td><td class="parameter-docs"><div class="first">Não gerar título de contas a pagar ou receber para a NF-e.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento opcional.<BR><BR>Pode ser:<BR>true - inibe a geração do título de Contas a Pagar ou Receber no financeiro.<BR>false - Gera o ítulo de Contas a Pagar ou Receber no financeiro.<BR><BR>O padrão é true.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">lote_validade</td>
+<td class="parameter-type"><a href="#lote_validadeArray">lote_validadeArray</a></td><td class="parameter-docs"><div class="first">Informações referentes ao lote e validade do produto.</div><div class="more"><a href="javascript:void(0)">+</a><div>A tag só deve ser informada se o produto possuir controle de lote e se a intenção é informar os lotes "manualmente" por API.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">lNaoMovEstoque</td>
+<td class="parameter-type">boolean</td><td class="parameter-docs"><div class="first">Não movimentar o estoque.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento opcional.<BR><BR>Pode ser:<BR>true - inibe a movimentação do estoque.<BR>false - Gera o movimentação do estoque.<BR><BR>O padrão é true.<BR><BR>Prevalece a informa</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">codigo_local_estoque</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código do local do estoque.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento opcional.<BR><BR>Assumirá o local padrão de estoque caso não informado.</div></div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="itensArray" class="anchorScroll"></a>
+<h3>itensArray</h3>
+<p>Este par&acirc;metro &eacute; um array do tipo <span class="pre"><a href="#itens"><span class="lightBlue">itens</span></a></span></p>
+<p>Lista de itens</p>
+</div>
+<div class="complexTypeItem">
+<a name="itensXml" class="anchorScroll"></a>
+<h3>itensXml</h3>
+<p>Dados dos Itens da NF-e.</p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">cProdXml</td>
+<td class="parameter-type">string<span class="parameter-lenght">60</span></td><td class="parameter-docs"><div class="first">Código do produto no XML da NF-e.</div><div class="more"><a href="javascript:void(0)">+</a><div>Essa informação está localizada na tag "cProd" do XML da NF-e, ela é utilizada para identificar o produto no XML.<BR><BR>Preenchimento obrigatório.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nIdProdutoXml</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">ID do produto no Omie que será vinculado ao produto informado na tag "cProdXml".</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento obrigatório.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">lote_validade</td>
+<td class="parameter-type"><a href="#lote_validadeArray">lote_validadeArray</a></td><td class="parameter-docs"><div class="first">Informações referentes ao lote e validade do produto.</div><div class="more"><a href="javascript:void(0)">+</a><div>A tag só deve ser informada se o produto possuir controle de lote e se a intenção é informar os lotes "manualmente" por API.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nSequencia</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Número da Sequencia.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento obrigatório na Estrutura Itens. Para ItensXml apenas quando for informada a tag lote_validade.<BR><BR>Para os itens da NF identifica qual o item do XML se refere.<BR><BR>Para as parcelas da NF identifica o número da parcela.<BR><BR>Para os lançamentos no Conta Corrente indentifica o lançamento que será gerado.<BR><BR>Permite sequencial de 1 a 999.</div></div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="itensXmlArray" class="anchorScroll"></a>
+<h3>itensXmlArray</h3>
+<p>Este par&acirc;metro &eacute; um array do tipo <span class="pre"><a href="#itensXml"><span class="lightBlue">itensXml</span></a></span></p>
+<p>Lista de itensXml</p>
+</div>
+<div class="complexTypeItem">
+<a name="lancamentos" class="anchorScroll"></a>
+<h3>lancamentos</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">nSequencia</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Número da Sequencia.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento obrigatório na Estrutura Itens. Para ItensXml apenas quando for informada a tag lote_validade.<BR><BR>Para os itens da NF identifica qual o item do XML se refere.<BR><BR>Para as parcelas da NF identifica o número da parcela.<BR><BR>Para os lançamentos no Conta Corrente indentifica o lançamento que será gerado.<BR><BR>Permite sequencial de 1 a 999.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cNaturezaDocumento</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Natureza do Documento.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento Obrigatório.<BR><BR>Pode ser:<BR>P - Pagar<BR>R - Receber</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nValorDocumento</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Valor do Documento.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento Obrigatório.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">dDataDocumento</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Data do documento.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento Obrigatório.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cTipoDocumento</td>
+<td class="parameter-type">string<span class="parameter-lenght">5</span></td><td class="parameter-docs"><div class="first">Tipo de Documento.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento opcional.<BR><BR>Lista de tipos de documentos em:<BR>/api/v1/geral/tiposdoc</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCategoria</td>
+<td class="parameter-type">string<span class="parameter-lenght">20</span></td><td class="parameter-docs"><div class="first">Código da Categoria.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento opcional.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nContaCorrente</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Id da Conta Corrente.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento opcional.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cOrigem</td>
+<td class="parameter-type">string<span class="parameter-lenght">3</span></td><td class="parameter-docs"><div class="first">Origem da Nota Fiscal.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento opcional.<BR><BR>Códigos Disponíveis:<BR><BR>API - Importado via API.<BR></div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cObs</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Observações.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento opcional.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nProjeto</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Id do projeto.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento opcional.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nVendedor</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Id do Vendedor.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento opcional.</div></div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="lancamentosArray" class="anchorScroll"></a>
+<h3>lancamentosArray</h3>
+<p>Este par&acirc;metro &eacute; um array do tipo <span class="pre"><a href="#lancamentos"><span class="lightBlue">lancamentos</span></a></span></p>
+<p>Lista de lancamentos</p>
+</div>
+<div class="complexTypeItem">
+<a name="listagemNfe" class="anchorScroll"></a>
+<h3>listagemNfe</h3>
+<p>Lista de NFes importadas.</p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">cAppNome</td>
+<td class="parameter-type">string<span class="parameter-lenght">20</span></td><td class="parameter-docs"><div class="first">Nome do Aplicativo que emitiu a NF-e.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento obrigatório.<BR><BR>Exemplo:<BR>GeradorNF-e</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cAppVersao</td>
+<td class="parameter-type">string<span class="parameter-lenght">20</span></td><td class="parameter-docs"><div class="first">Versão do Aplicativo que emitiu a NF-e.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento obrigatório.<BR><BR>Exemplo:<BR>1.02.01</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cAppId</td>
+<td class="parameter-type">string<span class="parameter-lenght">100</span></td><td class="parameter-docs"><div class="first">Identificação do aplicativo que emitiu a NF-e.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento obrigatório.<BR><BR>Exemplo:<BR>ID001<BR><BR>PS: Informe o código que identifica a instalação do aplicativo.<BR>Caso o cliente tenha 2 Emissores de NF-e, indique: "01" e "02" ou "10" e "20" e assim por diante.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cOperacao</td>
+<td class="parameter-type">string<span class="parameter-lenght">2</span></td><td class="parameter-docs"><div class="first">Tipo de Operação da Nota Fiscal.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento obrigatório.<BR><BR>Códigos Disponíveis:<BR><BR>11 - Venda de produtos<BR>21 - Compra de produtos</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cOrigem</td>
+<td class="parameter-type">string<span class="parameter-lenght">3</span></td><td class="parameter-docs"><div class="first">Origem da Nota Fiscal.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento opcional.<BR><BR>Códigos Disponíveis:<BR><BR>API - Importado via API.<BR></div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nCliente</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Id do cliente.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento opcional.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nIdImportacao</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">ID da Importação da NF-e.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nIdNFe</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">ID do NF-e.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cChaveNFe</td>
+<td class="parameter-type">string<span class="parameter-lenght">44</span></td><td class="parameter-docs"><div class="first">Chave da NF-e a ser importada.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento obrigatório.<BR><BR>Apenas números com 44 digitos.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">dDataEmissao</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Data de emissão da NF-e.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cNumeroNFe</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Número da NF-e.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nValorNFe</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Valor da NF-e.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cStatus</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Status da importação.</div><div class="more"><a href="javascript:void(0)">+</a><div>Pode ser:<BR>1 - Em processamento.<BR>4 - Importada com sucesso.<BR>9 - Erro na importação.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">dDataImportacao</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Data da importação</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cHoraImportacao</td>
+<td class="parameter-type">string<span class="parameter-lenght">8</span></td><td class="parameter-docs"><div class="first">Hora da importação.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cExcluido</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Indica se o registro foi excluído (S ou N).</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">dDataExclusao</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Data de exclusão.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cHoraExclusao</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Hora de exclusão.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nIdExcusao</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">ID da exclusão.</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="listagemNfeArray" class="anchorScroll"></a>
+<h3>listagemNfeArray</h3>
+<p>Este par&acirc;metro &eacute; um array do tipo <span class="pre"><a href="#listagemNfe"><span class="lightBlue">listagemNfe</span></a></span></p>
+<p>Lista de listagemNfe</p>
+</div>
+<div class="complexTypeItem">
+<a name="lote_validade" class="anchorScroll"></a>
+<h3>lote_validade</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">nIdLote</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Id do lote do produto. (Opcional)</div><div class="more"><a href="javascript:void(0)">+</a><div>Se não informado iremos cadastrar um novo lote.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nQtdLote</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Informe aqui a quantidade do lote para o produto.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento obrigatório quando o produto possui controle de lote.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cNumLote</td>
+<td class="parameter-type">string<span class="parameter-lenght">60</span></td><td class="parameter-docs"><div class="first">Número do lote do produto.</div><div class="more"><a href="javascript:void(0)">+</a><div>Deve ser informado apenas quando a tag [nIdLote] não for informada, com isso, será criado um novo lote a partir do número informado.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCodAgreg</td>
+<td class="parameter-type">string<span class="parameter-lenght">20</span></td><td class="parameter-docs"><div class="first">Código de agregação do lote do produto. (Opcional)</div><div class="more"><a href="javascript:void(0)">+</a><div></div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">dDataFab</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Data de fabricação do lote.</div><div class="more"><a href="javascript:void(0)">+</a><div>Deve ser informado apenas quando a tag [nIdLote] não for informada.<BR><BR>Como default é utilizado a data atual.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">dDataVal</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Data de validade do lote.</div><div class="more"><a href="javascript:void(0)">+</a><div>Deve ser informado apenas quando a tag [nIdLote] não for informada.</div></div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="lote_validadeArray" class="anchorScroll"></a>
+<h3>lote_validadeArray</h3>
+<p>Este par&acirc;metro &eacute; um array do tipo <span class="pre"><a href="#lote_validade"><span class="lightBlue">lote_validade</span></a></span></p>
+<p>Lista de lote_validade</p>
+</div>
+<div class="complexTypeItem">
+<a name="nfeCancelarRequest" class="anchorScroll"></a>
+<h3>nfeCancelarRequest</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">cAppNome</td>
+<td class="parameter-type">string<span class="parameter-lenght">20</span></td><td class="parameter-docs"><div class="first">Nome do Aplicativo que emitiu a NF-e.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento obrigatório.<BR><BR>Exemplo:<BR>GeradorNF-e</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cAppVersao</td>
+<td class="parameter-type">string<span class="parameter-lenght">20</span></td><td class="parameter-docs"><div class="first">Versão do Aplicativo que emitiu a NF-e.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento obrigatório.<BR><BR>Exemplo:<BR>1.02.01</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cAppId</td>
+<td class="parameter-type">string<span class="parameter-lenght">100</span></td><td class="parameter-docs"><div class="first">Identificação do aplicativo que emitiu a NF-e.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento obrigatório.<BR><BR>Exemplo:<BR>ID001<BR><BR>PS: Informe o código que identifica a instalação do aplicativo.<BR>Caso o cliente tenha 2 Emissores de NF-e, indique: "01" e "02" ou "10" e "20" e assim por diante.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cChaveNfe</td>
+<td class="parameter-type">string<span class="parameter-lenght">44</span></td><td class="parameter-docs"><div class="first">Chave da NF-e a ser importada.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento obrigatório.<BR><BR>Apenas números com 44 digitos.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nIdImportacao</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">ID da Importação da NF-e.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nIdNFe</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">ID do NF-e.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cXmlNFeCanc</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Xml de Cancelamento do CT-e.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preechimento obrigatório.<BR><BR>Antes de enviar, converta os seus seguintes caracteres:<BR><BR>&amp; para &amp;amp; <BR>> para &amp;gt;<BR>< para &amp;lt;<BR>" para &amp;quot;<BR>" para &amp;apos;<BR>| para &amp;#124;<BR><BR>Após essa conversão aplique o MD5 para enviar no campo "cMd5CteCanc".<BR><BR>Observação: Para requisições SOAP usar CDATA como demonstra o exemplo abaixo:<BR>&lt;![CDATA[Conteúdo do campo convertido]]&gt;</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cMd5NFeCanc</td>
+<td class="parameter-type">string<span class="parameter-lenght">32</span></td><td class="parameter-docs"><div class="first">MD5 do arquivo XML importado.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento obrigatório.<BR><BR>Aplique o MD5 sobre o XML antes de realizar o consumo.<BR></div></div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="nfeCancelarResponse" class="anchorScroll"></a>
+<h3>nfeCancelarResponse</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">nIdImportacao</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">ID da Importação da NF-e.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nIdNFe</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">ID do NF-e.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cChaveNFe</td>
+<td class="parameter-type">string<span class="parameter-lenght">44</span></td><td class="parameter-docs"><div class="first">Chave da NF-e a ser importada.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento obrigatório.<BR><BR>Apenas números com 44 digitos.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCodStatus</td>
+<td class="parameter-type">string<span class="parameter-lenght">4</span></td><td class="parameter-docs"><div class="first">Código do Status do processamento.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cDesStatus</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Descrição do status de processamento.</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="nfeExcluirRequest" class="anchorScroll"></a>
+<h3>nfeExcluirRequest</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">nIdImportacao</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">ID da Importação da NF-e.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nIdNFe</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">ID do NF-e.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cChaveNFe</td>
+<td class="parameter-type">string<span class="parameter-lenght">44</span></td><td class="parameter-docs"><div class="first">Chave da NF-e a ser importada.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento obrigatório.<BR><BR>Apenas números com 44 digitos.</div></div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="nfeExcluirResponse" class="anchorScroll"></a>
+<h3>nfeExcluirResponse</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">nIdImportacao</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">ID da Importação da NF-e.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nIdNFe</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">ID do NF-e.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cChaveNFe</td>
+<td class="parameter-type">string<span class="parameter-lenght">44</span></td><td class="parameter-docs"><div class="first">Chave da NF-e a ser importada.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento obrigatório.<BR><BR>Apenas números com 44 digitos.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCodStatus</td>
+<td class="parameter-type">string<span class="parameter-lenght">4</span></td><td class="parameter-docs"><div class="first">Código do Status do processamento.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cDesStatus</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Descrição do status de processamento.</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="nfeImportarRequest" class="anchorScroll"></a>
+<h3>nfeImportarRequest</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">cAppNome</td>
+<td class="parameter-type">string<span class="parameter-lenght">20</span></td><td class="parameter-docs"><div class="first">Nome do Aplicativo que emitiu a NF-e.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento obrigatório.<BR><BR>Exemplo:<BR>GeradorNF-e</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cAppVersao</td>
+<td class="parameter-type">string<span class="parameter-lenght">20</span></td><td class="parameter-docs"><div class="first">Versão do Aplicativo que emitiu a NF-e.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento obrigatório.<BR><BR>Exemplo:<BR>1.02.01</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cAppId</td>
+<td class="parameter-type">string<span class="parameter-lenght">100</span></td><td class="parameter-docs"><div class="first">Identificação do aplicativo que emitiu a NF-e.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento obrigatório.<BR><BR>Exemplo:<BR>ID001<BR><BR>PS: Informe o código que identifica a instalação do aplicativo.<BR>Caso o cliente tenha 2 Emissores de NF-e, indique: "01" e "02" ou "10" e "20" e assim por diante.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cChaveNFe</td>
+<td class="parameter-type">string<span class="parameter-lenght">44</span></td><td class="parameter-docs"><div class="first">Chave da NF-e a ser importada.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento obrigatório.<BR><BR>Apenas números com 44 digitos.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cXmlNFe</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Xml da NF-e a ser importada.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento obrigatório.<BR><BR>Antes de enviar, converta os seus seguintes caracteres:<BR><BR>&amp; para &amp;amp; <BR>> para &amp;gt;<BR>< para &amp;lt;<BR>" para &amp;quot;<BR>" para &amp;apos;<BR>| para &amp;#124;<BR><BR>Após essa conversão aplique o MD5 para enviar no campo "cMd5NFe".</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cMd5NFe</td>
+<td class="parameter-type">string<span class="parameter-lenght">32</span></td><td class="parameter-docs"><div class="first">MD5 do arquivo XML importado.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento obrigatório.<BR><BR>Aplique o MD5 sobre o XML antes de realizar o consumo.<BR></div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cOperacao</td>
+<td class="parameter-type">string<span class="parameter-lenght">2</span></td><td class="parameter-docs"><div class="first">Tipo de Operação da Nota Fiscal.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento obrigatório.<BR><BR>Códigos Disponíveis:<BR><BR>11 - Venda de produtos<BR>21 - Compra de produtos</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cOrigem</td>
+<td class="parameter-type">string<span class="parameter-lenght">3</span></td><td class="parameter-docs"><div class="first">Origem da Nota Fiscal.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento opcional.<BR><BR>Códigos Disponíveis:<BR><BR>API - Importado via API.<BR></div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">dDataPrevisao</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Data de Previsão do título de contas a pagar/receber.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento Obrigatório.<BR><BR>Formato: dd/mm/aaaa</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nCliente</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Id do cliente.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento opcional.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nVendedor</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Id do Vendedor.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento opcional.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nProjeto</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Id do projeto.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento opcional.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCategoria</td>
+<td class="parameter-type">string<span class="parameter-lenght">20</span></td><td class="parameter-docs"><div class="first">Código da Categoria.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento opcional.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nContaCorrente</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Id da Conta Corrente.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento opcional.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">codigo_local_estoque</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código do local do estoque.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento opcional.<BR><BR>Assumirá o local padrão de estoque caso não informado.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">lNaoMovEstoque</td>
+<td class="parameter-type">boolean</td><td class="parameter-docs"><div class="first">Não movimentar o estoque.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento opcional.<BR><BR>Pode ser:<BR>true - inibe a movimentação do estoque.<BR>false - Gera o movimentação do estoque.<BR><BR>O padrão é true.<BR><BR>Prevalece a informa</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">lNaoGerarTitulo</td>
+<td class="parameter-type">boolean</td><td class="parameter-docs"><div class="first">Não gerar título de contas a pagar ou receber para a NF-e.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento opcional.<BR><BR>Pode ser:<BR>true - inibe a geração do título de Contas a Pagar ou Receber no financeiro.<BR>false - Gera o ítulo de Contas a Pagar ou Receber no financeiro.<BR><BR>O padrão é true.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">lNaoIncluirCliente</td>
+<td class="parameter-type">boolean</td><td class="parameter-docs"><div class="first">Não adicionar o cliente caso não encontre no Omie.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento opcional.<BR><BR>Pode ser:<BR>true - inibe a inclusão do cliente.<BR>false - Inclui o cliente caso não encontre.<BR><BR>O padrão é true.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">lNaoIncluirProduto</td>
+<td class="parameter-type">boolean</td><td class="parameter-docs"><div class="first">Não adicionar o produto caso não encontre no Omie.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento opcional.<BR><BR>Pode ser:<BR>true - inibe a inclusão do produto.<BR>false - Inclui o produto caso não encontre.<BR><BR>O padrão é true.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cNumeroPedidoCliente</td>
+<td class="parameter-type">string<span class="parameter-lenght">30</span></td><td class="parameter-docs"><div class="first">Número do "Seu Pedido"</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">itens</td>
+<td class="parameter-type"><a href="#itensArray">itensArray</a></td><td class="parameter-docs"><div class="first">Itens da Nota Fiscal.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento opcional.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">parcelas</td>
+<td class="parameter-type"><a href="#parcelasArray">parcelasArray</a></td><td class="parameter-docs"><div class="first">Informações complementares das Parcelas da NF-e.</div><div class="more"><a href="javascript:void(0)">+</a><div>Nessa tag é recebido informações para complemento das parcelas já existentes no XML da NF-e enviada.<BR><BR>Preenchimento opcional.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">lancamentos</td>
+<td class="parameter-type"><a href="#lancamentosArray">lancamentosArray</a></td><td class="parameter-docs"><div class="first">Lançamentos no Conta Corrente relacionados a Nota Fiscal.</div><div class="more"><a href="javascript:void(0)">+</a><div>(Tarifas,taxas,entre outros).<BR><BR>Preenchimento opcional.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">itensXml</td>
+<td class="parameter-type"><a href="#itensXmlArray">itensXmlArray</a></td><td class="parameter-docs"><div class="first">Dados dos Itens da NF-e.</div><div class="more"><a href="javascript:void(0)">+</a><div>Informe aqui a relação dos produtos contidos no XML com o respectivo produto no Omie ERP.<BR><BR>Caso a tag "itens" seja preenchida esta tag não deve ser utilizada. <BR><BR>Preenchimento opcional.</div></div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="nfeImportarResponse" class="anchorScroll"></a>
+<h3>nfeImportarResponse</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">nIdImportacao</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">ID da Importação da NF-e.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nIdNFe</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">ID do NF-e.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cChaveNFe</td>
+<td class="parameter-type">string<span class="parameter-lenght">44</span></td><td class="parameter-docs"><div class="first">Chave da NF-e a ser importada.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento obrigatório.<BR><BR>Apenas números com 44 digitos.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCodStatus</td>
+<td class="parameter-type">string<span class="parameter-lenght">4</span></td><td class="parameter-docs"><div class="first">Código do Status do processamento.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cDesStatus</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Descrição do status de processamento.</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="nfeListarRequest" class="anchorScroll"></a>
+<h3>nfeListarRequest</h3>
+<p>Listagem de NF-es importadas.</p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">nPagina</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Número da página resgatada.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nRegPorPagina</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Número de registros retornados na página.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">dDataEmissaoInicial</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Data de emissão inicial.</div><div class="more"><a href="javascript:void(0)">+</a><div>No formato dd/mm/aaaa.<BR><BR>Preenchimento opcional.<BR><BR></div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">dDataEmissaoFinal</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Data de emissão final.</div><div class="more"><a href="javascript:void(0)">+</a><div>No formato dd/mm/aaaa.<BR><BR>Preenchimento opcional.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">dDataInclusaoInicial</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Data de Inclusão Inicial.</div><div class="more"><a href="javascript:void(0)">+</a><div>No formato dd/mm/aaaa.<BR><BR>Preenchimento opcional.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">dDataInclusaoFinal</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Data de Inclusão Final.</div><div class="more"><a href="javascript:void(0)">+</a><div>No formato dd/mm/aaaa.<BR><BR>Preenchimento opcional.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nIdImportacao</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">ID da Importação da NF-e.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nIdNFe</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">ID do NF-e.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cChaveNFe</td>
+<td class="parameter-type">string<span class="parameter-lenght">44</span></td><td class="parameter-docs"><div class="first">Chave da NF-e a ser importada.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento obrigatório.<BR><BR>Apenas números com 44 digitos.</div></div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="nfeListarResponse" class="anchorScroll"></a>
+<h3>nfeListarResponse</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">nPagina</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Número da página resgatada.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nTotPaginas</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Número total de páginas encontradas.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nRegistros</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Número de registros retornados na página.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nTotRegistros</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Número total de registros encontrados.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">listagemNfe</td>
+<td class="parameter-type"><a href="#listagemNfeArray">listagemNfeArray</a></td><td class="parameter-docs"><div class="first">Lista de NFes importadas.</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="omie_fail" class="anchorScroll"></a>
+<h3>omie_fail</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">code</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Codigo do erro</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">description</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Descricao do erro</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-required">referer</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Origem do erro</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-required">fatal</td>
+<td class="parameter-type">boolean</td><td class="parameter-docs"><div class="first">Indica se eh um erro fatal</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="parcelas" class="anchorScroll"></a>
+<h3>parcelas</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">nSequencia</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Número da Sequencia.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento obrigatório na Estrutura Itens. Para ItensXml apenas quando for informada a tag lote_validade.<BR><BR>Para os itens da NF identifica qual o item do XML se refere.<BR><BR>Para as parcelas da NF identifica o número da parcela.<BR><BR>Para os lançamentos no Conta Corrente indentifica o lançamento que será gerado.<BR><BR>Permite sequencial de 1 a 999.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nValorParcela</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Valor do Documento.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento Obrigatório.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">dDataVencimento</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Data do documento.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento Obrigatório.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cTipoDocumento</td>
+<td class="parameter-type">string<span class="parameter-lenght">5</span></td><td class="parameter-docs"><div class="first">Tipo de Documento.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento opcional.<BR><BR>Lista de tipos de documentos em:<BR>/api/v1/geral/tiposdoc</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCategoria</td>
+<td class="parameter-type">string<span class="parameter-lenght">20</span></td><td class="parameter-docs"><div class="first">Código da Categoria.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento opcional.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nContaCorrente</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Id da Conta Corrente.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento opcional.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nsu</td>
+<td class="parameter-type">string<span class="parameter-lenght">100</span></td><td class="parameter-docs"><div class="first">Número Sequencial Único - NSU</div><div class="more"><a href="javascript:void(0)">+</a><div>Para identificar vendas por cartões ou TransactionID TID - Para identificar vendas de comercio eletrônico.<BR><BR>Preenchimento opcional.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cObs</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Observações.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento opcional.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nProjeto</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Id do projeto.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento opcional.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nVendedor</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Id do Vendedor.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento opcional.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">dDataEntrada</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Data de Entrada da Nota Fiscal.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento opcional.<BR><BR>Formato: dd/mm/aaaa</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">dDataPrevisao</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Data de Previsão do título de contas a pagar/receber.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento Obrigatório.<BR><BR>Formato: dd/mm/aaaa</div></div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="parcelasArray" class="anchorScroll"></a>
+<h3>parcelasArray</h3>
+<p>Este par&acirc;metro &eacute; um array do tipo <span class="pre"><a href="#parcelas"><span class="lightBlue">parcelas</span></a></span></p>
+<p>Lista de parcelas</p>
+</div>
+</div>
+<div class="col-md-3">
+<div id="affix-menu" data-spy="affix" data-offset-top="294">
+<h2>M&eacute;todos</h2>
+<nav id="index" class="hidden-print hidden-xs hidden-sm">
+<ul class="nav">
+<li><a href="#ExcluirNFe">ExcluirNFe</a></li>
+<li><a href="#ImportarCancNFe">ImportarCancNFe</a></li>
+<li><a href="#ImportarNFe">ImportarNFe</a></li>
+<li><a href="#ListarNFe">ListarNFe</a></li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+</body>
+</html>

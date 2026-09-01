@@ -1,0 +1,1287 @@
+<nav class="navbar navbar-expand-lg bg-azul">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="https://developer.omie.com.br/">
+            <img class="lozad img-logo" data-src="https://static.omie.com.br/images/logo/logo-omie-topo.png" src="https://static.omie.com.br/images/logo/logo-omie-topo.png" data-loaded="true">
+        </a>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <span class="borda-hover"></span>
+                    <a class="nav-link" href="https://developer.omie.com.br/my-apps/"> Aplicativos </a>
+                </li>
+                <li class="nav-item ">
+                    <span class="borda-hover"></span>
+                    <a class="nav-link" href="https://developer.omie.com.br/service-list/">
+                        Lista das API's
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <span class="borda-hover"></span>
+                    <a class="nav-link" href="https://ajuda.omie.com.br/pt-BR/collections/3045828-apis" target="_blank"> Ajuda </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<html>
+<head>
+<title>ContaCorrenteCadastro</title>
+<style type="text/css" media="all">
+  [id] { scroll-margin-top: 68px; }
+</style>
+<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+<script src="https://cdn.omie.com.br/omie-assets/js/omie-compat-v2.min.js"></script>
+<script src="/developer/themes/omie/developer.js?ts=2021.008"></script>
+<link rel="stylesheet" href="//app.omie.com.br/wp-content/themes/omie/bootstrap/css/bootstrap.min.css" async/>
+<link href="https://cdn.omie.com.br/assets/developer/css/site.css?ts=2021.008" media="all" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="/developer/themes/omie/developer.css?ts=2021.008" async/>
+</head>
+<body>
+<div class="jumbotron banner bg-azul">
+<div class="container">
+<img src="https://cdn.omie.com.br/assets/developer/images/seta-azuis.png" alt="" class="img-setas">
+<div class="row align-items-center">
+<div class="col-12">
+<h1>ContaCorrenteCadastro</h1>
+<ul class="nav nav-tabs" role="tablist">
+  <li role="presentation" class="active"><a href="#section-endpoint" aria-controls="section-endpoint" role="tab" data-toggle="tab">Endpoint</a></li>
+  <li role="presentation" class="pull-right"><a href="#section-wsdl" aria-controls="section-wsdl" role="tab" data-toggle="tab">WSDL</a></li>
+  <li role="presentation" class="pull-right"><a href="#section-php-soap" aria-controls="section-php-soap" role="tab" data-toggle="tab">PHP SOAP</a></li>
+  <li role="presentation" class="pull-right"><a href="#section-json" aria-controls="section-json" role="tab" data-toggle="tab">JSON</a></li>
+</ul>
+<div class="tab-content">
+  <div role="tabpanel" class="tab-pane fade in active" id="section-endpoint">
+    <h4>Endpoint URI</h4>
+    <a class="highlight" href="https://app.omie.com.br/api/v1/geral/contacorrente/"><pre><code>https://app.omie.com.br/api/v1/geral/contacorrente/</code></pre></a>
+  </div>
+  <div role="tabpanel" class="tab-pane fade" id="section-wsdl">
+    <h4>WSDL URI</h4>
+    <a class="highlight" href="https://app.omie.com.br/api/v1/geral/contacorrente/?WSDL"><pre><code>https://app.omie.com.br/api/v1/geral/contacorrente/?WSDL</code></pre></a>
+  </div>
+  <div role="tabpanel" class="tab-pane fade" id="section-php-soap">
+    <h4>PHP SOAP client download</h4>
+    <a class="highlight" href="https://app.omie.com.br/api/v1/geral/contacorrente/?PHPSOAPCLIENT""><pre><code>https://app.omie.com.br/api/v1/geral/contacorrente/?PHPSOAPCLIENT</code></pre></a>
+  </div>
+  <div role="tabpanel" class="tab-pane fade" id="section-json">
+    <h4>JSON client download URI</h4>
+    <h5>PHP</h5>
+    <a class="highlight" href="https://app.omie.com.br/api/v1/geral/contacorrente/?PHPJSONCLIENT"><pre><code>https://app.omie.com.br/api/v1/geral/contacorrente/?PHPJSONCLIENT</code></pre></a>
+    <h5>JavaScript (recomendado para uso apenas do lado do servidor)</h5>
+    <a class="highlight" href="https://app.omie.com.br/api/v1/geral/contacorrente/?JSJSONCLIENT"><pre><code>https://app.omie.com.br/api/v1/geral/contacorrente/?JSJSONCLIENT</code></pre></a>
+  </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="container">
+<div class="row">
+<div class="col-md-9">
+<h2>M&eacute;todos</h2>
+<p>Veja abaixo a documenta&ccedil;&atilde;o de cada m&eacute;todo dispon&iacute;vel para este servi&ccedil;o.</p>
+<div id="AlterarContaCorrente" class="methodItem">
+<h3 class="method-name">AlterarContaCorrente</h3>
+<p>
+Altera a Conta Corrente
+</p>
+<div class="panel panel-default method">
+<div class="panel-heading"> Par&acirc;metros:
+</div>
+<table class="table table-condensed table-hover">
+<tr>
+<td class="">&nbsp;</td>
+<td class="method-parameter-type"><a href="#fin_conta_corrente_cadastro">fin_conta_corrente_cadastro</a></td>
+<td class="method-parameter-name">fin_conta_corrente_cadastro</td><td class="method-parameter-docs"><div class="first">Cadastro de contas correntes</div></td>
+</tr>
+</table>
+<div class="panel-footer">
+Retorno <span class="pre"><a href="#fin_conta_corrente_cadastro_response"><span class="lightBlue">fin_conta_corrente_cadastro_response</span></a></span>: Response do cadastro do conta corrente.
+</div>
+</div>
+<div class="method-example-area">
+<h5>Exemplo:</h5>
+<pre class="method-example-code">{<BR>  "cCodCCInt": "MyCC0001",<BR>  "tipo_conta_corrente": "CX",<BR>  "codigo_banco": "999",<BR>  "descricao": "Caixinha",<BR>  "saldo_inicial": 0<BR>}</pre>
+<button class="btn btn-success method-example" data-method="AlterarContaCorrente" data-example="%7B++%22cCodCCInt%22%3A+%22MyCC0001%22%2C++%22tipo_conta_corrente%22%3A+%22CX%22%2C++%22codigo_banco%22%3A+%22999%22%2C++%22descricao%22%3A+%22Caixinha%22%2C++%22saldo_inicial%22%3A+0%7D">Teste agora mesmo</button>
+</div>
+</div>
+<div id="ConsultarContaCorrente" class="methodItem">
+<h3 class="method-name">ConsultarContaCorrente</h3>
+<p>
+Realiza a consulta de uma conta corrente
+</p>
+<div class="panel panel-default method">
+<div class="panel-heading"> Par&acirc;metros:
+</div>
+<table class="table table-condensed table-hover">
+<tr>
+<td class="">&nbsp;</td>
+<td class="method-parameter-type"><a href="#fin_conta_corrente_chave">fin_conta_corrente_chave</a></td>
+<td class="method-parameter-name">fin_conta_corrente_chave</td><td class="method-parameter-docs"><div class="first">Chave de pesquisa da Conta Corrente</div></td>
+</tr>
+</table>
+<div class="panel-footer">
+Retorno <span class="pre"><a href="#fin_conta_corrente_cadastro"><span class="lightBlue">fin_conta_corrente_cadastro</span></a></span>: Cadastro de contas correntes
+</div>
+</div>
+<div class="method-example-area">
+<h5>Exemplo:</h5>
+<pre class="method-example-code">{<BR>  "nCodCC": 0,<BR>  "cCodCCInt": ""<BR>}</pre>
+<button class="btn btn-success method-example" data-method="ConsultarContaCorrente" data-example="%7B++%22nCodCC%22%3A+0%2C++%22cCodCCInt%22%3A+%22%22%7D">Teste agora mesmo</button>
+</div>
+</div>
+<div id="ExcluirContaCorrente" class="methodItem">
+<h3 class="method-name">ExcluirContaCorrente</h3>
+<p>
+Excluir a Conta Corrente
+</p>
+<div class="panel panel-default method">
+<div class="panel-heading"> Par&acirc;metros:
+</div>
+<table class="table table-condensed table-hover">
+<tr>
+<td class="">&nbsp;</td>
+<td class="method-parameter-type"><a href="#fin_conta_corrente_chave">fin_conta_corrente_chave</a></td>
+<td class="method-parameter-name">fin_conta_corrente_chave</td><td class="method-parameter-docs"><div class="first">Chave de pesquisa da Conta Corrente</div></td>
+</tr>
+</table>
+<div class="panel-footer">
+Retorno <span class="pre"><a href="#fin_conta_corrente_cadastro_response"><span class="lightBlue">fin_conta_corrente_cadastro_response</span></a></span>: Response do cadastro do conta corrente.
+</div>
+</div>
+<div class="method-example-area">
+<h5>Exemplo:</h5>
+<pre class="method-example-code">{<BR>  "nCodCC": 0,<BR>  "cCodCCInt": ""<BR>}</pre>
+<button class="btn btn-success method-example" data-method="ExcluirContaCorrente" data-example="%7B++%22nCodCC%22%3A+0%2C++%22cCodCCInt%22%3A+%22%22%7D">Teste agora mesmo</button>
+</div>
+</div>
+<div id="IncluirContaCorrente" class="methodItem">
+<h3 class="method-name">IncluirContaCorrente</h3>
+<p>
+Inclui uma conta corrente
+</p>
+<div class="panel panel-default method">
+<div class="panel-heading"> Par&acirc;metros:
+</div>
+<table class="table table-condensed table-hover">
+<tr>
+<td class="">&nbsp;</td>
+<td class="method-parameter-type"><a href="#fin_conta_corrente_cadastro">fin_conta_corrente_cadastro</a></td>
+<td class="method-parameter-name">fin_conta_corrente_cadastro</td><td class="method-parameter-docs"><div class="first">Cadastro de contas correntes</div></td>
+</tr>
+</table>
+<div class="panel-footer">
+Retorno <span class="pre"><a href="#fin_conta_corrente_cadastro_response"><span class="lightBlue">fin_conta_corrente_cadastro_response</span></a></span>: Response do cadastro do conta corrente.
+</div>
+</div>
+<div class="method-example-area">
+<h5>Exemplo:</h5>
+<pre class="method-example-code">{<BR>  "cCodCCInt": "MyCC0001",<BR>  "tipo_conta_corrente": "CX",<BR>  "codigo_banco": "999",<BR>  "descricao": "Caixinha",<BR>  "saldo_inicial": 0<BR>}<BR></pre>
+<button class="btn btn-success method-example" data-method="IncluirContaCorrente" data-example="%7B++%22cCodCCInt%22%3A+%22MyCC0001%22%2C++%22tipo_conta_corrente%22%3A+%22CX%22%2C++%22codigo_banco%22%3A+%22999%22%2C++%22descricao%22%3A+%22Caixinha%22%2C++%22saldo_inicial%22%3A+0%7D">Teste agora mesmo</button>
+</div>
+</div>
+<div id="ListarContasCorrentes" class="methodItem">
+<h3 class="method-name">ListarContasCorrentes</h3>
+<p>
+Listar Contas Correntes
+</p>
+<div class="panel panel-default method">
+<div class="panel-heading"> Par&acirc;metros:
+</div>
+<table class="table table-condensed table-hover">
+<tr>
+<td class="">&nbsp;</td>
+<td class="method-parameter-type"><a href="#fin_conta_corrente_listar_request">fin_conta_corrente_listar_request</a></td>
+<td class="method-parameter-name">fin_conta_corrente_listar_request</td><td class="method-parameter-docs"><div class="first">Retorno da solicitação da listagem de contas correntes cadastradas no Omie.</div></td>
+</tr>
+</table>
+<div class="panel-footer">
+Retorno <span class="pre"><a href="#fin_conta_corrente_listar_response"><span class="lightBlue">fin_conta_corrente_listar_response</span></a></span>: 
+</div>
+</div>
+<div class="method-example-area">
+<h5>Exemplo:</h5>
+<pre class="method-example-code">{<BR>  "pagina": 1,<BR>  "registros_por_pagina": 100,<BR>  "apenas_importado_api": "N"<BR>}</pre>
+<button class="btn btn-success method-example" data-method="ListarContasCorrentes" data-example="%7B++%22pagina%22%3A+1%2C++%22registros_por_pagina%22%3A+100%2C++%22apenas_importado_api%22%3A+%22N%22%7D">Teste agora mesmo</button>
+</div>
+</div>
+<div id="ListarResumoContasCorrentes" class="methodItem">
+<h3 class="method-name">ListarResumoContasCorrentes</h3>
+<p>
+Listar resumida de Contas correntes.
+</p>
+<div class="panel panel-default method">
+<div class="panel-heading"> Par&acirc;metros:
+</div>
+<table class="table table-condensed table-hover">
+<tr>
+<td class="">&nbsp;</td>
+<td class="method-parameter-type"><a href="#fin_conta_corrente_resumo_request">fin_conta_corrente_resumo_request</a></td>
+<td class="method-parameter-name">fin_conta_corrente_resumo_request</td><td class="method-parameter-docs"><div class="first">Solicitação da listagem resumida de contas correntes.</div></td>
+</tr>
+</table>
+<div class="panel-footer">
+Retorno <span class="pre"><a href="#fin_conta_corrente_resumo_response"><span class="lightBlue">fin_conta_corrente_resumo_response</span></a></span>: 
+</div>
+</div>
+<div class="method-example-area">
+<h5>Exemplo:</h5>
+<pre class="method-example-code">{<BR>  "pagina": 1,<BR>  "registros_por_pagina": 100,<BR>  "apenas_importado_api": "N"<BR>}</pre>
+<button class="btn btn-success method-example" data-method="ListarResumoContasCorrentes" data-example="%7B++%22pagina%22%3A+1%2C++%22registros_por_pagina%22%3A+100%2C++%22apenas_importado_api%22%3A+%22N%22%7D">Teste agora mesmo</button>
+</div>
+</div>
+<div id="PesquisarContaCorrente" class="methodItem">
+<h3 class="method-name">PesquisarContaCorrente</h3>
+<p>
+DEPRECATED
+</p>
+<div class="panel panel-default method">
+<div class="panel-heading"> Par&acirc;metros:
+</div>
+<table class="table table-condensed table-hover">
+<tr>
+<td class="">&nbsp;</td>
+<td class="method-parameter-type"><a href="#fin_conta_corrente_pesquisar">fin_conta_corrente_pesquisar</a></td>
+<td class="method-parameter-name">fin_conta_corrente_pesquisar</td><td class="method-parameter-docs"><div class="first">DEPRECATED</div></td>
+</tr>
+</table>
+<div class="panel-footer">
+Retorno <span class="pre"><a href="#fin_conta_corrente_pesquisar_resposta"><span class="lightBlue">fin_conta_corrente_pesquisar_resposta</span></a></span>: DEPRECATED
+</div>
+</div>
+<div class="method-example-area">
+<h5>Exemplo:</h5>
+<pre class="method-example-code">{<BR>  "pagina": 1,<BR>  "registros_por_pagina": 100,<BR>  "apenas_importado_api": "N"<BR>}</pre>
+<button class="btn btn-success method-example" data-method="PesquisarContaCorrente" data-example="%7B++%22pagina%22%3A+1%2C++%22registros_por_pagina%22%3A+100%2C++%22apenas_importado_api%22%3A+%22N%22%7D">Teste agora mesmo</button>
+</div>
+</div>
+<div id="UpsertContaCorrente" class="methodItem">
+<h3 class="method-name">UpsertContaCorrente</h3>
+<p>
+Upsert da Conta Corrente
+</p>
+<div class="panel panel-default method">
+<div class="panel-heading"> Par&acirc;metros:
+</div>
+<table class="table table-condensed table-hover">
+<tr>
+<td class="">&nbsp;</td>
+<td class="method-parameter-type"><a href="#fin_conta_corrente_cadastro">fin_conta_corrente_cadastro</a></td>
+<td class="method-parameter-name">fin_conta_corrente_cadastro</td><td class="method-parameter-docs"><div class="first">Cadastro de contas correntes</div></td>
+</tr>
+</table>
+<div class="panel-footer">
+Retorno <span class="pre"><a href="#fin_conta_corrente_cadastro_response"><span class="lightBlue">fin_conta_corrente_cadastro_response</span></a></span>: Response do cadastro do conta corrente.
+</div>
+</div>
+<div class="method-example-area">
+<h5>Exemplo:</h5>
+<pre class="method-example-code">{<BR>  "cCodCCInt": "MyCC0001",<BR>  "tipo_conta_corrente": "CX",<BR>  "codigo_banco": "999",<BR>  "descricao": "Caixinha",<BR>  "saldo_inicial": 0<BR>}</pre>
+<button class="btn btn-success method-example" data-method="UpsertContaCorrente" data-example="%7B++%22cCodCCInt%22%3A+%22MyCC0001%22%2C++%22tipo_conta_corrente%22%3A+%22CX%22%2C++%22codigo_banco%22%3A+%22999%22%2C++%22descricao%22%3A+%22Caixinha%22%2C++%22saldo_inicial%22%3A+0%7D">Teste agora mesmo</button>
+</div>
+</div>
+<div id="UpsertContaCorrentePorLote" class="methodItem">
+<h3 class="method-name">UpsertContaCorrentePorLote</h3>
+<p>
+Upsert por lote de Conta Corrente
+</p>
+<div class="panel panel-default method">
+<div class="panel-heading"> Par&acirc;metros:
+</div>
+<table class="table table-condensed table-hover">
+<tr>
+<td class="">&nbsp;</td>
+<td class="method-parameter-type"><a href="#fin_conta_corrente_lote_request">fin_conta_corrente_lote_request</a></td>
+<td class="method-parameter-name">fin_conta_corrente_lote_request</td><td class="method-parameter-docs"><div class="first">Request do Lote da Conta Corrente</div></td>
+</tr>
+</table>
+<div class="panel-footer">
+Retorno <span class="pre"><a href="#fin_conta_corrente_lote_response"><span class="lightBlue">fin_conta_corrente_lote_response</span></a></span>: Response do conta corrente
+</div>
+</div>
+<div class="method-example-area">
+<h5>Exemplo:</h5>
+<pre class="method-example-code">{<BR>  "lote": 1,<BR>  "fin_conta_corrente_cadastro": [<BR>      {<BR>    "cCodCCInt": "MyCC0001",  <BR>    "tipo_conta_corrente": "CX",<BR>    "codigo_banco": "999",<BR>    "descricao": "Caixinha",<BR>    "saldo_inicial": 0<BR>      }<BR>  ]<BR>}</pre>
+<button class="btn btn-success method-example" data-method="UpsertContaCorrentePorLote" data-example="%7B++%22lote%22%3A+1%2C++%22fin_conta_corrente_cadastro%22%3A+%5B++++++%7B++++%22cCodCCInt%22%3A+%22MyCC0001%22%2C++++++%22tipo_conta_corrente%22%3A+%22CX%22%2C++++%22codigo_banco%22%3A+%22999%22%2C++++%22descricao%22%3A+%22Caixinha%22%2C++++%22saldo_inicial%22%3A+0++++++%7D++%5D%7D">Teste agora mesmo</button>
+</div>
+</div>
+<h2>Tipos Complexos</h2>
+<div class="complexTypeItem">
+<a name="ListarContasCorrentes" class="anchorScroll"></a>
+<h3>ListarContasCorrentes</h3>
+<p>Lista de contas correntes.</p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">nCodCC</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código da conta corrente no Omie.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCodCCInt</td>
+<td class="parameter-type">string<span class="parameter-lenght">20</span></td><td class="parameter-docs"><div class="first">Código de Integração do Parceiro.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">tipo_conta_corrente</td>
+<td class="parameter-type">string<span class="parameter-lenght">2</span></td><td class="parameter-docs"><div class="first">Tipo da Conta Corrente.</div><div class="more"><a href="javascript:void(0)">+</a><div>Pode ser:<BR>AC - Administradora de Cartões<BR>AD - Adiantamento<BR>CA - Conta Aplicação<BR>CC - Conta Corrente<BR>CE - Conta Empréstimo<BR>CG - Conta Garantida<BR>CN - Crediário / Carnê<BR>CP - Conta Poupança<BR>CR - Cartão de Crédito<BR>CV - Carteira Virtual<BR>CX - Caixinha<BR>MT - Mútuo<BR>PG - Conta de Pagamento</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">codigo_banco</td>
+<td class="parameter-type">string<span class="parameter-lenght">3</span></td><td class="parameter-docs"><div class="first">Código do banco.</div><div class="more"><a href="javascript:void(0)">+</a><div>Pode ser:<BR><BR>001 - Banco do Brasil                         <BR>003 - Banco da Amazônia                       <BR>004 - Banco do Nordeste                       <BR>017 - BNY Mellon Banco S.A.                   <BR>021 - Banestes                                <BR>025 - Alfa                                    <BR>029 - Banerj                                  <BR>033 - Santander                               <BR>037 - Banpará                                 <BR>041 - Banrisul                                <BR>047 - Banese                                  <BR>069 - Banco Crefisa S.A.                      <BR>070 - BRB - Banco de Brasília                 <BR>077 - Banco Inter                             <BR>082 - Banco Topázio                           <BR>083 - China Brasil                            <BR>084 - Uniprime Norte do Paraná                <BR>085 - Ailos (Cecred)                          <BR>089 - Credisan                                <BR>090 - Unicred                                 <BR>091 - Unicred Central do Rio Grande do Sul    <BR>093 - PoloCred                                <BR>094 - Finaxis                                 <BR>095 - Confidence                              <BR>096 - Banco BM&F Bovespa                      <BR>097 - CrediSIS                                <BR>099 - Uniprime                                <BR>102 - XP Investimentos                        <BR>104 - Caixa Econômica Federal                 <BR>121 - Agiplan                                 <BR>124 - Woori Bank                              <BR>125 - Brasil Plural                           <BR>128 - MS Bank                                 <BR>132 - ICBC do Brasil                          <BR>133 - Cresol                                  <BR>136 - Centrais Unicreds                       <BR>147 - Rico                                    <BR>151 - Nossa Caixa                             <BR>177 - SC Guide                                <BR>197 - Stone                                   <BR>208 - BTG Pactual                             <BR>212 - Original                                <BR>213 - ARBI                                    <BR>218 - Banco Bonsucesso                        <BR>224 - Fibra                                   <BR>233 - Banco Cifra                             <BR>237 - Bradesco                                <BR>243 - Banco Máxima                            <BR>246 - Banco ABC Brasil                        <BR>250 - BCV - Banco de Crédito e Varejo         <BR>254 - ParanáBanco                             <BR>260 - Nubank                                  <BR>274 - BMP Money Plus                          <BR>278 - Geração Futuro                          <BR>279 - Primacredi                              <BR>280 - LiftBank                                <BR>290 - PagBank (PagSeguro)                     <BR>301 - BPP Instituição de Pagamento            <BR>318 - Banco BMG                               <BR>320 - BIC Banco Industrial e Comercial        <BR>323 - Mercado Pago                            <BR>329 - QI Tech                                 <BR>336 - C6 Bank                                 <BR>341 - Itaú Unibanco                           <BR>354 - Necton                                  <BR>364 - Gerencianet                             <BR>376 - J. P. Morgan                            <BR>389 - Banco Mercantil do Brasil               <BR>399 - HSBC Bank                               <BR>422 - Safra                                   <BR>453 - Banco Rural S.A.                        <BR>456 - Banco de Tokyo                          <BR>464 - Banco Sumitomo Mitsui Brasileiro        <BR>473 - Caixa Geral                             <BR>487 - Deutsche Bank                           <BR>505 - Credit Suisse                           <BR>600 - Banco Luso Brasileiro                   <BR>604 - Banco Industrial do Brasil              <BR>609 - Crebit                                  <BR>610 - Lucree                                  <BR>611 - Banco Paulista                          <BR>612 - Banco Guanabara                         <BR>613 - Omni Soluções Financeiras               <BR>623 - Banco Panamericano S.A.                 <BR>630 - Omie.CASH                               <BR>633 - Rendimento                              <BR>634 - Banco Triângulo S.A.                    <BR>637 - Sofisa                                  <BR>643 - Pine                                    <BR>644 - Wall Securitizadora                     <BR>646 - Wirecard                                <BR>647 - B-Link Securitizadora                   <BR>648 - Servicoop                               <BR>649 - Select Administradora de Bens           <BR>650 - SuperGet                                <BR>653 - Indusval                                <BR>654 - Banco Renner                            <BR>655 - Votorantim                              <BR>656 - DLM Invista                             <BR>657 - UnionPay                                <BR>658 - Zoop                                    <BR>659 - Flash Benefícios                        <BR>660 - Warren                                  <BR>661 - AvecPay                                 <BR>662 - WabiPay                                 <BR>663 - WabiPay                                 <BR>664 - Credit Partners                         <BR>665 - Millennium Bcp                          <BR>666 - Porto Seguro                            <BR>667 - Fidussia                                <BR>668 - Silicon Valley Bank                     <BR>669 - ArgosBank                               <BR>670 - Brasil Cash                             <BR>671 - Metal Credit Securitizadora             <BR>672 - FacilitaPay                             <BR>673 - Ceape                                   <BR>674 - CBH - Compagnie Bancaire Helvetique     <BR>675 - One7                                    <BR>676 - Griffin Capital S/A                     <BR>677 - Midas Securitizadora                    <BR>678 - PeixePay                                <BR>679 - InfinitePay                             <BR>680 - Lado Serviços de Cobrança               <BR>681 - Rodolfo Factoring                       <BR>682 - CR Factoring                            <BR>683 - Ben Benefícios                          <BR>684 - Loggi                                   <BR>685 - BRDE                                    <BR>686 - Cotação                                 <BR>687 - Olist                                   <BR>688 - Amazon                                  <BR>689 - Investcamp                              <BR>690 - SulBrasil                               <BR>691 - Seven Investimentos                     <BR>692 - Lotus                                   <BR>693 - Grupo Multiplica                        <BR>694 - Trevys Fidic                            <BR>696 - Valori Bank                             <BR>697 - Evo Pagamentos                          <BR>698 - Direct Cred                             <BR>699 - EngagED                                 <BR>700 - Finpet                                  <BR>707 - Banco Daycoval                          <BR>712 - Ourinvest                               <BR>719 - Banif                                   <BR>735 - Neon / Pottencial                       <BR>741 - Banco Ribeirão Preto                    <BR>743 - Banco Semear                            <BR>745 - Citibank S.A.                           <BR>746 - Banco Modal                             <BR>747 - Rabobank International Brasil           <BR>748 - Sicredi                                 <BR>752 - BNP Paribas                             <BR>755 - Bank of America Merrill Lynch           <BR>756 - Sicoob                                  <BR>772 - Gol Securitizadora                      <BR>773 - Centerin Fomento                        <BR>774 - Sals-Fac Factoring                      <BR>775 - Social Bank                             <BR>776 - Conta Simples                           <BR>777 - Credicard                               <BR>778 - Credicard                               <BR>779 - Banricard                               <BR>780 - Akirede                                 <BR>781 - Adiq                                    <BR>782 - A55                                     <BR></div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">descricao</td>
+<td class="parameter-type">string<span class="parameter-lenght">40</span></td><td class="parameter-docs"><div class="first">Descrição da conta corrente.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">codigo_agencia</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Código da Agência</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">numero_conta_corrente</td>
+<td class="parameter-type">string<span class="parameter-lenght">25</span></td><td class="parameter-docs"><div class="first">Número da conta corrente.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">saldo_inicial</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Saldo Inicial da Conta Corrente</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">saldo_data</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Data do Saldo Inicial da Conta Corrente</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">valor_limite</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Valor do Limite do Crédito</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nao_fluxo</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Não exibir no Fluxo de Caixa</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nao_resumo</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Não exibir no Resumo de Finanças</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">observacao</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Observação</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cobr_sn</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Indica se realiza Cobrança Bancária para a conta corrente [S/N]</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">per_juros</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Percentual de Juros ao Mês</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">per_multa</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Percentual de Multa</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">bol_instr1</td>
+<td class="parameter-type">string<span class="parameter-lenght">80</span></td><td class="parameter-docs"><div class="first">Mensagem de Instrução do Boleto - Linha 1</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">bol_instr2</td>
+<td class="parameter-type">string<span class="parameter-lenght">80</span></td><td class="parameter-docs"><div class="first">Mensagem de Instrução do Boleto - Linha 2</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">bol_instr3</td>
+<td class="parameter-type">string<span class="parameter-lenght">80</span></td><td class="parameter-docs"><div class="first">Mensagem de Instrução do Boleto - Linha 3</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">bol_instr4</td>
+<td class="parameter-type">string<span class="parameter-lenght">80</span></td><td class="parameter-docs"><div class="first">Mensagem de Instrução do Boleto - Linha 4</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">bol_sn</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Indica se emite Boletos de Cobrança [S/N]</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">pix_sn</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Indica se emite PIX [S/N]</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cnab_esp</td>
+<td class="parameter-type">string<span class="parameter-lenght">2</span></td><td class="parameter-docs"><div class="first">Espécie padrão para a Remessa de Cobrança</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cobr_esp</td>
+<td class="parameter-type">string<span class="parameter-lenght">3</span></td><td class="parameter-docs"><div class="first">Espécie padrão para o Boleto de Cobrança</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">dias_rcomp</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Dias para Compensação dos Recebimentos</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">modalidade</td>
+<td class="parameter-type">string<span class="parameter-lenght">3</span></td><td class="parameter-docs"><div class="first">Modalidade da Cobrança</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cancinstr</td>
+<td class="parameter-type">string<span class="parameter-lenght">3</span></td><td class="parameter-docs"><div class="first">Código de Instrução de Cancelamento, Baixa ou Devolução</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">pdv_enviar</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Utiliza a Conta Corrente no OmiePDV</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">pdv_sincr_analitica</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Sincroniza os Movimentos de Forma Análitica para o PDV</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">pdv_dias_venc</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Dias para vencimento</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">pdv_num_parcelas</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Número máximo de parcelas do Cartão de Credito</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">pdv_tipo_tef</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Tipo de TEF</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">pdv_cod_adm</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código da Administradora de Cartões</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">pdv_limite_pacelas</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Limite máximo de parcelas</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">pdv_taxa_loja</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Taxa de Juros da Loja</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">pdv_taxa_adm</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Taxa da Administradora de Cartões</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">pdv_categoria</td>
+<td class="parameter-type">string<span class="parameter-lenght">20</span></td><td class="parameter-docs"><div class="first">Código da Categoria para o PDV.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">pdv_bandeira</td>
+<td class="parameter-type">string<span class="parameter-lenght">70</span></td><td class="parameter-docs"><div class="first">Bandeira do Cartão.</div><div class="more"><a href="javascript:void(0)">+</a><div>Utilize a tag "cCodigo" do método "ListarBandeira" da API<BR>/api/v1/geral/bandeiracartao/<BR>para obter essa informação.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCnpjInstFinanc</td>
+<td class="parameter-type">string<span class="parameter-lenght">20</span></td><td class="parameter-docs"><div class="first">CNPJ da instituição financeira.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cTipoCartao</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Tipo de Cartão para Administradoras de Cartão.</div><div class="more"><a href="javascript:void(0)">+</a><div>Pode ser:<BR><BR>0 - Débito e Crédito.<BR>1 - Débito.<BR>2 - Crédito.<BR></div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cEstabelecimento</td>
+<td class="parameter-type">string<span class="parameter-lenght">70</span></td><td class="parameter-docs"><div class="first">Indica o código do estabelecimento.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nome_gerente</td>
+<td class="parameter-type">string<span class="parameter-lenght">40</span></td><td class="parameter-docs"><div class="first">Nome do Gerente da Conta Corrente.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">ddd</td>
+<td class="parameter-type">string<span class="parameter-lenght">5</span></td><td class="parameter-docs"><div class="first">DDD do Telefone de Contato do Gerente da Agência</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">telefone</td>
+<td class="parameter-type">string<span class="parameter-lenght">15</span></td><td class="parameter-docs"><div class="first">Telefone de Contato do Gerente da Agência</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">email</td>
+<td class="parameter-type">string<span class="parameter-lenght">200</span></td><td class="parameter-docs"><div class="first">E-mail do Gerente da Conta Corrente</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">endereco</td>
+<td class="parameter-type">string<span class="parameter-lenght">50</span></td><td class="parameter-docs"><div class="first">Endereço da Agência</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">numero</td>
+<td class="parameter-type">string<span class="parameter-lenght">5</span></td><td class="parameter-docs"><div class="first">Número do Endereço</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">bairro</td>
+<td class="parameter-type">string<span class="parameter-lenght">60</span></td><td class="parameter-docs"><div class="first">Bairro</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">complemento</td>
+<td class="parameter-type">string<span class="parameter-lenght">15</span></td><td class="parameter-docs"><div class="first">Complemento do Número do Endereço</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">estado</td>
+<td class="parameter-type">string<span class="parameter-lenght">2</span></td><td class="parameter-docs"><div class="first">Estado da Agência</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cidade</td>
+<td class="parameter-type">string<span class="parameter-lenght">40</span></td><td class="parameter-docs"><div class="first">Cidade da Agência</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cep</td>
+<td class="parameter-type">string<span class="parameter-lenght">9</span></td><td class="parameter-docs"><div class="first">CEP da Agência</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">codigo_pais</td>
+<td class="parameter-type">string<span class="parameter-lenght">4</span></td><td class="parameter-docs"><div class="first">Código do País</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">data_inc</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Data de Inclusão</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">hora_inc</td>
+<td class="parameter-type">string<span class="parameter-lenght">8</span></td><td class="parameter-docs"><div class="first">Hora de Inclusão</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">user_inc</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Usuário da Inclusão</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">data_alt</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Data de alteração</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">hora_alt</td>
+<td class="parameter-type">string<span class="parameter-lenght">8</span></td><td class="parameter-docs"><div class="first">Hora de Alteração</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">user_alt</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Usuário de Alteração</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">importado_api</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Registro importado pela API</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">bloqueado</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Registro Bloqueado pela API</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">inativo</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Indica se o cadastro da conta corrente está inativo (S/N).</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="ListarContasCorrentesArray" class="anchorScroll"></a>
+<h3>ListarContasCorrentesArray</h3>
+<p>Este par&acirc;metro &eacute; um array do tipo <span class="pre"><a href="#ListarContasCorrentes"><span class="lightBlue">ListarContasCorrentes</span></a></span></p>
+<p>Lista de ListarContasCorrentes</p>
+</div>
+<div class="complexTypeItem">
+<a name="conta_corrente_lista" class="anchorScroll"></a>
+<h3>conta_corrente_lista</h3>
+<p>Lista de contas correntes</p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">nCodCC</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código da conta corrente no Omie.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCodCCInt</td>
+<td class="parameter-type">string<span class="parameter-lenght">20</span></td><td class="parameter-docs"><div class="first">Código de Integração do Parceiro.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">descricao</td>
+<td class="parameter-type">string<span class="parameter-lenght">40</span></td><td class="parameter-docs"><div class="first">Descrição da conta corrente.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">codigo_banco</td>
+<td class="parameter-type">string<span class="parameter-lenght">3</span></td><td class="parameter-docs"><div class="first">Código do banco.</div><div class="more"><a href="javascript:void(0)">+</a><div>Pode ser:<BR><BR>001 - Banco do Brasil                         <BR>003 - Banco da Amazônia                       <BR>004 - Banco do Nordeste                       <BR>017 - BNY Mellon Banco S.A.                   <BR>021 - Banestes                                <BR>025 - Alfa                                    <BR>029 - Banerj                                  <BR>033 - Santander                               <BR>037 - Banpará                                 <BR>041 - Banrisul                                <BR>047 - Banese                                  <BR>069 - Banco Crefisa S.A.                      <BR>070 - BRB - Banco de Brasília                 <BR>077 - Banco Inter                             <BR>082 - Banco Topázio                           <BR>083 - China Brasil                            <BR>084 - Uniprime Norte do Paraná                <BR>085 - Ailos (Cecred)                          <BR>089 - Credisan                                <BR>090 - Unicred                                 <BR>091 - Unicred Central do Rio Grande do Sul    <BR>093 - PoloCred                                <BR>094 - Finaxis                                 <BR>095 - Confidence                              <BR>096 - Banco BM&F Bovespa                      <BR>097 - CrediSIS                                <BR>099 - Uniprime                                <BR>102 - XP Investimentos                        <BR>104 - Caixa Econômica Federal                 <BR>121 - Agiplan                                 <BR>124 - Woori Bank                              <BR>125 - Brasil Plural                           <BR>128 - MS Bank                                 <BR>132 - ICBC do Brasil                          <BR>133 - Cresol                                  <BR>136 - Centrais Unicreds                       <BR>147 - Rico                                    <BR>151 - Nossa Caixa                             <BR>177 - SC Guide                                <BR>197 - Stone                                   <BR>208 - BTG Pactual                             <BR>212 - Original                                <BR>213 - ARBI                                    <BR>218 - Banco Bonsucesso                        <BR>224 - Fibra                                   <BR>233 - Banco Cifra                             <BR>237 - Bradesco                                <BR>243 - Banco Máxima                            <BR>246 - Banco ABC Brasil                        <BR>250 - BCV - Banco de Crédito e Varejo         <BR>254 - ParanáBanco                             <BR>260 - Nubank                                  <BR>274 - BMP Money Plus                          <BR>278 - Geração Futuro                          <BR>279 - Primacredi                              <BR>280 - LiftBank                                <BR>290 - PagBank (PagSeguro)                     <BR>301 - BPP Instituição de Pagamento            <BR>318 - Banco BMG                               <BR>320 - BIC Banco Industrial e Comercial        <BR>323 - Mercado Pago                            <BR>329 - QI Tech                                 <BR>336 - C6 Bank                                 <BR>341 - Itaú Unibanco                           <BR>354 - Necton                                  <BR>364 - Gerencianet                             <BR>376 - J. P. Morgan                            <BR>389 - Banco Mercantil do Brasil               <BR>399 - HSBC Bank                               <BR>422 - Safra                                   <BR>453 - Banco Rural S.A.                        <BR>456 - Banco de Tokyo                          <BR>464 - Banco Sumitomo Mitsui Brasileiro        <BR>473 - Caixa Geral                             <BR>487 - Deutsche Bank                           <BR>505 - Credit Suisse                           <BR>600 - Banco Luso Brasileiro                   <BR>604 - Banco Industrial do Brasil              <BR>609 - Crebit                                  <BR>610 - Lucree                                  <BR>611 - Banco Paulista                          <BR>612 - Banco Guanabara                         <BR>613 - Omni Soluções Financeiras               <BR>623 - Banco Panamericano S.A.                 <BR>630 - Omie.CASH                               <BR>633 - Rendimento                              <BR>634 - Banco Triângulo S.A.                    <BR>637 - Sofisa                                  <BR>643 - Pine                                    <BR>644 - Wall Securitizadora                     <BR>646 - Wirecard                                <BR>647 - B-Link Securitizadora                   <BR>648 - Servicoop                               <BR>649 - Select Administradora de Bens           <BR>650 - SuperGet                                <BR>653 - Indusval                                <BR>654 - Banco Renner                            <BR>655 - Votorantim                              <BR>656 - DLM Invista                             <BR>657 - UnionPay                                <BR>658 - Zoop                                    <BR>659 - Flash Benefícios                        <BR>660 - Warren                                  <BR>661 - AvecPay                                 <BR>662 - WabiPay                                 <BR>663 - WabiPay                                 <BR>664 - Credit Partners                         <BR>665 - Millennium Bcp                          <BR>666 - Porto Seguro                            <BR>667 - Fidussia                                <BR>668 - Silicon Valley Bank                     <BR>669 - ArgosBank                               <BR>670 - Brasil Cash                             <BR>671 - Metal Credit Securitizadora             <BR>672 - FacilitaPay                             <BR>673 - Ceape                                   <BR>674 - CBH - Compagnie Bancaire Helvetique     <BR>675 - One7                                    <BR>676 - Griffin Capital S/A                     <BR>677 - Midas Securitizadora                    <BR>678 - PeixePay                                <BR>679 - InfinitePay                             <BR>680 - Lado Serviços de Cobrança               <BR>681 - Rodolfo Factoring                       <BR>682 - CR Factoring                            <BR>683 - Ben Benefícios                          <BR>684 - Loggi                                   <BR>685 - BRDE                                    <BR>686 - Cotação                                 <BR>687 - Olist                                   <BR>688 - Amazon                                  <BR>689 - Investcamp                              <BR>690 - SulBrasil                               <BR>691 - Seven Investimentos                     <BR>692 - Lotus                                   <BR>693 - Grupo Multiplica                        <BR>694 - Trevys Fidic                            <BR>696 - Valori Bank                             <BR>697 - Evo Pagamentos                          <BR>698 - Direct Cred                             <BR>699 - EngagED                                 <BR>700 - Finpet                                  <BR>707 - Banco Daycoval                          <BR>712 - Ourinvest                               <BR>719 - Banif                                   <BR>735 - Neon / Pottencial                       <BR>741 - Banco Ribeirão Preto                    <BR>743 - Banco Semear                            <BR>745 - Citibank S.A.                           <BR>746 - Banco Modal                             <BR>747 - Rabobank International Brasil           <BR>748 - Sicredi                                 <BR>752 - BNP Paribas                             <BR>755 - Bank of America Merrill Lynch           <BR>756 - Sicoob                                  <BR>772 - Gol Securitizadora                      <BR>773 - Centerin Fomento                        <BR>774 - Sals-Fac Factoring                      <BR>775 - Social Bank                             <BR>776 - Conta Simples                           <BR>777 - Credicard                               <BR>778 - Credicard                               <BR>779 - Banricard                               <BR>780 - Akirede                                 <BR>781 - Adiq                                    <BR>782 - A55                                     <BR></div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">codigo_agencia</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Código da Agência</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">conta_corrente</td>
+<td class="parameter-type">string<span class="parameter-lenght">25</span></td><td class="parameter-docs"><div class="first">Número da conta corrente.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nome_gerente</td>
+<td class="parameter-type">string<span class="parameter-lenght">40</span></td><td class="parameter-docs"><div class="first">Nome do Gerente da Conta Corrente.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">tipo</td>
+<td class="parameter-type">string<span class="parameter-lenght">2</span></td><td class="parameter-docs"><div class="first">Tipo da Conta Corrente.</div><div class="more"><a href="javascript:void(0)">+</a><div>Pode ser:<BR>AC - Administradora de Cartões<BR>AD - Adiantamento<BR>CA - Conta Aplicação<BR>CC - Conta Corrente<BR>CE - Conta Empréstimo<BR>CG - Conta Garantida<BR>CN - Crediário / Carnê<BR>CP - Conta Poupança<BR>CR - Cartão de Crédito<BR>CV - Carteira Virtual<BR>CX - Caixinha<BR>MT - Mútuo<BR>PG - Conta de Pagamento</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">tipo_comunicacao</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Tipo de comunicação&nbsp;</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cSincrAnalitica</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Sincroniza os Movimentos de Forma Análitica para o PDV</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nTpTef</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Tipo de TEF</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nTaxaAdm</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Taxa da Administradora de Cartões</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nDiasVenc</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Dias para vencimento</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nNumParc</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Número máximo de parcelas do Cartão de Credito</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nCodAdm</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código da Administradora de Cartões</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cUtilPDV</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Utiliza a Conta Corrente no OmiePDV</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCategoria</td>
+<td class="parameter-type">string<span class="parameter-lenght">20</span></td><td class="parameter-docs"><div class="first">Código da Categoria para o PDV.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cModalidade</td>
+<td class="parameter-type">string<span class="parameter-lenght">3</span></td><td class="parameter-docs"><div class="first">Modalidade da Cobrança</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">saldo_inicial</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Saldo Inicial da Conta Corrente</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">saldo_data</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Data do Saldo Inicial da Conta Corrente</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">valor_limite</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Valor do Limite do Crédito</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cTipoCartao</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Tipo de Cartão para Administradoras de Cartão.</div><div class="more"><a href="javascript:void(0)">+</a><div>Pode ser:<BR><BR>0 - Débito e Crédito.<BR>1 - Débito.<BR>2 - Crédito.<BR></div></div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="conta_corrente_listaArray" class="anchorScroll"></a>
+<h3>conta_corrente_listaArray</h3>
+<p>Este par&acirc;metro &eacute; um array do tipo <span class="pre"><a href="#conta_corrente_lista"><span class="lightBlue">conta_corrente_lista</span></a></span></p>
+<p>Lista de conta_corrente_lista</p>
+</div>
+<div class="complexTypeItem">
+<a name="fin_conta_corrente_cadastro" class="anchorScroll"></a>
+<h3>fin_conta_corrente_cadastro</h3>
+<p>Cadastro de contas correntes</p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">nCodCC</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código da conta corrente no Omie.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCodCCInt</td>
+<td class="parameter-type">string<span class="parameter-lenght">20</span></td><td class="parameter-docs"><div class="first">Código de Integração do Parceiro.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">tipo_conta_corrente</td>
+<td class="parameter-type">string<span class="parameter-lenght">2</span></td><td class="parameter-docs"><div class="first">Tipo da Conta Corrente.</div><div class="more"><a href="javascript:void(0)">+</a><div>Pode ser:<BR>AC - Administradora de Cartões<BR>AD - Adiantamento<BR>CA - Conta Aplicação<BR>CC - Conta Corrente<BR>CE - Conta Empréstimo<BR>CG - Conta Garantida<BR>CN - Crediário / Carnê<BR>CP - Conta Poupança<BR>CR - Cartão de Crédito<BR>CV - Carteira Virtual<BR>CX - Caixinha<BR>MT - Mútuo<BR>PG - Conta de Pagamento</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">codigo_banco</td>
+<td class="parameter-type">string<span class="parameter-lenght">3</span></td><td class="parameter-docs"><div class="first">Código do banco.</div><div class="more"><a href="javascript:void(0)">+</a><div>Pode ser:<BR><BR>001 - Banco do Brasil                         <BR>003 - Banco da Amazônia                       <BR>004 - Banco do Nordeste                       <BR>017 - BNY Mellon Banco S.A.                   <BR>021 - Banestes                                <BR>025 - Alfa                                    <BR>029 - Banerj                                  <BR>033 - Santander                               <BR>037 - Banpará                                 <BR>041 - Banrisul                                <BR>047 - Banese                                  <BR>069 - Banco Crefisa S.A.                      <BR>070 - BRB - Banco de Brasília                 <BR>077 - Banco Inter                             <BR>082 - Banco Topázio                           <BR>083 - China Brasil                            <BR>084 - Uniprime Norte do Paraná                <BR>085 - Ailos (Cecred)                          <BR>089 - Credisan                                <BR>090 - Unicred                                 <BR>091 - Unicred Central do Rio Grande do Sul    <BR>093 - PoloCred                                <BR>094 - Finaxis                                 <BR>095 - Confidence                              <BR>096 - Banco BM&F Bovespa                      <BR>097 - CrediSIS                                <BR>099 - Uniprime                                <BR>102 - XP Investimentos                        <BR>104 - Caixa Econômica Federal                 <BR>121 - Agiplan                                 <BR>124 - Woori Bank                              <BR>125 - Brasil Plural                           <BR>128 - MS Bank                                 <BR>132 - ICBC do Brasil                          <BR>133 - Cresol                                  <BR>136 - Centrais Unicreds                       <BR>147 - Rico                                    <BR>151 - Nossa Caixa                             <BR>177 - SC Guide                                <BR>197 - Stone                                   <BR>208 - BTG Pactual                             <BR>212 - Original                                <BR>213 - ARBI                                    <BR>218 - Banco Bonsucesso                        <BR>224 - Fibra                                   <BR>233 - Banco Cifra                             <BR>237 - Bradesco                                <BR>243 - Banco Máxima                            <BR>246 - Banco ABC Brasil                        <BR>250 - BCV - Banco de Crédito e Varejo         <BR>254 - ParanáBanco                             <BR>260 - Nubank                                  <BR>274 - BMP Money Plus                          <BR>278 - Geração Futuro                          <BR>279 - Primacredi                              <BR>280 - LiftBank                                <BR>290 - PagBank (PagSeguro)                     <BR>301 - BPP Instituição de Pagamento            <BR>318 - Banco BMG                               <BR>320 - BIC Banco Industrial e Comercial        <BR>323 - Mercado Pago                            <BR>329 - QI Tech                                 <BR>336 - C6 Bank                                 <BR>341 - Itaú Unibanco                           <BR>354 - Necton                                  <BR>364 - Gerencianet                             <BR>376 - J. P. Morgan                            <BR>389 - Banco Mercantil do Brasil               <BR>399 - HSBC Bank                               <BR>422 - Safra                                   <BR>453 - Banco Rural S.A.                        <BR>456 - Banco de Tokyo                          <BR>464 - Banco Sumitomo Mitsui Brasileiro        <BR>473 - Caixa Geral                             <BR>487 - Deutsche Bank                           <BR>505 - Credit Suisse                           <BR>600 - Banco Luso Brasileiro                   <BR>604 - Banco Industrial do Brasil              <BR>609 - Crebit                                  <BR>610 - Lucree                                  <BR>611 - Banco Paulista                          <BR>612 - Banco Guanabara                         <BR>613 - Omni Soluções Financeiras               <BR>623 - Banco Panamericano S.A.                 <BR>630 - Omie.CASH                               <BR>633 - Rendimento                              <BR>634 - Banco Triângulo S.A.                    <BR>637 - Sofisa                                  <BR>643 - Pine                                    <BR>644 - Wall Securitizadora                     <BR>646 - Wirecard                                <BR>647 - B-Link Securitizadora                   <BR>648 - Servicoop                               <BR>649 - Select Administradora de Bens           <BR>650 - SuperGet                                <BR>653 - Indusval                                <BR>654 - Banco Renner                            <BR>655 - Votorantim                              <BR>656 - DLM Invista                             <BR>657 - UnionPay                                <BR>658 - Zoop                                    <BR>659 - Flash Benefícios                        <BR>660 - Warren                                  <BR>661 - AvecPay                                 <BR>662 - WabiPay                                 <BR>663 - WabiPay                                 <BR>664 - Credit Partners                         <BR>665 - Millennium Bcp                          <BR>666 - Porto Seguro                            <BR>667 - Fidussia                                <BR>668 - Silicon Valley Bank                     <BR>669 - ArgosBank                               <BR>670 - Brasil Cash                             <BR>671 - Metal Credit Securitizadora             <BR>672 - FacilitaPay                             <BR>673 - Ceape                                   <BR>674 - CBH - Compagnie Bancaire Helvetique     <BR>675 - One7                                    <BR>676 - Griffin Capital S/A                     <BR>677 - Midas Securitizadora                    <BR>678 - PeixePay                                <BR>679 - InfinitePay                             <BR>680 - Lado Serviços de Cobrança               <BR>681 - Rodolfo Factoring                       <BR>682 - CR Factoring                            <BR>683 - Ben Benefícios                          <BR>684 - Loggi                                   <BR>685 - BRDE                                    <BR>686 - Cotação                                 <BR>687 - Olist                                   <BR>688 - Amazon                                  <BR>689 - Investcamp                              <BR>690 - SulBrasil                               <BR>691 - Seven Investimentos                     <BR>692 - Lotus                                   <BR>693 - Grupo Multiplica                        <BR>694 - Trevys Fidic                            <BR>696 - Valori Bank                             <BR>697 - Evo Pagamentos                          <BR>698 - Direct Cred                             <BR>699 - EngagED                                 <BR>700 - Finpet                                  <BR>707 - Banco Daycoval                          <BR>712 - Ourinvest                               <BR>719 - Banif                                   <BR>735 - Neon / Pottencial                       <BR>741 - Banco Ribeirão Preto                    <BR>743 - Banco Semear                            <BR>745 - Citibank S.A.                           <BR>746 - Banco Modal                             <BR>747 - Rabobank International Brasil           <BR>748 - Sicredi                                 <BR>752 - BNP Paribas                             <BR>755 - Bank of America Merrill Lynch           <BR>756 - Sicoob                                  <BR>772 - Gol Securitizadora                      <BR>773 - Centerin Fomento                        <BR>774 - Sals-Fac Factoring                      <BR>775 - Social Bank                             <BR>776 - Conta Simples                           <BR>777 - Credicard                               <BR>778 - Credicard                               <BR>779 - Banricard                               <BR>780 - Akirede                                 <BR>781 - Adiq                                    <BR>782 - A55                                     <BR></div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">descricao</td>
+<td class="parameter-type">string<span class="parameter-lenght">40</span></td><td class="parameter-docs"><div class="first">Descrição da conta corrente.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">codigo_agencia</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Código da Agência</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">numero_conta_corrente</td>
+<td class="parameter-type">string<span class="parameter-lenght">25</span></td><td class="parameter-docs"><div class="first">Número da conta corrente.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">saldo_inicial</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Saldo Inicial da Conta Corrente</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">saldo_data</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Data do Saldo Inicial da Conta Corrente</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">valor_limite</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Valor do Limite do Crédito</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nao_fluxo</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Não exibir no Fluxo de Caixa</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nao_resumo</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Não exibir no Resumo de Finanças</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">observacao</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Observação</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cobr_sn</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Indica se realiza Cobrança Bancária para a conta corrente [S/N]</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">per_juros</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Percentual de Juros ao Mês</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">per_multa</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Percentual de Multa</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">bol_instr1</td>
+<td class="parameter-type">string<span class="parameter-lenght">80</span></td><td class="parameter-docs"><div class="first">Mensagem de Instrução do Boleto - Linha 1</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">bol_instr2</td>
+<td class="parameter-type">string<span class="parameter-lenght">80</span></td><td class="parameter-docs"><div class="first">Mensagem de Instrução do Boleto - Linha 2</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">bol_instr3</td>
+<td class="parameter-type">string<span class="parameter-lenght">80</span></td><td class="parameter-docs"><div class="first">Mensagem de Instrução do Boleto - Linha 3</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">bol_instr4</td>
+<td class="parameter-type">string<span class="parameter-lenght">80</span></td><td class="parameter-docs"><div class="first">Mensagem de Instrução do Boleto - Linha 4</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">bol_sn</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Indica se emite Boletos de Cobrança [S/N]</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">pix_sn</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Indica se emite PIX [S/N]</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cnab_esp</td>
+<td class="parameter-type">string<span class="parameter-lenght">2</span></td><td class="parameter-docs"><div class="first">Espécie padrão para a Remessa de Cobrança</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cobr_esp</td>
+<td class="parameter-type">string<span class="parameter-lenght">3</span></td><td class="parameter-docs"><div class="first">Espécie padrão para o Boleto de Cobrança</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">dias_rcomp</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Dias para Compensação dos Recebimentos</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">modalidade</td>
+<td class="parameter-type">string<span class="parameter-lenght">3</span></td><td class="parameter-docs"><div class="first">Modalidade da Cobrança</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cancinstr</td>
+<td class="parameter-type">string<span class="parameter-lenght">3</span></td><td class="parameter-docs"><div class="first">Código de Instrução de Cancelamento, Baixa ou Devolução</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">pdv_enviar</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Utiliza a Conta Corrente no OmiePDV</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">pdv_sincr_analitica</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Sincroniza os Movimentos de Forma Análitica para o PDV</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">pdv_dias_venc</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Dias para vencimento</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">pdv_num_parcelas</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Número máximo de parcelas do Cartão de Credito</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">pdv_tipo_tef</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Tipo de TEF</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">pdv_cod_adm</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código da Administradora de Cartões</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">pdv_limite_pacelas</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Limite máximo de parcelas</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">pdv_taxa_loja</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Taxa de Juros da Loja</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">pdv_taxa_adm</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Taxa da Administradora de Cartões</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">pdv_categoria</td>
+<td class="parameter-type">string<span class="parameter-lenght">20</span></td><td class="parameter-docs"><div class="first">Código da Categoria para o PDV.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">pdv_bandeira</td>
+<td class="parameter-type">string<span class="parameter-lenght">70</span></td><td class="parameter-docs"><div class="first">Bandeira do Cartão.</div><div class="more"><a href="javascript:void(0)">+</a><div>Utilize a tag "cCodigo" do método "ListarBandeira" da API<BR>/api/v1/geral/bandeiracartao/<BR>para obter essa informação.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCnpjInstFinanc</td>
+<td class="parameter-type">string<span class="parameter-lenght">20</span></td><td class="parameter-docs"><div class="first">CNPJ da instituição financeira.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cTipoCartao</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Tipo de Cartão para Administradoras de Cartão.</div><div class="more"><a href="javascript:void(0)">+</a><div>Pode ser:<BR><BR>0 - Débito e Crédito.<BR>1 - Débito.<BR>2 - Crédito.<BR></div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cEstabelecimento</td>
+<td class="parameter-type">string<span class="parameter-lenght">70</span></td><td class="parameter-docs"><div class="first">Indica o código do estabelecimento.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nome_gerente</td>
+<td class="parameter-type">string<span class="parameter-lenght">40</span></td><td class="parameter-docs"><div class="first">Nome do Gerente da Conta Corrente.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">ddd</td>
+<td class="parameter-type">string<span class="parameter-lenght">5</span></td><td class="parameter-docs"><div class="first">DDD do Telefone de Contato do Gerente da Agência</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">telefone</td>
+<td class="parameter-type">string<span class="parameter-lenght">15</span></td><td class="parameter-docs"><div class="first">Telefone de Contato do Gerente da Agência</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">email</td>
+<td class="parameter-type">string<span class="parameter-lenght">200</span></td><td class="parameter-docs"><div class="first">E-mail do Gerente da Conta Corrente</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">endereco</td>
+<td class="parameter-type">string<span class="parameter-lenght">50</span></td><td class="parameter-docs"><div class="first">Endereço da Agência</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">numero</td>
+<td class="parameter-type">string<span class="parameter-lenght">5</span></td><td class="parameter-docs"><div class="first">Número do Endereço</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">bairro</td>
+<td class="parameter-type">string<span class="parameter-lenght">60</span></td><td class="parameter-docs"><div class="first">Bairro</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">complemento</td>
+<td class="parameter-type">string<span class="parameter-lenght">15</span></td><td class="parameter-docs"><div class="first">Complemento do Número do Endereço</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">estado</td>
+<td class="parameter-type">string<span class="parameter-lenght">2</span></td><td class="parameter-docs"><div class="first">Estado da Agência</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cidade</td>
+<td class="parameter-type">string<span class="parameter-lenght">40</span></td><td class="parameter-docs"><div class="first">Cidade da Agência</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cep</td>
+<td class="parameter-type">string<span class="parameter-lenght">9</span></td><td class="parameter-docs"><div class="first">CEP da Agência</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">codigo_pais</td>
+<td class="parameter-type">string<span class="parameter-lenght">4</span></td><td class="parameter-docs"><div class="first">Código do País</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">data_inc</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Data de Inclusão</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">hora_inc</td>
+<td class="parameter-type">string<span class="parameter-lenght">8</span></td><td class="parameter-docs"><div class="first">Hora de Inclusão</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">user_inc</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Usuário da Inclusão</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">data_alt</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Data de alteração</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">hora_alt</td>
+<td class="parameter-type">string<span class="parameter-lenght">8</span></td><td class="parameter-docs"><div class="first">Hora de Alteração</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">user_alt</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Usuário de Alteração</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">importado_api</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Registro importado pela API</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">bloqueado</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Registro Bloqueado pela API</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">inativo</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Indica se o cadastro da conta corrente está inativo (S/N).</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="fin_conta_corrente_cadastro_response" class="anchorScroll"></a>
+<h3>fin_conta_corrente_cadastro_response</h3>
+<p>Response do cadastro do conta corrente.</p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">nCodCC</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código da conta corrente no Omie.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCodCCInt</td>
+<td class="parameter-type">string<span class="parameter-lenght">20</span></td><td class="parameter-docs"><div class="first">Código de Integração do Parceiro.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCodStatus</td>
+<td class="parameter-type">string<span class="parameter-lenght">4</span></td><td class="parameter-docs"><div class="first">Código do status</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cDesStatus</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Descrição do Status</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="fin_conta_corrente_chave" class="anchorScroll"></a>
+<h3>fin_conta_corrente_chave</h3>
+<p>Chave de pesquisa da Conta Corrente</p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">nCodCC</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código da conta corrente no Omie.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCodCCInt</td>
+<td class="parameter-type">string<span class="parameter-lenght">20</span></td><td class="parameter-docs"><div class="first">Código de Integração do Parceiro.</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="fin_conta_corrente_listar_request" class="anchorScroll"></a>
+<h3>fin_conta_corrente_listar_request</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">codigo</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código da conta corrente no Omie.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">codigo_integracao</td>
+<td class="parameter-type">string<span class="parameter-lenght">20</span></td><td class="parameter-docs"><div class="first">Código de Integração do Parceiro.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">pagina</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Número da página que será listada.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">registros_por_pagina</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Número de registros retornados.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">apenas_importado_api</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Tipo de Cartão para Administradoras de Cartão.</div><div class="more"><a href="javascript:void(0)">+</a><div>Pode ser:<BR><BR>0 - Débito e Crédito.<BR>1 - Débito.<BR>2 - Crédito.<BR></div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">ordenar_por</td>
+<td class="parameter-type">string<span class="parameter-lenght">100</span></td><td class="parameter-docs"><div class="first">Ordenar o resultado da página por:</div><div class="more"><a href="javascript:void(0)">+</a><div>CODIGO - Código do lançamento do Omie;<BR>INTEGRACAO - Código do lançamento interno do seu sistema;<BR>DATA_LANCAMENTO - Data do lançamento.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">ordem_descrescente</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Indica se a ordem de exibição é decrescente caso seja informado "S".</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">filtrar_por_data_de</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Filtrar lançamentos incluídos e/ou alterados até a data</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">filtrar_por_data_ate</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Filtrar lançamentos incluídos e/ou alterados até a data</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">filtrar_apenas_inclusao</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Filtrar apenas registros incluídos (S/N)</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">filtrar_apenas_alteracao</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Filtrar apenas registros alterados (S/N)</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">filtrar_apenas_ativo</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Filtrar apenas contas correntes ativas</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">filtrar_por_descricao</td>
+<td class="parameter-type">string<span class="parameter-lenght">100</span></td><td class="parameter-docs"><div class="first">Filtrar apenas contas correntes por descrição</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="fin_conta_corrente_listar_response" class="anchorScroll"></a>
+<h3>fin_conta_corrente_listar_response</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">pagina</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Número da página que será listada.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">total_de_paginas</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Total de páginas encontradas.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">registros</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Número de registros retornados.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">total_de_registros</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Total de registros encontrados.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">ListarContasCorrentes</td>
+<td class="parameter-type"><a href="#ListarContasCorrentesArray">ListarContasCorrentesArray</a></td><td class="parameter-docs"><div class="first">Lista de contas correntes.</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="fin_conta_corrente_lote_request" class="anchorScroll"></a>
+<h3>fin_conta_corrente_lote_request</h3>
+<p>Request do Lote da Conta Corrente</p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">lote</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Número do lote</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">fin_conta_corrente_cadastro</td>
+<td class="parameter-type"><a href="#fin_conta_corrente_cadastroArray">fin_conta_corrente_cadastroArray</a></td><td class="parameter-docs"><div class="first">Cadastro de contas correntes</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="fin_conta_corrente_lote_response" class="anchorScroll"></a>
+<h3>fin_conta_corrente_lote_response</h3>
+<p>Response do conta corrente</p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">lote</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Número do lote</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCodStatus</td>
+<td class="parameter-type">string<span class="parameter-lenght">4</span></td><td class="parameter-docs"><div class="first">Código do status</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cDesStatus</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Descrição do Status</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="fin_conta_corrente_pesquisar" class="anchorScroll"></a>
+<h3>fin_conta_corrente_pesquisar</h3>
+<p>DEPRECATED</p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">codigo</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código da conta corrente no Omie.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">codigo_integracao</td>
+<td class="parameter-type">string<span class="parameter-lenght">20</span></td><td class="parameter-docs"><div class="first">Código de Integração do Parceiro.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">pagina</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Número da página que será listada.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">registros_por_pagina</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Número de registros retornados.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">apenas_importado_api</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Tipo de Cartão para Administradoras de Cartão.</div><div class="more"><a href="javascript:void(0)">+</a><div>Pode ser:<BR><BR>0 - Débito e Crédito.<BR>1 - Débito.<BR>2 - Crédito.<BR></div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">ordenar_por</td>
+<td class="parameter-type">string<span class="parameter-lenght">100</span></td><td class="parameter-docs"><div class="first">Ordenar o resultado da página por:</div><div class="more"><a href="javascript:void(0)">+</a><div>CODIGO - Código do lançamento do Omie;<BR>INTEGRACAO - Código do lançamento interno do seu sistema;<BR>DATA_LANCAMENTO - Data do lançamento.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">ordem_descrescente</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Indica se a ordem de exibição é decrescente caso seja informado "S".</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">filtrar_por_data_de</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Filtrar lançamentos incluídos e/ou alterados até a data</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">filtrar_por_data_ate</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Filtrar lançamentos incluídos e/ou alterados até a data</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">filtrar_apenas_inclusao</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Filtrar apenas registros incluídos (S/N)</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">filtrar_apenas_alteracao</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Filtrar apenas registros alterados (S/N)</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="fin_conta_corrente_pesquisar_resposta" class="anchorScroll"></a>
+<h3>fin_conta_corrente_pesquisar_resposta</h3>
+<p>DEPRECATED</p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">pagina</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Número da página que será listada.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">total_de_paginas</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Total de páginas encontradas.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">registros</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Número de registros retornados.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">total_de_registros</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Total de registros encontrados.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">conta_corrente_lista</td>
+<td class="parameter-type"><a href="#conta_corrente_listaArray">conta_corrente_listaArray</a></td><td class="parameter-docs"><div class="first">Lista de contas correntes</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="fin_conta_corrente_resumo_request" class="anchorScroll"></a>
+<h3>fin_conta_corrente_resumo_request</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">codigo</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código da conta corrente no Omie.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">codigo_integracao</td>
+<td class="parameter-type">string<span class="parameter-lenght">20</span></td><td class="parameter-docs"><div class="first">Código de Integração do Parceiro.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">pagina</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Número da página que será listada.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">registros_por_pagina</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Número de registros retornados.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">apenas_importado_api</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Tipo de Cartão para Administradoras de Cartão.</div><div class="more"><a href="javascript:void(0)">+</a><div>Pode ser:<BR><BR>0 - Débito e Crédito.<BR>1 - Débito.<BR>2 - Crédito.<BR></div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">ordenar_por</td>
+<td class="parameter-type">string<span class="parameter-lenght">100</span></td><td class="parameter-docs"><div class="first">Ordenar o resultado da página por:</div><div class="more"><a href="javascript:void(0)">+</a><div>CODIGO - Código do lançamento do Omie;<BR>INTEGRACAO - Código do lançamento interno do seu sistema;<BR>DATA_LANCAMENTO - Data do lançamento.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">ordem_descrescente</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Indica se a ordem de exibição é decrescente caso seja informado "S".</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">filtrar_por_data_de</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Filtrar lançamentos incluídos e/ou alterados até a data</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">filtrar_por_data_ate</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Filtrar lançamentos incluídos e/ou alterados até a data</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">filtrar_apenas_inclusao</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Filtrar apenas registros incluídos (S/N)</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">filtrar_apenas_alteracao</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Filtrar apenas registros alterados (S/N)</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">filtrar_apenas_ativo</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Filtrar apenas contas correntes ativas</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="fin_conta_corrente_resumo_response" class="anchorScroll"></a>
+<h3>fin_conta_corrente_resumo_response</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">pagina</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Número da página que será listada.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">total_de_paginas</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Total de páginas encontradas.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">registros</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Número de registros retornados.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">total_de_registros</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Total de registros encontrados.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">conta_corrente_lista</td>
+<td class="parameter-type"><a href="#conta_corrente_listaArray">conta_corrente_listaArray</a></td><td class="parameter-docs"><div class="first">Lista de contas correntes</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="omie_fail" class="anchorScroll"></a>
+<h3>omie_fail</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">code</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Codigo do erro</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">description</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Descricao do erro</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-required">referer</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Origem do erro</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-required">fatal</td>
+<td class="parameter-type">boolean</td><td class="parameter-docs"><div class="first">Indica se eh um erro fatal</div></td>
+<tr>
+</table>
+</div>
+</div>
+<div class="col-md-3">
+<div id="affix-menu" data-spy="affix" data-offset-top="294">
+<h2>M&eacute;todos</h2>
+<nav id="index" class="hidden-print hidden-xs hidden-sm">
+<ul class="nav">
+<li><a href="#AlterarContaCorrente">AlterarContaCorrente</a></li>
+<li><a href="#ConsultarContaCorrente">ConsultarContaCorrente</a></li>
+<li><a href="#ExcluirContaCorrente">ExcluirContaCorrente</a></li>
+<li><a href="#IncluirContaCorrente">IncluirContaCorrente</a></li>
+<li><a href="#ListarContasCorrentes">ListarContasCorrentes</a></li>
+<li><a href="#ListarResumoContasCorrentes">ListarResumoContasCorrentes</a></li>
+<li><a href="#PesquisarContaCorrente">PesquisarContaCorrente</a></li>
+<li><a href="#UpsertContaCorrente">UpsertContaCorrente</a></li>
+<li><a href="#UpsertContaCorrentePorLote">UpsertContaCorrentePorLote</a></li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+</body>
+</html>

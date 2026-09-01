@@ -1,0 +1,1633 @@
+<nav class="navbar navbar-expand-lg bg-azul">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="https://developer.omie.com.br/">
+            <img class="lozad img-logo" data-src="https://static.omie.com.br/images/logo/logo-omie-topo.png" src="https://static.omie.com.br/images/logo/logo-omie-topo.png" data-loaded="true">
+        </a>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <span class="borda-hover"></span>
+                    <a class="nav-link" href="https://developer.omie.com.br/my-apps/"> Aplicativos </a>
+                </li>
+                <li class="nav-item ">
+                    <span class="borda-hover"></span>
+                    <a class="nav-link" href="https://developer.omie.com.br/service-list/">
+                        Lista das API's
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <span class="borda-hover"></span>
+                    <a class="nav-link" href="https://ajuda.omie.com.br/pt-BR/collections/3045828-apis" target="_blank"> Ajuda </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<html>
+<head>
+<title>CupomFiscalIncluir</title>
+<style type="text/css" media="all">
+  [id] { scroll-margin-top: 68px; }
+</style>
+<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+<script src="https://cdn.omie.com.br/omie-assets/js/omie-compat-v2.min.js"></script>
+<script src="/developer/themes/omie/developer.js?ts=2021.008"></script>
+<link rel="stylesheet" href="//app.omie.com.br/wp-content/themes/omie/bootstrap/css/bootstrap.min.css" async/>
+<link href="https://cdn.omie.com.br/assets/developer/css/site.css?ts=2021.008" media="all" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="/developer/themes/omie/developer.css?ts=2021.008" async/>
+</head>
+<body>
+<div class="jumbotron banner bg-azul">
+<div class="container">
+<img src="https://cdn.omie.com.br/assets/developer/images/seta-azuis.png" alt="" class="img-setas">
+<div class="row align-items-center">
+<div class="col-12">
+<h1>CupomFiscalIncluir</h1>
+<ul class="nav nav-tabs" role="tablist">
+  <li role="presentation" class="active"><a href="#section-endpoint" aria-controls="section-endpoint" role="tab" data-toggle="tab">Endpoint</a></li>
+  <li role="presentation" class="pull-right"><a href="#section-wsdl" aria-controls="section-wsdl" role="tab" data-toggle="tab">WSDL</a></li>
+  <li role="presentation" class="pull-right"><a href="#section-php-soap" aria-controls="section-php-soap" role="tab" data-toggle="tab">PHP SOAP</a></li>
+  <li role="presentation" class="pull-right"><a href="#section-json" aria-controls="section-json" role="tab" data-toggle="tab">JSON</a></li>
+</ul>
+<div class="tab-content">
+  <div role="tabpanel" class="tab-pane fade in active" id="section-endpoint">
+    <h4>Endpoint URI</h4>
+    <a class="highlight" href="https://app.omie.com.br/api/v1/produtos/cupomfiscalincluir/"><pre><code>https://app.omie.com.br/api/v1/produtos/cupomfiscalincluir/</code></pre></a>
+  </div>
+  <div role="tabpanel" class="tab-pane fade" id="section-wsdl">
+    <h4>WSDL URI</h4>
+    <a class="highlight" href="https://app.omie.com.br/api/v1/produtos/cupomfiscalincluir/?WSDL"><pre><code>https://app.omie.com.br/api/v1/produtos/cupomfiscalincluir/?WSDL</code></pre></a>
+  </div>
+  <div role="tabpanel" class="tab-pane fade" id="section-php-soap">
+    <h4>PHP SOAP client download</h4>
+    <a class="highlight" href="https://app.omie.com.br/api/v1/produtos/cupomfiscalincluir/?PHPSOAPCLIENT""><pre><code>https://app.omie.com.br/api/v1/produtos/cupomfiscalincluir/?PHPSOAPCLIENT</code></pre></a>
+  </div>
+  <div role="tabpanel" class="tab-pane fade" id="section-json">
+    <h4>JSON client download URI</h4>
+    <h5>PHP</h5>
+    <a class="highlight" href="https://app.omie.com.br/api/v1/produtos/cupomfiscalincluir/?PHPJSONCLIENT"><pre><code>https://app.omie.com.br/api/v1/produtos/cupomfiscalincluir/?PHPJSONCLIENT</code></pre></a>
+    <h5>JavaScript (recomendado para uso apenas do lado do servidor)</h5>
+    <a class="highlight" href="https://app.omie.com.br/api/v1/produtos/cupomfiscalincluir/?JSJSONCLIENT"><pre><code>https://app.omie.com.br/api/v1/produtos/cupomfiscalincluir/?JSJSONCLIENT</code></pre></a>
+  </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="container">
+<div class="row">
+<div class="col-md-9">
+<h2>M&eacute;todos</h2>
+<p>Veja abaixo a documenta&ccedil;&atilde;o de cada m&eacute;todo dispon&iacute;vel para este servi&ccedil;o.</p>
+<div id="FecharCaixa" class="methodItem">
+<h3 class="method-name">FecharCaixa</h3>
+<p>
+Efetua o fechamento de um determinado caixa.
+</p>
+<div class="panel panel-default method">
+<div class="panel-heading"> Par&acirc;metros:
+</div>
+<table class="table table-condensed table-hover">
+<tr>
+<td class="">&nbsp;</td>
+<td class="method-parameter-type"><a href="#cfFecharCaixaRequest">cfFecharCaixaRequest</a></td>
+<td class="method-parameter-name">cfFecharCaixaRequest</td><td class="method-parameter-docs"><div class="first">Efetua a rotina de fechamento do caixa.</div></td>
+</tr>
+</table>
+<div class="panel-footer">
+Retorno <span class="pre"><a href="#cfFecharCaixaResponse"><span class="lightBlue">cfFecharCaixaResponse</span></a></span>: Resposta da rotina de fechamento do caixa.
+</div>
+</div>
+<div class="method-example-area">
+<h5>Exemplo:</h5>
+<pre class="method-example-code">{  <BR>   "emissor":{  <BR>      "emiNome":"OmiePDV",<BR>      "emiVersao":"1.0",<BR>      "emiSerial":"ASDadsADSasdADS",<BR>      "emiId":"01"<BR>   },<BR>   "seqCaixa":0<BR>}</pre>
+<button class="btn btn-success method-example" data-method="FecharCaixa" data-example="%7B+++++%22emissor%22%3A%7B++++++++%22emiNome%22%3A%22OmiePDV%22%2C++++++%22emiVersao%22%3A%221.0%22%2C++++++%22emiSerial%22%3A%22ASDadsADSasdADS%22%2C++++++%22emiId%22%3A%2201%22+++%7D%2C+++%22seqCaixa%22%3A0%7D">Teste agora mesmo</button>
+</div>
+</div>
+<div id="IncluirCfeSat" class="methodItem">
+<h3 class="method-name">IncluirCfeSat</h3>
+<p>
+Incluir Cupom Fiscal para SAT.
+</p>
+<div class="panel panel-default method">
+<div class="panel-heading"> Par&acirc;metros:
+</div>
+<table class="table table-condensed table-hover">
+<tr>
+<td class="">&nbsp;</td>
+<td class="method-parameter-type"><a href="#cfIncluirSatRequest">cfIncluirSatRequest</a></td>
+<td class="method-parameter-name">cfIncluirSatRequest</td><td class="method-parameter-docs"><div class="first">Incluir Cupom Fiscal Eletrônico gerado com SAT Fiscal.</div></td>
+</tr>
+</table>
+<div class="panel-footer">
+Retorno <span class="pre"><a href="#cfIncluirSatResponse"><span class="lightBlue">cfIncluirSatResponse</span></a></span>: 
+</div>
+</div>
+<div class="method-example-area">
+<h5>Exemplo:</h5>
+<pre class="method-example-code">{<BR>    "caixa": {<BR>        "lCxAberto": true,<BR>        "seqCaixa": 3428,<BR>        "seqCupom": 384559<BR>    },<BR>    "cfeSat": {<BR>        "chCFe": "99999999999999999999999999999999999999999999",<BR>        "dEmi": "07/02/2022",<BR>        "det": [<BR>            {<BR>                "imposto": {<BR>                    "ICMS": {<BR>                        "CST": "60"<BR>                    },<BR>                    "vTotTrib": 5.98<BR>                },<BR>                "lCanc": false,<BR>                "prod": {<BR>                    "cUn": "UN",<BR>                    "vAcresc": 0,<BR>                    "vDesc": 0,<BR>                    "vItem": 21.47,<BR>                    "vProd": 19.0,<BR>                    "vUnit": 19.0<BR>                },<BR>                "prodIdent": {<BR>                    "emiProduto": "30218001",<BR>                    "idLocalEstoque": 393938380,<BR>                    "idProduto": 453975843<BR>                },<BR>                "seqItem": 1<BR>            }<BR>        ],<BR>        "hEmi": "16:53:23",<BR>        "lCanc": false,<BR>        "nCFe": "034799",<BR>        "total": {<BR>            "vAcresc": 0,<BR>            "vCF": 28.82,<BR>            "vDesc": 0,<BR>            "vItem": 25.5,<BR>            "vTotTrib": 8.33<BR>        },<BR>        "tpAmb": "P"<BR>    },<BR>    "cupomIdent": {<BR>        "idCliente": 423856753<BR>    },<BR>    "emissor": {<BR>        "emiId": "001",<BR>        "emiNome": "SeuPDV",<BR>        "emiSerial": "X128992",<BR>        "emiVersao": "04.08"<BR>    },<BR>    "formasPag": [<BR>        {<BR>            "lCanc": false,<BR>            "pag": {<BR>                "pTaxa": 2.65,<BR>                "vLiq": 28.82,<BR>                "vPag": 28.82,<BR>                "vTaxa": 0.76,<BR>                "vTroco": 0<BR>            },<BR>            "pagIdent": {<BR>                "cCategoria": "1.01.95",<BR>                "cTipoPag": "CRC",<BR>                "idConta": 372946272<BR>            },<BR>            "parcelas": [<BR>                {<BR>                    "dVenc": "10/02/2022",<BR>                    "nParc": 1,<BR>                    "vParc": 28.82<BR>                }<BR>            ],<BR>            "seqPag": 1<BR>        }<BR>    ],<BR>    "sat": {<BR>        "satMd5": "f13df5c85a499d7cekei3f7dacd31c6b5",<BR>        "satModelo": "DIMEP",<BR>        "satProt": "12345678",<BR>        "satSerie": "000756735",<BR>        "satSessao": "68670",<BR>        "satXml": "SEU_XML"<BR>    }<BR>}</pre>
+<button class="btn btn-success method-example" data-method="IncluirCfeSat" data-example="%7B++++%22caixa%22%3A+%7B++++++++%22lCxAberto%22%3A+true%2C++++++++%22seqCaixa%22%3A+3428%2C++++++++%22seqCupom%22%3A+384559++++%7D%2C++++%22cfeSat%22%3A+%7B++++++++%22chCFe%22%3A+%2299999999999999999999999999999999999999999999%22%2C++++++++%22dEmi%22%3A+%2207%2F02%2F2022%22%2C++++++++%22det%22%3A+%5B++++++++++++%7B++++++++++++++++%22imposto%22%3A+%7B++++++++++++++++++++%22ICMS%22%3A+%7B++++++++++++++++++++++++%22CST%22%3A+%2260%22++++++++++++++++++++%7D%2C++++++++++++++++++++%22vTotTrib%22%3A+5.98++++++++++++++++%7D%2C++++++++++++++++%22lCanc%22%3A+false%2C++++++++++++++++%22prod%22%3A+%7B++++++++++++++++++++%22cUn%22%3A+%22UN%22%2C++++++++++++++++++++%22vAcresc%22%3A+0%2C++++++++++++++++++++%22vDesc%22%3A+0%2C++++++++++++++++++++%22vItem%22%3A+21.47%2C++++++++++++++++++++%22vProd%22%3A+19.0%2C++++++++++++++++++++%22vUnit%22%3A+19.0++++++++++++++++%7D%2C++++++++++++++++%22prodIdent%22%3A+%7B++++++++++++++++++++%22emiProduto%22%3A+%2230218001%22%2C++++++++++++++++++++%22idLocalEstoque%22%3A+393938380%2C++++++++++++++++++++%22idProduto%22%3A+453975843++++++++++++++++%7D%2C++++++++++++++++%22seqItem%22%3A+1++++++++++++%7D++++++++%5D%2C++++++++%22hEmi%22%3A+%2216%3A53%3A23%22%2C++++++++%22lCanc%22%3A+false%2C++++++++%22nCFe%22%3A+%22034799%22%2C++++++++%22total%22%3A+%7B++++++++++++%22vAcresc%22%3A+0%2C++++++++++++%22vCF%22%3A+28.82%2C++++++++++++%22vDesc%22%3A+0%2C++++++++++++%22vItem%22%3A+25.5%2C++++++++++++%22vTotTrib%22%3A+8.33++++++++%7D%2C++++++++%22tpAmb%22%3A+%22P%22++++%7D%2C++++%22cupomIdent%22%3A+%7B++++++++%22idCliente%22%3A+423856753++++%7D%2C++++%22emissor%22%3A+%7B++++++++%22emiId%22%3A+%22001%22%2C++++++++%22emiNome%22%3A+%22SeuPDV%22%2C++++++++%22emiSerial%22%3A+%22X128992%22%2C++++++++%22emiVersao%22%3A+%2204.08%22++++%7D%2C++++%22formasPag%22%3A+%5B++++++++%7B++++++++++++%22lCanc%22%3A+false%2C++++++++++++%22pag%22%3A+%7B++++++++++++++++%22pTaxa%22%3A+2.65%2C++++++++++++++++%22vLiq%22%3A+28.82%2C++++++++++++++++%22vPag%22%3A+28.82%2C++++++++++++++++%22vTaxa%22%3A+0.76%2C++++++++++++++++%22vTroco%22%3A+0++++++++++++%7D%2C++++++++++++%22pagIdent%22%3A+%7B++++++++++++++++%22cCategoria%22%3A+%221.01.95%22%2C++++++++++++++++%22cTipoPag%22%3A+%22CRC%22%2C++++++++++++++++%22idConta%22%3A+372946272++++++++++++%7D%2C++++++++++++%22parcelas%22%3A+%5B++++++++++++++++%7B++++++++++++++++++++%22dVenc%22%3A+%2210%2F02%2F2022%22%2C++++++++++++++++++++%22nParc%22%3A+1%2C++++++++++++++++++++%22vParc%22%3A+28.82++++++++++++++++%7D++++++++++++%5D%2C++++++++++++%22seqPag%22%3A+1++++++++%7D++++%5D%2C++++%22sat%22%3A+%7B++++++++%22satMd5%22%3A+%22f13df5c85a499d7cekei3f7dacd31c6b5%22%2C++++++++%22satModelo%22%3A+%22DIMEP%22%2C++++++++%22satProt%22%3A+%2212345678%22%2C++++++++%22satSerie%22%3A+%22000756735%22%2C++++++++%22satSessao%22%3A+%2268670%22%2C++++++++%22satXml%22%3A+%22SEU_XML%22++++%7D%7D">Teste agora mesmo</button>
+</div>
+</div>
+<div id="IncluirCupom" class="methodItem">
+<h3 class="method-name">IncluirCupom</h3>
+<p>
+Incluir Cupom Fiscal (ECF).
+</p>
+<div class="panel panel-default method">
+<div class="panel-heading"> Par&acirc;metros:
+</div>
+<table class="table table-condensed table-hover">
+<tr>
+<td class="">&nbsp;</td>
+<td class="method-parameter-type"><a href="#cfIncluirEcfRequest">cfIncluirEcfRequest</a></td>
+<td class="method-parameter-name">cfIncluirEcfRequest</td><td class="method-parameter-docs"><div class="first">Incluir um cupom fiscal emitido em via Impressora Fiscal (ECF).</div></td>
+</tr>
+</table>
+<div class="panel-footer">
+Retorno <span class="pre"><a href="#cfIncluirEcfResponse"><span class="lightBlue">cfIncluirEcfResponse</span></a></span>: 
+</div>
+</div>
+<div class="method-example-area">
+<h5>Exemplo:</h5>
+<pre class="method-example-code">{<BR>  "emissor": {<BR>    "emiNome": "EmissorPDV",<BR>    "emiVersao": "1.0",<BR>    "emiSerial": "781818814968638",<BR>    "emiId": "001"<BR>  },<BR>  "ecf": {<BR>    "ecfSerie": "BE051475610000201537",<BR>    "ecfModelo": "MP-2100 TH FI"<BR>  },<BR>  "caixa": {<BR>    "seqCaixa": "88174",<BR>    "seqCupom": "1788306298"<BR>  },<BR>  "cupom": {<BR>    "nCOO" : "1788306298",<BR>    "nCCF" : "1788306298",<BR>    "dEmi" : "01/09/2026",<BR>    "hEmi" : "13:14:30",<BR>    "lCanc" : false,<BR>    "det": [<BR>      {<BR>        "seqItem": 1,<BR>        "lCanc": false,<BR>        "prod":{<BR>          "cProd": "700309",<BR>          "xProd": "Misiones de Rengo Carmenere 2016",<BR>          "CFOP": "5.101",<BR>          "NCM": "2204.21.00",<BR>          "cEAN": "",<BR>          "cUn": "GF",<BR>          "nQuant": 10,<BR>          "vUnit": 5.5,<BR>          "vProd": 55,<BR>          "vDesc": 0,<BR>          "vAcresc": 0,<BR>          "vItem": 55<BR>        },<BR>        "prodIdent":{<BR>          "idProduto": 369356862,<BR>          "emiProduto": "3229"<BR>        },<BR>        "imposto":{<BR>          "vTotTrib": 5,<BR>          "ICMS":{<BR>            "CST": "00",<BR>            "vBC": 55,<BR>            "pICMS": 18,<BR>            "vICMS": 9.9<BR>          }<BR>        }<BR>      },<BR>      {<BR>        "seqItem": 2,<BR>        "lCanc": false,<BR>        "prod":{<BR>          "cProd": "700307",<BR>          "xProd": "Periquita Reserva 2014",<BR>          "CFOP": "5.101",<BR>          "NCM": "2204.21.00",<BR>          "cEAN": "",<BR>          "cUn": "GF",<BR>          "nQuant": 10,<BR>          "vUnit": 4,<BR>          "vProd": 40,<BR>          "vDesc": 0,<BR>          "vAcresc": 0,<BR>          "vItem": 40<BR>        },<BR>        "prodIdent":{<BR>          "idProduto": 369356851,<BR>          "emiProduto": "3224"<BR>        },<BR>        "imposto":{<BR>          "vTotTrib": 5,<BR>          "ICMS":{<BR>            "CST": "00",<BR>            "vBC": 40,<BR>            "pICMS": 18,<BR>            "vICMS": 7.2<BR>          }<BR>        }<BR>      }<BR>    ],<BR>    "outrasInf": {<BR>      "nMesa": 0,<BR>      "nPessoas": 0<BR>    },<BR>    "total": {<BR>      "vItem": 95,<BR>      "vICMS": 17.1,<BR>      "vDesc": 0,<BR>      "vAcresc": 0,<BR>      "vTaxa": 3,<BR>      "vCF": 95,<BR>      "vTotTrib": 10<BR>    }<BR>  },<BR>  "cupomIdent": {<BR>    "idCliente": 0,<BR>    "idVendedor": 0,<BR>    "idProjeto": 0,<BR>    "cUsuario": ""<BR>  },<BR>  "formasPag": [<BR>    {<BR>      "seqPag": 1,<BR>      "lCanc": false,<BR>      "pag": {<BR>        "vPag": 40,<BR>        "vTroco": 0,<BR>        "vTaxa": 0,<BR>        "pTaxa": 0,<BR>        "vLiq": 40<BR>      },<BR>      "pagIdent": {<BR>        "cCategoria": "1.01.03",<BR>        "cTipoPag": "CRT",<BR>        "idConta": 1610386<BR>      },<BR>      "TEF": {<BR>        "NSU": "1029333",<BR>        "nNumeroAut": "2222",<BR>        "nValorAut": 100,<BR>        "cTipoCartao": "D",<BR>        "cRedeTef": "VISANET",<BR>        "cBandeiraTef": "VISA",<BR>        "nParcTef": 2<BR>      },<BR>      "parcelas": [<BR>        {<BR>          "nParc": 1,<BR>          "dVenc": "02/09/2026",<BR>          "vParc": 25<BR>        },<BR>        {<BR>          "nParc": 2,<BR>          "dVenc": "23/01/2027",<BR>          "vParc": 15<BR>        }        <BR>      ]<BR>    },<BR>    {<BR>      "seqPag": 2,<BR>      "lCanc": false,<BR>      "pag": {<BR>        "vPag": 55,<BR>        "vTroco": 0,<BR>        "vTaxa": 0,<BR>        "pTaxa": 0,<BR>        "vLiq": 55<BR>      },<BR>      "pagIdent": {<BR>        "cCategoria": "1.01.03",<BR>        "cTipoPag": "CHQ",<BR>        "idConta": 1208238<BR>      },<BR>      "Cheque":{<BR>        "chBanco": "001",<BR>        "chAgencia": "4321",<BR>        "chConta": "003004",<BR>        "chSerie": "01",<BR>        "chNumero": "01234"<BR>      }<BR>    }  <BR>  ]<BR>}</pre>
+<button class="btn btn-success method-example" data-method="IncluirCupom" data-example="%7B++%22emissor%22%3A+%7B++++%22emiNome%22%3A+%22EmissorPDV%22%2C++++%22emiVersao%22%3A+%221.0%22%2C++++%22emiSerial%22%3A+%22781818814968638%22%2C++++%22emiId%22%3A+%22001%22++%7D%2C++%22ecf%22%3A+%7B++++%22ecfSerie%22%3A+%22BE051475610000201537%22%2C++++%22ecfModelo%22%3A+%22MP-2100+TH+FI%22++%7D%2C++%22caixa%22%3A+%7B++++%22seqCaixa%22%3A+%2288174%22%2C++++%22seqCupom%22%3A+%221788306298%22++%7D%2C++%22cupom%22%3A+%7B++++%22nCOO%22+%3A+%221788306298%22%2C++++%22nCCF%22+%3A+%221788306298%22%2C++++%22dEmi%22+%3A+%2201%2F09%2F2026%22%2C++++%22hEmi%22+%3A+%2213%3A14%3A30%22%2C++++%22lCanc%22+%3A+false%2C++++%22det%22%3A+%5B++++++%7B++++++++%22seqItem%22%3A+1%2C++++++++%22lCanc%22%3A+false%2C++++++++%22prod%22%3A%7B++++++++++%22cProd%22%3A+%22700309%22%2C++++++++++%22xProd%22%3A+%22Misiones+de+Rengo+Carmenere+2016%22%2C++++++++++%22CFOP%22%3A+%225.101%22%2C++++++++++%22NCM%22%3A+%222204.21.00%22%2C++++++++++%22cEAN%22%3A+%22%22%2C++++++++++%22cUn%22%3A+%22GF%22%2C++++++++++%22nQuant%22%3A+10%2C++++++++++%22vUnit%22%3A+5.5%2C++++++++++%22vProd%22%3A+55%2C++++++++++%22vDesc%22%3A+0%2C++++++++++%22vAcresc%22%3A+0%2C++++++++++%22vItem%22%3A+55++++++++%7D%2C++++++++%22prodIdent%22%3A%7B++++++++++%22idProduto%22%3A+369356862%2C++++++++++%22emiProduto%22%3A+%223229%22++++++++%7D%2C++++++++%22imposto%22%3A%7B++++++++++%22vTotTrib%22%3A+5%2C++++++++++%22ICMS%22%3A%7B++++++++++++%22CST%22%3A+%2200%22%2C++++++++++++%22vBC%22%3A+55%2C++++++++++++%22pICMS%22%3A+18%2C++++++++++++%22vICMS%22%3A+9.9++++++++++%7D++++++++%7D++++++%7D%2C++++++%7B++++++++%22seqItem%22%3A+2%2C++++++++%22lCanc%22%3A+false%2C++++++++%22prod%22%3A%7B++++++++++%22cProd%22%3A+%22700307%22%2C++++++++++%22xProd%22%3A+%22Periquita+Reserva+2014%22%2C++++++++++%22CFOP%22%3A+%225.101%22%2C++++++++++%22NCM%22%3A+%222204.21.00%22%2C++++++++++%22cEAN%22%3A+%22%22%2C++++++++++%22cUn%22%3A+%22GF%22%2C++++++++++%22nQuant%22%3A+10%2C++++++++++%22vUnit%22%3A+4%2C++++++++++%22vProd%22%3A+40%2C++++++++++%22vDesc%22%3A+0%2C++++++++++%22vAcresc%22%3A+0%2C++++++++++%22vItem%22%3A+40++++++++%7D%2C++++++++%22prodIdent%22%3A%7B++++++++++%22idProduto%22%3A+369356851%2C++++++++++%22emiProduto%22%3A+%223224%22++++++++%7D%2C++++++++%22imposto%22%3A%7B++++++++++%22vTotTrib%22%3A+5%2C++++++++++%22ICMS%22%3A%7B++++++++++++%22CST%22%3A+%2200%22%2C++++++++++++%22vBC%22%3A+40%2C++++++++++++%22pICMS%22%3A+18%2C++++++++++++%22vICMS%22%3A+7.2++++++++++%7D++++++++%7D++++++%7D++++%5D%2C++++%22outrasInf%22%3A+%7B++++++%22nMesa%22%3A+0%2C++++++%22nPessoas%22%3A+0++++%7D%2C++++%22total%22%3A+%7B++++++%22vItem%22%3A+95%2C++++++%22vICMS%22%3A+17.1%2C++++++%22vDesc%22%3A+0%2C++++++%22vAcresc%22%3A+0%2C++++++%22vTaxa%22%3A+3%2C++++++%22vCF%22%3A+95%2C++++++%22vTotTrib%22%3A+10++++%7D++%7D%2C++%22cupomIdent%22%3A+%7B++++%22idCliente%22%3A+0%2C++++%22idVendedor%22%3A+0%2C++++%22idProjeto%22%3A+0%2C++++%22cUsuario%22%3A+%22%22++%7D%2C++%22formasPag%22%3A+%5B++++%7B++++++%22seqPag%22%3A+1%2C++++++%22lCanc%22%3A+false%2C++++++%22pag%22%3A+%7B++++++++%22vPag%22%3A+40%2C++++++++%22vTroco%22%3A+0%2C++++++++%22vTaxa%22%3A+0%2C++++++++%22pTaxa%22%3A+0%2C++++++++%22vLiq%22%3A+40++++++%7D%2C++++++%22pagIdent%22%3A+%7B++++++++%22cCategoria%22%3A+%221.01.03%22%2C++++++++%22cTipoPag%22%3A+%22CRT%22%2C++++++++%22idConta%22%3A+1610386++++++%7D%2C++++++%22TEF%22%3A+%7B++++++++%22NSU%22%3A+%221029333%22%2C++++++++%22nNumeroAut%22%3A+%222222%22%2C++++++++%22nValorAut%22%3A+100%2C++++++++%22cTipoCartao%22%3A+%22D%22%2C++++++++%22cRedeTef%22%3A+%22VISANET%22%2C++++++++%22cBandeiraTef%22%3A+%22VISA%22%2C++++++++%22nParcTef%22%3A+2++++++%7D%2C++++++%22parcelas%22%3A+%5B++++++++%7B++++++++++%22nParc%22%3A+1%2C++++++++++%22dVenc%22%3A+%2202%2F09%2F2026%22%2C++++++++++%22vParc%22%3A+25++++++++%7D%2C++++++++%7B++++++++++%22nParc%22%3A+2%2C++++++++++%22dVenc%22%3A+%2223%2F01%2F2027%22%2C++++++++++%22vParc%22%3A+15++++++++%7D++++++++++++++%5D++++%7D%2C++++%7B++++++%22seqPag%22%3A+2%2C++++++%22lCanc%22%3A+false%2C++++++%22pag%22%3A+%7B++++++++%22vPag%22%3A+55%2C++++++++%22vTroco%22%3A+0%2C++++++++%22vTaxa%22%3A+0%2C++++++++%22pTaxa%22%3A+0%2C++++++++%22vLiq%22%3A+55++++++%7D%2C++++++%22pagIdent%22%3A+%7B++++++++%22cCategoria%22%3A+%221.01.03%22%2C++++++++%22cTipoPag%22%3A+%22CHQ%22%2C++++++++%22idConta%22%3A+1208238++++++%7D%2C++++++%22Cheque%22%3A%7B++++++++%22chBanco%22%3A+%22001%22%2C++++++++%22chAgencia%22%3A+%224321%22%2C++++++++%22chConta%22%3A+%22003004%22%2C++++++++%22chSerie%22%3A+%2201%22%2C++++++++%22chNumero%22%3A+%2201234%22++++++%7D++++%7D++++%5D%7D">Teste agora mesmo</button>
+</div>
+</div>
+<div id="IncluirNfce" class="methodItem">
+<h3 class="method-name">IncluirNfce</h3>
+<p>
+
+</p>
+<div class="panel panel-default method">
+<div class="panel-heading"> Par&acirc;metros:
+</div>
+<table class="table table-condensed table-hover">
+<tr>
+<td class="">&nbsp;</td>
+<td class="method-parameter-type"><a href="#cfIncluirNfceRequest">cfIncluirNfceRequest</a></td>
+<td class="method-parameter-name">cfIncluirNfceRequest</td><td class="method-parameter-docs"><div class="first">Incluir Nota Fiscal Consumidor Eletrônica (NFC-e).</div></td>
+</tr>
+</table>
+<div class="panel-footer">
+Retorno <span class="pre"><a href="#cfIncluirNfceResponse"><span class="lightBlue">cfIncluirNfceResponse</span></a></span>: 
+</div>
+</div>
+<div class="method-example-area">
+<h5>Exemplo:</h5>
+<pre class="method-example-code">{<BR>    "NFe": {<BR>        "chNFe": "99999999999999999999999999999999999999999999",<BR>        "dEmi": "dd/mm/aaaa",<BR>        "det": [<BR>            {<BR>                "lCanc": false,<BR>                "lNaoMovEstoque": false,<BR>                "prod": {<BR>                    "CFOP": "5405",<BR>                    "NCM": "04061090",<BR>                    "cEAN": "SEM GTIN",<BR>                    "cProd": "325",<BR>                    "cUn": "UN",<BR>                    "nQuant": 1,<BR>                    "vAcresc": 0,<BR>                    "vDesc": 0,<BR>                    "vItem": 15,<BR>                    "vProd": 15,<BR>                    "vUnit": 15,<BR>                    "xProd": "REQUEIJAO CREMOSO 400GR MINAS MILK"<BR>                },<BR>                "prodIdent": {<BR>                    "emiProduto": "325",<BR>                    "idLocalEstoque": "1205784081",<BR>                    "idProduto": 1208514897<BR>                },<BR>                "seqItem": 1<BR>            }<BR>        ],<BR>        "hEmi": "08:24:01",<BR>        "lCanc": false,<BR>        "nNF": "000016064",<BR>        "serie": "002",<BR>        "total": {<BR>            "vAcresc": "0.00",<BR>            "vCF": "25.00",<BR>            "vDesc": "0.00",<BR>            "vICMS": "0.00",<BR>            "vItem": "25.00",<BR>            "vTaxa": 0,<BR>            "vTotTrib": 0<BR>        },<BR>        "tpAmb": "P",<BR>        "tpEmis": "1"<BR>    },<BR>    "caixa": {<BR>        "lCxAberto": false,<BR>        "seqCaixa": 710,<BR>        "seqCupom": 1012303<BR>    },<BR>    "cupomIdent": {<BR>        "idCliente": 120834285,<BR>        "idProjeto": 0,<BR>        "idVendedor": 0<BR>    },<BR>    "emissor": {<BR>        "emiId": "0001",<BR>        "emiNome": "SEU_PDV",<BR>        "emiSerial": "WD-WXS1A499REDFTB58F00D65",<BR>        "emiVersao": "1.9.00"<BR>    },<BR>    "formasPag": [<BR>        {<BR>            "Parcelas": [<BR>                {<BR>                    "dVenc": "dd/mm/aaaa",<BR>                    "nParc": "001/001",<BR>                    "vParc": 25<BR>                }<BR>            ],<BR>            "TEF": {<BR>                "NSU": "",<BR>                "cBandeiraTef": "",<BR>                "cRedeTef": "Outros",<BR>                "cTipoCartao": "",<BR>                "nNumeroAut": "",<BR>                "nParcTef": 0,<BR>                "nValorAut": 25<BR>            },<BR>            "lCanc": false,<BR>            "lNaoGerarTitulo": false,<BR>            "pag": {<BR>                "pTaxa": 0,<BR>                "vLiq": 25,<BR>                "vPag": 25,<BR>                "vTaxa": 0,<BR>                "vTroco": 0<BR>            },<BR>            "pagIdent": {<BR>                "cCategoria": "1.01.03",<BR>                "cTipoPag": "CRT",<BR>                "idConta": 1298842804<BR>            },<BR>            "seqPag": 1<BR>        }<BR>    ],<BR>    "nfce": {<BR>        "nfceMd5": "754d4c0594e4ebcbcf7fdd75547f9d7d",<BR>        "nfceProt": "999999999999999",<BR>        "nfceXml": "SEU_XML"<BR>    }<BR>}</pre>
+<button class="btn btn-success method-example" data-method="IncluirNfce" data-example="%7B++++%22NFe%22%3A+%7B++++++++%22chNFe%22%3A+%2299999999999999999999999999999999999999999999%22%2C++++++++%22dEmi%22%3A+%22dd%2Fmm%2Faaaa%22%2C++++++++%22det%22%3A+%5B++++++++++++%7B++++++++++++++++%22lCanc%22%3A+false%2C++++++++++++++++%22lNaoMovEstoque%22%3A+false%2C++++++++++++++++%22prod%22%3A+%7B++++++++++++++++++++%22CFOP%22%3A+%225405%22%2C++++++++++++++++++++%22NCM%22%3A+%2204061090%22%2C++++++++++++++++++++%22cEAN%22%3A+%22SEM+GTIN%22%2C++++++++++++++++++++%22cProd%22%3A+%22325%22%2C++++++++++++++++++++%22cUn%22%3A+%22UN%22%2C++++++++++++++++++++%22nQuant%22%3A+1%2C++++++++++++++++++++%22vAcresc%22%3A+0%2C++++++++++++++++++++%22vDesc%22%3A+0%2C++++++++++++++++++++%22vItem%22%3A+15%2C++++++++++++++++++++%22vProd%22%3A+15%2C++++++++++++++++++++%22vUnit%22%3A+15%2C++++++++++++++++++++%22xProd%22%3A+%22REQUEIJAO+CREMOSO+400GR+MINAS+MILK%22++++++++++++++++%7D%2C++++++++++++++++%22prodIdent%22%3A+%7B++++++++++++++++++++%22emiProduto%22%3A+%22325%22%2C++++++++++++++++++++%22idLocalEstoque%22%3A+%221205784081%22%2C++++++++++++++++++++%22idProduto%22%3A+1208514897++++++++++++++++%7D%2C++++++++++++++++%22seqItem%22%3A+1++++++++++++%7D++++++++%5D%2C++++++++%22hEmi%22%3A+%2208%3A24%3A01%22%2C++++++++%22lCanc%22%3A+false%2C++++++++%22nNF%22%3A+%22000016064%22%2C++++++++%22serie%22%3A+%22002%22%2C++++++++%22total%22%3A+%7B++++++++++++%22vAcresc%22%3A+%220.00%22%2C++++++++++++%22vCF%22%3A+%2225.00%22%2C++++++++++++%22vDesc%22%3A+%220.00%22%2C++++++++++++%22vICMS%22%3A+%220.00%22%2C++++++++++++%22vItem%22%3A+%2225.00%22%2C++++++++++++%22vTaxa%22%3A+0%2C++++++++++++%22vTotTrib%22%3A+0++++++++%7D%2C++++++++%22tpAmb%22%3A+%22P%22%2C++++++++%22tpEmis%22%3A+%221%22++++%7D%2C++++%22caixa%22%3A+%7B++++++++%22lCxAberto%22%3A+false%2C++++++++%22seqCaixa%22%3A+710%2C++++++++%22seqCupom%22%3A+1012303++++%7D%2C++++%22cupomIdent%22%3A+%7B++++++++%22idCliente%22%3A+120834285%2C++++++++%22idProjeto%22%3A+0%2C++++++++%22idVendedor%22%3A+0++++%7D%2C++++%22emissor%22%3A+%7B++++++++%22emiId%22%3A+%220001%22%2C++++++++%22emiNome%22%3A+%22SEU_PDV%22%2C++++++++%22emiSerial%22%3A+%22WD-WXS1A499REDFTB58F00D65%22%2C++++++++%22emiVersao%22%3A+%221.9.00%22++++%7D%2C++++%22formasPag%22%3A+%5B++++++++%7B++++++++++++%22Parcelas%22%3A+%5B++++++++++++++++%7B++++++++++++++++++++%22dVenc%22%3A+%22dd%2Fmm%2Faaaa%22%2C++++++++++++++++++++%22nParc%22%3A+%22001%2F001%22%2C++++++++++++++++++++%22vParc%22%3A+25++++++++++++++++%7D++++++++++++%5D%2C++++++++++++%22TEF%22%3A+%7B++++++++++++++++%22NSU%22%3A+%22%22%2C++++++++++++++++%22cBandeiraTef%22%3A+%22%22%2C++++++++++++++++%22cRedeTef%22%3A+%22Outros%22%2C++++++++++++++++%22cTipoCartao%22%3A+%22%22%2C++++++++++++++++%22nNumeroAut%22%3A+%22%22%2C++++++++++++++++%22nParcTef%22%3A+0%2C++++++++++++++++%22nValorAut%22%3A+25++++++++++++%7D%2C++++++++++++%22lCanc%22%3A+false%2C++++++++++++%22lNaoGerarTitulo%22%3A+false%2C++++++++++++%22pag%22%3A+%7B++++++++++++++++%22pTaxa%22%3A+0%2C++++++++++++++++%22vLiq%22%3A+25%2C++++++++++++++++%22vPag%22%3A+25%2C++++++++++++++++%22vTaxa%22%3A+0%2C++++++++++++++++%22vTroco%22%3A+0++++++++++++%7D%2C++++++++++++%22pagIdent%22%3A+%7B++++++++++++++++%22cCategoria%22%3A+%221.01.03%22%2C++++++++++++++++%22cTipoPag%22%3A+%22CRT%22%2C++++++++++++++++%22idConta%22%3A+1298842804++++++++++++%7D%2C++++++++++++%22seqPag%22%3A+1++++++++%7D++++%5D%2C++++%22nfce%22%3A+%7B++++++++%22nfceMd5%22%3A+%22754d4c0594e4ebcbcf7fdd75547f9d7d%22%2C++++++++%22nfceProt%22%3A+%22999999999999999%22%2C++++++++%22nfceXml%22%3A+%22SEU_XML%22++++%7D%7D">Teste agora mesmo</button>
+</div>
+</div>
+<div id="IncluirRps" class="methodItem">
+<h3 class="method-name">IncluirRps</h3>
+<p>
+Incluir Cupom RPS.
+</p>
+<div class="panel panel-default method">
+<div class="panel-heading"> Par&acirc;metros:
+</div>
+<table class="table table-condensed table-hover">
+<tr>
+<td class="">&nbsp;</td>
+<td class="method-parameter-type"><a href="#cfIncluirRpsRequest">cfIncluirRpsRequest</a></td>
+<td class="method-parameter-name">cfIncluirRpsRequest</td><td class="method-parameter-docs"><div class="first">Incluir Cupom RPS.</div></td>
+</tr>
+</table>
+<div class="panel-footer">
+Retorno <span class="pre"><a href="#cfIncluirRpsResponse"><span class="lightBlue">cfIncluirRpsResponse</span></a></span>: 
+</div>
+</div>
+<div class="method-example-area">
+<h5>Exemplo:</h5>
+<pre class="method-example-code">{<BR>            "emissor": {<BR>                "emiNome": "SEU_PDV",<BR>                "emiVersao": "1.3.0",<BR>                "emiSerial": "1.0",<BR>                "emiId": "02"<BR>            },<BR>            "caixa": {<BR>                "seqCaixa": 1206,<BR>                "seqCupom": 2508<BR>            },<BR>            "cupomIdent": {<BR>                "idCliente": "",<BR>                "idVendedor": 0,<BR>                "idProjeto": 0,<BR>                "cUsuario": ""<BR>            },<BR>            "servicos": [<BR>                {<BR>                    "nCodServ": 200000027377888,<BR>                    "nItem": 1,<BR>                    "nQtde": 3,<BR>                    "nValorUni": 2,<BR>                    "nValorTot": 6,<BR>                    "cMunFG": "3550308",<BR>                    "vDesc": 0<BR>                },<BR>                {<BR>                    "nCodServ": 200000027377888,<BR>                    "nItem": 2,<BR>                    "nQtde": 1,<BR>                    "nValorUni": 2,<BR>                    "nValorTot": 2,<BR>                    "cMunFG": "3550308",<BR>                    "vDesc": 0<BR>                },<BR>                {<BR>                    "nCodServ": 200000027377888,<BR>                    "nItem": 3,<BR>                    "nQtde": 1,<BR>                    "nValorUni": 2,<BR>                    "nValorTot": 2,<BR>                    "cMunFG": "3550308",<BR>                    "vDesc": 0<BR>                }<BR>            ],<BR>            "rps": {<BR>                "numero": 2508,<BR>                "serie": "4",<BR>                "dEmi": "27/03/2025",<BR>                "hEmi": "16:52:56",<BR>                "totalRps": {<BR>                    "vItem": 10.0,<BR>                    "vDesc": 0,<BR>                    "vRPS": 10.0<BR>                }<BR>            },<BR>            "formasPag": [<BR>                {<BR>                    "seqPag": 1,<BR>                    "lCanc": false,<BR>                    "pag": {<BR>                        "vPag": 10.0,<BR>                        "vLiq": 10.0<BR>                    },<BR>                    "pagIdent": {<BR>                        "cCategoria": "1.01.03",<BR>                        "idConta": 200000005530780,<BR>                        "cTipoPag": "CRT"<BR>                    },<BR>                    "parcelas": [<BR>                        {<BR>                            "nParc": "001/001",<BR>                            "dVenc": "08/05/2025",<BR>                            "vParc": 10.0<BR>                        }<BR>                    ]<BR>                }<BR>            ]<BR>        }</pre>
+<button class="btn btn-success method-example" data-method="IncluirRps" data-example="%7B++++++++++++%22emissor%22%3A+%7B++++++++++++++++%22emiNome%22%3A+%22SEU_PDV%22%2C++++++++++++++++%22emiVersao%22%3A+%221.3.0%22%2C++++++++++++++++%22emiSerial%22%3A+%221.0%22%2C++++++++++++++++%22emiId%22%3A+%2202%22++++++++++++%7D%2C++++++++++++%22caixa%22%3A+%7B++++++++++++++++%22seqCaixa%22%3A+1206%2C++++++++++++++++%22seqCupom%22%3A+2508++++++++++++%7D%2C++++++++++++%22cupomIdent%22%3A+%7B++++++++++++++++%22idCliente%22%3A+%22%22%2C++++++++++++++++%22idVendedor%22%3A+0%2C++++++++++++++++%22idProjeto%22%3A+0%2C++++++++++++++++%22cUsuario%22%3A+%22%22++++++++++++%7D%2C++++++++++++%22servicos%22%3A+%5B++++++++++++++++%7B++++++++++++++++++++%22nCodServ%22%3A+200000027377888%2C++++++++++++++++++++%22nItem%22%3A+1%2C++++++++++++++++++++%22nQtde%22%3A+3%2C++++++++++++++++++++%22nValorUni%22%3A+2%2C++++++++++++++++++++%22nValorTot%22%3A+6%2C++++++++++++++++++++%22cMunFG%22%3A+%223550308%22%2C++++++++++++++++++++%22vDesc%22%3A+0++++++++++++++++%7D%2C++++++++++++++++%7B++++++++++++++++++++%22nCodServ%22%3A+200000027377888%2C++++++++++++++++++++%22nItem%22%3A+2%2C++++++++++++++++++++%22nQtde%22%3A+1%2C++++++++++++++++++++%22nValorUni%22%3A+2%2C++++++++++++++++++++%22nValorTot%22%3A+2%2C++++++++++++++++++++%22cMunFG%22%3A+%223550308%22%2C++++++++++++++++++++%22vDesc%22%3A+0++++++++++++++++%7D%2C++++++++++++++++%7B++++++++++++++++++++%22nCodServ%22%3A+200000027377888%2C++++++++++++++++++++%22nItem%22%3A+3%2C++++++++++++++++++++%22nQtde%22%3A+1%2C++++++++++++++++++++%22nValorUni%22%3A+2%2C++++++++++++++++++++%22nValorTot%22%3A+2%2C++++++++++++++++++++%22cMunFG%22%3A+%223550308%22%2C++++++++++++++++++++%22vDesc%22%3A+0++++++++++++++++%7D++++++++++++%5D%2C++++++++++++%22rps%22%3A+%7B++++++++++++++++%22numero%22%3A+2508%2C++++++++++++++++%22serie%22%3A+%224%22%2C++++++++++++++++%22dEmi%22%3A+%2227%2F03%2F2025%22%2C++++++++++++++++%22hEmi%22%3A+%2216%3A52%3A56%22%2C++++++++++++++++%22totalRps%22%3A+%7B++++++++++++++++++++%22vItem%22%3A+10.0%2C++++++++++++++++++++%22vDesc%22%3A+0%2C++++++++++++++++++++%22vRPS%22%3A+10.0++++++++++++++++%7D++++++++++++%7D%2C++++++++++++%22formasPag%22%3A+%5B++++++++++++++++%7B++++++++++++++++++++%22seqPag%22%3A+1%2C++++++++++++++++++++%22lCanc%22%3A+false%2C++++++++++++++++++++%22pag%22%3A+%7B++++++++++++++++++++++++%22vPag%22%3A+10.0%2C++++++++++++++++++++++++%22vLiq%22%3A+10.0++++++++++++++++++++%7D%2C++++++++++++++++++++%22pagIdent%22%3A+%7B++++++++++++++++++++++++%22cCategoria%22%3A+%221.01.03%22%2C++++++++++++++++++++++++%22idConta%22%3A+200000005530780%2C++++++++++++++++++++++++%22cTipoPag%22%3A+%22CRT%22++++++++++++++++++++%7D%2C++++++++++++++++++++%22parcelas%22%3A+%5B++++++++++++++++++++++++%7B++++++++++++++++++++++++++++%22nParc%22%3A+%22001%2F001%22%2C++++++++++++++++++++++++++++%22dVenc%22%3A+%2208%2F05%2F2025%22%2C++++++++++++++++++++++++++++%22vParc%22%3A+10.0++++++++++++++++++++++++%7D++++++++++++++++++++%5D++++++++++++++++%7D++++++++++++%5D++++++++%7D">Teste agora mesmo</button>
+</div>
+</div>
+<div id="InutilizarNfce" class="methodItem">
+<h3 class="method-name">InutilizarNfce</h3>
+<p>
+Inutiliza um lote de NFC-e.
+</p>
+<div class="panel panel-default method">
+<div class="panel-heading"> Par&acirc;metros:
+</div>
+<table class="table table-condensed table-hover">
+<tr>
+<td class="">&nbsp;</td>
+<td class="method-parameter-type"><a href="#cfInutilizarNfceRequest">cfInutilizarNfceRequest</a></td>
+<td class="method-parameter-name">cfInutilizarNfceRequest</td><td class="method-parameter-docs"><div class="first">Solicitação da Inutilização da Nota Fiscal Consumidor Eletrônica (NFC-e).</div></td>
+</tr>
+</table>
+<div class="panel-footer">
+Retorno <span class="pre"><a href="#cfInutilizarNfceResponse"><span class="lightBlue">cfInutilizarNfceResponse</span></a></span>: 
+</div>
+</div>
+<div class="method-example-area">
+<h5>Exemplo:</h5>
+<pre class="method-example-code">{  <BR>   "emissor":{  <BR>      "emiNome":"OmiePDV",<BR>      "emiVersao":"1.0",<BR>      "emiSerial":"ASDadsADSasdADS",<BR>      "emiId":"01"<BR>   },<BR>   "nfceInut":{  <BR>      "nfceProtInut": 0,<BR>      "nfceXmlInut": "",<BR>      "nfceMd5Inut": ""<BR>   }<BR>}</pre>
+<button class="btn btn-success method-example" data-method="InutilizarNfce" data-example="%7B+++++%22emissor%22%3A%7B++++++++%22emiNome%22%3A%22OmiePDV%22%2C++++++%22emiVersao%22%3A%221.0%22%2C++++++%22emiSerial%22%3A%22ASDadsADSasdADS%22%2C++++++%22emiId%22%3A%2201%22+++%7D%2C+++%22nfceInut%22%3A%7B++++++++%22nfceProtInut%22%3A+0%2C++++++%22nfceXmlInut%22%3A+%22%22%2C++++++%22nfceMd5Inut%22%3A+%22%22+++%7D%7D">Teste agora mesmo</button>
+</div>
+</div>
+<h2>Tipos Complexos</h2>
+<div class="complexTypeItem">
+<a name="Cheque" class="anchorScroll"></a>
+<h3>Cheque</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">chBanco</td>
+<td class="parameter-type">string<span class="parameter-lenght">5</span></td><td class="parameter-docs"><div class="first">Número do Banco.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">chAgencia</td>
+<td class="parameter-type">string<span class="parameter-lenght">4</span></td><td class="parameter-docs"><div class="first">Número da Agência.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">chConta</td>
+<td class="parameter-type">string<span class="parameter-lenght">15</span></td><td class="parameter-docs"><div class="first">Número da Conta.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">chSerie</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Série do Cheque.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">chNumero</td>
+<td class="parameter-type">string<span class="parameter-lenght">15</span></td><td class="parameter-docs"><div class="first">Número do Cheque.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">chVencimento</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Data de vencimento do cheque.</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="ICMS" class="anchorScroll"></a>
+<h3>ICMS</h3>
+<p>Dados do ICMS.</p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">CST</td>
+<td class="parameter-type">string<span class="parameter-lenght">2</span></td><td class="parameter-docs"><div class="first">Código da Situação Tributária.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">vBC</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Valor da Base de Cálculo.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">pICMS</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Alíquota do ICMS.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">vICMS</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Valor do ICMS.</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="NFe" class="anchorScroll"></a>
+<h3>NFe</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">nNF</td>
+<td class="parameter-type">string<span class="parameter-lenght">20</span></td><td class="parameter-docs"><div class="first">Número da Nota Fiscal Consumidor Eletrônico.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento obrigatório.<BR><BR></div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">serie</td>
+<td class="parameter-type">string<span class="parameter-lenght">4</span></td><td class="parameter-docs"><div class="first">Série do Cupom.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento obrigatório.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">chNFe</td>
+<td class="parameter-type">string<span class="parameter-lenght">44</span></td><td class="parameter-docs"><div class="first">Chave de Acesso da Nota Fiscal Consumidor Eletrônico.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento obrigatório.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">tpAmb</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Ambiente.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento obrigatório.<BR><BR>Pode ser:<BR>H-Homologação.<BR>P-Produção.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">tpEmis</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Tipo de emissão da Nota Fiscal Consumidor Eletrônico.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento obrigatório.<BR><BR>Pode ser:<BR>1 - Emissão normal.<BR>9 - Emissão em contingência.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cTipoAcao</td>
+<td class="parameter-type">string<span class="parameter-lenght">100</span></td><td class="parameter-docs"><div class="first">Ação para o faturamento de serviços.</div><div class="more"><a href="javascript:void(0)">+</a><div>Essa tag é deve ser apenas na inclusão de cupons fiscais com itens de serviço quando a tag 'servicos' estiver preenchida. <BR><BR>Indica se as ordens de serviço faturadas para o cupom ou rps serão geradas de forma agrupada ou individual.<BR><BR>'AGRUPADO' (Default).<BR>'AGRUPADO-SALAO-PARCEIRO'<BR>'INDIVIDUAL'</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">dEmi</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Data da emissão do cupom fiscal.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento obrigatório.<BR></div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">hEmi</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Hora da emissão do cupom fiscal.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento obrigatório.<BR></div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">lCanc</td>
+<td class="parameter-type">boolean</td><td class="parameter-docs"><div class="first">Status de cancelamento.</div><div class="more"><a href="javascript:void(0)">+</a><div>true - Cancelado.<BR>false - Ativo.<BR><BR>Preenchimento obrigatório.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">det</td>
+<td class="parameter-type"><a href="#detArray">detArray</a></td><td class="parameter-docs"><div class="first">Itens do cupom fiscal.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento obrigatório.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">outrasInf</td>
+<td class="parameter-type"><a href="#outrasInf">outrasInf</a></td><td class="parameter-docs"><div class="first">Outras informações do cupom fiscal.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">total</td>
+<td class="parameter-type"><a href="#total">total</a></td><td class="parameter-docs"><div class="first">Totais do cupom fiscal.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento obrigatório.</div></div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="PIX" class="anchorScroll"></a>
+<h3>PIX</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">nIdPix</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">ID do lançamento PIX.</div><div class="more"><a href="javascript:void(0)">+</a><div>O conteúdo desse campo é o código interno gerado pelo Omie ao gerar o PIX.<BR><BR>É obrigatório o preenchimento das tags "nIdPix" ou "cCodInt".<BR><BR>Utilize a tag "nIdPix" do método "ListarPix" da API<BR>/api/v1/financas/pix/<BR>para obter essa informação.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCodIntPix</td>
+<td class="parameter-type">string<span class="parameter-lenght">60</span></td><td class="parameter-docs"><div class="first">Código do lançamento gerado pelo integrador.</div><div class="more"><a href="javascript:void(0)">+</a><div>É obrigatório o preenchimento das tags "nIdPix" ou "cCodInt".<BR><BR>Utilize a tag "cCodInt" do método "ListarPix" da API<BR>/api/v1/financas/pix/<BR>para obter essa informação.</div></div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="POS" class="anchorScroll"></a>
+<h3>POS</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">dTransacao</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Data da transação.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento opcional.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">hTransacao</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Hora da transação.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento opcional.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">NSU</td>
+<td class="parameter-type">string<span class="parameter-lenght">100</span></td><td class="parameter-docs"><div class="first">NSU (Número Sequencial Único) identifica uma operação de venda. </div><div class="more"><a href="javascript:void(0)">+</a><div>Permite que o processo de conciliação de cartões seja realizado de forma mais assertiva, pois identifica os movimentos registrados pelos adquirentes / subadquirentes possibilitando o cruzamento dos dados com os cupons fiscais.<BR><BR>Para vendas realizadas pelo sistema TEF, o NSU é armazenado automaticamente pelo seu PDV.<BR><BR>Para vendas realizadas pelo sistema POS, o NSU pode ser informado manualmente. Verifique com o seu PDV se esse recurso está disponível.<BR><BR>Preenchimento opcional.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nParcPos</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Número de parcelas.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento opcional.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cRedePos</td>
+<td class="parameter-type">string<span class="parameter-lenght">30</span></td><td class="parameter-docs"><div class="first">Descrição da rede de pagamento ou adquirente.</div><div class="more"><a href="javascript:void(0)">+</a><div>Exemplos:<BR>REDECARD      <BR>STONE       <BR>VISANET    <BR>BCARD       <BR>CIELO      <BR><BR>Preenchimento opcional.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nValorAut</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Valor autorizado.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento opcional.</div></div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="TEF" class="anchorScroll"></a>
+<h3>TEF</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">dTransacao</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Data da transação.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento opcional.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">hTransacao</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Hora da transação.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento opcional.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cBandeiraTef</td>
+<td class="parameter-type">string<span class="parameter-lenght">30</span></td><td class="parameter-docs"><div class="first">Descrição da bandeira do cartão.</div><div class="more"><a href="javascript:void(0)">+</a><div>Exemplos:<BR>VISA CREDITO<BR>VISA ELECTRO<BR>ELO DEBITO  <BR>ELO CREDITO <BR>ALIMENTACAO <BR>MAESTRO     <BR>MASTERCARD  <BR>POLICARD<BR><BR>Preenchimento opcional.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">NSU</td>
+<td class="parameter-type">string<span class="parameter-lenght">100</span></td><td class="parameter-docs"><div class="first">NSU (Número Sequencial Único) identifica uma operação de venda. </div><div class="more"><a href="javascript:void(0)">+</a><div>Permite que o processo de conciliação de cartões seja realizado de forma mais assertiva, pois identifica os movimentos registrados pelos adquirentes / subadquirentes possibilitando o cruzamento dos dados com os cupons fiscais.<BR><BR>Para vendas realizadas pelo sistema TEF, o NSU é armazenado automaticamente pelo seu PDV.<BR><BR>Para vendas realizadas pelo sistema POS, o NSU pode ser informado manualmente. Verifique com o seu PDV se esse recurso está disponível.<BR><BR>Preenchimento opcional.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">NSUHost</td>
+<td class="parameter-type">string<span class="parameter-lenght">200</span></td><td class="parameter-docs"><div class="first">NSU (Número Sequencial Único) Identifica uma operação de venda no host.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento opcional.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">TID</td>
+<td class="parameter-type">string<span class="parameter-lenght">200</span></td><td class="parameter-docs"><div class="first">TID (Transaction ID) identifica uma transação realizada via e-commerce pelo adquirente / subadquirente. </div><div class="more"><a href="javascript:void(0)">+</a><div>Essa informação será obtida automaticamente pelo seu PDV, quando se tratar de uma venda via e-commerce.<BR><BR>Preenchimento opcional.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nNumeroAut</td>
+<td class="parameter-type">string<span class="parameter-lenght">40</span></td><td class="parameter-docs"><div class="first">Número da autorização.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento opcional.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nParcTef</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Número de parcelas.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento opcional.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cRedeTef</td>
+<td class="parameter-type">string<span class="parameter-lenght">30</span></td><td class="parameter-docs"><div class="first">Descrição da rede de pagamento ou adquirente.</div><div class="more"><a href="javascript:void(0)">+</a><div>Exemplos:<BR>REDECARD      <BR>STONE       <BR>VISANET    <BR>BCARD       <BR>CIELO      <BR><BR>Preenchimento opcional.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nValorAut</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Valor autorizado.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento opcional.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cTipoCartao</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Tipo de cartão (Débito ou Crédito)</div><div class="more"><a href="javascript:void(0)">+</a><div>Pode ser:<BR>"D" - para Débito.<BR>"C" - para Crédito.<BR><BR>Preenchimento opcional.</div></div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="caixa" class="anchorScroll"></a>
+<h3>caixa</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">seqCaixa</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Número sequencial do movimento do caixa. </div><div class="more"><a href="javascript:void(0)">+</a><div>Caso não tenha controle de caixa, enviar um sequencial para cada dia para que seja possível acompanhar os movimentos de caixas por dia.<BR><BR>Preenchimento obrigatório.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">seqCupom</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Número sequencial do cupom fiscal enviado.</div><div class="more"><a href="javascript:void(0)">+</a><div>Não é o número do cupom fiscal, mas sim o número sequencial de venda.<BR><BR>Preenchimento obrigatório.<BR></div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">lCxAberto</td>
+<td class="parameter-type">boolean</td><td class="parameter-docs"><div class="first">Indica se o Caixa está aberto.</div><div class="more"><a href="javascript:void(0)">+</a><div>O padrão é false.<BR><BR>Quando esse campo foi preenchido como true não haverá movimentação de estoque e não será gerado título de contas a receber até que o processo de fechamento do caixa seja executado.<BR></div></div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="categorias" class="anchorScroll"></a>
+<h3>categorias</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">idCategoria</td>
+<td class="parameter-type">string<span class="parameter-lenght">20</span></td><td class="parameter-docs"><div class="first">Código da Categoria.</div><div class="more"><a href="javascript:void(0)">+</a><div>(Gerado internamente, não é visualizado na tela)</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">vCategoria</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Valor da categoria</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">pCategoria</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Percentual da categoria</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="categoriasArray" class="anchorScroll"></a>
+<h3>categoriasArray</h3>
+<p>Este par&acirc;metro &eacute; um array do tipo <span class="pre"><a href="#categorias"><span class="lightBlue">categorias</span></a></span></p>
+<p>Lista de categorias</p>
+</div>
+<div class="complexTypeItem">
+<a name="cfFecharCaixaRequest" class="anchorScroll"></a>
+<h3>cfFecharCaixaRequest</h3>
+<p>Efetua a rotina de fechamento do caixa.</p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">emissor</td>
+<td class="parameter-type"><a href="#emissor">emissor</a></td><td class="parameter-docs"><div class="first">Identificação do Emissor do Cupom Fiscal.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">seqCaixa</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Número sequencial do movimento do caixa. </div><div class="more"><a href="javascript:void(0)">+</a><div>Caso não tenha controle de caixa, enviar um sequencial para cada dia para que seja possível acompanhar os movimentos de caixas por dia.<BR><BR>Preenchimento obrigatório.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">fechamento</td>
+<td class="parameter-type"><a href="#fechamento">fechamento</a></td><td class="parameter-docs"><div class="first">Dados do fechamento do caixa.</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="cfFecharCaixaResponse" class="anchorScroll"></a>
+<h3>cfFecharCaixaResponse</h3>
+<p>Resposta da rotina de fechamento do caixa.</p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">nIdProc</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Número de identificação do processamento da solicitação.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCodStatus</td>
+<td class="parameter-type">string<span class="parameter-lenght">4</span></td><td class="parameter-docs"><div class="first">Código do status de processamento do cupom fiscal.</div><div class="more"><a href="javascript:void(0)">+</a><div>Se retornar 0 indica que o cupom foi processado com sucesso.<BR><BR>Se retornar um valor maior que zero indica o código do erro gerado.<BR><BR></div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cDesStatus</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Descrição do status de processamento.</div><div class="more"><a href="javascript:void(0)">+</a><div>Caso ocorra erro, retorna a descrição do erro gerado.<BR><BR></div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">listaProcessados</td>
+<td class="parameter-type"><a href="#listaProcessadosArray">listaProcessadosArray</a></td><td class="parameter-docs"><div class="first">Lista de cupons processados.</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="cfIncluirEcfRequest" class="anchorScroll"></a>
+<h3>cfIncluirEcfRequest</h3>
+<p>Incluir um cupom fiscal emitido em via Impressora Fiscal (ECF).</p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">emissor</td>
+<td class="parameter-type"><a href="#emissor">emissor</a></td><td class="parameter-docs"><div class="first">Identificação do Emissor do Cupom Fiscal.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">ecf</td>
+<td class="parameter-type"><a href="#ecf">ecf</a></td><td class="parameter-docs"><div class="first">Identificação do ECF.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">caixa</td>
+<td class="parameter-type"><a href="#caixa">caixa</a></td><td class="parameter-docs"><div class="first">Identificação do caixa.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cupom</td>
+<td class="parameter-type"><a href="#cupom">cupom</a></td><td class="parameter-docs"><div class="first">Informações do Cupom Fiscal.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cupomIdent</td>
+<td class="parameter-type"><a href="#cupomIdent">cupomIdent</a></td><td class="parameter-docs"><div class="first">Identificação dos envolvidos no cupom fiscal (cliente,vendedor,usuário).</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">formasPag</td>
+<td class="parameter-type"><a href="#formasPagArray">formasPagArray</a></td><td class="parameter-docs"><div class="first">Formas de pagamento.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">departamentos</td>
+<td class="parameter-type"><a href="#departamentosArray">departamentosArray</a></td><td class="parameter-docs"><div class="first">Distribuição por Departamentos.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento Opcional.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">categorias</td>
+<td class="parameter-type"><a href="#categoriasArray">categoriasArray</a></td><td class="parameter-docs"><div class="first">Distribuição por Categorias.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento Opcional.</div></div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="cfIncluirEcfResponse" class="anchorScroll"></a>
+<h3>cfIncluirEcfResponse</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">idCupom</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Identificação do cupom fiscal.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">idLote</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Identificação do lote do cupom fiscal.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCodStatus</td>
+<td class="parameter-type">string<span class="parameter-lenght">4</span></td><td class="parameter-docs"><div class="first">Código do status de processamento do cupom fiscal.</div><div class="more"><a href="javascript:void(0)">+</a><div>Se retornar 0 indica que o cupom foi processado com sucesso.<BR><BR>Se retornar um valor maior que zero indica o código do erro gerado.<BR><BR></div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cDesStatus</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Descrição do status de processamento.</div><div class="more"><a href="javascript:void(0)">+</a><div>Caso ocorra erro, retorna a descrição do erro gerado.<BR><BR></div></div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="cfIncluirNfceRequest" class="anchorScroll"></a>
+<h3>cfIncluirNfceRequest</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">emissor</td>
+<td class="parameter-type"><a href="#emissor">emissor</a></td><td class="parameter-docs"><div class="first">Identificação do Emissor do Cupom Fiscal.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nfce</td>
+<td class="parameter-type"><a href="#nfce">nfce</a></td><td class="parameter-docs"><div class="first">Identificação da NFC-e.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nfceCanc</td>
+<td class="parameter-type"><a href="#nfceCanc">nfceCanc</a></td><td class="parameter-docs"><div class="first">Dados do cancelamento da NFC-e.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">caixa</td>
+<td class="parameter-type"><a href="#caixa">caixa</a></td><td class="parameter-docs"><div class="first">Identificação do caixa.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">NFe</td>
+<td class="parameter-type"><a href="#NFe">NFe</a></td><td class="parameter-docs"><div class="first">Informações da Nota Fiscal Consumidor Eletrônico.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cupomIdent</td>
+<td class="parameter-type"><a href="#cupomIdent">cupomIdent</a></td><td class="parameter-docs"><div class="first">Identificação dos envolvidos no cupom fiscal (cliente,vendedor,usuário).</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">formasPag</td>
+<td class="parameter-type"><a href="#formasPagArray">formasPagArray</a></td><td class="parameter-docs"><div class="first">Formas de pagamento.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">departamentos</td>
+<td class="parameter-type"><a href="#departamentosArray">departamentosArray</a></td><td class="parameter-docs"><div class="first">Distribuição por Departamentos.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento Opcional.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">categorias</td>
+<td class="parameter-type"><a href="#categoriasArray">categoriasArray</a></td><td class="parameter-docs"><div class="first">Distribuição por Categorias.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento Opcional.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">servicos</td>
+<td class="parameter-type"><a href="#servicosArray">servicosArray</a></td><td class="parameter-docs"><div class="first">Informações dos Itens de serviço.</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="cfIncluirNfceResponse" class="anchorScroll"></a>
+<h3>cfIncluirNfceResponse</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">idCupom</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Identificação do cupom fiscal.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">idLote</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Identificação do lote do cupom fiscal.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCodStatus</td>
+<td class="parameter-type">string<span class="parameter-lenght">4</span></td><td class="parameter-docs"><div class="first">Código do status de processamento do cupom fiscal.</div><div class="more"><a href="javascript:void(0)">+</a><div>Se retornar 0 indica que o cupom foi processado com sucesso.<BR><BR>Se retornar um valor maior que zero indica o código do erro gerado.<BR><BR></div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cDesStatus</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Descrição do status de processamento.</div><div class="more"><a href="javascript:void(0)">+</a><div>Caso ocorra erro, retorna a descrição do erro gerado.<BR><BR></div></div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="cfIncluirRpsRequest" class="anchorScroll"></a>
+<h3>cfIncluirRpsRequest</h3>
+<p>Incluir Cupom RPS.</p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">emissor</td>
+<td class="parameter-type"><a href="#emissor">emissor</a></td><td class="parameter-docs"><div class="first">Identificação do Emissor do Cupom Fiscal.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">caixa</td>
+<td class="parameter-type"><a href="#caixa">caixa</a></td><td class="parameter-docs"><div class="first">Identificação do caixa.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cupomIdent</td>
+<td class="parameter-type"><a href="#cupomIdent">cupomIdent</a></td><td class="parameter-docs"><div class="first">Identificação dos envolvidos no cupom fiscal (cliente,vendedor,usuário).</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">formasPag</td>
+<td class="parameter-type"><a href="#formasPagArray">formasPagArray</a></td><td class="parameter-docs"><div class="first">Formas de pagamento.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">departamentos</td>
+<td class="parameter-type"><a href="#departamentosArray">departamentosArray</a></td><td class="parameter-docs"><div class="first">Distribuição por Departamentos.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento Opcional.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">categorias</td>
+<td class="parameter-type"><a href="#categoriasArray">categoriasArray</a></td><td class="parameter-docs"><div class="first">Distribuição por Categorias.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento Opcional.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">servicos</td>
+<td class="parameter-type"><a href="#servicosArray">servicosArray</a></td><td class="parameter-docs"><div class="first">Informações dos Itens de serviço.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">rps</td>
+<td class="parameter-type"><a href="#rps">rps</a></td><td class="parameter-docs"><div class="first">Informe os detalhes do Cupom/RPS</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="cfIncluirRpsResponse" class="anchorScroll"></a>
+<h3>cfIncluirRpsResponse</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">idCupom</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Identificação do cupom fiscal.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCodStatus</td>
+<td class="parameter-type">string<span class="parameter-lenght">4</span></td><td class="parameter-docs"><div class="first">Código do status de processamento do cupom fiscal.</div><div class="more"><a href="javascript:void(0)">+</a><div>Se retornar 0 indica que o cupom foi processado com sucesso.<BR><BR>Se retornar um valor maior que zero indica o código do erro gerado.<BR><BR></div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cDesStatus</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Descrição do status de processamento.</div><div class="more"><a href="javascript:void(0)">+</a><div>Caso ocorra erro, retorna a descrição do erro gerado.<BR><BR></div></div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="cfIncluirSatRequest" class="anchorScroll"></a>
+<h3>cfIncluirSatRequest</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">emissor</td>
+<td class="parameter-type"><a href="#emissor">emissor</a></td><td class="parameter-docs"><div class="first">Identificação do Emissor do Cupom Fiscal.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">sat</td>
+<td class="parameter-type"><a href="#sat">sat</a></td><td class="parameter-docs"><div class="first">Identificação do SAT.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">satCanc</td>
+<td class="parameter-type"><a href="#satCanc">satCanc</a></td><td class="parameter-docs"><div class="first">Dados do Cancelamento do SAT.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">caixa</td>
+<td class="parameter-type"><a href="#caixa">caixa</a></td><td class="parameter-docs"><div class="first">Identificação do caixa.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cfeSat</td>
+<td class="parameter-type"><a href="#cfeSat">cfeSat</a></td><td class="parameter-docs"><div class="first">Informações do Cupom Fiscal - SAT.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cupomIdent</td>
+<td class="parameter-type"><a href="#cupomIdent">cupomIdent</a></td><td class="parameter-docs"><div class="first">Identificação dos envolvidos no cupom fiscal (cliente,vendedor,usuário).</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">formasPag</td>
+<td class="parameter-type"><a href="#formasPagArray">formasPagArray</a></td><td class="parameter-docs"><div class="first">Formas de pagamento.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">departamentos</td>
+<td class="parameter-type"><a href="#departamentosArray">departamentosArray</a></td><td class="parameter-docs"><div class="first">Distribuição por Departamentos.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento Opcional.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">categorias</td>
+<td class="parameter-type"><a href="#categoriasArray">categoriasArray</a></td><td class="parameter-docs"><div class="first">Distribuição por Categorias.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento Opcional.</div></div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="cfIncluirSatResponse" class="anchorScroll"></a>
+<h3>cfIncluirSatResponse</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">idCupom</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Identificação do cupom fiscal.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">idLote</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Identificação do lote do cupom fiscal.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCodStatus</td>
+<td class="parameter-type">string<span class="parameter-lenght">4</span></td><td class="parameter-docs"><div class="first">Código do status de processamento do cupom fiscal.</div><div class="more"><a href="javascript:void(0)">+</a><div>Se retornar 0 indica que o cupom foi processado com sucesso.<BR><BR>Se retornar um valor maior que zero indica o código do erro gerado.<BR><BR></div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cDesStatus</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Descrição do status de processamento.</div><div class="more"><a href="javascript:void(0)">+</a><div>Caso ocorra erro, retorna a descrição do erro gerado.<BR><BR></div></div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="cfInutilizarNfceRequest" class="anchorScroll"></a>
+<h3>cfInutilizarNfceRequest</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">emissor</td>
+<td class="parameter-type"><a href="#emissor">emissor</a></td><td class="parameter-docs"><div class="first">Identificação do Emissor do Cupom Fiscal.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nfceInut</td>
+<td class="parameter-type"><a href="#nfceInut">nfceInut</a></td><td class="parameter-docs"><div class="first">Identificação da inutilização da NFC-e.</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="cfInutilizarNfceResponse" class="anchorScroll"></a>
+<h3>cfInutilizarNfceResponse</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">nIdProc</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Número de identificação do processamento da solicitação.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCodStatus</td>
+<td class="parameter-type">string<span class="parameter-lenght">4</span></td><td class="parameter-docs"><div class="first">Código do status de processamento do cupom fiscal.</div><div class="more"><a href="javascript:void(0)">+</a><div>Se retornar 0 indica que o cupom foi processado com sucesso.<BR><BR>Se retornar um valor maior que zero indica o código do erro gerado.<BR><BR></div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cDesStatus</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Descrição do status de processamento.</div><div class="more"><a href="javascript:void(0)">+</a><div>Caso ocorra erro, retorna a descrição do erro gerado.<BR><BR></div></div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="cfeSat" class="anchorScroll"></a>
+<h3>cfeSat</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">nCFe</td>
+<td class="parameter-type">string<span class="parameter-lenght">20</span></td><td class="parameter-docs"><div class="first">Número do cupom fiscal ou </div><div class="more"><a href="javascript:void(0)">+</a><div>Número do Extrato do SAT.<BR><BR>Preenchimento obrigatório.<BR><BR></div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">chCFe</td>
+<td class="parameter-type">string<span class="parameter-lenght">44</span></td><td class="parameter-docs"><div class="first">Chave de Acesso do CF-e-SAT.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento obrigatório.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">tpAmb</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Ambiente.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento obrigatório.<BR><BR>Pode ser:<BR>H-Homologação.<BR>P-Produção.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">dEmi</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Data da emissão do cupom fiscal.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento obrigatório.<BR></div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">hEmi</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Hora da emissão do cupom fiscal.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento obrigatório.<BR></div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">lCanc</td>
+<td class="parameter-type">boolean</td><td class="parameter-docs"><div class="first">Status de cancelamento.</div><div class="more"><a href="javascript:void(0)">+</a><div>true - Cancelado.<BR>false - Ativo.<BR><BR>Preenchimento obrigatório.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">det</td>
+<td class="parameter-type"><a href="#detArray">detArray</a></td><td class="parameter-docs"><div class="first">Itens do cupom fiscal.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento obrigatório.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">outrasInf</td>
+<td class="parameter-type"><a href="#outrasInf">outrasInf</a></td><td class="parameter-docs"><div class="first">Outras informações do cupom fiscal.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">total</td>
+<td class="parameter-type"><a href="#total">total</a></td><td class="parameter-docs"><div class="first">Totais do cupom fiscal.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento obrigatório.</div></div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="cupom" class="anchorScroll"></a>
+<h3>cupom</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">nCOO</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Número do cupom.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento obrigatório.<BR><BR></div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nCCF</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Número do Contador de Cupom Fiscal (CCF).</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento obrigatório.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">tpAmb</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Ambiente.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento obrigatório.<BR><BR>Pode ser:<BR>H-Homologação.<BR>P-Produção.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">dEmi</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Data da emissão do cupom fiscal.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento obrigatório.<BR></div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">hEmi</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Hora da emissão do cupom fiscal.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento obrigatório.<BR></div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">lCanc</td>
+<td class="parameter-type">boolean</td><td class="parameter-docs"><div class="first">Status de cancelamento.</div><div class="more"><a href="javascript:void(0)">+</a><div>true - Cancelado.<BR>false - Ativo.<BR><BR>Preenchimento obrigatório.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">det</td>
+<td class="parameter-type"><a href="#detArray">detArray</a></td><td class="parameter-docs"><div class="first">Itens do cupom fiscal.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento obrigatório.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">outrasInf</td>
+<td class="parameter-type"><a href="#outrasInf">outrasInf</a></td><td class="parameter-docs"><div class="first">Outras informações do cupom fiscal.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">total</td>
+<td class="parameter-type"><a href="#total">total</a></td><td class="parameter-docs"><div class="first">Totais do cupom fiscal.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento obrigatório.</div></div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="cupomIdent" class="anchorScroll"></a>
+<h3>cupomIdent</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">idCliente</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código do cliente.</div><div class="more"><a href="javascript:void(0)">+</a><div>Quando não informado, assumirá que a venda foi realizada para um cliente consumidor padrão. <BR><BR>Caso não exista um cliente consumidor cadastrado, o mesmo será criado automaticamente.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">idVendedor</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código do vendedor.</div><div class="more"><a href="javascript:void(0)">+</a><div>Quando não informado, será criado um vendedor padrão para o emissor de cupom fiscal.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">idProjeto</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código do projeto.</div><div class="more"><a href="javascript:void(0)">+</a><div>Quando não informado, será criado um projeto padrão para o emissor de cupom fiscal.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cUsuario</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Código do Usuário.</div><div class="more"><a href="javascript:void(0)">+</a><div>Quando não informado, assumirá o usuário "Integração" como o usuário responsáivel pela emissão do cupom fiscal.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cPedidoCliente</td>
+<td class="parameter-type">string<span class="parameter-lenght">30</span></td><td class="parameter-docs"><div class="first">Número do pedido do cliente.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento Opcional.<BR><BR>Utilizado somente na Inclusão do Cupom Fiscal.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cNumeroContrato</td>
+<td class="parameter-type">string<span class="parameter-lenght">30</span></td><td class="parameter-docs"><div class="first">Número do contrato do cliente.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento Opcional.<BR><BR>Utilizado somente na Inclusão do Cupom Fiscal.</div></div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="departamentos" class="anchorScroll"></a>
+<h3>departamentos</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">idDepartamento</td>
+<td class="parameter-type">string<span class="parameter-lenght">40</span></td><td class="parameter-docs"><div class="first">Código do departamento.</div><div class="more"><a href="javascript:void(0)">+</a><div>(Gerado internamente, não é visualizado na tela)</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">vDepartamento</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Valor do departamento. Preenchimento obrigatório</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">pDepartamento</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Percentual do departamento. Preenchimento obrigatório</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="departamentosArray" class="anchorScroll"></a>
+<h3>departamentosArray</h3>
+<p>Este par&acirc;metro &eacute; um array do tipo <span class="pre"><a href="#departamentos"><span class="lightBlue">departamentos</span></a></span></p>
+<p>Lista de departamentos</p>
+</div>
+<div class="complexTypeItem">
+<a name="det" class="anchorScroll"></a>
+<h3>det</h3>
+<p>Itens do cupom fiscal.</p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">seqItem</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Número sequencial do item.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">lCanc</td>
+<td class="parameter-type">boolean</td><td class="parameter-docs"><div class="first">Status de cancelamento.</div><div class="more"><a href="javascript:void(0)">+</a><div>true - Cancelado.<BR>false - Ativo.<BR><BR>Preenchimento obrigatório.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">prod</td>
+<td class="parameter-type"><a href="#prod">prod</a></td><td class="parameter-docs"><div class="first">Informações do produto.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">prodIdent</td>
+<td class="parameter-type"><a href="#prodIdent">prodIdent</a></td><td class="parameter-docs"><div class="first">Identificação do produto.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">imposto</td>
+<td class="parameter-type"><a href="#imposto">imposto</a></td><td class="parameter-docs"><div class="first">Dados dos impostos.</div><div class="more"><a href="javascript:void(0)">+</a><div>Obrigatórios apenas para Cupom Fiscal SAT.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">lNaoMovEstoque</td>
+<td class="parameter-type">string<span class="parameter-lenght">5</span></td><td class="parameter-docs"><div class="first">Indica que o item do Cupom Fiscal não deve movimentar o estoque.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">lote_validade</td>
+<td class="parameter-type"><a href="#lote_validade">lote_validade</a></td><td class="parameter-docs"><div class="first">Informações referentes ao lote e validade do produto.</div><div class="more"><a href="javascript:void(0)">+</a><div>A tag só deve ser informada se o produto possuir controle de lote e se a intenção é informar os lotes "manualmente" por API.</div></div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="detArray" class="anchorScroll"></a>
+<h3>detArray</h3>
+<p>Este par&acirc;metro &eacute; um array do tipo <span class="pre"><a href="#det"><span class="lightBlue">det</span></a></span></p>
+<p>Lista de det</p>
+</div>
+<div class="complexTypeItem">
+<a name="ecf" class="anchorScroll"></a>
+<h3>ecf</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">ecfSerie</td>
+<td class="parameter-type">string<span class="parameter-lenght">20</span></td><td class="parameter-docs"><div class="first">Número de série da impressora fiscal.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento obrigatório.<BR><BR>Exemplos: <BR>"BE051475610000207422"<BR>"EP121710000000018789"<BR>"SW040900000000009860"<BR>"DR0815BR000000462568"<BR></div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">ecfModelo</td>
+<td class="parameter-type">string<span class="parameter-lenght">20</span></td><td class="parameter-docs"><div class="first">Modelo da Impressora Fiscal.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento obrigatório.<BR><BR>Exemplo:<BR>"MP-2100 TH FI"<BR></div></div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="emissor" class="anchorScroll"></a>
+<h3>emissor</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">emiNome</td>
+<td class="parameter-type">string<span class="parameter-lenght">20</span></td><td class="parameter-docs"><div class="first">Nome do aplicativo emissor do cupom fiscal.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento obrigatório.<BR><BR>O aplicativo deve ser previamente cadastrado. <BR>Para isso entre em contato com a nosso suporte.<BR></div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">emiVersao</td>
+<td class="parameter-type">string<span class="parameter-lenght">20</span></td><td class="parameter-docs"><div class="first">Versão do aplicativo emissor do cupom fiscal.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento obrigatório.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">emiSerial</td>
+<td class="parameter-type">string<span class="parameter-lenght">100</span></td><td class="parameter-docs"><div class="first">Serial do HD em que o aplicativo emissor do cupom fiscal está instalado. </div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento obrigatório.<BR></div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">emiId</td>
+<td class="parameter-type">string<span class="parameter-lenght">20</span></td><td class="parameter-docs"><div class="first">Identificação do computador onde o aplicativo emissor do cupom fiscal está instalado. É o código do PDV.</div><div class="more"><a href="javascript:void(0)">+</a><div>Exemplos: "01", "20", "55".<BR><BR>Preenchimento obrigatório.</div></div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="fechamento" class="anchorScroll"></a>
+<h3>fechamento</h3>
+<p>Dados do fechamento do caixa.</p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">dAbertura</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Data de abertura do caixa.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento obrigatório.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">hAbertura</td>
+<td class="parameter-type">string<span class="parameter-lenght">8</span></td><td class="parameter-docs"><div class="first">Hora de abertura do caixa.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento obrigatório.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">vAbertura</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Valor de abertura do caixa (Caixa Inicial).</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">dFechamento</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Data de fechamento do caixa.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento obrigatório.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">hFechamento</td>
+<td class="parameter-type">string<span class="parameter-lenght">8</span></td><td class="parameter-docs"><div class="first">Hora de fechamento do caixa.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento obrigatório.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">vFechamento</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Valor do fechamento do caixa (Caixa Final).</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="formasPag" class="anchorScroll"></a>
+<h3>formasPag</h3>
+<p>Formas de pagamento.</p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">seqPag</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Sequência do pagamento.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento obrigatório.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">lCanc</td>
+<td class="parameter-type">boolean</td><td class="parameter-docs"><div class="first">Status de cancelamento.</div><div class="more"><a href="javascript:void(0)">+</a><div>true - Cancelado.<BR>false - Ativo.<BR><BR>Preenchimento obrigatório.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">pag</td>
+<td class="parameter-type"><a href="#pag">pag</a></td><td class="parameter-docs"><div class="first">Informações do pagamento.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">pagIdent</td>
+<td class="parameter-type"><a href="#pagIdent">pagIdent</a></td><td class="parameter-docs"><div class="first">Identificação do pagamento.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">TEF</td>
+<td class="parameter-type"><a href="#TEF">TEF</a></td><td class="parameter-docs"><div class="first">Informações do TEF.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">POS</td>
+<td class="parameter-type"><a href="#POS">POS</a></td><td class="parameter-docs"><div class="first">Informações do POS.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">Cheque</td>
+<td class="parameter-type"><a href="#Cheque">Cheque</a></td><td class="parameter-docs"><div class="first">Informações do Cheque.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">parcelas</td>
+<td class="parameter-type"><a href="#parcelasArray">parcelasArray</a></td><td class="parameter-docs"><div class="first">Lista de parcelas da forma de pagamento.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">PIX</td>
+<td class="parameter-type"><a href="#PIX">PIX</a></td><td class="parameter-docs"><div class="first">Informações do PIX.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">lNaoGerarTitulo</td>
+<td class="parameter-type">string<span class="parameter-lenght">5</span></td><td class="parameter-docs"><div class="first">Indica que a parcela não deve gerar um título no financeiro.</div><div class="more"><a href="javascript:void(0)">+</a><div></div></div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="formasPagArray" class="anchorScroll"></a>
+<h3>formasPagArray</h3>
+<p>Este par&acirc;metro &eacute; um array do tipo <span class="pre"><a href="#formasPag"><span class="lightBlue">formasPag</span></a></span></p>
+<p>Lista de formasPag</p>
+</div>
+<div class="complexTypeItem">
+<a name="imposto" class="anchorScroll"></a>
+<h3>imposto</h3>
+<p>Dados dos impostos.</p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">vTotTrib</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Valor aproximado dos tributos (IBPT).</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">ICMS</td>
+<td class="parameter-type"><a href="#ICMS">ICMS</a></td><td class="parameter-docs"><div class="first">Dados do ICMS.</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="listaProcessados" class="anchorScroll"></a>
+<h3>listaProcessados</h3>
+<p>Lista de cupons processados.</p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">idCupom</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Identificação do cupom fiscal.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">idLote</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Identificação do lote do cupom fiscal.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">dEmi</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Data da emissão do cupom fiscal.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento obrigatório.<BR></div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">vCF</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Valor do Cupom Fiscal.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento obrigatório.</div></div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="listaProcessadosArray" class="anchorScroll"></a>
+<h3>listaProcessadosArray</h3>
+<p>Este par&acirc;metro &eacute; um array do tipo <span class="pre"><a href="#listaProcessados"><span class="lightBlue">listaProcessados</span></a></span></p>
+<p>Lista de listaProcessados</p>
+</div>
+<div class="complexTypeItem">
+<a name="lote_validade" class="anchorScroll"></a>
+<h3>lote_validade</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">nIdLote</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Id do Lote do produto.</div><div class="more"><a href="javascript:void(0)">+</a><div>Obrigatório quando o produto possui controle de lote e o método do consumo do lote está definido como 'Manual' nas configurações..</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nQtdLote</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Informe aqui a quantidade do Lote para o produto.</div><div class="more"><a href="javascript:void(0)">+</a><div>É obrigatório quando o produto possui controle de lote e o método do consumo do lote está definido como 'Manual' nas configurações.</div></div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="nfce" class="anchorScroll"></a>
+<h3>nfce</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">nfceProt</td>
+<td class="parameter-type">string<span class="parameter-lenght">30</span></td><td class="parameter-docs"><div class="first">Protocolo de envio da NFC-e.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento obrigatório.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nfceXml</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">XML da NFC-e enviada.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preechimento obrigatório.<BR><BR>Antes de enviar, converta os seus seguintes caracteres:<BR><BR>&amp; para &amp;amp; <BR>> para &amp;gt;<BR>< para &amp;lt;<BR>" para &amp;quot;<BR>" para &amp;apos;<BR>| para &amp;#124;<BR><BR>Após essa conversão aplique o MD5 para enviar no campo "nfceMd5".<BR><BR>Observação: Para requisições SOAP usar CDATA como demonstra o exemplo abaixo:<BR>&lt;![CDATA[Conteúdo do campo convertido]]&gt;</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nfceMd5</td>
+<td class="parameter-type">string<span class="parameter-lenght">32</span></td><td class="parameter-docs"><div class="first">MD5 do arquivo XML enviado em "nfceXml".</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento obrigatório.</div></div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="nfceCanc" class="anchorScroll"></a>
+<h3>nfceCanc</h3>
+<p>Dados do cancelamento da NFC-e.</p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">nfceProtCan</td>
+<td class="parameter-type">string<span class="parameter-lenght">30</span></td><td class="parameter-docs"><div class="first">Protocolo de cancelamento da NFC-e.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento obrigatório quando indicar que a NFC-e está cancelada.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nfceXmlCan</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">XML da NFC-e cancelada.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preechimento obrigatório para indicar o cancelamento da NFC-e.<BR><BR>Antes de enviar, converta os seus seguintes caracteres:<BR><BR>&amp; para &amp;amp; <BR>> para &amp;gt;<BR>< para &amp;lt;<BR>" para &amp;quot;<BR>" para &amp;apos;<BR>| para &amp;#124;<BR><BR>Após essa conversão aplique o MD5 para enviar no campo "nfceMd5Can".<BR><BR>Observação: Para requisições SOAP usar CDATA como demonstra o exemplo abaixo:<BR>&lt;![CDATA[Conteúdo do campo convertido]]&gt;</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nfceMd5Can</td>
+<td class="parameter-type">string<span class="parameter-lenght">32</span></td><td class="parameter-docs"><div class="first">MD5 do arquivo XML enviado em "nfceXmlCan".</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento obrigatório.</div></div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="nfceInut" class="anchorScroll"></a>
+<h3>nfceInut</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">nfceProtInut</td>
+<td class="parameter-type">string<span class="parameter-lenght">30</span></td><td class="parameter-docs"><div class="first">Protocolo de inutilização da NFC-e.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento obrigatório.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nfceXmlInut</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">XML da inutização de NFC-e.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preechimento obrigatório.<BR><BR>Antes de enviar, converta os seus seguintes caracteres:<BR><BR>&amp; para &amp;amp; <BR>> para &amp;gt;<BR>< para &amp;lt;<BR>" para &amp;quot;<BR>" para &amp;apos;<BR>| para &amp;#124;<BR> <BR>Após essa conversão aplique o MD5 para enviar no campo "nfceMd5Inut".<BR><BR>Observação: Para requisições SOAP usar CDATA como demonstra o exemplo abaixo:<BR>&lt;![CDATA[Conteúdo do campo convertido]]&gt;</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nfceMd5Inut</td>
+<td class="parameter-type">string<span class="parameter-lenght">32</span></td><td class="parameter-docs"><div class="first">MD5 do arquivo XML enviado em "nfceXmlInut".</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento obrigatório.</div></div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="omie_fail" class="anchorScroll"></a>
+<h3>omie_fail</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">code</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Codigo do erro</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">description</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Descricao do erro</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-required">referer</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Origem do erro</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-required">fatal</td>
+<td class="parameter-type">boolean</td><td class="parameter-docs"><div class="first">Indica se eh um erro fatal</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="outrasInf" class="anchorScroll"></a>
+<h3>outrasInf</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">nMesa</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Número / identificação da mesa.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nPessoas</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Número/quantidade de pessoas atendidas.</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="pag" class="anchorScroll"></a>
+<h3>pag</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">vPag</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Valor do pagamento.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento obrigatório.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">vTroco</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Valor do troco.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">vTaxa</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Valor da taxa da administradora de cartões.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">pTaxa</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Percentual da taxa da administradora de cartões.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">vLiq</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Valor líquido do pagamento.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento obrigatório.</div></div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="pagIdent" class="anchorScroll"></a>
+<h3>pagIdent</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">cCategoria</td>
+<td class="parameter-type">string<span class="parameter-lenght">20</span></td><td class="parameter-docs"><div class="first">Código da categoria.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento obrigatório.<BR><BR>Utilize a tag "codigo" do método "ListarCategorias" da API<BR>/api/v1/geral/categorias/ para obter essa informação.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cTipoPag</td>
+<td class="parameter-type">string<span class="parameter-lenght">5</span></td><td class="parameter-docs"><div class="first">Tipo de pagamento.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento obrigatório.<BR><BR>Se não preenchido assumirá o código "99999" indicando que a forma de pagamento é desconhecida e as parcelas serão ignoradas, gerando um único lançamento no financeiro.<BR><BR>Opções disponíveis:<BR>"BOL" - Boleto<BR>"DIN" - Dinheiro<BR>"CRE" - Crediário<BR>"CRT" - Cartão<BR>"CRC" - Cartão de Crédito<BR>"CRD" - Cartão de Débito<BR>"CHQ" - Cheque<BR>"CHT" - Cheque de Terceiros<BR>"PIX" - Pix<BR>"99999" - Outros<BR><BR>Valor é validado de acordo com o tipo de conta corrente. Veja abaixo por tipo de conta corrente quais valores serão aceitos: <BR><BR>Caixinha => "DIN", "CHQ", "CHT", "99999" e "PIX" <BR>Administradora de Cartões => "CRT", "CRC" e "CRD" <BR>Carteira Virtual => "CRT", "CRC" e "CRD"   <BR>Conta Corrente => "DIN", "CRT", "CRC", "CRD", "BOL" e "PIX"<BR>Crediário / Carnê => "CRE" e "BOL"</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">idConta</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código da Conta Corrente.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento obrigatório.</div></div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="parcelas" class="anchorScroll"></a>
+<h3>parcelas</h3>
+<p>Lista de parcelas da forma de pagamento.</p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">nParc</td>
+<td class="parameter-type">string<span class="parameter-lenght">7</span></td><td class="parameter-docs"><div class="first">Número da parcela.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento obrigatório.<BR>Formato: 999/999.<BR><BR>Exemplos:<BR>001/001<BR>001/003<BR>002/003<BR>003/003</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">dVenc</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Data de vencimento da parcela.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento obrigatório.<BR>Formato: dd/mm/aaaa.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">vParc</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Valor da parcela.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento obrigatório.</div></div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="parcelasArray" class="anchorScroll"></a>
+<h3>parcelasArray</h3>
+<p>Este par&acirc;metro &eacute; um array do tipo <span class="pre"><a href="#parcelas"><span class="lightBlue">parcelas</span></a></span></p>
+<p>Lista de parcelas</p>
+</div>
+<div class="complexTypeItem">
+<a name="prod" class="anchorScroll"></a>
+<h3>prod</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">cProd</td>
+<td class="parameter-type">string<span class="parameter-lenght">60</span></td><td class="parameter-docs"><div class="first">Código do produto conforme destacado no Cupom Fiscal.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento obrigatório.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">xProd</td>
+<td class="parameter-type">string<span class="parameter-lenght">120</span></td><td class="parameter-docs"><div class="first">Descrição do produto conforme destacado no Cupom Fiscal.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento obrigatório.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">CFOP</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">CFOP.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento obrigatório.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">NCM</td>
+<td class="parameter-type">string<span class="parameter-lenght">13</span></td><td class="parameter-docs"><div class="first">NCM.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento obrigatório.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cEAN</td>
+<td class="parameter-type">string<span class="parameter-lenght">14</span></td><td class="parameter-docs"><div class="first">EAN do produto.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cUn</td>
+<td class="parameter-type">string<span class="parameter-lenght">6</span></td><td class="parameter-docs"><div class="first">Unidade de medida.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento obrigatório.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nQuant</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Quantidade.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento obrigatório.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">vUnit</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Valor unitário.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento obrigatório.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">vProd</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Valor total do item. É o valor líquido dos produtos vendidos no cupom.</div><div class="more"><a href="javascript:void(0)">+</a><div>vItem = vProd - vDesc + vAcresc<BR><BR>Preenchimento obrigatório.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">vDesc</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Valor do desconto.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">vAcresc</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Valor de acréscimo.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">vItem</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Valor do Cupom Fiscal.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento obrigatório.</div></div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="prodIdent" class="anchorScroll"></a>
+<h3>prodIdent</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">idProduto</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código do produto.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento obrigatório.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">emiProduto</td>
+<td class="parameter-type">string<span class="parameter-lenght">60</span></td><td class="parameter-docs"><div class="first">Código do produto no emissor de cupom fiscal.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento obrigatório.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">idLocalEstoque</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Codigo do Local do Estoque.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento Opcional.<BR><BR>Caso não informado assumirá o Local de Estoque padrão.</div></div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="rps" class="anchorScroll"></a>
+<h3>rps</h3>
+<p>Informe os detalhes do Cupom/RPS</p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">numero</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Número do cupom.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento obrigatório.<BR><BR></div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">serie</td>
+<td class="parameter-type">string<span class="parameter-lenght">4</span></td><td class="parameter-docs"><div class="first">Série do Cupom.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento obrigatório.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">dEmi</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Data da emissão do cupom fiscal.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento obrigatório.<BR></div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">hEmi</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Hora da emissão do cupom fiscal.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento obrigatório.<BR></div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">totalRps</td>
+<td class="parameter-type"><a href="#totalRps">totalRps</a></td><td class="parameter-docs"><div class="first">Total do cupom RPS.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cTipoAcao</td>
+<td class="parameter-type">string<span class="parameter-lenght">100</span></td><td class="parameter-docs"><div class="first">Ação para o faturamento de serviços.</div><div class="more"><a href="javascript:void(0)">+</a><div>Essa tag é deve ser apenas na inclusão de cupons fiscais com itens de serviço quando a tag 'servicos' estiver preenchida. <BR><BR>Indica se as ordens de serviço faturadas para o cupom ou rps serão geradas de forma agrupada ou individual.<BR><BR>'AGRUPADO' (Default).<BR>'AGRUPADO-SALAO-PARCEIRO'<BR>'INDIVIDUAL'</div></div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="sat" class="anchorScroll"></a>
+<h3>sat</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">satSerie</td>
+<td class="parameter-type">string<span class="parameter-lenght">20</span></td><td class="parameter-docs"><div class="first">Número de série do SAT.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento obrigatório.<BR><BR>Exemplos: <BR>"0001882143"</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">satModelo</td>
+<td class="parameter-type">string<span class="parameter-lenght">20</span></td><td class="parameter-docs"><div class="first">Modelo do SAT.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento obrigatório.<BR><BR>Exemplo:<BR>"DIMEP"<BR></div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">satSessao</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Sessão do SAT.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento obrigatório.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">satProt</td>
+<td class="parameter-type">string<span class="parameter-lenght">20</span></td><td class="parameter-docs"><div class="first">Protocolo de envio do Cupom Fiscal.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento obrigatório.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">satXml</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">XML do Cupom Fiscal enviado.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preechimento obrigatório.<BR><BR>Antes de enviar, converta os seus seguintes caracteres:<BR><BR>&amp; para &amp;amp; <BR>> para &amp;gt;<BR>< para &amp;lt;<BR>" para &amp;quot;<BR>" para &amp;apos;<BR>| para &amp;#124;<BR><BR>Após essa conversão aplique o MD5 para enviar no campo "satMd5".<BR><BR>Observação: Para requisições SOAP usar CDATA como demonstra o exemplo abaixo:<BR>&lt;![CDATA[Conteúdo do campo convertido]]&gt;</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">satMd5</td>
+<td class="parameter-type">string<span class="parameter-lenght">32</span></td><td class="parameter-docs"><div class="first">MD5 do arquivo XML enviado em "satXML".</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento obrigatório.</div></div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="satCanc" class="anchorScroll"></a>
+<h3>satCanc</h3>
+<p>Dados do Cancelamento do SAT.</p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">satProtCan</td>
+<td class="parameter-type">string<span class="parameter-lenght">20</span></td><td class="parameter-docs"><div class="first">Protocolo de envio do cancelamento do Cupom Fiscal.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento obrigatório.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">satXmlCan</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">XML do Cupom Fiscal enviado.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preechimento obrigatório.<BR><BR>Antes de enviar, converta os seus seguintes caracteres:<BR><BR> & para &amp; <BR> > para &gt;<BR> < para &lt;<BR> " para &quot;<BR> "  para &apos;<BR> |  para &#124;<BR><BR>Após essa conversão aplique o MD5 para enviar no campo "satMd5Can".<BR><BR>Observação: Para requisições SOAP usar CDATA como demonstra o exemplo abaixo:<BR>&lt;![CDATA[Conteúdo do campo convertido]]&gt;</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">satMd5Can</td>
+<td class="parameter-type">string<span class="parameter-lenght">32</span></td><td class="parameter-docs"><div class="first">MD5 do arquivo XML enviado em "satXmlCan".</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento obrigatório.</div></div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="servicos" class="anchorScroll"></a>
+<h3>servicos</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">nCodServ</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">ID do serviço.  (Gerado internamente, não é visualizado na tela).</div><div class="more"><a href="javascript:void(0)">+</a><div>Pode ser obtido através da API 'api/v1/servicos/servico/#ListarCadastroServico'.<BR></div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nItem</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Sequencia do item de serviço.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nQtde</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Quantidade de serviços.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nValorUni</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Valor Unitário do serviço.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nValorTot</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Valor Total do serviço.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cMunFG</td>
+<td class="parameter-type">string<span class="parameter-lenght">7</span></td><td class="parameter-docs"><div class="first">Código IBGE do município de ocorrência do fato gerador do ISSQN.</div><div class="more"><a href="javascript:void(0)">+</a><div>(Cidade de prestação do serviço).<BR></div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">vAcresc</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Valor de acréscimo.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">vDesc</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Valor do desconto.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nValorDed</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Valor dedução para redução da Base de Calculo.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nValorCom</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Valor de comissão do vendedor - salão Parceiro.</div><div class="more"><a href="javascript:void(0)">+</a><div>Essa tag só deve ser informada na modalidade 'salão parceiro'.<BR><BR>(Obrigatória) se a Tag 'rps.cTipoAcao' for preenchida como 'AGRUPADO-SALAO-PARCEIRO.'<BR><BR>Obs. É um recurso exclusivo para atender a lei do salão parceiro nas emissões de NFS-e. Não tem relação com o valor de comissão do ERP.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCnpjVend</td>
+<td class="parameter-type">string<span class="parameter-lenght">20</span></td><td class="parameter-docs"><div class="first">CNPJ do vendedor - salão Parceiro.</div><div class="more"><a href="javascript:void(0)">+</a><div>Essa tag só deve ser informada na modalidade 'salão parceiro'.<BR><BR>(Obrigatória) se a Tag 'rps.cTipoAcao' for preenchida como 'AGRUPADO-SALAO-PARCEIRO.'<BR><BR>Obs. É um recurso exclusivo para atender a lei do salão parceiro nas emissões de NFS-e. Não tem relação com o cadastro de vendedores ou clientes do ERP.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cNomeVend</td>
+<td class="parameter-type">string<span class="parameter-lenght">100</span></td><td class="parameter-docs"><div class="first">Nome do vendedor - salão Parceiro.</div><div class="more"><a href="javascript:void(0)">+</a><div>Essa tag só deve ser informada na modalidade 'salão parceiro'.<BR><BR>(Obrigatória) se a Tag 'rps.cTipoAcao' for preenchida como 'AGRUPADO-SALAO-PARCEIRO.'<BR><BR>Obs. É um recurso exclusivo para atender a lei do salão parceiro nas emissões de NFS-e. Não tem relação com o cadastro de vendedores ou clientes do ERP.</div></div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="servicosArray" class="anchorScroll"></a>
+<h3>servicosArray</h3>
+<p>Este par&acirc;metro &eacute; um array do tipo <span class="pre"><a href="#servicos"><span class="lightBlue">servicos</span></a></span></p>
+<p>Lista de servicos</p>
+</div>
+<div class="complexTypeItem">
+<a name="total" class="anchorScroll"></a>
+<h3>total</h3>
+<p>Totais do cupom fiscal.</p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">vItem</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Valor total do item. É o valor líquido dos produtos vendidos no cupom.</div><div class="more"><a href="javascript:void(0)">+</a><div>vItem = vProd - vDesc + vAcresc<BR><BR>Preenchimento obrigatório.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">vICMS</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Valor do ICMS.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">vDesc</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Valor do desconto.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">vAcresc</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Valor de acréscimo.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">vTaxa</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Valor da taxa da administradora de cartões.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">vCF</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Valor do Cupom Fiscal.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento obrigatório.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">vTotTrib</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Valor aproximado dos tributos (IBPT).</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="totalRps" class="anchorScroll"></a>
+<h3>totalRps</h3>
+<p>Total do cupom RPS.</p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">vItem</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Valor total do item. É o valor líquido dos produtos vendidos no cupom.</div><div class="more"><a href="javascript:void(0)">+</a><div>vItem = vProd - vDesc + vAcresc<BR><BR>Preenchimento obrigatório.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">vDesc</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Valor do desconto.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">vRPS</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Valor do Cupom/RPS.</div></td>
+<tr>
+</table>
+</div>
+</div>
+<div class="col-md-3">
+<div id="affix-menu" data-spy="affix" data-offset-top="294">
+<h2>M&eacute;todos</h2>
+<nav id="index" class="hidden-print hidden-xs hidden-sm">
+<ul class="nav">
+<li><a href="#FecharCaixa">FecharCaixa</a></li>
+<li><a href="#IncluirCfeSat">IncluirCfeSat</a></li>
+<li><a href="#IncluirCupom">IncluirCupom</a></li>
+<li><a href="#IncluirNfce">IncluirNfce</a></li>
+<li><a href="#IncluirRps">IncluirRps</a></li>
+<li><a href="#InutilizarNfce">InutilizarNfce</a></li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+</body>
+</html>

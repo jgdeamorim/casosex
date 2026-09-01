@@ -1,0 +1,343 @@
+<nav class="navbar navbar-expand-lg bg-azul">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="https://developer.omie.com.br/">
+            <img class="lozad img-logo" data-src="https://static.omie.com.br/images/logo/logo-omie-topo.png" src="https://static.omie.com.br/images/logo/logo-omie-topo.png" data-loaded="true">
+        </a>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <span class="borda-hover"></span>
+                    <a class="nav-link" href="https://developer.omie.com.br/my-apps/"> Aplicativos </a>
+                </li>
+                <li class="nav-item ">
+                    <span class="borda-hover"></span>
+                    <a class="nav-link" href="https://developer.omie.com.br/service-list/">
+                        Lista das API's
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <span class="borda-hover"></span>
+                    <a class="nav-link" href="https://ajuda.omie.com.br/pt-BR/collections/3045828-apis" target="_blank"> Ajuda </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<html>
+<head>
+<title>DocumentosFiscais</title>
+<style type="text/css" media="all">
+  [id] { scroll-margin-top: 68px; }
+</style>
+<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+<script src="https://cdn.omie.com.br/omie-assets/js/omie-compat-v2.min.js"></script>
+<script src="/developer/themes/omie/developer.js?ts=2021.008"></script>
+<link rel="stylesheet" href="//app.omie.com.br/wp-content/themes/omie/bootstrap/css/bootstrap.min.css" async/>
+<link href="https://cdn.omie.com.br/assets/developer/css/site.css?ts=2021.008" media="all" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="/developer/themes/omie/developer.css?ts=2021.008" async/>
+</head>
+<body>
+<div class="jumbotron banner bg-azul">
+<div class="container">
+<img src="https://cdn.omie.com.br/assets/developer/images/seta-azuis.png" alt="" class="img-setas">
+<div class="row align-items-center">
+<div class="col-12">
+<h1>DocumentosFiscais</h1>
+<ul class="nav nav-tabs" role="tablist">
+  <li role="presentation" class="active"><a href="#section-endpoint" aria-controls="section-endpoint" role="tab" data-toggle="tab">Endpoint</a></li>
+  <li role="presentation" class="pull-right"><a href="#section-wsdl" aria-controls="section-wsdl" role="tab" data-toggle="tab">WSDL</a></li>
+  <li role="presentation" class="pull-right"><a href="#section-php-soap" aria-controls="section-php-soap" role="tab" data-toggle="tab">PHP SOAP</a></li>
+  <li role="presentation" class="pull-right"><a href="#section-json" aria-controls="section-json" role="tab" data-toggle="tab">JSON</a></li>
+</ul>
+<div class="tab-content">
+  <div role="tabpanel" class="tab-pane fade in active" id="section-endpoint">
+    <h4>Endpoint URI</h4>
+    <a class="highlight" href="https://app.omie.com.br/api/v1/contador/xml/"><pre><code>https://app.omie.com.br/api/v1/contador/xml/</code></pre></a>
+  </div>
+  <div role="tabpanel" class="tab-pane fade" id="section-wsdl">
+    <h4>WSDL URI</h4>
+    <a class="highlight" href="https://app.omie.com.br/api/v1/contador/xml/?WSDL"><pre><code>https://app.omie.com.br/api/v1/contador/xml/?WSDL</code></pre></a>
+  </div>
+  <div role="tabpanel" class="tab-pane fade" id="section-php-soap">
+    <h4>PHP SOAP client download</h4>
+    <a class="highlight" href="https://app.omie.com.br/api/v1/contador/xml/?PHPSOAPCLIENT""><pre><code>https://app.omie.com.br/api/v1/contador/xml/?PHPSOAPCLIENT</code></pre></a>
+  </div>
+  <div role="tabpanel" class="tab-pane fade" id="section-json">
+    <h4>JSON client download URI</h4>
+    <h5>PHP</h5>
+    <a class="highlight" href="https://app.omie.com.br/api/v1/contador/xml/?PHPJSONCLIENT"><pre><code>https://app.omie.com.br/api/v1/contador/xml/?PHPJSONCLIENT</code></pre></a>
+    <h5>JavaScript (recomendado para uso apenas do lado do servidor)</h5>
+    <a class="highlight" href="https://app.omie.com.br/api/v1/contador/xml/?JSJSONCLIENT"><pre><code>https://app.omie.com.br/api/v1/contador/xml/?JSJSONCLIENT</code></pre></a>
+  </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="container">
+<div class="row">
+<div class="col-md-9">
+<h2>M&eacute;todos</h2>
+<p>Veja abaixo a documenta&ccedil;&atilde;o de cada m&eacute;todo dispon&iacute;vel para este servi&ccedil;o.</p>
+<div id="ListarDocumentos" class="methodItem">
+<h3 class="method-name">ListarDocumentos</h3>
+<p>
+Lista de XMLs de Documentos Fiscais.
+</p>
+<div class="panel panel-default method">
+<div class="panel-heading"> Par&acirc;metros:
+</div>
+<table class="table table-condensed table-hover">
+<tr>
+<td class="">&nbsp;</td>
+<td class="method-parameter-type"><a href="#xmlListarDocumentosRequest">xmlListarDocumentosRequest</a></td>
+<td class="method-parameter-name">xmlListarDocumentosRequest</td><td class="method-parameter-docs"><div class="first">Solicitação de listagem de XMLs de Documentos Fiscais.</div></td>
+</tr>
+</table>
+<div class="panel-footer">
+Retorno <span class="pre"><a href="#xmlListarDocumentosResponse"><span class="lightBlue">xmlListarDocumentosResponse</span></a></span>: 
+</div>
+</div>
+<div class="method-example-area">
+<h5>Exemplo:</h5>
+<pre class="method-example-code">{<BR>  "nPagina": 1,<BR>  "nRegPorPagina": 20,<BR>  "cModelo": "55",<BR>  "dEmiInicial": "",<BR>  "dEmiFinal": ""<BR>}</pre>
+<button class="btn btn-success method-example" data-method="ListarDocumentos" data-example="%7B++%22nPagina%22%3A+1%2C++%22nRegPorPagina%22%3A+20%2C++%22cModelo%22%3A+%2255%22%2C++%22dEmiInicial%22%3A+%22%22%2C++%22dEmiFinal%22%3A+%22%22%7D">Teste agora mesmo</button>
+</div>
+</div>
+<h2>Tipos Complexos</h2>
+<div class="complexTypeItem">
+<a name="documentosEncontrados" class="anchorScroll"></a>
+<h3>documentosEncontrados</h3>
+<p>Lista de XMLs dos documentos encontrados.</p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">nNumero</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Número do Documento Fiscal.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cSerie</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Série do Documento Fiscal.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nChave</td>
+<td class="parameter-type">string<span class="parameter-lenght">44</span></td><td class="parameter-docs"><div class="first">Chave da Documento Fiscal.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">dEmissao</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Data de emissão do Documento Fiscal.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">hEmissao</td>
+<td class="parameter-type">string<span class="parameter-lenght">8</span></td><td class="parameter-docs"><div class="first">Hora de emissão do Documento Fiscal.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nValor</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Valor do Documento Fiscal.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cXml</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">XML do Documento Fiscal.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nIdCupom</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">ID do Cupom Fiscal (Para NFC-e / CF-e SAT e ECF).</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nIdNF</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">ID da Nota Fiscal (para NF-e / NFS-e).</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nIdCT</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">ID do Conhecimento de Transporte (Para  CT-e / CT-e OS).</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nIdPedido</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">ID do Pedido de Compra/Venda.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nIdOS</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">ID da Ordem de Serviço.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nIdReceb</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Id do Recebimento da Nota.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cStatus</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Status do Documento Fiscal.</div><div class="more"><a href="javascript:void(0)">+</a><div>Pode ser:<BR><BR>00 - Autorizado<BR>10 - Cancelado<BR>20 - Denegado<BR>30 - Devolvido<BR>40 - Pendente (Documento em processo de faturamento)<BR><BR></div></div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="documentosEncontradosArray" class="anchorScroll"></a>
+<h3>documentosEncontradosArray</h3>
+<p>Este par&acirc;metro &eacute; um array do tipo <span class="pre"><a href="#documentosEncontrados"><span class="lightBlue">documentosEncontrados</span></a></span></p>
+<p>Lista de documentosEncontrados</p>
+</div>
+<div class="complexTypeItem">
+<a name="omie_fail" class="anchorScroll"></a>
+<h3>omie_fail</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">code</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Codigo do erro</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">description</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Descricao do erro</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-required">referer</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Origem do erro</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-required">fatal</td>
+<td class="parameter-type">boolean</td><td class="parameter-docs"><div class="first">Indica se eh um erro fatal</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="xmlListarDocumentosRequest" class="anchorScroll"></a>
+<h3>xmlListarDocumentosRequest</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">nPagina</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Número da página que será listada.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nRegPorPagina</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Número de registros retornados</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cModelo</td>
+<td class="parameter-type">string<span class="parameter-lenght">2</span></td><td class="parameter-docs"><div class="first">Modelo do Documento Fiscal:</div><div class="more"><a href="javascript:void(0)">+</a><div>Pode ser:<BR><BR>00 - ECF<BR>65 - NFC-e<BR>59 - CF-e SAT<BR>55 - NF-e<BR>57 - CT-e<BR>67 - CT-e OS<BR>99 - NFS-e<BR></div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cOperacao</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Tipo de Operação do Documento Fiscal.</div><div class="more"><a href="javascript:void(0)">+</a><div>Pode ser:<BR><BR>0 - Entrada.<BR>1 - Saída (Default).</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cAmbiente</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Ambiente do Documento Fiscal.</div><div class="more"><a href="javascript:void(0)">+</a><div>Pode ser:<BR><BR>H - Homologação.<BR>P - Produção (Default).</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">dEmiInicial</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Data de emissão inicial do Documento Fiscal.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">dEmiFinal</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Data de emissão final do Documento Fiscal.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">hEmiInicial</td>
+<td class="parameter-type">string<span class="parameter-lenght">8</span></td><td class="parameter-docs"><div class="first">Hora de emissão inicial  do Documento Fiscal.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">hEmiFinal</td>
+<td class="parameter-type">string<span class="parameter-lenght">8</span></td><td class="parameter-docs"><div class="first">Hora de emissão final do Documento Fiscal.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">dDtIncInicial</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Data de Inclusão inicial do Documento Fiscal.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">dDtIncFinal</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Data de Inclusão final do Documento Fiscal.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cHrIncInicial</td>
+<td class="parameter-type">string<span class="parameter-lenght">8</span></td><td class="parameter-docs"><div class="first">Hora de Inclusão inicial do Documento Fiscal.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cHrIncFinal</td>
+<td class="parameter-type">string<span class="parameter-lenght">8</span></td><td class="parameter-docs"><div class="first">Hora de Inclusão final do Documento Fiscal.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nDocInicial</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Número do Documento Inicial do Documento Fiscal.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nDocFinal</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Número do Documento Final do Documento Fiscal.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cSerie</td>
+<td class="parameter-type">string<span class="parameter-lenght">5</span></td><td class="parameter-docs"><div class="first">Série do Documento Fiscal.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nChave</td>
+<td class="parameter-type">string<span class="parameter-lenght">44</span></td><td class="parameter-docs"><div class="first">Chave da Documento Fiscal.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nIdCupom</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">ID do Cupom Fiscal (Para NFC-e / CF-e SAT e ECF).</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nIdNF</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">ID da Nota Fiscal (para NF-e / NFS-e).</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nIdCT</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">ID do Conhecimento de Transporte (Para  CT-e / CT-e OS).</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nIdPedido</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">ID do Pedido de Compra/Venda.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nIdOS</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">ID da Ordem de Serviço.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nIdReceb</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Id do Recebimento da Nota.</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="xmlListarDocumentosResponse" class="anchorScroll"></a>
+<h3>xmlListarDocumentosResponse</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">nIdProduto</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Id único do produto/serviço</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nPagina</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Número da página que será listada.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nRegPorPagina</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Total de páginas encontradas.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nRegistros</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Número de registros retornados</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nTotRegistros</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Total de registros encontrados.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">documentosEncontrados</td>
+<td class="parameter-type"><a href="#documentosEncontradosArray">documentosEncontradosArray</a></td><td class="parameter-docs"><div class="first">Lista de XMLs dos documentos encontrados.</div></td>
+<tr>
+</table>
+</div>
+</div>
+<div class="col-md-3">
+<div id="affix-menu" data-spy="affix" data-offset-top="294">
+<h2>M&eacute;todos</h2>
+<nav id="index" class="hidden-print hidden-xs hidden-sm">
+<ul class="nav">
+<li><a href="#ListarDocumentos">ListarDocumentos</a></li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+</body>
+</html>

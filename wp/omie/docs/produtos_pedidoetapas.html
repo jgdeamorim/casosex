@@ -1,0 +1,419 @@
+<nav class="navbar navbar-expand-lg bg-azul">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="https://developer.omie.com.br/">
+            <img class="lozad img-logo" data-src="https://static.omie.com.br/images/logo/logo-omie-topo.png" src="https://static.omie.com.br/images/logo/logo-omie-topo.png" data-loaded="true">
+        </a>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <span class="borda-hover"></span>
+                    <a class="nav-link" href="https://developer.omie.com.br/my-apps/"> Aplicativos </a>
+                </li>
+                <li class="nav-item ">
+                    <span class="borda-hover"></span>
+                    <a class="nav-link" href="https://developer.omie.com.br/service-list/">
+                        Lista das API's
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <span class="borda-hover"></span>
+                    <a class="nav-link" href="https://ajuda.omie.com.br/pt-BR/collections/3045828-apis" target="_blank"> Ajuda </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<html>
+<head>
+<title>PedidoVendaEtapa</title>
+<style type="text/css" media="all">
+  [id] { scroll-margin-top: 68px; }
+</style>
+<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+<script src="https://cdn.omie.com.br/omie-assets/js/omie-compat-v2.min.js"></script>
+<script src="/developer/themes/omie/developer.js?ts=2021.008"></script>
+<link rel="stylesheet" href="//app.omie.com.br/wp-content/themes/omie/bootstrap/css/bootstrap.min.css" async/>
+<link href="https://cdn.omie.com.br/assets/developer/css/site.css?ts=2021.008" media="all" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="/developer/themes/omie/developer.css?ts=2021.008" async/>
+</head>
+<body>
+<div class="jumbotron banner bg-azul">
+<div class="container">
+<img src="https://cdn.omie.com.br/assets/developer/images/seta-azuis.png" alt="" class="img-setas">
+<div class="row align-items-center">
+<div class="col-12">
+<h1>PedidoVendaEtapa</h1>
+<ul class="nav nav-tabs" role="tablist">
+  <li role="presentation" class="active"><a href="#section-endpoint" aria-controls="section-endpoint" role="tab" data-toggle="tab">Endpoint</a></li>
+  <li role="presentation" class="pull-right"><a href="#section-wsdl" aria-controls="section-wsdl" role="tab" data-toggle="tab">WSDL</a></li>
+  <li role="presentation" class="pull-right"><a href="#section-php-soap" aria-controls="section-php-soap" role="tab" data-toggle="tab">PHP SOAP</a></li>
+  <li role="presentation" class="pull-right"><a href="#section-json" aria-controls="section-json" role="tab" data-toggle="tab">JSON</a></li>
+</ul>
+<div class="tab-content">
+  <div role="tabpanel" class="tab-pane fade in active" id="section-endpoint">
+    <h4>Endpoint URI</h4>
+    <a class="highlight" href="https://app.omie.com.br/api/v1/produtos/pedidoetapas/"><pre><code>https://app.omie.com.br/api/v1/produtos/pedidoetapas/</code></pre></a>
+  </div>
+  <div role="tabpanel" class="tab-pane fade" id="section-wsdl">
+    <h4>WSDL URI</h4>
+    <a class="highlight" href="https://app.omie.com.br/api/v1/produtos/pedidoetapas/?WSDL"><pre><code>https://app.omie.com.br/api/v1/produtos/pedidoetapas/?WSDL</code></pre></a>
+  </div>
+  <div role="tabpanel" class="tab-pane fade" id="section-php-soap">
+    <h4>PHP SOAP client download</h4>
+    <a class="highlight" href="https://app.omie.com.br/api/v1/produtos/pedidoetapas/?PHPSOAPCLIENT""><pre><code>https://app.omie.com.br/api/v1/produtos/pedidoetapas/?PHPSOAPCLIENT</code></pre></a>
+  </div>
+  <div role="tabpanel" class="tab-pane fade" id="section-json">
+    <h4>JSON client download URI</h4>
+    <h5>PHP</h5>
+    <a class="highlight" href="https://app.omie.com.br/api/v1/produtos/pedidoetapas/?PHPJSONCLIENT"><pre><code>https://app.omie.com.br/api/v1/produtos/pedidoetapas/?PHPJSONCLIENT</code></pre></a>
+    <h5>JavaScript (recomendado para uso apenas do lado do servidor)</h5>
+    <a class="highlight" href="https://app.omie.com.br/api/v1/produtos/pedidoetapas/?JSJSONCLIENT"><pre><code>https://app.omie.com.br/api/v1/produtos/pedidoetapas/?JSJSONCLIENT</code></pre></a>
+  </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="container">
+<div class="row">
+<div class="col-md-9">
+<h2>M&eacute;todos</h2>
+<p>Veja abaixo a documenta&ccedil;&atilde;o de cada m&eacute;todo dispon&iacute;vel para este servi&ccedil;o.</p>
+<div id="ListarEtapasPedido" class="methodItem">
+<h3 class="method-name">ListarEtapasPedido</h3>
+<p>
+Lista as etapas do Pedido de Venda de Produtos.
+</p>
+<div class="panel panel-default method">
+<div class="panel-heading"> Par&acirc;metros:
+</div>
+<table class="table table-condensed table-hover">
+<tr>
+<td class="">&nbsp;</td>
+<td class="method-parameter-type"><a href="#pEtapaListarRequest">pEtapaListarRequest</a></td>
+<td class="method-parameter-name">pEtapaListarRequest</td><td class="method-parameter-docs"><div class="first">Solicitação de listagem de mudanças de etapa do pedido de vendas.</div></td>
+</tr>
+</table>
+<div class="panel-footer">
+Retorno <span class="pre"><a href="#pEtapaListarResponse"><span class="lightBlue">pEtapaListarResponse</span></a></span>: Resposta da listagem de Status do Pedido de Vendas.
+</div>
+</div>
+<div class="method-example-area">
+<h5>Exemplo:</h5>
+<pre class="method-example-code">{<BR>  "nPagina": 1,<BR>  "nRegPorPagina": 20<BR>}</pre>
+<button class="btn btn-success method-example" data-method="ListarEtapasPedido" data-example="%7B++%22nPagina%22%3A+1%2C++%22nRegPorPagina%22%3A+20%7D">Teste agora mesmo</button>
+</div>
+</div>
+<h2>Tipos Complexos</h2>
+<div class="complexTypeItem">
+<a name="cancelamento" class="anchorScroll"></a>
+<h3>cancelamento</h3>
+<p>Dados do Cancelamento.</p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">cCancelado</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Pedido de Vendas foi cancelado (S/N)?</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">dDtCanc</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Data do Cancelamento do Pedido.</div><div class="more"><a href="javascript:void(0)">+</a><div>No formato dd/mm/aaaa.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cHrCanc</td>
+<td class="parameter-type">string<span class="parameter-lenght">8</span></td><td class="parameter-docs"><div class="first">Hora do Cancelamento do Pedido.</div><div class="more"><a href="javascript:void(0)">+</a><div>No formato hh:mm:ss.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cUsCanc</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Usuário que realizou o Cancelamento do pedido.</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="devolucao" class="anchorScroll"></a>
+<h3>devolucao</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">cDevolvido</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Pedido de Vendas foi devolvido (S/N)?</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">dDtDev</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Data da Devolução do Pedido.</div><div class="more"><a href="javascript:void(0)">+</a><div>No formato dd/mm/aaaa.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cHrDev</td>
+<td class="parameter-type">string<span class="parameter-lenght">8</span></td><td class="parameter-docs"><div class="first">Hora da Devolução do Pedido.</div><div class="more"><a href="javascript:void(0)">+</a><div>No formato hh:mm:ss.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cUsDev</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Usuário que realizou a devolução do pedido.</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="etapasPedido" class="anchorScroll"></a>
+<h3>etapasPedido</h3>
+<p>Lista de status do pedido encontrados.</p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">nCodPed</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código do Pedido de Venda de Produto.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCodIntPed</td>
+<td class="parameter-type">string<span class="parameter-lenght">60</span></td><td class="parameter-docs"><div class="first">Código de Integração do Pedido de Venda de Produto.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cNumero</td>
+<td class="parameter-type">string<span class="parameter-lenght">15</span></td><td class="parameter-docs"><div class="first">Número do Pedido de Venda.</div><div class="more"><a href="javascript:void(0)">+</a><div>(Visualizado na tela do Omie.)</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cEtapa</td>
+<td class="parameter-type">string<span class="parameter-lenght">2</span></td><td class="parameter-docs"><div class="first">Etapa do Pedido de Venda.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">dDtEtapa</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Data da Etapa do Pedido de Venda.</div><div class="more"><a href="javascript:void(0)">+</a><div>No formato dd/mm/aaaa.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cHrEtapa</td>
+<td class="parameter-type">string<span class="parameter-lenght">8</span></td><td class="parameter-docs"><div class="first">Hora da Etapa do Pedido de Venda.</div><div class="more"><a href="javascript:void(0)">+</a><div>No formato hh:mm:ss.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cUsEtapa</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Usuário que mudou a Etapa do Pedido de Venda.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">faturamento</td>
+<td class="parameter-type"><a href="#faturamento">faturamento</a></td><td class="parameter-docs"><div class="first">Dados do faturamento</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cancelamento</td>
+<td class="parameter-type"><a href="#cancelamento">cancelamento</a></td><td class="parameter-docs"><div class="first">Dados do Cancelamento.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">devolucao</td>
+<td class="parameter-type"><a href="#devolucao">devolucao</a></td><td class="parameter-docs"><div class="first">Dados da Devolução.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">info</td>
+<td class="parameter-type"><a href="#info">info</a></td><td class="parameter-docs"><div class="first">Outras informações do pedido</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="etapasPedidoArray" class="anchorScroll"></a>
+<h3>etapasPedidoArray</h3>
+<p>Este par&acirc;metro &eacute; um array do tipo <span class="pre"><a href="#etapasPedido"><span class="lightBlue">etapasPedido</span></a></span></p>
+<p>Lista de etapasPedido</p>
+</div>
+<div class="complexTypeItem">
+<a name="faturamento" class="anchorScroll"></a>
+<h3>faturamento</h3>
+<p>Dados do faturamento</p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">cFaturado</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Pedido de Vendas foi faturado (S/N)?</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">dDtFat</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Data de Faturamento do Pedido.</div><div class="more"><a href="javascript:void(0)">+</a><div>No formato dd/mm/aaaa.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cHrFat</td>
+<td class="parameter-type">string<span class="parameter-lenght">8</span></td><td class="parameter-docs"><div class="first">Hora do Faturamento do Pedido.</div><div class="more"><a href="javascript:void(0)">+</a><div>No formato hh:mm:ss.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cUsDev</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Usuário que realizou o faturamento do pedido.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cAutorizado</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">NFE foi autorizada (S/N)?</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cDenegado</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">NFE foi denegada (S/N)?</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cDANFE</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">DANFE foi gerado (S/N)?</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cAmbiente</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Ambiente em que a NF-e foi gerada.</div><div class="more"><a href="javascript:void(0)">+</a><div>Pode ser:<BR>H - Homologação.<BR>P - Produção.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cChaveNFE</td>
+<td class="parameter-type">string<span class="parameter-lenght">44</span></td><td class="parameter-docs"><div class="first">Chave da NF-e gerada.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cNumNFE</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Número da NF-e Gerada.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cSerieNFE</td>
+<td class="parameter-type">string<span class="parameter-lenght">3</span></td><td class="parameter-docs"><div class="first">Série da NF-e gerada.&nbsp;</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">dDtSainda</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Data de Saída da NF-e.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cHrSaida</td>
+<td class="parameter-type">string<span class="parameter-lenght">8</span></td><td class="parameter-docs"><div class="first">Hora de Saída da NF-e&nbsp;</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="info" class="anchorScroll"></a>
+<h3>info</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">dInc</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Data da Inclusão.</div><div class="more"><a href="javascript:void(0)">+</a><div>No formato dd/mm/aaaa.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">hInc</td>
+<td class="parameter-type">string<span class="parameter-lenght">8</span></td><td class="parameter-docs"><div class="first">Hora da Inclusão.</div><div class="more"><a href="javascript:void(0)">+</a><div>No formato hh:mm:ss.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">uInc</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Usuário da Inclusão.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">dAlt</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Data da Alteração.</div><div class="more"><a href="javascript:void(0)">+</a><div>No formato dd/mm/aaaa.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">hAlt</td>
+<td class="parameter-type">string<span class="parameter-lenght">8</span></td><td class="parameter-docs"><div class="first">Hora da Alteração.</div><div class="more"><a href="javascript:void(0)">+</a><div>No formato hh:mm:ss.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">uAlt</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Usuário da Alteração.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cImpAPI</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Importado pela API (S/N).</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="omie_fail" class="anchorScroll"></a>
+<h3>omie_fail</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">code</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Codigo do erro</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">description</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Descricao do erro</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-required">referer</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Origem do erro</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-required">fatal</td>
+<td class="parameter-type">boolean</td><td class="parameter-docs"><div class="first">Indica se eh um erro fatal</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="pEtapaListarRequest" class="anchorScroll"></a>
+<h3>pEtapaListarRequest</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">nPagina</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Número da página resgatada.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nRegPorPagina</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Número de registros retornados na página.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cOrdenarPor</td>
+<td class="parameter-type">string<span class="parameter-lenght">100</span></td><td class="parameter-docs"><div class="first">Ordem os resultados da página por:</div><div class="more"><a href="javascript:void(0)">+</a><div>CODIGO - Código do Pedido de Venda.<BR>DATAHORA - Data + Hora da mudança da etapa do pedido.<BR></div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cOrdemDecrescente</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Indica se a ordem de exibição é Decrescente caso seja informado "S".</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">dDtInicial</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Data inicial.</div><div class="more"><a href="javascript:void(0)">+</a><div>No formato dd/mm/aaaa.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">dDtFinal</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Data final.</div><div class="more"><a href="javascript:void(0)">+</a><div>No formato dd/mm/aaaa.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cHrInicial</td>
+<td class="parameter-type">string<span class="parameter-lenght">8</span></td><td class="parameter-docs"><div class="first">Hora inicial.</div><div class="more"><a href="javascript:void(0)">+</a><div>No formato hh:mm:ss</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cHrFinal</td>
+<td class="parameter-type">string<span class="parameter-lenght">8</span></td><td class="parameter-docs"><div class="first">Hora final.</div><div class="more"><a href="javascript:void(0)">+</a><div>No Formato hh:mm:ss.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nCodPed</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código do Pedido de Venda de Produto.</div><div class="more"><a href="javascript:void(0)">+</a><div>(Interno, utilizado apenas na integração via API, não é exibido na tela).<BR>O conteúdo desse campo é o código interno do Pedido de Venda gerado pelo Omie.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCodIntPed</td>
+<td class="parameter-type">string<span class="parameter-lenght">60</span></td><td class="parameter-docs"><div class="first">Código de Integração do Pedido de Venda de Produto.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cEtapa</td>
+<td class="parameter-type">string<span class="parameter-lenght">2</span></td><td class="parameter-docs"><div class="first">Etapa do Pedido de Venda.</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="pEtapaListarResponse" class="anchorScroll"></a>
+<h3>pEtapaListarResponse</h3>
+<p>Resposta da listagem de Status do Pedido de Vendas.</p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">nPagina</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Número da página resgatada.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nTotPaginas</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Número total de páginas encontradas.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nRegistros</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Número de registros retornados na página.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nTotRegistros</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Número total de registros encontrados.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">etapasPedido</td>
+<td class="parameter-type"><a href="#etapasPedidoArray">etapasPedidoArray</a></td><td class="parameter-docs"><div class="first">Lista de status do pedido encontrados.</div></td>
+<tr>
+</table>
+</div>
+</div>
+<div class="col-md-3">
+<div id="affix-menu" data-spy="affix" data-offset-top="294">
+<h2>M&eacute;todos</h2>
+<nav id="index" class="hidden-print hidden-xs hidden-sm">
+<ul class="nav">
+<li><a href="#ListarEtapasPedido">ListarEtapasPedido</a></li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,1244 @@
+<nav class="navbar navbar-expand-lg bg-azul">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="https://developer.omie.com.br/">
+            <img class="lozad img-logo" data-src="https://static.omie.com.br/images/logo/logo-omie-topo.png" src="https://static.omie.com.br/images/logo/logo-omie-topo.png" data-loaded="true">
+        </a>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <span class="borda-hover"></span>
+                    <a class="nav-link" href="https://developer.omie.com.br/my-apps/"> Aplicativos </a>
+                </li>
+                <li class="nav-item ">
+                    <span class="borda-hover"></span>
+                    <a class="nav-link" href="https://developer.omie.com.br/service-list/">
+                        Lista das API's
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <span class="borda-hover"></span>
+                    <a class="nav-link" href="https://ajuda.omie.com.br/pt-BR/collections/3045828-apis" target="_blank"> Ajuda </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<html>
+<head>
+<title>ConhecimentoTransporte</title>
+<style type="text/css" media="all">
+  [id] { scroll-margin-top: 68px; }
+</style>
+<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+<script src="https://cdn.omie.com.br/omie-assets/js/omie-compat-v2.min.js"></script>
+<script src="/developer/themes/omie/developer.js?ts=2021.008"></script>
+<link rel="stylesheet" href="//app.omie.com.br/wp-content/themes/omie/bootstrap/css/bootstrap.min.css" async/>
+<link href="https://cdn.omie.com.br/assets/developer/css/site.css?ts=2021.008" media="all" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="/developer/themes/omie/developer.css?ts=2021.008" async/>
+</head>
+<body>
+<div class="jumbotron banner bg-azul">
+<div class="container">
+<img src="https://cdn.omie.com.br/assets/developer/images/seta-azuis.png" alt="" class="img-setas">
+<div class="row align-items-center">
+<div class="col-12">
+<h1>ConhecimentoTransporte</h1>
+<ul class="nav nav-tabs" role="tablist">
+  <li role="presentation" class="active"><a href="#section-endpoint" aria-controls="section-endpoint" role="tab" data-toggle="tab">Endpoint</a></li>
+  <li role="presentation" class="pull-right"><a href="#section-wsdl" aria-controls="section-wsdl" role="tab" data-toggle="tab">WSDL</a></li>
+  <li role="presentation" class="pull-right"><a href="#section-php-soap" aria-controls="section-php-soap" role="tab" data-toggle="tab">PHP SOAP</a></li>
+  <li role="presentation" class="pull-right"><a href="#section-json" aria-controls="section-json" role="tab" data-toggle="tab">JSON</a></li>
+</ul>
+<div class="tab-content">
+  <div role="tabpanel" class="tab-pane fade in active" id="section-endpoint">
+    <h4>Endpoint URI</h4>
+    <a class="highlight" href="https://app.omie.com.br/api/v1/produtos/cte/"><pre><code>https://app.omie.com.br/api/v1/produtos/cte/</code></pre></a>
+  </div>
+  <div role="tabpanel" class="tab-pane fade" id="section-wsdl">
+    <h4>WSDL URI</h4>
+    <a class="highlight" href="https://app.omie.com.br/api/v1/produtos/cte/?WSDL"><pre><code>https://app.omie.com.br/api/v1/produtos/cte/?WSDL</code></pre></a>
+  </div>
+  <div role="tabpanel" class="tab-pane fade" id="section-php-soap">
+    <h4>PHP SOAP client download</h4>
+    <a class="highlight" href="https://app.omie.com.br/api/v1/produtos/cte/?PHPSOAPCLIENT""><pre><code>https://app.omie.com.br/api/v1/produtos/cte/?PHPSOAPCLIENT</code></pre></a>
+  </div>
+  <div role="tabpanel" class="tab-pane fade" id="section-json">
+    <h4>JSON client download URI</h4>
+    <h5>PHP</h5>
+    <a class="highlight" href="https://app.omie.com.br/api/v1/produtos/cte/?PHPJSONCLIENT"><pre><code>https://app.omie.com.br/api/v1/produtos/cte/?PHPJSONCLIENT</code></pre></a>
+    <h5>JavaScript (recomendado para uso apenas do lado do servidor)</h5>
+    <a class="highlight" href="https://app.omie.com.br/api/v1/produtos/cte/?JSJSONCLIENT"><pre><code>https://app.omie.com.br/api/v1/produtos/cte/?JSJSONCLIENT</code></pre></a>
+  </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="container">
+<div class="row">
+<div class="col-md-9">
+<h2>M&eacute;todos</h2>
+<p>Veja abaixo a documenta&ccedil;&atilde;o de cada m&eacute;todo dispon&iacute;vel para este servi&ccedil;o.</p>
+<div id="AlterarCte" class="methodItem">
+<h3 class="method-name">AlterarCte</h3>
+<p>
+
+</p>
+<div class="panel panel-default method">
+<div class="panel-heading"> Par&acirc;metros:
+</div>
+<table class="table table-condensed table-hover">
+<tr>
+<td class="">&nbsp;</td>
+<td class="method-parameter-type"><a href="#cte_alterar_request">cte_alterar_request</a></td>
+<td class="method-parameter-name">cte_alterar_request</td><td class="method-parameter-docs"><div class="first">Estrutura de requisição da alteração do CT-e.</div></td>
+</tr>
+</table>
+<div class="panel-footer">
+</div>
+</div>
+<div class="method-example-area">
+<h5>Exemplo:</h5>
+<pre class="method-example-code">{<BR>  "nIdCte": 123456,<BR>  "cCategoria": "1.01.01",<BR>  "nVendedor": 0,<BR>  "nProjeto": 0<BR>}</pre>
+<button class="btn btn-success method-example" data-method="AlterarCte" data-example="%7B++%22nIdCte%22%3A+123456%2C++%22cCategoria%22%3A+%221.01.01%22%2C++%22nVendedor%22%3A+0%2C++%22nProjeto%22%3A+0%7D">Teste agora mesmo</button>
+</div>
+</div>
+<div id="AverbacaoCTe" class="methodItem">
+<h3 class="method-name">AverbacaoCTe</h3>
+<p>
+
+</p>
+<div class="panel panel-default method">
+<div class="panel-heading"> Par&acirc;metros:
+</div>
+<table class="table table-condensed table-hover">
+<tr>
+<td class="">&nbsp;</td>
+<td class="method-parameter-type"><a href="#cteAverbacaoRequest">cteAverbacaoRequest</a></td>
+<td class="method-parameter-name">cteAverbacaoRequest</td><td class="method-parameter-docs"><div class="first">Solicitação de Averbação do CT-e.</div></td>
+</tr>
+</table>
+<div class="panel-footer">
+Retorno <span class="pre"><a href="#cteAverbacaoResponse"><span class="lightBlue">cteAverbacaoResponse</span></a></span>: 
+</div>
+</div>
+<div class="method-example-area">
+<h5>Exemplo:</h5>
+<pre class="method-example-code">{<BR>   "cAppNome": "GeradorCTe",<BR>   "cAppVersao": "1.01.02",<BR>   "cAppId": "Cte01",<BR>   "cChaveCte": "",<BR>   "cXmlCteAverb": "",<BR>   "cMd5CteAverb": ""<BR>}</pre>
+<button class="btn btn-success method-example" data-method="AverbacaoCTe" data-example="%7B+++%22cAppNome%22%3A+%22GeradorCTe%22%2C+++%22cAppVersao%22%3A+%221.01.02%22%2C+++%22cAppId%22%3A+%22Cte01%22%2C+++%22cChaveCte%22%3A+%22%22%2C+++%22cXmlCteAverb%22%3A+%22%22%2C+++%22cMd5CteAverb%22%3A+%22%22%7D">Teste agora mesmo</button>
+</div>
+</div>
+<div id="CancelarCTe" class="methodItem">
+<h3 class="method-name">CancelarCTe</h3>
+<p>
+Cancela um CT-e.
+</p>
+<div class="panel panel-default method">
+<div class="panel-heading"> Par&acirc;metros:
+</div>
+<table class="table table-condensed table-hover">
+<tr>
+<td class="">&nbsp;</td>
+<td class="method-parameter-type"><a href="#cteCancelarRequest">cteCancelarRequest</a></td>
+<td class="method-parameter-name">cteCancelarRequest</td><td class="method-parameter-docs"><div class="first">Solicitação de Cancelamento de CT-e.</div></td>
+</tr>
+</table>
+<div class="panel-footer">
+Retorno <span class="pre"><a href="#cteCancelarResponse"><span class="lightBlue">cteCancelarResponse</span></a></span>: 
+</div>
+</div>
+<div class="method-example-area">
+<h5>Exemplo:</h5>
+<pre class="method-example-code">{<BR>   "cAppNome": "GeradorCTe",<BR>   "cAppVersao": "1.01.02",<BR>   "cAppId": "Cte01",<BR>   "cChaveCte": "",<BR>   "cXmlCteCanc": "",<BR>   "cMd5CteCanc": ""<BR>}</pre>
+<button class="btn btn-success method-example" data-method="CancelarCTe" data-example="%7B+++%22cAppNome%22%3A+%22GeradorCTe%22%2C+++%22cAppVersao%22%3A+%221.01.02%22%2C+++%22cAppId%22%3A+%22Cte01%22%2C+++%22cChaveCte%22%3A+%22%22%2C+++%22cXmlCteCanc%22%3A+%22%22%2C+++%22cMd5CteCanc%22%3A+%22%22%7D">Teste agora mesmo</button>
+</div>
+</div>
+<div id="CartaCorrecaoCTe" class="methodItem">
+<h3 class="method-name">CartaCorrecaoCTe</h3>
+<p>
+
+</p>
+<div class="panel panel-default method">
+<div class="panel-heading"> Par&acirc;metros:
+</div>
+<table class="table table-condensed table-hover">
+<tr>
+<td class="">&nbsp;</td>
+<td class="method-parameter-type"><a href="#cteCCRequest">cteCCRequest</a></td>
+<td class="method-parameter-name">cteCCRequest</td><td class="method-parameter-docs"><div class="first">Solicitação de Carta de Correção do CT-e.</div></td>
+</tr>
+</table>
+<div class="panel-footer">
+Retorno <span class="pre"><a href="#cteCCResponse"><span class="lightBlue">cteCCResponse</span></a></span>: 
+</div>
+</div>
+<div class="method-example-area">
+<h5>Exemplo:</h5>
+<pre class="method-example-code">{<BR>   "cAppNome": "GeradorCTe",<BR>   "cAppVersao": "1.01.02",<BR>   "cAppId": "Cte01",<BR>   "cChaveCte": "",<BR>   "cXmlCteCC": "",<BR>   "cMd5CteCC": ""<BR>}</pre>
+<button class="btn btn-success method-example" data-method="CartaCorrecaoCTe" data-example="%7B+++%22cAppNome%22%3A+%22GeradorCTe%22%2C+++%22cAppVersao%22%3A+%221.01.02%22%2C+++%22cAppId%22%3A+%22Cte01%22%2C+++%22cChaveCte%22%3A+%22%22%2C+++%22cXmlCteCC%22%3A+%22%22%2C+++%22cMd5CteCC%22%3A+%22%22%7D">Teste agora mesmo</button>
+</div>
+</div>
+<div id="ExcluirCTe" class="methodItem">
+<h3 class="method-name">ExcluirCTe</h3>
+<p>
+
+</p>
+<div class="panel panel-default method">
+<div class="panel-heading"> Par&acirc;metros:
+</div>
+<table class="table table-condensed table-hover">
+<tr>
+<td class="">&nbsp;</td>
+<td class="method-parameter-type"><a href="#cteExcluirRequest">cteExcluirRequest</a></td>
+<td class="method-parameter-name">cteExcluirRequest</td><td class="method-parameter-docs"><div class="first">Estrutura para excluir o CT-e.</div></td>
+</tr>
+</table>
+<div class="panel-footer">
+Retorno <span class="pre"><a href="#cteExcluirResponse"><span class="lightBlue">cteExcluirResponse</span></a></span>: 
+</div>
+</div>
+<div class="method-example-area">
+<h5>Exemplo:</h5>
+<pre class="method-example-code">{<BR>   "nIdCte": 0<BR>}</pre>
+<button class="btn btn-success method-example" data-method="ExcluirCTe" data-example="%7B+++%22nIdCte%22%3A+0%7D">Teste agora mesmo</button>
+</div>
+</div>
+<div id="ExcluirFaturaCTe" class="methodItem">
+<h3 class="method-name">ExcluirFaturaCTe</h3>
+<p>
+Exclui uma fatura de um grupo de CT-es.
+</p>
+<div class="panel panel-default method">
+<div class="panel-heading"> Par&acirc;metros:
+</div>
+<table class="table table-condensed table-hover">
+<tr>
+<td class="">&nbsp;</td>
+<td class="method-parameter-type"><a href="#cteExcluirFatRequest">cteExcluirFatRequest</a></td>
+<td class="method-parameter-name">cteExcluirFatRequest</td><td class="method-parameter-docs"><div class="first">Solicitação da exclusão do faturamento de um grupo de CT-es.</div></td>
+</tr>
+</table>
+<div class="panel-footer">
+Retorno <span class="pre"><a href="#cteExcluirFatResponse"><span class="lightBlue">cteExcluirFatResponse</span></a></span>: 
+</div>
+</div>
+<div class="method-example-area">
+<h5>Exemplo:</h5>
+<pre class="method-example-code">{<BR>   "cAppNome": "GeradorCTe",<BR>   "cAppVersao": "1.01.02",<BR>   "cAppId": "Cte01",<BR>   "nIdFaturamento": 0<BR>}<BR></pre>
+<button class="btn btn-success method-example" data-method="ExcluirFaturaCTe" data-example="%7B+++%22cAppNome%22%3A+%22GeradorCTe%22%2C+++%22cAppVersao%22%3A+%221.01.02%22%2C+++%22cAppId%22%3A+%22Cte01%22%2C+++%22nIdFaturamento%22%3A+0%7D">Teste agora mesmo</button>
+</div>
+</div>
+<div id="FaturarCTe" class="methodItem">
+<h3 class="method-name">FaturarCTe</h3>
+<p>
+Gera uma fatura para um grupo de CT-es.
+</p>
+<div class="panel panel-default method">
+<div class="panel-heading"> Par&acirc;metros:
+</div>
+<table class="table table-condensed table-hover">
+<tr>
+<td class="">&nbsp;</td>
+<td class="method-parameter-type"><a href="#cteFaturarRequest">cteFaturarRequest</a></td>
+<td class="method-parameter-name">cteFaturarRequest</td><td class="method-parameter-docs"><div class="first">Solicitação do faturamento de um grupo de CT-es.</div></td>
+</tr>
+</table>
+<div class="panel-footer">
+Retorno <span class="pre"><a href="#cteFaturarResponse"><span class="lightBlue">cteFaturarResponse</span></a></span>: 
+</div>
+</div>
+<div class="method-example-area">
+<h5>Exemplo:</h5>
+<pre class="method-example-code">{<BR>   "cAppNome": "GeradorCTe",<BR>   "cAppVersao": "1.01.02",<BR>   "cAppId": "Cte01",<BR>   "CNPJCliente": "",<BR>   "cCategoria": "1.01.02",<BR>   "nContaCorrente": 0,<BR>   "dVencimento": "",<BR>   "nValorFatura": 100,<BR>   "itensFatura": [<BR>      {<BR>         "nSeq": 1,<BR>         "cChaveCte": "",<BR>         "nValorCte": 30<BR>      },<BR>      {<BR>         "nSeq": 2,<BR>         "cChaveCte": "",<BR>         "nValorCte": 70<BR>      }<BR>   ]<BR>}</pre>
+<button class="btn btn-success method-example" data-method="FaturarCTe" data-example="%7B+++%22cAppNome%22%3A+%22GeradorCTe%22%2C+++%22cAppVersao%22%3A+%221.01.02%22%2C+++%22cAppId%22%3A+%22Cte01%22%2C+++%22CNPJCliente%22%3A+%22%22%2C+++%22cCategoria%22%3A+%221.01.02%22%2C+++%22nContaCorrente%22%3A+0%2C+++%22dVencimento%22%3A+%22%22%2C+++%22nValorFatura%22%3A+100%2C+++%22itensFatura%22%3A+%5B++++++%7B+++++++++%22nSeq%22%3A+1%2C+++++++++%22cChaveCte%22%3A+%22%22%2C+++++++++%22nValorCte%22%3A+30++++++%7D%2C++++++%7B+++++++++%22nSeq%22%3A+2%2C+++++++++%22cChaveCte%22%3A+%22%22%2C+++++++++%22nValorCte%22%3A+70++++++%7D+++%5D%7D">Teste agora mesmo</button>
+</div>
+</div>
+<div id="FaturarLoteCTe" class="methodItem">
+<h3 class="method-name">FaturarLoteCTe</h3>
+<p>
+Gera uma fatura por lote para um grupo de CT-es.
+</p>
+<div class="panel panel-default method">
+<div class="panel-heading"> Par&acirc;metros:
+</div>
+<table class="table table-condensed table-hover">
+<tr>
+<td class="">&nbsp;</td>
+<td class="method-parameter-type"><a href="#cteFaturarLoteRequest">cteFaturarLoteRequest</a></td>
+<td class="method-parameter-name">cteFaturarLoteRequest</td><td class="method-parameter-docs"><div class="first">Solicitação do faturamento em lote de um grupo de CT-es.</div></td>
+</tr>
+</table>
+<div class="panel-footer">
+Retorno <span class="pre"><a href="#cteFaturarLoteResponse"><span class="lightBlue">cteFaturarLoteResponse</span></a></span>: 
+</div>
+</div>
+<div class="method-example-area">
+<h5>Exemplo:</h5>
+<pre class="method-example-code">{<BR>   "cAppNome": "GeradorCTe",<BR>   "cAppVersao": "1.01.02",<BR>   "cAppId": "Cte01",<BR>   "nIdFaturamento" : 0, <BR>   "CNPJCliente": "",<BR>   "cConcluirFatura" : "N", <BR>   "itensFatura": [<BR>      {<BR>         "nSeq": 1,<BR>         "cChaveCte": "",<BR>         "nValorCte": 30<BR>      },<BR>      {<BR>         "nSeq": 2,<BR>         "cChaveCte": "",<BR>         "nValorCte": 70<BR>      }<BR>   ]<BR>}</pre>
+<button class="btn btn-success method-example" data-method="FaturarLoteCTe" data-example="%7B+++%22cAppNome%22%3A+%22GeradorCTe%22%2C+++%22cAppVersao%22%3A+%221.01.02%22%2C+++%22cAppId%22%3A+%22Cte01%22%2C+++%22nIdFaturamento%22+%3A+0%2C++++%22CNPJCliente%22%3A+%22%22%2C+++%22cConcluirFatura%22+%3A+%22N%22%2C++++%22itensFatura%22%3A+%5B++++++%7B+++++++++%22nSeq%22%3A+1%2C+++++++++%22cChaveCte%22%3A+%22%22%2C+++++++++%22nValorCte%22%3A+30++++++%7D%2C++++++%7B+++++++++%22nSeq%22%3A+2%2C+++++++++%22cChaveCte%22%3A+%22%22%2C+++++++++%22nValorCte%22%3A+70++++++%7D+++%5D%7D">Teste agora mesmo</button>
+</div>
+</div>
+<div id="ImportarCTe" class="methodItem">
+<h3 class="method-name">ImportarCTe</h3>
+<p>
+Importar o XML de um CT-e.
+</p>
+<div class="panel panel-default method">
+<div class="panel-heading"> Par&acirc;metros:
+</div>
+<table class="table table-condensed table-hover">
+<tr>
+<td class="">&nbsp;</td>
+<td class="method-parameter-type"><a href="#cteImportarRequest">cteImportarRequest</a></td>
+<td class="method-parameter-name">cteImportarRequest</td><td class="method-parameter-docs"><div class="first">Solicitação do Importação de CT-e.</div></td>
+</tr>
+</table>
+<div class="panel-footer">
+Retorno <span class="pre"><a href="#cteImportarResponse"><span class="lightBlue">cteImportarResponse</span></a></span>: 
+</div>
+</div>
+<div class="method-example-area">
+<h5>Exemplo:</h5>
+<pre class="method-example-code">{<BR>   "cAppNome": "GeradorCTe",<BR>   "cAppVersao": "1.01.02",<BR>   "cAppId": "Cte01",<BR>   "cChaveCte": "",<BR>   "cXmlCte": "",<BR>   "cMd5Cte": "",<BR>   "cCategoria": "1.01.02",<BR>   "nContaCorrente": 0<BR>}</pre>
+<button class="btn btn-success method-example" data-method="ImportarCTe" data-example="%7B+++%22cAppNome%22%3A+%22GeradorCTe%22%2C+++%22cAppVersao%22%3A+%221.01.02%22%2C+++%22cAppId%22%3A+%22Cte01%22%2C+++%22cChaveCte%22%3A+%22%22%2C+++%22cXmlCte%22%3A+%22%22%2C+++%22cMd5Cte%22%3A+%22%22%2C+++%22cCategoria%22%3A+%221.01.02%22%2C+++%22nContaCorrente%22%3A+0%7D">Teste agora mesmo</button>
+</div>
+</div>
+<div id="ListarNFeTransp" class="methodItem">
+<h3 class="method-name">ListarNFeTransp</h3>
+<p>
+
+</p>
+<div class="panel panel-default method">
+<div class="panel-heading"> Par&acirc;metros:
+</div>
+<table class="table table-condensed table-hover">
+<tr>
+<td class="">&nbsp;</td>
+<td class="method-parameter-type"><a href="#cteListarNFeRequest">cteListarNFeRequest</a></td>
+<td class="method-parameter-name">cteListarNFeRequest</td><td class="method-parameter-docs"><div class="first">Solicitação de listagem de NF-es cuja empresa é mencionada como transportadora no XML da NF-e.</div></td>
+</tr>
+</table>
+<div class="panel-footer">
+Retorno <span class="pre"><a href="#cteListarNFeResponse"><span class="lightBlue">cteListarNFeResponse</span></a></span>: 
+</div>
+</div>
+<div class="method-example-area">
+<h5>Exemplo:</h5>
+<pre class="method-example-code">{<BR>  "nPagina": 1,<BR>  "nRegPorPagina": 20<BR>}</pre>
+<button class="btn btn-success method-example" data-method="ListarNFeTransp" data-example="%7B++%22nPagina%22%3A+1%2C++%22nRegPorPagina%22%3A+20%7D">Teste agora mesmo</button>
+</div>
+</div>
+<div id="StatusFatura" class="methodItem">
+<h3 class="method-name">StatusFatura</h3>
+<p>
+Retorna o Status da Fatura inclusa.
+</p>
+<div class="panel panel-default method">
+<div class="panel-heading"> Par&acirc;metros:
+</div>
+<table class="table table-condensed table-hover">
+<tr>
+<td class="">&nbsp;</td>
+<td class="method-parameter-type"><a href="#cteStatusFaturaRequest">cteStatusFaturaRequest</a></td>
+<td class="method-parameter-name">cteStatusFaturaRequest</td><td class="method-parameter-docs"><div class="first">Solicitação de Status da Fatura importada</div></td>
+</tr>
+</table>
+<div class="panel-footer">
+Retorno <span class="pre"><a href="#cteStatusFaturaResponse"><span class="lightBlue">cteStatusFaturaResponse</span></a></span>: Response do Status da Fatura importada.
+</div>
+</div>
+<div class="method-example-area">
+<h5>Exemplo:</h5>
+<pre class="method-example-code">{<BR>  "cAppNome": "GeradorCTe",<BR>  "cAppVersao": "1.01.02",<BR>  "cAppId": "Cte01",<BR>  "nIdFaturamento": 0<BR>}</pre>
+<button class="btn btn-success method-example" data-method="StatusFatura" data-example="%7B++%22cAppNome%22%3A+%22GeradorCTe%22%2C++%22cAppVersao%22%3A+%221.01.02%22%2C++%22cAppId%22%3A+%22Cte01%22%2C++%22nIdFaturamento%22%3A+0%7D">Teste agora mesmo</button>
+</div>
+</div>
+<h2>Tipos Complexos</h2>
+<div class="complexTypeItem">
+<a name="cteAverbacaoRequest" class="anchorScroll"></a>
+<h3>cteAverbacaoRequest</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">cAppNome</td>
+<td class="parameter-type">string<span class="parameter-lenght">20</span></td><td class="parameter-docs"><div class="first">Nome do Aplicativo que emitiu o CT-e.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento obrigatório.<BR><BR>Exemplo:<BR><BR>GeradorCT-e</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cAppVersao</td>
+<td class="parameter-type">string<span class="parameter-lenght">20</span></td><td class="parameter-docs"><div class="first">Versão do Aplicativo que emitiu o CT-e.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento obrigatório.<BR><BR>Exemplo:<BR><BR>1.02.01</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cAppId</td>
+<td class="parameter-type">string<span class="parameter-lenght">100</span></td><td class="parameter-docs"><div class="first">Identificação do aplicativo que emitiu o CT-e.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento obrigatório.<BR><BR>Exemplo:<BR><BR>Maquina01<BR><BR>PS: Informe o código que identifica a instalação do aplicativo.<BR>Caso o cliente tenha 2 Emissores de CT-e instalados, ele deve indicar: "01" e "02" ou "10" e "20" ou ainda informar o Serial do HD da máquina.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cChaveCte</td>
+<td class="parameter-type">string<span class="parameter-lenght">44</span></td><td class="parameter-docs"><div class="first">Chave de acesso do CT-e</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cXmlCteAverb</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Xml da Averbação do CT-e.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preechimento obrigatório.<BR><BR>Antes de enviar, converta os seus seguintes caracteres:<BR><BR>&amp; para &amp;amp; <BR>> para &amp;gt;<BR>< para &amp;lt;<BR>" para &amp;quot;<BR>" para &amp;apos;<BR>| para &amp;#124;<BR><BR>Após essa conversão aplique o MD5 para enviar no campo "cMd5CteAverbacao".<BR><BR>Observação: Para requisições SOAP usar CDATA como demonstra o exemplo abaixo:<BR>&lt;![CDATA[Conteúdo do campo convertido]]&gt;</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cMd5CteAverb</td>
+<td class="parameter-type">string<span class="parameter-lenght">32</span></td><td class="parameter-docs"><div class="first">MD5 do arquivo XML importado.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento obrigatório.<BR><BR>Aplique o MD5 sobre o XML antes de realizar o consumo.<BR></div></div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="cteAverbacaoResponse" class="anchorScroll"></a>
+<h3>cteAverbacaoResponse</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">nIdImportacao</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">ID do faturamento do grupo de CT-es.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nIdCte</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">ID do Conhecimento de Transporte</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cChaveCte</td>
+<td class="parameter-type">string<span class="parameter-lenght">44</span></td><td class="parameter-docs"><div class="first">Chave de acesso do CT-e</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCodStatus</td>
+<td class="parameter-type">string<span class="parameter-lenght">4</span></td><td class="parameter-docs"><div class="first">Código do status do processamento.</div><div class="more"><a href="javascript:void(0)">+</a><div>Se o retorno for '0' significa que a solicitação foi executada com sucesso.<BR>Se o retorno for maior que '0' ocorreu algum erro durante o processamento da solicitação.<BR>A tag 'cDesStatus' descreve o problema ocorrido.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cDesStatus</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Descrição do status do processamento.</div><div class="more"><a href="javascript:void(0)">+</a><div>Essa tag explica o resultado da tag 'cCodigoStatus'.</div></div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="cteCCRequest" class="anchorScroll"></a>
+<h3>cteCCRequest</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">cAppNome</td>
+<td class="parameter-type">string<span class="parameter-lenght">20</span></td><td class="parameter-docs"><div class="first">Nome do Aplicativo que emitiu o CT-e.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento obrigatório.<BR><BR>Exemplo:<BR><BR>GeradorCT-e</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cAppVersao</td>
+<td class="parameter-type">string<span class="parameter-lenght">20</span></td><td class="parameter-docs"><div class="first">Versão do Aplicativo que emitiu o CT-e.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento obrigatório.<BR><BR>Exemplo:<BR><BR>1.02.01</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cAppId</td>
+<td class="parameter-type">string<span class="parameter-lenght">100</span></td><td class="parameter-docs"><div class="first">Identificação do aplicativo que emitiu o CT-e.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento obrigatório.<BR><BR>Exemplo:<BR><BR>Maquina01<BR><BR>PS: Informe o código que identifica a instalação do aplicativo.<BR>Caso o cliente tenha 2 Emissores de CT-e instalados, ele deve indicar: "01" e "02" ou "10" e "20" ou ainda informar o Serial do HD da máquina.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cChaveCte</td>
+<td class="parameter-type">string<span class="parameter-lenght">44</span></td><td class="parameter-docs"><div class="first">Chave de acesso do CT-e</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cXmlCteCC</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Xml da Carta de Correção do CT-e.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preechimento obrigatório.<BR><BR>Antes de enviar, converta os seus seguintes caracteres:<BR><BR>&amp; para &amp;amp; <BR>> para &amp;gt;<BR>< para &amp;lt;<BR>" para &amp;quot;<BR>" para &amp;apos;<BR>| para &amp;#124;<BR><BR>Após essa conversão aplique o MD5 para enviar no campo "cMd5CteCC".<BR><BR>Observação: Para requisições SOAP usar CDATA como demonstra o exemplo abaixo:<BR>&lt;![CDATA[Conteúdo do campo convertido]]&gt;</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cMd5CteCC</td>
+<td class="parameter-type">string<span class="parameter-lenght">32</span></td><td class="parameter-docs"><div class="first">MD5 do arquivo XML importado.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento obrigatório.<BR><BR>Aplique o MD5 sobre o XML antes de realizar o consumo.<BR></div></div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="cteCCResponse" class="anchorScroll"></a>
+<h3>cteCCResponse</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">nIdImportacao</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">ID do faturamento do grupo de CT-es.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nIdCte</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">ID do Conhecimento de Transporte</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cChaveCte</td>
+<td class="parameter-type">string<span class="parameter-lenght">44</span></td><td class="parameter-docs"><div class="first">Chave de acesso do CT-e</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCodStatus</td>
+<td class="parameter-type">string<span class="parameter-lenght">4</span></td><td class="parameter-docs"><div class="first">Código do status do processamento.</div><div class="more"><a href="javascript:void(0)">+</a><div>Se o retorno for '0' significa que a solicitação foi executada com sucesso.<BR>Se o retorno for maior que '0' ocorreu algum erro durante o processamento da solicitação.<BR>A tag 'cDesStatus' descreve o problema ocorrido.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cDesStatus</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Descrição do status do processamento.</div><div class="more"><a href="javascript:void(0)">+</a><div>Essa tag explica o resultado da tag 'cCodigoStatus'.</div></div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="cteCancelarRequest" class="anchorScroll"></a>
+<h3>cteCancelarRequest</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">cAppNome</td>
+<td class="parameter-type">string<span class="parameter-lenght">20</span></td><td class="parameter-docs"><div class="first">Nome do Aplicativo que emitiu o CT-e.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento obrigatório.<BR><BR>Exemplo:<BR><BR>GeradorCT-e</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cAppVersao</td>
+<td class="parameter-type">string<span class="parameter-lenght">20</span></td><td class="parameter-docs"><div class="first">Versão do Aplicativo que emitiu o CT-e.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento obrigatório.<BR><BR>Exemplo:<BR><BR>1.02.01</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cAppId</td>
+<td class="parameter-type">string<span class="parameter-lenght">100</span></td><td class="parameter-docs"><div class="first">Identificação do aplicativo que emitiu o CT-e.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento obrigatório.<BR><BR>Exemplo:<BR><BR>Maquina01<BR><BR>PS: Informe o código que identifica a instalação do aplicativo.<BR>Caso o cliente tenha 2 Emissores de CT-e instalados, ele deve indicar: "01" e "02" ou "10" e "20" ou ainda informar o Serial do HD da máquina.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cChaveCte</td>
+<td class="parameter-type">string<span class="parameter-lenght">44</span></td><td class="parameter-docs"><div class="first">Chave de acesso do CT-e</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cXmlCteCanc</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Xml de Cancelamento do CT-e.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preechimento obrigatório.<BR><BR>Antes de enviar, converta os seus seguintes caracteres:<BR><BR>&amp; para &amp;amp; <BR>> para &amp;gt;<BR>< para &amp;lt;<BR>" para &amp;quot;<BR>" para &amp;apos;<BR>| para &amp;#124;<BR><BR>Após essa conversão aplique o MD5 para enviar no campo "cMd5CteCanc".<BR><BR>Observação: Para requisições SOAP usar CDATA como demonstra o exemplo abaixo:<BR>&lt;![CDATA[Conteúdo do campo convertido]]&gt;</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cMd5CteCanc</td>
+<td class="parameter-type">string<span class="parameter-lenght">32</span></td><td class="parameter-docs"><div class="first">MD5 do arquivo XML importado.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento obrigatório.<BR><BR>Aplique o MD5 sobre o XML antes de realizar o consumo.<BR></div></div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="cteCancelarResponse" class="anchorScroll"></a>
+<h3>cteCancelarResponse</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">nIdImportacao</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">ID do faturamento do grupo de CT-es.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nIdCte</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">ID do Conhecimento de Transporte</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cChaveCte</td>
+<td class="parameter-type">string<span class="parameter-lenght">44</span></td><td class="parameter-docs"><div class="first">Chave de acesso do CT-e</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCodStatus</td>
+<td class="parameter-type">string<span class="parameter-lenght">4</span></td><td class="parameter-docs"><div class="first">Código do status do processamento.</div><div class="more"><a href="javascript:void(0)">+</a><div>Se o retorno for '0' significa que a solicitação foi executada com sucesso.<BR>Se o retorno for maior que '0' ocorreu algum erro durante o processamento da solicitação.<BR>A tag 'cDesStatus' descreve o problema ocorrido.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cDesStatus</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Descrição do status do processamento.</div><div class="more"><a href="javascript:void(0)">+</a><div>Essa tag explica o resultado da tag 'cCodigoStatus'.</div></div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="cteExcluirFatRequest" class="anchorScroll"></a>
+<h3>cteExcluirFatRequest</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">cAppNome</td>
+<td class="parameter-type">string<span class="parameter-lenght">20</span></td><td class="parameter-docs"><div class="first">Nome do Aplicativo que emitiu o CT-e.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento obrigatório.<BR><BR>Exemplo:<BR><BR>GeradorCT-e</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cAppVersao</td>
+<td class="parameter-type">string<span class="parameter-lenght">20</span></td><td class="parameter-docs"><div class="first">Versão do Aplicativo que emitiu o CT-e.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento obrigatório.<BR><BR>Exemplo:<BR><BR>1.02.01</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cAppId</td>
+<td class="parameter-type">string<span class="parameter-lenght">100</span></td><td class="parameter-docs"><div class="first">Identificação do aplicativo que emitiu o CT-e.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento obrigatório.<BR><BR>Exemplo:<BR><BR>Maquina01<BR><BR>PS: Informe o código que identifica a instalação do aplicativo.<BR>Caso o cliente tenha 2 Emissores de CT-e instalados, ele deve indicar: "01" e "02" ou "10" e "20" ou ainda informar o Serial do HD da máquina.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nIdFaturamento</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">ID do faturamento do grupo de CT-es.</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="cteExcluirFatResponse" class="anchorScroll"></a>
+<h3>cteExcluirFatResponse</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">nIdFaturamento</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">ID do faturamento do grupo de CT-es.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCodStatus</td>
+<td class="parameter-type">string<span class="parameter-lenght">4</span></td><td class="parameter-docs"><div class="first">Código do status do processamento.</div><div class="more"><a href="javascript:void(0)">+</a><div>Se o retorno for '0' significa que a solicitação foi executada com sucesso.<BR>Se o retorno for maior que '0' ocorreu algum erro durante o processamento da solicitação.<BR>A tag 'cDesStatus' descreve o problema ocorrido.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cDesStatus</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Descrição do status do processamento.</div><div class="more"><a href="javascript:void(0)">+</a><div>Essa tag explica o resultado da tag 'cCodigoStatus'.</div></div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="cteExcluirRequest" class="anchorScroll"></a>
+<h3>cteExcluirRequest</h3>
+<p>Estrutura para excluir o CT-e.</p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">nIdCte</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">ID do Conhecimento de Transporte</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="cteExcluirResponse" class="anchorScroll"></a>
+<h3>cteExcluirResponse</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">cChaveCte</td>
+<td class="parameter-type">string<span class="parameter-lenght">44</span></td><td class="parameter-docs"><div class="first">Chave de acesso do CT-e</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCodStatus</td>
+<td class="parameter-type">string<span class="parameter-lenght">4</span></td><td class="parameter-docs"><div class="first">Código do status do processamento.</div><div class="more"><a href="javascript:void(0)">+</a><div>Se o retorno for '0' significa que a solicitação foi executada com sucesso.<BR>Se o retorno for maior que '0' ocorreu algum erro durante o processamento da solicitação.<BR>A tag 'cDesStatus' descreve o problema ocorrido.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cDesStatus</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Descrição do status do processamento.</div><div class="more"><a href="javascript:void(0)">+</a><div>Essa tag explica o resultado da tag 'cCodigoStatus'.</div></div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="cteFaturarLoteRequest" class="anchorScroll"></a>
+<h3>cteFaturarLoteRequest</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">cAppNome</td>
+<td class="parameter-type">string<span class="parameter-lenght">20</span></td><td class="parameter-docs"><div class="first">Nome do Aplicativo que emitiu o CT-e.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento obrigatório.<BR><BR>Exemplo:<BR><BR>GeradorCT-e</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cAppVersao</td>
+<td class="parameter-type">string<span class="parameter-lenght">20</span></td><td class="parameter-docs"><div class="first">Versão do Aplicativo que emitiu o CT-e.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento obrigatório.<BR><BR>Exemplo:<BR><BR>1.02.01</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cAppId</td>
+<td class="parameter-type">string<span class="parameter-lenght">100</span></td><td class="parameter-docs"><div class="first">Identificação do aplicativo que emitiu o CT-e.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento obrigatório.<BR><BR>Exemplo:<BR><BR>Maquina01<BR><BR>PS: Informe o código que identifica a instalação do aplicativo.<BR>Caso o cliente tenha 2 Emissores de CT-e instalados, ele deve indicar: "01" e "02" ou "10" e "20" ou ainda informar o Serial do HD da máquina.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nIdFaturamentoLote</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Id do faturamento. </div><div class="more"><a href="javascript:void(0)">+</a><div>Para indicar o início de um novo lote envie 0 (zero) nesse campo.<BR><BR>Como resposta você receberá o nIdFaturamento gerado pelo Omie automaticamente.<BR><BR>Nos próximos envios informe o nIdFaturamento recebido para adicionar novos CTes ao lote.<BR><BR>Para concluir o envio de CTes e gerar a fatura do lote informe "S" na tag cConcluirFatura.<BR><BR>Na última chamada desse método você pode enviar apenas a tag cConcluirFatura. Opcionalmente, você pode enviar os CTes restantes.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cConcluirFatura</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Concluir o faturamento. </div><div class="more"><a href="javascript:void(0)">+</a><div>Indica que o envio de CTes está concluído para o lote e que pode realizar o faturamento do mesmo.<BR><BR>Possíveis valores:<BR><BR>S - Sim, encerra o processo de envio de CTes e realiza o faturamento. Nesse momento, você deve informar as tags CNPJCliente, cCategoria, nContaCorrente, dVencimento e nValorFatura e complementar com as tags cNumeroFatura e departamentos, se necessário.<BR><BR>N - Não, indica que uma lista de CTes deve ser adicionada ao lote. As tags cCategoria, nContaCorrente, dVencimento, nValorFatura, cNumeroFatura e departamentos não devem ser ser informadas.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">CNPJCliente</td>
+<td class="parameter-type">string<span class="parameter-lenght">20</span></td><td class="parameter-docs"><div class="first">CNPJ do Cliente.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento obrigatório.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCategoria</td>
+<td class="parameter-type">string<span class="parameter-lenght">20</span></td><td class="parameter-docs"><div class="first">Código da Categoria</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nContaCorrente</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Id da Conta Corrente no Omie para a geração do título no financeiro.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">dVencimento</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Data de Exclusão.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nValorFatura</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Valor da Fatura.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento Obrigatório.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cNumeroFatura</td>
+<td class="parameter-type">string<span class="parameter-lenght">20</span></td><td class="parameter-docs"><div class="first">Número da Fatura.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cListaChavesCTes</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Lista de chave de CTes. </div><div class="more"><a href="javascript:void(0)">+</a><div>As chaves devem ser informadas com o separador | (carácter pipe).</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">itensFaturaLote</td>
+<td class="parameter-type"><a href="#itensFaturaLoteArray">itensFaturaLoteArray</a></td><td class="parameter-docs"><div class="first">Itens da Fatura.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">departamentos</td>
+<td class="parameter-type"><a href="#departamentosArray">departamentosArray</a></td><td class="parameter-docs"><div class="first">Distribuição por Departamentos.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento Opcional.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nCliente</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código do Cliente para geração do título no financeiro.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento opcional.</div></div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="cteFaturarLoteResponse" class="anchorScroll"></a>
+<h3>cteFaturarLoteResponse</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">nIdFaturamentoLote</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Id do faturamento. </div><div class="more"><a href="javascript:void(0)">+</a><div>Para indicar o início de um novo lote envie 0 (zero) nesse campo.<BR><BR>Como resposta você receberá o nIdFaturamento gerado pelo Omie automaticamente.<BR><BR>Nos próximos envios informe o nIdFaturamento recebido para adicionar novos CTes ao lote.<BR><BR>Para concluir o envio de CTes e gerar a fatura do lote informe "S" na tag cConcluirFatura.<BR><BR>Na última chamada desse método você pode enviar apenas a tag cConcluirFatura. Opcionalmente, você pode enviar os CTes restantes.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCodStatus</td>
+<td class="parameter-type">string<span class="parameter-lenght">4</span></td><td class="parameter-docs"><div class="first">Código do status do processamento.</div><div class="more"><a href="javascript:void(0)">+</a><div>Se o retorno for '0' significa que a solicitação foi executada com sucesso.<BR>Se o retorno for maior que '0' ocorreu algum erro durante o processamento da solicitação.<BR>A tag 'cDesStatus' descreve o problema ocorrido.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cDesStatus</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Descrição do status do processamento.</div><div class="more"><a href="javascript:void(0)">+</a><div>Essa tag explica o resultado da tag 'cCodigoStatus'.</div></div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="cteFaturarRequest" class="anchorScroll"></a>
+<h3>cteFaturarRequest</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">cAppNome</td>
+<td class="parameter-type">string<span class="parameter-lenght">20</span></td><td class="parameter-docs"><div class="first">Nome do Aplicativo que emitiu o CT-e.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento obrigatório.<BR><BR>Exemplo:<BR><BR>GeradorCT-e</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cAppVersao</td>
+<td class="parameter-type">string<span class="parameter-lenght">20</span></td><td class="parameter-docs"><div class="first">Versão do Aplicativo que emitiu o CT-e.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento obrigatório.<BR><BR>Exemplo:<BR><BR>1.02.01</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cAppId</td>
+<td class="parameter-type">string<span class="parameter-lenght">100</span></td><td class="parameter-docs"><div class="first">Identificação do aplicativo que emitiu o CT-e.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento obrigatório.<BR><BR>Exemplo:<BR><BR>Maquina01<BR><BR>PS: Informe o código que identifica a instalação do aplicativo.<BR>Caso o cliente tenha 2 Emissores de CT-e instalados, ele deve indicar: "01" e "02" ou "10" e "20" ou ainda informar o Serial do HD da máquina.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">CNPJCliente</td>
+<td class="parameter-type">string<span class="parameter-lenght">20</span></td><td class="parameter-docs"><div class="first">CNPJ do Cliente.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento obrigatório.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCategoria</td>
+<td class="parameter-type">string<span class="parameter-lenght">20</span></td><td class="parameter-docs"><div class="first">Código da Categoria</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nContaCorrente</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Id da Conta Corrente no Omie para a geração do título no financeiro.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">dVencimento</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Data de Exclusão.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nValorFatura</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Valor da Fatura.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento Obrigatório.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cNumeroFatura</td>
+<td class="parameter-type">string<span class="parameter-lenght">20</span></td><td class="parameter-docs"><div class="first">Número da Fatura.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">itensFatura</td>
+<td class="parameter-type"><a href="#itensFaturaArray">itensFaturaArray</a></td><td class="parameter-docs"><div class="first">Itens da Fatura.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">departamentos</td>
+<td class="parameter-type"><a href="#departamentosArray">departamentosArray</a></td><td class="parameter-docs"><div class="first">Distribuição por Departamentos.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento Opcional.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nCliente</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código do Cliente para geração do título no financeiro.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento opcional.</div></div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="cteFaturarResponse" class="anchorScroll"></a>
+<h3>cteFaturarResponse</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">nIdFaturamento</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">ID do faturamento do grupo de CT-es.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCodStatus</td>
+<td class="parameter-type">string<span class="parameter-lenght">4</span></td><td class="parameter-docs"><div class="first">Código do status do processamento.</div><div class="more"><a href="javascript:void(0)">+</a><div>Se o retorno for '0' significa que a solicitação foi executada com sucesso.<BR>Se o retorno for maior que '0' ocorreu algum erro durante o processamento da solicitação.<BR>A tag 'cDesStatus' descreve o problema ocorrido.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cDesStatus</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Descrição do status do processamento.</div><div class="more"><a href="javascript:void(0)">+</a><div>Essa tag explica o resultado da tag 'cCodigoStatus'.</div></div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="cteImportarRequest" class="anchorScroll"></a>
+<h3>cteImportarRequest</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">cAppNome</td>
+<td class="parameter-type">string<span class="parameter-lenght">20</span></td><td class="parameter-docs"><div class="first">Nome do Aplicativo que emitiu o CT-e.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento obrigatório.<BR><BR>Exemplo:<BR><BR>GeradorCT-e</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cAppVersao</td>
+<td class="parameter-type">string<span class="parameter-lenght">20</span></td><td class="parameter-docs"><div class="first">Versão do Aplicativo que emitiu o CT-e.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento obrigatório.<BR><BR>Exemplo:<BR><BR>1.02.01</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cAppId</td>
+<td class="parameter-type">string<span class="parameter-lenght">100</span></td><td class="parameter-docs"><div class="first">Identificação do aplicativo que emitiu o CT-e.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento obrigatório.<BR><BR>Exemplo:<BR><BR>Maquina01<BR><BR>PS: Informe o código que identifica a instalação do aplicativo.<BR>Caso o cliente tenha 2 Emissores de CT-e instalados, ele deve indicar: "01" e "02" ou "10" e "20" ou ainda informar o Serial do HD da máquina.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cChaveCte</td>
+<td class="parameter-type">string<span class="parameter-lenght">44</span></td><td class="parameter-docs"><div class="first">Chave de acesso do CT-e</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cXmlCte</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Xml do CT-e a ser importado.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento obrigatório.<BR><BR>Antes de enviar, converta os seus seguintes caracteres:<BR><BR>&amp; para &amp;amp; <BR>> para &amp;gt;<BR>< para &amp;lt;<BR>" para &amp;quot;<BR>" para &amp;apos;<BR>| para &amp;#124;<BR><BR>Após essa conversão aplique o MD5 para enviar no campo "cMd5Cte".<BR><BR>Observação: Para requisições SOAP usar CDATA como demonstra o exemplo abaixo:<BR>&lt;![CDATA[Conteúdo do campo convertido]]&gt;</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cMd5Cte</td>
+<td class="parameter-type">string<span class="parameter-lenght">32</span></td><td class="parameter-docs"><div class="first">MD5 do arquivo XML importado.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento obrigatório.<BR><BR>Aplique o MD5 sobre o XML antes de realizar o consumo.<BR></div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCategoria</td>
+<td class="parameter-type">string<span class="parameter-lenght">20</span></td><td class="parameter-docs"><div class="first">Código da Categoria</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nContaCorrente</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Id da Conta Corrente no Omie para a geração do título no financeiro.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">lNaoGerarCR</td>
+<td class="parameter-type">boolean</td><td class="parameter-docs"><div class="first">Não gerar título de contas a receber para o CT-e. </div><div class="more"><a href="javascript:void(0)">+</a><div>Pode ser:<BR>true - inibe a geração do título de Contas a Receber no financeiro.<BR>false - Gera o ítulo de Contas a Receber no financeiro.<BR><BR>O padrão é false.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nVendedor</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">ID do Vendedor</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nProjeto</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">ID do Projeto</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nCliente</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código do Cliente para geração do título no financeiro.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento opcional.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cObs</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Observações do CT-e para geração do título no financeiro.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento opcional.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">pis_cst</td>
+<td class="parameter-type">string<span class="parameter-lenght">2</span></td><td class="parameter-docs"><div class="first">Código da Situação Tributária do PIS.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">pis_aliquota</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Alíquota do PIS.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cofins_cst</td>
+<td class="parameter-type">string<span class="parameter-lenght">2</span></td><td class="parameter-docs"><div class="first">Código da Situação Tributária do COFINS.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cofins_aliquota</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Alíquota do COFINS.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">departamentos</td>
+<td class="parameter-type"><a href="#departamentosArray">departamentosArray</a></td><td class="parameter-docs"><div class="first">Distribuição por Departamentos.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento Opcional.</div></div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="cteImportarResponse" class="anchorScroll"></a>
+<h3>cteImportarResponse</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">nIdImportacao</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">ID do faturamento do grupo de CT-es.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nIdCte</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">ID do Conhecimento de Transporte</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cChaveCte</td>
+<td class="parameter-type">string<span class="parameter-lenght">44</span></td><td class="parameter-docs"><div class="first">Chave de acesso do CT-e</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCodStatus</td>
+<td class="parameter-type">string<span class="parameter-lenght">4</span></td><td class="parameter-docs"><div class="first">Código do status do processamento.</div><div class="more"><a href="javascript:void(0)">+</a><div>Se o retorno for '0' significa que a solicitação foi executada com sucesso.<BR>Se o retorno for maior que '0' ocorreu algum erro durante o processamento da solicitação.<BR>A tag 'cDesStatus' descreve o problema ocorrido.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cDesStatus</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Descrição do status do processamento.</div><div class="more"><a href="javascript:void(0)">+</a><div>Essa tag explica o resultado da tag 'cCodigoStatus'.</div></div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="cteListarNFeRequest" class="anchorScroll"></a>
+<h3>cteListarNFeRequest</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">nPagina</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Número da página que será listada.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nRegPorPagina</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Número de registros retornados.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">dEmiInicial</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Data de emissão inicial.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">hEmiInicial</td>
+<td class="parameter-type">string<span class="parameter-lenght">8</span></td><td class="parameter-docs"><div class="first">Hora de emissão inicial.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">dEmiFinal</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Data de emissão final.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">hEmiFinal</td>
+<td class="parameter-type">string<span class="parameter-lenght">8</span></td><td class="parameter-docs"><div class="first">Hora de emissão final.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">chNFe</td>
+<td class="parameter-type">string<span class="parameter-lenght">44</span></td><td class="parameter-docs"><div class="first">Chave da NF-e.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">tpNF</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Tipo de nota fiscal.</div><div class="more"><a href="javascript:void(0)">+</a><div>Pode ser:<BR>0 - Entrada.<BR>1 - Saída.</div></div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="cteListarNFeResponse" class="anchorScroll"></a>
+<h3>cteListarNFeResponse</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">nPagina</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Número da página que será listada.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nTotPaginas</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Total de páginas encontradas.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nRegistros</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Número de registros retornados.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nTotRegistros</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Total de registros encontrados.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nfeEncontradas</td>
+<td class="parameter-type"><a href="#nfeEncontradasArray">nfeEncontradasArray</a></td><td class="parameter-docs"><div class="first">Lista de NF-es encontradas.</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="cteStatusFaturaRequest" class="anchorScroll"></a>
+<h3>cteStatusFaturaRequest</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">cAppNome</td>
+<td class="parameter-type">string<span class="parameter-lenght">20</span></td><td class="parameter-docs"><div class="first">Nome do Aplicativo que emitiu o CT-e.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento obrigatório.<BR><BR>Exemplo:<BR><BR>GeradorCT-e</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cAppVersao</td>
+<td class="parameter-type">string<span class="parameter-lenght">20</span></td><td class="parameter-docs"><div class="first">Versão do Aplicativo que emitiu o CT-e.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento obrigatório.<BR><BR>Exemplo:<BR><BR>1.02.01</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cAppId</td>
+<td class="parameter-type">string<span class="parameter-lenght">100</span></td><td class="parameter-docs"><div class="first">Identificação do aplicativo que emitiu o CT-e.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento obrigatório.<BR><BR>Exemplo:<BR><BR>Maquina01<BR><BR>PS: Informe o código que identifica a instalação do aplicativo.<BR>Caso o cliente tenha 2 Emissores de CT-e instalados, ele deve indicar: "01" e "02" ou "10" e "20" ou ainda informar o Serial do HD da máquina.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nIdFaturamento</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">ID do faturamento do grupo de CT-es.</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="cteStatusFaturaResponse" class="anchorScroll"></a>
+<h3>cteStatusFaturaResponse</h3>
+<p>Response do Status da Fatura importada.</p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">cAppNome</td>
+<td class="parameter-type">string<span class="parameter-lenght">20</span></td><td class="parameter-docs"><div class="first">Nome do Aplicativo que emitiu o CT-e.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento obrigatório.<BR><BR>Exemplo:<BR><BR>GeradorCT-e</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cAppVersao</td>
+<td class="parameter-type">string<span class="parameter-lenght">20</span></td><td class="parameter-docs"><div class="first">Versão do Aplicativo que emitiu o CT-e.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento obrigatório.<BR><BR>Exemplo:<BR><BR>1.02.01</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cAppId</td>
+<td class="parameter-type">string<span class="parameter-lenght">100</span></td><td class="parameter-docs"><div class="first">Identificação do aplicativo que emitiu o CT-e.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento obrigatório.<BR><BR>Exemplo:<BR><BR>Maquina01<BR><BR>PS: Informe o código que identifica a instalação do aplicativo.<BR>Caso o cliente tenha 2 Emissores de CT-e instalados, ele deve indicar: "01" e "02" ou "10" e "20" ou ainda informar o Serial do HD da máquina.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cChaveCte</td>
+<td class="parameter-type">string<span class="parameter-lenght">44</span></td><td class="parameter-docs"><div class="first">Chave de acesso do CT-e</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nCliente</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código do Cliente para geração do título no financeiro.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento opcional.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCategoria</td>
+<td class="parameter-type">string<span class="parameter-lenght">20</span></td><td class="parameter-docs"><div class="first">Código da Categoria</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nContaCorrente</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Id da Conta Corrente no Omie para a geração do título no financeiro.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nVendedor</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">ID do Vendedor</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nValorCte</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Valor do CT-e.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nIdFaturamento</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">ID do faturamento do grupo de CT-es.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">dVencimento</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Data de Exclusão.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">dEmi</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Data de emissão inicial.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">hEmi</td>
+<td class="parameter-type">string<span class="parameter-lenght">8</span></td><td class="parameter-docs"><div class="first">Hora de emissão inicial.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nQtdeCte</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Quantidade de CTe importadas</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cExcluido</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Indica se está excluido.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">dExclusao</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Data de Exclusão.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cStatus</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Status da Fatura.</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="cte_alterar_request" class="anchorScroll"></a>
+<h3>cte_alterar_request</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">nIdCte</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">ID do Conhecimento de Transporte</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCategoria</td>
+<td class="parameter-type">string<span class="parameter-lenght">20</span></td><td class="parameter-docs"><div class="first">Código da Categoria</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nVendedor</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">ID do Vendedor</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nProjeto</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">ID do Projeto</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="cte_alterar_response" class="anchorScroll"></a>
+<h3>cte_alterar_response</h3>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">nIdCte</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">ID do Conhecimento de Transporte</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCodStatus</td>
+<td class="parameter-type">string<span class="parameter-lenght">4</span></td><td class="parameter-docs"><div class="first">Código do status do processamento.</div><div class="more"><a href="javascript:void(0)">+</a><div>Se o retorno for '0' significa que a solicitação foi executada com sucesso.<BR>Se o retorno for maior que '0' ocorreu algum erro durante o processamento da solicitação.<BR>A tag 'cDesStatus' descreve o problema ocorrido.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cDesStatus</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Descrição do status do processamento.</div><div class="more"><a href="javascript:void(0)">+</a><div>Essa tag explica o resultado da tag 'cCodigoStatus'.</div></div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="departamentos" class="anchorScroll"></a>
+<h3>departamentos</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">idDepartamento</td>
+<td class="parameter-type">string<span class="parameter-lenght">40</span></td><td class="parameter-docs"><div class="first">Código do departamento.</div><div class="more"><a href="javascript:void(0)">+</a><div>(Gerado internamente, não é visualizado na tela)</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">vDepartamento</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Valor do departamento. Preenchimento obrigatório</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">pDepartamento</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Percentual do departamento. Preenchimento obrigatório</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="departamentosArray" class="anchorScroll"></a>
+<h3>departamentosArray</h3>
+<p>Este par&acirc;metro &eacute; um array do tipo <span class="pre"><a href="#departamentos"><span class="lightBlue">departamentos</span></a></span></p>
+<p>Lista de departamentos</p>
+</div>
+<div class="complexTypeItem">
+<a name="itensFatura" class="anchorScroll"></a>
+<h3>itensFatura</h3>
+<p>Itens da Fatura.</p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">nSeq</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Sequencia do Item da Fatura.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento obrigatório.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cChaveCte</td>
+<td class="parameter-type">string<span class="parameter-lenght">44</span></td><td class="parameter-docs"><div class="first">Chave de acesso do CT-e</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nValorCte</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Valor do CT-e.</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="itensFaturaArray" class="anchorScroll"></a>
+<h3>itensFaturaArray</h3>
+<p>Este par&acirc;metro &eacute; um array do tipo <span class="pre"><a href="#itensFatura"><span class="lightBlue">itensFatura</span></a></span></p>
+<p>Lista de itensFatura</p>
+</div>
+<div class="complexTypeItem">
+<a name="itensFaturaLote" class="anchorScroll"></a>
+<h3>itensFaturaLote</h3>
+<p>Itens da Fatura.</p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">cChaveCte</td>
+<td class="parameter-type">string<span class="parameter-lenght">44</span></td><td class="parameter-docs"><div class="first">Chave de acesso do CT-e</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nValorCte</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Valor do CT-e.</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="itensFaturaLoteArray" class="anchorScroll"></a>
+<h3>itensFaturaLoteArray</h3>
+<p>Este par&acirc;metro &eacute; um array do tipo <span class="pre"><a href="#itensFaturaLote"><span class="lightBlue">itensFaturaLote</span></a></span></p>
+<p>Lista de itensFaturaLote</p>
+</div>
+<div class="complexTypeItem">
+<a name="nfeEncontradas" class="anchorScroll"></a>
+<h3>nfeEncontradas</h3>
+<p>Lista de NF-es encontradas.</p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">emitCNPJ</td>
+<td class="parameter-type">string<span class="parameter-lenght">14</span></td><td class="parameter-docs"><div class="first">CNPJ do emitente da NF-e.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">destCNPJ</td>
+<td class="parameter-type">string<span class="parameter-lenght">11</span></td><td class="parameter-docs"><div class="first">CNPJ do destinário da NF-e.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">chNFe</td>
+<td class="parameter-type">string<span class="parameter-lenght">44</span></td><td class="parameter-docs"><div class="first">Chave da NF-e.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nProt</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Número do protocolo da NF-e.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">dEmi</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Data de emissão da NF-e.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">hEmi</td>
+<td class="parameter-type">string<span class="parameter-lenght">8</span></td><td class="parameter-docs"><div class="first">Hora de emissão da NF-e.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">versao</td>
+<td class="parameter-type">string<span class="parameter-lenght">5</span></td><td class="parameter-docs"><div class="first">Versão do XML da NF-e.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">tpNF</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Tipo de nota fiscal.</div><div class="more"><a href="javascript:void(0)">+</a><div>Pode ser:<BR>0 - Entrada.<BR>1 - Saída.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">vNF</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Valor da nota fiscal.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cXmlNFe</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">XML da nota fiscal.</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="nfeEncontradasArray" class="anchorScroll"></a>
+<h3>nfeEncontradasArray</h3>
+<p>Este par&acirc;metro &eacute; um array do tipo <span class="pre"><a href="#nfeEncontradas"><span class="lightBlue">nfeEncontradas</span></a></span></p>
+<p>Lista de nfeEncontradas</p>
+</div>
+<div class="complexTypeItem">
+<a name="omie_fail" class="anchorScroll"></a>
+<h3>omie_fail</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">code</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Codigo do erro</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">description</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Descricao do erro</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-required">referer</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Origem do erro</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-required">fatal</td>
+<td class="parameter-type">boolean</td><td class="parameter-docs"><div class="first">Indica se eh um erro fatal</div></td>
+<tr>
+</table>
+</div>
+</div>
+<div class="col-md-3">
+<div id="affix-menu" data-spy="affix" data-offset-top="294">
+<h2>M&eacute;todos</h2>
+<nav id="index" class="hidden-print hidden-xs hidden-sm">
+<ul class="nav">
+<li><a href="#AlterarCte">AlterarCte</a></li>
+<li><a href="#AverbacaoCTe">AverbacaoCTe</a></li>
+<li><a href="#CancelarCTe">CancelarCTe</a></li>
+<li><a href="#CartaCorrecaoCTe">CartaCorrecaoCTe</a></li>
+<li><a href="#ExcluirCTe">ExcluirCTe</a></li>
+<li><a href="#ExcluirFaturaCTe">ExcluirFaturaCTe</a></li>
+<li><a href="#FaturarCTe">FaturarCTe</a></li>
+<li><a href="#FaturarLoteCTe">FaturarLoteCTe</a></li>
+<li><a href="#ImportarCTe">ImportarCTe</a></li>
+<li><a href="#ListarNFeTransp">ListarNFeTransp</a></li>
+<li><a href="#StatusFatura">StatusFatura</a></li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+</body>
+</html>

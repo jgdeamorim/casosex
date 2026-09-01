@@ -1,0 +1,1952 @@
+<nav class="navbar navbar-expand-lg bg-azul">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="https://developer.omie.com.br/">
+            <img class="lozad img-logo" data-src="https://static.omie.com.br/images/logo/logo-omie-topo.png" src="https://static.omie.com.br/images/logo/logo-omie-topo.png" data-loaded="true">
+        </a>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <span class="borda-hover"></span>
+                    <a class="nav-link" href="https://developer.omie.com.br/my-apps/"> Aplicativos </a>
+                </li>
+                <li class="nav-item ">
+                    <span class="borda-hover"></span>
+                    <a class="nav-link" href="https://developer.omie.com.br/service-list/">
+                        Lista das API's
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <span class="borda-hover"></span>
+                    <a class="nav-link" href="https://ajuda.omie.com.br/pt-BR/collections/3045828-apis" target="_blank"> Ajuda </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<html>
+<head>
+<title>PedidoCompra</title>
+<style type="text/css" media="all">
+  [id] { scroll-margin-top: 68px; }
+</style>
+<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+<script src="https://cdn.omie.com.br/omie-assets/js/omie-compat-v2.min.js"></script>
+<script src="/developer/themes/omie/developer.js?ts=2021.008"></script>
+<link rel="stylesheet" href="//app.omie.com.br/wp-content/themes/omie/bootstrap/css/bootstrap.min.css" async/>
+<link href="https://cdn.omie.com.br/assets/developer/css/site.css?ts=2021.008" media="all" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="/developer/themes/omie/developer.css?ts=2021.008" async/>
+</head>
+<body>
+<div class="jumbotron banner bg-azul">
+<div class="container">
+<img src="https://cdn.omie.com.br/assets/developer/images/seta-azuis.png" alt="" class="img-setas">
+<div class="row align-items-center">
+<div class="col-12">
+<h1>PedidoCompra</h1>
+<ul class="nav nav-tabs" role="tablist">
+  <li role="presentation" class="active"><a href="#section-endpoint" aria-controls="section-endpoint" role="tab" data-toggle="tab">Endpoint</a></li>
+  <li role="presentation" class="pull-right"><a href="#section-wsdl" aria-controls="section-wsdl" role="tab" data-toggle="tab">WSDL</a></li>
+  <li role="presentation" class="pull-right"><a href="#section-php-soap" aria-controls="section-php-soap" role="tab" data-toggle="tab">PHP SOAP</a></li>
+  <li role="presentation" class="pull-right"><a href="#section-json" aria-controls="section-json" role="tab" data-toggle="tab">JSON</a></li>
+</ul>
+<div class="tab-content">
+  <div role="tabpanel" class="tab-pane fade in active" id="section-endpoint">
+    <h4>Endpoint URI</h4>
+    <a class="highlight" href="https://app.omie.com.br/api/v1/produtos/pedidocompra/"><pre><code>https://app.omie.com.br/api/v1/produtos/pedidocompra/</code></pre></a>
+  </div>
+  <div role="tabpanel" class="tab-pane fade" id="section-wsdl">
+    <h4>WSDL URI</h4>
+    <a class="highlight" href="https://app.omie.com.br/api/v1/produtos/pedidocompra/?WSDL"><pre><code>https://app.omie.com.br/api/v1/produtos/pedidocompra/?WSDL</code></pre></a>
+  </div>
+  <div role="tabpanel" class="tab-pane fade" id="section-php-soap">
+    <h4>PHP SOAP client download</h4>
+    <a class="highlight" href="https://app.omie.com.br/api/v1/produtos/pedidocompra/?PHPSOAPCLIENT""><pre><code>https://app.omie.com.br/api/v1/produtos/pedidocompra/?PHPSOAPCLIENT</code></pre></a>
+  </div>
+  <div role="tabpanel" class="tab-pane fade" id="section-json">
+    <h4>JSON client download URI</h4>
+    <h5>PHP</h5>
+    <a class="highlight" href="https://app.omie.com.br/api/v1/produtos/pedidocompra/?PHPJSONCLIENT"><pre><code>https://app.omie.com.br/api/v1/produtos/pedidocompra/?PHPJSONCLIENT</code></pre></a>
+    <h5>JavaScript (recomendado para uso apenas do lado do servidor)</h5>
+    <a class="highlight" href="https://app.omie.com.br/api/v1/produtos/pedidocompra/?JSJSONCLIENT"><pre><code>https://app.omie.com.br/api/v1/produtos/pedidocompra/?JSJSONCLIENT</code></pre></a>
+  </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="container">
+<div class="row">
+<div class="col-md-9">
+<h2>M&eacute;todos</h2>
+<p>Veja abaixo a documenta&ccedil;&atilde;o de cada m&eacute;todo dispon&iacute;vel para este servi&ccedil;o.</p>
+<div id="AlteraPedCompra" class="methodItem">
+<h3 class="method-name">AlteraPedCompra</h3>
+<p>
+
+</p>
+<div class="panel panel-default method">
+<div class="panel-heading"> Par&acirc;metros:
+</div>
+<table class="table table-condensed table-hover">
+<tr>
+<td class="">&nbsp;</td>
+<td class="method-parameter-type"><a href="#com_pedido_alterar_request">com_pedido_alterar_request</a></td>
+<td class="method-parameter-name">com_pedido_alterar_request</td><td class="method-parameter-docs"><div class="first">Alterar um Pedido de Compra</div></td>
+</tr>
+</table>
+<div class="panel-footer">
+Retorno <span class="pre"><a href="#com_pedido_alterar_response"><span class="lightBlue">com_pedido_alterar_response</span></a></span>: 
+</div>
+</div>
+<div class="method-example-area">
+<h5>Exemplo:</h5>
+<pre class="method-example-code">{<BR>  "cabecalho_alterar": {<BR>    "cCodIntPed": "INT001",<BR>    "dDtPrevisao": "16/10/2026",<BR>    "cCodParc": "",<BR>    "nQtdeParc": 3,<BR>    "nCodFor": "14170458",<BR>    "cCodIntFor": "",<BR>    "cCodCateg": "",<BR>    "nCodCompr": 0,<BR>    "cContato": "",<BR>    "cContrato":"",<BR>    "nCodCC": "1208238",<BR>    "nCodIntCC": 0,<BR>    "nCodProj": 0,<BR>    "cObs": "Pedido alterado via API",<BR>    "cObsInt": "Pedido alterado via API"<BR>  },<BR>  "frete_alterar": {<BR>    "nCodTransp": 0,<BR>    "cCodIntTransp": "",<BR>    "cTpFrete": "9",<BR>    "cPlaca": "XXX-9999",<BR>    "cUF": "SP",<BR>    "nQtdVol": 5,<BR>    "cEspVol": "",<BR>    "cMarVol": "",<BR>    "cNumVol": "",<BR>    "nPesoLiq": 5.00,<BR>    "nPesoBruto": 10.00,<BR>    "nValFrete": 50.00,<BR>    "nValSeguro": 10.00,<BR>    "cLacre": "",<BR>    "nValOutras": 0.00<BR>  },<BR>  "departamentos_alterar": [<BR>    {<BR>      "cCodDepto": "200000002498904",<BR>      "nPerc": 90<BR>    },<BR>    {<BR>      "cCodDepto": "200000002498905",<BR>      "nPerc": 10<BR>    }<BR>  ],<BR>  "produtos_alterar": [<BR>    {<BR>      "cCodIntItem": "ITEM001",<BR>      "cCodIntProd": "",<BR>      "nCodProd": "2037060",<BR>      "cProduto": "",<BR>      "cDescricao": "",<BR>      "cNCM": "",<BR>      "cUnidade": "",<BR>      "cEAN": "",<BR>      "nPesoLiq": 0,<BR>      "nPesoBruto": 0,<BR>      "nQtde": 10,<BR>      "nValUnit": 200,<BR>      "nDesconto": 0.00,<BR>      "nValorIcms": 360.00,<BR>      "nValorSt": 0.00,<BR>      "nValorIpi": 20.00,<BR>      "nValorPis": 33.00,<BR>      "nValorCofins": 152.00,<BR>      "cObs": "Item alterado via API",<BR>      "cMkpAtuPv": "N",<BR>      "cMkpAtuSm": "N",<BR>      "nMkpPerc": 0,<BR>      "codigo_local_estoque": "",<BR>      "cCodCateg": ""<BR>    }<BR>  ]<BR>}</pre>
+<button class="btn btn-success method-example" data-method="AlteraPedCompra" data-example="%7B++%22cabecalho_alterar%22%3A+%7B++++%22cCodIntPed%22%3A+%22INT001%22%2C++++%22dDtPrevisao%22%3A+%2216%2F10%2F2026%22%2C++++%22cCodParc%22%3A+%22%22%2C++++%22nQtdeParc%22%3A+3%2C++++%22nCodFor%22%3A+%2214170458%22%2C++++%22cCodIntFor%22%3A+%22%22%2C++++%22cCodCateg%22%3A+%22%22%2C++++%22nCodCompr%22%3A+0%2C++++%22cContato%22%3A+%22%22%2C++++%22cContrato%22%3A%22%22%2C++++%22nCodCC%22%3A+%221208238%22%2C++++%22nCodIntCC%22%3A+0%2C++++%22nCodProj%22%3A+0%2C++++%22cObs%22%3A+%22Pedido+alterado+via+API%22%2C++++%22cObsInt%22%3A+%22Pedido+alterado+via+API%22++%7D%2C++%22frete_alterar%22%3A+%7B++++%22nCodTransp%22%3A+0%2C++++%22cCodIntTransp%22%3A+%22%22%2C++++%22cTpFrete%22%3A+%229%22%2C++++%22cPlaca%22%3A+%22XXX-9999%22%2C++++%22cUF%22%3A+%22SP%22%2C++++%22nQtdVol%22%3A+5%2C++++%22cEspVol%22%3A+%22%22%2C++++%22cMarVol%22%3A+%22%22%2C++++%22cNumVol%22%3A+%22%22%2C++++%22nPesoLiq%22%3A+5.00%2C++++%22nPesoBruto%22%3A+10.00%2C++++%22nValFrete%22%3A+50.00%2C++++%22nValSeguro%22%3A+10.00%2C++++%22cLacre%22%3A+%22%22%2C++++%22nValOutras%22%3A+0.00++%7D%2C++%22departamentos_alterar%22%3A+%5B++++%7B++++++%22cCodDepto%22%3A+%22200000002498904%22%2C++++++%22nPerc%22%3A+90++++%7D%2C++++%7B++++++%22cCodDepto%22%3A+%22200000002498905%22%2C++++++%22nPerc%22%3A+10++++%7D++%5D%2C++%22produtos_alterar%22%3A+%5B++++%7B++++++%22cCodIntItem%22%3A+%22ITEM001%22%2C++++++%22cCodIntProd%22%3A+%22%22%2C++++++%22nCodProd%22%3A+%222037060%22%2C++++++%22cProduto%22%3A+%22%22%2C++++++%22cDescricao%22%3A+%22%22%2C++++++%22cNCM%22%3A+%22%22%2C++++++%22cUnidade%22%3A+%22%22%2C++++++%22cEAN%22%3A+%22%22%2C++++++%22nPesoLiq%22%3A+0%2C++++++%22nPesoBruto%22%3A+0%2C++++++%22nQtde%22%3A+10%2C++++++%22nValUnit%22%3A+200%2C++++++%22nDesconto%22%3A+0.00%2C++++++%22nValorIcms%22%3A+360.00%2C++++++%22nValorSt%22%3A+0.00%2C++++++%22nValorIpi%22%3A+20.00%2C++++++%22nValorPis%22%3A+33.00%2C++++++%22nValorCofins%22%3A+152.00%2C++++++%22cObs%22%3A+%22Item+alterado+via+API%22%2C++++++%22cMkpAtuPv%22%3A+%22N%22%2C++++++%22cMkpAtuSm%22%3A+%22N%22%2C++++++%22nMkpPerc%22%3A+0%2C++++++%22codigo_local_estoque%22%3A+%22%22%2C++++++%22cCodCateg%22%3A+%22%22++++%7D++%5D%7D">Teste agora mesmo</button>
+</div>
+</div>
+<div id="ConsultarPedCompra" class="methodItem">
+<h3 class="method-name">ConsultarPedCompra</h3>
+<p>
+
+</p>
+<div class="panel panel-default method">
+<div class="panel-heading"> Par&acirc;metros:
+</div>
+<table class="table table-condensed table-hover">
+<tr>
+<td class="">&nbsp;</td>
+<td class="method-parameter-type"><a href="#com_pedido_consultar_request">com_pedido_consultar_request</a></td>
+<td class="method-parameter-name">com_pedido_consultar_request</td><td class="method-parameter-docs"><div class="first">Consultar um Pedido de Compra</div></td>
+</tr>
+</table>
+<div class="panel-footer">
+Retorno <span class="pre"><a href="#pedidos_pesquisa"><span class="lightBlue">pedidos_pesquisa</span></a></span>: Lista com os pedidos de compra
+</div>
+</div>
+<div class="method-example-area">
+<h5>Exemplo:</h5>
+<pre class="method-example-code">{           <BR>  "nCodPed": 0,<BR>  "cCodIntPed": "INT001",<BR>  "cNumero": ""<BR>}</pre>
+<button class="btn btn-success method-example" data-method="ConsultarPedCompra" data-example="%7B+++++++++++++%22nCodPed%22%3A+0%2C++%22cCodIntPed%22%3A+%22INT001%22%2C++%22cNumero%22%3A+%22%22%7D">Teste agora mesmo</button>
+</div>
+</div>
+<div id="ExcluirPedCompra" class="methodItem">
+<h3 class="method-name">ExcluirPedCompra</h3>
+<p>
+Excluir um Pedido de Compra
+</p>
+<div class="panel panel-default method">
+<div class="panel-heading"> Par&acirc;metros:
+</div>
+<table class="table table-condensed table-hover">
+<tr>
+<td class="">&nbsp;</td>
+<td class="method-parameter-type"><a href="#com_pedido_excluir_request">com_pedido_excluir_request</a></td>
+<td class="method-parameter-name">com_pedido_excluir_request</td><td class="method-parameter-docs"><div class="first">Excluir um Pedido de Compra</div></td>
+</tr>
+</table>
+<div class="panel-footer">
+Retorno <span class="pre"><a href="#com_pedido_excluir_response"><span class="lightBlue">com_pedido_excluir_response</span></a></span>: 
+</div>
+</div>
+<div class="method-example-area">
+<h5>Exemplo:</h5>
+<pre class="method-example-code">{           <BR>  "nCodPed": 0,<BR>  "cCodIntPed": "INT001"<BR>}</pre>
+<button class="btn btn-success method-example" data-method="ExcluirPedCompra" data-example="%7B+++++++++++++%22nCodPed%22%3A+0%2C++%22cCodIntPed%22%3A+%22INT001%22%7D">Teste agora mesmo</button>
+</div>
+</div>
+<div id="IncluirPedCompra" class="methodItem">
+<h3 class="method-name">IncluirPedCompra</h3>
+<p>
+Incluir um Pedido de Compra
+</p>
+<div class="panel panel-default method">
+<div class="panel-heading"> Par&acirc;metros:
+</div>
+<table class="table table-condensed table-hover">
+<tr>
+<td class="">&nbsp;</td>
+<td class="method-parameter-type"><a href="#com_pedido_incluir_request">com_pedido_incluir_request</a></td>
+<td class="method-parameter-name">com_pedido_incluir_request</td><td class="method-parameter-docs"><div class="first">Incluir um Pedido de Compra</div></td>
+</tr>
+</table>
+<div class="panel-footer">
+Retorno <span class="pre"><a href="#com_pedido_incluir_response"><span class="lightBlue">com_pedido_incluir_response</span></a></span>: 
+</div>
+</div>
+<div class="method-example-area">
+<h5>Exemplo:</h5>
+<pre class="method-example-code">{<BR>  "cabecalho_incluir": {<BR>    "cCodIntPed": "INT001",<BR>    "dDtPrevisao": "22/02/2027",<BR>    "cCodParc": "",<BR>    "nQtdeParc": 1,<BR>    "nCodFor": "14170458",<BR>    "cCodIntFor": "",<BR>    "cCodCateg": "",<BR>    "nCodCompr": 0,<BR>    "cContato": "",<BR>    "cContrato":"",<BR>    "nCodCC": "1208238",<BR>    "nCodIntCC": 0,<BR>    "nCodProj": 0,<BR>    "cNumPedido": "33343",<BR>    "cObs": "Pedido incluido via API",<BR>    "cObsInt": "Pedido Cadastrado via API"<BR>  },<BR>  "frete_incluir": {<BR>    "nCodTransp": 0,<BR>    "cCodIntTransp": "",<BR>    "cTpFrete": "9",<BR>    "cPlaca": "XXX-9999",<BR>    "cUF": "SP",<BR>    "nQtdVol": 5,<BR>    "cEspVol": "",<BR>    "cMarVol": "",<BR>    "cNumVol": "",<BR>    "nPesoLiq": 0.00,<BR>    "nPesoBruto": 0.00,<BR>    "nValFrete": 0,<BR>    "nValSeguro": 0.00,<BR>    "cLacre": "",<BR>    "nValOutras": 0.00<BR>  },<BR>  "departamentos_incluir": [<BR>    {<BR>      "cCodDepto": "200000002498904",<BR>      "nPerc": 50<BR>    },<BR>    {<BR>      "cCodDepto": "200000002498905",<BR>      "nPerc": 50<BR>    }<BR>  ],<BR>  "produtos_incluir": [<BR>    {<BR>      "cCodIntItem": "ITEM001",<BR>      "cCodIntProd": "",<BR>      "nCodProd": "2037060",<BR>      "cProduto": "",<BR>      "cDescricao": "",<BR>      "cNCM": "",<BR>      "cUnidade": "",<BR>      "cEAN": "",<BR>      "nPesoLiq": 0,<BR>      "nPesoBruto": 0,<BR>      "nQtde": 10,<BR>      "nValUnit": 200,<BR>      "nDesconto": 0.00,<BR>      "nValorIcms": 360.00,<BR>      "nValorSt": 0.00,<BR>      "nValorIpi": 20.00,<BR>      "nValorPis": 33.00,<BR>      "nValorCofins": 152.00,<BR>      "cObs": "",<BR>      "cMkpAtuPv": "N",<BR>      "cMkpAtuSm": "N",<BR>      "nMkpPerc": 0,<BR>      "codigo_local_estoque": "",<BR>      "cCodCateg": ""<BR>    }<BR>  ]<BR>}</pre>
+<button class="btn btn-success method-example" data-method="IncluirPedCompra" data-example="%7B++%22cabecalho_incluir%22%3A+%7B++++%22cCodIntPed%22%3A+%22INT001%22%2C++++%22dDtPrevisao%22%3A+%2222%2F02%2F2027%22%2C++++%22cCodParc%22%3A+%22%22%2C++++%22nQtdeParc%22%3A+1%2C++++%22nCodFor%22%3A+%2214170458%22%2C++++%22cCodIntFor%22%3A+%22%22%2C++++%22cCodCateg%22%3A+%22%22%2C++++%22nCodCompr%22%3A+0%2C++++%22cContato%22%3A+%22%22%2C++++%22cContrato%22%3A%22%22%2C++++%22nCodCC%22%3A+%221208238%22%2C++++%22nCodIntCC%22%3A+0%2C++++%22nCodProj%22%3A+0%2C++++%22cNumPedido%22%3A+%2233343%22%2C++++%22cObs%22%3A+%22Pedido+incluido+via+API%22%2C++++%22cObsInt%22%3A+%22Pedido+Cadastrado+via+API%22++%7D%2C++%22frete_incluir%22%3A+%7B++++%22nCodTransp%22%3A+0%2C++++%22cCodIntTransp%22%3A+%22%22%2C++++%22cTpFrete%22%3A+%229%22%2C++++%22cPlaca%22%3A+%22XXX-9999%22%2C++++%22cUF%22%3A+%22SP%22%2C++++%22nQtdVol%22%3A+5%2C++++%22cEspVol%22%3A+%22%22%2C++++%22cMarVol%22%3A+%22%22%2C++++%22cNumVol%22%3A+%22%22%2C++++%22nPesoLiq%22%3A+0.00%2C++++%22nPesoBruto%22%3A+0.00%2C++++%22nValFrete%22%3A+0%2C++++%22nValSeguro%22%3A+0.00%2C++++%22cLacre%22%3A+%22%22%2C++++%22nValOutras%22%3A+0.00++%7D%2C++%22departamentos_incluir%22%3A+%5B++++%7B++++++%22cCodDepto%22%3A+%22200000002498904%22%2C++++++%22nPerc%22%3A+50++++%7D%2C++++%7B++++++%22cCodDepto%22%3A+%22200000002498905%22%2C++++++%22nPerc%22%3A+50++++%7D++%5D%2C++%22produtos_incluir%22%3A+%5B++++%7B++++++%22cCodIntItem%22%3A+%22ITEM001%22%2C++++++%22cCodIntProd%22%3A+%22%22%2C++++++%22nCodProd%22%3A+%222037060%22%2C++++++%22cProduto%22%3A+%22%22%2C++++++%22cDescricao%22%3A+%22%22%2C++++++%22cNCM%22%3A+%22%22%2C++++++%22cUnidade%22%3A+%22%22%2C++++++%22cEAN%22%3A+%22%22%2C++++++%22nPesoLiq%22%3A+0%2C++++++%22nPesoBruto%22%3A+0%2C++++++%22nQtde%22%3A+10%2C++++++%22nValUnit%22%3A+200%2C++++++%22nDesconto%22%3A+0.00%2C++++++%22nValorIcms%22%3A+360.00%2C++++++%22nValorSt%22%3A+0.00%2C++++++%22nValorIpi%22%3A+20.00%2C++++++%22nValorPis%22%3A+33.00%2C++++++%22nValorCofins%22%3A+152.00%2C++++++%22cObs%22%3A+%22%22%2C++++++%22cMkpAtuPv%22%3A+%22N%22%2C++++++%22cMkpAtuSm%22%3A+%22N%22%2C++++++%22nMkpPerc%22%3A+0%2C++++++%22codigo_local_estoque%22%3A+%22%22%2C++++++%22cCodCateg%22%3A+%22%22++++%7D++%5D%7D">Teste agora mesmo</button>
+</div>
+</div>
+<div id="PesquisarPedCompra" class="methodItem">
+<h3 class="method-name">PesquisarPedCompra</h3>
+<p>
+
+</p>
+<div class="panel panel-default method">
+<div class="panel-heading"> Par&acirc;metros:
+</div>
+<table class="table table-condensed table-hover">
+<tr>
+<td class="">&nbsp;</td>
+<td class="method-parameter-type"><a href="#com_pedido_pesquisar_request">com_pedido_pesquisar_request</a></td>
+<td class="method-parameter-name">com_pedido_pesquisar_request</td><td class="method-parameter-docs"><div class="first">Pesquisar de Pedidos de Compra</div></td>
+</tr>
+</table>
+<div class="panel-footer">
+Retorno <span class="pre"><a href="#com_pedido_pesquisar_response"><span class="lightBlue">com_pedido_pesquisar_response</span></a></span>: Resposta da Pesquisa de Pedidos de Compra
+</div>
+</div>
+<div class="method-example-area">
+<h5>Exemplo:</h5>
+<pre class="method-example-code">{<BR>   "nPagina": 1,<BR>   "nRegsPorPagina": 10,<BR>   "lApenasImportadoApi": "F",<BR>   "lExibirPedidosPendentes": "T",<BR>   "lExibirPedidosFaturados": "F",<BR>   "lExibirPedidosRecebidos": "F",<BR>   "lExibirPedidosCancelados": "F",<BR>   "lExibirPedidosEncerrados": "F",<BR>   "lExibirPedidosRecParciais": "F",<BR>   "lExibirPedidosFatParciais": "F",<BR>   "dDataInicial": "01/01/2021",<BR>   "dDataFinal": "31/12/2021",<BR>   "lApenasAlterados": "F"<BR>}</pre>
+<button class="btn btn-success method-example" data-method="PesquisarPedCompra" data-example="%7B+++%22nPagina%22%3A+1%2C+++%22nRegsPorPagina%22%3A+10%2C+++%22lApenasImportadoApi%22%3A+%22F%22%2C+++%22lExibirPedidosPendentes%22%3A+%22T%22%2C+++%22lExibirPedidosFaturados%22%3A+%22F%22%2C+++%22lExibirPedidosRecebidos%22%3A+%22F%22%2C+++%22lExibirPedidosCancelados%22%3A+%22F%22%2C+++%22lExibirPedidosEncerrados%22%3A+%22F%22%2C+++%22lExibirPedidosRecParciais%22%3A+%22F%22%2C+++%22lExibirPedidosFatParciais%22%3A+%22F%22%2C+++%22dDataInicial%22%3A+%2201%2F01%2F2021%22%2C+++%22dDataFinal%22%3A+%2231%2F12%2F2021%22%2C+++%22lApenasAlterados%22%3A+%22F%22%7D">Teste agora mesmo</button>
+</div>
+</div>
+<div id="UpsertPedCompra" class="methodItem">
+<h3 class="method-name">UpsertPedCompra</h3>
+<p>
+
+</p>
+<div class="panel panel-default method">
+<div class="panel-heading"> Par&acirc;metros:
+</div>
+<table class="table table-condensed table-hover">
+<tr>
+<td class="">&nbsp;</td>
+<td class="method-parameter-type"><a href="#com_pedido_upsert_request">com_pedido_upsert_request</a></td>
+<td class="method-parameter-name">com_pedido_upsert_request</td><td class="method-parameter-docs"><div class="first">Upsert (inclusão ou alteração) de um Pedido de Compra</div></td>
+</tr>
+</table>
+<div class="panel-footer">
+Retorno <span class="pre"><a href="#com_pedido_upsert_response"><span class="lightBlue">com_pedido_upsert_response</span></a></span>: Resposta do Upsert de um Pedido de Compra
+</div>
+</div>
+<div class="method-example-area">
+<h5>Exemplo:</h5>
+<pre class="method-example-code">{<BR>  "cabecalho_upsert": {<BR>    "cCodIntPed": "INT001",<BR>    "dDtPrevisao": "15/10/2026",<BR>    "cCodParc": "",<BR>    "nQtdeParc": 3,<BR>    "nCodFor": "14170458",<BR>    "cCodIntFor": "",<BR>    "cCodCateg": "",<BR>    "nCodCompr": 0,<BR>    "cContato": "",<BR>    "cContrato":"",<BR>    "nCodCC": "1208238",<BR>    "nCodIntCC": 0,<BR>    "nCodProj": 0,<BR>    "cObs": "Pedido alterado via API - Upsert",<BR>    "cObsInt": "Pedido alterado via API - Upsert"<BR>  },<BR>  "frete_upsert": {<BR>    "nCodTransp": 0,<BR>    "cCodIntTransp": "",<BR>    "cTpFrete": "9",<BR>    "cPlaca": "XXX-9999",<BR>    "cUF": "SP",<BR>    "nQtdVol": 5,<BR>    "cEspVol": "",<BR>    "cMarVol": "",<BR>    "cNumVol": "",<BR>    "nPesoLiq": 5.00,<BR>    "nPesoBruto": 10.00,<BR>    "nValFrete": 50.00,<BR>    "nValSeguro": 10.00,<BR>    "cLacre": "",<BR>    "nValOutras": 0.00<BR>  },<BR>  "departamentos_upsert": [<BR>    {<BR>      "cCodDepto": "200000002498904",<BR>      "nPerc": 40<BR>    },<BR>    {<BR>      "cCodDepto": "200000002498905",<BR>      "nPerc": 30<BR>    },<BR>    {<BR>      "cCodDepto": "200000002498906",<BR>      "nPerc": 15<BR>    },<BR>    {<BR>      "cCodDepto": "200000002498907",<BR>      "nPerc": 15<BR>    }<BR>  ],<BR>  "produtos_upsert": [<BR>    {<BR>      "cCodIntItem": "ITEM001",<BR>      "cCodIntProd": "",<BR>      "nCodProd": "2037060",<BR>      "cProduto": "",<BR>      "cDescricao": "",<BR>      "cNCM": "",<BR>      "cUnidade": "",<BR>      "cEAN": "",<BR>      "nPesoLiq": 0,<BR>      "nPesoBruto": 0,<BR>      "nQtde": 10,<BR>      "nValUnit": 200,<BR>      "nDesconto": 0.00,<BR>      "nValorIcms": 360.00,<BR>      "nValorSt": 0.00,<BR>      "nValorIpi": 20.00,<BR>      "nValorPis": 33.00,<BR>      "nValorCofins": 152.00,<BR>      "cObs": "Item alterado via API - Upsert",<BR>      "cMkpAtuPv": "N",<BR>      "cMkpAtuSm": "N",<BR>      "nMkpPerc": 0,<BR>      "codigo_local_estoque": "",<BR>      "cCodCateg": ""<BR>    },<BR>    {<BR>      "cCodIntItem": "ITEM002",<BR>      "cCodIntProd": "",<BR>      "nCodProd": "2037060",<BR>      "cProduto": "",<BR>      "cDescricao": "",<BR>      "cNCM": "",<BR>      "cUnidade": "",<BR>      "cEAN": "",<BR>      "nPesoLiq": 0,<BR>      "nPesoBruto": 0,<BR>      "nQtde": 20,<BR>      "nValUnit": 200,<BR>      "nDesconto": 0.00,<BR>      "nValorIcms": 720.00,<BR>      "nValorSt": 0.00,<BR>      "nValorIpi": 40.00,<BR>      "nValorPis": 66.00,<BR>      "nValorCofins": 304.00,<BR>      "cObs": "Item incluído via API - Upsert",<BR>      "cMkpAtuPv": "N",<BR>      "cMkpAtuSm": "N",<BR>      "nMkpPerc": 0,<BR>      "codigo_local_estoque": "",<BR>      "cCodCateg": ""<BR>    }<BR>  ]<BR>}</pre>
+<button class="btn btn-success method-example" data-method="UpsertPedCompra" data-example="%7B++%22cabecalho_upsert%22%3A+%7B++++%22cCodIntPed%22%3A+%22INT001%22%2C++++%22dDtPrevisao%22%3A+%2215%2F10%2F2026%22%2C++++%22cCodParc%22%3A+%22%22%2C++++%22nQtdeParc%22%3A+3%2C++++%22nCodFor%22%3A+%2214170458%22%2C++++%22cCodIntFor%22%3A+%22%22%2C++++%22cCodCateg%22%3A+%22%22%2C++++%22nCodCompr%22%3A+0%2C++++%22cContato%22%3A+%22%22%2C++++%22cContrato%22%3A%22%22%2C++++%22nCodCC%22%3A+%221208238%22%2C++++%22nCodIntCC%22%3A+0%2C++++%22nCodProj%22%3A+0%2C++++%22cObs%22%3A+%22Pedido+alterado+via+API+-+Upsert%22%2C++++%22cObsInt%22%3A+%22Pedido+alterado+via+API+-+Upsert%22++%7D%2C++%22frete_upsert%22%3A+%7B++++%22nCodTransp%22%3A+0%2C++++%22cCodIntTransp%22%3A+%22%22%2C++++%22cTpFrete%22%3A+%229%22%2C++++%22cPlaca%22%3A+%22XXX-9999%22%2C++++%22cUF%22%3A+%22SP%22%2C++++%22nQtdVol%22%3A+5%2C++++%22cEspVol%22%3A+%22%22%2C++++%22cMarVol%22%3A+%22%22%2C++++%22cNumVol%22%3A+%22%22%2C++++%22nPesoLiq%22%3A+5.00%2C++++%22nPesoBruto%22%3A+10.00%2C++++%22nValFrete%22%3A+50.00%2C++++%22nValSeguro%22%3A+10.00%2C++++%22cLacre%22%3A+%22%22%2C++++%22nValOutras%22%3A+0.00++%7D%2C++%22departamentos_upsert%22%3A+%5B++++%7B++++++%22cCodDepto%22%3A+%22200000002498904%22%2C++++++%22nPerc%22%3A+40++++%7D%2C++++%7B++++++%22cCodDepto%22%3A+%22200000002498905%22%2C++++++%22nPerc%22%3A+30++++%7D%2C++++%7B++++++%22cCodDepto%22%3A+%22200000002498906%22%2C++++++%22nPerc%22%3A+15++++%7D%2C++++%7B++++++%22cCodDepto%22%3A+%22200000002498907%22%2C++++++%22nPerc%22%3A+15++++%7D++%5D%2C++%22produtos_upsert%22%3A+%5B++++%7B++++++%22cCodIntItem%22%3A+%22ITEM001%22%2C++++++%22cCodIntProd%22%3A+%22%22%2C++++++%22nCodProd%22%3A+%222037060%22%2C++++++%22cProduto%22%3A+%22%22%2C++++++%22cDescricao%22%3A+%22%22%2C++++++%22cNCM%22%3A+%22%22%2C++++++%22cUnidade%22%3A+%22%22%2C++++++%22cEAN%22%3A+%22%22%2C++++++%22nPesoLiq%22%3A+0%2C++++++%22nPesoBruto%22%3A+0%2C++++++%22nQtde%22%3A+10%2C++++++%22nValUnit%22%3A+200%2C++++++%22nDesconto%22%3A+0.00%2C++++++%22nValorIcms%22%3A+360.00%2C++++++%22nValorSt%22%3A+0.00%2C++++++%22nValorIpi%22%3A+20.00%2C++++++%22nValorPis%22%3A+33.00%2C++++++%22nValorCofins%22%3A+152.00%2C++++++%22cObs%22%3A+%22Item+alterado+via+API+-+Upsert%22%2C++++++%22cMkpAtuPv%22%3A+%22N%22%2C++++++%22cMkpAtuSm%22%3A+%22N%22%2C++++++%22nMkpPerc%22%3A+0%2C++++++%22codigo_local_estoque%22%3A+%22%22%2C++++++%22cCodCateg%22%3A+%22%22++++%7D%2C++++%7B++++++%22cCodIntItem%22%3A+%22ITEM002%22%2C++++++%22cCodIntProd%22%3A+%22%22%2C++++++%22nCodProd%22%3A+%222037060%22%2C++++++%22cProduto%22%3A+%22%22%2C++++++%22cDescricao%22%3A+%22%22%2C++++++%22cNCM%22%3A+%22%22%2C++++++%22cUnidade%22%3A+%22%22%2C++++++%22cEAN%22%3A+%22%22%2C++++++%22nPesoLiq%22%3A+0%2C++++++%22nPesoBruto%22%3A+0%2C++++++%22nQtde%22%3A+20%2C++++++%22nValUnit%22%3A+200%2C++++++%22nDesconto%22%3A+0.00%2C++++++%22nValorIcms%22%3A+720.00%2C++++++%22nValorSt%22%3A+0.00%2C++++++%22nValorIpi%22%3A+40.00%2C++++++%22nValorPis%22%3A+66.00%2C++++++%22nValorCofins%22%3A+304.00%2C++++++%22cObs%22%3A+%22Item+inclu%EDdo+via+API+-+Upsert%22%2C++++++%22cMkpAtuPv%22%3A+%22N%22%2C++++++%22cMkpAtuSm%22%3A+%22N%22%2C++++++%22nMkpPerc%22%3A+0%2C++++++%22codigo_local_estoque%22%3A+%22%22%2C++++++%22cCodCateg%22%3A+%22%22++++%7D++%5D%7D">Teste agora mesmo</button>
+</div>
+</div>
+<h2>Tipos Complexos</h2>
+<div class="complexTypeItem">
+<a name="cabecalho_alterar" class="anchorScroll"></a>
+<h3>cabecalho_alterar</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">nCodPed</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código interno do pedido de compra (este é o código do pedido no Omie)</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCodIntPed</td>
+<td class="parameter-type">string<span class="parameter-lenght">20</span></td><td class="parameter-docs"><div class="first">Código de integração do pedido de compra (este é o código do pedido no seu sistema)</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">dDtPrevisao</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Data de previsão de entrega do pedido de compra</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCodParc</td>
+<td class="parameter-type">string<span class="parameter-lenght">3</span></td><td class="parameter-docs"><div class="first">Código da Condição de Pagamento/Parcelamento.</div><div class="more"><a href="javascript:void(0)">+</a><div>"999" - Padrão.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nQtdeParc</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Quantidade de parcelas do pedido</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCnpjCpfFor</td>
+<td class="parameter-type">string<span class="parameter-lenght">20</span></td><td class="parameter-docs"><div class="first">CNPJ / CPF</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento opcional. <BR>Quando informada as tags nCodFor e cCodIntFor não devem ser informadas.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nCodFor</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código interno do fornecedor do pedido (este é o código do fornecedor no Omie)</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCodIntFor</td>
+<td class="parameter-type">string<span class="parameter-lenght">20</span></td><td class="parameter-docs"><div class="first">Código de integração do fornecedor do pedido (este é o código do fornecedor no seu sistema)</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCodCateg</td>
+<td class="parameter-type">string<span class="parameter-lenght">20</span></td><td class="parameter-docs"><div class="first">Código da categoria de compra do item</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nCodCompr</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código do comprador do pedido</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cContato</td>
+<td class="parameter-type">string<span class="parameter-lenght">100</span></td><td class="parameter-docs"><div class="first">Nome do contato no fornecedor responsável pelo pedido de compra</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cContrato</td>
+<td class="parameter-type">string<span class="parameter-lenght">20</span></td><td class="parameter-docs"><div class="first">Número do Contrato de Compra</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nCodCC</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código interno da conta corrente do pedido de compra (este é o código da conta corrente no Omie)</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nCodIntCC</td>
+<td class="parameter-type">string<span class="parameter-lenght">20</span></td><td class="parameter-docs"><div class="first">Código de integração da conta corrente do pedido (este é o código da conta corrente no seu sistema)</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nCodProj</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código do projeto relacionado ao pedido de compra</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cNumPedido</td>
+<td class="parameter-type">string<span class="parameter-lenght">30</span></td><td class="parameter-docs"><div class="first">Número do pedido para o fornecedor</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cObs</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Observações do pedido de compra (elas não serão impressas no pedido enviado ao fornecedor)</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cObsInt</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Observações internas do pedido (elas serão exibidas apenas para quem consultar o pedido de compra)</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="cabecalho_consulta" class="anchorScroll"></a>
+<h3>cabecalho_consulta</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">nCodPed</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código interno do pedido de compra (este é o código do pedido no Omie)</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCodIntPed</td>
+<td class="parameter-type">string<span class="parameter-lenght">20</span></td><td class="parameter-docs"><div class="first">Código de integração do pedido de compra (este é o código do pedido no seu sistema)</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">dIncData</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Data de inclusão ou de criação</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cIncHora</td>
+<td class="parameter-type">string<span class="parameter-lenght">8</span></td><td class="parameter-docs"><div class="first">Hora de inclusão ou de criação</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cEtapa</td>
+<td class="parameter-type">string<span class="parameter-lenght">2</span></td><td class="parameter-docs"><div class="first">Etapa atual do pedido de compra</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cNumero</td>
+<td class="parameter-type">string<span class="parameter-lenght">15</span></td><td class="parameter-docs"><div class="first">Número do pedido de compra</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">dDtPrevisao</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Data de previsão de entrega do pedido de compra</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCodParc</td>
+<td class="parameter-type">string<span class="parameter-lenght">3</span></td><td class="parameter-docs"><div class="first">Código da Condição de Pagamento/Parcelamento.</div><div class="more"><a href="javascript:void(0)">+</a><div>"999" - Padrão.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nQtdeParc</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Quantidade de parcelas do pedido</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nCodFor</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código interno do fornecedor do pedido (este é o código do fornecedor no Omie)</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCodIntFor</td>
+<td class="parameter-type">string<span class="parameter-lenght">20</span></td><td class="parameter-docs"><div class="first">Código de integração do fornecedor do pedido (este é o código do fornecedor no seu sistema)</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCodCateg</td>
+<td class="parameter-type">string<span class="parameter-lenght">20</span></td><td class="parameter-docs"><div class="first">Código da categoria de compra do item</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nCodCompr</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código do comprador do pedido</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cContato</td>
+<td class="parameter-type">string<span class="parameter-lenght">100</span></td><td class="parameter-docs"><div class="first">Nome do contato no fornecedor responsável pelo pedido de compra</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cContrato</td>
+<td class="parameter-type">string<span class="parameter-lenght">20</span></td><td class="parameter-docs"><div class="first">Número do Contrato de Compra</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nCodCC</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código interno da conta corrente do pedido de compra (este é o código da conta corrente no Omie)</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nCodIntCC</td>
+<td class="parameter-type">string<span class="parameter-lenght">20</span></td><td class="parameter-docs"><div class="first">Código de integração da conta corrente do pedido (este é o código da conta corrente no seu sistema)</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nCodProj</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código do projeto relacionado ao pedido de compra</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cNumPedido</td>
+<td class="parameter-type">string<span class="parameter-lenght">30</span></td><td class="parameter-docs"><div class="first">Número do pedido para o fornecedor</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cObs</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Observações do pedido de compra (elas não serão impressas no pedido enviado ao fornecedor)</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cObsInt</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Observações internas do pedido (elas serão exibidas apenas para quem consultar o pedido de compra)</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="cabecalho_incluir" class="anchorScroll"></a>
+<h3>cabecalho_incluir</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">cCodIntPed</td>
+<td class="parameter-type">string<span class="parameter-lenght">20</span></td><td class="parameter-docs"><div class="first">Código de integração do pedido de compra (este é o código do pedido no seu sistema)</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">dDtPrevisao</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Data de previsão de entrega do pedido de compra</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCodParc</td>
+<td class="parameter-type">string<span class="parameter-lenght">3</span></td><td class="parameter-docs"><div class="first">Código da Condição de Pagamento/Parcelamento.</div><div class="more"><a href="javascript:void(0)">+</a><div>"999" - Padrão.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nQtdeParc</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Quantidade de parcelas do pedido</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCnpjCpfFor</td>
+<td class="parameter-type">string<span class="parameter-lenght">20</span></td><td class="parameter-docs"><div class="first">CNPJ / CPF</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento opcional. <BR>Quando informada as tags nCodFor e cCodIntFor não devem ser informadas.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nCodFor</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código interno do fornecedor do pedido (este é o código do fornecedor no Omie)</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCodIntFor</td>
+<td class="parameter-type">string<span class="parameter-lenght">20</span></td><td class="parameter-docs"><div class="first">Código de integração do fornecedor do pedido (este é o código do fornecedor no seu sistema)</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCodCateg</td>
+<td class="parameter-type">string<span class="parameter-lenght">20</span></td><td class="parameter-docs"><div class="first">Código da categoria de compra do item</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nCodCompr</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código do comprador do pedido</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cContato</td>
+<td class="parameter-type">string<span class="parameter-lenght">100</span></td><td class="parameter-docs"><div class="first">Nome do contato no fornecedor responsável pelo pedido de compra</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cContrato</td>
+<td class="parameter-type">string<span class="parameter-lenght">20</span></td><td class="parameter-docs"><div class="first">Número do Contrato de Compra</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nCodCC</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código interno da conta corrente do pedido de compra (este é o código da conta corrente no Omie)</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nCodIntCC</td>
+<td class="parameter-type">string<span class="parameter-lenght">20</span></td><td class="parameter-docs"><div class="first">Código de integração da conta corrente do pedido (este é o código da conta corrente no seu sistema)</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nCodProj</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código do projeto relacionado ao pedido de compra</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cNumPedido</td>
+<td class="parameter-type">string<span class="parameter-lenght">30</span></td><td class="parameter-docs"><div class="first">Número do pedido para o fornecedor</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cObs</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Observações do pedido de compra (elas não serão impressas no pedido enviado ao fornecedor)</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cObsInt</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Observações internas do pedido (elas serão exibidas apenas para quem consultar o pedido de compra)</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cEmailAprovador</td>
+<td class="parameter-type">string<span class="parameter-lenght">120</span></td><td class="parameter-docs"><div class="first">Informe aqui o E-mail do usúario que irá aprovar o pedido.</div><div class="more"><a href="javascript:void(0)">+</a><div>Esse usúario deve ter permissão de acesso para realizar a aprovação.<BR><BR>Ao informar esse campo o pedido de compra será atribuído a etapa de aprovação com o status de aprovado.<BR><BR>Preenchimento opcional.</div></div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="cabecalho_upsert" class="anchorScroll"></a>
+<h3>cabecalho_upsert</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">nCodPed</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código interno do pedido de compra (este é o código do pedido no Omie)</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCodIntPed</td>
+<td class="parameter-type">string<span class="parameter-lenght">20</span></td><td class="parameter-docs"><div class="first">Código de integração do pedido de compra (este é o código do pedido no seu sistema)</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">dDtPrevisao</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Data de previsão de entrega do pedido de compra</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCodParc</td>
+<td class="parameter-type">string<span class="parameter-lenght">3</span></td><td class="parameter-docs"><div class="first">Código da Condição de Pagamento/Parcelamento.</div><div class="more"><a href="javascript:void(0)">+</a><div>"999" - Padrão.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nQtdeParc</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Quantidade de parcelas do pedido</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCnpjCpfFor</td>
+<td class="parameter-type">string<span class="parameter-lenght">20</span></td><td class="parameter-docs"><div class="first">CNPJ / CPF</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento opcional. <BR>Quando informada as tags nCodFor e cCodIntFor não devem ser informadas.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nCodFor</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código interno do fornecedor do pedido (este é o código do fornecedor no Omie)</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCodIntFor</td>
+<td class="parameter-type">string<span class="parameter-lenght">20</span></td><td class="parameter-docs"><div class="first">Código de integração do fornecedor do pedido (este é o código do fornecedor no seu sistema)</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCodCateg</td>
+<td class="parameter-type">string<span class="parameter-lenght">20</span></td><td class="parameter-docs"><div class="first">Código da categoria de compra do item</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nCodCompr</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código do comprador do pedido</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cContato</td>
+<td class="parameter-type">string<span class="parameter-lenght">100</span></td><td class="parameter-docs"><div class="first">Nome do contato no fornecedor responsável pelo pedido de compra</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cContrato</td>
+<td class="parameter-type">string<span class="parameter-lenght">20</span></td><td class="parameter-docs"><div class="first">Número do Contrato de Compra</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nCodCC</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código interno da conta corrente do pedido de compra (este é o código da conta corrente no Omie)</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nCodIntCC</td>
+<td class="parameter-type">string<span class="parameter-lenght">20</span></td><td class="parameter-docs"><div class="first">Código de integração da conta corrente do pedido (este é o código da conta corrente no seu sistema)</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nCodProj</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código do projeto relacionado ao pedido de compra</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cNumPedido</td>
+<td class="parameter-type">string<span class="parameter-lenght">30</span></td><td class="parameter-docs"><div class="first">Número do pedido para o fornecedor</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cObs</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Observações do pedido de compra (elas não serão impressas no pedido enviado ao fornecedor)</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cObsInt</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Observações internas do pedido (elas serão exibidas apenas para quem consultar o pedido de compra)</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cEmailAprovador</td>
+<td class="parameter-type">string<span class="parameter-lenght">120</span></td><td class="parameter-docs"><div class="first">Informe aqui o E-mail do usúario que irá aprovar o pedido.</div><div class="more"><a href="javascript:void(0)">+</a><div>Esse usúario deve ter permissão de acesso para realizar a aprovação.<BR><BR>Ao informar esse campo o pedido de compra será atribuído a etapa de aprovação com o status de aprovado.<BR><BR>Preenchimento opcional.</div></div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="com_pedido_alterar_request" class="anchorScroll"></a>
+<h3>com_pedido_alterar_request</h3>
+<p>Alterar um Pedido de Compra</p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">cabecalho_alterar</td>
+<td class="parameter-type"><a href="#cabecalho_alterar">cabecalho_alterar</a></td><td class="parameter-docs"><div class="first">Cabeçalho do Pedido de Compra</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">frete_alterar</td>
+<td class="parameter-type"><a href="#frete_alterar">frete_alterar</a></td><td class="parameter-docs"><div class="first">Frete, Transporte e Outras Despesas do Pedido de Compra</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">produtos_alterar</td>
+<td class="parameter-type"><a href="#produtos_alterarArray">produtos_alterarArray</a></td><td class="parameter-docs"><div class="first">Produtos do Pedido de Compra</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">departamentos_alterar</td>
+<td class="parameter-type"><a href="#departamentos_alterarArray">departamentos_alterarArray</a></td><td class="parameter-docs"><div class="first">Rateio do Pedido de Compra por departamento</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">parcelas_alterar</td>
+<td class="parameter-type"><a href="#parcelas_alterarArray">parcelas_alterarArray</a></td><td class="parameter-docs"><div class="first">Parcelas  do Pedido de Compra.</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="com_pedido_alterar_response" class="anchorScroll"></a>
+<h3>com_pedido_alterar_response</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">nCodPed</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código interno do pedido de compra (este é o código do pedido no Omie)</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCodIntPed</td>
+<td class="parameter-type">string<span class="parameter-lenght">20</span></td><td class="parameter-docs"><div class="first">Código de integração do pedido de compra (este é o código do pedido no seu sistema)</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCodStatus</td>
+<td class="parameter-type">string<span class="parameter-lenght">4</span></td><td class="parameter-docs"><div class="first">Código do status</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cDescStatus</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Descrição do status</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cNumero</td>
+<td class="parameter-type">string<span class="parameter-lenght">15</span></td><td class="parameter-docs"><div class="first">Número do pedido de compra</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="com_pedido_consultar_request" class="anchorScroll"></a>
+<h3>com_pedido_consultar_request</h3>
+<p>Consultar um Pedido de Compra</p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">nCodPed</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código interno do pedido de compra (este é o código do pedido no Omie)</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCodIntPed</td>
+<td class="parameter-type">string<span class="parameter-lenght">20</span></td><td class="parameter-docs"><div class="first">Código de integração do pedido de compra (este é o código do pedido no seu sistema)</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cNumero</td>
+<td class="parameter-type">string<span class="parameter-lenght">15</span></td><td class="parameter-docs"><div class="first">Número do pedido de compra</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="com_pedido_excluir_request" class="anchorScroll"></a>
+<h3>com_pedido_excluir_request</h3>
+<p>Excluir um Pedido de Compra</p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">nCodPed</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código interno do pedido de compra (este é o código do pedido no Omie)</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCodIntPed</td>
+<td class="parameter-type">string<span class="parameter-lenght">20</span></td><td class="parameter-docs"><div class="first">Código de integração do pedido de compra (este é o código do pedido no seu sistema)</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="com_pedido_excluir_response" class="anchorScroll"></a>
+<h3>com_pedido_excluir_response</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">nCodPed</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código interno do pedido de compra (este é o código do pedido no Omie)</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCodIntPed</td>
+<td class="parameter-type">string<span class="parameter-lenght">20</span></td><td class="parameter-docs"><div class="first">Código de integração do pedido de compra (este é o código do pedido no seu sistema)</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCodStatus</td>
+<td class="parameter-type">string<span class="parameter-lenght">4</span></td><td class="parameter-docs"><div class="first">Código do status</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cDescStatus</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Descrição do status</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="com_pedido_incluir_request" class="anchorScroll"></a>
+<h3>com_pedido_incluir_request</h3>
+<p>Incluir um Pedido de Compra</p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">cabecalho_incluir</td>
+<td class="parameter-type"><a href="#cabecalho_incluir">cabecalho_incluir</a></td><td class="parameter-docs"><div class="first">Cabeçalho do Pedido de Compra</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">frete_incluir</td>
+<td class="parameter-type"><a href="#frete_incluir">frete_incluir</a></td><td class="parameter-docs"><div class="first">Frete, Transporte e Outras Despesas do Pedido de Compra</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">produtos_incluir</td>
+<td class="parameter-type"><a href="#produtos_incluirArray">produtos_incluirArray</a></td><td class="parameter-docs"><div class="first">Produtos do Pedido de Compra</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">departamentos_incluir</td>
+<td class="parameter-type"><a href="#departamentos_incluirArray">departamentos_incluirArray</a></td><td class="parameter-docs"><div class="first">Rateio do Pedido de Compra por departamento</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">parcelas_incluir</td>
+<td class="parameter-type"><a href="#parcelas_incluirArray">parcelas_incluirArray</a></td><td class="parameter-docs"><div class="first">Parcelas  do Pedido de Compra.</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="com_pedido_incluir_response" class="anchorScroll"></a>
+<h3>com_pedido_incluir_response</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">nCodPed</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código interno do pedido de compra (este é o código do pedido no Omie)</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCodIntPed</td>
+<td class="parameter-type">string<span class="parameter-lenght">20</span></td><td class="parameter-docs"><div class="first">Código de integração do pedido de compra (este é o código do pedido no seu sistema)</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCodStatus</td>
+<td class="parameter-type">string<span class="parameter-lenght">4</span></td><td class="parameter-docs"><div class="first">Código do status</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cDescStatus</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Descrição do status</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cNumero</td>
+<td class="parameter-type">string<span class="parameter-lenght">15</span></td><td class="parameter-docs"><div class="first">Número do pedido de compra</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="com_pedido_pesquisar_request" class="anchorScroll"></a>
+<h3>com_pedido_pesquisar_request</h3>
+<p>Pesquisar de Pedidos de Compra</p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">nPagina</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Página da pesquisa</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nRegsPorPagina</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Registros por página</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">lApenasImportadoApi</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Exibir apenas pedidos importados por esta API</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">lExibirPedidosPendentes</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Exibir os pedidos de compra pendentes</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">lExibirPedidosFaturados</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Exibir os pedidos de compra faturados pelo fornecedor</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">lExibirPedidosRecebidos</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Exibir os pedidos de compra recebidos</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">lExibirPedidosCancelados</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Exibir os pedidos de compra cancelados</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">lExibirPedidosEncerrados</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Exibir os pedidos de compra encerrados</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">lExibirPedidosRecParciais</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Exibir os pedidos de compra recebidos parcialmente.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">lExibirPedidosFatParciais</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Exibir os pedidos de compra faturados parcialmente.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">dDataInicial</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Exibir os pedidos de compra a partir desta data</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">dDataFinal</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Exibir os pedidos de compra até esta data</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">lApenasAlterados</td>
+<td class="parameter-type">boolean</td><td class="parameter-docs"><div class="first">Exibir apenas pedidos alterados no periodo.</div><div class="more"><a href="javascript:void(0)">+</a><div>Default = false</div></div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="com_pedido_pesquisar_response" class="anchorScroll"></a>
+<h3>com_pedido_pesquisar_response</h3>
+<p>Resposta da Pesquisa de Pedidos de Compra</p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">nPagina</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Página da pesquisa</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nRegsPorPagina</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Registros por página</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">lApenasImportadoApi</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Exibir apenas pedidos importados por esta API</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">lExibirPedidosPendentes</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Exibir os pedidos de compra pendentes</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">lExibirPedidosFaturados</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Exibir os pedidos de compra faturados pelo fornecedor</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">lExibirPedidosRecebidos</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Exibir os pedidos de compra recebidos</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">lExibirPedidosCancelados</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Exibir os pedidos de compra cancelados</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">lExibirPedidosEncerrados</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Exibir os pedidos de compra encerrados</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">dDataInicial</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Exibir os pedidos de compra a partir desta data</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">dDataFinal</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Exibir os pedidos de compra até esta data</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nTotalPaginas</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Total de páginas disponíveis na pesquisa</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nTotalRegistros</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Total de registros disponíveis na pesquisa</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">pedidos_pesquisa</td>
+<td class="parameter-type"><a href="#pedidos_pesquisaArray">pedidos_pesquisaArray</a></td><td class="parameter-docs"><div class="first">Lista com os pedidos de compra</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="com_pedido_upsert_request" class="anchorScroll"></a>
+<h3>com_pedido_upsert_request</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">cabecalho_upsert</td>
+<td class="parameter-type"><a href="#cabecalho_upsert">cabecalho_upsert</a></td><td class="parameter-docs"><div class="first">Cabeçalho do Pedido de Compra</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">frete_upsert</td>
+<td class="parameter-type"><a href="#frete_upsert">frete_upsert</a></td><td class="parameter-docs"><div class="first">Frete, Transporte e Outras Despesas do Pedido de Compra</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">produtos_upsert</td>
+<td class="parameter-type"><a href="#produtos_upsertArray">produtos_upsertArray</a></td><td class="parameter-docs"><div class="first">Produtos do Pedido de Compra</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">departamentos_upsert</td>
+<td class="parameter-type"><a href="#departamentos_upsertArray">departamentos_upsertArray</a></td><td class="parameter-docs"><div class="first">Rateio do Pedido de Compra por departamento</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">parcelas_upsert</td>
+<td class="parameter-type"><a href="#parcelas_upsertArray">parcelas_upsertArray</a></td><td class="parameter-docs"><div class="first">Parcelas  do Pedido de Compra.</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="com_pedido_upsert_response" class="anchorScroll"></a>
+<h3>com_pedido_upsert_response</h3>
+<p>Resposta do Upsert de um Pedido de Compra</p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">nCodPed</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código interno do pedido de compra (este é o código do pedido no Omie)</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCodIntPed</td>
+<td class="parameter-type">string<span class="parameter-lenght">20</span></td><td class="parameter-docs"><div class="first">Código de integração do pedido de compra (este é o código do pedido no seu sistema)</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCodStatus</td>
+<td class="parameter-type">string<span class="parameter-lenght">4</span></td><td class="parameter-docs"><div class="first">Código do status</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cDescStatus</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Descrição do status</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cNumero</td>
+<td class="parameter-type">string<span class="parameter-lenght">15</span></td><td class="parameter-docs"><div class="first">Número do pedido de compra</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="departamentos_alterar" class="anchorScroll"></a>
+<h3>departamentos_alterar</h3>
+<p>Rateio do Pedido de Compra por departamento</p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">cCodDepto</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Código do Departamento</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nPerc</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Percentual de rateio</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="departamentos_alterarArray" class="anchorScroll"></a>
+<h3>departamentos_alterarArray</h3>
+<p>Este par&acirc;metro &eacute; um array do tipo <span class="pre"><a href="#departamentos_alterar"><span class="lightBlue">departamentos_alterar</span></a></span></p>
+<p>Lista de departamentos_alterar</p>
+</div>
+<div class="complexTypeItem">
+<a name="departamentos_consulta" class="anchorScroll"></a>
+<h3>departamentos_consulta</h3>
+<p>Departamentos do Pedido de Compras</p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">cCodDepto</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Código do Departamento</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nPerc</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Percentual de rateio</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nValor</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Valor do rateio</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="departamentos_consultaArray" class="anchorScroll"></a>
+<h3>departamentos_consultaArray</h3>
+<p>Este par&acirc;metro &eacute; um array do tipo <span class="pre"><a href="#departamentos_consulta"><span class="lightBlue">departamentos_consulta</span></a></span></p>
+<p>Lista de departamentos_consulta</p>
+</div>
+<div class="complexTypeItem">
+<a name="departamentos_incluir" class="anchorScroll"></a>
+<h3>departamentos_incluir</h3>
+<p>Rateio do Pedido de Compra por departamento</p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">cCodDepto</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Código do Departamento</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nPerc</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Percentual de rateio</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="departamentos_incluirArray" class="anchorScroll"></a>
+<h3>departamentos_incluirArray</h3>
+<p>Este par&acirc;metro &eacute; um array do tipo <span class="pre"><a href="#departamentos_incluir"><span class="lightBlue">departamentos_incluir</span></a></span></p>
+<p>Lista de departamentos_incluir</p>
+</div>
+<div class="complexTypeItem">
+<a name="departamentos_upsert" class="anchorScroll"></a>
+<h3>departamentos_upsert</h3>
+<p>Rateio do Pedido de Compra por departamento</p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">cCodDepto</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Código do Departamento</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nPerc</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Percentual de rateio</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="departamentos_upsertArray" class="anchorScroll"></a>
+<h3>departamentos_upsertArray</h3>
+<p>Este par&acirc;metro &eacute; um array do tipo <span class="pre"><a href="#departamentos_upsert"><span class="lightBlue">departamentos_upsert</span></a></span></p>
+<p>Lista de departamentos_upsert</p>
+</div>
+<div class="complexTypeItem">
+<a name="frete_alterar" class="anchorScroll"></a>
+<h3>frete_alterar</h3>
+<p>Frete, Transporte e Outras Despesas do Pedido de Compra</p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">nCodTransp</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código interno da transportadora (este é o código da transportadora no Omie)</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCodIntTransp</td>
+<td class="parameter-type">string<span class="parameter-lenght">20</span></td><td class="parameter-docs"><div class="first">Código de integração da transportadora (este é o código da transportadora no seu sistema)</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cTpFrete</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Modalidade do frete no pedido</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cPlaca</td>
+<td class="parameter-type">string<span class="parameter-lenght">7</span></td><td class="parameter-docs"><div class="first">Placa do veículo de transporte</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cUF</td>
+<td class="parameter-type">string<span class="parameter-lenght">2</span></td><td class="parameter-docs"><div class="first">UF da placa do veículo do transporte</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nQtdVol</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Quantidade de volumes</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cEspVol</td>
+<td class="parameter-type">string<span class="parameter-lenght">60</span></td><td class="parameter-docs"><div class="first">Espécie dos volumes</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cMarVol</td>
+<td class="parameter-type">string<span class="parameter-lenght">60</span></td><td class="parameter-docs"><div class="first">Marca dos volumes</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cNumVol</td>
+<td class="parameter-type">string<span class="parameter-lenght">60</span></td><td class="parameter-docs"><div class="first">Numeração dos volumes</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nPesoLiq</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Peso líquido (Kg)</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nPesoBruto</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Peso bruto (Kg)</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nValFrete</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Valor do frete</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nValSeguro</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Valor do seguro</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cLacre</td>
+<td class="parameter-type">string<span class="parameter-lenght">60</span></td><td class="parameter-docs"><div class="first">Número do lacre</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nValOutras</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Valor das outras despesas acessórias</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="frete_consulta" class="anchorScroll"></a>
+<h3>frete_consulta</h3>
+<p>Frete, Transporte e Outras Despesas do Pedido de Compra</p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">nCodTransp</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código interno da transportadora (este é o código da transportadora no Omie)</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCodIntTransp</td>
+<td class="parameter-type">string<span class="parameter-lenght">20</span></td><td class="parameter-docs"><div class="first">Código de integração da transportadora (este é o código da transportadora no seu sistema)</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cTpFrete</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Modalidade do frete no pedido</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cPlaca</td>
+<td class="parameter-type">string<span class="parameter-lenght">7</span></td><td class="parameter-docs"><div class="first">Placa do veículo de transporte</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cUF</td>
+<td class="parameter-type">string<span class="parameter-lenght">2</span></td><td class="parameter-docs"><div class="first">UF da placa do veículo do transporte</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nQtdVol</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Quantidade de volumes</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cEspVol</td>
+<td class="parameter-type">string<span class="parameter-lenght">60</span></td><td class="parameter-docs"><div class="first">Espécie dos volumes</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cMarVol</td>
+<td class="parameter-type">string<span class="parameter-lenght">60</span></td><td class="parameter-docs"><div class="first">Marca dos volumes</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cNumVol</td>
+<td class="parameter-type">string<span class="parameter-lenght">60</span></td><td class="parameter-docs"><div class="first">Numeração dos volumes</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nPesoLiq</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Peso líquido (Kg)</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nPesoBruto</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Peso bruto (Kg)</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nValFrete</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Valor do frete</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nValSeguro</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Valor do seguro</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cLacre</td>
+<td class="parameter-type">string<span class="parameter-lenght">60</span></td><td class="parameter-docs"><div class="first">Número do lacre</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nValOutras</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Valor das outras despesas acessórias</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="frete_incluir" class="anchorScroll"></a>
+<h3>frete_incluir</h3>
+<p>Frete, Transporte e Outras Despesas do Pedido de Compra</p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">nCodTransp</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código interno da transportadora (este é o código da transportadora no Omie)</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCodIntTransp</td>
+<td class="parameter-type">string<span class="parameter-lenght">20</span></td><td class="parameter-docs"><div class="first">Código de integração da transportadora (este é o código da transportadora no seu sistema)</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cTpFrete</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Modalidade do frete no pedido</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cPlaca</td>
+<td class="parameter-type">string<span class="parameter-lenght">7</span></td><td class="parameter-docs"><div class="first">Placa do veículo de transporte</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cUF</td>
+<td class="parameter-type">string<span class="parameter-lenght">2</span></td><td class="parameter-docs"><div class="first">UF da placa do veículo do transporte</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nQtdVol</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Quantidade de volumes</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cEspVol</td>
+<td class="parameter-type">string<span class="parameter-lenght">60</span></td><td class="parameter-docs"><div class="first">Espécie dos volumes</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cMarVol</td>
+<td class="parameter-type">string<span class="parameter-lenght">60</span></td><td class="parameter-docs"><div class="first">Marca dos volumes</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cNumVol</td>
+<td class="parameter-type">string<span class="parameter-lenght">60</span></td><td class="parameter-docs"><div class="first">Numeração dos volumes</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nPesoLiq</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Peso líquido (Kg)</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nPesoBruto</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Peso bruto (Kg)</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nValFrete</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Valor do frete</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nValSeguro</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Valor do seguro</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cLacre</td>
+<td class="parameter-type">string<span class="parameter-lenght">60</span></td><td class="parameter-docs"><div class="first">Número do lacre</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nValOutras</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Valor das outras despesas acessórias</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="frete_upsert" class="anchorScroll"></a>
+<h3>frete_upsert</h3>
+<p>Frete, Transporte e Outras Despesas do Pedido de Compra</p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">nCodTransp</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código interno da transportadora (este é o código da transportadora no Omie)</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCodIntTransp</td>
+<td class="parameter-type">string<span class="parameter-lenght">20</span></td><td class="parameter-docs"><div class="first">Código de integração da transportadora (este é o código da transportadora no seu sistema)</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cTpFrete</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Modalidade do frete no pedido</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cPlaca</td>
+<td class="parameter-type">string<span class="parameter-lenght">7</span></td><td class="parameter-docs"><div class="first">Placa do veículo de transporte</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cUF</td>
+<td class="parameter-type">string<span class="parameter-lenght">2</span></td><td class="parameter-docs"><div class="first">UF da placa do veículo do transporte</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nQtdVol</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Quantidade de volumes</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cEspVol</td>
+<td class="parameter-type">string<span class="parameter-lenght">60</span></td><td class="parameter-docs"><div class="first">Espécie dos volumes</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cMarVol</td>
+<td class="parameter-type">string<span class="parameter-lenght">60</span></td><td class="parameter-docs"><div class="first">Marca dos volumes</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cNumVol</td>
+<td class="parameter-type">string<span class="parameter-lenght">60</span></td><td class="parameter-docs"><div class="first">Numeração dos volumes</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nPesoLiq</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Peso líquido (Kg)</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nPesoBruto</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Peso bruto (Kg)</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nValFrete</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Valor do frete</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nValSeguro</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Valor do seguro</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cLacre</td>
+<td class="parameter-type">string<span class="parameter-lenght">60</span></td><td class="parameter-docs"><div class="first">Número do lacre</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nValOutras</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Valor das outras despesas acessórias</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="omie_fail" class="anchorScroll"></a>
+<h3>omie_fail</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">code</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Codigo do erro</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">description</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Descricao do erro</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-required">referer</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Origem do erro</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-required">fatal</td>
+<td class="parameter-type">boolean</td><td class="parameter-docs"><div class="first">Indica se eh um erro fatal</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="parcelas_alterar" class="anchorScroll"></a>
+<h3>parcelas_alterar</h3>
+<p>Parcelas  do Pedido de Compra.</p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">nParcela</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Número da parcela</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">dVencto</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Data de vencimento da parcela</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nValor</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Valor da parcela</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nDias</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Dias para vencimento da parcela (a partir da data de previsão de entrega)</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nPercent</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Percentual da parcela em relação ao total do pedido de compra</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cTipoDoc</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Tipo de Documento.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento opcional.<BR><BR>Lista de tipos de documentos em:<BR>/api/v1/geral/tiposdoc</div></div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="parcelas_alterarArray" class="anchorScroll"></a>
+<h3>parcelas_alterarArray</h3>
+<p>Este par&acirc;metro &eacute; um array do tipo <span class="pre"><a href="#parcelas_alterar"><span class="lightBlue">parcelas_alterar</span></a></span></p>
+<p>Lista de parcelas_alterar</p>
+</div>
+<div class="complexTypeItem">
+<a name="parcelas_consulta" class="anchorScroll"></a>
+<h3>parcelas_consulta</h3>
+<p>Parcelas do Pedido de Compras</p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">nParcela</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Número da parcela</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">dVencto</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Data de vencimento da parcela</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nValor</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Valor da parcela</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nDias</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Dias para vencimento da parcela (a partir da data de previsão de entrega)</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nPercent</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Percentual da parcela em relação ao total do pedido de compra</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cTipoDoc</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Tipo de Documento.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento opcional.<BR><BR>Lista de tipos de documentos em:<BR>/api/v1/geral/tiposdoc</div></div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="parcelas_consultaArray" class="anchorScroll"></a>
+<h3>parcelas_consultaArray</h3>
+<p>Este par&acirc;metro &eacute; um array do tipo <span class="pre"><a href="#parcelas_consulta"><span class="lightBlue">parcelas_consulta</span></a></span></p>
+<p>Lista de parcelas_consulta</p>
+</div>
+<div class="complexTypeItem">
+<a name="parcelas_incluir" class="anchorScroll"></a>
+<h3>parcelas_incluir</h3>
+<p>Parcelas  do Pedido de Compra.</p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">nParcela</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Número da parcela</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">dVencto</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Data de vencimento da parcela</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nValor</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Valor da parcela</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nDias</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Dias para vencimento da parcela (a partir da data de previsão de entrega)</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nPercent</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Percentual da parcela em relação ao total do pedido de compra</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cTipoDoc</td>
+<td class="parameter-type">string<span class="parameter-lenght">5</span></td><td class="parameter-docs"><div class="first">Tipo de Documento.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento opcional.<BR><BR>Lista de tipos de documentos em:<BR>/api/v1/geral/tiposdoc</div></div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="parcelas_incluirArray" class="anchorScroll"></a>
+<h3>parcelas_incluirArray</h3>
+<p>Este par&acirc;metro &eacute; um array do tipo <span class="pre"><a href="#parcelas_incluir"><span class="lightBlue">parcelas_incluir</span></a></span></p>
+<p>Lista de parcelas_incluir</p>
+</div>
+<div class="complexTypeItem">
+<a name="parcelas_upsert" class="anchorScroll"></a>
+<h3>parcelas_upsert</h3>
+<p>Parcelas  do Pedido de Compra.</p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">nParcela</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Número da parcela</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">dVencto</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Data de vencimento da parcela</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nValor</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Valor da parcela</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nDias</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Dias para vencimento da parcela (a partir da data de previsão de entrega)</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nPercent</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Percentual da parcela em relação ao total do pedido de compra</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cTipoDoc</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Tipo de Documento.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento opcional.<BR><BR>Lista de tipos de documentos em:<BR>/api/v1/geral/tiposdoc</div></div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="parcelas_upsertArray" class="anchorScroll"></a>
+<h3>parcelas_upsertArray</h3>
+<p>Este par&acirc;metro &eacute; um array do tipo <span class="pre"><a href="#parcelas_upsert"><span class="lightBlue">parcelas_upsert</span></a></span></p>
+<p>Lista de parcelas_upsert</p>
+</div>
+<div class="complexTypeItem">
+<a name="pedidos_pesquisa" class="anchorScroll"></a>
+<h3>pedidos_pesquisa</h3>
+<p>Lista com os pedidos de compra</p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">cabecalho_consulta</td>
+<td class="parameter-type"><a href="#cabecalho_consulta">cabecalho_consulta</a></td><td class="parameter-docs"><div class="first">Cabeçalho do Pedido de Compra</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">frete_consulta</td>
+<td class="parameter-type"><a href="#frete_consulta">frete_consulta</a></td><td class="parameter-docs"><div class="first">Frete, Transporte e Outras Despesas do Pedido de Compra</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">produtos_consulta</td>
+<td class="parameter-type"><a href="#produtos_consultaArray">produtos_consultaArray</a></td><td class="parameter-docs"><div class="first">Produtos do Pedido de Compra</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">parcelas_consulta</td>
+<td class="parameter-type"><a href="#parcelas_consultaArray">parcelas_consultaArray</a></td><td class="parameter-docs"><div class="first">Parcelas do Pedido de Compras</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">departamentos_consulta</td>
+<td class="parameter-type"><a href="#departamentos_consultaArray">departamentos_consultaArray</a></td><td class="parameter-docs"><div class="first">Departamentos do Pedido de Compras</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="pedidos_pesquisaArray" class="anchorScroll"></a>
+<h3>pedidos_pesquisaArray</h3>
+<p>Este par&acirc;metro &eacute; um array do tipo <span class="pre"><a href="#pedidos_pesquisa"><span class="lightBlue">pedidos_pesquisa</span></a></span></p>
+<p>Lista de pedidos_pesquisa</p>
+</div>
+<div class="complexTypeItem">
+<a name="produtos_alterar" class="anchorScroll"></a>
+<h3>produtos_alterar</h3>
+<p>Produtos do Pedido de Compra</p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">cCodIntItem</td>
+<td class="parameter-type">string<span class="parameter-lenght">20</span></td><td class="parameter-docs"><div class="first">Código de integração do item do pedido de compra (este é o código do item no seu sistema)</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nCodItem</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código interno do item do pedido de compra (este é o código do item no Omie)</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCodIntProd</td>
+<td class="parameter-type">string<span class="parameter-lenght">20</span></td><td class="parameter-docs"><div class="first">Código de integração do cadastro do produto (este é o código do produto no seu sistema)</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nCodProd</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código interno do cadastro do produto (este é o código do produto no Omie)</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cProduto</td>
+<td class="parameter-type">string<span class="parameter-lenght">60</span></td><td class="parameter-docs"><div class="first">Código do item no pedido (pode ser o mesmo código que aparece na NF-e do fornecedor)</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cDescricao</td>
+<td class="parameter-type">string<span class="parameter-lenght">120</span></td><td class="parameter-docs"><div class="first">Descrição do item no pedido</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cNCM</td>
+<td class="parameter-type">string<span class="parameter-lenght">13</span></td><td class="parameter-docs"><div class="first">Código NCM do item</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cUnidade</td>
+<td class="parameter-type">string<span class="parameter-lenght">6</span></td><td class="parameter-docs"><div class="first">Unidade do item no pedido</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cEAN</td>
+<td class="parameter-type">string<span class="parameter-lenght">14</span></td><td class="parameter-docs"><div class="first">Código EAN / GTIN do item no pedido</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nPesoLiq</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Peso líquido (Kg)</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nPesoBruto</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Peso bruto (Kg)</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nQtde</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Quantidade do item no pedido</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nValUnit</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Valor unitário do item no pedido</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nDesconto</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Valor do desconto do item no pedido</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nValorIcms</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Valor do ICMS</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nValorSt</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Valor do ICMS ST</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nValorIpi</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Valor do IPI</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nValorPis</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Valor do PIS</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nValorCofins</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Valor do COFINS</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cObs</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Observação do item no pedido (elas serão impressas no pedido enviado ao fornecedor)</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cMkpAtuPv</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Indica que deve atualizar o preço de venda do produto no recebimento</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cMkpAtuSm</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Indica que deve atualizar o preço apenas se for maior que o atual</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nMkpPerc</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Percentual a ser utilizado para a atualização do preço de venda do produto</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">codigo_local_estoque</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código do Local do Estoque.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento opcional.<BR><BR>Caso não informado assumirá o Local do Estoque padrão.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCodCateg</td>
+<td class="parameter-type">string<span class="parameter-lenght">20</span></td><td class="parameter-docs"><div class="first">Código da categoria de compra do item</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="produtos_alterarArray" class="anchorScroll"></a>
+<h3>produtos_alterarArray</h3>
+<p>Este par&acirc;metro &eacute; um array do tipo <span class="pre"><a href="#produtos_alterar"><span class="lightBlue">produtos_alterar</span></a></span></p>
+<p>Lista de produtos_alterar</p>
+</div>
+<div class="complexTypeItem">
+<a name="produtos_consulta" class="anchorScroll"></a>
+<h3>produtos_consulta</h3>
+<p>Produtos do Pedido de Compra</p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">cCodIntItem</td>
+<td class="parameter-type">string<span class="parameter-lenght">20</span></td><td class="parameter-docs"><div class="first">Código de integração do item do pedido de compra (este é o código do item no seu sistema)</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nCodItem</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código interno do item do pedido de compra (este é o código do item no Omie)</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCodIntProd</td>
+<td class="parameter-type">string<span class="parameter-lenght">20</span></td><td class="parameter-docs"><div class="first">Código de integração do cadastro do produto (este é o código do produto no seu sistema)</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nCodProd</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código interno do cadastro do produto (este é o código do produto no Omie)</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cProduto</td>
+<td class="parameter-type">string<span class="parameter-lenght">60</span></td><td class="parameter-docs"><div class="first">Código do item no pedido (pode ser o mesmo código que aparece na NF-e do fornecedor)</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cDescricao</td>
+<td class="parameter-type">string<span class="parameter-lenght">120</span></td><td class="parameter-docs"><div class="first">Descrição do item no pedido</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cNCM</td>
+<td class="parameter-type">string<span class="parameter-lenght">13</span></td><td class="parameter-docs"><div class="first">Código NCM do item</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cEAN</td>
+<td class="parameter-type">string<span class="parameter-lenght">14</span></td><td class="parameter-docs"><div class="first">Código EAN / GTIN do item no pedido</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cUnidade</td>
+<td class="parameter-type">string<span class="parameter-lenght">6</span></td><td class="parameter-docs"><div class="first">Unidade do item no pedido</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nPesoLiq</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Peso líquido (Kg)</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nPesoBruto</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Peso bruto (Kg)</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nQtde</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Quantidade do item no pedido</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nValUnit</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Valor unitário do item no pedido</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nValMerc</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Valor total do produto (de mercadoria) no pedido</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nDesconto</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Valor do desconto do item no pedido</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nValorIcms</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Valor do ICMS</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nValorSt</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Valor do ICMS ST</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nValorIpi</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Valor do IPI</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nValorPis</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Valor do PIS</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nValorCofins</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Valor do COFINS</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nFrete</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Valor do frete (proporcional para o item do pedido)</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nSeguro</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Valor do seguro (proporcional para o item do pedido)</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nDespesas</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Valor das outras despesas acessórias (proporcional para o item do pedido)</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nValTot</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Valor total do item (considerando descontos, despesas e impostos)</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cObs</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Observação do item no pedido (elas serão impressas no pedido enviado ao fornecedor)</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cMkpAtuPv</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Indica que deve atualizar o preço de venda do produto no recebimento</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cMkpAtuSm</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Indica que deve atualizar o preço apenas se for maior que o atual</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nMkpPerc</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Percentual a ser utilizado para a atualização do preço de venda do produto</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">codigo_local_estoque</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código do Local do Estoque.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento opcional.<BR><BR>Caso não informado assumirá o Local do Estoque padrão.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCodCateg</td>
+<td class="parameter-type">string<span class="parameter-lenght">20</span></td><td class="parameter-docs"><div class="first">Código da categoria de compra do item</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nQtdeRec</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Quantidade recebida do Item.</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="produtos_consultaArray" class="anchorScroll"></a>
+<h3>produtos_consultaArray</h3>
+<p>Este par&acirc;metro &eacute; um array do tipo <span class="pre"><a href="#produtos_consulta"><span class="lightBlue">produtos_consulta</span></a></span></p>
+<p>Lista de produtos_consulta</p>
+</div>
+<div class="complexTypeItem">
+<a name="produtos_incluir" class="anchorScroll"></a>
+<h3>produtos_incluir</h3>
+<p>Produtos do Pedido de Compra</p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">cCodIntItem</td>
+<td class="parameter-type">string<span class="parameter-lenght">20</span></td><td class="parameter-docs"><div class="first">Código de integração do item do pedido de compra (este é o código do item no seu sistema)</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCodIntProd</td>
+<td class="parameter-type">string<span class="parameter-lenght">20</span></td><td class="parameter-docs"><div class="first">Código de integração do cadastro do produto (este é o código do produto no seu sistema)</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nCodProd</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código interno do cadastro do produto (este é o código do produto no Omie)</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cProduto</td>
+<td class="parameter-type">string<span class="parameter-lenght">60</span></td><td class="parameter-docs"><div class="first">Código do item no pedido (pode ser o mesmo código que aparece na NF-e do fornecedor)</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cDescricao</td>
+<td class="parameter-type">string<span class="parameter-lenght">120</span></td><td class="parameter-docs"><div class="first">Descrição do item no pedido</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cNCM</td>
+<td class="parameter-type">string<span class="parameter-lenght">13</span></td><td class="parameter-docs"><div class="first">Código NCM do item</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cUnidade</td>
+<td class="parameter-type">string<span class="parameter-lenght">6</span></td><td class="parameter-docs"><div class="first">Unidade do item no pedido</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cEAN</td>
+<td class="parameter-type">string<span class="parameter-lenght">14</span></td><td class="parameter-docs"><div class="first">Código EAN / GTIN do item no pedido</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nPesoLiq</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Peso líquido (Kg)</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nPesoBruto</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Peso bruto (Kg)</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nQtde</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Quantidade do item no pedido</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nValUnit</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Valor unitário do item no pedido</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nDesconto</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Valor do desconto do item no pedido</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nValorIcms</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Valor do ICMS</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nValorSt</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Valor do ICMS ST</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nValorIpi</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Valor do IPI</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nValorPis</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Valor do PIS</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nValorCofins</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Valor do COFINS</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cObs</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Observação do item no pedido (elas serão impressas no pedido enviado ao fornecedor)</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cMkpAtuPv</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Indica que deve atualizar o preço de venda do produto no recebimento</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cMkpAtuSm</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Indica que deve atualizar o preço apenas se for maior que o atual</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nMkpPerc</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Percentual a ser utilizado para a atualização do preço de venda do produto</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">codigo_local_estoque</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código do Local do Estoque.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento opcional.<BR><BR>Caso não informado assumirá o Local do Estoque padrão.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCodCateg</td>
+<td class="parameter-type">string<span class="parameter-lenght">20</span></td><td class="parameter-docs"><div class="first">Código da categoria de compra do item</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="produtos_incluirArray" class="anchorScroll"></a>
+<h3>produtos_incluirArray</h3>
+<p>Este par&acirc;metro &eacute; um array do tipo <span class="pre"><a href="#produtos_incluir"><span class="lightBlue">produtos_incluir</span></a></span></p>
+<p>Lista de produtos_incluir</p>
+</div>
+<div class="complexTypeItem">
+<a name="produtos_upsert" class="anchorScroll"></a>
+<h3>produtos_upsert</h3>
+<p>Produtos do Pedido de Compra</p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">cCodIntItem</td>
+<td class="parameter-type">string<span class="parameter-lenght">20</span></td><td class="parameter-docs"><div class="first">Código de integração do item do pedido de compra (este é o código do item no seu sistema)</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nCodItem</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código interno do item do pedido de compra (este é o código do item no Omie)</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCodIntProd</td>
+<td class="parameter-type">string<span class="parameter-lenght">20</span></td><td class="parameter-docs"><div class="first">Código de integração do cadastro do produto (este é o código do produto no seu sistema)</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nCodProd</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código interno do cadastro do produto (este é o código do produto no Omie)</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cProduto</td>
+<td class="parameter-type">string<span class="parameter-lenght">60</span></td><td class="parameter-docs"><div class="first">Código do item no pedido (pode ser o mesmo código que aparece na NF-e do fornecedor)</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cDescricao</td>
+<td class="parameter-type">string<span class="parameter-lenght">120</span></td><td class="parameter-docs"><div class="first">Descrição do item no pedido</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cNCM</td>
+<td class="parameter-type">string<span class="parameter-lenght">13</span></td><td class="parameter-docs"><div class="first">Código NCM do item</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cUnidade</td>
+<td class="parameter-type">string<span class="parameter-lenght">6</span></td><td class="parameter-docs"><div class="first">Unidade do item no pedido</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cEAN</td>
+<td class="parameter-type">string<span class="parameter-lenght">14</span></td><td class="parameter-docs"><div class="first">Código EAN / GTIN do item no pedido</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nPesoLiq</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Peso líquido (Kg)</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nPesoBruto</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Peso bruto (Kg)</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nQtde</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Quantidade do item no pedido</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nValUnit</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Valor unitário do item no pedido</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nDesconto</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Valor do desconto do item no pedido</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nValorIcms</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Valor do ICMS</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nValorSt</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Valor do ICMS ST</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nValorIpi</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Valor do IPI</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nValorPis</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Valor do PIS</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nValorCofins</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Valor do COFINS</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cObs</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Observação do item no pedido (elas serão impressas no pedido enviado ao fornecedor)</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cMkpAtuPv</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Indica que deve atualizar o preço de venda do produto no recebimento</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cMkpAtuSm</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Indica que deve atualizar o preço apenas se for maior que o atual</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nMkpPerc</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Percentual a ser utilizado para a atualização do preço de venda do produto</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">codigo_local_estoque</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código do Local do Estoque.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento opcional.<BR><BR>Caso não informado assumirá o Local do Estoque padrão.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCodCateg</td>
+<td class="parameter-type">string<span class="parameter-lenght">20</span></td><td class="parameter-docs"><div class="first">Código da categoria de compra do item</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="produtos_upsertArray" class="anchorScroll"></a>
+<h3>produtos_upsertArray</h3>
+<p>Este par&acirc;metro &eacute; um array do tipo <span class="pre"><a href="#produtos_upsert"><span class="lightBlue">produtos_upsert</span></a></span></p>
+<p>Lista de produtos_upsert</p>
+</div>
+</div>
+<div class="col-md-3">
+<div id="affix-menu" data-spy="affix" data-offset-top="294">
+<h2>M&eacute;todos</h2>
+<nav id="index" class="hidden-print hidden-xs hidden-sm">
+<ul class="nav">
+<li><a href="#AlteraPedCompra">AlteraPedCompra</a></li>
+<li><a href="#ConsultarPedCompra">ConsultarPedCompra</a></li>
+<li><a href="#ExcluirPedCompra">ExcluirPedCompra</a></li>
+<li><a href="#IncluirPedCompra">IncluirPedCompra</a></li>
+<li><a href="#PesquisarPedCompra">PesquisarPedCompra</a></li>
+<li><a href="#UpsertPedCompra">UpsertPedCompra</a></li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+</body>
+</html>

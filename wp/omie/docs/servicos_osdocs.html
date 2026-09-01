@@ -1,0 +1,557 @@
+<nav class="navbar navbar-expand-lg bg-azul">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="https://developer.omie.com.br/">
+            <img class="lozad img-logo" data-src="https://static.omie.com.br/images/logo/logo-omie-topo.png" src="https://static.omie.com.br/images/logo/logo-omie-topo.png" data-loaded="true">
+        </a>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <span class="borda-hover"></span>
+                    <a class="nav-link" href="https://developer.omie.com.br/my-apps/"> Aplicativos </a>
+                </li>
+                <li class="nav-item ">
+                    <span class="borda-hover"></span>
+                    <a class="nav-link" href="https://developer.omie.com.br/service-list/">
+                        Lista das API's
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <span class="borda-hover"></span>
+                    <a class="nav-link" href="https://ajuda.omie.com.br/pt-BR/collections/3045828-apis" target="_blank"> Ajuda </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<html>
+<head>
+<title>OsDocs</title>
+<style type="text/css" media="all">
+  [id] { scroll-margin-top: 68px; }
+</style>
+<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+<script src="https://cdn.omie.com.br/omie-assets/js/omie-compat-v2.min.js"></script>
+<script src="/developer/themes/omie/developer.js?ts=2021.008"></script>
+<link rel="stylesheet" href="//app.omie.com.br/wp-content/themes/omie/bootstrap/css/bootstrap.min.css" async/>
+<link href="https://cdn.omie.com.br/assets/developer/css/site.css?ts=2021.008" media="all" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="/developer/themes/omie/developer.css?ts=2021.008" async/>
+</head>
+<body>
+<div class="jumbotron banner bg-azul">
+<div class="container">
+<img src="https://cdn.omie.com.br/assets/developer/images/seta-azuis.png" alt="" class="img-setas">
+<div class="row align-items-center">
+<div class="col-12">
+<h1>OsDocs</h1>
+<ul class="nav nav-tabs" role="tablist">
+  <li role="presentation" class="active"><a href="#section-endpoint" aria-controls="section-endpoint" role="tab" data-toggle="tab">Endpoint</a></li>
+  <li role="presentation" class="pull-right"><a href="#section-wsdl" aria-controls="section-wsdl" role="tab" data-toggle="tab">WSDL</a></li>
+  <li role="presentation" class="pull-right"><a href="#section-php-soap" aria-controls="section-php-soap" role="tab" data-toggle="tab">PHP SOAP</a></li>
+  <li role="presentation" class="pull-right"><a href="#section-json" aria-controls="section-json" role="tab" data-toggle="tab">JSON</a></li>
+</ul>
+<div class="tab-content">
+  <div role="tabpanel" class="tab-pane fade in active" id="section-endpoint">
+    <h4>Endpoint URI</h4>
+    <a class="highlight" href="https://app.omie.com.br/api/v1/servicos/osdocs/"><pre><code>https://app.omie.com.br/api/v1/servicos/osdocs/</code></pre></a>
+  </div>
+  <div role="tabpanel" class="tab-pane fade" id="section-wsdl">
+    <h4>WSDL URI</h4>
+    <a class="highlight" href="https://app.omie.com.br/api/v1/servicos/osdocs/?WSDL"><pre><code>https://app.omie.com.br/api/v1/servicos/osdocs/?WSDL</code></pre></a>
+  </div>
+  <div role="tabpanel" class="tab-pane fade" id="section-php-soap">
+    <h4>PHP SOAP client download</h4>
+    <a class="highlight" href="https://app.omie.com.br/api/v1/servicos/osdocs/?PHPSOAPCLIENT""><pre><code>https://app.omie.com.br/api/v1/servicos/osdocs/?PHPSOAPCLIENT</code></pre></a>
+  </div>
+  <div role="tabpanel" class="tab-pane fade" id="section-json">
+    <h4>JSON client download URI</h4>
+    <h5>PHP</h5>
+    <a class="highlight" href="https://app.omie.com.br/api/v1/servicos/osdocs/?PHPJSONCLIENT"><pre><code>https://app.omie.com.br/api/v1/servicos/osdocs/?PHPJSONCLIENT</code></pre></a>
+    <h5>JavaScript (recomendado para uso apenas do lado do servidor)</h5>
+    <a class="highlight" href="https://app.omie.com.br/api/v1/servicos/osdocs/?JSJSONCLIENT"><pre><code>https://app.omie.com.br/api/v1/servicos/osdocs/?JSJSONCLIENT</code></pre></a>
+  </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="container">
+<div class="row">
+<div class="col-md-9">
+<h2>M&eacute;todos</h2>
+<p>Veja abaixo a documenta&ccedil;&atilde;o de cada m&eacute;todo dispon&iacute;vel para este servi&ccedil;o.</p>
+<div id="ObterDemonst" class="methodItem">
+<h3 class="method-name">ObterDemonst</h3>
+<p>
+
+</p>
+<div class="panel panel-default method">
+<div class="panel-heading"> Par&acirc;metros:
+</div>
+<table class="table table-condensed table-hover">
+<tr>
+<td class="">&nbsp;</td>
+<td class="method-parameter-type"><a href="#ObterDemonstRequest">ObterDemonstRequest</a></td>
+<td class="method-parameter-name">ObterDemonstRequest</td><td class="method-parameter-docs"><div class="first">Solicita as informações de um Demonstrativo.</div></td>
+</tr>
+</table>
+<div class="panel-footer">
+Retorno <span class="pre"><a href="#ObterDemonstResponse"><span class="lightBlue">ObterDemonstResponse</span></a></span>: 
+</div>
+</div>
+<div class="method-example-area">
+<h5>Exemplo:</h5>
+<pre class="method-example-code">{<BR>   "nIdNf": 0<BR>}</pre>
+<button class="btn btn-success method-example" data-method="ObterDemonst" data-example="%7B+++%22nIdNf%22%3A+0%7D">Teste agora mesmo</button>
+</div>
+</div>
+<div id="ObterNFSe" class="methodItem">
+<h3 class="method-name">ObterNFSe</h3>
+<p>
+
+</p>
+<div class="panel panel-default method">
+<div class="panel-heading"> Par&acirc;metros:
+</div>
+<table class="table table-condensed table-hover">
+<tr>
+<td class="">&nbsp;</td>
+<td class="method-parameter-type"><a href="#ObterNFSeRequest">ObterNFSeRequest</a></td>
+<td class="method-parameter-name">ObterNFSeRequest</td><td class="method-parameter-docs"><div class="first">Solicita as informações de uma NFS-e</div></td>
+</tr>
+</table>
+<div class="panel-footer">
+Retorno <span class="pre"><a href="#ObterNFSeResponse"><span class="lightBlue">ObterNFSeResponse</span></a></span>: 
+</div>
+</div>
+<div class="method-example-area">
+<h5>Exemplo:</h5>
+<pre class="method-example-code">{<BR>   "nIdNf": 0<BR>}</pre>
+<button class="btn btn-success method-example" data-method="ObterNFSe" data-example="%7B+++%22nIdNf%22%3A+0%7D">Teste agora mesmo</button>
+</div>
+</div>
+<div id="ObterOS" class="methodItem">
+<h3 class="method-name">ObterOS</h3>
+<p>
+
+</p>
+<div class="panel panel-default method">
+<div class="panel-heading"> Par&acirc;metros:
+</div>
+<table class="table table-condensed table-hover">
+<tr>
+<td class="">&nbsp;</td>
+<td class="method-parameter-type"><a href="#ObterOsRequest">ObterOsRequest</a></td>
+<td class="method-parameter-name">ObterOsRequest</td><td class="method-parameter-docs"><div class="first">Solicita as informações de uma Ordem de Serviço</div></td>
+</tr>
+</table>
+<div class="panel-footer">
+Retorno <span class="pre"><a href="#ObterOsResponse"><span class="lightBlue">ObterOsResponse</span></a></span>: 
+</div>
+</div>
+<div class="method-example-area">
+<h5>Exemplo:</h5>
+<pre class="method-example-code">{<BR>   "nIdOs": 0<BR>}</pre>
+<button class="btn btn-success method-example" data-method="ObterOS" data-example="%7B+++%22nIdOs%22%3A+0%7D">Teste agora mesmo</button>
+</div>
+</div>
+<div id="ObterRPS" class="methodItem">
+<h3 class="method-name">ObterRPS</h3>
+<p>
+
+</p>
+<div class="panel panel-default method">
+<div class="panel-heading"> Par&acirc;metros:
+</div>
+<table class="table table-condensed table-hover">
+<tr>
+<td class="">&nbsp;</td>
+<td class="method-parameter-type"><a href="#ObterRPSRequest">ObterRPSRequest</a></td>
+<td class="method-parameter-name">ObterRPSRequest</td><td class="method-parameter-docs"><div class="first">Solicita as informações de um RPS.</div></td>
+</tr>
+</table>
+<div class="panel-footer">
+Retorno <span class="pre"><a href="#ObterRPSResponse"><span class="lightBlue">ObterRPSResponse</span></a></span>: 
+</div>
+</div>
+<div class="method-example-area">
+<h5>Exemplo:</h5>
+<pre class="method-example-code">{<BR>   "nIdNf": 0<BR>}</pre>
+<button class="btn btn-success method-example" data-method="ObterRPS" data-example="%7B+++%22nIdNf%22%3A+0%7D">Teste agora mesmo</button>
+</div>
+</div>
+<div id="ObterRecibo" class="methodItem">
+<h3 class="method-name">ObterRecibo</h3>
+<p>
+
+</p>
+<div class="panel panel-default method">
+<div class="panel-heading"> Par&acirc;metros:
+</div>
+<table class="table table-condensed table-hover">
+<tr>
+<td class="">&nbsp;</td>
+<td class="method-parameter-type"><a href="#ObterReciboRequest">ObterReciboRequest</a></td>
+<td class="method-parameter-name">ObterReciboRequest</td><td class="method-parameter-docs"><div class="first">Solicita as informaçoes de um recibo</div></td>
+</tr>
+</table>
+<div class="panel-footer">
+Retorno <span class="pre"><a href="#ObterReciboResponse"><span class="lightBlue">ObterReciboResponse</span></a></span>: 
+</div>
+</div>
+<div class="method-example-area">
+<h5>Exemplo:</h5>
+<pre class="method-example-code">{<BR>   "nIdRec": 0 <BR>}</pre>
+<button class="btn btn-success method-example" data-method="ObterRecibo" data-example="%7B+++%22nIdRec%22%3A+0+%7D">Teste agora mesmo</button>
+</div>
+</div>
+<div id="ObterViaUnica" class="methodItem">
+<h3 class="method-name">ObterViaUnica</h3>
+<p>
+
+</p>
+<div class="panel panel-default method">
+<div class="panel-heading"> Par&acirc;metros:
+</div>
+<table class="table table-condensed table-hover">
+<tr>
+<td class="">&nbsp;</td>
+<td class="method-parameter-type"><a href="#ObterViaUnicaRequest">ObterViaUnicaRequest</a></td>
+<td class="method-parameter-name">ObterViaUnicaRequest</td><td class="method-parameter-docs"><div class="first">Solicita as informações de uma nota fiscal Via Única</div></td>
+</tr>
+</table>
+<div class="panel-footer">
+Retorno <span class="pre"><a href="#ObterViaUnicaResponse"><span class="lightBlue">ObterViaUnicaResponse</span></a></span>: 
+</div>
+</div>
+<div class="method-example-area">
+<h5>Exemplo:</h5>
+<pre class="method-example-code">{<BR>   "nIdNf": 0<BR>}</pre>
+<button class="btn btn-success method-example" data-method="ObterViaUnica" data-example="%7B+++%22nIdNf%22%3A+0%7D">Teste agora mesmo</button>
+</div>
+</div>
+<h2>Tipos Complexos</h2>
+<div class="complexTypeItem">
+<a name="ObterDemonstRequest" class="anchorScroll"></a>
+<h3>ObterDemonstRequest</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">nIdNf</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">ID do documento fiscal.</div><div class="more"><a href="javascript:void(0)">+</a><div>Essa informação pode ser obtida pela API:<BR>/api/v1/mobile/faturamento/<BR>Retornado na tag 'nIdDoc'<BR><BR>Preenchimento obrigatório.</div></div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="ObterDemonstResponse" class="anchorScroll"></a>
+<h3>ObterDemonstResponse</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">cNumOs</td>
+<td class="parameter-type">string<span class="parameter-lenght">15</span></td><td class="parameter-docs"><div class="first">Número da Ordem de Serviço.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cPdfDemonst</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Link para obter o PDF do Demonstrativo.</div><div class="more"><a href="javascript:void(0)">+</a><div></div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cLinkPortal</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Link para acessar os documentos no portal Omie.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCodStatus</td>
+<td class="parameter-type">string<span class="parameter-lenght">4</span></td><td class="parameter-docs"><div class="first">Código do status do processamento.</div><div class="more"><a href="javascript:void(0)">+</a><div>Se o retorno for '0' significa que a solicitação foi executada com sucesso.<BR>Se o retorno for maior que '0' ocorreu algum erro durante o processamento da solicitação.<BR>A tag 'cDesStatus' descreve o problema ocorrido.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cDesStatus</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Descrição do status do processamento.</div><div class="more"><a href="javascript:void(0)">+</a><div>Essa tag explica o resultado da tag 'cCodigoStatus'.</div></div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="ObterNFSeRequest" class="anchorScroll"></a>
+<h3>ObterNFSeRequest</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">nIdNf</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">ID do documento fiscal.</div><div class="more"><a href="javascript:void(0)">+</a><div>Essa informação pode ser obtida pela API:<BR>/api/v1/mobile/faturamento/<BR>Retornado na tag 'nIdDoc'<BR><BR>Preenchimento obrigatório.</div></div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="ObterNFSeResponse" class="anchorScroll"></a>
+<h3>ObterNFSeResponse</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">cNumOs</td>
+<td class="parameter-type">string<span class="parameter-lenght">15</span></td><td class="parameter-docs"><div class="first">Número da Ordem de Serviço.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cNumNFSe</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Número da NFS-e.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cSerieNFSe</td>
+<td class="parameter-type">string<span class="parameter-lenght">5</span></td><td class="parameter-docs"><div class="first">Série da NFS-e.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cLinkPortal</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Link para acessar os documentos no portal Omie.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCodVerif</td>
+<td class="parameter-type">string<span class="parameter-lenght">50</span></td><td class="parameter-docs"><div class="first">Código de Verificação da NFS-e.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cUrlNFSe</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Link para obter a NFS-e na prefeitura.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cPdfNFSe</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Link para obter o PDF da NFS-e</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cXmlNFSe</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">XML da NFS-e.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCodStatus</td>
+<td class="parameter-type">string<span class="parameter-lenght">4</span></td><td class="parameter-docs"><div class="first">Código do status do processamento.</div><div class="more"><a href="javascript:void(0)">+</a><div>Se o retorno for '0' significa que a solicitação foi executada com sucesso.<BR>Se o retorno for maior que '0' ocorreu algum erro durante o processamento da solicitação.<BR>A tag 'cDesStatus' descreve o problema ocorrido.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cDesStatus</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Descrição do status do processamento.</div><div class="more"><a href="javascript:void(0)">+</a><div>Essa tag explica o resultado da tag 'cCodigoStatus'.</div></div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="ObterOsRequest" class="anchorScroll"></a>
+<h3>ObterOsRequest</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">nIdOs</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Filtra os registros pelo ID.</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="ObterOsResponse" class="anchorScroll"></a>
+<h3>ObterOsResponse</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">cNumOs</td>
+<td class="parameter-type">string<span class="parameter-lenght">15</span></td><td class="parameter-docs"><div class="first">Número da Ordem de Serviço.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cPdfOs</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Link para obter o PDF da Ordem de Serviço.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cLinkPortal</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Link para acessar os documentos no portal Omie.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCodStatus</td>
+<td class="parameter-type">string<span class="parameter-lenght">4</span></td><td class="parameter-docs"><div class="first">Código do status do processamento.</div><div class="more"><a href="javascript:void(0)">+</a><div>Se o retorno for '0' significa que a solicitação foi executada com sucesso.<BR>Se o retorno for maior que '0' ocorreu algum erro durante o processamento da solicitação.<BR>A tag 'cDesStatus' descreve o problema ocorrido.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cDesStatus</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Descrição do status do processamento.</div><div class="more"><a href="javascript:void(0)">+</a><div>Essa tag explica o resultado da tag 'cCodigoStatus'.</div></div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="ObterRPSRequest" class="anchorScroll"></a>
+<h3>ObterRPSRequest</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">nIdNf</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">ID do documento fiscal.</div><div class="more"><a href="javascript:void(0)">+</a><div>Essa informação pode ser obtida pela API:<BR>/api/v1/mobile/faturamento/<BR>Retornado na tag 'nIdDoc'<BR><BR>Preenchimento obrigatório.</div></div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="ObterRPSResponse" class="anchorScroll"></a>
+<h3>ObterRPSResponse</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">cNumOs</td>
+<td class="parameter-type">string<span class="parameter-lenght">15</span></td><td class="parameter-docs"><div class="first">Número da Ordem de Serviço.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cNumRPS</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Número do RPS.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cSerieRPS</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Série do RPS.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cPdfRPS</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Link para obter o PDF do RPS.</div><div class="more"><a href="javascript:void(0)">+</a><div></div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cLinkPortal</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Link para acessar os documentos no portal Omie.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCodStatus</td>
+<td class="parameter-type">string<span class="parameter-lenght">4</span></td><td class="parameter-docs"><div class="first">Código do status do processamento.</div><div class="more"><a href="javascript:void(0)">+</a><div>Se o retorno for '0' significa que a solicitação foi executada com sucesso.<BR>Se o retorno for maior que '0' ocorreu algum erro durante o processamento da solicitação.<BR>A tag 'cDesStatus' descreve o problema ocorrido.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cDesStatus</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Descrição do status do processamento.</div><div class="more"><a href="javascript:void(0)">+</a><div>Essa tag explica o resultado da tag 'cCodigoStatus'.</div></div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="ObterReciboRequest" class="anchorScroll"></a>
+<h3>ObterReciboRequest</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">nIdRec</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">ID do recibo.</div><div class="more"><a href="javascript:void(0)">+</a><div>Informe aqui o ID do recibo.<BR><BR>Essa informação pode ser obtida pela API:<BR>api/v1/servicos/os/#osStatus<BR><BR>preenchimento obrigatório.</div></div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="ObterReciboResponse" class="anchorScroll"></a>
+<h3>ObterReciboResponse</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">cNumOs</td>
+<td class="parameter-type">string<span class="parameter-lenght">15</span></td><td class="parameter-docs"><div class="first">Número da Ordem de Serviço.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cNumRecibo</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Número do recibo</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cPdfRecibo</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Link para obter o PDF do recibo</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cLinkPortal</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Link para acessar os documentos no portal Omie.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCodStatus</td>
+<td class="parameter-type">string<span class="parameter-lenght">4</span></td><td class="parameter-docs"><div class="first">Código do status do processamento.</div><div class="more"><a href="javascript:void(0)">+</a><div>Se o retorno for '0' significa que a solicitação foi executada com sucesso.<BR>Se o retorno for maior que '0' ocorreu algum erro durante o processamento da solicitação.<BR>A tag 'cDesStatus' descreve o problema ocorrido.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cDesStatus</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Descrição do status do processamento.</div><div class="more"><a href="javascript:void(0)">+</a><div>Essa tag explica o resultado da tag 'cCodigoStatus'.</div></div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="ObterViaUnicaRequest" class="anchorScroll"></a>
+<h3>ObterViaUnicaRequest</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">nIdNf</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">ID do documento fiscal.</div><div class="more"><a href="javascript:void(0)">+</a><div>Essa informação pode ser obtida pela API:<BR>/api/v1/mobile/faturamento/<BR>Retornado na tag 'nIdDoc'<BR><BR>Preenchimento obrigatório.</div></div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="ObterViaUnicaResponse" class="anchorScroll"></a>
+<h3>ObterViaUnicaResponse</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">cNumOs</td>
+<td class="parameter-type">string<span class="parameter-lenght">15</span></td><td class="parameter-docs"><div class="first">Número da Ordem de Serviço.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cNumViaUnica</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Número da nota fiscal Via Única.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cSerieViaUnica</td>
+<td class="parameter-type">string<span class="parameter-lenght">5</span></td><td class="parameter-docs"><div class="first">Série da nota fiscal Via Única.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cModelo</td>
+<td class="parameter-type">string<span class="parameter-lenght">2</span></td><td class="parameter-docs"><div class="first">Modelo da nota fiscal Via Única.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cPdfViaUnica</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Link para obter o PDF da nota fiscal Via Única.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cLinkPortal</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Link para acessar os documentos no portal Omie.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCodStatus</td>
+<td class="parameter-type">string<span class="parameter-lenght">4</span></td><td class="parameter-docs"><div class="first">Código do status do processamento.</div><div class="more"><a href="javascript:void(0)">+</a><div>Se o retorno for '0' significa que a solicitação foi executada com sucesso.<BR>Se o retorno for maior que '0' ocorreu algum erro durante o processamento da solicitação.<BR>A tag 'cDesStatus' descreve o problema ocorrido.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cDesStatus</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Descrição do status do processamento.</div><div class="more"><a href="javascript:void(0)">+</a><div>Essa tag explica o resultado da tag 'cCodigoStatus'.</div></div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="omie_fail" class="anchorScroll"></a>
+<h3>omie_fail</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">code</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Codigo do erro</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">description</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Descricao do erro</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-required">referer</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Origem do erro</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-required">fatal</td>
+<td class="parameter-type">boolean</td><td class="parameter-docs"><div class="first">Indica se eh um erro fatal</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="osObterRequest" class="anchorScroll"></a>
+<h3>osObterRequest</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">cEtapa</td>
+<td class="parameter-type">string<span class="parameter-lenght">2</span></td><td class="parameter-docs"><div class="first">Código da Etapa.</div><div class="more"><a href="javascript:void(0)">+</a><div>Valores possíveis:</div></div></td>
+<tr>
+</table>
+</div>
+</div>
+<div class="col-md-3">
+<div id="affix-menu" data-spy="affix" data-offset-top="294">
+<h2>M&eacute;todos</h2>
+<nav id="index" class="hidden-print hidden-xs hidden-sm">
+<ul class="nav">
+<li><a href="#ObterDemonst">ObterDemonst</a></li>
+<li><a href="#ObterNFSe">ObterNFSe</a></li>
+<li><a href="#ObterOS">ObterOS</a></li>
+<li><a href="#ObterRPS">ObterRPS</a></li>
+<li><a href="#ObterRecibo">ObterRecibo</a></li>
+<li><a href="#ObterViaUnica">ObterViaUnica</a></li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+</body>
+</html>

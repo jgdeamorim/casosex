@@ -1,0 +1,1031 @@
+<nav class="navbar navbar-expand-lg bg-azul">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="https://developer.omie.com.br/">
+            <img class="lozad img-logo" data-src="https://static.omie.com.br/images/logo/logo-omie-topo.png" src="https://static.omie.com.br/images/logo/logo-omie-topo.png" data-loaded="true">
+        </a>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <span class="borda-hover"></span>
+                    <a class="nav-link" href="https://developer.omie.com.br/my-apps/"> Aplicativos </a>
+                </li>
+                <li class="nav-item ">
+                    <span class="borda-hover"></span>
+                    <a class="nav-link" href="https://developer.omie.com.br/service-list/">
+                        Lista das API's
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <span class="borda-hover"></span>
+                    <a class="nav-link" href="https://ajuda.omie.com.br/pt-BR/collections/3045828-apis" target="_blank"> Ajuda </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<html>
+<head>
+<title>ResumoFinancas</title>
+<style type="text/css" media="all">
+  [id] { scroll-margin-top: 68px; }
+</style>
+<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+<script src="https://cdn.omie.com.br/omie-assets/js/omie-compat-v2.min.js"></script>
+<script src="/developer/themes/omie/developer.js?ts=2021.008"></script>
+<link rel="stylesheet" href="//app.omie.com.br/wp-content/themes/omie/bootstrap/css/bootstrap.min.css" async/>
+<link href="https://cdn.omie.com.br/assets/developer/css/site.css?ts=2021.008" media="all" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="/developer/themes/omie/developer.css?ts=2021.008" async/>
+</head>
+<body>
+<div class="jumbotron banner bg-azul">
+<div class="container">
+<img src="https://cdn.omie.com.br/assets/developer/images/seta-azuis.png" alt="" class="img-setas">
+<div class="row align-items-center">
+<div class="col-12">
+<h1>ResumoFinancas</h1>
+<ul class="nav nav-tabs" role="tablist">
+  <li role="presentation" class="active"><a href="#section-endpoint" aria-controls="section-endpoint" role="tab" data-toggle="tab">Endpoint</a></li>
+  <li role="presentation" class="pull-right"><a href="#section-wsdl" aria-controls="section-wsdl" role="tab" data-toggle="tab">WSDL</a></li>
+  <li role="presentation" class="pull-right"><a href="#section-php-soap" aria-controls="section-php-soap" role="tab" data-toggle="tab">PHP SOAP</a></li>
+  <li role="presentation" class="pull-right"><a href="#section-json" aria-controls="section-json" role="tab" data-toggle="tab">JSON</a></li>
+</ul>
+<div class="tab-content">
+  <div role="tabpanel" class="tab-pane fade in active" id="section-endpoint">
+    <h4>Endpoint URI</h4>
+    <a class="highlight" href="https://app.omie.com.br/api/v1/financas/resumo/"><pre><code>https://app.omie.com.br/api/v1/financas/resumo/</code></pre></a>
+  </div>
+  <div role="tabpanel" class="tab-pane fade" id="section-wsdl">
+    <h4>WSDL URI</h4>
+    <a class="highlight" href="https://app.omie.com.br/api/v1/financas/resumo/?WSDL"><pre><code>https://app.omie.com.br/api/v1/financas/resumo/?WSDL</code></pre></a>
+  </div>
+  <div role="tabpanel" class="tab-pane fade" id="section-php-soap">
+    <h4>PHP SOAP client download</h4>
+    <a class="highlight" href="https://app.omie.com.br/api/v1/financas/resumo/?PHPSOAPCLIENT""><pre><code>https://app.omie.com.br/api/v1/financas/resumo/?PHPSOAPCLIENT</code></pre></a>
+  </div>
+  <div role="tabpanel" class="tab-pane fade" id="section-json">
+    <h4>JSON client download URI</h4>
+    <h5>PHP</h5>
+    <a class="highlight" href="https://app.omie.com.br/api/v1/financas/resumo/?PHPJSONCLIENT"><pre><code>https://app.omie.com.br/api/v1/financas/resumo/?PHPJSONCLIENT</code></pre></a>
+    <h5>JavaScript (recomendado para uso apenas do lado do servidor)</h5>
+    <a class="highlight" href="https://app.omie.com.br/api/v1/financas/resumo/?JSJSONCLIENT"><pre><code>https://app.omie.com.br/api/v1/financas/resumo/?JSJSONCLIENT</code></pre></a>
+  </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="container">
+<div class="row">
+<div class="col-md-9">
+<h2>M&eacute;todos</h2>
+<p>Veja abaixo a documenta&ccedil;&atilde;o de cada m&eacute;todo dispon&iacute;vel para este servi&ccedil;o.</p>
+<div id="ObterDetalhesLancamento" class="methodItem">
+<h3 class="method-name">ObterDetalhesLancamento</h3>
+<p>
+
+</p>
+<div class="panel panel-default method">
+<div class="panel-heading"> Par&acirc;metros:
+</div>
+<table class="table table-condensed table-hover">
+<tr>
+<td class="">&nbsp;</td>
+<td class="method-parameter-type"><a href="#ObterDetalhesLancamentoRequest">ObterDetalhesLancamentoRequest</a></td>
+<td class="method-parameter-name">ObterDetalhesLancamentoRequest</td><td class="method-parameter-docs"><div class="first">Solicitação dos detalhes de um lançamento em aberto.</div></td>
+</tr>
+</table>
+<div class="panel-footer">
+Retorno <span class="pre"><a href="#ObterDetalhesLancamentoResponse"><span class="lightBlue">ObterDetalhesLancamentoResponse</span></a></span>: 
+</div>
+</div>
+<div class="method-example-area">
+<h5>Exemplo:</h5>
+<pre class="method-example-code">{<BR>    "nIdTitulo": 0<BR>}</pre>
+<button class="btn btn-success method-example" data-method="ObterDetalhesLancamento" data-example="%7B++++%22nIdTitulo%22%3A+0%7D">Teste agora mesmo</button>
+</div>
+</div>
+<div id="ObterListaEmAberto" class="methodItem">
+<h3 class="method-name">ObterListaEmAberto</h3>
+<p>
+
+</p>
+<div class="panel panel-default method">
+<div class="panel-heading"> Par&acirc;metros:
+</div>
+<table class="table table-condensed table-hover">
+<tr>
+<td class="">&nbsp;</td>
+<td class="method-parameter-type"><a href="#ObterListaEmAbertoRequest">ObterListaEmAbertoRequest</a></td>
+<td class="method-parameter-name">ObterListaEmAbertoRequest</td><td class="method-parameter-docs"><div class="first">Solicitação da listagem de lançamentos em aberto.</div></td>
+</tr>
+</table>
+<div class="panel-footer">
+Retorno <span class="pre"><a href="#ObterListaEmAbertoResponse"><span class="lightBlue">ObterListaEmAbertoResponse</span></a></span>: 
+</div>
+</div>
+<div class="method-example-area">
+<h5>Exemplo:</h5>
+<pre class="method-example-code">{<BR>   "dDia": "01/09/2026",<BR>   "cTipo": "P",<BR>   "nPagina": 1,<BR>   "nRegPorPagina": 50<BR>}</pre>
+<button class="btn btn-success method-example" data-method="ObterListaEmAberto" data-example="%7B+++%22dDia%22%3A+%2201%2F09%2F2026%22%2C+++%22cTipo%22%3A+%22P%22%2C+++%22nPagina%22%3A+1%2C+++%22nRegPorPagina%22%3A+50%7D">Teste agora mesmo</button>
+</div>
+</div>
+<div id="ObterListaFinancas" class="methodItem">
+<h3 class="method-name">ObterListaFinancas</h3>
+<p>
+
+</p>
+<div class="panel panel-default method">
+<div class="panel-heading"> Par&acirc;metros:
+</div>
+<table class="table table-condensed table-hover">
+<tr>
+<td class="">&nbsp;</td>
+<td class="method-parameter-type"><a href="#ObterListaFinancasRequest">ObterListaFinancasRequest</a></td>
+<td class="method-parameter-name">ObterListaFinancasRequest</td><td class="method-parameter-docs"><div class="first">Solicitação da listagem de lançamentos.</div></td>
+</tr>
+</table>
+<div class="panel-footer">
+Retorno <span class="pre"><a href="#ObterListaFinancasResponse"><span class="lightBlue">ObterListaFinancasResponse</span></a></span>: 
+</div>
+</div>
+<div class="method-example-area">
+<h5>Exemplo:</h5>
+<pre class="method-example-code">{<BR>   "dDia": "01/09/2026",<BR>   "cCodCateg": "1.01.01",<BR>   "cTipo": "R"<BR>}</pre>
+<button class="btn btn-success method-example" data-method="ObterListaFinancas" data-example="%7B+++%22dDia%22%3A+%2201%2F09%2F2026%22%2C+++%22cCodCateg%22%3A+%221.01.01%22%2C+++%22cTipo%22%3A+%22R%22%7D">Teste agora mesmo</button>
+</div>
+</div>
+<div id="ObterResumoFinancas" class="methodItem">
+<h3 class="method-name">ObterResumoFinancas</h3>
+<p>
+
+</p>
+<div class="panel panel-default method">
+<div class="panel-heading"> Par&acirc;metros:
+</div>
+<table class="table table-condensed table-hover">
+<tr>
+<td class="">&nbsp;</td>
+<td class="method-parameter-type"><a href="#ObterResumoFinRequest">ObterResumoFinRequest</a></td>
+<td class="method-parameter-name">ObterResumoFinRequest</td><td class="method-parameter-docs"><div class="first">Solicitação do resumo de finanças</div></td>
+</tr>
+</table>
+<div class="panel-footer">
+Retorno <span class="pre"><a href="#ObterResumoFinResponse"><span class="lightBlue">ObterResumoFinResponse</span></a></span>: 
+</div>
+</div>
+<div class="method-example-area">
+<h5>Exemplo:</h5>
+<pre class="method-example-code">{<BR>  "dDia": "01/09/2026",<BR>  "lApenasResumo": true<BR>}</pre>
+<button class="btn btn-success method-example" data-method="ObterResumoFinancas" data-example="%7B++%22dDia%22%3A+%2201%2F09%2F2026%22%2C++%22lApenasResumo%22%3A+true%7D">Teste agora mesmo</button>
+</div>
+</div>
+<h2>Tipos Complexos</h2>
+<div class="complexTypeItem">
+<a name="ListaEmEberto" class="anchorScroll"></a>
+<h3>ListaEmEberto</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">nIdTitulo</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código do lançamento.</div><div class="more"><a href="javascript:void(0)">+</a><div>(Gerado internamente, não é visualizado na tela)</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nIdCliente</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código do cliente/Forncedor.</div><div class="more"><a href="javascript:void(0)">+</a><div>(Gerado internamente, não é visualizado na tela)</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cNomeCliente</td>
+<td class="parameter-type">string<span class="parameter-lenght">100</span></td><td class="parameter-docs"><div class="first">Nome do Cliente/Fornecedor.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">vDoc</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Valor do lançamento.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">dVencimento</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Data de vencimento.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">dEmissao</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Data de emissão.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCodCateg</td>
+<td class="parameter-type">string<span class="parameter-lenght">20</span></td><td class="parameter-docs"><div class="first">Código da Categoria</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cDescCateg</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Descrição da categoria.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nDiasAtraso</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Dias de atraso do lançamento.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nQtdeAnexos</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Indica a quantidade de anexos.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cIcone</td>
+<td class="parameter-type">string<span class="parameter-lenght">100</span></td><td class="parameter-docs"><div class="first">Unicode do Ícone.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCor</td>
+<td class="parameter-type">string<span class="parameter-lenght">100</span></td><td class="parameter-docs"><div class="first">Hexadecimal da cor.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cUrlLogoBanco</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">URL da Imagem do Logo do Banco.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cBolGerado</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Indica se o boleto foi gerado.</div><div class="more"><a href="javascript:void(0)">+</a><div>Retornado apenas para contas a receber.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cBolPodeGerar</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Indica se o boleto pode ser gerado. (S/N)</div><div class="more"><a href="javascript:void(0)">+</a><div>Retornado apenas para contas a receber.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cPixGerado</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Indica se o PIX foi gerado.</div><div class="more"><a href="javascript:void(0)">+</a><div>Retornado apenas para contas a receber.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cPixPodeGerar</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Indica se o PIX pode ser gerado. (S/N)</div><div class="more"><a href="javascript:void(0)">+</a><div>Retornado apenas para contas a receber.</div></div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="ListaEmEbertoArray" class="anchorScroll"></a>
+<h3>ListaEmEbertoArray</h3>
+<p>Este par&acirc;metro &eacute; um array do tipo <span class="pre"><a href="#ListaEmEberto"><span class="lightBlue">ListaEmEberto</span></a></span></p>
+<p>Lista de ListaEmEberto</p>
+</div>
+<div class="complexTypeItem">
+<a name="ObterDetalhesLancamentoRequest" class="anchorScroll"></a>
+<h3>ObterDetalhesLancamentoRequest</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">nIdTitulo</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código do lançamento.</div><div class="more"><a href="javascript:void(0)">+</a><div>(Gerado internamente, não é visualizado na tela)</div></div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="ObterDetalhesLancamentoResponse" class="anchorScroll"></a>
+<h3>ObterDetalhesLancamentoResponse</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">cTipoLanc</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Tipo do lançamento retornado.</div><div class="more"><a href="javascript:void(0)">+</a><div>P - Lançamento a Pagar<BR>R - Lançamento a Receber</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nIdTitulo</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código do lançamento.</div><div class="more"><a href="javascript:void(0)">+</a><div>(Gerado internamente, não é visualizado na tela)</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nIdCliente</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código do cliente/Forncedor.</div><div class="more"><a href="javascript:void(0)">+</a><div>(Gerado internamente, não é visualizado na tela)</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cNomeCliente</td>
+<td class="parameter-type">string<span class="parameter-lenght">100</span></td><td class="parameter-docs"><div class="first">Nome do Cliente/Fornecedor.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCodCateg</td>
+<td class="parameter-type">string<span class="parameter-lenght">20</span></td><td class="parameter-docs"><div class="first">Código da Categoria</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cDescCateg</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Descrição da categoria.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cDescCtaCorr</td>
+<td class="parameter-type">string<span class="parameter-lenght">40</span></td><td class="parameter-docs"><div class="first">Descrição da conta corrente.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">dEmissao</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Data de emissão.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">dVencimento</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Data de vencimento.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">dPrevisao</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Data de previsão do lançamento.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nDiasAtraso</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Dias de atraso do lançamento.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">vDoc</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Valor do lançamento.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cUrlLogoBanco</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">URL da Imagem do Logo do Banco.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cSituacao</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Situação do lançamento.</div><div class="more"><a href="javascript:void(0)">+</a><div>Ex: Atrasado desde 30/10 Qua</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCor</td>
+<td class="parameter-type">string<span class="parameter-lenght">100</span></td><td class="parameter-docs"><div class="first">Hexadecimal da cor.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cIcone</td>
+<td class="parameter-type">string<span class="parameter-lenght">100</span></td><td class="parameter-docs"><div class="first">Unicode do Ícone.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nQtdeAnexos</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Indica a quantidade de anexos.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">listaAnexos</td>
+<td class="parameter-type"><a href="#listaAnexosArray">listaAnexosArray</a></td><td class="parameter-docs"><div class="first">Lista de anexos do lançamento.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cBolGerado</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Indica se o boleto foi gerado.</div><div class="more"><a href="javascript:void(0)">+</a><div>Retornado apenas para contas a receber.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cBolPodeGerar</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Indica se o boleto pode ser gerado. (S/N)</div><div class="more"><a href="javascript:void(0)">+</a><div>Retornado apenas para contas a receber.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">boletoInfo</td>
+<td class="parameter-type"><a href="#boletoInfo">boletoInfo</a></td><td class="parameter-docs"><div class="first">Detalhes do boleto gerado.</div><div class="more"><a href="javascript:void(0)">+</a><div>Retornado apenas para contas a receber.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cPixGerado</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Indica se o PIX foi gerado.</div><div class="more"><a href="javascript:void(0)">+</a><div>Retornado apenas para contas a receber.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cPixPodeGerar</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Indica se o PIX pode ser gerado. (S/N)</div><div class="more"><a href="javascript:void(0)">+</a><div>Retornado apenas para contas a receber.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">pixInfo</td>
+<td class="parameter-type"><a href="#pixInfo">pixInfo</a></td><td class="parameter-docs"><div class="first">Detalhes do boleto gerado.</div><div class="more"><a href="javascript:void(0)">+</a><div>Retornado apenas para contas a receber.</div></div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="ObterListaEmAbertoRequest" class="anchorScroll"></a>
+<h3>ObterListaEmAbertoRequest</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">dDia</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Informe aqui a data de registro para listar os lançamentos.</div><div class="more"><a href="javascript:void(0)">+</a><div>Default data atual.<BR><BR>Preenchimento opcional.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cTipo</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Informe aqui o tipo de Lançamento.</div><div class="more"><a href="javascript:void(0)">+</a><div>Pode ser:<BR>P - Lançamentos a Pagar.<BR>R - Lançamentos a Receber.<BR><BR>Preenchimento Obrigatório.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nCodCliente</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código de Cliente / Fornecedor</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cNomeCliente</td>
+<td class="parameter-type">string<span class="parameter-lenght">100</span></td><td class="parameter-docs"><div class="first">Nome do Cliente/Fornecedor.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nRegPorPagina</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Número da página que será listada.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nPagina</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Número da página que será listada.</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="ObterListaEmAbertoResponse" class="anchorScroll"></a>
+<h3>ObterListaEmAbertoResponse</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">ListaEmEberto</td>
+<td class="parameter-type"><a href="#ListaEmEbertoArray">ListaEmEbertoArray</a></td><td class="parameter-docs"><div class="first">Lista de Lançamentos em aberto.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nRegistros</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Número de registros retornados</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nPagina</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Número da página que será listada.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nTotPaginas</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Total de páginas encontradas.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nTotRegistros</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Total de registros encontrados.</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="ObterListaFinancasRequest" class="anchorScroll"></a>
+<h3>ObterListaFinancasRequest</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">dDia</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Informe aqui a data de registro para listar os lançamentos.</div><div class="more"><a href="javascript:void(0)">+</a><div>Default data atual.<BR><BR>Preenchimento opcional.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCodCateg</td>
+<td class="parameter-type">string<span class="parameter-lenght">20</span></td><td class="parameter-docs"><div class="first">Código da Categoria</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cTipo</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Informe aqui o tipo de Lançamento.</div><div class="more"><a href="javascript:void(0)">+</a><div>Pode ser:<BR>P - Lançamentos a Pagar.<BR>R - Lançamentos a Receber.<BR><BR>Preenchimento Obrigatório.</div></div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="ObterListaFinancasResponse" class="anchorScroll"></a>
+<h3>ObterListaFinancasResponse</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">listaDetalhesFinancas</td>
+<td class="parameter-type"><a href="#listaDetalhesFinancasArray">listaDetalhesFinancasArray</a></td><td class="parameter-docs"><div class="first">Lista de Lançamentos.</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="ObterResumoFinRequest" class="anchorScroll"></a>
+<h3>ObterResumoFinRequest</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">dDia</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Informe aqui a data de registro para listar os lançamentos.</div><div class="more"><a href="javascript:void(0)">+</a><div>Default data atual.<BR><BR>Preenchimento opcional.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">lApenasResumo</td>
+<td class="parameter-type">boolean</td><td class="parameter-docs"><div class="first">Exibir apenas o resumo.</div><div class="more"><a href="javascript:void(0)">+</a><div>Quando true será retornado as estruturas:<BR><BR>contaCorrente<BR>contaPagar<BR>contaReceber<BR><BR>Quando false retornará todas as estruturas.<BR><BR>Default = true</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">lExibirCategoria</td>
+<td class="parameter-type">boolean</td><td class="parameter-docs"><div class="first">Exibir os valores dos lançamentos por categoria.</div><div class="more"><a href="javascript:void(0)">+</a><div>Quando true será retornado as estruturas:<BR><BR>contaPagarCategoria<BR>contaReceberCategoria<BR><BR>Default = true</div></div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="ObterResumoFinResponse" class="anchorScroll"></a>
+<h3>ObterResumoFinResponse</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">dDia</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Informe aqui a data de registro para listar os lançamentos.</div><div class="more"><a href="javascript:void(0)">+</a><div>Default data atual.<BR><BR>Preenchimento opcional.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">contaCorrente</td>
+<td class="parameter-type"><a href="#contaCorrente">contaCorrente</a></td><td class="parameter-docs"><div class="first">Exibe o total de saldo das contas correntes.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">contaPagar</td>
+<td class="parameter-type"><a href="#contaPagar">contaPagar</a></td><td class="parameter-docs"><div class="first">Exibe os totais dos lançamentos a pagar.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">contaReceber</td>
+<td class="parameter-type"><a href="#contaReceber">contaReceber</a></td><td class="parameter-docs"><div class="first">Exibe os totais dos lançamentos a receber.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">contaPagarCategoria</td>
+<td class="parameter-type"><a href="#contaPagarCategoriaArray">contaPagarCategoriaArray</a></td><td class="parameter-docs"><div class="first">Exibe os totais por categoria dos lançamentos a pagar.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">contaReceberCategoria</td>
+<td class="parameter-type"><a href="#contaReceberCategoriaArray">contaReceberCategoriaArray</a></td><td class="parameter-docs"><div class="first">Exibe os totais por categoria dos lançamentos a receber.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">contaPagarAtraso</td>
+<td class="parameter-type"><a href="#contaPagarAtrasoArray">contaPagarAtrasoArray</a></td><td class="parameter-docs"><div class="first">Exibe os lançamentos a pagar atrasados.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">contaReceberAtraso</td>
+<td class="parameter-type"><a href="#contaReceberAtrasoArray">contaReceberAtrasoArray</a></td><td class="parameter-docs"><div class="first">Exibe os lançamentos a receber atrasados.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">fluxoCaixa</td>
+<td class="parameter-type"><a href="#fluxoCaixa">fluxoCaixa</a></td><td class="parameter-docs"><div class="first">Exibe as informações de resumo do caixa.</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="boletoInfo" class="anchorScroll"></a>
+<h3>boletoInfo</h3>
+<p>Detalhes do boleto gerado.</p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">cNumBoleto</td>
+<td class="parameter-type">string<span class="parameter-lenght">30</span></td><td class="parameter-docs"><div class="first">Nosso número (sequencial).</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cNumBancario</td>
+<td class="parameter-type">string<span class="parameter-lenght">30</span></td><td class="parameter-docs"><div class="first">Nosso número impresso no boleto (formatado).</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCodBarras</td>
+<td class="parameter-type">string<span class="parameter-lenght">70</span></td><td class="parameter-docs"><div class="first">Código de barras do boleto.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cLinkBoleto</td>
+<td class="parameter-type">string<span class="parameter-lenght">500</span></td><td class="parameter-docs"><div class="first">Link do boleto.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">dEmissao</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Data de emissão.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">dVencimento</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Data de vencimento.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nPerJuros</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Percentual de juros ao mês.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nPerMulta</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Percentual de multa.</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="contaCorrente" class="anchorScroll"></a>
+<h3>contaCorrente</h3>
+<p>Exibe o total de saldo das contas correntes.</p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">vTotal</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Valor total.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">vLimiteCredito</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Valor total Saldo + Limite de Crédito.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cIcone</td>
+<td class="parameter-type">string<span class="parameter-lenght">100</span></td><td class="parameter-docs"><div class="first">Unicode do Ícone.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCor</td>
+<td class="parameter-type">string<span class="parameter-lenght">100</span></td><td class="parameter-docs"><div class="first">Hexadecimal da cor.</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="contaPagar" class="anchorScroll"></a>
+<h3>contaPagar</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">nTotal</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Quantidade de lançamentos.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">vTotal</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Valor total.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">vAtraso</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Valor total dos lançamentos em atraso.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cIcone</td>
+<td class="parameter-type">string<span class="parameter-lenght">100</span></td><td class="parameter-docs"><div class="first">Unicode do Ícone.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCor</td>
+<td class="parameter-type">string<span class="parameter-lenght">100</span></td><td class="parameter-docs"><div class="first">Hexadecimal da cor.</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="contaPagarAtraso" class="anchorScroll"></a>
+<h3>contaPagarAtraso</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">nIdTitulo</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código do lançamento.</div><div class="more"><a href="javascript:void(0)">+</a><div>(Gerado internamente, não é visualizado na tela)</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nIdCliente</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código do cliente/Forncedor.</div><div class="more"><a href="javascript:void(0)">+</a><div>(Gerado internamente, não é visualizado na tela)</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cNomeCliente</td>
+<td class="parameter-type">string<span class="parameter-lenght">100</span></td><td class="parameter-docs"><div class="first">Nome do Cliente/Fornecedor.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">vDoc</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Valor do lançamento.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">dVencimento</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Data de vencimento.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">dEmissao</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Data de emissão.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCodCateg</td>
+<td class="parameter-type">string<span class="parameter-lenght">20</span></td><td class="parameter-docs"><div class="first">Código da Categoria</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cDescCateg</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Descrição da categoria.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nDiasAtraso</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Dias de atraso do lançamento.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cIcone</td>
+<td class="parameter-type">string<span class="parameter-lenght">100</span></td><td class="parameter-docs"><div class="first">Unicode do Ícone.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCor</td>
+<td class="parameter-type">string<span class="parameter-lenght">100</span></td><td class="parameter-docs"><div class="first">Hexadecimal da cor.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cUrlLogoBanco</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">URL da Imagem do Logo do Banco.</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="contaPagarAtrasoArray" class="anchorScroll"></a>
+<h3>contaPagarAtrasoArray</h3>
+<p>Este par&acirc;metro &eacute; um array do tipo <span class="pre"><a href="#contaPagarAtraso"><span class="lightBlue">contaPagarAtraso</span></a></span></p>
+<p>Lista de contaPagarAtraso</p>
+</div>
+<div class="complexTypeItem">
+<a name="contaPagarCategoria" class="anchorScroll"></a>
+<h3>contaPagarCategoria</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">vTotal</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Valor total.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nTotal</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Quantidade total de lançamentos.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCodCateg</td>
+<td class="parameter-type">string<span class="parameter-lenght">20</span></td><td class="parameter-docs"><div class="first">Código da Categoria</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cDescCateg</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Descrição da categoria.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cIcone</td>
+<td class="parameter-type">string<span class="parameter-lenght">100</span></td><td class="parameter-docs"><div class="first">Unicode do Ícone.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCor</td>
+<td class="parameter-type">string<span class="parameter-lenght">100</span></td><td class="parameter-docs"><div class="first">Hexadecimal da cor.</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="contaPagarCategoriaArray" class="anchorScroll"></a>
+<h3>contaPagarCategoriaArray</h3>
+<p>Este par&acirc;metro &eacute; um array do tipo <span class="pre"><a href="#contaPagarCategoria"><span class="lightBlue">contaPagarCategoria</span></a></span></p>
+<p>Lista de contaPagarCategoria</p>
+</div>
+<div class="complexTypeItem">
+<a name="contaReceber" class="anchorScroll"></a>
+<h3>contaReceber</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">nTotal</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Quantidade de lançamentos.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">vTotal</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Valor total.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">vAtraso</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Valor total dos lançamentos em atraso.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cIcone</td>
+<td class="parameter-type">string<span class="parameter-lenght">100</span></td><td class="parameter-docs"><div class="first">Unicode do Ícone.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCor</td>
+<td class="parameter-type">string<span class="parameter-lenght">100</span></td><td class="parameter-docs"><div class="first">Hexadecimal da cor.</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="contaReceberAtraso" class="anchorScroll"></a>
+<h3>contaReceberAtraso</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">nIdTitulo</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código do lançamento.</div><div class="more"><a href="javascript:void(0)">+</a><div>(Gerado internamente, não é visualizado na tela)</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nIdCliente</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código do cliente/Forncedor.</div><div class="more"><a href="javascript:void(0)">+</a><div>(Gerado internamente, não é visualizado na tela)</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cNomeCliente</td>
+<td class="parameter-type">string<span class="parameter-lenght">100</span></td><td class="parameter-docs"><div class="first">Nome do Cliente/Fornecedor.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">vDoc</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Valor do lançamento.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">dVencimento</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Data de vencimento.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">dEmissao</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Data de emissão.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCodCateg</td>
+<td class="parameter-type">string<span class="parameter-lenght">20</span></td><td class="parameter-docs"><div class="first">Código da Categoria</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cDescCateg</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Descrição da categoria.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nDiasAtraso</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Dias de atraso do lançamento.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cIcone</td>
+<td class="parameter-type">string<span class="parameter-lenght">100</span></td><td class="parameter-docs"><div class="first">Unicode do Ícone.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCor</td>
+<td class="parameter-type">string<span class="parameter-lenght">100</span></td><td class="parameter-docs"><div class="first">Hexadecimal da cor.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cUrlLogoBanco</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">URL da Imagem do Logo do Banco.</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="contaReceberAtrasoArray" class="anchorScroll"></a>
+<h3>contaReceberAtrasoArray</h3>
+<p>Este par&acirc;metro &eacute; um array do tipo <span class="pre"><a href="#contaReceberAtraso"><span class="lightBlue">contaReceberAtraso</span></a></span></p>
+<p>Lista de contaReceberAtraso</p>
+</div>
+<div class="complexTypeItem">
+<a name="contaReceberCategoria" class="anchorScroll"></a>
+<h3>contaReceberCategoria</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">vTotal</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Valor total.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nTotal</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Quantidade total de lançamentos.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCodCateg</td>
+<td class="parameter-type">string<span class="parameter-lenght">20</span></td><td class="parameter-docs"><div class="first">Código da Categoria</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cDescCateg</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Descrição da categoria.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cIcone</td>
+<td class="parameter-type">string<span class="parameter-lenght">100</span></td><td class="parameter-docs"><div class="first">Unicode do Ícone.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCor</td>
+<td class="parameter-type">string<span class="parameter-lenght">100</span></td><td class="parameter-docs"><div class="first">Hexadecimal da cor.</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="contaReceberCategoriaArray" class="anchorScroll"></a>
+<h3>contaReceberCategoriaArray</h3>
+<p>Este par&acirc;metro &eacute; um array do tipo <span class="pre"><a href="#contaReceberCategoria"><span class="lightBlue">contaReceberCategoria</span></a></span></p>
+<p>Lista de contaReceberCategoria</p>
+</div>
+<div class="complexTypeItem">
+<a name="fluxoCaixa" class="anchorScroll"></a>
+<h3>fluxoCaixa</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">dDia</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Informe aqui a data de registro para listar os lançamentos.</div><div class="more"><a href="javascript:void(0)">+</a><div>Default data atual.<BR><BR>Preenchimento opcional.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">vPagar</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Valor total de títulos a pagar.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">vReceber</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Valor total de títulos a receber.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">vSaldo</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Valor total do saldo bancário.</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="listaAnexos" class="anchorScroll"></a>
+<h3>listaAnexos</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">nIdAnexo</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">ID do anexo.</div><div class="more"><a href="javascript:void(0)">+</a><div>Gerado automático na inclusão.<BR>Informe esse campo para Obter, Consultar e Excluir o anexo.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCodIntAnexo</td>
+<td class="parameter-type">string<span class="parameter-lenght">20</span></td><td class="parameter-docs"><div class="first">Código de integração do anexo.</div><div class="more"><a href="javascript:void(0)">+</a><div>(Interno, utilizado apenas na integração via API, não é exibido na tela).<BR>Utilize esse campo para informar o código do anexo utilizado no seu aplicativo quando incluir o anexo no Omie. <BR>Assim, poderá utilizar esse campo para resgatar o anexo desejado.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cNomeArquivo</td>
+<td class="parameter-type">string<span class="parameter-lenght">100</span></td><td class="parameter-docs"><div class="first">Nome do arquivo que foi adicionado.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preencha essa tag, apenas se você não tiver ou souber qual é o código de integração do anexo (tag cCodIntAnexo).<BR>Caso a tag cCodIntAnexo esteja preenchida, o conteúdo dessa tag será desconsiderado.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cTipoArquivo</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Tipo de arquivo.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cTabela</td>
+<td class="parameter-type">string<span class="parameter-lenght">100</span></td><td class="parameter-docs"><div class="first">Nome da tabela onde o anexo está incluído.</div><div class="more"><a href="javascript:void(0)">+</a><div>Pode ser: <BR>conta-pagar<BR>conta-receber</div></div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="listaAnexosArray" class="anchorScroll"></a>
+<h3>listaAnexosArray</h3>
+<p>Este par&acirc;metro &eacute; um array do tipo <span class="pre"><a href="#listaAnexos"><span class="lightBlue">listaAnexos</span></a></span></p>
+<p>Lista de listaAnexos</p>
+</div>
+<div class="complexTypeItem">
+<a name="listaDetalhesFinancas" class="anchorScroll"></a>
+<h3>listaDetalhesFinancas</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">nIdTitulo</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código do lançamento.</div><div class="more"><a href="javascript:void(0)">+</a><div>(Gerado internamente, não é visualizado na tela)</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nIdCliente</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código do cliente/Forncedor.</div><div class="more"><a href="javascript:void(0)">+</a><div>(Gerado internamente, não é visualizado na tela)</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cNomeCliente</td>
+<td class="parameter-type">string<span class="parameter-lenght">100</span></td><td class="parameter-docs"><div class="first">Nome do Cliente/Fornecedor.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">vDoc</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Valor do lançamento.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">dVencimento</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Data de vencimento.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">dEmissao</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Data de emissão.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">dPrevisao</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Data de previsão do lançamento.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nIdConta</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código da Conta Corrente.</div><div class="more"><a href="javascript:void(0)">+</a><div>(Gerado internamente, não é visualizado na tela)</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cNomeConta</td>
+<td class="parameter-type">string<span class="parameter-lenght">40</span></td><td class="parameter-docs"><div class="first">Descrição da conta corrente.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cNumDocumentoFiscal</td>
+<td class="parameter-type">string<span class="parameter-lenght">20</span></td><td class="parameter-docs"><div class="first">Número do Documento fiscal.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cNumDocumento</td>
+<td class="parameter-type">string<span class="parameter-lenght">20</span></td><td class="parameter-docs"><div class="first">Número do documento.</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="listaDetalhesFinancasArray" class="anchorScroll"></a>
+<h3>listaDetalhesFinancasArray</h3>
+<p>Este par&acirc;metro &eacute; um array do tipo <span class="pre"><a href="#listaDetalhesFinancas"><span class="lightBlue">listaDetalhesFinancas</span></a></span></p>
+<p>Lista de listaDetalhesFinancas</p>
+</div>
+<div class="complexTypeItem">
+<a name="omie_fail" class="anchorScroll"></a>
+<h3>omie_fail</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">code</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Codigo do erro</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">description</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Descricao do erro</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-required">referer</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Origem do erro</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-required">fatal</td>
+<td class="parameter-type">boolean</td><td class="parameter-docs"><div class="first">Indica se eh um erro fatal</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="pixInfo" class="anchorScroll"></a>
+<h3>pixInfo</h3>
+<p>Detalhes do boleto gerado.</p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">nIdPix</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">ID do lançamento PIX.</div><div class="more"><a href="javascript:void(0)">+</a><div>O conteúdo desse campo é o código interno gerado pelo Omie ao gerar o PIX.<BR><BR>Esse campo não é exibido na tela do Omie, mas é a chave de integração via API. <BR>É uma informação interna, utilizada apenas nas APIs.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCodIntPix</td>
+<td class="parameter-type">string<span class="parameter-lenght">60</span></td><td class="parameter-docs"><div class="first">Código do lançamento gerado pelo integrador.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento obrigatório para o método "GerarPix".</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">dEmissao</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Data de emissão.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">dVencimento</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Data de vencimento.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCopiaCola</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Código gerado a partir do QR Code para pagamento do PIX.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cUrlPix</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Link para obter o PDF do QrCode do PIX.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cStatus</td>
+<td class="parameter-type">string<span class="parameter-lenght">20</span></td><td class="parameter-docs"><div class="first">Status do PIX na API do banco.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">vValor</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Valor do PIX.</div></td>
+<tr>
+</table>
+</div>
+</div>
+<div class="col-md-3">
+<div id="affix-menu" data-spy="affix" data-offset-top="294">
+<h2>M&eacute;todos</h2>
+<nav id="index" class="hidden-print hidden-xs hidden-sm">
+<ul class="nav">
+<li><a href="#ObterDetalhesLancamento">ObterDetalhesLancamento</a></li>
+<li><a href="#ObterListaEmAberto">ObterListaEmAberto</a></li>
+<li><a href="#ObterListaFinancas">ObterListaFinancas</a></li>
+<li><a href="#ObterResumoFinancas">ObterResumoFinancas</a></li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+</body>
+</html>

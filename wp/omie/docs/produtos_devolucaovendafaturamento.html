@@ -1,0 +1,372 @@
+<nav class="navbar navbar-expand-lg bg-azul">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="https://developer.omie.com.br/">
+            <img class="lozad img-logo" data-src="https://static.omie.com.br/images/logo/logo-omie-topo.png" src="https://static.omie.com.br/images/logo/logo-omie-topo.png" data-loaded="true">
+        </a>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <span class="borda-hover"></span>
+                    <a class="nav-link" href="https://developer.omie.com.br/my-apps/"> Aplicativos </a>
+                </li>
+                <li class="nav-item ">
+                    <span class="borda-hover"></span>
+                    <a class="nav-link" href="https://developer.omie.com.br/service-list/">
+                        Lista das API's
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <span class="borda-hover"></span>
+                    <a class="nav-link" href="https://ajuda.omie.com.br/pt-BR/collections/3045828-apis" target="_blank"> Ajuda </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<html>
+<head>
+<title>DevolucaoVendaFaturamento</title>
+<style type="text/css" media="all">
+  [id] { scroll-margin-top: 68px; }
+</style>
+<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+<script src="https://cdn.omie.com.br/omie-assets/js/omie-compat-v2.min.js"></script>
+<script src="/developer/themes/omie/developer.js?ts=2021.008"></script>
+<link rel="stylesheet" href="//app.omie.com.br/wp-content/themes/omie/bootstrap/css/bootstrap.min.css" async/>
+<link href="https://cdn.omie.com.br/assets/developer/css/site.css?ts=2021.008" media="all" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="/developer/themes/omie/developer.css?ts=2021.008" async/>
+</head>
+<body>
+<div class="jumbotron banner bg-azul">
+<div class="container">
+<img src="https://cdn.omie.com.br/assets/developer/images/seta-azuis.png" alt="" class="img-setas">
+<div class="row align-items-center">
+<div class="col-12">
+<h1>DevolucaoVendaFaturamento</h1>
+<ul class="nav nav-tabs" role="tablist">
+  <li role="presentation" class="active"><a href="#section-endpoint" aria-controls="section-endpoint" role="tab" data-toggle="tab">Endpoint</a></li>
+  <li role="presentation" class="pull-right"><a href="#section-wsdl" aria-controls="section-wsdl" role="tab" data-toggle="tab">WSDL</a></li>
+  <li role="presentation" class="pull-right"><a href="#section-php-soap" aria-controls="section-php-soap" role="tab" data-toggle="tab">PHP SOAP</a></li>
+  <li role="presentation" class="pull-right"><a href="#section-json" aria-controls="section-json" role="tab" data-toggle="tab">JSON</a></li>
+</ul>
+<div class="tab-content">
+  <div role="tabpanel" class="tab-pane fade in active" id="section-endpoint">
+    <h4>Endpoint URI</h4>
+    <a class="highlight" href="https://app.omie.com.br/api/v1/produtos/devolucaovendafaturamento/"><pre><code>https://app.omie.com.br/api/v1/produtos/devolucaovendafaturamento/</code></pre></a>
+  </div>
+  <div role="tabpanel" class="tab-pane fade" id="section-wsdl">
+    <h4>WSDL URI</h4>
+    <a class="highlight" href="https://app.omie.com.br/api/v1/produtos/devolucaovendafaturamento/?WSDL"><pre><code>https://app.omie.com.br/api/v1/produtos/devolucaovendafaturamento/?WSDL</code></pre></a>
+  </div>
+  <div role="tabpanel" class="tab-pane fade" id="section-php-soap">
+    <h4>PHP SOAP client download</h4>
+    <a class="highlight" href="https://app.omie.com.br/api/v1/produtos/devolucaovendafaturamento/?PHPSOAPCLIENT""><pre><code>https://app.omie.com.br/api/v1/produtos/devolucaovendafaturamento/?PHPSOAPCLIENT</code></pre></a>
+  </div>
+  <div role="tabpanel" class="tab-pane fade" id="section-json">
+    <h4>JSON client download URI</h4>
+    <h5>PHP</h5>
+    <a class="highlight" href="https://app.omie.com.br/api/v1/produtos/devolucaovendafaturamento/?PHPJSONCLIENT"><pre><code>https://app.omie.com.br/api/v1/produtos/devolucaovendafaturamento/?PHPJSONCLIENT</code></pre></a>
+    <h5>JavaScript (recomendado para uso apenas do lado do servidor)</h5>
+    <a class="highlight" href="https://app.omie.com.br/api/v1/produtos/devolucaovendafaturamento/?JSJSONCLIENT"><pre><code>https://app.omie.com.br/api/v1/produtos/devolucaovendafaturamento/?JSJSONCLIENT</code></pre></a>
+  </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="container">
+<div class="row">
+<div class="col-md-9">
+<h2>M&eacute;todos</h2>
+<p>Veja abaixo a documenta&ccedil;&atilde;o de cada m&eacute;todo dispon&iacute;vel para este servi&ccedil;o.</p>
+<div id="FaturarDevolucaoVenda" class="methodItem">
+<h3 class="method-name">FaturarDevolucaoVenda</h3>
+<p>
+
+</p>
+<div class="panel panel-default method">
+<div class="panel-heading"> Par&acirc;metros:
+</div>
+<table class="table table-condensed table-hover">
+<tr>
+<td class="">&nbsp;</td>
+<td class="method-parameter-type"><a href="#FaturarDevolucaoVendaRequest">FaturarDevolucaoVendaRequest</a></td>
+<td class="method-parameter-name">FaturarDevolucaoVendaRequest</td><td class="method-parameter-docs"><div class="first">Solicitação de faturamento da Devolução de Venda.</div></td>
+</tr>
+</table>
+<div class="panel-footer">
+Retorno <span class="pre"><a href="#FaturarDevolucaoVendaResponse"><span class="lightBlue">FaturarDevolucaoVendaResponse</span></a></span>: 
+</div>
+</div>
+<div class="method-example-area">
+<h5>Exemplo:</h5>
+<pre class="method-example-code">{<BR>   "nCodDevol": 0<BR>}</pre>
+<button class="btn btn-success method-example" data-method="FaturarDevolucaoVenda" data-example="%7B+++%22nCodDevol%22%3A+0%7D">Teste agora mesmo</button>
+</div>
+</div>
+<div id="StatusDevolucaoVenda" class="methodItem">
+<h3 class="method-name">StatusDevolucaoVenda</h3>
+<p>
+
+</p>
+<div class="panel panel-default method">
+<div class="panel-heading"> Par&acirc;metros:
+</div>
+<table class="table table-condensed table-hover">
+<tr>
+<td class="">&nbsp;</td>
+<td class="method-parameter-type"><a href="#StatusDevolucaoVendaRequest">StatusDevolucaoVendaRequest</a></td>
+<td class="method-parameter-name">StatusDevolucaoVendaRequest</td><td class="method-parameter-docs"><div class="first">Solicitação de consulta do Status da Devolução do Pedido de Venda.</div></td>
+</tr>
+</table>
+<div class="panel-footer">
+Retorno <span class="pre"><a href="#StatusDevolucaoVendaResponse"><span class="lightBlue">StatusDevolucaoVendaResponse</span></a></span>: 
+</div>
+</div>
+<div class="method-example-area">
+<h5>Exemplo:</h5>
+<pre class="method-example-code">{<BR>   "nCodDevol": 0<BR>}</pre>
+<button class="btn btn-success method-example" data-method="StatusDevolucaoVenda" data-example="%7B+++%22nCodDevol%22%3A+0%7D">Teste agora mesmo</button>
+</div>
+</div>
+<h2>Tipos Complexos</h2>
+<div class="complexTypeItem">
+<a name="FaturarDevolucaoVendaRequest" class="anchorScroll"></a>
+<h3>FaturarDevolucaoVendaRequest</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">nCodDevol</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Id da Devolução do Pedido de Venda.</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="FaturarDevolucaoVendaResponse" class="anchorScroll"></a>
+<h3>FaturarDevolucaoVendaResponse</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">nCodDevol</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Id da Devolução do Pedido de Venda.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCodStatus</td>
+<td class="parameter-type">string<span class="parameter-lenght">4</span></td><td class="parameter-docs"><div class="first">Código do status do processamento.</div><div class="more"><a href="javascript:void(0)">+</a><div>Se o retorno for '0' significa que a solicitação foi executada com sucesso.<BR>Se o retorno for maior que '0' ocorreu algum erro durante o processamento da solicitação.<BR>A tag 'cDesStatus' descreve o problema ocorrido.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cDescStatus</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Descrição do status do processamento.</div><div class="more"><a href="javascript:void(0)">+</a><div>Essa tag explica o resultado da tag 'cCodigoStatus'.</div></div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="ListaNfe" class="anchorScroll"></a>
+<h3>ListaNfe</h3>
+<p>Lista de NF-es geradas</p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">cNumLote</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Número do lote da NF-e.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cStatusLote</td>
+<td class="parameter-type">string<span class="parameter-lenght">3</span></td><td class="parameter-docs"><div class="first">Status do Lote da NF-e.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cRecibo</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Recibo.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cContingencia</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">NF-e emitida em contingência.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cNumNfe</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Número da NF-e gerada.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cSerieNfe</td>
+<td class="parameter-type">string<span class="parameter-lenght">5</span></td><td class="parameter-docs"><div class="first">Série da NF-e.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cStatusNfe</td>
+<td class="parameter-type">string<span class="parameter-lenght">44</span></td><td class="parameter-docs"><div class="first">Status da NF-e.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cChaveNfe</td>
+<td class="parameter-type">string<span class="parameter-lenght">44</span></td><td class="parameter-docs"><div class="first">Chave de Acesso da NF-e.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cProtocolo</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Número do Protocolo.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cTipo</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Tipo de Emissão.</div><div class="more"><a href="javascript:void(0)">+</a><div>Pode ser:<BR>E - Entrada<BR>S - Saída</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">dEmissao</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Data da Emissão da NF-e.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">hEmissao</td>
+<td class="parameter-type">string<span class="parameter-lenght">8</span></td><td class="parameter-docs"><div class="first">Hora da Emissão da NF-e.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">dFatura</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Data do faturamento.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">hFatura</td>
+<td class="parameter-type">string<span class="parameter-lenght">8</span></td><td class="parameter-docs"><div class="first">Hora de Faturamento.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">dSaida</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Data de Saída.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">hSaida</td>
+<td class="parameter-type">string<span class="parameter-lenght">8</span></td><td class="parameter-docs"><div class="first">Hora de Saída da NF-e.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">listaMensagens</td>
+<td class="parameter-type"><a href="#listaMensagensArray">listaMensagensArray</a></td><td class="parameter-docs"><div class="first">Mensagens de Erros.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cXmlDistr</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">XML de distribuição da NF-e.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cUrlDanfe</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Link para o DANFE da NF-e gerada.</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="ListaNfeArray" class="anchorScroll"></a>
+<h3>ListaNfeArray</h3>
+<p>Este par&acirc;metro &eacute; um array do tipo <span class="pre"><a href="#ListaNfe"><span class="lightBlue">ListaNfe</span></a></span></p>
+<p>Lista de ListaNfe</p>
+</div>
+<div class="complexTypeItem">
+<a name="StatusDevolucaoVendaRequest" class="anchorScroll"></a>
+<h3>StatusDevolucaoVendaRequest</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">nCodDevol</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Id da Devolução do Pedido de Venda.</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="StatusDevolucaoVendaResponse" class="anchorScroll"></a>
+<h3>StatusDevolucaoVendaResponse</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">nCodDevol</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Id da Devolução do Pedido de Venda.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cNumPed</td>
+<td class="parameter-type">string<span class="parameter-lenght">15</span></td><td class="parameter-docs"><div class="first">Número da Devolução do Pedido de Venda.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cEtapa</td>
+<td class="parameter-type">string<span class="parameter-lenght">2</span></td><td class="parameter-docs"><div class="first">Indica a etapa do processo de venda que se encontra o pedido</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCancelada</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">NF-e cancelada? (S/N)</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cFaturada</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">NF-e faturada? (S/N)</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cAmbiente</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Ambiente que a nota foi gerada.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">vTotal</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Valor total do pedido.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">ListaNfe</td>
+<td class="parameter-type"><a href="#ListaNfeArray">ListaNfeArray</a></td><td class="parameter-docs"><div class="first">Lista de NF-es geradas</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCodStatus</td>
+<td class="parameter-type">string<span class="parameter-lenght">4</span></td><td class="parameter-docs"><div class="first">Código do status do processamento.</div><div class="more"><a href="javascript:void(0)">+</a><div>Se o retorno for '0' significa que a solicitação foi executada com sucesso.<BR>Se o retorno for maior que '0' ocorreu algum erro durante o processamento da solicitação.<BR>A tag 'cDesStatus' descreve o problema ocorrido.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cDescStatus</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Descrição do status do processamento.</div><div class="more"><a href="javascript:void(0)">+</a><div>Essa tag explica o resultado da tag 'cCodigoStatus'.</div></div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="listaMensagens" class="anchorScroll"></a>
+<h3>listaMensagens</h3>
+<p>Mensagens de Erros.</p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">cCodigo</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Código da mensagem de erro/aviso</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cDescricao</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Descrição da mensagem de erro/aviso.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCorrecao</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Correção da descrição de mensagem de erro/aviso.</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="listaMensagensArray" class="anchorScroll"></a>
+<h3>listaMensagensArray</h3>
+<p>Este par&acirc;metro &eacute; um array do tipo <span class="pre"><a href="#listaMensagens"><span class="lightBlue">listaMensagens</span></a></span></p>
+<p>Lista de listaMensagens</p>
+</div>
+<div class="complexTypeItem">
+<a name="omie_fail" class="anchorScroll"></a>
+<h3>omie_fail</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">code</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Codigo do erro</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">description</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Descricao do erro</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-required">referer</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Origem do erro</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-required">fatal</td>
+<td class="parameter-type">boolean</td><td class="parameter-docs"><div class="first">Indica se eh um erro fatal</div></td>
+<tr>
+</table>
+</div>
+</div>
+<div class="col-md-3">
+<div id="affix-menu" data-spy="affix" data-offset-top="294">
+<h2>M&eacute;todos</h2>
+<nav id="index" class="hidden-print hidden-xs hidden-sm">
+<ul class="nav">
+<li><a href="#FaturarDevolucaoVenda">FaturarDevolucaoVenda</a></li>
+<li><a href="#StatusDevolucaoVenda">StatusDevolucaoVenda</a></li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+</body>
+</html>

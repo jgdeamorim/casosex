@@ -1,0 +1,1768 @@
+<nav class="navbar navbar-expand-lg bg-azul">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="https://developer.omie.com.br/">
+            <img class="lozad img-logo" data-src="https://static.omie.com.br/images/logo/logo-omie-topo.png" src="https://static.omie.com.br/images/logo/logo-omie-topo.png" data-loaded="true">
+        </a>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <span class="borda-hover"></span>
+                    <a class="nav-link" href="https://developer.omie.com.br/my-apps/"> Aplicativos </a>
+                </li>
+                <li class="nav-item ">
+                    <span class="borda-hover"></span>
+                    <a class="nav-link" href="https://developer.omie.com.br/service-list/">
+                        Lista das API's
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <span class="borda-hover"></span>
+                    <a class="nav-link" href="https://ajuda.omie.com.br/pt-BR/collections/3045828-apis" target="_blank"> Ajuda </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<html>
+<head>
+<title>RemessaProduto</title>
+<style type="text/css" media="all">
+  [id] { scroll-margin-top: 68px; }
+</style>
+<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+<script src="https://cdn.omie.com.br/omie-assets/js/omie-compat-v2.min.js"></script>
+<script src="/developer/themes/omie/developer.js?ts=2021.008"></script>
+<link rel="stylesheet" href="//app.omie.com.br/wp-content/themes/omie/bootstrap/css/bootstrap.min.css" async/>
+<link href="https://cdn.omie.com.br/assets/developer/css/site.css?ts=2021.008" media="all" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="/developer/themes/omie/developer.css?ts=2021.008" async/>
+</head>
+<body>
+<div class="jumbotron banner bg-azul">
+<div class="container">
+<img src="https://cdn.omie.com.br/assets/developer/images/seta-azuis.png" alt="" class="img-setas">
+<div class="row align-items-center">
+<div class="col-12">
+<h1>RemessaProduto</h1>
+<ul class="nav nav-tabs" role="tablist">
+  <li role="presentation" class="active"><a href="#section-endpoint" aria-controls="section-endpoint" role="tab" data-toggle="tab">Endpoint</a></li>
+  <li role="presentation" class="pull-right"><a href="#section-wsdl" aria-controls="section-wsdl" role="tab" data-toggle="tab">WSDL</a></li>
+  <li role="presentation" class="pull-right"><a href="#section-php-soap" aria-controls="section-php-soap" role="tab" data-toggle="tab">PHP SOAP</a></li>
+  <li role="presentation" class="pull-right"><a href="#section-json" aria-controls="section-json" role="tab" data-toggle="tab">JSON</a></li>
+</ul>
+<div class="tab-content">
+  <div role="tabpanel" class="tab-pane fade in active" id="section-endpoint">
+    <h4>Endpoint URI</h4>
+    <a class="highlight" href="https://app.omie.com.br/api/v1/produtos/remessa/"><pre><code>https://app.omie.com.br/api/v1/produtos/remessa/</code></pre></a>
+  </div>
+  <div role="tabpanel" class="tab-pane fade" id="section-wsdl">
+    <h4>WSDL URI</h4>
+    <a class="highlight" href="https://app.omie.com.br/api/v1/produtos/remessa/?WSDL"><pre><code>https://app.omie.com.br/api/v1/produtos/remessa/?WSDL</code></pre></a>
+  </div>
+  <div role="tabpanel" class="tab-pane fade" id="section-php-soap">
+    <h4>PHP SOAP client download</h4>
+    <a class="highlight" href="https://app.omie.com.br/api/v1/produtos/remessa/?PHPSOAPCLIENT""><pre><code>https://app.omie.com.br/api/v1/produtos/remessa/?PHPSOAPCLIENT</code></pre></a>
+  </div>
+  <div role="tabpanel" class="tab-pane fade" id="section-json">
+    <h4>JSON client download URI</h4>
+    <h5>PHP</h5>
+    <a class="highlight" href="https://app.omie.com.br/api/v1/produtos/remessa/?PHPJSONCLIENT"><pre><code>https://app.omie.com.br/api/v1/produtos/remessa/?PHPJSONCLIENT</code></pre></a>
+    <h5>JavaScript (recomendado para uso apenas do lado do servidor)</h5>
+    <a class="highlight" href="https://app.omie.com.br/api/v1/produtos/remessa/?JSJSONCLIENT"><pre><code>https://app.omie.com.br/api/v1/produtos/remessa/?JSJSONCLIENT</code></pre></a>
+  </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="container">
+<div class="row">
+<div class="col-md-9">
+<h2>M&eacute;todos</h2>
+<p>Veja abaixo a documenta&ccedil;&atilde;o de cada m&eacute;todo dispon&iacute;vel para este servi&ccedil;o.</p>
+<div id="AlterarRemessa" class="methodItem">
+<h3 class="method-name">AlterarRemessa</h3>
+<p>
+Altera uma remessa
+</p>
+<div class="panel panel-default method">
+<div class="panel-heading"> Par&acirc;metros:
+</div>
+<table class="table table-condensed table-hover">
+<tr>
+<td class="">&nbsp;</td>
+<td class="method-parameter-type"><a href="#remessas">remessas</a></td>
+<td class="method-parameter-name">remessas</td><td class="method-parameter-docs"><div class="first">Cadastro de Remessa&nbsp;</div></td>
+</tr>
+</table>
+<div class="panel-footer">
+Retorno <span class="pre"><a href="#remessaStatus"><span class="lightBlue">remessaStatus</span></a></span>: Status da Remessa no Omie
+</div>
+</div>
+<div class="method-example-area">
+<h5>Exemplo:</h5>
+<pre class="method-example-code">{<BR>    "cabec": {<BR>        "cCodIntRem": "",<BR>        "dPrevisao": "",<BR>        "nCodCli": 0,<BR>        "nCodRem": 0,<BR>        "nCodVend": ""<BR>    },<BR>    "email": {<BR>        "cEmail": ""<BR>    },<BR>    "frete": {<BR>        "cEspVol": "",<BR>        "cMarVol": "",<BR>        "cNumVol": "",<BR>        "cPlaca": "",<BR>        "cTpFrete": "",<BR>        "cUF": "",<BR>        "nCodTransp": 0,<BR>        "nPesoBruto": 0,<BR>        "nPesoLiq": 0,<BR>        "nQtdVol": 0,<BR>        "nValFrete": 0,<BR>        "nValOutras": 0,<BR>        "nValSeguro": 0<BR>    },<BR>    "agropecuario": {<BR>        "cNumReceita": "",<BR>        "cCpfResponsavel": "",<BR>        "nTipoGuia": 1,<BR>        "cUFGuia": "",<BR>        "cSerieGuia": "",<BR>        "nNumGuia": 1<BR>    },<BR>    "infAdic": {<BR>        "cCodCateg": "",<BR>        "cConsFinal": "",<BR>        "cContato": "",<BR>        "cDadosAdic": "",<BR>        "cNumCtr": "",<BR>        "cPedido": "",<BR>        "nCodProj": 0<BR>    },<BR>    "obs": {<BR>        "cObs": ""<BR>    },<BR>    "produtos": [<BR>        {<BR>            "cCodItInt": "",<BR>            "nCodIt": 0,<BR>            "nCodProd": 0,<BR>            "nQtde": 0,<BR>            "nValUnit": 0<BR>        }<BR>    ]<BR>}</pre>
+<button class="btn btn-success method-example" data-method="AlterarRemessa" data-example="%7B++++%22cabec%22%3A+%7B++++++++%22cCodIntRem%22%3A+%22%22%2C++++++++%22dPrevisao%22%3A+%22%22%2C++++++++%22nCodCli%22%3A+0%2C++++++++%22nCodRem%22%3A+0%2C++++++++%22nCodVend%22%3A+%22%22++++%7D%2C++++%22email%22%3A+%7B++++++++%22cEmail%22%3A+%22%22++++%7D%2C++++%22frete%22%3A+%7B++++++++%22cEspVol%22%3A+%22%22%2C++++++++%22cMarVol%22%3A+%22%22%2C++++++++%22cNumVol%22%3A+%22%22%2C++++++++%22cPlaca%22%3A+%22%22%2C++++++++%22cTpFrete%22%3A+%22%22%2C++++++++%22cUF%22%3A+%22%22%2C++++++++%22nCodTransp%22%3A+0%2C++++++++%22nPesoBruto%22%3A+0%2C++++++++%22nPesoLiq%22%3A+0%2C++++++++%22nQtdVol%22%3A+0%2C++++++++%22nValFrete%22%3A+0%2C++++++++%22nValOutras%22%3A+0%2C++++++++%22nValSeguro%22%3A+0++++%7D%2C++++%22agropecuario%22%3A+%7B++++++++%22cNumReceita%22%3A+%22%22%2C++++++++%22cCpfResponsavel%22%3A+%22%22%2C++++++++%22nTipoGuia%22%3A+1%2C++++++++%22cUFGuia%22%3A+%22%22%2C++++++++%22cSerieGuia%22%3A+%22%22%2C++++++++%22nNumGuia%22%3A+1++++%7D%2C++++%22infAdic%22%3A+%7B++++++++%22cCodCateg%22%3A+%22%22%2C++++++++%22cConsFinal%22%3A+%22%22%2C++++++++%22cContato%22%3A+%22%22%2C++++++++%22cDadosAdic%22%3A+%22%22%2C++++++++%22cNumCtr%22%3A+%22%22%2C++++++++%22cPedido%22%3A+%22%22%2C++++++++%22nCodProj%22%3A+0++++%7D%2C++++%22obs%22%3A+%7B++++++++%22cObs%22%3A+%22%22++++%7D%2C++++%22produtos%22%3A+%5B++++++++%7B++++++++++++%22cCodItInt%22%3A+%22%22%2C++++++++++++%22nCodIt%22%3A+0%2C++++++++++++%22nCodProd%22%3A+0%2C++++++++++++%22nQtde%22%3A+0%2C++++++++++++%22nValUnit%22%3A+0++++++++%7D++++%5D%7D">Teste agora mesmo</button>
+</div>
+</div>
+<div id="ConsultarRemessa" class="methodItem">
+<h3 class="method-name">ConsultarRemessa</h3>
+<p>
+Consulta uma remessa.
+</p>
+<div class="panel panel-default method">
+<div class="panel-heading"> Par&acirc;metros:
+</div>
+<table class="table table-condensed table-hover">
+<tr>
+<td class="">&nbsp;</td>
+<td class="method-parameter-type"><a href="#remessaChave">remessaChave</a></td>
+<td class="method-parameter-name">remessaChave</td><td class="method-parameter-docs"><div class="first">Chave para Consulta / Exclusão</div></td>
+</tr>
+</table>
+<div class="panel-footer">
+Retorno <span class="pre"><a href="#remessas"><span class="lightBlue">remessas</span></a></span>: Cadastro de Remessa&amp;nbsp;
+</div>
+</div>
+<div class="method-example-area">
+<h5>Exemplo:</h5>
+<pre class="method-example-code">{<BR>   "nCodRem" : 0,<BR>   "cCodIntRem" : ""<BR>}<BR></pre>
+<button class="btn btn-success method-example" data-method="ConsultarRemessa" data-example="%7B+++%22nCodRem%22+%3A+0%2C+++%22cCodIntRem%22+%3A+%22%22%7D">Teste agora mesmo</button>
+</div>
+</div>
+<div id="DevolverRemessa" class="methodItem">
+<h3 class="method-name">DevolverRemessa</h3>
+<p>
+
+</p>
+<div class="panel panel-default method">
+<div class="panel-heading"> Par&acirc;metros:
+</div>
+<table class="table table-condensed table-hover">
+<tr>
+<td class="">&nbsp;</td>
+<td class="method-parameter-type"><a href="#remessaDevolverRequest">remessaDevolverRequest</a></td>
+<td class="method-parameter-name">remessaDevolverRequest</td><td class="method-parameter-docs"><div class="first">Solicitação de devolução de uma remessa.</div></td>
+</tr>
+</table>
+<div class="panel-footer">
+Retorno <span class="pre"><a href="#remessaDevolverResponse"><span class="lightBlue">remessaDevolverResponse</span></a></span>: 
+</div>
+</div>
+<div class="method-example-area">
+<h5>Exemplo:</h5>
+<pre class="method-example-code">{<BR>   "nCodRem": 0,<BR>   "itens": [<BR>      {<BR>         "nIdProd": 0,<BR>         "nQuant": 0<BR>      }<BR>   ]<BR>}</pre>
+<button class="btn btn-success method-example" data-method="DevolverRemessa" data-example="%7B+++%22nCodRem%22%3A+0%2C+++%22itens%22%3A+%5B++++++%7B+++++++++%22nIdProd%22%3A+0%2C+++++++++%22nQuant%22%3A+0++++++%7D+++%5D%7D">Teste agora mesmo</button>
+</div>
+</div>
+<div id="IncluirRemessa" class="methodItem">
+<h3 class="method-name">IncluirRemessa</h3>
+<p>
+Inclui uma nova remessa
+</p>
+<div class="panel panel-default method">
+<div class="panel-heading"> Par&acirc;metros:
+</div>
+<table class="table table-condensed table-hover">
+<tr>
+<td class="">&nbsp;</td>
+<td class="method-parameter-type"><a href="#remessas">remessas</a></td>
+<td class="method-parameter-name">remessas</td><td class="method-parameter-docs"><div class="first">Cadastro de Remessa&nbsp;</div></td>
+</tr>
+</table>
+<div class="panel-footer">
+Retorno <span class="pre"><a href="#remessaStatus"><span class="lightBlue">remessaStatus</span></a></span>: Status da Remessa no Omie
+</div>
+</div>
+<div class="method-example-area">
+<h5>Exemplo:</h5>
+<pre class="method-example-code">{<BR>    "cabec": {<BR>        "cCodIntRem": "",<BR>        "dPrevisao": "",<BR>        "nCodCli": 0,<BR>        "nCodRem": 0,<BR>        "nCodVend": ""<BR>    },<BR>    "email": {<BR>        "cEmail": ""<BR>    },<BR>    "frete": {<BR>        "cEspVol": "",<BR>        "cMarVol": "",<BR>        "cNumVol": "",<BR>        "cPlaca": "",<BR>        "cTpFrete": "",<BR>        "cUF": "",<BR>        "nCodTransp": 0,<BR>        "nPesoBruto": 0,<BR>        "nPesoLiq": 0,<BR>        "nQtdVol": 0,<BR>        "nValFrete": 0,<BR>        "nValOutras": 0,<BR>        "nValSeguro": 0<BR>    },<BR>    "agropecuario": {<BR>        "cNumReceita": "",<BR>        "cCpfResponsavel": "",<BR>        "nTipoGuia": 1,<BR>        "cUFGuia": "",<BR>        "cSerieGuia": "",<BR>        "nNumGuia": 1<BR>    },<BR>    "infAdic": {<BR>        "cCodCateg": "",<BR>        "cConsFinal": "",<BR>        "cContato": "",<BR>        "cDadosAdic": "",<BR>        "cNumCtr": "",<BR>        "cPedido": "",<BR>        "nCodProj": 0<BR>    },<BR>    "obs": {<BR>        "cObs": ""<BR>    },<BR>    "produtos": [<BR>        {<BR>            "cCodItInt": "",<BR>            "nCodIt": 0,<BR>            "nCodProd": 0,<BR>            "nQtde": 0,<BR>            "nValUnit": 0<BR>        }<BR>    ]<BR>}</pre>
+<button class="btn btn-success method-example" data-method="IncluirRemessa" data-example="%7B++++%22cabec%22%3A+%7B++++++++%22cCodIntRem%22%3A+%22%22%2C++++++++%22dPrevisao%22%3A+%22%22%2C++++++++%22nCodCli%22%3A+0%2C++++++++%22nCodRem%22%3A+0%2C++++++++%22nCodVend%22%3A+%22%22++++%7D%2C++++%22email%22%3A+%7B++++++++%22cEmail%22%3A+%22%22++++%7D%2C++++%22frete%22%3A+%7B++++++++%22cEspVol%22%3A+%22%22%2C++++++++%22cMarVol%22%3A+%22%22%2C++++++++%22cNumVol%22%3A+%22%22%2C++++++++%22cPlaca%22%3A+%22%22%2C++++++++%22cTpFrete%22%3A+%22%22%2C++++++++%22cUF%22%3A+%22%22%2C++++++++%22nCodTransp%22%3A+0%2C++++++++%22nPesoBruto%22%3A+0%2C++++++++%22nPesoLiq%22%3A+0%2C++++++++%22nQtdVol%22%3A+0%2C++++++++%22nValFrete%22%3A+0%2C++++++++%22nValOutras%22%3A+0%2C++++++++%22nValSeguro%22%3A+0++++%7D%2C++++%22agropecuario%22%3A+%7B++++++++%22cNumReceita%22%3A+%22%22%2C++++++++%22cCpfResponsavel%22%3A+%22%22%2C++++++++%22nTipoGuia%22%3A+1%2C++++++++%22cUFGuia%22%3A+%22%22%2C++++++++%22cSerieGuia%22%3A+%22%22%2C++++++++%22nNumGuia%22%3A+1++++%7D%2C++++%22infAdic%22%3A+%7B++++++++%22cCodCateg%22%3A+%22%22%2C++++++++%22cConsFinal%22%3A+%22%22%2C++++++++%22cContato%22%3A+%22%22%2C++++++++%22cDadosAdic%22%3A+%22%22%2C++++++++%22cNumCtr%22%3A+%22%22%2C++++++++%22cPedido%22%3A+%22%22%2C++++++++%22nCodProj%22%3A+0++++%7D%2C++++%22obs%22%3A+%7B++++++++%22cObs%22%3A+%22%22++++%7D%2C++++%22produtos%22%3A+%5B++++++++%7B++++++++++++%22cCodItInt%22%3A+%22%22%2C++++++++++++%22nCodIt%22%3A+0%2C++++++++++++%22nCodProd%22%3A+0%2C++++++++++++%22nQtde%22%3A+0%2C++++++++++++%22nValUnit%22%3A+0++++++++%7D++++%5D%7D">Teste agora mesmo</button>
+</div>
+</div>
+<div id="ListarRemessas" class="methodItem">
+<h3 class="method-name">ListarRemessas</h3>
+<p>
+Lista as remessas cadastradas.
+</p>
+<div class="panel panel-default method">
+<div class="panel-heading"> Par&acirc;metros:
+</div>
+<table class="table table-condensed table-hover">
+<tr>
+<td class="">&nbsp;</td>
+<td class="method-parameter-type"><a href="#remessaListarRequest">remessaListarRequest</a></td>
+<td class="method-parameter-name">remessaListarRequest</td><td class="method-parameter-docs"><div class="first">Solicitação de listagem de remessa.</div></td>
+</tr>
+</table>
+<div class="panel-footer">
+Retorno <span class="pre"><a href="#remessaListarResponse"><span class="lightBlue">remessaListarResponse</span></a></span>: 
+</div>
+</div>
+<div class="method-example-area">
+<h5>Exemplo:</h5>
+<pre class="method-example-code">{ <BR>   "nPagina": 1<BR>}</pre>
+<button class="btn btn-success method-example" data-method="ListarRemessas" data-example="%7B++++%22nPagina%22%3A+1%7D">Teste agora mesmo</button>
+</div>
+</div>
+<div id="StatusRemessa" class="methodItem">
+<h3 class="method-name">StatusRemessa</h3>
+<p>
+Retorna o status da remessa
+</p>
+<div class="panel panel-default method">
+<div class="panel-heading"> Par&acirc;metros:
+</div>
+<table class="table table-condensed table-hover">
+<tr>
+<td class="">&nbsp;</td>
+<td class="method-parameter-type"><a href="#remessaStatusRequest">remessaStatusRequest</a></td>
+<td class="method-parameter-name">remessaStatusRequest</td><td class="method-parameter-docs"><div class="first">Solicitação de consulta do Status da Remessa.</div></td>
+</tr>
+</table>
+<div class="panel-footer">
+Retorno <span class="pre"><a href="#remessaStatusResponse"><span class="lightBlue">remessaStatusResponse</span></a></span>: 
+</div>
+</div>
+<div class="method-example-area">
+<h5>Exemplo:</h5>
+<pre class="method-example-code">{<BR>  "nCodRem": 0,<BR>  "cCodIntRem": ""<BR>}</pre>
+<button class="btn btn-success method-example" data-method="StatusRemessa" data-example="%7B++%22nCodRem%22%3A+0%2C++%22cCodIntRem%22%3A+%22%22%7D">Teste agora mesmo</button>
+</div>
+</div>
+<h2>Tipos Complexos</h2>
+<div class="complexTypeItem">
+<a name="CBS" class="anchorScroll"></a>
+<h3>CBS</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">nAliqCbs</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Alíquota da CBS.</div><div class="more"><a href="javascript:void(0)">+</a><div>Não deve ser informado na Inclusão/Alteração. Campo disponível apenas para consulta.<BR><BR>Para os métodos de inclusão e alteração, esse campo será preenchido conforme a configuração do cenário fiscal.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nPercDiferimentoCbs</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Percentual do diferimento - CBS.</div><div class="more"><a href="javascript:void(0)">+</a><div>Não deve ser informado na Inclusão/Alteração. Campo disponível apenas para consulta.<BR><BR>Para os métodos de inclusão e alteração, esse campo será preenchido conforme a configuração do cenário fiscal.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nPercReducaoCbs</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Percentual da redução de alíquota - CBS.</div><div class="more"><a href="javascript:void(0)">+</a><div>Não deve ser informado na Inclusão/Alteração. Campo disponível apenas para consulta.<BR><BR>Para os métodos de inclusão e alteração, esse campo será preenchido conforme a configuração do cenário fiscal .</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nValDiferimentoCbs</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Valor do diferimento - CBS.</div><div class="more"><a href="javascript:void(0)">+</a><div>Não deve ser informado na Inclusão/Alteração. Campo disponível apenas para consulta.<BR><BR>Para os métodos de inclusão e alteração, esse campo será preenchido conforme a configuração do cenário fiscal.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nValCbs</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Valor da CBS.</div><div class="more"><a href="javascript:void(0)">+</a><div>Não deve ser informado na Inclusão/Alteração. Campo disponível apenas para consulta.<BR><BR>Para os métodos de inclusão e alteração, esse campo será preenchido conforme a configuração do cenário fiscal.</div></div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="COFINS" class="anchorScroll"></a>
+<h3>COFINS</h3>
+<p>COFINS</p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">cSitTribCOFINS</td>
+<td class="parameter-type">string<span class="parameter-lenght">2</span></td><td class="parameter-docs"><div class="first">Situação Tributária do COFINS</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cTpCalcCOFINS</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Tipo de Cálculo para obter o COFINS</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nBCCOFINS</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Base de Cálculo do COFINS</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nAliqCOFINS</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Alíquota do COFINS (%)</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nQtdUTCOFINS</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Qtd Unidades Tributáveis</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nVaCOFINSSUT</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Valor do COFINS Unid. Tributável</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nValCOFINS</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Valor do COFINS</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="IBS" class="anchorScroll"></a>
+<h3>IBS</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">nAliqIbsUf</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Alíquota do IBS de competência das UF.</div><div class="more"><a href="javascript:void(0)">+</a><div>Não deve ser informado na Inclusão/Alteração. Campo disponível apenas para consulta.<BR><BR>Para os métodos de inclusão e alteração, esse campo será preenchido conforme a configuração do cenário fiscal atribuído.<BR></div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nPercDiferimentoIbsUf</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Percentual do Diferimento - IBS UF.</div><div class="more"><a href="javascript:void(0)">+</a><div>Não deve ser informado na Inclusão/Alteração. Campo disponível apenas para consulta.<BR><BR>Para os métodos de inclusão e alteração, esse campo será preenchido conforme a configuração do cenário fiscal atribuído.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nPercReducaoIbsUf</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Percentual da redução de alíquota - IBS UF.</div><div class="more"><a href="javascript:void(0)">+</a><div>Não deve ser informado na Inclusão/Alteração. Campos disponíveis apenas para consulta.<BR><BR>Para os métodos de inclusão e alteração, esses campos serão alimentados conforme cenário fiscal.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nValDiferimentoIbsUf</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Valor do Diferimento - IBS UF.</div><div class="more"><a href="javascript:void(0)">+</a><div>Não deve ser informado na Inclusão/Alteração. Campo disponível apenas para consulta.<BR><BR>Para os métodos de inclusão e alteração, esse campo será preenchido conforme a configuração do cenário fiscal.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nValIbsUf</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Valor do IBS de competência da UF.</div><div class="more"><a href="javascript:void(0)">+</a><div>Não deve ser informado na Inclusão/Alteração. Campo disponível apenas para consulta.<BR><BR>Para os métodos de inclusão e alteração, esse campo será preenchido conforme a configuração do cenário fiscal..</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nAliqIbsMun</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Alíquota do IBS de competência do Município.</div><div class="more"><a href="javascript:void(0)">+</a><div>Não deve ser informado na Inclusão/Alteração. Campo disponível apenas para consulta.<BR><BR>Para os métodos de inclusão e alteração, esse campo será preenchido conforme a configuração do cenário fiscal.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nPercDiferimentoIbsMun</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Percentual do diferimento - UBS Município.</div><div class="more"><a href="javascript:void(0)">+</a><div>Não deve ser informado na Inclusão/Alteração. Campo disponível apenas para consulta.<BR><BR>Para os métodos de inclusão e alteração, esse campo será preenchido conforme a configuração do cenário fiscal.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nPercReducaoIbsMun</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Percentual da redução de alíquota - IBS Município.</div><div class="more"><a href="javascript:void(0)">+</a><div>Não deve ser informado na Inclusão/Alteração. Campo disponível apenas para consulta.<BR><BR>Para os métodos de inclusão e alteração, esse campo será preenchido conforme a configuração do cenário fiscal.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nValDiferimentoIbsMun</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Valor do Diferimento - IBS Município.</div><div class="more"><a href="javascript:void(0)">+</a><div>Não deve ser informado na Inclusão/Alteração. Campo disponível apenas para consulta.<BR><BR>Para os métodos de inclusão e alteração, esse campo será preenchido conforme a configuração do cenário fiscal.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nValIbsMun</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Valor do IBS de competência do Município.</div><div class="more"><a href="javascript:void(0)">+</a><div>Não deve ser informado na Inclusão/Alteração. Campo disponível apenas para consulta.<BR><BR>Para os métodos de inclusão e alteração, esse campo será preenchido conforme a configuração do cenário fiscal.<BR></div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nValIbs</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Valor total do IBS.</div><div class="more"><a href="javascript:void(0)">+</a><div>Não deve ser informado na Inclusão/Alteração. Campo disponível apenas para consulta.<BR><BR>Para os métodos de inclusão e alteração, esse campo será preenchido conforme a configuração do cenário fiscal.</div></div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="IBS_CBS" class="anchorScroll"></a>
+<h3>IBS_CBS</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">cCstIbsCbs</td>
+<td class="parameter-type">string<span class="parameter-lenght">3</span></td><td class="parameter-docs"><div class="first">Código de Situação Tributária do IBS e CBS.</div><div class="more"><a href="javascript:void(0)">+</a><div>Não deve ser informado na Inclusão/Alteração. Campo disponível apenas para consulta.<BR><BR>Para os métodos de inclusão e alteração, esse campo será preenchido conforme a configuração do cenário fiscal.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cClassTrib</td>
+<td class="parameter-type">string<span class="parameter-lenght">6</span></td><td class="parameter-docs"><div class="first">Código de Classificação Tributária do IBS e CBS.</div><div class="more"><a href="javascript:void(0)">+</a><div>Não deve ser informado na Inclusão/Alteração. Campo disponível apenas para consulta.<BR><BR>Para os métodos de inclusão e alteração, esse campo será preenchido conforme a configuração do cenário fiscal.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nBaseIbsCbs</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Base de cálculo do IBS e CBS.</div><div class="more"><a href="javascript:void(0)">+</a><div>Não deve ser informado na Inclusão/Alteração. Campo disponível apenas para consulta.<BR><BR>Para os métodos de inclusão e alteração, esse campo será preenchido conforme a configuração do cenário fiscal.</div></div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="ICMS" class="anchorScroll"></a>
+<h3>ICMS</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">cSitTrib</td>
+<td class="parameter-type">string<span class="parameter-lenght">2</span></td><td class="parameter-docs"><div class="first">Situação Tributária do ICMS</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cOrigem</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Origem</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cModBC</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Modalidade da Base de Cálculo do ICMS Substituição Tributária</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nRedBC</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Redução da BC do ICMS (%)</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nBC</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Base de Calculo do ICMS</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nAliq</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Alíquota de ICMS</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nValor</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Valor do ICMS</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="ICMS_SN" class="anchorScroll"></a>
+<h3>ICMS_SN</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">cSitTribSN</td>
+<td class="parameter-type">string<span class="parameter-lenght">3</span></td><td class="parameter-docs"><div class="first">Situação Tributária do ICMS</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cOrigem</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Origem</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nAliqSN</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Alíq. de Cálculo de Crédito (%)</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nCredSN</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Crédito do ICMS Aproveitado</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nBCSN</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Base de Calculo do ICMS</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nValorSN</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Valor do ICMS</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="ICMS_ST" class="anchorScroll"></a>
+<h3>ICMS_ST</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">cModBCST</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Modalidade da Base de Cálculo do ICMS Substituição Tributária</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nMargVrAd</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Margem de Valor Adicionado (%)</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nRedBCST</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Redução da BC do ICMS ST (%)</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nBCST</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Base de Cálculo do ICMS ST</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nAliqST</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Alíquota do ICMS ST (%)</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nAliqOP</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Alíq. do ICMS Oper. Própria (%)</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nValorST</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Valor do ICMS ST</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="IPI" class="anchorScroll"></a>
+<h3>IPI</h3>
+<p>IPI</p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">cSitTribIPI</td>
+<td class="parameter-type">string<span class="parameter-lenght">2</span></td><td class="parameter-docs"><div class="first">Situação Tributária do IPI</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cTpCalcIPI</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Tipo de Cálculo para obter o IPI</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nBCIPI</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Base de Cálculo do IPI</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cEnqIPI</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Enquadramento do IPI</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nAliqIPI</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Alíquota do IPI (%)</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nQtdUTIPI</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Qtd Unidades Tributáveis</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nValIPIUT</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Valor do IPI por Unid. Tributável</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nValIPI</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Valor do IPI</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="ListaNfe" class="anchorScroll"></a>
+<h3>ListaNfe</h3>
+<p>Lista de NF-es geradas</p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">nNumLote</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Número do lote da NF-e</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cStatusLote</td>
+<td class="parameter-type">string<span class="parameter-lenght">3</span></td><td class="parameter-docs"><div class="first">Status do Lote da NF-e.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nRecibo</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Recibo</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">contingencia</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">NF-e emitida em contingência</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cNumNFe</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Número da NF-e gerada</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cSerieNFe</td>
+<td class="parameter-type">string<span class="parameter-lenght">5</span></td><td class="parameter-docs"><div class="first">Série da NF-e</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cStatusNFe</td>
+<td class="parameter-type">string<span class="parameter-lenght">44</span></td><td class="parameter-docs"><div class="first">Chave de Acesso da NF-e</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cChaveNFe</td>
+<td class="parameter-type">string<span class="parameter-lenght">44</span></td><td class="parameter-docs"><div class="first">Chave de Acesso da NF-e</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nProtocolo</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Número do Protocolo</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cTipo</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Tipo de Emissão.</div><div class="more"><a href="javascript:void(0)">+</a><div>Pode ser:<BR>E - Entrada<BR>S - Saída</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">dtEmissao</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Data da Emissão da NF-e</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">hrEmissao</td>
+<td class="parameter-type">string<span class="parameter-lenght">8</span></td><td class="parameter-docs"><div class="first">Hora da Emissão da NF-e</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">dtFatura</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Data do faturamento</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">hrFatura</td>
+<td class="parameter-type">string<span class="parameter-lenght">8</span></td><td class="parameter-docs"><div class="first">Hora de Faturamento</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">dtSaida</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Data de Saída</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">hrSaida</td>
+<td class="parameter-type">string<span class="parameter-lenght">8</span></td><td class="parameter-docs"><div class="first">Hora de Saída da NF-e</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">mensagens</td>
+<td class="parameter-type"><a href="#mensagensArray">mensagensArray</a></td><td class="parameter-docs"><div class="first">Mensagens de Erros</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cXmlDistribuicao</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">XML de distribuição da NF-e</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cDanfe</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Link para o DANFE da NF-e gerada.</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="ListaNfeArray" class="anchorScroll"></a>
+<h3>ListaNfeArray</h3>
+<p>Este par&acirc;metro &eacute; um array do tipo <span class="pre"><a href="#ListaNfe"><span class="lightBlue">ListaNfe</span></a></span></p>
+<p>Lista de ListaNfe</p>
+</div>
+<div class="complexTypeItem">
+<a name="PIS" class="anchorScroll"></a>
+<h3>PIS</h3>
+<p>PIS</p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">cSitTribPIS</td>
+<td class="parameter-type">string<span class="parameter-lenght">2</span></td><td class="parameter-docs"><div class="first">Situação Tributária doPIS</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cTpCalcPIS</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Tipo de Cálculo para obter o PIS</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nBCPIS</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Base de Cálculo do PIS</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nAliqPIS</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Alíquota do PIS (%)</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nQtdUTPIS</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Qtd Unidades Tributáveis</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nValPISUT</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Valor do PIS por Unid. Tributável</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nValPIS</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Valor do PIS</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="TRIB_REG" class="anchorScroll"></a>
+<h3>TRIB_REG</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">cCstIbsCbsReg</td>
+<td class="parameter-type">string<span class="parameter-lenght">3</span></td><td class="parameter-docs"><div class="first">Código da Situação Tributária do IBS e CBS (Tributação Regular).</div><div class="more"><a href="javascript:void(0)">+</a><div>Não deve ser informado na Inclusão/Alteração. Campo disponível apenas para consulta.<BR><BR>Para os métodos de inclusão e alteração, esse campo será preenchido conforme a configuração do cenário fiscal.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cClassTribReg</td>
+<td class="parameter-type">string<span class="parameter-lenght">6</span></td><td class="parameter-docs"><div class="first">Código de Classificação Tributária do IBS e CBS (Tributação Regular).</div><div class="more"><a href="javascript:void(0)">+</a><div>Não deve ser informado na Inclusão/Alteração. Campo disponível apenas para consulta.<BR><BR>Para os métodos de inclusão e alteração, esse campo será preenchido conforme a configuração do cenário fiscal.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nAliqIbsUfReg</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Valor da alíquota do IBS da UF na tributação regular.</div><div class="more"><a href="javascript:void(0)">+</a><div>Não deve ser informado na Inclusão/Alteração. Campo disponível apenas para consulta.<BR><BR>Para os métodos de inclusão e alteração, esse campo será preenchido conforme a configuração do cenário fiscal.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nAliqIbsMunReg</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Valor da alíquota do IBS do Município na tributação regular.</div><div class="more"><a href="javascript:void(0)">+</a><div>Não deve ser informado na Inclusão/Alteração. Campo disponível apenas para consulta.<BR><BR>Para os métodos de inclusão e alteração, esse campo será preenchido conforme a configuração do cenário fiscal.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nAliqCbsReg</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Valor da alíquota da CBS na tributação regular.</div><div class="more"><a href="javascript:void(0)">+</a><div>Não deve ser informado na Inclusão/Alteração. Campo disponível apenas para consulta.<BR><BR>Para os métodos de inclusão e alteração, esse campo será preenchido conforme a configuração do cenário fiscal.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nValIbsUfReg</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Valor do Tributo do IBS da UF na tributação regular.</div><div class="more"><a href="javascript:void(0)">+</a><div>Não deve ser informado na Inclusão/Alteração. Campo disponível apenas para consulta.<BR><BR>Para os métodos de inclusão e alteração, esse campo será preenchido conforme a configuração do cenário fiscal.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nValIbsMunReg</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Valor do Tributo do IBS do Município na tributação regular.</div><div class="more"><a href="javascript:void(0)">+</a><div>Não deve ser informado na Inclusão/Alteração. Campo disponível apenas para consulta.<BR><BR>Para os métodos de inclusão e alteração, esse campo será preenchido conforme a configuração do cenário fiscal.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nValCbsReg</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Valor do Tributo da CBS na tributação regular.</div><div class="more"><a href="javascript:void(0)">+</a><div>Não deve ser informado na Inclusão/Alteração. Campo disponível apenas para consulta.<BR><BR>Para os métodos de inclusão e alteração, esse campo será preenchido conforme a configuração do cenário fiscal.</div></div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="agropecuario" class="anchorScroll"></a>
+<h3>agropecuario</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">cNumReceita</td>
+<td class="parameter-type">string<span class="parameter-lenght">20</span></td><td class="parameter-docs"><div class="first">Número da receita ou receituário do agrotóxico/defensivo agrícola</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCpfResponsavel</td>
+<td class="parameter-type">string<span class="parameter-lenght">14</span></td><td class="parameter-docs"><div class="first">CPF do responsá¡vel técnico legalmente habilitado</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nTipoGuia</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Tipo da Guia</div><div class="more"><a href="javascript:void(0)">+</a><div>1 - Corresponde ao GTA<BR>2 - Corresponde ao TTA<BR>3 - Corresponde ao DTA<BR>4 - Corresponde ao ATV<BR>5 - Corresponde ao PTV<BR>6 - Corresponde ao GTV<BR>7 - Corresponde ao Guia Florestal (DOF, SisFlora - PA e MT, SIAM - MG)</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cUFGuia</td>
+<td class="parameter-type">string<span class="parameter-lenght">2</span></td><td class="parameter-docs"><div class="first">UF de emissão da Guia</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cSerieGuia</td>
+<td class="parameter-type">string<span class="parameter-lenght">9</span></td><td class="parameter-docs"><div class="first">Número de série da guia</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nNumGuia</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Número da guia</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="cabec" class="anchorScroll"></a>
+<h3>cabec</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">nCodRem</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código da Remessa no Omie</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCodIntRem</td>
+<td class="parameter-type">string<span class="parameter-lenght">60</span></td><td class="parameter-docs"><div class="first">Código de Integração da Remessa</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nCodCli</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código do Cliente</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCodIntCli</td>
+<td class="parameter-type">string<span class="parameter-lenght">60</span></td><td class="parameter-docs"><div class="first">Código de Integração do Cliente</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">dPrevisao</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Data da Previsão</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nCodVend</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código do Vendedor</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cNumeroRemessa</td>
+<td class="parameter-type">string<span class="parameter-lenght">15</span></td><td class="parameter-docs"><div class="first">Número da Remessa exibido na tela.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">codigo_cenario_impostos</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código do cenário de impostos.</div><div class="more"><a href="javascript:void(0)">+</a><div>Se não informado, será assumido o cenário padrão.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCancelado</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Indica se a remessa está cancelada (S/N).</div><div class="more"><a href="javascript:void(0)">+</a><div>Utilizado apenas nos métodos de Consulta/Listagem.</div></div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="email" class="anchorScroll"></a>
+<h3>email</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">cEmail</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">E-Mail do cliente</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="frete" class="anchorScroll"></a>
+<h3>frete</h3>
+<p>Dados do Frete para Remessa</p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">nCodTransp</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código da Transportadora</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cTpFrete</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Tipo de Frete</div><div class="more"><a href="javascript:void(0)">+</a><div>Pode ser:<BR><BR>0 - Contratação do Frete por conta do Remetente (CIF)<BR>1 - Contratação do Frete por conta do Destinatário (FOB)<BR>2 - Contratação do Frete por conta de Terceiros<BR>3 - Transporte Próprio por conta do Remetente<BR>4 - Transporte Próprio por conta do Destinatário<BR>9 - Sem Ocorrência de Transporte</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cPlaca</td>
+<td class="parameter-type">string<span class="parameter-lenght">7</span></td><td class="parameter-docs"><div class="first">Placa do Veículo</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cUF</td>
+<td class="parameter-type">string<span class="parameter-lenght">2</span></td><td class="parameter-docs"><div class="first">UF da Placa</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nQtdVol</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Quantidade de Volumes</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cEspVol</td>
+<td class="parameter-type">string<span class="parameter-lenght">60</span></td><td class="parameter-docs"><div class="first">Espécie de Volume.</div><div class="more"><a href="javascript:void(0)">+</a><div>Campo livre, podendo ser o tipo de carga, como: caixa, fardo, palete, entre outros.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cMarVol</td>
+<td class="parameter-type">string<span class="parameter-lenght">60</span></td><td class="parameter-docs"><div class="first">Marca dos Volumes</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cNumVol</td>
+<td class="parameter-type">string<span class="parameter-lenght">60</span></td><td class="parameter-docs"><div class="first">Numeração dos Volumes</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nPesoLiq</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Peso Liquído (Kg)</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nPesoBruto</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Peso Bruto (Kg)</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nValFrete</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Valor do Frete</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nValSeguro</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Valor do Seguro</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nValOutras</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Valor de Outras Despesas Acessórias</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="infAdic" class="anchorScroll"></a>
+<h3>infAdic</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">cCodCateg</td>
+<td class="parameter-type">string<span class="parameter-lenght">20</span></td><td class="parameter-docs"><div class="first">Código da Categoria</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cContato</td>
+<td class="parameter-type">string<span class="parameter-lenght">100</span></td><td class="parameter-docs"><div class="first">Contato</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nCodProj</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código do Projeto</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cPedido</td>
+<td class="parameter-type">string<span class="parameter-lenght">30</span></td><td class="parameter-docs"><div class="first">Número do Pedido do cliente</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cNumCtr</td>
+<td class="parameter-type">string<span class="parameter-lenght">20</span></td><td class="parameter-docs"><div class="first">Número do Contrato de Venda</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cDadosAdic</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Dados Adicionais para a Nota Fiscal</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cConsFinal</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Nota Fiscal para Consumidor Final (S/N)</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">outros_detalhes</td>
+<td class="parameter-type"><a href="#outros_detalhes">outros_detalhes</a></td><td class="parameter-docs"><div class="first">Outros detalhes da NF-e.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento Opcional.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nfRelacionada</td>
+<td class="parameter-type"><a href="#nfRelacionada">nfRelacionada</a></td><td class="parameter-docs"><div class="first">Detalhes da NF referenciada.</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="infAdicItem" class="anchorScroll"></a>
+<h3>infAdicItem</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">nPesoLiq</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Peso Líquido (Kg)</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nPesoBruto</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Peso Bruto (Kg)</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nAliqIBPT</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Alíquota IBPT</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cPedCompra</td>
+<td class="parameter-type">string<span class="parameter-lenght">15</span></td><td class="parameter-docs"><div class="first">Número do Pedido de Compra</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nItemPedCompra</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Item do Pedido de Compra</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cInfItemNF</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Informações para a Nota Fiscal</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cNaoMovEstoque</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Não gerar a saída de estoque deste item ao emitir a NF-e (S/N)</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">codigo_cenario_impostos_item</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código do cenário fiscal de impostos.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">codigo_local_estoque_entrada</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código do Local do Estoque de Entrada.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">numero_recopi</td>
+<td class="parameter-type">string<span class="parameter-lenght">20</span></td><td class="parameter-docs"><div class="first">Número do registro gerado pelo sistema RECOPI Nacional (Reconhecimento e Controle das Operações com Papel Imune).</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">codigo_benef</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Código de Beneficiário Fiscal na UF aplicado ao item.</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="itens" class="anchorScroll"></a>
+<h3>itens</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">nIdProd</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código do Produto</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nQuant</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Quantidade do item a ser devolvida.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento opcional.<BR><BR>Caso não seja preenchida será feita a devolução integral do produto.</div></div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="itensArray" class="anchorScroll"></a>
+<h3>itensArray</h3>
+<p>Este par&acirc;metro &eacute; um array do tipo <span class="pre"><a href="#itens"><span class="lightBlue">itens</span></a></span></p>
+<p>Lista de itens</p>
+</div>
+<div class="complexTypeItem">
+<a name="lote_validade" class="anchorScroll"></a>
+<h3>lote_validade</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">nIdLote</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Id do Lote do produto.</div><div class="more"><a href="javascript:void(0)">+</a><div>Obrigatório quando o produto possui controle de lote e o método do consumo do lote está definido como 'Manual' nas configurações..</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nQtdLote</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Informe aqui a quantidade do Lote para o produto.</div><div class="more"><a href="javascript:void(0)">+</a><div>É obrigatório quando o produto possui controle de lote e o método do consumo do lote está definido como 'Manual' nas configurações.</div></div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="lote_validadeArray" class="anchorScroll"></a>
+<h3>lote_validadeArray</h3>
+<p>Este par&acirc;metro &eacute; um array do tipo <span class="pre"><a href="#lote_validade"><span class="lightBlue">lote_validade</span></a></span></p>
+<p>Lista de lote_validade</p>
+</div>
+<div class="complexTypeItem">
+<a name="mensagens" class="anchorScroll"></a>
+<h3>mensagens</h3>
+<p>Mensagens de Erros</p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">cCodigo</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Código da mensagem de erro/aviso</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cDescricao</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Descrição da mensagem de erro/aviso.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCorrecao</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Correção da descrição de mensagem de erro/aviso.</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="mensagensArray" class="anchorScroll"></a>
+<h3>mensagensArray</h3>
+<p>Este par&acirc;metro &eacute; um array do tipo <span class="pre"><a href="#mensagens"><span class="lightBlue">mensagens</span></a></span></p>
+<p>Lista de mensagens</p>
+</div>
+<div class="complexTypeItem">
+<a name="nfRelacionada" class="anchorScroll"></a>
+<h3>nfRelacionada</h3>
+<p>Detalhes da NF referenciada.</p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">cChaveRef</td>
+<td class="parameter-type">string<span class="parameter-lenght">44</span></td><td class="parameter-docs"><div class="first">Chave da NF-e (ou NFC-e ou SAT) Relacionada.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nNFRef</td>
+<td class="parameter-type">string<span class="parameter-lenght">9</span></td><td class="parameter-docs"><div class="first">Número da Nota Fiscal</div><div class="more"><a href="javascript:void(0)">+</a><div>Nota Fiscal Relacionada Modelo 1/1A</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cSerieRef</td>
+<td class="parameter-type">string<span class="parameter-lenght">3</span></td><td class="parameter-docs"><div class="first">Série da NF Referenciada.</div><div class="more"><a href="javascript:void(0)">+</a><div>Nota Fiscal Relacionada Modelo 1/1A</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">dtEmissaoRef</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Data de emissão da NF Referenciada.</div><div class="more"><a href="javascript:void(0)">+</a><div>Nota Fiscal Relacionada Modelo 1/1A</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cnpjEmitRef</td>
+<td class="parameter-type">string<span class="parameter-lenght">20</span></td><td class="parameter-docs"><div class="first">CNPJ da Emitente da NF Referenciada.</div><div class="more"><a href="javascript:void(0)">+</a><div>Nota Fiscal Relacionada Modelo 1/1A</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cUfRef</td>
+<td class="parameter-type">string<span class="parameter-lenght">2</span></td><td class="parameter-docs"><div class="first">Estado do Emitente da NF Referenciada.</div><div class="more"><a href="javascript:void(0)">+</a><div>Nota Fiscal Relacionada Modelo 1/1A</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nNfPR</td>
+<td class="parameter-type">string<span class="parameter-lenght">9</span></td><td class="parameter-docs"><div class="first">Número da Nota Fiscal relacionada do Produtor Rural.</div><div class="more"><a href="javascript:void(0)">+</a><div>Nota Fiscal Relacionada do Produtor Rural</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cSeriePR</td>
+<td class="parameter-type">string<span class="parameter-lenght">3</span></td><td class="parameter-docs"><div class="first">Série da NF do Produtor Rural.</div><div class="more"><a href="javascript:void(0)">+</a><div>Nota Fiscal Relacionada do Produtor Rural</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">dtEmissaoPR</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Data de emissão da NF do Produtor Rural.</div><div class="more"><a href="javascript:void(0)">+</a><div>Nota Fiscal Relacionada do Produtor Rural</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cnpjPR</td>
+<td class="parameter-type">string<span class="parameter-lenght">20</span></td><td class="parameter-docs"><div class="first">CNPJ/CPF do Produtor Rural.</div><div class="more"><a href="javascript:void(0)">+</a><div>Nota Fiscal Relacionada do Produtor Rural</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">InscrEstPR</td>
+<td class="parameter-type">string<span class="parameter-lenght">20</span></td><td class="parameter-docs"><div class="first">Inscrição Estadual do Produtor Rural.</div><div class="more"><a href="javascript:void(0)">+</a><div>Nota Fiscal Relacionada do Produtor Rural</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cUfPR</td>
+<td class="parameter-type">string<span class="parameter-lenght">2</span></td><td class="parameter-docs"><div class="first">Estado do Produtor Rural.</div><div class="more"><a href="javascript:void(0)">+</a><div>Nota Fiscal Relacionada do Produtor Rural</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nCOORef</td>
+<td class="parameter-type">string<span class="parameter-lenght">6</span></td><td class="parameter-docs"><div class="first">Número do COO - Contador de Ordem de Operação.</div><div class="more"><a href="javascript:void(0)">+</a><div>Cupom Fiscal Relacionado</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nECFRef</td>
+<td class="parameter-type">string<span class="parameter-lenght">3</span></td><td class="parameter-docs"><div class="first">Número de Ordem Sequencial do ECF.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">indPresenca</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Indicador de Presença da Operação.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento Opcional.<BR><BR>1 - Operação presencial.<BR>2 - Operação não presencial, pela Internet.<BR>3 - Operação não presencial, Teleatendimento.<BR>4 - NFC-e em operação com entrega a domicílio.<BR>9 -Operação não presencial, outros.<BR><BR><BR>Se não informado, utilizaremos automaticamente o "9 - Outros".<BR><BR>Informação localizada na Aba "Informações Adicionais" da Remessa</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">indIntermediario</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Indicador de Intermediador.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento Opcional. <BR><BR>Esta informação deverá ser enviada quando se tratar de uma operação não presencial.<BR><BR>Opções disponíveis:<BR>   0=Operação sem intermediador(em site ou plataforma própria)<BR>   1=Operação em site ou plataforma de terceiros(intermediadores/marketplace)<BR><BR>Se não informado, utilizaremos automaticamente a opção "0-Operação sem intermediador(em site ou plataforma própria)".<BR><BR>Informação localizada na Aba "Informações Adicionais" da Remessa</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cnpjIntermediario</td>
+<td class="parameter-type">string<span class="parameter-lenght">20</span></td><td class="parameter-docs"><div class="first">CNPJ do Intermediador.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preencimento obrigatório caso o Indicador de Intermediador seja igual a opção "1-Operação em site ou plataforma de terceiros(intermediadores/marketplace)".<BR><BR>Este campo representa o CNPJ do Intermediador da Transação.<BR><BR>Informação localizada na Aba "Informações Adicionais" da Remessa</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">identIntermediario</td>
+<td class="parameter-type">string<span class="parameter-lenght">60</span></td><td class="parameter-docs"><div class="first">Identificação no Intermediador.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento obrigatório caso o Indicador de Intermediador seja igual a opção "1-Operação em site ou plataforma de terceiros(intermediadores/marketplace)".<BR><BR>Este identificador pode ser o nome do usuário ou identificação do perfil do vendedor no site do intermediador.<BR><BR>Informação localizada na Aba "Informações Adicionais" da Remessa</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nrProdutorRural</td>
+<td class="parameter-type"><a href="#nrProdutorRuralArray">nrProdutorRuralArray</a></td><td class="parameter-docs"><div class="first">Outras notas de produtor rural relacionadas</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nrNF</td>
+<td class="parameter-type"><a href="#nrNFArray">nrNFArray</a></td><td class="parameter-docs"><div class="first">Outras NF-e, NFC-e ou SAT relacionadas</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nrCupomFiscal</td>
+<td class="parameter-type"><a href="#nrCupomFiscalArray">nrCupomFiscalArray</a></td><td class="parameter-docs"><div class="first">Outros cupons fiscais relacionados</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nrModelo1_1A</td>
+<td class="parameter-type"><a href="#nrModelo1_1AArray">nrModelo1_1AArray</a></td><td class="parameter-docs"><div class="first">Outras notas modelo 1/1A relacionadas</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cSigNFRef</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Manter o sigilo da NF-e referenciada.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preencher com "S" ou "N".<BR><BR>Default "N"<BR><BR>Preenchimento opcional.</div></div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="nrCupomFiscal" class="anchorScroll"></a>
+<h3>nrCupomFiscal</h3>
+<p>Outros cupons fiscais relacionados</p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">cAcaoItem</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Ação a ser realizada no item na alteração.</div><div class="more"><a href="javascript:void(0)">+</a><div>Pode ser:<BR><BR>"I" - Incluir o item.<BR>"E" - Excluir o item.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nrCOO</td>
+<td class="parameter-type">string<span class="parameter-lenght">6</span></td><td class="parameter-docs"><div class="first">Contador de Ordem de Operação (COO)</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nrNumeroECF</td>
+<td class="parameter-type">string<span class="parameter-lenght">3</span></td><td class="parameter-docs"><div class="first">Número do ECF</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="nrCupomFiscalArray" class="anchorScroll"></a>
+<h3>nrCupomFiscalArray</h3>
+<p>Este par&acirc;metro &eacute; um array do tipo <span class="pre"><a href="#nrCupomFiscal"><span class="lightBlue">nrCupomFiscal</span></a></span></p>
+<p>Lista de nrCupomFiscal</p>
+</div>
+<div class="complexTypeItem">
+<a name="nrModelo1_1A" class="anchorScroll"></a>
+<h3>nrModelo1_1A</h3>
+<p>Outras notas modelo 1/1A relacionadas</p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">cAcaoItem</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Ação a ser realizada no item na alteração.</div><div class="more"><a href="javascript:void(0)">+</a><div>Pode ser:<BR><BR>"I" - Incluir o item.<BR>"E" - Excluir o item.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nrNumero</td>
+<td class="parameter-type">string<span class="parameter-lenght">9</span></td><td class="parameter-docs"><div class="first">Número da NF relacionada</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nrSerie</td>
+<td class="parameter-type">string<span class="parameter-lenght">3</span></td><td class="parameter-docs"><div class="first">Série da NF relacionada</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nrDtEmissao</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Data de emissão da NF relacionada</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nrCnpjCpf</td>
+<td class="parameter-type">string<span class="parameter-lenght">20</span></td><td class="parameter-docs"><div class="first">CNPJ/CPF do emitente da NF relacionada</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nrUF</td>
+<td class="parameter-type">string<span class="parameter-lenght">2</span></td><td class="parameter-docs"><div class="first">Unidade federativa do emitente da NF relacionada</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="nrModelo1_1AArray" class="anchorScroll"></a>
+<h3>nrModelo1_1AArray</h3>
+<p>Este par&acirc;metro &eacute; um array do tipo <span class="pre"><a href="#nrModelo1_1A"><span class="lightBlue">nrModelo1_1A</span></a></span></p>
+<p>Lista de nrModelo1_1A</p>
+</div>
+<div class="complexTypeItem">
+<a name="nrNF" class="anchorScroll"></a>
+<h3>nrNF</h3>
+<p>Outras NF-e, NFC-e ou SAT relacionadas</p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">cAcaoItem</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Ação a ser realizada no item na alteração.</div><div class="more"><a href="javascript:void(0)">+</a><div>Pode ser:<BR><BR>"I" - Incluir o item.<BR>"E" - Excluir o item.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nrChave</td>
+<td class="parameter-type">string<span class="parameter-lenght">44</span></td><td class="parameter-docs"><div class="first">Chave da NF-e, NFC-e ou SAT relacionada</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="nrNFArray" class="anchorScroll"></a>
+<h3>nrNFArray</h3>
+<p>Este par&acirc;metro &eacute; um array do tipo <span class="pre"><a href="#nrNF"><span class="lightBlue">nrNF</span></a></span></p>
+<p>Lista de nrNF</p>
+</div>
+<div class="complexTypeItem">
+<a name="nrProdutorRural" class="anchorScroll"></a>
+<h3>nrProdutorRural</h3>
+<p>Outras notas de produtor rural relacionadas</p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">cAcaoItem</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Ação a ser realizada no item na alteração.</div><div class="more"><a href="javascript:void(0)">+</a><div>Pode ser:<BR><BR>"I" - Incluir o item.<BR>"E" - Excluir o item.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nrNumero</td>
+<td class="parameter-type">string<span class="parameter-lenght">9</span></td><td class="parameter-docs"><div class="first">Número da NF relacionada</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nrSerie</td>
+<td class="parameter-type">string<span class="parameter-lenght">3</span></td><td class="parameter-docs"><div class="first">Série da NF relacionada</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nrDtEmissao</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Data de emissão da NF relacionada</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nrCnpjCpf</td>
+<td class="parameter-type">string<span class="parameter-lenght">20</span></td><td class="parameter-docs"><div class="first">CNPJ/CPF do emitente da NF relacionada</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nrIE</td>
+<td class="parameter-type">string<span class="parameter-lenght">20</span></td><td class="parameter-docs"><div class="first">Inscrição Estadual do emitente da NF relacionada</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nrUF</td>
+<td class="parameter-type">string<span class="parameter-lenght">2</span></td><td class="parameter-docs"><div class="first">Unidade federativa do emitente da NF relacionada</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="nrProdutorRuralArray" class="anchorScroll"></a>
+<h3>nrProdutorRuralArray</h3>
+<p>Este par&acirc;metro &eacute; um array do tipo <span class="pre"><a href="#nrProdutorRural"><span class="lightBlue">nrProdutorRural</span></a></span></p>
+<p>Lista de nrProdutorRural</p>
+</div>
+<div class="complexTypeItem">
+<a name="obs" class="anchorScroll"></a>
+<h3>obs</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">cObs</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Observações da Remessa</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="omie_fail" class="anchorScroll"></a>
+<h3>omie_fail</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">code</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Codigo do erro</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">description</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Descricao do erro</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-required">referer</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Origem do erro</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-required">fatal</td>
+<td class="parameter-type">boolean</td><td class="parameter-docs"><div class="first">Indica se eh um erro fatal</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="outros_detalhes" class="anchorScroll"></a>
+<h3>outros_detalhes</h3>
+<p>Outros detalhes da NF-e.</p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">cNatOperacaoOd</td>
+<td class="parameter-type">string<span class="parameter-lenght">60</span></td><td class="parameter-docs"><div class="first">Natureza da Operação.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento Opcional.<BR><BR>Informação localizada na Aba "Informações Adicionais" da Remessa</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cIndicadorOd</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Indicador de Presença da Operação.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento Opcional.<BR><BR>1 - Operação presencial.<BR>2 - Operação não presencial, pela Internet.<BR>3 - Operação não presencial, Teleatendimento.<BR>4 - NFC-e em operação com entrega a domicílio.<BR>9 -Operação não presencial, outros.<BR><BR><BR>Se não informado, utilizaremos automaticamente o "9 - Outros".<BR><BR>Informação localizada na Aba "Informações Adicionais" da Remessa</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cIndicadorIntOd</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Indicador de Intermediador.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento Opcional. <BR><BR>Esta informação deverá ser enviada quando se tratar de uma operação não presencial.<BR><BR>Opções disponíveis:<BR>   0=Operação sem intermediador(em site ou plataforma própria)<BR>   1=Operação em site ou plataforma de terceiros(intermediadores/marketplace)<BR><BR>Se não informado, utilizaremos automaticamente a opção "0-Operação sem intermediador(em site ou plataforma própria)".<BR><BR>Informação localizada na Aba "Informações Adicionais" da Remessa</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCnpjIntOd</td>
+<td class="parameter-type">string<span class="parameter-lenght">20</span></td><td class="parameter-docs"><div class="first">CNPJ do Intermediador.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preencimento obrigatório caso o Indicador de Intermediador seja igual a opção "1-Operação em site ou plataforma de terceiros(intermediadores/marketplace)".<BR><BR>Este campo representa o CNPJ do Intermediador da Transação.<BR><BR>Informação localizada na Aba "Informações Adicionais" da Remessa</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cIdentificadorIntOd</td>
+<td class="parameter-type">string<span class="parameter-lenght">60</span></td><td class="parameter-docs"><div class="first">Identificação no Intermediador.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento obrigatório caso o Indicador de Intermediador seja igual a opção "1-Operação em site ou plataforma de terceiros(intermediadores/marketplace)".<BR><BR>Este identificador pode ser o nome do usuário ou identificação do perfil do vendedor no site do intermediador.<BR><BR>Informação localizada na Aba "Informações Adicionais" da Remessa</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">dDataSaidaOd</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Data de Saída.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento Opcional.<BR><BR>Informação localizada na Aba "Informações Adicionais" da Remessa</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cHoraSaidaOd</td>
+<td class="parameter-type">string<span class="parameter-lenght">8</span></td><td class="parameter-docs"><div class="first">Hora de Saída.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento Opcional.<BR><BR>Informação localizada na Aba "Informações Adicionais" da Remessa</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCnpjCpfOd</td>
+<td class="parameter-type">string<span class="parameter-lenght">20</span></td><td class="parameter-docs"><div class="first">CNPJ / CPF (do recebedor).</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento Opcional.<BR><BR>Informação localizada na Aba "Informações Adicionais" da Remessa</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cNomeOd</td>
+<td class="parameter-type">string<span class="parameter-lenght">60</span></td><td class="parameter-docs"><div class="first">Nome / Razão Social.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento Opcional.<BR><BR>Informação localizada na Aba "Informações Adicionais" da Remessa</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cInscrEstadualOd</td>
+<td class="parameter-type">string<span class="parameter-lenght">20</span></td><td class="parameter-docs"><div class="first">Inscrição Estadual.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento Opcional.<BR><BR>Informação localizada na Aba "Informações Adicionais" da Remessa</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cEnderecoOd</td>
+<td class="parameter-type">string<span class="parameter-lenght">60</span></td><td class="parameter-docs"><div class="first">Endereço.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento Opcional.<BR><BR>Informação localizada na Aba "Informações Adicionais" da Remessa</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cNumeroOd</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Número do endereço.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento Opcional.<BR><BR>Informação localizada na Aba "Informações Adicionais" da Remessa</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cComplementoOd</td>
+<td class="parameter-type">string<span class="parameter-lenght">60</span></td><td class="parameter-docs"><div class="first">Complemento do endereço.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento Opcional.<BR><BR>Informação localizada na Aba "Informações Adicionais" da Remessa</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cBairroOd</td>
+<td class="parameter-type">string<span class="parameter-lenght">60</span></td><td class="parameter-docs"><div class="first">Bairro.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento Opcional.<BR><BR>Informação localizada na Aba "Informações Adicionais" da Remessa</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cEstadoOd</td>
+<td class="parameter-type">string<span class="parameter-lenght">2</span></td><td class="parameter-docs"><div class="first">Estado.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento Opcional.<BR><BR>Informação localizada na Aba "Informações Adicionais" da Remessa</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCidadeOd</td>
+<td class="parameter-type">string<span class="parameter-lenght">40</span></td><td class="parameter-docs"><div class="first">Cidade.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento Opcional.<BR><BR>Utilize o padrão: CIDADE (UF), como no exemplo:<BR><BR>"SAO PAULO (SP)"<BR><BR>Informação localizada na Aba "Informações Adicionais" da Remessa.<BR><BR>Utilize a tag "cCod" do método "PesquisarCidades" da API<BR>/api/v1/geral/cidades/<BR>para obter essa informação.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCEPOd</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">CEP.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento Opcional.<BR><BR>Informação localizada na Aba "Informações Adicionais" da Remessa</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cSepararEnderecoOd</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Separar endereço.   </div><div class="more"><a href="javascript:void(0)">+</a><div>Valores possível S ou N, sendo N o padrão.<BR>Quando igual S separa do endereço o número o e complemento, caso existirem.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cTelefoneOd</td>
+<td class="parameter-type">string<span class="parameter-lenght">15</span></td><td class="parameter-docs"><div class="first">Telefone.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento Opcional.<BR><BR>Informação localizada na Aba "Informações Adicionais" da Remessa</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCnpjCpfOdRet</td>
+<td class="parameter-type">string<span class="parameter-lenght">20</span></td><td class="parameter-docs"><div class="first">CPF/CNPJ (Local de Retirada).</div><div class="more"><a href="javascript:void(0)">+</a><div>Preencimento opcional quando a mercadoria não está com o Emitente e deve ser retirada em outro local.<BR><BR>Este campo representa o CPF/CNPJ do responsável pela retirada da mercadoria. <BR><BR>Informação localizada na Aba "Informações Adicionais" da Remessa</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cNomeOdRet</td>
+<td class="parameter-type">string<span class="parameter-lenght">60</span></td><td class="parameter-docs"><div class="first">Nome / Razão Social (Local de Retirada).</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento Opcional.<BR><BR>Informação localizada na Aba "Informações Adicionais" da Remessa</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cInscrEstadualOdRet</td>
+<td class="parameter-type">string<span class="parameter-lenght">20</span></td><td class="parameter-docs"><div class="first">Inscrição Estadual (Local de Retirada).</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento Opcional.<BR><BR>Informação localizada na Aba "Informações Adicionais" da Remessa</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cEnderecoOdRet</td>
+<td class="parameter-type">string<span class="parameter-lenght">60</span></td><td class="parameter-docs"><div class="first">Endereço (Local de Retirada).</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento Opcional.<BR><BR>Informação localizada na Aba "Informações Adicionais" da Remessa</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cNumeroOdRet</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Número do endereço (Local de Retirada).</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento Opcional.<BR><BR>Informação localizada na Aba "Informações Adicionais" da Remessa</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cComplementoOdRet</td>
+<td class="parameter-type">string<span class="parameter-lenght">60</span></td><td class="parameter-docs"><div class="first">Complemento do endereço (Local de Retirada).</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento Opcional.<BR><BR>Informação localizada na Aba "Informações Adicionais" da Remessa</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cBairroOdRet</td>
+<td class="parameter-type">string<span class="parameter-lenght">60</span></td><td class="parameter-docs"><div class="first">Bairro (Local de Retirada).</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento Opcional.<BR><BR>Informação localizada na Aba "Informações Adicionais" da Remessa</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cEstadoOdRet</td>
+<td class="parameter-type">string<span class="parameter-lenght">2</span></td><td class="parameter-docs"><div class="first">Estado (Local de Retirada).</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento Opcional.<BR><BR>Informação localizada na Aba "Informações Adicionais" da Remessa</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCidadeOdRet</td>
+<td class="parameter-type">string<span class="parameter-lenght">40</span></td><td class="parameter-docs"><div class="first">Cidade (Local de Retirada).</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento Opcional.<BR><BR>Utilize o padrão: CIDADE (UF), como no exemplo:<BR><BR>"SAO PAULO (SP)"<BR><BR>Informação localizada na Aba "Informações Adicionais" da Remessa.<BR><BR>Utilize a tag "cCod" do método "PesquisarCidades" da API<BR>/api/v1/geral/cidades/<BR>para obter essa informação.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCEPOdRet</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">CEP (Local de Retirada).</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento Opcional.<BR><BR>Informação localizada na Aba "Informações Adicionais" da Remessa</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cSepararEnderecoOdRet</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Separar endereço.   </div><div class="more"><a href="javascript:void(0)">+</a><div>Valores possível S ou N, sendo N o padrão.<BR>Quando igual S separa do endereço o número o e complemento, caso existirem.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cTelefoneOdRet</td>
+<td class="parameter-type">string<span class="parameter-lenght">15</span></td><td class="parameter-docs"><div class="first">Telefone (Local de Retirada).</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento Opcional.<BR><BR>Informação localizada na Aba "Informações Adicionais" da Remessa</div></div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="produtos" class="anchorScroll"></a>
+<h3>produtos</h3>
+<p>Itens da Remessa</p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">nCodIt</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código do item da remessa</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCodItInt</td>
+<td class="parameter-type">string<span class="parameter-lenght">30</span></td><td class="parameter-docs"><div class="first">Código de Integração do Item</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nCodProd</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código do Produto</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCodProdInt</td>
+<td class="parameter-type">string<span class="parameter-lenght">60</span></td><td class="parameter-docs"><div class="first">Código de Integração do Produto</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCFOP</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Código da CFOP</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nQtde</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Quantidade</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nValUnit</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Valor do Item</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cNCM</td>
+<td class="parameter-type">string<span class="parameter-lenght">13</span></td><td class="parameter-docs"><div class="first">Código NCM</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cEAN</td>
+<td class="parameter-type">string<span class="parameter-lenght">14</span></td><td class="parameter-docs"><div class="first">Código EAN (GTIN)</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nDesconto</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Valor do Desconto</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">ICMS</td>
+<td class="parameter-type"><a href="#ICMS">ICMS</a></td><td class="parameter-docs"><div class="first">Informações do ICMS.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">ICMS_ST</td>
+<td class="parameter-type"><a href="#ICMS_ST">ICMS_ST</a></td><td class="parameter-docs"><div class="first">Informações do ICMS-ST.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">ICMS_SN</td>
+<td class="parameter-type"><a href="#ICMS_SN">ICMS_SN</a></td><td class="parameter-docs"><div class="first">Informações do ICMS-Simples Nacional.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">IPI</td>
+<td class="parameter-type"><a href="#IPI">IPI</a></td><td class="parameter-docs"><div class="first">IPI</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">PIS</td>
+<td class="parameter-type"><a href="#PIS">PIS</a></td><td class="parameter-docs"><div class="first">PIS</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">COFINS</td>
+<td class="parameter-type"><a href="#COFINS">COFINS</a></td><td class="parameter-docs"><div class="first">COFINS</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">infAdicItem</td>
+<td class="parameter-type"><a href="#infAdicItem">infAdicItem</a></td><td class="parameter-docs"><div class="first">Informações Adicionais da Remessa</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCest</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">CEST</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">rastreabilidade</td>
+<td class="parameter-type"><a href="#rastreabilidade">rastreabilidade</a></td><td class="parameter-docs"><div class="first">Rastreabilidade do produto</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">lote_validade</td>
+<td class="parameter-type"><a href="#lote_validadeArray">lote_validadeArray</a></td><td class="parameter-docs"><div class="first">Informações referentes ao lote e validade do produto.</div><div class="more"><a href="javascript:void(0)">+</a><div>A tag só deve ser informada se o produto possuir controle de lote e se a intenção é informar os lotes "manualmente" por API.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">codigo_local_estoque</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código do Local do Estoque.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento opcional.<BR><BR>Caso não preenchido assumirá o Local de Estoque padrão.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">reservado</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Indica se o item está com o estoque reservado [S/N]</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">IBS_CBS</td>
+<td class="parameter-type"><a href="#IBS_CBS">IBS_CBS</a></td><td class="parameter-docs"><div class="first">Informações unificadas sobre o IBS e CBS.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">IBS</td>
+<td class="parameter-type"><a href="#IBS">IBS</a></td><td class="parameter-docs"><div class="first">Informações sobre o IBS.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">CBS</td>
+<td class="parameter-type"><a href="#CBS">CBS</a></td><td class="parameter-docs"><div class="first">Informações sobre o CBS.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">TRIB_REG</td>
+<td class="parameter-type"><a href="#TRIB_REG">TRIB_REG</a></td><td class="parameter-docs"><div class="first">Informações sobre a Tributação Regular do IBS e CBS.</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="produtosArray" class="anchorScroll"></a>
+<h3>produtosArray</h3>
+<p>Este par&acirc;metro &eacute; um array do tipo <span class="pre"><a href="#produtos"><span class="lightBlue">produtos</span></a></span></p>
+<p>Lista de produtos</p>
+</div>
+<div class="complexTypeItem">
+<a name="rastreabilidade" class="anchorScroll"></a>
+<h3>rastreabilidade</h3>
+<p>Rastreabilidade do produto</p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">numeroLote</td>
+<td class="parameter-type">string<span class="parameter-lenght">20</span></td><td class="parameter-docs"><div class="first">Número do Lote</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">qtdeProdutoLote</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Quantidade de Produto</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">dataFabricacaoLote</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Data de Fabricação/Produção</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">dataValidadeLote</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Data de Validade</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">codigoAgregacaoLote</td>
+<td class="parameter-type">string<span class="parameter-lenght">20</span></td><td class="parameter-docs"><div class="first">Código de Agregação</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="remessaChave" class="anchorScroll"></a>
+<h3>remessaChave</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">nCodRem</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código da Remessa no Omie</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCodIntRem</td>
+<td class="parameter-type">string<span class="parameter-lenght">60</span></td><td class="parameter-docs"><div class="first">Código de Integração da Remessa</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="remessaDevolverRequest" class="anchorScroll"></a>
+<h3>remessaDevolverRequest</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">nCodRem</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código da Remessa no Omie</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">itens</td>
+<td class="parameter-type"><a href="#itensArray">itensArray</a></td><td class="parameter-docs"><div class="first">Informações dos itens que serão devolvidos.</div><div class="more"><a href="javascript:void(0)">+</a><div>Caso essa tag não seja preenchida será realizado a devolução integral de todos os itens da remessa.<BR><BR>Preenchimento opcional.</div></div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="remessaDevolverResponse" class="anchorScroll"></a>
+<h3>remessaDevolverResponse</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">nIdDevolucao</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">ID da devolução.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCodStatus</td>
+<td class="parameter-type">string<span class="parameter-lenght">4</span></td><td class="parameter-docs"><div class="first">Código do Status do processamento.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cDesStatus</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Descrição do status de processamento.</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="remessaListarRequest" class="anchorScroll"></a>
+<h3>remessaListarRequest</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">nPagina</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Número da página que será listada.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nRegistrosPorPagina</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Número de registros retornados.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cOrdenarPor</td>
+<td class="parameter-type">string<span class="parameter-lenght">100</span></td><td class="parameter-docs"><div class="first">Ordenar o resultado da página por:</div><div class="more"><a href="javascript:void(0)">+</a><div>CODIGO - Código do lançamento do Omie;<BR>INTEGRACAO - Código do lançamento interno do seu sistema;<BR>DATA_LANCAMENTO - Data do lançamento.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">dtAltDe</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Filtra os registros a partir da data.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">dtAltAte</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Filtrar lançamentos incluídos e/ou alterados até a data</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">hrAltDe</td>
+<td class="parameter-type">string<span class="parameter-lenght">8</span></td><td class="parameter-docs"><div class="first">Filtra os registros a partir da hora específicada.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">hrAltAte</td>
+<td class="parameter-type">string<span class="parameter-lenght">8</span></td><td class="parameter-docs"><div class="first">Filtra os registros até a hora específicada.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nIdCliente</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Filtra os registros do cliente específicado.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cExibirDetalhes</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Exibir os detalhes da remessa.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preencher com "S" ou "N".</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">faturada</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Nota Fiscal foi faturada.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preencher com "S" ou "N".</div></div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="remessaListarResponse" class="anchorScroll"></a>
+<h3>remessaListarResponse</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">nPagina</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Número da página que será listada.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nTotalPaginas</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Total de páginas encontradas.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nRegistros</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Número de registros retornados.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nTotalRegistros</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Total de registros encontrados.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">remessas</td>
+<td class="parameter-type"><a href="#remessasArray">remessasArray</a></td><td class="parameter-docs"><div class="first">Cadastro de Remessa&nbsp;</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="remessaStatus" class="anchorScroll"></a>
+<h3>remessaStatus</h3>
+<p>Status da Remessa no Omie</p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">nCodRem</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código da Remessa no Omie</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCodIntRem</td>
+<td class="parameter-type">string<span class="parameter-lenght">60</span></td><td class="parameter-docs"><div class="first">Código de Integração da Remessa</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCodStatus</td>
+<td class="parameter-type">string<span class="parameter-lenght">4</span></td><td class="parameter-docs"><div class="first">Código do Status do processamento.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cDesStatus</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Descrição do status de processamento.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cNumeroRemessa</td>
+<td class="parameter-type">string<span class="parameter-lenght">15</span></td><td class="parameter-docs"><div class="first">Número da Remessa exibido na tela.</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="remessaStatusRequest" class="anchorScroll"></a>
+<h3>remessaStatusRequest</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">nCodRem</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código da Remessa no Omie</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCodIntRem</td>
+<td class="parameter-type">string<span class="parameter-lenght">60</span></td><td class="parameter-docs"><div class="first">Código de Integração da Remessa</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="remessaStatusResponse" class="anchorScroll"></a>
+<h3>remessaStatusResponse</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">nCodRem</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código da Remessa no Omie</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCodIntRem</td>
+<td class="parameter-type">string<span class="parameter-lenght">60</span></td><td class="parameter-docs"><div class="first">Código de Integração da Remessa</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cNumeroRemessa</td>
+<td class="parameter-type">string<span class="parameter-lenght">15</span></td><td class="parameter-docs"><div class="first">Número da Remessa exibido na tela.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cancelada</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">NF-e Cancelada?</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">faturada</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Nota Fiscal foi faturada.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preencher com "S" ou "N".</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cAmbiente</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Ambiente da NF-e (Danfe)</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nValorTotal</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Valor total da remessa</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">ListaNfe</td>
+<td class="parameter-type"><a href="#ListaNfeArray">ListaNfeArray</a></td><td class="parameter-docs"><div class="first">Lista de NF-es geradas</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="remessas" class="anchorScroll"></a>
+<h3>remessas</h3>
+<p>Cadastro de Remessa</p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">cabec</td>
+<td class="parameter-type"><a href="#cabec">cabec</a></td><td class="parameter-docs"><div class="first">Cabeçalho da Remessa de Produtos</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">frete</td>
+<td class="parameter-type"><a href="#frete">frete</a></td><td class="parameter-docs"><div class="first">Dados do Frete para Remessa&nbsp;</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">infAdic</td>
+<td class="parameter-type"><a href="#infAdic">infAdic</a></td><td class="parameter-docs"><div class="first">Informações Adicionais da Remessa</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">email</td>
+<td class="parameter-type"><a href="#email">email</a></td><td class="parameter-docs"><div class="first">Email para o Cliente (ou Destinatário)</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">obs</td>
+<td class="parameter-type"><a href="#obs">obs</a></td><td class="parameter-docs"><div class="first">Observações da Remessa</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">produtos</td>
+<td class="parameter-type"><a href="#produtosArray">produtosArray</a></td><td class="parameter-docs"><div class="first">Itens da Remessa</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">agropecuario</td>
+<td class="parameter-type"><a href="#agropecuario">agropecuario</a></td><td class="parameter-docs"><div class="first">Dados para atender NT 2024.003. Informações de Produtos da Agricultura, Pecuária e Produção Florestal</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="remessasArray" class="anchorScroll"></a>
+<h3>remessasArray</h3>
+<p>Este par&acirc;metro &eacute; um array do tipo <span class="pre"><a href="#remessas"><span class="lightBlue">remessas</span></a></span></p>
+<p>Lista de remessas</p>
+</div>
+</div>
+<div class="col-md-3">
+<div id="affix-menu" data-spy="affix" data-offset-top="294">
+<h2>M&eacute;todos</h2>
+<nav id="index" class="hidden-print hidden-xs hidden-sm">
+<ul class="nav">
+<li><a href="#AlterarRemessa">AlterarRemessa</a></li>
+<li><a href="#ConsultarRemessa">ConsultarRemessa</a></li>
+<li><a href="#DevolverRemessa">DevolverRemessa</a></li>
+<li><a href="#IncluirRemessa">IncluirRemessa</a></li>
+<li><a href="#ListarRemessas">ListarRemessas</a></li>
+<li><a href="#StatusRemessa">StatusRemessa</a></li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+</body>
+</html>

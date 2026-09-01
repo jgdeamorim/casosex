@@ -1,0 +1,383 @@
+<nav class="navbar navbar-expand-lg bg-azul">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="https://developer.omie.com.br/">
+            <img class="lozad img-logo" data-src="https://static.omie.com.br/images/logo/logo-omie-topo.png" src="https://static.omie.com.br/images/logo/logo-omie-topo.png" data-loaded="true">
+        </a>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <span class="borda-hover"></span>
+                    <a class="nav-link" href="https://developer.omie.com.br/my-apps/"> Aplicativos </a>
+                </li>
+                <li class="nav-item ">
+                    <span class="borda-hover"></span>
+                    <a class="nav-link" href="https://developer.omie.com.br/service-list/">
+                        Lista das API's
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <span class="borda-hover"></span>
+                    <a class="nav-link" href="https://ajuda.omie.com.br/pt-BR/collections/3045828-apis" target="_blank"> Ajuda </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<html>
+<head>
+<title>ExtratoContaCorrente</title>
+<style type="text/css" media="all">
+  [id] { scroll-margin-top: 68px; }
+</style>
+<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+<script src="https://cdn.omie.com.br/omie-assets/js/omie-compat-v2.min.js"></script>
+<script src="/developer/themes/omie/developer.js?ts=2021.008"></script>
+<link rel="stylesheet" href="//app.omie.com.br/wp-content/themes/omie/bootstrap/css/bootstrap.min.css" async/>
+<link href="https://cdn.omie.com.br/assets/developer/css/site.css?ts=2021.008" media="all" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="/developer/themes/omie/developer.css?ts=2021.008" async/>
+</head>
+<body>
+<div class="jumbotron banner bg-azul">
+<div class="container">
+<img src="https://cdn.omie.com.br/assets/developer/images/seta-azuis.png" alt="" class="img-setas">
+<div class="row align-items-center">
+<div class="col-12">
+<h1>ExtratoContaCorrente</h1>
+<ul class="nav nav-tabs" role="tablist">
+  <li role="presentation" class="active"><a href="#section-endpoint" aria-controls="section-endpoint" role="tab" data-toggle="tab">Endpoint</a></li>
+  <li role="presentation" class="pull-right"><a href="#section-wsdl" aria-controls="section-wsdl" role="tab" data-toggle="tab">WSDL</a></li>
+  <li role="presentation" class="pull-right"><a href="#section-php-soap" aria-controls="section-php-soap" role="tab" data-toggle="tab">PHP SOAP</a></li>
+  <li role="presentation" class="pull-right"><a href="#section-json" aria-controls="section-json" role="tab" data-toggle="tab">JSON</a></li>
+</ul>
+<div class="tab-content">
+  <div role="tabpanel" class="tab-pane fade in active" id="section-endpoint">
+    <h4>Endpoint URI</h4>
+    <a class="highlight" href="https://app.omie.com.br/api/v1/financas/extrato/"><pre><code>https://app.omie.com.br/api/v1/financas/extrato/</code></pre></a>
+  </div>
+  <div role="tabpanel" class="tab-pane fade" id="section-wsdl">
+    <h4>WSDL URI</h4>
+    <a class="highlight" href="https://app.omie.com.br/api/v1/financas/extrato/?WSDL"><pre><code>https://app.omie.com.br/api/v1/financas/extrato/?WSDL</code></pre></a>
+  </div>
+  <div role="tabpanel" class="tab-pane fade" id="section-php-soap">
+    <h4>PHP SOAP client download</h4>
+    <a class="highlight" href="https://app.omie.com.br/api/v1/financas/extrato/?PHPSOAPCLIENT""><pre><code>https://app.omie.com.br/api/v1/financas/extrato/?PHPSOAPCLIENT</code></pre></a>
+  </div>
+  <div role="tabpanel" class="tab-pane fade" id="section-json">
+    <h4>JSON client download URI</h4>
+    <h5>PHP</h5>
+    <a class="highlight" href="https://app.omie.com.br/api/v1/financas/extrato/?PHPJSONCLIENT"><pre><code>https://app.omie.com.br/api/v1/financas/extrato/?PHPJSONCLIENT</code></pre></a>
+    <h5>JavaScript (recomendado para uso apenas do lado do servidor)</h5>
+    <a class="highlight" href="https://app.omie.com.br/api/v1/financas/extrato/?JSJSONCLIENT"><pre><code>https://app.omie.com.br/api/v1/financas/extrato/?JSJSONCLIENT</code></pre></a>
+  </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="container">
+<div class="row">
+<div class="col-md-9">
+<h2>M&eacute;todos</h2>
+<p>Veja abaixo a documenta&ccedil;&atilde;o de cada m&eacute;todo dispon&iacute;vel para este servi&ccedil;o.</p>
+<div id="ListarExtrato" class="methodItem">
+<h3 class="method-name">ListarExtrato</h3>
+<p>
+Listagem do Extrato
+</p>
+<div class="panel panel-default method">
+<div class="panel-heading"> Par&acirc;metros:
+</div>
+<table class="table table-condensed table-hover">
+<tr>
+<td class="">&nbsp;</td>
+<td class="method-parameter-type"><a href="#eccListarExtratoRequest">eccListarExtratoRequest</a></td>
+<td class="method-parameter-name">eccListarExtratoRequest</td><td class="method-parameter-docs"><div class="first">Solicitação de consulta do Extrato de Conta Corrente.</div></td>
+</tr>
+</table>
+<div class="panel-footer">
+Retorno <span class="pre"><a href="#eccListarExtratoResponse"><span class="lightBlue">eccListarExtratoResponse</span></a></span>: 
+</div>
+</div>
+<div class="method-example-area">
+<h5>Exemplo:</h5>
+<pre class="method-example-code">{<BR>   "nCodCC": 0,<BR>   "cCodIntCC": "",<BR>   "dPeriodoInicial": "",<BR>   "dPeriodoFinal": ""<BR>}</pre>
+<button class="btn btn-success method-example" data-method="ListarExtrato" data-example="%7B+++%22nCodCC%22%3A+0%2C+++%22cCodIntCC%22%3A+%22%22%2C+++%22dPeriodoInicial%22%3A+%22%22%2C+++%22dPeriodoFinal%22%3A+%22%22%7D">Teste agora mesmo</button>
+</div>
+</div>
+<h2>Tipos Complexos</h2>
+<div class="complexTypeItem">
+<a name="eccListarExtratoRequest" class="anchorScroll"></a>
+<h3>eccListarExtratoRequest</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">nCodCC</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código da Conta Corrente.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCodIntCC</td>
+<td class="parameter-type">string<span class="parameter-lenght">20</span></td><td class="parameter-docs"><div class="first">Código de Integração da Conta Corrente.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">dPeriodoInicial</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Período Inicial.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preecher no formato DD/MM/AAAA.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">dPeriodoFinal</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Período final.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preecher no formato DD/MM/AAAA.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cExibirApenasSaldo</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Exibe apenas os saldos da Conta Corrente.</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="eccListarExtratoResponse" class="anchorScroll"></a>
+<h3>eccListarExtratoResponse</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">nCodCC</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código da Conta Corrente.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCodIntCC</td>
+<td class="parameter-type">string<span class="parameter-lenght">20</span></td><td class="parameter-docs"><div class="first">Código de Integração da Conta Corrente.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nCodAgencia</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Código da Agência.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nCodBanco</td>
+<td class="parameter-type">string<span class="parameter-lenght">3</span></td><td class="parameter-docs"><div class="first">Código do Banco.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nNumConta</td>
+<td class="parameter-type">string<span class="parameter-lenght">25</span></td><td class="parameter-docs"><div class="first">Número da Conta Corrente.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cDescricao</td>
+<td class="parameter-type">string<span class="parameter-lenght">40</span></td><td class="parameter-docs"><div class="first">Descrição da Conta Corrente.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCodTipo</td>
+<td class="parameter-type">string<span class="parameter-lenght">2</span></td><td class="parameter-docs"><div class="first">Código do Tipo da Conta Corrente.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cDesTipo</td>
+<td class="parameter-type">string<span class="parameter-lenght">80</span></td><td class="parameter-docs"><div class="first">Descrição do Tipo da Conta Corrente.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cFluxoCaixa</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Conta Corrente é visível no Fluxo de Caixa (S/N).</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cResumoExecutivo</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Conta Corrente é visível no Resumo Executivo (S/N).</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">dPeriodoInicial</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Período Inicial.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preecher no formato DD/MM/AAAA.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">dPeriodoFinal</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Período final.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preecher no formato DD/MM/AAAA.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nSaldoAnterior</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Saldo Anterior Realizado.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nSaldoAnteriorPrevisto</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Saldo Anterior Previsto.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nSaldoAtual</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Saldo Atual Realizado disponível para hoje.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nSaldoAtualPrevisto</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Saldo Atual Previsto.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nSaldoConciliado</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Saldo Conciliado até o momento.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nSaldoProvisorio</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Saldo provisório para hoje.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nLimiteCreditoTotal</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Limite de Crédito Total.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nSaldoDisponivel</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Saldo Disponível para hoje.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">listaMovimentos</td>
+<td class="parameter-type"><a href="#listaMovimentosArray">listaMovimentosArray</a></td><td class="parameter-docs"><div class="first">Lista de movimentos do período.</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="listaMovimentos" class="anchorScroll"></a>
+<h3>listaMovimentos</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">nCodLancamento</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código do Lançamento.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nCodLancRelac</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código do Lançamento original relacionado (quando houver parcelamento)</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cSituacao</td>
+<td class="parameter-type">string<span class="parameter-lenght">40</span></td><td class="parameter-docs"><div class="first">Situação do lançamento.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">dDataLancamento</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Data do lançamento.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cDesCliente</td>
+<td class="parameter-type">string<span class="parameter-lenght">100</span></td><td class="parameter-docs"><div class="first">Cliente ou Fornecedor (Nome Fantasia).</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cTipoDocumento</td>
+<td class="parameter-type">string<span class="parameter-lenght">50</span></td><td class="parameter-docs"><div class="first">Tipo de Documento.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cNumero</td>
+<td class="parameter-type">string<span class="parameter-lenght">20</span></td><td class="parameter-docs"><div class="first">Número do Documento.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nValorDocumento</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Valor do documento.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nSaldo</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Saldo realizado em R$.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nSaldoPrev</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Saldo Previsto R$.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCodCategoria</td>
+<td class="parameter-type">string<span class="parameter-lenght">20</span></td><td class="parameter-docs"><div class="first">Código da Categoria.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cDesCategoria</td>
+<td class="parameter-type">string<span class="parameter-lenght">350</span></td><td class="parameter-docs"><div class="first">Descrição da Categoria.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cDocumentoFiscal</td>
+<td class="parameter-type">string<span class="parameter-lenght">20</span></td><td class="parameter-docs"><div class="first">Número do Documento Fiscal (Nota Fiscal, Cupom Fiscal, CT-e, etc)</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cParcela</td>
+<td class="parameter-type">string<span class="parameter-lenght">7</span></td><td class="parameter-docs"><div class="first">Número da parcela.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cNossoNumero</td>
+<td class="parameter-type">string<span class="parameter-lenght">30</span></td><td class="parameter-docs"><div class="first">Nosso Número.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cOrigem</td>
+<td class="parameter-type">string<span class="parameter-lenght">50</span></td><td class="parameter-docs"><div class="first">Origem do lançamento.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cVendedor</td>
+<td class="parameter-type">string<span class="parameter-lenght">70</span></td><td class="parameter-docs"><div class="first">Nome do Vendedor.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cProjeto</td>
+<td class="parameter-type">string<span class="parameter-lenght">70</span></td><td class="parameter-docs"><div class="first">Descrição do Projeto.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nCodCliente</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Cliente ou Fornecedor (Código)</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cRazCliente</td>
+<td class="parameter-type">string<span class="parameter-lenght">60</span></td><td class="parameter-docs"><div class="first">Cliente ou Fornecedor (Razão Social)</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cDocCliente</td>
+<td class="parameter-type">string<span class="parameter-lenght">20</span></td><td class="parameter-docs"><div class="first">Cliente ou Fornecedor (CNPJ/CPF)</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cObservacoes</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Observações.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cDataInclusao</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Data de Inclusão.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cHoraInclusao</td>
+<td class="parameter-type">string<span class="parameter-lenght">8</span></td><td class="parameter-docs"><div class="first">Hora de Inclusão.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cNatureza</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Natureza da operação.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cBloqueado</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Lançamento bloqueado (S/N).</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">dDataConciliacao</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Data da conciliação.</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="listaMovimentosArray" class="anchorScroll"></a>
+<h3>listaMovimentosArray</h3>
+<p>Este par&acirc;metro &eacute; um array do tipo <span class="pre"><a href="#listaMovimentos"><span class="lightBlue">listaMovimentos</span></a></span></p>
+<p>Lista de listaMovimentos</p>
+</div>
+<div class="complexTypeItem">
+<a name="omie_fail" class="anchorScroll"></a>
+<h3>omie_fail</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">code</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Codigo do erro</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">description</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Descricao do erro</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-required">referer</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Origem do erro</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-required">fatal</td>
+<td class="parameter-type">boolean</td><td class="parameter-docs"><div class="first">Indica se eh um erro fatal</div></td>
+<tr>
+</table>
+</div>
+</div>
+<div class="col-md-3">
+<div id="affix-menu" data-spy="affix" data-offset-top="294">
+<h2>M&eacute;todos</h2>
+<nav id="index" class="hidden-print hidden-xs hidden-sm">
+<ul class="nav">
+<li><a href="#ListarExtrato">ListarExtrato</a></li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+</body>
+</html>

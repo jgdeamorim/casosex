@@ -1,0 +1,743 @@
+<nav class="navbar navbar-expand-lg bg-azul">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="https://developer.omie.com.br/">
+            <img class="lozad img-logo" data-src="https://static.omie.com.br/images/logo/logo-omie-topo.png" src="https://static.omie.com.br/images/logo/logo-omie-topo.png" data-loaded="true">
+        </a>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <span class="borda-hover"></span>
+                    <a class="nav-link" href="https://developer.omie.com.br/my-apps/"> Aplicativos </a>
+                </li>
+                <li class="nav-item ">
+                    <span class="borda-hover"></span>
+                    <a class="nav-link" href="https://developer.omie.com.br/service-list/">
+                        Lista das API's
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <span class="borda-hover"></span>
+                    <a class="nav-link" href="https://ajuda.omie.com.br/pt-BR/collections/3045828-apis" target="_blank"> Ajuda </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<html>
+<head>
+<title>EmpresasCadastro</title>
+<style type="text/css" media="all">
+  [id] { scroll-margin-top: 68px; }
+</style>
+<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+<script src="https://cdn.omie.com.br/omie-assets/js/omie-compat-v2.min.js"></script>
+<script src="/developer/themes/omie/developer.js?ts=2021.008"></script>
+<link rel="stylesheet" href="//app.omie.com.br/wp-content/themes/omie/bootstrap/css/bootstrap.min.css" async/>
+<link href="https://cdn.omie.com.br/assets/developer/css/site.css?ts=2021.008" media="all" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="/developer/themes/omie/developer.css?ts=2021.008" async/>
+</head>
+<body>
+<div class="jumbotron banner bg-azul">
+<div class="container">
+<img src="https://cdn.omie.com.br/assets/developer/images/seta-azuis.png" alt="" class="img-setas">
+<div class="row align-items-center">
+<div class="col-12">
+<h1>EmpresasCadastro</h1>
+<ul class="nav nav-tabs" role="tablist">
+  <li role="presentation" class="active"><a href="#section-endpoint" aria-controls="section-endpoint" role="tab" data-toggle="tab">Endpoint</a></li>
+  <li role="presentation" class="pull-right"><a href="#section-wsdl" aria-controls="section-wsdl" role="tab" data-toggle="tab">WSDL</a></li>
+  <li role="presentation" class="pull-right"><a href="#section-php-soap" aria-controls="section-php-soap" role="tab" data-toggle="tab">PHP SOAP</a></li>
+  <li role="presentation" class="pull-right"><a href="#section-json" aria-controls="section-json" role="tab" data-toggle="tab">JSON</a></li>
+</ul>
+<div class="tab-content">
+  <div role="tabpanel" class="tab-pane fade in active" id="section-endpoint">
+    <h4>Endpoint URI</h4>
+    <a class="highlight" href="https://app.omie.com.br/api/v1/geral/empresas/"><pre><code>https://app.omie.com.br/api/v1/geral/empresas/</code></pre></a>
+  </div>
+  <div role="tabpanel" class="tab-pane fade" id="section-wsdl">
+    <h4>WSDL URI</h4>
+    <a class="highlight" href="https://app.omie.com.br/api/v1/geral/empresas/?WSDL"><pre><code>https://app.omie.com.br/api/v1/geral/empresas/?WSDL</code></pre></a>
+  </div>
+  <div role="tabpanel" class="tab-pane fade" id="section-php-soap">
+    <h4>PHP SOAP client download</h4>
+    <a class="highlight" href="https://app.omie.com.br/api/v1/geral/empresas/?PHPSOAPCLIENT""><pre><code>https://app.omie.com.br/api/v1/geral/empresas/?PHPSOAPCLIENT</code></pre></a>
+  </div>
+  <div role="tabpanel" class="tab-pane fade" id="section-json">
+    <h4>JSON client download URI</h4>
+    <h5>PHP</h5>
+    <a class="highlight" href="https://app.omie.com.br/api/v1/geral/empresas/?PHPJSONCLIENT"><pre><code>https://app.omie.com.br/api/v1/geral/empresas/?PHPJSONCLIENT</code></pre></a>
+    <h5>JavaScript (recomendado para uso apenas do lado do servidor)</h5>
+    <a class="highlight" href="https://app.omie.com.br/api/v1/geral/empresas/?JSJSONCLIENT"><pre><code>https://app.omie.com.br/api/v1/geral/empresas/?JSJSONCLIENT</code></pre></a>
+  </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="container">
+<div class="row">
+<div class="col-md-9">
+<h2>M&eacute;todos</h2>
+<p>Veja abaixo a documenta&ccedil;&atilde;o de cada m&eacute;todo dispon&iacute;vel para este servi&ccedil;o.</p>
+<div id="ConsultarEmpresa" class="methodItem">
+<h3 class="method-name">ConsultarEmpresa</h3>
+<p>
+Realiza a consulta de um registro especifico
+</p>
+<div class="panel panel-default method">
+<div class="panel-heading"> Par&acirc;metros:
+</div>
+<table class="table table-condensed table-hover">
+<tr>
+<td class="">&nbsp;</td>
+<td class="method-parameter-type"><a href="#empresas_consultar">empresas_consultar</a></td>
+<td class="method-parameter-name">empresas_consultar</td><td class="method-parameter-docs"><div class="first">Consulta um código no cadastro de Empresas</div></td>
+</tr>
+</table>
+<div class="panel-footer">
+Retorno <span class="pre"><a href="#empresas_cadastro"><span class="lightBlue">empresas_cadastro</span></a></span>: Cadastro de Empresas
+</div>
+</div>
+<div class="method-example-area">
+<h5>Exemplo:</h5>
+<pre class="method-example-code">{<BR>   "codigo_empresa": 0<BR>}</pre>
+<button class="btn btn-success method-example" data-method="ConsultarEmpresa" data-example="%7B+++%22codigo_empresa%22%3A+0%7D">Teste agora mesmo</button>
+</div>
+</div>
+<div id="ListarEmpresas" class="methodItem">
+<h3 class="method-name">ListarEmpresas</h3>
+<p>
+Lista as empresas cadastradas no Omie.
+</p>
+<div class="panel panel-default method">
+<div class="panel-heading"> Par&acirc;metros:
+</div>
+<table class="table table-condensed table-hover">
+<tr>
+<td class="">&nbsp;</td>
+<td class="method-parameter-type"><a href="#empresas_list_request">empresas_list_request</a></td>
+<td class="method-parameter-name">empresas_list_request</td><td class="method-parameter-docs"><div class="first">Lista as empresas cadastradas</div></td>
+</tr>
+</table>
+<div class="panel-footer">
+Retorno <span class="pre"><a href="#empresas_list_response"><span class="lightBlue">empresas_list_response</span></a></span>: Lista de empresas cadastradas no omie.
+</div>
+</div>
+<div class="method-example-area">
+<h5>Exemplo:</h5>
+<pre class="method-example-code">{<BR>  "pagina": 1,<BR>  "registros_por_pagina": 100,<BR>  "apenas_importado_api": "N"<BR>}</pre>
+<button class="btn btn-success method-example" data-method="ListarEmpresas" data-example="%7B++%22pagina%22%3A+1%2C++%22registros_por_pagina%22%3A+100%2C++%22apenas_importado_api%22%3A+%22N%22%7D">Teste agora mesmo</button>
+</div>
+</div>
+<h2>Tipos Complexos</h2>
+<div class="complexTypeItem">
+<a name="empresas_cadastro" class="anchorScroll"></a>
+<h3>empresas_cadastro</h3>
+<p>Cadastro de Empresas</p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">nfse_off</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Permite desmarcar a opção de emitir NFS-e na Prefeitura mesmo depois de marcada [S/N]</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">regapu</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Código do regime de apuração</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nire</td>
+<td class="parameter-type">string<span class="parameter-lenght">11</span></td><td class="parameter-docs"><div class="first">Número de Identificação do Registro da Empresa (Junta Comercial)</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">recbru_12</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Receita Bruta em 12 Meses</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">tp_ativ</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Tipo da Atividade</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">proc_cert</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">(S/N) Tem procuração para o certificado digital</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">prc_gcgcpf</td>
+<td class="parameter-type">string<span class="parameter-lenght">20</span></td><td class="parameter-docs"><div class="first">CNPJ ou CPF da procuração do certificado digital</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">dtnire</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Data do NIRE</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">ct_eskey</td>
+<td class="parameter-type">string<span class="parameter-lenght">300</span></td><td class="parameter-docs"><div class="first">Certificado digital do eSocial</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">ct_espass</td>
+<td class="parameter-type">string<span class="parameter-lenght">120</span></td><td class="parameter-docs"><div class="first">Certificado digital do eSocial (senha)</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">ct_esvlpss</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Certificado digiral VALPASS</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">un_cert</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">(S/N) Usar mesmo certificado digital</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">ct_esidkey</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">ID do Arquivo do Certificado digital eSocial</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">csc_idh</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Identificador do Código de Segurança do Contribuinte (CSC) usado em ambiente Homologação</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">csc_idp</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Identificador do Código de Segurança do Contribuinte (CSC) usado em ambiente Produção</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nfsenac_sn</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Gera Nota Fiscal de Serviço Eletrônica NACIONAL [S/N]</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">frete_sn</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Identifica que a empresa utiliza cotação de frete.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">ctrprev_aj</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Parâmetro para calcular as previsões do contrato da forma correta</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">ct_esisuer</td>
+<td class="parameter-type">string<span class="parameter-lenght">120</span></td><td class="parameter-docs"><div class="first">Certificado Emitido por (eSocial)</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">ct_esname</td>
+<td class="parameter-type">string<span class="parameter-lenght">300</span></td><td class="parameter-docs"><div class="first">Certificado Digital eSocial - Nome</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">ct_essubj</td>
+<td class="parameter-type">string<span class="parameter-lenght">120</span></td><td class="parameter-docs"><div class="first">Certificado digital eSocial - Emitido para</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">ct_estmfrm</td>
+<td class="parameter-type">string<span class="parameter-lenght">8</span></td><td class="parameter-docs"><div class="first">Certificado Digital eSocial Valido até</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">ct_estmto</td>
+<td class="parameter-type">string<span class="parameter-lenght">8</span></td><td class="parameter-docs"><div class="first">Certificado Digital eSocial Valido até</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">ct_esdtfrm</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Certificado Digital eSocial válido até</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">ct_esdtto</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Certificado digital eSocial valido até</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">qualificpj</td>
+<td class="parameter-type">string<span class="parameter-lenght">2</span></td><td class="parameter-docs"><div class="first">Qualificação da Pessoa Jurídica.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">viaunica</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Identifica que a empresa é emissora de Nota Fiscal Via Única (Modelo 06, 21 e 22)</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">vu_padrao</td>
+<td class="parameter-type">string<span class="parameter-lenght">15</span></td><td class="parameter-docs"><div class="first">Padrão de NFS-e utilizado para documentos Via Única (modelo 06/21/22)</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">recbr_ano</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Receita Bruta do Ano Calendário</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">got_cert</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">(S/N) Usar o certificado digital do escritório OneFlow</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">got_certpr</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">(S/N) Usar o certificado digital do procurador do escritório OneFlow.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">ct_name</td>
+<td class="parameter-type">string<span class="parameter-lenght">300</span></td><td class="parameter-docs"><div class="first">Certificado - Nome</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">alt_user</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Usuário de alteração</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">contato</td>
+<td class="parameter-type">string<span class="parameter-lenght">100</span></td><td class="parameter-docs"><div class="first">Contato</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">ct_tm_from</td>
+<td class="parameter-type">string<span class="parameter-lenght">8</span></td><td class="parameter-docs"><div class="first">Certificado - Valido até (hora)</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">ct_tm_to</td>
+<td class="parameter-type">string<span class="parameter-lenght">8</span></td><td class="parameter-docs"><div class="first">Certificado - Válido até (hora)</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">estab</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Tipo de estabelecimento = M.atriz, F.ilial ou U.nico</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">got_ativo</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Indica se a Empresa está ativa em algum módulo do GOT (Fiscal, Contábil, Folha) [S/N]</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">got_idmatr</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">GOT - ID service da matriz</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">got_svcid</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Service ID do APP do Contador</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">dtabertura</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Data de Abertura da Empresa</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">inc_user</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Usuário de inclusão</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">recibo_tit</td>
+<td class="parameter-type">string<span class="parameter-lenght">30</span></td><td class="parameter-docs"><div class="first">Título para o Recibo de Prestação de Serviço</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">mdfe_sn</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Gera o Manifesto de Documentos Fiscais Eletônico [S/N]</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nfce_sn</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Gera Nota Fiscal Consumidor Final (S/N)</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nfe_off</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Permite desmarcar a opção de emitir NF-e na SEFAZ mesmo depois de marcada [S/N]</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">codigo_empresa</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código da Empresa</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">codigo_empresa_integracao</td>
+<td class="parameter-type">string<span class="parameter-lenght">20</span></td><td class="parameter-docs"><div class="first">Código de Integração</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cnpj</td>
+<td class="parameter-type">string<span class="parameter-lenght">20</span></td><td class="parameter-docs"><div class="first">CNPJ da Empresa</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">razao_social</td>
+<td class="parameter-type">string<span class="parameter-lenght">60</span></td><td class="parameter-docs"><div class="first">Razão Social</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nome_fantasia</td>
+<td class="parameter-type">string<span class="parameter-lenght">60</span></td><td class="parameter-docs"><div class="first">Nome Fantasia</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">logradouro</td>
+<td class="parameter-type">string<span class="parameter-lenght">6</span></td><td class="parameter-docs"><div class="first">Logradouro</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">endereco</td>
+<td class="parameter-type">string<span class="parameter-lenght">50</span></td><td class="parameter-docs"><div class="first">Endereço da Empresa</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">endereco_numero</td>
+<td class="parameter-type">string<span class="parameter-lenght">5</span></td><td class="parameter-docs"><div class="first">Número do Endereço</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">complemento</td>
+<td class="parameter-type">string<span class="parameter-lenght">60</span></td><td class="parameter-docs"><div class="first">Complemento do Número do Endereço</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">bairro</td>
+<td class="parameter-type">string<span class="parameter-lenght">60</span></td><td class="parameter-docs"><div class="first">Bairro</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cidade</td>
+<td class="parameter-type">string<span class="parameter-lenght">40</span></td><td class="parameter-docs"><div class="first">Código da Cidade</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">estado</td>
+<td class="parameter-type">string<span class="parameter-lenght">2</span></td><td class="parameter-docs"><div class="first">Estado da Empresa</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cep</td>
+<td class="parameter-type">string<span class="parameter-lenght">9</span></td><td class="parameter-docs"><div class="first">CEP</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">codigo_pais</td>
+<td class="parameter-type">string<span class="parameter-lenght">4</span></td><td class="parameter-docs"><div class="first">Código do País</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">data_adesao_sn</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Data de Adesão ao Simples Nacional</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">telefone1_ddd</td>
+<td class="parameter-type">string<span class="parameter-lenght">5</span></td><td class="parameter-docs"><div class="first">DDD</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">telefone1_numero</td>
+<td class="parameter-type">string<span class="parameter-lenght">15</span></td><td class="parameter-docs"><div class="first">Telefones da Empresa</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">telefone2_ddd</td>
+<td class="parameter-type">string<span class="parameter-lenght">5</span></td><td class="parameter-docs"><div class="first">DDD Telefone 2</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">telefone2_numero</td>
+<td class="parameter-type">string<span class="parameter-lenght">15</span></td><td class="parameter-docs"><div class="first">Telefone 2</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">fax_ddd</td>
+<td class="parameter-type">string<span class="parameter-lenght">5</span></td><td class="parameter-docs"><div class="first">DDD Fax</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">fax_numero</td>
+<td class="parameter-type">string<span class="parameter-lenght">15</span></td><td class="parameter-docs"><div class="first">Fax da Empresa</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">email</td>
+<td class="parameter-type">string<span class="parameter-lenght">200</span></td><td class="parameter-docs"><div class="first">E-mail da Empresa</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">website</td>
+<td class="parameter-type">string<span class="parameter-lenght">100</span></td><td class="parameter-docs"><div class="first">WebSite</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cnae</td>
+<td class="parameter-type">string<span class="parameter-lenght">7</span></td><td class="parameter-docs"><div class="first">Código do CNAE - Fiscal</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cnae_municipal</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Código do CNAE - Municipal</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">inscricao_estadual</td>
+<td class="parameter-type">string<span class="parameter-lenght">20</span></td><td class="parameter-docs"><div class="first">Inscrição Estadual</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">inscricao_municipal</td>
+<td class="parameter-type">string<span class="parameter-lenght">20</span></td><td class="parameter-docs"><div class="first">Inscrição Municipal</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">inscricao_suframa</td>
+<td class="parameter-type">string<span class="parameter-lenght">9</span></td><td class="parameter-docs"><div class="first">Inscrição no SUFRAMA</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">regime_tributario</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Regime Tributário</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">inativa</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Indica que a empresa está ativa</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">gera_nfse</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Gera Nota Fiscal de Serviço Eletrônica para o Município [S/N]</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">optante_simples_nacional</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Indica que a empresa é optante pelo Simples Nacional</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">sped_codigo_incidencia_tributaria</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">SPED PIS/COFINS - Código Indicador da Incidência Tributária no Período</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">sped_codigo_tipo_contribuicao</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">SPED PIS/COFINS - Código indicador do Tipo de Contribuição Apurada no Período</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">sped_cpf_contador</td>
+<td class="parameter-type">string<span class="parameter-lenght">20</span></td><td class="parameter-docs"><div class="first">SPED - CPF do Contador Responsável  pela Empresa</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">sped_crc_contador</td>
+<td class="parameter-type">string<span class="parameter-lenght">18</span></td><td class="parameter-docs"><div class="first">SPED - CRC do Contador Responsável  pela Empresa</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">sped_usa_contabilidade_terceirizada</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">SPED - Indica se a Empresa utiliza Contabilidade Terceirizada</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">sped_email_contador</td>
+<td class="parameter-type">string<span class="parameter-lenght">200</span></td><td class="parameter-docs"><div class="first">SPED - Email do Contador da Empresa</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">sped_codigo_indicador_apropriacao_credito</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">SPED PIS/COFINS - Código Código Indicador de Método de Apropriação de Créditos Comuns</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">sped_codigo_tipo_atividade</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">SPED PIS/COFINS - Código Indicador de Tipo de Atividade Preponderante</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">sped_natureza_pessoa_juridica</td>
+<td class="parameter-type">string<span class="parameter-lenght">2</span></td><td class="parameter-docs"><div class="first">SPED PIS/COFINS - Indicador da Natureza da Pessoa Jurídica</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">sped_codigo_criterio_escrituracao</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">SPED PIS/COFINS - Código Indicador do Critério de Escrituração e Apuração</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">sped_junta_comercial</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">SPED - Indica se o Local do Registro é Junta  Comercial</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">sped_matriz</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">SPED - Indica se a empresa é Matriz</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">sped_nome_contador</td>
+<td class="parameter-type">string<span class="parameter-lenght">48</span></td><td class="parameter-docs"><div class="first">SPED - Nome do Contador Responsável  pela Empresa</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">sped_registro_junta_comercial</td>
+<td class="parameter-type">string<span class="parameter-lenght">16</span></td><td class="parameter-docs"><div class="first">SPED - Número do Registro da Empresa na Junta Comercial ou no Cartório</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">efd_atividade_industrial</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">EFD - Indica se a atividade é industrial ou equiparado a indústria</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">efd_perfil_arquivo_fiscal</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Perfil de Apresentação do Arquivo Fiscal - EFD</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">ecd_codigo_cadastral</td>
+<td class="parameter-type">string<span class="parameter-lenght">40</span></td><td class="parameter-docs"><div class="first">SPED / ECD - Código cadastral na Instituição Responsável</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">ecd_codigo_instituicao_responsavel</td>
+<td class="parameter-type">string<span class="parameter-lenght">2</span></td><td class="parameter-docs"><div class="first">SPED / ECD - Código da Instituição Responsável pela Administração do Cadastro</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">gera_nfe</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Gera Nota Fiscal Eletrônica Âmbito Nacional (DANFE) [S/N]</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">inclusao_data</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Data de inclusão</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">inclusao_hora</td>
+<td class="parameter-type">string<span class="parameter-lenght">8</span></td><td class="parameter-docs"><div class="first">Hora de inclusão.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">alteracao_data</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Data de alteração</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">alteracao_hora</td>
+<td class="parameter-type">string<span class="parameter-lenght">8</span></td><td class="parameter-docs"><div class="first">Hora de alteração</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">bloqueado</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Registro bloqueado pela API</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">importado_api</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Importado da API.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">pdv_sincr_analitica</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Sincronizar Estoque de Forma Análitica (Venda a Venda)</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">dt_adesao_simpnac</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Data de Adesão do Simples Nacional</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">ie_st</td>
+<td class="parameter-type">string<span class="parameter-lenght">20</span></td><td class="parameter-docs"><div class="first">Inscrição Estadual para ST</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">recibo_ide</td>
+<td class="parameter-type">string<span class="parameter-lenght">70</span></td><td class="parameter-docs"><div class="first">Identificação do Profissional (contador, advogado, etc) para o Recibo de Prestação de Serviço</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">gera_recibo</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Gera Recibo de Prestação de Serviço [S/N]</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">recibo_tipo</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Tipo (modelo) do Recibo de Prestação de Serviço</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">recibo_num_vias</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Indica se o Recibo de Prestação de Serviço será gerado em 2 vias</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">csc_id_homologacao</td>
+<td class="parameter-type">string<span class="parameter-lenght">5</span></td><td class="parameter-docs"><div class="first">Identificador do Código de Segurança do Contribuinte em ambiente homologação</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">csc_homologacao</td>
+<td class="parameter-type">string<span class="parameter-lenght">250</span></td><td class="parameter-docs"><div class="first">Código de Segurança do Contribuinte em ambiente de homologação</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">csc_id_producao</td>
+<td class="parameter-type">string<span class="parameter-lenght">5</span></td><td class="parameter-docs"><div class="first">Identificador do Código de Segurança do Contribuinte em ambiente produção</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">csc_producao</td>
+<td class="parameter-type">string<span class="parameter-lenght">250</span></td><td class="parameter-docs"><div class="first">Código de Segurança do Contribuinte em ambiente de produção</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="empresas_cadastroArray" class="anchorScroll"></a>
+<h3>empresas_cadastroArray</h3>
+<p>Este par&acirc;metro &eacute; um array do tipo <span class="pre"><a href="#empresas_cadastro"><span class="lightBlue">empresas_cadastro</span></a></span></p>
+<p>Lista de empresas_cadastro</p>
+</div>
+<div class="complexTypeItem">
+<a name="empresas_consultar" class="anchorScroll"></a>
+<h3>empresas_consultar</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">codigo_empresa</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código da Empresa</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="empresas_list_request" class="anchorScroll"></a>
+<h3>empresas_list_request</h3>
+<p>Lista as empresas cadastradas</p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">pagina</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Número da página retornada</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">registros_por_pagina</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Número de registros retornados na página.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">apenas_importado_api</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">DEPRECATED</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">ordenar_por</td>
+<td class="parameter-type">string<span class="parameter-lenght">100</span></td><td class="parameter-docs"><div class="first">DEPRECATED</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">ordem_descrescente</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">DEPRECATED</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">filtrar_por_data_de</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">DEPRECATED</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">filtrar_por_data_ate</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">DEPRECATED</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">filtrar_apenas_inclusao</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">DEPRECATED</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">filtrar_apenas_alteracao</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">DEPRECATED</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="empresas_list_response" class="anchorScroll"></a>
+<h3>empresas_list_response</h3>
+<p>Lista de empresas cadastradas no omie.</p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">pagina</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Número da página retornada</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">total_de_paginas</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Número total de páginas</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">registros</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Número de registros retornados na página.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">total_de_registros</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">total de registros encontrados</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">empresas_cadastro</td>
+<td class="parameter-type"><a href="#empresas_cadastroArray">empresas_cadastroArray</a></td><td class="parameter-docs"><div class="first">Cadastro de Empresas</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="empresas_status" class="anchorScroll"></a>
+<h3>empresas_status</h3>
+<p>Lista de status da empresa</p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">codigo_empresa_integracao</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código da Empresa</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">codigo_empresa</td>
+<td class="parameter-type">string<span class="parameter-lenght">20</span></td><td class="parameter-docs"><div class="first">Código de Integração</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">codigo_status</td>
+<td class="parameter-type">string<span class="parameter-lenght">4</span></td><td class="parameter-docs"><div class="first">Código do status do processamento.</div><div class="more"><a href="javascript:void(0)">+</a><div>Se o retorno for '0' significa que a solicitação foi executada com sucesso.<BR>Se o retorno for maior que '0' ocorreu algum erro durante o processamento da solicitação.<BR>A tag 'cDesStatus' descreve o problema ocorrido.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">descricao_status</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Descrição do status do processamento.</div><div class="more"><a href="javascript:void(0)">+</a><div>Essa tag explica o resultado da tag 'cCodigoStatus'.</div></div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="omie_fail" class="anchorScroll"></a>
+<h3>omie_fail</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">code</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Codigo do erro</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">description</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Descricao do erro</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-required">referer</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Origem do erro</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-required">fatal</td>
+<td class="parameter-type">boolean</td><td class="parameter-docs"><div class="first">Indica se eh um erro fatal</div></td>
+<tr>
+</table>
+</div>
+</div>
+<div class="col-md-3">
+<div id="affix-menu" data-spy="affix" data-offset-top="294">
+<h2>M&eacute;todos</h2>
+<nav id="index" class="hidden-print hidden-xs hidden-sm">
+<ul class="nav">
+<li><a href="#ConsultarEmpresa">ConsultarEmpresa</a></li>
+<li><a href="#ListarEmpresas">ListarEmpresas</a></li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+</body>
+</html>

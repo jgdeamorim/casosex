@@ -1,0 +1,982 @@
+<nav class="navbar navbar-expand-lg bg-azul">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="https://developer.omie.com.br/">
+            <img class="lozad img-logo" data-src="https://static.omie.com.br/images/logo/logo-omie-topo.png" src="https://static.omie.com.br/images/logo/logo-omie-topo.png" data-loaded="true">
+        </a>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <span class="borda-hover"></span>
+                    <a class="nav-link" href="https://developer.omie.com.br/my-apps/"> Aplicativos </a>
+                </li>
+                <li class="nav-item ">
+                    <span class="borda-hover"></span>
+                    <a class="nav-link" href="https://developer.omie.com.br/service-list/">
+                        Lista das API's
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <span class="borda-hover"></span>
+                    <a class="nav-link" href="https://ajuda.omie.com.br/pt-BR/collections/3045828-apis" target="_blank"> Ajuda </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<html>
+<head>
+<title>Tarefas</title>
+<style type="text/css" media="all">
+  [id] { scroll-margin-top: 68px; }
+</style>
+<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+<script src="https://cdn.omie.com.br/omie-assets/js/omie-compat-v2.min.js"></script>
+<script src="/developer/themes/omie/developer.js?ts=2021.008"></script>
+<link rel="stylesheet" href="//app.omie.com.br/wp-content/themes/omie/bootstrap/css/bootstrap.min.css" async/>
+<link href="https://cdn.omie.com.br/assets/developer/css/site.css?ts=2021.008" media="all" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="/developer/themes/omie/developer.css?ts=2021.008" async/>
+</head>
+<body>
+<div class="jumbotron banner bg-azul">
+<div class="container">
+<img src="https://cdn.omie.com.br/assets/developer/images/seta-azuis.png" alt="" class="img-setas">
+<div class="row align-items-center">
+<div class="col-12">
+<h1>Tarefas</h1>
+<ul class="nav nav-tabs" role="tablist">
+  <li role="presentation" class="active"><a href="#section-endpoint" aria-controls="section-endpoint" role="tab" data-toggle="tab">Endpoint</a></li>
+  <li role="presentation" class="pull-right"><a href="#section-wsdl" aria-controls="section-wsdl" role="tab" data-toggle="tab">WSDL</a></li>
+  <li role="presentation" class="pull-right"><a href="#section-php-soap" aria-controls="section-php-soap" role="tab" data-toggle="tab">PHP SOAP</a></li>
+  <li role="presentation" class="pull-right"><a href="#section-json" aria-controls="section-json" role="tab" data-toggle="tab">JSON</a></li>
+</ul>
+<div class="tab-content">
+  <div role="tabpanel" class="tab-pane fade in active" id="section-endpoint">
+    <h4>Endpoint URI</h4>
+    <a class="highlight" href="https://app.omie.com.br/api/v1/geral/tarefas/"><pre><code>https://app.omie.com.br/api/v1/geral/tarefas/</code></pre></a>
+  </div>
+  <div role="tabpanel" class="tab-pane fade" id="section-wsdl">
+    <h4>WSDL URI</h4>
+    <a class="highlight" href="https://app.omie.com.br/api/v1/geral/tarefas/?WSDL"><pre><code>https://app.omie.com.br/api/v1/geral/tarefas/?WSDL</code></pre></a>
+  </div>
+  <div role="tabpanel" class="tab-pane fade" id="section-php-soap">
+    <h4>PHP SOAP client download</h4>
+    <a class="highlight" href="https://app.omie.com.br/api/v1/geral/tarefas/?PHPSOAPCLIENT""><pre><code>https://app.omie.com.br/api/v1/geral/tarefas/?PHPSOAPCLIENT</code></pre></a>
+  </div>
+  <div role="tabpanel" class="tab-pane fade" id="section-json">
+    <h4>JSON client download URI</h4>
+    <h5>PHP</h5>
+    <a class="highlight" href="https://app.omie.com.br/api/v1/geral/tarefas/?PHPJSONCLIENT"><pre><code>https://app.omie.com.br/api/v1/geral/tarefas/?PHPJSONCLIENT</code></pre></a>
+    <h5>JavaScript (recomendado para uso apenas do lado do servidor)</h5>
+    <a class="highlight" href="https://app.omie.com.br/api/v1/geral/tarefas/?JSJSONCLIENT"><pre><code>https://app.omie.com.br/api/v1/geral/tarefas/?JSJSONCLIENT</code></pre></a>
+  </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="container">
+<div class="row">
+<div class="col-md-9">
+<h2>M&eacute;todos</h2>
+<p>Veja abaixo a documenta&ccedil;&atilde;o de cada m&eacute;todo dispon&iacute;vel para este servi&ccedil;o.</p>
+<div id="AlterarTarefa" class="methodItem">
+<h3 class="method-name">AlterarTarefa</h3>
+<p>
+
+</p>
+<div class="panel panel-default method">
+<div class="panel-heading"> Par&acirc;metros:
+</div>
+<table class="table table-condensed table-hover">
+<tr>
+<td class="">&nbsp;</td>
+<td class="method-parameter-type"><a href="#AlterarTarefaRequest">AlterarTarefaRequest</a></td>
+<td class="method-parameter-name">AlterarTarefaRequest</td><td class="method-parameter-docs"><div class="first">Solicitação de alteração de uma tarefa.</div></td>
+</tr>
+</table>
+<div class="panel-footer">
+Retorno <span class="pre"><a href="#AlterarTarefaResponse"><span class="lightBlue">AlterarTarefaResponse</span></a></span>: 
+</div>
+</div>
+<div class="method-example-area">
+<h5>Exemplo:</h5>
+<pre class="method-example-code">{<BR>   "nCodTarefa": 0,<BR>   "cCodIntTarefa": "",<BR>   "cDescricao": "",<BR>   "dData": "01/09/2026",<BR>   "hHora": "12:30",<BR>   "cImportante": "N",<BR>   "cUrgente": "N",<BR>   "cSituacao": "pendente",<BR>   "nCodAtividade": 0,<BR>   "nCodNotif": 0,<BR>   "nCodUserAtb": 0<BR>}</pre>
+<button class="btn btn-success method-example" data-method="AlterarTarefa" data-example="%7B+++%22nCodTarefa%22%3A+0%2C+++%22cCodIntTarefa%22%3A+%22%22%2C+++%22cDescricao%22%3A+%22%22%2C+++%22dData%22%3A+%2201%2F09%2F2026%22%2C+++%22hHora%22%3A+%2212%3A30%22%2C+++%22cImportante%22%3A+%22N%22%2C+++%22cUrgente%22%3A+%22N%22%2C+++%22cSituacao%22%3A+%22pendente%22%2C+++%22nCodAtividade%22%3A+0%2C+++%22nCodNotif%22%3A+0%2C+++%22nCodUserAtb%22%3A+0%7D">Teste agora mesmo</button>
+</div>
+</div>
+<div id="ConsultarTarefa" class="methodItem">
+<h3 class="method-name">ConsultarTarefa</h3>
+<p>
+
+</p>
+<div class="panel panel-default method">
+<div class="panel-heading"> Par&acirc;metros:
+</div>
+<table class="table table-condensed table-hover">
+<tr>
+<td class="">&nbsp;</td>
+<td class="method-parameter-type"><a href="#ConsultarTarefaRequest">ConsultarTarefaRequest</a></td>
+<td class="method-parameter-name">ConsultarTarefaRequest</td><td class="method-parameter-docs"><div class="first">Solicitação da consulta de uma tarefa.</div></td>
+</tr>
+</table>
+<div class="panel-footer">
+Retorno <span class="pre"><a href="#ConsultarTarefaResponse"><span class="lightBlue">ConsultarTarefaResponse</span></a></span>: 
+</div>
+</div>
+<div class="method-example-area">
+<h5>Exemplo:</h5>
+<pre class="method-example-code">{<BR>    "nCodTarefa": 0,<BR>    "cCodIntTarefa": ""<BR>}</pre>
+<button class="btn btn-success method-example" data-method="ConsultarTarefa" data-example="%7B++++%22nCodTarefa%22%3A+0%2C++++%22cCodIntTarefa%22%3A+%22%22%7D">Teste agora mesmo</button>
+</div>
+</div>
+<div id="ExcluirTarefa" class="methodItem">
+<h3 class="method-name">ExcluirTarefa</h3>
+<p>
+
+</p>
+<div class="panel panel-default method">
+<div class="panel-heading"> Par&acirc;metros:
+</div>
+<table class="table table-condensed table-hover">
+<tr>
+<td class="">&nbsp;</td>
+<td class="method-parameter-type"><a href="#ExcluirTarefaRequest">ExcluirTarefaRequest</a></td>
+<td class="method-parameter-name">ExcluirTarefaRequest</td><td class="method-parameter-docs"><div class="first">Solicitação de exclusão de uma tarefa.</div></td>
+</tr>
+</table>
+<div class="panel-footer">
+Retorno <span class="pre"><a href="#ExcluirTarefaResponse"><span class="lightBlue">ExcluirTarefaResponse</span></a></span>: 
+</div>
+</div>
+<div class="method-example-area">
+<h5>Exemplo:</h5>
+<pre class="method-example-code">{<BR>    "nCodTarefa": 0,<BR>    "cCodIntTarefa": ""<BR>}</pre>
+<button class="btn btn-success method-example" data-method="ExcluirTarefa" data-example="%7B++++%22nCodTarefa%22%3A+0%2C++++%22cCodIntTarefa%22%3A+%22%22%7D">Teste agora mesmo</button>
+</div>
+</div>
+<div id="IncluirTarefa" class="methodItem">
+<h3 class="method-name">IncluirTarefa</h3>
+<p>
+
+</p>
+<div class="panel panel-default method">
+<div class="panel-heading"> Par&acirc;metros:
+</div>
+<table class="table table-condensed table-hover">
+<tr>
+<td class="">&nbsp;</td>
+<td class="method-parameter-type"><a href="#IncluirTarefaRequest">IncluirTarefaRequest</a></td>
+<td class="method-parameter-name">IncluirTarefaRequest</td><td class="method-parameter-docs"><div class="first">Solicitação de cadastro de tarefa.</div></td>
+</tr>
+</table>
+<div class="panel-footer">
+Retorno <span class="pre"><a href="#IncluirTarefaResponse"><span class="lightBlue">IncluirTarefaResponse</span></a></span>: 
+</div>
+</div>
+<div class="method-example-area">
+<h5>Exemplo:</h5>
+<pre class="method-example-code">{<BR>   "cCodIntTarefa": "",<BR>   "cOrigem": "",<BR>   "cDescricao": "",<BR>   "dData": "01/09/2026",<BR>   "hHora": "12:30",<BR>   "cImportante": "N",<BR>   "cUrgente": "N",<BR>   "cSituacao": "pendente",<BR>   "nCodAtividade": 0,<BR>   "nCodNotif": 0,<BR>   "nCodUserAtb": 0,<BR>   "nCodDoc": 0<BR>}</pre>
+<button class="btn btn-success method-example" data-method="IncluirTarefa" data-example="%7B+++%22cCodIntTarefa%22%3A+%22%22%2C+++%22cOrigem%22%3A+%22%22%2C+++%22cDescricao%22%3A+%22%22%2C+++%22dData%22%3A+%2201%2F09%2F2026%22%2C+++%22hHora%22%3A+%2212%3A30%22%2C+++%22cImportante%22%3A+%22N%22%2C+++%22cUrgente%22%3A+%22N%22%2C+++%22cSituacao%22%3A+%22pendente%22%2C+++%22nCodAtividade%22%3A+0%2C+++%22nCodNotif%22%3A+0%2C+++%22nCodUserAtb%22%3A+0%2C+++%22nCodDoc%22%3A+0%7D">Teste agora mesmo</button>
+</div>
+</div>
+<div id="ListarTarefas" class="methodItem">
+<h3 class="method-name">ListarTarefas</h3>
+<p>
+
+</p>
+<div class="panel panel-default method">
+<div class="panel-heading"> Par&acirc;metros:
+</div>
+<table class="table table-condensed table-hover">
+<tr>
+<td class="">&nbsp;</td>
+<td class="method-parameter-type"><a href="#ListarTarefasRequest">ListarTarefasRequest</a></td>
+<td class="method-parameter-name">ListarTarefasRequest</td><td class="method-parameter-docs"><div class="first">Solicitação da listagem de tarefas cadastradas.</div></td>
+</tr>
+</table>
+<div class="panel-footer">
+Retorno <span class="pre"><a href="#ListarTarefasResponse"><span class="lightBlue">ListarTarefasResponse</span></a></span>: 
+</div>
+</div>
+<div class="method-example-area">
+<h5>Exemplo:</h5>
+<pre class="method-example-code">{<BR>    "nPagina": 1,<BR>    "nRegPorPagina": 100,<BR>    "cOrigem": "",<BR>    "cImportante": "",<BR>    "cUrgente": "",<BR>    "cSituacao": "",<BR>    "dDataInicial": "",<BR>    "dDataFinal": ""<BR>}</pre>
+<button class="btn btn-success method-example" data-method="ListarTarefas" data-example="%7B++++%22nPagina%22%3A+1%2C++++%22nRegPorPagina%22%3A+100%2C++++%22cOrigem%22%3A+%22%22%2C++++%22cImportante%22%3A+%22%22%2C++++%22cUrgente%22%3A+%22%22%2C++++%22cSituacao%22%3A+%22%22%2C++++%22dDataInicial%22%3A+%22%22%2C++++%22dDataFinal%22%3A+%22%22%7D">Teste agora mesmo</button>
+</div>
+</div>
+<div id="ObterCalendarioTarefas" class="methodItem">
+<h3 class="method-name">ObterCalendarioTarefas</h3>
+<p>
+
+</p>
+<div class="panel panel-default method">
+<div class="panel-heading"> Par&acirc;metros:
+</div>
+<table class="table table-condensed table-hover">
+<tr>
+<td class="">&nbsp;</td>
+<td class="method-parameter-type"><a href="#ObterCalendarioTarefasRequest">ObterCalendarioTarefasRequest</a></td>
+<td class="method-parameter-name">ObterCalendarioTarefasRequest</td><td class="method-parameter-docs"><div class="first">Solicitação para obter informações do calendário das tarefas.</div></td>
+</tr>
+</table>
+<div class="panel-footer">
+Retorno <span class="pre"><a href="#ObterCalendarioTarefasResponse"><span class="lightBlue">ObterCalendarioTarefasResponse</span></a></span>: 
+</div>
+</div>
+<div class="method-example-area">
+<h5>Exemplo:</h5>
+<pre class="method-example-code">{<BR>    "dDataInicial": "",<BR>    "dDataFinal": "",<BR>    "cOrigem": ""<BR>}</pre>
+<button class="btn btn-success method-example" data-method="ObterCalendarioTarefas" data-example="%7B++++%22dDataInicial%22%3A+%22%22%2C++++%22dDataFinal%22%3A+%22%22%2C++++%22cOrigem%22%3A+%22%22%7D">Teste agora mesmo</button>
+</div>
+</div>
+<div id="ObterResumoTarefas" class="methodItem">
+<h3 class="method-name">ObterResumoTarefas</h3>
+<p>
+
+</p>
+<div class="panel panel-default method">
+<div class="panel-heading"> Par&acirc;metros:
+</div>
+<table class="table table-condensed table-hover">
+<tr>
+<td class="">&nbsp;</td>
+<td class="method-parameter-type"><a href="#ObterResumoTarefasRequest">ObterResumoTarefasRequest</a></td>
+<td class="method-parameter-name">ObterResumoTarefasRequest</td><td class="method-parameter-docs"><div class="first">Solicitação para obter o resumo das tarefas.</div></td>
+</tr>
+</table>
+<div class="panel-footer">
+Retorno <span class="pre"><a href="#ObterResumoTarefasResponse"><span class="lightBlue">ObterResumoTarefasResponse</span></a></span>: 
+</div>
+</div>
+<div class="method-example-area">
+<h5>Exemplo:</h5>
+<pre class="method-example-code">{<BR>    "cApenasResumo": "S"<BR>}</pre>
+<button class="btn btn-success method-example" data-method="ObterResumoTarefas" data-example="%7B++++%22cApenasResumo%22%3A+%22S%22%7D">Teste agora mesmo</button>
+</div>
+</div>
+<div id="ObterTotalTarefas" class="methodItem">
+<h3 class="method-name">ObterTotalTarefas</h3>
+<p>
+
+</p>
+<div class="panel panel-default method">
+<div class="panel-heading"> Par&acirc;metros:
+</div>
+<table class="table table-condensed table-hover">
+<tr>
+<td class="">&nbsp;</td>
+<td class="method-parameter-type"><a href="#ObterTotalTarefasRequest">ObterTotalTarefasRequest</a></td>
+<td class="method-parameter-name">ObterTotalTarefasRequest</td><td class="method-parameter-docs"><div class="first">Solicitação para obter o número de tarefas por documento e origem.</div></td>
+</tr>
+</table>
+<div class="panel-footer">
+Retorno <span class="pre"><a href="#ObterTotalTarefasResponse"><span class="lightBlue">ObterTotalTarefasResponse</span></a></span>: 
+</div>
+</div>
+<div class="method-example-area">
+<h5>Exemplo:</h5>
+<pre class="method-example-code">{<BR>    "cOrigem": "",<BR>    "nCodDoc": 0<BR>}</pre>
+<button class="btn btn-success method-example" data-method="ObterTotalTarefas" data-example="%7B++++%22cOrigem%22%3A+%22%22%2C++++%22nCodDoc%22%3A+0%7D">Teste agora mesmo</button>
+</div>
+</div>
+<h2>Tipos Complexos</h2>
+<div class="complexTypeItem">
+<a name="AlterarTarefaRequest" class="anchorScroll"></a>
+<h3>AlterarTarefaRequest</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">nCodTarefa</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código único da tarefa.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCodIntTarefa</td>
+<td class="parameter-type">string<span class="parameter-lenght">20</span></td><td class="parameter-docs"><div class="first">Código de Integração.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cDescricao</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Descrição da tarefa.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">dData</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Data</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">hHora</td>
+<td class="parameter-type">string<span class="parameter-lenght">5</span></td><td class="parameter-docs"><div class="first">Hora</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cImportante</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Indica se a tarefa é importante (S/N).</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cUrgente</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Indica se a tarefa é urgente (S/N).</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cSituacao</td>
+<td class="parameter-type">string<span class="parameter-lenght">40</span></td><td class="parameter-docs"><div class="first">Situação da tarefa.</div><div class="more"><a href="javascript:void(0)">+</a><div>Para métodos de criação e edição:<BR>Preenchimento opcional.<BR>Como default será utilizado "Pendente".<BR><BR>Pode ser:<BR><BR>pendente (Pendente)<BR>em-execucao (Em execução)<BR>realizada (Realizada)</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nCodAtividade</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código do tipo de tarefa vinculado.</div><div class="more"><a href="javascript:void(0)">+</a><div>Para métodos de criação e edição:<BR>Preenchimento opcional.<BR><BR>Para obter os tipos de tarefa, utilize o método ObterTiposTarefa da API:<BR>/api/v1/geral/tipostarefa/</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nCodNotif</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Id do periodo de envio da notificação</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nCodUserAtb</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código do usuário atribuído.</div><div class="more"><a href="javascript:void(0)">+</a><div>Para método de criação:<BR>Preenchimento obrigatório.<BR><BR>Para método de edição:<BR>Preenchimento opcional.<BR><BR>Para obter os possíveis usuários para alocar a tarefa, utilize o método ListarUsuarios da API:<BR>/api/v1/geral/usuarios/</div></div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="AlterarTarefaResponse" class="anchorScroll"></a>
+<h3>AlterarTarefaResponse</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">cCodStatus</td>
+<td class="parameter-type">string<span class="parameter-lenght">4</span></td><td class="parameter-docs"><div class="first">Código do status do processamento.</div><div class="more"><a href="javascript:void(0)">+</a><div>Se o retorno for '0' significa que a solicitação foi executada com sucesso.<BR>Se o retorno for maior que '0' ocorreu algum erro durante o processamento da solicitação.<BR>A tag 'cDesStatus' descreve o problema ocorrido.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cDesStatus</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Descrição do status do processamento.</div><div class="more"><a href="javascript:void(0)">+</a><div>Essa tag explica o resultado da tag 'cCodigoStatus'.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nCodTarefa</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código único da tarefa.</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="ConsultarTarefaRequest" class="anchorScroll"></a>
+<h3>ConsultarTarefaRequest</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">nCodTarefa</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código único da tarefa.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCodIntTarefa</td>
+<td class="parameter-type">string<span class="parameter-lenght">20</span></td><td class="parameter-docs"><div class="first">Código de Integração.</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="ConsultarTarefaResponse" class="anchorScroll"></a>
+<h3>ConsultarTarefaResponse</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">cCodStatus</td>
+<td class="parameter-type">string<span class="parameter-lenght">4</span></td><td class="parameter-docs"><div class="first">Código do status do processamento.</div><div class="more"><a href="javascript:void(0)">+</a><div>Se o retorno for '0' significa que a solicitação foi executada com sucesso.<BR>Se o retorno for maior que '0' ocorreu algum erro durante o processamento da solicitação.<BR>A tag 'cDesStatus' descreve o problema ocorrido.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cDesStatus</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Descrição do status do processamento.</div><div class="more"><a href="javascript:void(0)">+</a><div>Essa tag explica o resultado da tag 'cCodigoStatus'.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">tarefa</td>
+<td class="parameter-type"><a href="#tarefa">tarefa</a></td><td class="parameter-docs"><div class="first">Informações da tarefa.</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="ExcluirTarefaRequest" class="anchorScroll"></a>
+<h3>ExcluirTarefaRequest</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">nCodTarefa</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código único da tarefa.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCodIntTarefa</td>
+<td class="parameter-type">string<span class="parameter-lenght">20</span></td><td class="parameter-docs"><div class="first">Código de Integração.</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="ExcluirTarefaResponse" class="anchorScroll"></a>
+<h3>ExcluirTarefaResponse</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">cCodStatus</td>
+<td class="parameter-type">string<span class="parameter-lenght">4</span></td><td class="parameter-docs"><div class="first">Código do status do processamento.</div><div class="more"><a href="javascript:void(0)">+</a><div>Se o retorno for '0' significa que a solicitação foi executada com sucesso.<BR>Se o retorno for maior que '0' ocorreu algum erro durante o processamento da solicitação.<BR>A tag 'cDesStatus' descreve o problema ocorrido.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cDesStatus</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Descrição do status do processamento.</div><div class="more"><a href="javascript:void(0)">+</a><div>Essa tag explica o resultado da tag 'cCodigoStatus'.</div></div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="IncluirTarefaRequest" class="anchorScroll"></a>
+<h3>IncluirTarefaRequest</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">cCodIntTarefa</td>
+<td class="parameter-type">string<span class="parameter-lenght">20</span></td><td class="parameter-docs"><div class="first">Código de Integração.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cOrigem</td>
+<td class="parameter-type">string<span class="parameter-lenght">20</span></td><td class="parameter-docs"><div class="first">Origem da tarefa.</div><div class="more"><a href="javascript:void(0)">+</a><div>Para método de criação:<BR>Preenchimento obrigatório.<BR><BR>Pode ser:<BR><BR>oportunidade<BR>geral<BR>cliente<BR>produto<BR>servico<BR>pedido-venda<BR>pedido-compra<BR>pedido-importacao<BR>contas-pagar<BR>contas-receber<BR>ordem-producao<BR>ordem-servico<BR>contrato-servico</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nCodDoc</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Id do documento vinculado a tarefa.</div><div class="more"><a href="javascript:void(0)">+</a><div>Esse campo varia conforme a origem da tarefa.<BR>Ele permite vincular a tarefa a um documento específico, seja ele relacionado a uma oportunidade, contas a pagar, contas a receber, entre outros.<BR><BR>Exemplo:<BR>Se a origem da tarefa for "pedido-compra", esse campo reflete o código do pedido de compra.<BR>Se a origem da tarefa for "contas-receber", esse campo reflete o código da conta a receber.<BR><BR>No cadastro de uma tarefa, quando a origem for "geral", não é permitido informar esse campo.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cDescricao</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Descrição da tarefa.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">dData</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Data</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">hHora</td>
+<td class="parameter-type">string<span class="parameter-lenght">5</span></td><td class="parameter-docs"><div class="first">Hora</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cImportante</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Indica se a tarefa é importante (S/N).</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cUrgente</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Indica se a tarefa é urgente (S/N).</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cSituacao</td>
+<td class="parameter-type">string<span class="parameter-lenght">40</span></td><td class="parameter-docs"><div class="first">Situação da tarefa.</div><div class="more"><a href="javascript:void(0)">+</a><div>Para métodos de criação e edição:<BR>Preenchimento opcional.<BR>Como default será utilizado "Pendente".<BR><BR>Pode ser:<BR><BR>pendente (Pendente)<BR>em-execucao (Em execução)<BR>realizada (Realizada)</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nCodAtividade</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código do tipo de tarefa vinculado.</div><div class="more"><a href="javascript:void(0)">+</a><div>Para métodos de criação e edição:<BR>Preenchimento opcional.<BR><BR>Para obter os tipos de tarefa, utilize o método ObterTiposTarefa da API:<BR>/api/v1/geral/tipostarefa/</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nCodNotif</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Id do periodo de envio da notificação</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nCodUserAtb</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código do usuário atribuído.</div><div class="more"><a href="javascript:void(0)">+</a><div>Para método de criação:<BR>Preenchimento obrigatório.<BR><BR>Para método de edição:<BR>Preenchimento opcional.<BR><BR>Para obter os possíveis usuários para alocar a tarefa, utilize o método ListarUsuarios da API:<BR>/api/v1/geral/usuarios/</div></div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="IncluirTarefaResponse" class="anchorScroll"></a>
+<h3>IncluirTarefaResponse</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">cCodStatus</td>
+<td class="parameter-type">string<span class="parameter-lenght">4</span></td><td class="parameter-docs"><div class="first">Código do status do processamento.</div><div class="more"><a href="javascript:void(0)">+</a><div>Se o retorno for '0' significa que a solicitação foi executada com sucesso.<BR>Se o retorno for maior que '0' ocorreu algum erro durante o processamento da solicitação.<BR>A tag 'cDesStatus' descreve o problema ocorrido.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cDesStatus</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Descrição do status do processamento.</div><div class="more"><a href="javascript:void(0)">+</a><div>Essa tag explica o resultado da tag 'cCodigoStatus'.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nCodTarefa</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código único da tarefa.</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="ListarTarefasRequest" class="anchorScroll"></a>
+<h3>ListarTarefasRequest</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">nPagina</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Número da página que será listada.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nRegPorPagina</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Número de registros retornados</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cOrigem</td>
+<td class="parameter-type">string<span class="parameter-lenght">20</span></td><td class="parameter-docs"><div class="first">Origem da tarefa.</div><div class="more"><a href="javascript:void(0)">+</a><div>Para método de criação:<BR>Preenchimento obrigatório.<BR><BR>Pode ser:<BR><BR>oportunidade<BR>geral<BR>cliente<BR>produto<BR>servico<BR>pedido-venda<BR>pedido-compra<BR>pedido-importacao<BR>contas-pagar<BR>contas-receber<BR>ordem-producao<BR>ordem-servico<BR>contrato-servico</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cImportante</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Indica se a tarefa é importante (S/N).</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cUrgente</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Indica se a tarefa é urgente (S/N).</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cSituacao</td>
+<td class="parameter-type">string<span class="parameter-lenght">40</span></td><td class="parameter-docs"><div class="first">Situação da tarefa.</div><div class="more"><a href="javascript:void(0)">+</a><div>Para métodos de criação e edição:<BR>Preenchimento opcional.<BR>Como default será utilizado "Pendente".<BR><BR>Pode ser:<BR><BR>pendente (Pendente)<BR>em-execucao (Em execução)<BR>realizada (Realizada)</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cIntervalo</td>
+<td class="parameter-type">string<span class="parameter-lenght">30</span></td><td class="parameter-docs"><div class="first">Filtrar tarefas a partir de intervalos específicos.</div><div class="more"><a href="javascript:void(0)">+</a><div>Quando preenchida essa tag, não informar as tags 'dDataInicial' e 'dDataFinal'<BR><BR>Pode ser:<BR><BR>hoje<BR>semana-atual<BR>proxima-semana<BR>mes (mês atual)</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">dDataInicial</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Filtrar tarefas a partir dessa data</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">dDataFinal</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Filtrar tarefas até essa data</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCriadasPorMim</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Indica se deve retornar apenas as tarefas criadas pelo usuário (S/N).</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cAtribuidasAMim</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Indica se deve retornar apenas as tarefas atribuídas ao usuário (S/N).</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nCodDoc</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Id do documento vinculado a tarefa.</div><div class="more"><a href="javascript:void(0)">+</a><div>Esse campo varia conforme a origem da tarefa.<BR>Ele permite vincular a tarefa a um documento específico, seja ele relacionado a uma oportunidade, contas a pagar, contas a receber, entre outros.<BR><BR>Exemplo:<BR>Se a origem da tarefa for "pedido-compra", esse campo reflete o código do pedido de compra.<BR>Se a origem da tarefa for "contas-receber", esse campo reflete o código da conta a receber.<BR><BR>No cadastro de uma tarefa, quando a origem for "geral", não é permitido informar esse campo.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cOrdenarPor</td>
+<td class="parameter-type">string<span class="parameter-lenght">100</span></td><td class="parameter-docs"><div class="first">Ordem de exibição dos dados.</div><div class="more"><a href="javascript:void(0)">+</a><div>Quando não preenchido o padrão será por código<BR><BR>Pode ser:<BR><BR>codigo<BR>codint<BR>data<BR>descricao</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cOrdemDesc</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Indica se a ordem de exibição é decrescente (S/N).</div><div class="more"><a href="javascript:void(0)">+</a><div>Caso não informado, o padrão é "N".</div></div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="ListarTarefasResponse" class="anchorScroll"></a>
+<h3>ListarTarefasResponse</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">cCodStatus</td>
+<td class="parameter-type">string<span class="parameter-lenght">4</span></td><td class="parameter-docs"><div class="first">Código do status do processamento.</div><div class="more"><a href="javascript:void(0)">+</a><div>Se o retorno for '0' significa que a solicitação foi executada com sucesso.<BR>Se o retorno for maior que '0' ocorreu algum erro durante o processamento da solicitação.<BR>A tag 'cDesStatus' descreve o problema ocorrido.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cDesStatus</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Descrição do status do processamento.</div><div class="more"><a href="javascript:void(0)">+</a><div>Essa tag explica o resultado da tag 'cCodigoStatus'.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nPagina</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Número da página que será listada.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nRegistros</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Número de registros retornados</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nTotPaginas</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Total de páginas encontradas.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nTotRegistros</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Total de registros encontrados.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">listaTarefas</td>
+<td class="parameter-type"><a href="#listaTarefasArray">listaTarefasArray</a></td><td class="parameter-docs"><div class="first">Lista de tarefas.</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="ObterCalendarioTarefasRequest" class="anchorScroll"></a>
+<h3>ObterCalendarioTarefasRequest</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">dDataInicial</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Filtrar tarefas a partir dessa data</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">dDataFinal</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Filtrar tarefas até essa data</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cOrigem</td>
+<td class="parameter-type">string<span class="parameter-lenght">20</span></td><td class="parameter-docs"><div class="first">Origem da tarefa.</div><div class="more"><a href="javascript:void(0)">+</a><div>Para método de criação:<BR>Preenchimento obrigatório.<BR><BR>Pode ser:<BR><BR>oportunidade<BR>geral<BR>cliente<BR>produto<BR>servico<BR>pedido-venda<BR>pedido-compra<BR>pedido-importacao<BR>contas-pagar<BR>contas-receber<BR>ordem-producao<BR>ordem-servico<BR>contrato-servico</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCriadasPorMim</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Indica se deve retornar apenas as tarefas criadas pelo usuário (S/N).</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cAtribuidasAMim</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Indica se deve retornar apenas as tarefas atribuídas ao usuário (S/N).</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="ObterCalendarioTarefasResponse" class="anchorScroll"></a>
+<h3>ObterCalendarioTarefasResponse</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">cCodStatus</td>
+<td class="parameter-type">string<span class="parameter-lenght">4</span></td><td class="parameter-docs"><div class="first">Código do status do processamento.</div><div class="more"><a href="javascript:void(0)">+</a><div>Se o retorno for '0' significa que a solicitação foi executada com sucesso.<BR>Se o retorno for maior que '0' ocorreu algum erro durante o processamento da solicitação.<BR>A tag 'cDesStatus' descreve o problema ocorrido.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cDesStatus</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Descrição do status do processamento.</div><div class="more"><a href="javascript:void(0)">+</a><div>Essa tag explica o resultado da tag 'cCodigoStatus'.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">calendario</td>
+<td class="parameter-type"><a href="#calendarioArray">calendarioArray</a></td><td class="parameter-docs"><div class="first">Calendário de tarefas no intervalo especificado pelas datas de início e fim.</div><div class="more"><a href="javascript:void(0)">+</a><div>Cada item corresponde a um dia, contendo a quantidade de tarefas por status e um código de situação geral para o dia.</div></div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="ObterResumoTarefasRequest" class="anchorScroll"></a>
+<h3>ObterResumoTarefasRequest</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">cApenasResumo</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Exibir apenas os registros pelo status S/N.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cOrigem</td>
+<td class="parameter-type">string<span class="parameter-lenght">20</span></td><td class="parameter-docs"><div class="first">Origem da tarefa.</div><div class="more"><a href="javascript:void(0)">+</a><div>Para método de criação:<BR>Preenchimento obrigatório.<BR><BR>Pode ser:<BR><BR>oportunidade<BR>geral<BR>cliente<BR>produto<BR>servico<BR>pedido-venda<BR>pedido-compra<BR>pedido-importacao<BR>contas-pagar<BR>contas-receber<BR>ordem-producao<BR>ordem-servico<BR>contrato-servico</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCriadasPorMim</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Indica se deve retornar apenas as tarefas criadas pelo usuário (S/N).</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cAtribuidasAMim</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Indica se deve retornar apenas as tarefas atribuídas ao usuário (S/N).</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="ObterResumoTarefasResponse" class="anchorScroll"></a>
+<h3>ObterResumoTarefasResponse</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">cCodStatus</td>
+<td class="parameter-type">string<span class="parameter-lenght">4</span></td><td class="parameter-docs"><div class="first">Código do status do processamento.</div><div class="more"><a href="javascript:void(0)">+</a><div>Se o retorno for '0' significa que a solicitação foi executada com sucesso.<BR>Se o retorno for maior que '0' ocorreu algum erro durante o processamento da solicitação.<BR>A tag 'cDesStatus' descreve o problema ocorrido.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cDesStatus</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Descrição do status do processamento.</div><div class="more"><a href="javascript:void(0)">+</a><div>Essa tag explica o resultado da tag 'cCodigoStatus'.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">dData</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Data relacionada à consulta ou ao agrupamento de tarefas.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">resumo</td>
+<td class="parameter-type"><a href="#resumo">resumo</a></td><td class="parameter-docs"><div class="first">Resumo das tarefas indicando quantas tarefas estão programadas para hoje, semana atual, próxima semana e mês atual.</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="ObterTotalTarefasRequest" class="anchorScroll"></a>
+<h3>ObterTotalTarefasRequest</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">cOrigem</td>
+<td class="parameter-type">string<span class="parameter-lenght">20</span></td><td class="parameter-docs"><div class="first">Origem da tarefa.</div><div class="more"><a href="javascript:void(0)">+</a><div>Para método de criação:<BR>Preenchimento obrigatório.<BR><BR>Pode ser:<BR><BR>oportunidade<BR>geral<BR>cliente<BR>produto<BR>servico<BR>pedido-venda<BR>pedido-compra<BR>pedido-importacao<BR>contas-pagar<BR>contas-receber<BR>ordem-producao<BR>ordem-servico<BR>contrato-servico</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nCodDoc</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Id do documento vinculado a tarefa.</div><div class="more"><a href="javascript:void(0)">+</a><div>Esse campo varia conforme a origem da tarefa.<BR>Ele permite vincular a tarefa a um documento específico, seja ele relacionado a uma oportunidade, contas a pagar, contas a receber, entre outros.<BR><BR>Exemplo:<BR>Se a origem da tarefa for "pedido-compra", esse campo reflete o código do pedido de compra.<BR>Se a origem da tarefa for "contas-receber", esse campo reflete o código da conta a receber.<BR><BR>No cadastro de uma tarefa, quando a origem for "geral", não é permitido informar esse campo.</div></div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="ObterTotalTarefasResponse" class="anchorScroll"></a>
+<h3>ObterTotalTarefasResponse</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">cCodStatus</td>
+<td class="parameter-type">string<span class="parameter-lenght">4</span></td><td class="parameter-docs"><div class="first">Código do status do processamento.</div><div class="more"><a href="javascript:void(0)">+</a><div>Se o retorno for '0' significa que a solicitação foi executada com sucesso.<BR>Se o retorno for maior que '0' ocorreu algum erro durante o processamento da solicitação.<BR>A tag 'cDesStatus' descreve o problema ocorrido.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cDesStatus</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Descrição do status do processamento.</div><div class="more"><a href="javascript:void(0)">+</a><div>Essa tag explica o resultado da tag 'cCodigoStatus'.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nTarefas</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Número de tarefas.</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="calendario" class="anchorScroll"></a>
+<h3>calendario</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">dData</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Data relacionada à consulta ou ao agrupamento de tarefas.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nPendentes</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Número de tarefas pendentes para a data.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nEmExecucao</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Número de tarefas em execução para a data.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nConcluidas</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Número de tarefas concluídas para a data.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cStatus</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Status de situação geral para o dia.</div><div class="more"><a href="javascript:void(0)">+</a><div>Pode ser:<BR><BR>"00" - Nenhuma tarefa mapeada para essa data<BR>"01" - Possui tarefas pendentes/execução<BR>"02" - Possui tarefas pendentes/execução (atrasados - menor que a data atual)<BR>"03" - Todas tarefas já foram concluídas</div></div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="calendarioArray" class="anchorScroll"></a>
+<h3>calendarioArray</h3>
+<p>Este par&acirc;metro &eacute; um array do tipo <span class="pre"><a href="#calendario"><span class="lightBlue">calendario</span></a></span></p>
+<p>Lista de calendario</p>
+</div>
+<div class="complexTypeItem">
+<a name="listaTarefas" class="anchorScroll"></a>
+<h3>listaTarefas</h3>
+<p>Lista de tarefas.</p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">nCodTarefa</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código único da tarefa.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCodIntTarefa</td>
+<td class="parameter-type">string<span class="parameter-lenght">20</span></td><td class="parameter-docs"><div class="first">Código de Integração.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cOrigem</td>
+<td class="parameter-type">string<span class="parameter-lenght">20</span></td><td class="parameter-docs"><div class="first">Origem da tarefa.</div><div class="more"><a href="javascript:void(0)">+</a><div>Para método de criação:<BR>Preenchimento obrigatório.<BR><BR>Pode ser:<BR><BR>oportunidade<BR>geral<BR>cliente<BR>produto<BR>servico<BR>pedido-venda<BR>pedido-compra<BR>pedido-importacao<BR>contas-pagar<BR>contas-receber<BR>ordem-producao<BR>ordem-servico<BR>contrato-servico</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nCodDoc</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Id do documento vinculado a tarefa.</div><div class="more"><a href="javascript:void(0)">+</a><div>Esse campo varia conforme a origem da tarefa.<BR>Ele permite vincular a tarefa a um documento específico, seja ele relacionado a uma oportunidade, contas a pagar, contas a receber, entre outros.<BR><BR>Exemplo:<BR>Se a origem da tarefa for "pedido-compra", esse campo reflete o código do pedido de compra.<BR>Se a origem da tarefa for "contas-receber", esse campo reflete o código da conta a receber.<BR><BR>No cadastro de uma tarefa, quando a origem for "geral", não é permitido informar esse campo.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cDescDoc</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Descrição do documento vinculado a tarefa.</div><div class="more"><a href="javascript:void(0)">+</a><div>Exemplo:<BR>Se a origem da tarefa for "pedido-compra", esse campo reflete a descrição do pedido de compra.<BR>Se a origem da tarefa for "contas-receber", esse campo reflete a descrição da conta a receber.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cDescricao</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Descrição da tarefa.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">dData</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Data</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">hHora</td>
+<td class="parameter-type">string<span class="parameter-lenght">5</span></td><td class="parameter-docs"><div class="first">Hora</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cImportante</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Indica se a tarefa é importante (S/N).</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cUrgente</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Indica se a tarefa é urgente (S/N).</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nCodSituacao</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código da situação da tarefa.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cSituacao</td>
+<td class="parameter-type">string<span class="parameter-lenght">40</span></td><td class="parameter-docs"><div class="first">Situação da tarefa.</div><div class="more"><a href="javascript:void(0)">+</a><div>Para métodos de criação e edição:<BR>Preenchimento opcional.<BR>Como default será utilizado "Pendente".<BR><BR>Pode ser:<BR><BR>pendente (Pendente)<BR>em-execucao (Em execução)<BR>realizada (Realizada)</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nCodTipoTarefa</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código do tipo de tarefa vinculado.</div><div class="more"><a href="javascript:void(0)">+</a><div>Para métodos de criação e edição:<BR>Preenchimento opcional.<BR><BR>Para obter os tipos de tarefa, utilize o método ObterTiposTarefa da API:<BR>/api/v1/geral/tipostarefa/</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cDescTipoTarefa</td>
+<td class="parameter-type">string<span class="parameter-lenght">40</span></td><td class="parameter-docs"><div class="first">Descrição para o tipo de notificação</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nCodNotif</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Id do periodo de envio da notificação</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cDescNotif</td>
+<td class="parameter-type">string<span class="parameter-lenght">20</span></td><td class="parameter-docs"><div class="first">Descrição para o período de notificação</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nCodUserAtb</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código do usuário atribuído.</div><div class="more"><a href="javascript:void(0)">+</a><div>Para método de criação:<BR>Preenchimento obrigatório.<BR><BR>Para método de edição:<BR>Preenchimento opcional.<BR><BR>Para obter os possíveis usuários para alocar a tarefa, utilize o método ListarUsuarios da API:<BR>/api/v1/geral/usuarios/</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cNomeUserAtb</td>
+<td class="parameter-type">string<span class="parameter-lenght">800</span></td><td class="parameter-docs"><div class="first">Nome Completo do Usuário</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cDescOrigem</td>
+<td class="parameter-type">string<span class="parameter-lenght">40</span></td><td class="parameter-docs"><div class="first">Nome da origem da tarefa</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="listaTarefasArray" class="anchorScroll"></a>
+<h3>listaTarefasArray</h3>
+<p>Este par&acirc;metro &eacute; um array do tipo <span class="pre"><a href="#listaTarefas"><span class="lightBlue">listaTarefas</span></a></span></p>
+<p>Lista de listaTarefas</p>
+</div>
+<div class="complexTypeItem">
+<a name="omie_fail" class="anchorScroll"></a>
+<h3>omie_fail</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">code</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Codigo do erro</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">description</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Descricao do erro</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-required">referer</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Origem do erro</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-required">fatal</td>
+<td class="parameter-type">boolean</td><td class="parameter-docs"><div class="first">Indica se eh um erro fatal</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="resumo" class="anchorScroll"></a>
+<h3>resumo</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">nHoje</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Número de tarefas de hoje.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nSemanaAtual</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Número de tarefas da semana atual.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nProximaSemana</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Número de tarefas da próxima semana.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nMesAtual</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Número de tarefas do mês atual.</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="tarefa" class="anchorScroll"></a>
+<h3>tarefa</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">nCodTarefa</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código único da tarefa.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCodIntTarefa</td>
+<td class="parameter-type">string<span class="parameter-lenght">20</span></td><td class="parameter-docs"><div class="first">Código de Integração.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cOrigem</td>
+<td class="parameter-type">string<span class="parameter-lenght">20</span></td><td class="parameter-docs"><div class="first">Origem da tarefa.</div><div class="more"><a href="javascript:void(0)">+</a><div>Para método de criação:<BR>Preenchimento obrigatório.<BR><BR>Pode ser:<BR><BR>oportunidade<BR>geral<BR>cliente<BR>produto<BR>servico<BR>pedido-venda<BR>pedido-compra<BR>pedido-importacao<BR>contas-pagar<BR>contas-receber<BR>ordem-producao<BR>ordem-servico<BR>contrato-servico</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nCodDoc</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Id do documento vinculado a tarefa.</div><div class="more"><a href="javascript:void(0)">+</a><div>Esse campo varia conforme a origem da tarefa.<BR>Ele permite vincular a tarefa a um documento específico, seja ele relacionado a uma oportunidade, contas a pagar, contas a receber, entre outros.<BR><BR>Exemplo:<BR>Se a origem da tarefa for "pedido-compra", esse campo reflete o código do pedido de compra.<BR>Se a origem da tarefa for "contas-receber", esse campo reflete o código da conta a receber.<BR><BR>No cadastro de uma tarefa, quando a origem for "geral", não é permitido informar esse campo.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cDescDoc</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Descrição do documento vinculado a tarefa.</div><div class="more"><a href="javascript:void(0)">+</a><div>Exemplo:<BR>Se a origem da tarefa for "pedido-compra", esse campo reflete a descrição do pedido de compra.<BR>Se a origem da tarefa for "contas-receber", esse campo reflete a descrição da conta a receber.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cDescricao</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Descrição da tarefa.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">dData</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Data</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">hHora</td>
+<td class="parameter-type">string<span class="parameter-lenght">5</span></td><td class="parameter-docs"><div class="first">Hora</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cImportante</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Indica se a tarefa é importante (S/N).</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cUrgente</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Indica se a tarefa é urgente (S/N).</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nCodSituacao</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código da situação da tarefa.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cSituacao</td>
+<td class="parameter-type">string<span class="parameter-lenght">40</span></td><td class="parameter-docs"><div class="first">Situação da tarefa.</div><div class="more"><a href="javascript:void(0)">+</a><div>Para métodos de criação e edição:<BR>Preenchimento opcional.<BR>Como default será utilizado "Pendente".<BR><BR>Pode ser:<BR><BR>pendente (Pendente)<BR>em-execucao (Em execução)<BR>realizada (Realizada)</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nCodTipoTarefa</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código do tipo de tarefa vinculado.</div><div class="more"><a href="javascript:void(0)">+</a><div>Para métodos de criação e edição:<BR>Preenchimento opcional.<BR><BR>Para obter os tipos de tarefa, utilize o método ObterTiposTarefa da API:<BR>/api/v1/geral/tipostarefa/</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cDescTipoTarefa</td>
+<td class="parameter-type">string<span class="parameter-lenght">40</span></td><td class="parameter-docs"><div class="first">Descrição para o tipo de notificação</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nCodNotif</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Id do periodo de envio da notificação</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cDescNotif</td>
+<td class="parameter-type">string<span class="parameter-lenght">20</span></td><td class="parameter-docs"><div class="first">Descrição para o período de notificação</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nCodUserAtb</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código do usuário atribuído.</div><div class="more"><a href="javascript:void(0)">+</a><div>Para método de criação:<BR>Preenchimento obrigatório.<BR><BR>Para método de edição:<BR>Preenchimento opcional.<BR><BR>Para obter os possíveis usuários para alocar a tarefa, utilize o método ListarUsuarios da API:<BR>/api/v1/geral/usuarios/</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cNomeUserAtb</td>
+<td class="parameter-type">string<span class="parameter-lenght">800</span></td><td class="parameter-docs"><div class="first">Nome Completo do Usuário</div></td>
+<tr>
+</table>
+</div>
+</div>
+<div class="col-md-3">
+<div id="affix-menu" data-spy="affix" data-offset-top="294">
+<h2>M&eacute;todos</h2>
+<nav id="index" class="hidden-print hidden-xs hidden-sm">
+<ul class="nav">
+<li><a href="#AlterarTarefa">AlterarTarefa</a></li>
+<li><a href="#ConsultarTarefa">ConsultarTarefa</a></li>
+<li><a href="#ExcluirTarefa">ExcluirTarefa</a></li>
+<li><a href="#IncluirTarefa">IncluirTarefa</a></li>
+<li><a href="#ListarTarefas">ListarTarefas</a></li>
+<li><a href="#ObterCalendarioTarefas">ObterCalendarioTarefas</a></li>
+<li><a href="#ObterResumoTarefas">ObterResumoTarefas</a></li>
+<li><a href="#ObterTotalTarefas">ObterTotalTarefas</a></li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+</body>
+</html>

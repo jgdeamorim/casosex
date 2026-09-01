@@ -1,0 +1,457 @@
+<nav class="navbar navbar-expand-lg bg-azul">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="https://developer.omie.com.br/">
+            <img class="lozad img-logo" data-src="https://static.omie.com.br/images/logo/logo-omie-topo.png" src="https://static.omie.com.br/images/logo/logo-omie-topo.png" data-loaded="true">
+        </a>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <span class="borda-hover"></span>
+                    <a class="nav-link" href="https://developer.omie.com.br/my-apps/"> Aplicativos </a>
+                </li>
+                <li class="nav-item ">
+                    <span class="borda-hover"></span>
+                    <a class="nav-link" href="https://developer.omie.com.br/service-list/">
+                        Lista das API's
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <span class="borda-hover"></span>
+                    <a class="nav-link" href="https://ajuda.omie.com.br/pt-BR/collections/3045828-apis" target="_blank"> Ajuda </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<html>
+<head>
+<title>FamiliasCadastro</title>
+<style type="text/css" media="all">
+  [id] { scroll-margin-top: 68px; }
+</style>
+<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+<script src="https://cdn.omie.com.br/omie-assets/js/omie-compat-v2.min.js"></script>
+<script src="/developer/themes/omie/developer.js?ts=2021.008"></script>
+<link rel="stylesheet" href="//app.omie.com.br/wp-content/themes/omie/bootstrap/css/bootstrap.min.css" async/>
+<link href="https://cdn.omie.com.br/assets/developer/css/site.css?ts=2021.008" media="all" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="/developer/themes/omie/developer.css?ts=2021.008" async/>
+</head>
+<body>
+<div class="jumbotron banner bg-azul">
+<div class="container">
+<img src="https://cdn.omie.com.br/assets/developer/images/seta-azuis.png" alt="" class="img-setas">
+<div class="row align-items-center">
+<div class="col-12">
+<h1>FamiliasCadastro</h1>
+<ul class="nav nav-tabs" role="tablist">
+  <li role="presentation" class="active"><a href="#section-endpoint" aria-controls="section-endpoint" role="tab" data-toggle="tab">Endpoint</a></li>
+  <li role="presentation" class="pull-right"><a href="#section-wsdl" aria-controls="section-wsdl" role="tab" data-toggle="tab">WSDL</a></li>
+  <li role="presentation" class="pull-right"><a href="#section-php-soap" aria-controls="section-php-soap" role="tab" data-toggle="tab">PHP SOAP</a></li>
+  <li role="presentation" class="pull-right"><a href="#section-json" aria-controls="section-json" role="tab" data-toggle="tab">JSON</a></li>
+</ul>
+<div class="tab-content">
+  <div role="tabpanel" class="tab-pane fade in active" id="section-endpoint">
+    <h4>Endpoint URI</h4>
+    <a class="highlight" href="https://app.omie.com.br/api/v1/geral/familias/"><pre><code>https://app.omie.com.br/api/v1/geral/familias/</code></pre></a>
+  </div>
+  <div role="tabpanel" class="tab-pane fade" id="section-wsdl">
+    <h4>WSDL URI</h4>
+    <a class="highlight" href="https://app.omie.com.br/api/v1/geral/familias/?WSDL"><pre><code>https://app.omie.com.br/api/v1/geral/familias/?WSDL</code></pre></a>
+  </div>
+  <div role="tabpanel" class="tab-pane fade" id="section-php-soap">
+    <h4>PHP SOAP client download</h4>
+    <a class="highlight" href="https://app.omie.com.br/api/v1/geral/familias/?PHPSOAPCLIENT""><pre><code>https://app.omie.com.br/api/v1/geral/familias/?PHPSOAPCLIENT</code></pre></a>
+  </div>
+  <div role="tabpanel" class="tab-pane fade" id="section-json">
+    <h4>JSON client download URI</h4>
+    <h5>PHP</h5>
+    <a class="highlight" href="https://app.omie.com.br/api/v1/geral/familias/?PHPJSONCLIENT"><pre><code>https://app.omie.com.br/api/v1/geral/familias/?PHPJSONCLIENT</code></pre></a>
+    <h5>JavaScript (recomendado para uso apenas do lado do servidor)</h5>
+    <a class="highlight" href="https://app.omie.com.br/api/v1/geral/familias/?JSJSONCLIENT"><pre><code>https://app.omie.com.br/api/v1/geral/familias/?JSJSONCLIENT</code></pre></a>
+  </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="container">
+<div class="row">
+<div class="col-md-9">
+<h2>M&eacute;todos</h2>
+<p>Veja abaixo a documenta&ccedil;&atilde;o de cada m&eacute;todo dispon&iacute;vel para este servi&ccedil;o.</p>
+<div id="AlterarFamilia" class="methodItem">
+<h3 class="method-name">AlterarFamilia</h3>
+<p>
+Altera uma familia de produto
+</p>
+<div class="panel panel-default method">
+<div class="panel-heading"> Par&acirc;metros:
+</div>
+<table class="table table-condensed table-hover">
+<tr>
+<td class="">&nbsp;</td>
+<td class="method-parameter-type"><a href="#famCadastro">famCadastro</a></td>
+<td class="method-parameter-name">famCadastro</td><td class="method-parameter-docs"><div class="first">Cadastro de Familias de Produtos</div></td>
+</tr>
+</table>
+<div class="panel-footer">
+Retorno <span class="pre"><a href="#famStatus"><span class="lightBlue">famStatus</span></a></span>: Status da Familia de Produtos
+</div>
+</div>
+<div class="method-example-area">
+<h5>Exemplo:</h5>
+<pre class="method-example-code">{<BR>   "codigo" : 0,<BR>   "codInt" : "FA1788306294", <BR>   "codFamilia" : "", <BR>   "nomeFamilia" : "",<BR>   "inativo" : "N"<BR>}</pre>
+<button class="btn btn-success method-example" data-method="AlterarFamilia" data-example="%7B+++%22codigo%22+%3A+0%2C+++%22codInt%22+%3A+%22FA1788306294%22%2C++++%22codFamilia%22+%3A+%22%22%2C++++%22nomeFamilia%22+%3A+%22%22%2C+++%22inativo%22+%3A+%22N%22%7D">Teste agora mesmo</button>
+</div>
+</div>
+<div id="ConsultarFamilia" class="methodItem">
+<h3 class="method-name">ConsultarFamilia</h3>
+<p>
+Consulta uma familia de produto
+</p>
+<div class="panel panel-default method">
+<div class="panel-heading"> Par&acirc;metros:
+</div>
+<table class="table table-condensed table-hover">
+<tr>
+<td class="">&nbsp;</td>
+<td class="method-parameter-type"><a href="#famConsultarRequest">famConsultarRequest</a></td>
+<td class="method-parameter-name">famConsultarRequest</td><td class="method-parameter-docs"><div class="first">Solicitação de Consulta de uma Familia de Produtos</div></td>
+</tr>
+</table>
+<div class="panel-footer">
+Retorno <span class="pre"><a href="#famConsultarResponse"><span class="lightBlue">famConsultarResponse</span></a></span>: Resposta do consulta de Familias de Produtos
+</div>
+</div>
+<div class="method-example-area">
+<h5>Exemplo:</h5>
+<pre class="method-example-code">{<BR>   "codigo" : 0,<BR>   "codInt" : "" <BR>}</pre>
+<button class="btn btn-success method-example" data-method="ConsultarFamilia" data-example="%7B+++%22codigo%22+%3A+0%2C+++%22codInt%22+%3A+%22%22+%7D">Teste agora mesmo</button>
+</div>
+</div>
+<div id="ExcluirFamilia" class="methodItem">
+<h3 class="method-name">ExcluirFamilia</h3>
+<p>
+Exclui uma familia de produto
+</p>
+<div class="panel panel-default method">
+<div class="panel-heading"> Par&acirc;metros:
+</div>
+<table class="table table-condensed table-hover">
+<tr>
+<td class="">&nbsp;</td>
+<td class="method-parameter-type"><a href="#famChave">famChave</a></td>
+<td class="method-parameter-name">famChave</td><td class="method-parameter-docs"><div class="first">chave de pesquisa do Cadastro de Familias de produtos</div></td>
+</tr>
+</table>
+<div class="panel-footer">
+Retorno <span class="pre"><a href="#famStatus"><span class="lightBlue">famStatus</span></a></span>: Status da Familia de Produtos
+</div>
+</div>
+<div class="method-example-area">
+<h5>Exemplo:</h5>
+<pre class="method-example-code">{<BR>   "codigo" : 0,<BR>   "codInt" : ""<BR>}</pre>
+<button class="btn btn-success method-example" data-method="ExcluirFamilia" data-example="%7B+++%22codigo%22+%3A+0%2C+++%22codInt%22+%3A+%22%22%7D">Teste agora mesmo</button>
+</div>
+</div>
+<div id="IncluirFamilia" class="methodItem">
+<h3 class="method-name">IncluirFamilia</h3>
+<p>
+Inclui uma familia de produto
+</p>
+<div class="panel panel-default method">
+<div class="panel-heading"> Par&acirc;metros:
+</div>
+<table class="table table-condensed table-hover">
+<tr>
+<td class="">&nbsp;</td>
+<td class="method-parameter-type"><a href="#famCadastro">famCadastro</a></td>
+<td class="method-parameter-name">famCadastro</td><td class="method-parameter-docs"><div class="first">Cadastro de Familias de Produtos</div></td>
+</tr>
+</table>
+<div class="panel-footer">
+Retorno <span class="pre"><a href="#famStatus"><span class="lightBlue">famStatus</span></a></span>: Status da Familia de Produtos
+</div>
+</div>
+<div class="method-example-area">
+<h5>Exemplo:</h5>
+<pre class="method-example-code">{<BR>   "codInt" : "FA1788306294",  <BR>   "codFamilia" : "", <BR>   "nomeFamilia" : "",<BR>   "inativo" : "N"<BR>}</pre>
+<button class="btn btn-success method-example" data-method="IncluirFamilia" data-example="%7B+++%22codInt%22+%3A+%22FA1788306294%22%2C+++++%22codFamilia%22+%3A+%22%22%2C++++%22nomeFamilia%22+%3A+%22%22%2C+++%22inativo%22+%3A+%22N%22%7D">Teste agora mesmo</button>
+</div>
+</div>
+<div id="PesquisarFamilias" class="methodItem">
+<h3 class="method-name">PesquisarFamilias</h3>
+<p>
+Listagem de familias cadastradas
+</p>
+<div class="panel panel-default method">
+<div class="panel-heading"> Par&acirc;metros:
+</div>
+<table class="table table-condensed table-hover">
+<tr>
+<td class="">&nbsp;</td>
+<td class="method-parameter-type"><a href="#famListarRequest">famListarRequest</a></td>
+<td class="method-parameter-name">famListarRequest</td><td class="method-parameter-docs"><div class="first">Solicitação de Listagem de Familias de Produtos</div></td>
+</tr>
+</table>
+<div class="panel-footer">
+Retorno <span class="pre"><a href="#famListarResponse"><span class="lightBlue">famListarResponse</span></a></span>: Resposta da listagem de Familias de Produtos
+</div>
+</div>
+<div class="method-example-area">
+<h5>Exemplo:</h5>
+<pre class="method-example-code">{<BR>   "pagina" : 1,<BR>   "registros_por_pagina" : 50<BR>}</pre>
+<button class="btn btn-success method-example" data-method="PesquisarFamilias" data-example="%7B+++%22pagina%22+%3A+1%2C+++%22registros_por_pagina%22+%3A+50%7D">Teste agora mesmo</button>
+</div>
+</div>
+<div id="UpsertFamilia" class="methodItem">
+<h3 class="method-name">UpsertFamilia</h3>
+<p>
+Inclui / Altera uma familia de produto
+</p>
+<div class="panel panel-default method">
+<div class="panel-heading"> Par&acirc;metros:
+</div>
+<table class="table table-condensed table-hover">
+<tr>
+<td class="">&nbsp;</td>
+<td class="method-parameter-type"><a href="#famCadastro">famCadastro</a></td>
+<td class="method-parameter-name">famCadastro</td><td class="method-parameter-docs"><div class="first">Cadastro de Familias de Produtos</div></td>
+</tr>
+</table>
+<div class="panel-footer">
+Retorno <span class="pre"><a href="#famStatus"><span class="lightBlue">famStatus</span></a></span>: Status da Familia de Produtos
+</div>
+</div>
+<div class="method-example-area">
+<h5>Exemplo:</h5>
+<pre class="method-example-code">{<BR>   "codigo" : 0,<BR>   "codInt" : "FA1788306294",<BR>   "codFamilia" : "", <BR>   "nomeFamilia" : "",<BR>   "inativo" : "N"<BR>}</pre>
+<button class="btn btn-success method-example" data-method="UpsertFamilia" data-example="%7B+++%22codigo%22+%3A+0%2C+++%22codInt%22+%3A+%22FA1788306294%22%2C+++%22codFamilia%22+%3A+%22%22%2C++++%22nomeFamilia%22+%3A+%22%22%2C+++%22inativo%22+%3A+%22N%22%7D">Teste agora mesmo</button>
+</div>
+</div>
+<h2>Tipos Complexos</h2>
+<div class="complexTypeItem">
+<a name="famCadastro" class="anchorScroll"></a>
+<h3>famCadastro</h3>
+<p>Cadastro de Familias de Produtos</p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">codigo</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código da Familia de Produto</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">codInt</td>
+<td class="parameter-type">string<span class="parameter-lenght">20</span></td><td class="parameter-docs"><div class="first">Código de Integração da Familia de Produto</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">codFamilia</td>
+<td class="parameter-type">string<span class="parameter-lenght">50</span></td><td class="parameter-docs"><div class="first">Código da Familia</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nomeFamilia</td>
+<td class="parameter-type">string<span class="parameter-lenght">50</span></td><td class="parameter-docs"><div class="first">Nome da Familia de Produto</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">inativo</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Indica se a Familia de Produto está inativa [S/N]</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="famCadastroArray" class="anchorScroll"></a>
+<h3>famCadastroArray</h3>
+<p>Este par&acirc;metro &eacute; um array do tipo <span class="pre"><a href="#famCadastro"><span class="lightBlue">famCadastro</span></a></span></p>
+<p>Lista de famCadastro</p>
+</div>
+<div class="complexTypeItem">
+<a name="famChave" class="anchorScroll"></a>
+<h3>famChave</h3>
+<p>chave de pesquisa do Cadastro de Familias de produtos</p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">codigo</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código da Familia de Produto</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">codInt</td>
+<td class="parameter-type">string<span class="parameter-lenght">20</span></td><td class="parameter-docs"><div class="first">Código de Integração da Familia de Produto</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="famConsultarRequest" class="anchorScroll"></a>
+<h3>famConsultarRequest</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">codigo</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código da Familia de Produto</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">codInt</td>
+<td class="parameter-type">string<span class="parameter-lenght">20</span></td><td class="parameter-docs"><div class="first">Código de Integração da Familia de Produto</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="famConsultarResponse" class="anchorScroll"></a>
+<h3>famConsultarResponse</h3>
+<p>Resposta do consulta de Familias de Produtos</p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">codigo</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código da Familia de Produto</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">codInt</td>
+<td class="parameter-type">string<span class="parameter-lenght">20</span></td><td class="parameter-docs"><div class="first">Código de Integração da Familia de Produto</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">codFamilia</td>
+<td class="parameter-type">string<span class="parameter-lenght">50</span></td><td class="parameter-docs"><div class="first">Código da Familia</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nomeFamilia</td>
+<td class="parameter-type">string<span class="parameter-lenght">50</span></td><td class="parameter-docs"><div class="first">Nome da Familia de Produto</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">inativo</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Indica se a Familia de Produto está inativa [S/N]</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="famListarRequest" class="anchorScroll"></a>
+<h3>famListarRequest</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">pagina</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Número da página que será listada.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">registros_por_pagina</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Número de registros retornados</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">apenas_importado_api</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Exibir apenas os registros gerados pela API</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">ordenar_por</td>
+<td class="parameter-type">string<span class="parameter-lenght">100</span></td><td class="parameter-docs"><div class="first">Ordenar o resultado da página por:</div><div class="more"><a href="javascript:void(0)">+</a><div>CODIGO - Código do lançamento do Omie;<BR>INTEGRACAO - Código do lançamento interno do seu sistema;<BR>DATA_LANCAMENTO - Data do lançamento.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">ordem_descrescente</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Indica se a ordem de exibição é decrescente caso seja informado "S".</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">filtrar_por_data_de</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Filtrar lançamentos incluídos e/ou alterados até a data</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">filtrar_por_data_ate</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Filtrar lançamentos incluídos e/ou alterados até a data</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">filtrar_apenas_inclusao</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Filtrar apenas registros incluídos (S/N)</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">filtrar_apenas_alteracao</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Filtrar apenas registros alterados (S/N)</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="famListarResponse" class="anchorScroll"></a>
+<h3>famListarResponse</h3>
+<p>Resposta da listagem de Familias de Produtos</p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">pagina</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Número da página que será listada.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">total_de_paginas</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Total de páginas encontradas.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">registros</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Número de registros retornados</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">total_de_registros</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Total de registros encontrados.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">famCadastro</td>
+<td class="parameter-type"><a href="#famCadastroArray">famCadastroArray</a></td><td class="parameter-docs"><div class="first">Cadastro de Familias de Produtos</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="famStatus" class="anchorScroll"></a>
+<h3>famStatus</h3>
+<p>Status da Familia de Produtos</p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">codigo</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código da Familia de Produto</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">codInt</td>
+<td class="parameter-type">string<span class="parameter-lenght">20</span></td><td class="parameter-docs"><div class="first">Código de Integração da Familia de Produto</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCodStatus</td>
+<td class="parameter-type">string<span class="parameter-lenght">4</span></td><td class="parameter-docs"><div class="first">Código do Status</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cDesStatus</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Descrição do Status da Remessa</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="omie_fail" class="anchorScroll"></a>
+<h3>omie_fail</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">code</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Codigo do erro</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">description</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Descricao do erro</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-required">referer</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Origem do erro</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-required">fatal</td>
+<td class="parameter-type">boolean</td><td class="parameter-docs"><div class="first">Indica se eh um erro fatal</div></td>
+<tr>
+</table>
+</div>
+</div>
+<div class="col-md-3">
+<div id="affix-menu" data-spy="affix" data-offset-top="294">
+<h2>M&eacute;todos</h2>
+<nav id="index" class="hidden-print hidden-xs hidden-sm">
+<ul class="nav">
+<li><a href="#AlterarFamilia">AlterarFamilia</a></li>
+<li><a href="#ConsultarFamilia">ConsultarFamilia</a></li>
+<li><a href="#ExcluirFamilia">ExcluirFamilia</a></li>
+<li><a href="#IncluirFamilia">IncluirFamilia</a></li>
+<li><a href="#PesquisarFamilias">PesquisarFamilias</a></li>
+<li><a href="#UpsertFamilia">UpsertFamilia</a></li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+</body>
+</html>

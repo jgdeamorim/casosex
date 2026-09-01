@@ -1,0 +1,483 @@
+<nav class="navbar navbar-expand-lg bg-azul">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="https://developer.omie.com.br/">
+            <img class="lozad img-logo" data-src="https://static.omie.com.br/images/logo/logo-omie-topo.png" src="https://static.omie.com.br/images/logo/logo-omie-topo.png" data-loaded="true">
+        </a>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <span class="borda-hover"></span>
+                    <a class="nav-link" href="https://developer.omie.com.br/my-apps/"> Aplicativos </a>
+                </li>
+                <li class="nav-item ">
+                    <span class="borda-hover"></span>
+                    <a class="nav-link" href="https://developer.omie.com.br/service-list/">
+                        Lista das API's
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <span class="borda-hover"></span>
+                    <a class="nav-link" href="https://ajuda.omie.com.br/pt-BR/collections/3045828-apis" target="_blank"> Ajuda </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<html>
+<head>
+<title>DepartamentosCadastro</title>
+<style type="text/css" media="all">
+  [id] { scroll-margin-top: 68px; }
+</style>
+<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+<script src="https://cdn.omie.com.br/omie-assets/js/omie-compat-v2.min.js"></script>
+<script src="/developer/themes/omie/developer.js?ts=2021.008"></script>
+<link rel="stylesheet" href="//app.omie.com.br/wp-content/themes/omie/bootstrap/css/bootstrap.min.css" async/>
+<link href="https://cdn.omie.com.br/assets/developer/css/site.css?ts=2021.008" media="all" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="/developer/themes/omie/developer.css?ts=2021.008" async/>
+</head>
+<body>
+<div class="jumbotron banner bg-azul">
+<div class="container">
+<img src="https://cdn.omie.com.br/assets/developer/images/seta-azuis.png" alt="" class="img-setas">
+<div class="row align-items-center">
+<div class="col-12">
+<h1>DepartamentosCadastro</h1>
+<ul class="nav nav-tabs" role="tablist">
+  <li role="presentation" class="active"><a href="#section-endpoint" aria-controls="section-endpoint" role="tab" data-toggle="tab">Endpoint</a></li>
+  <li role="presentation" class="pull-right"><a href="#section-wsdl" aria-controls="section-wsdl" role="tab" data-toggle="tab">WSDL</a></li>
+  <li role="presentation" class="pull-right"><a href="#section-php-soap" aria-controls="section-php-soap" role="tab" data-toggle="tab">PHP SOAP</a></li>
+  <li role="presentation" class="pull-right"><a href="#section-json" aria-controls="section-json" role="tab" data-toggle="tab">JSON</a></li>
+</ul>
+<div class="tab-content">
+  <div role="tabpanel" class="tab-pane fade in active" id="section-endpoint">
+    <h4>Endpoint URI</h4>
+    <a class="highlight" href="https://app.omie.com.br/api/v1/geral/departamentos/"><pre><code>https://app.omie.com.br/api/v1/geral/departamentos/</code></pre></a>
+  </div>
+  <div role="tabpanel" class="tab-pane fade" id="section-wsdl">
+    <h4>WSDL URI</h4>
+    <a class="highlight" href="https://app.omie.com.br/api/v1/geral/departamentos/?WSDL"><pre><code>https://app.omie.com.br/api/v1/geral/departamentos/?WSDL</code></pre></a>
+  </div>
+  <div role="tabpanel" class="tab-pane fade" id="section-php-soap">
+    <h4>PHP SOAP client download</h4>
+    <a class="highlight" href="https://app.omie.com.br/api/v1/geral/departamentos/?PHPSOAPCLIENT""><pre><code>https://app.omie.com.br/api/v1/geral/departamentos/?PHPSOAPCLIENT</code></pre></a>
+  </div>
+  <div role="tabpanel" class="tab-pane fade" id="section-json">
+    <h4>JSON client download URI</h4>
+    <h5>PHP</h5>
+    <a class="highlight" href="https://app.omie.com.br/api/v1/geral/departamentos/?PHPJSONCLIENT"><pre><code>https://app.omie.com.br/api/v1/geral/departamentos/?PHPJSONCLIENT</code></pre></a>
+    <h5>JavaScript (recomendado para uso apenas do lado do servidor)</h5>
+    <a class="highlight" href="https://app.omie.com.br/api/v1/geral/departamentos/?JSJSONCLIENT"><pre><code>https://app.omie.com.br/api/v1/geral/departamentos/?JSJSONCLIENT</code></pre></a>
+  </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="container">
+<div class="row">
+<div class="col-md-9">
+<h2>M&eacute;todos</h2>
+<p>Veja abaixo a documenta&ccedil;&atilde;o de cada m&eacute;todo dispon&iacute;vel para este servi&ccedil;o.</p>
+<div id="AlterarDepartamento" class="methodItem">
+<h3 class="method-name">AlterarDepartamento</h3>
+<div class="panel panel-default method">
+<div class="panel-heading"> Par&acirc;metros:
+</div>
+<table class="table table-condensed table-hover">
+<tr>
+<td class="">&nbsp;</td>
+<td class="method-parameter-type"><a href="#departamento_alterar_request">departamento_alterar_request</a></td>
+<td class="method-parameter-name">departamento_alterar_request</td><td class="method-parameter-docs"><div class="first">Altera um departamento.</div></td>
+</tr>
+</table>
+<div class="panel-footer">
+Retorno <span class="pre"><a href="#departamento_alterar_response"><span class="lightBlue">departamento_alterar_response</span></a></span>: 
+</div>
+</div>
+<div class="method-example-area">
+<h5>Exemplo:</h5>
+<pre class="method-example-code">{<BR>   "descricao":"",<BR>   "codigo":"000000000723648"<BR>}</pre>
+<button class="btn btn-success method-example" data-method="AlterarDepartamento" data-example="%7B+++%22descricao%22%3A%22%22%2C+++%22codigo%22%3A%22000000000723648%22%7D">Teste agora mesmo</button>
+</div>
+</div>
+<div id="ConsultarDepartamento" class="methodItem">
+<h3 class="method-name">ConsultarDepartamento</h3>
+<p>
+
+</p>
+<div class="panel panel-default method">
+<div class="panel-heading"> Par&acirc;metros:
+</div>
+<table class="table table-condensed table-hover">
+<tr>
+<td class="">&nbsp;</td>
+<td class="method-parameter-type"><a href="#departamento_consultar">departamento_consultar</a></td>
+<td class="method-parameter-name">departamento_consultar</td><td class="method-parameter-docs"><div class="first">Consulta um código de departamento.</div></td>
+</tr>
+</table>
+<div class="panel-footer">
+Retorno <span class="pre"><a href="#departamentos"><span class="lightBlue">departamentos</span></a></span>: Cadastro de Departamentos
+</div>
+</div>
+<div class="method-example-area">
+<h5>Exemplo:</h5>
+<pre class="method-example-code">{<BR>   "codigo": ""<BR>}<BR></pre>
+<button class="btn btn-success method-example" data-method="ConsultarDepartamento" data-example="%7B+++%22codigo%22%3A+%22%22%7D">Teste agora mesmo</button>
+</div>
+</div>
+<div id="ExcluirDepartamento" class="methodItem">
+<h3 class="method-name">ExcluirDepartamento</h3>
+<div class="panel panel-default method">
+<div class="panel-heading"> Par&acirc;metros:
+</div>
+<table class="table table-condensed table-hover">
+<tr>
+<td class="">&nbsp;</td>
+<td class="method-parameter-type"><a href="#departamento_excluir_request">departamento_excluir_request</a></td>
+<td class="method-parameter-name">departamento_excluir_request</td><td class="method-parameter-docs"><div class="first">Exclui um departamento.</div></td>
+</tr>
+</table>
+<div class="panel-footer">
+Retorno <span class="pre"><a href="#departamento_excluir_response"><span class="lightBlue">departamento_excluir_response</span></a></span>: 
+</div>
+</div>
+<div class="method-example-area">
+<h5>Exemplo:</h5>
+<pre class="method-example-code">{<BR>   "codigo": ""<BR>}<BR></pre>
+<button class="btn btn-success method-example" data-method="ExcluirDepartamento" data-example="%7B+++%22codigo%22%3A+%22%22%7D">Teste agora mesmo</button>
+</div>
+</div>
+<div id="IncluirDepartamento" class="methodItem">
+<h3 class="method-name">IncluirDepartamento</h3>
+<div class="panel panel-default method">
+<div class="panel-heading"> Par&acirc;metros:
+</div>
+<table class="table table-condensed table-hover">
+<tr>
+<td class="">&nbsp;</td>
+<td class="method-parameter-type"><a href="#departamento_incluir_request">departamento_incluir_request</a></td>
+<td class="method-parameter-name">departamento_incluir_request</td><td class="method-parameter-docs"><div class="first">Inclui um departamento.</div></td>
+</tr>
+</table>
+<div class="panel-footer">
+Retorno <span class="pre"><a href="#departamento_incluir_response"><span class="lightBlue">departamento_incluir_response</span></a></span>: 
+</div>
+</div>
+<div class="method-example-area">
+<h5>Exemplo:</h5>
+<pre class="method-example-code">{<BR>   "descricao":"",<BR>   "codigo":"000000000723648"<BR>}</pre>
+<button class="btn btn-success method-example" data-method="IncluirDepartamento" data-example="%7B+++%22descricao%22%3A%22%22%2C+++%22codigo%22%3A%22000000000723648%22%7D">Teste agora mesmo</button>
+</div>
+</div>
+<div id="ListarDepartamentos" class="methodItem">
+<h3 class="method-name">ListarDepartamentos</h3>
+<div class="panel panel-default method">
+<div class="panel-heading"> Par&acirc;metros:
+</div>
+<table class="table table-condensed table-hover">
+<tr>
+<td class="">&nbsp;</td>
+<td class="method-parameter-type"><a href="#departamento_listar_request">departamento_listar_request</a></td>
+<td class="method-parameter-name">departamento_listar_request</td><td class="method-parameter-docs"><div class="first">Filtro para pesquisa</div></td>
+</tr>
+</table>
+<div class="panel-footer">
+</div>
+</div>
+<div class="method-example-area">
+<h5>Exemplo:</h5>
+<pre class="method-example-code">{<BR>  "pagina": 1,<BR>  "registros_por_pagina": 50<BR>}</pre>
+<button class="btn btn-success method-example" data-method="ListarDepartamentos" data-example="%7B++%22pagina%22%3A+1%2C++%22registros_por_pagina%22%3A+50%7D">Teste agora mesmo</button>
+</div>
+</div>
+<div id="ListarDepatartamentos" class="methodItem">
+<h3 class="method-name">ListarDepatartamentos</h3>
+<p>
+DEPRECATED
+</p>
+<div class="panel panel-default method">
+<div class="panel-heading"> Par&acirc;metros:
+</div>
+<table class="table table-condensed table-hover">
+<tr>
+<td class="">&nbsp;</td>
+<td class="method-parameter-type"><a href="#departamento_listar_request">departamento_listar_request</a></td>
+<td class="method-parameter-name">departamento_listar_request</td><td class="method-parameter-docs"><div class="first">Filtro para pesquisa</div></td>
+</tr>
+</table>
+<div class="panel-footer">
+</div>
+</div>
+<div class="method-example-area">
+<h5>Exemplo:</h5>
+<pre class="method-example-code">{<BR>  "pagina": 1,<BR>  "registros_por_pagina": 50<BR>}</pre>
+<button class="btn btn-success method-example" data-method="ListarDepatartamentos" data-example="%7B++%22pagina%22%3A+1%2C++%22registros_por_pagina%22%3A+50%7D">Teste agora mesmo</button>
+</div>
+</div>
+<h2>Tipos Complexos</h2>
+<div class="complexTypeItem">
+<a name="departamento_alterar_request" class="anchorScroll"></a>
+<h3>departamento_alterar_request</h3>
+<p>Altera um departamento.</p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">codigo</td>
+<td class="parameter-type">string<span class="parameter-lenght">40</span></td><td class="parameter-docs"><div class="first">Código do Departamento / Centro de Custo</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">descricao</td>
+<td class="parameter-type">string<span class="parameter-lenght">50</span></td><td class="parameter-docs"><div class="first">Nome do Departamento / Centro de Custo</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="departamento_alterar_response" class="anchorScroll"></a>
+<h3>departamento_alterar_response</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">codigo</td>
+<td class="parameter-type">string<span class="parameter-lenght">40</span></td><td class="parameter-docs"><div class="first">Código do Departamento / Centro de Custo</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">descricao</td>
+<td class="parameter-type">string<span class="parameter-lenght">50</span></td><td class="parameter-docs"><div class="first">Nome do Departamento / Centro de Custo</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCodStatus</td>
+<td class="parameter-type">string<span class="parameter-lenght">4</span></td><td class="parameter-docs"><div class="first">Código do status do processamento.</div><div class="more"><a href="javascript:void(0)">+</a><div>Se o retorno for '0' significa que a solicitação foi executada com sucesso.<BR>Se o retorno for maior que '0' ocorreu algum erro duranteo o processamento da solicitação.<BR>A tag 'cDesStatus' descreve o problema ocorrido.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cDesStatus</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Descrição do status do processamento.</div><div class="more"><a href="javascript:void(0)">+</a><div>Essa tag explica o resultado da tag 'cCodigoStatus'.</div></div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="departamento_consultar" class="anchorScroll"></a>
+<h3>departamento_consultar</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">codigo</td>
+<td class="parameter-type">string<span class="parameter-lenght">40</span></td><td class="parameter-docs"><div class="first">Código do Departamento / Centro de Custo</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="departamento_excluir_request" class="anchorScroll"></a>
+<h3>departamento_excluir_request</h3>
+<p>Exclui um departamento.</p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">codigo</td>
+<td class="parameter-type">string<span class="parameter-lenght">40</span></td><td class="parameter-docs"><div class="first">Código do Departamento / Centro de Custo</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="departamento_excluir_response" class="anchorScroll"></a>
+<h3>departamento_excluir_response</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">codigo</td>
+<td class="parameter-type">string<span class="parameter-lenght">40</span></td><td class="parameter-docs"><div class="first">Código do Departamento / Centro de Custo</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">descricao</td>
+<td class="parameter-type">string<span class="parameter-lenght">50</span></td><td class="parameter-docs"><div class="first">Nome do Departamento / Centro de Custo</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCodStatus</td>
+<td class="parameter-type">string<span class="parameter-lenght">4</span></td><td class="parameter-docs"><div class="first">Código do status do processamento.</div><div class="more"><a href="javascript:void(0)">+</a><div>Se o retorno for '0' significa que a solicitação foi executada com sucesso.<BR>Se o retorno for maior que '0' ocorreu algum erro duranteo o processamento da solicitação.<BR>A tag 'cDesStatus' descreve o problema ocorrido.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cDesStatus</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Descrição do status do processamento.</div><div class="more"><a href="javascript:void(0)">+</a><div>Essa tag explica o resultado da tag 'cCodigoStatus'.</div></div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="departamento_incluir_request" class="anchorScroll"></a>
+<h3>departamento_incluir_request</h3>
+<p>Inclui um departamento.</p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">codigo</td>
+<td class="parameter-type">string<span class="parameter-lenght">40</span></td><td class="parameter-docs"><div class="first">Código do Departamento / Centro de Custo no qual você deseja</div><div class="more"><a href="javascript:void(0)">+</a><div>incluir o novo departamento.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">descricao</td>
+<td class="parameter-type">string<span class="parameter-lenght">50</span></td><td class="parameter-docs"><div class="first">Nome do Departamento / Centro de Custo</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="departamento_incluir_response" class="anchorScroll"></a>
+<h3>departamento_incluir_response</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">codigo</td>
+<td class="parameter-type">string<span class="parameter-lenght">40</span></td><td class="parameter-docs"><div class="first">Código do Departamento / Centro de Custo</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">descricao</td>
+<td class="parameter-type">string<span class="parameter-lenght">50</span></td><td class="parameter-docs"><div class="first">Nome do Departamento / Centro de Custo</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCodStatus</td>
+<td class="parameter-type">string<span class="parameter-lenght">4</span></td><td class="parameter-docs"><div class="first">Código do status do processamento.</div><div class="more"><a href="javascript:void(0)">+</a><div>Se o retorno for '0' significa que a solicitação foi executada com sucesso.<BR>Se o retorno for maior que '0' ocorreu algum erro duranteo o processamento da solicitação.<BR>A tag 'cDesStatus' descreve o problema ocorrido.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cDesStatus</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Descrição do status do processamento.</div><div class="more"><a href="javascript:void(0)">+</a><div>Essa tag explica o resultado da tag 'cCodigoStatus'.</div></div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="departamento_listar_request" class="anchorScroll"></a>
+<h3>departamento_listar_request</h3>
+<p>Filtro para pesquisa</p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">pagina</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Número da página que será listada.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">registros_por_pagina</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Número de registros retornados</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">apenas_importado_api</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">DEPRECATED</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">ordenar_por</td>
+<td class="parameter-type">string<span class="parameter-lenght">100</span></td><td class="parameter-docs"><div class="first">DEPRECATED</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">ordem_descrescente</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">DEPRECATED</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">filtrar_por_data_de</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">DEPRECATED</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">filtrar_por_data_ate</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">DEPRECATED</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">filtrar_apenas_inclusao</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">DEPRECATED</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">filtrar_apenas_alteracao</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">DEPRECATED</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="departamento_listar_response" class="anchorScroll"></a>
+<h3>departamento_listar_response</h3>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">pagina</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Número da página que será listada.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">total_de_paginas</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Total de páginas encontradas.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">registros</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Número de registros retornados</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">total_de_registros</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Total de registros encontrados.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">departamentos</td>
+<td class="parameter-type"><a href="#departamentosArray">departamentosArray</a></td><td class="parameter-docs"><div class="first">Cadastro de Departamentos</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="departamentos" class="anchorScroll"></a>
+<h3>departamentos</h3>
+<p>Cadastro de Departamentos</p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">codigo</td>
+<td class="parameter-type">string<span class="parameter-lenght">40</span></td><td class="parameter-docs"><div class="first">Código do Departamento / Centro de Custo</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">descricao</td>
+<td class="parameter-type">string<span class="parameter-lenght">50</span></td><td class="parameter-docs"><div class="first">Nome do Departamento / Centro de Custo</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">estrutura</td>
+<td class="parameter-type">string<span class="parameter-lenght">40</span></td><td class="parameter-docs"><div class="first">Utilizado para estruturação dos Departamentos no modo "diagrama"</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">inativo</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Indica que o Departamento / Centro de Custo está inativo</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nivel_totalizador</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Indica que o Departamento / Centro de Custo é um nível totalizador</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="departamentosArray" class="anchorScroll"></a>
+<h3>departamentosArray</h3>
+<p>Este par&acirc;metro &eacute; um array do tipo <span class="pre"><a href="#departamentos"><span class="lightBlue">departamentos</span></a></span></p>
+<p>Lista de departamentos</p>
+</div>
+<div class="complexTypeItem">
+<a name="omie_fail" class="anchorScroll"></a>
+<h3>omie_fail</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">code</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Codigo do erro</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">description</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Descricao do erro</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-required">referer</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Origem do erro</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-required">fatal</td>
+<td class="parameter-type">boolean</td><td class="parameter-docs"><div class="first">Indica se eh um erro fatal</div></td>
+<tr>
+</table>
+</div>
+</div>
+<div class="col-md-3">
+<div id="affix-menu" data-spy="affix" data-offset-top="294">
+<h2>M&eacute;todos</h2>
+<nav id="index" class="hidden-print hidden-xs hidden-sm">
+<ul class="nav">
+<li><a href="#AlterarDepartamento">AlterarDepartamento</a></li>
+<li><a href="#ConsultarDepartamento">ConsultarDepartamento</a></li>
+<li><a href="#ExcluirDepartamento">ExcluirDepartamento</a></li>
+<li><a href="#IncluirDepartamento">IncluirDepartamento</a></li>
+<li><a href="#ListarDepartamentos">ListarDepartamentos</a></li>
+<li><a href="#ListarDepatartamentos">ListarDepatartamentos</a></li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+</body>
+</html>

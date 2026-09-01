@@ -1,0 +1,491 @@
+<nav class="navbar navbar-expand-lg bg-azul">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="https://developer.omie.com.br/">
+            <img class="lozad img-logo" data-src="https://static.omie.com.br/images/logo/logo-omie-topo.png" src="https://static.omie.com.br/images/logo/logo-omie-topo.png" data-loaded="true">
+        </a>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <span class="borda-hover"></span>
+                    <a class="nav-link" href="https://developer.omie.com.br/my-apps/"> Aplicativos </a>
+                </li>
+                <li class="nav-item ">
+                    <span class="borda-hover"></span>
+                    <a class="nav-link" href="https://developer.omie.com.br/service-list/">
+                        Lista das API's
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <span class="borda-hover"></span>
+                    <a class="nav-link" href="https://ajuda.omie.com.br/pt-BR/collections/3045828-apis" target="_blank"> Ajuda </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<html>
+<head>
+<title>ProdutosVariacoes</title>
+<style type="text/css" media="all">
+  [id] { scroll-margin-top: 68px; }
+</style>
+<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+<script src="https://cdn.omie.com.br/omie-assets/js/omie-compat-v2.min.js"></script>
+<script src="/developer/themes/omie/developer.js?ts=2021.008"></script>
+<link rel="stylesheet" href="//app.omie.com.br/wp-content/themes/omie/bootstrap/css/bootstrap.min.css" async/>
+<link href="https://cdn.omie.com.br/assets/developer/css/site.css?ts=2021.008" media="all" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="/developer/themes/omie/developer.css?ts=2021.008" async/>
+</head>
+<body>
+<div class="jumbotron banner bg-azul">
+<div class="container">
+<img src="https://cdn.omie.com.br/assets/developer/images/seta-azuis.png" alt="" class="img-setas">
+<div class="row align-items-center">
+<div class="col-12">
+<h1>ProdutosVariacoes</h1>
+<ul class="nav nav-tabs" role="tablist">
+  <li role="presentation" class="active"><a href="#section-endpoint" aria-controls="section-endpoint" role="tab" data-toggle="tab">Endpoint</a></li>
+  <li role="presentation" class="pull-right"><a href="#section-wsdl" aria-controls="section-wsdl" role="tab" data-toggle="tab">WSDL</a></li>
+  <li role="presentation" class="pull-right"><a href="#section-php-soap" aria-controls="section-php-soap" role="tab" data-toggle="tab">PHP SOAP</a></li>
+  <li role="presentation" class="pull-right"><a href="#section-json" aria-controls="section-json" role="tab" data-toggle="tab">JSON</a></li>
+</ul>
+<div class="tab-content">
+  <div role="tabpanel" class="tab-pane fade in active" id="section-endpoint">
+    <h4>Endpoint URI</h4>
+    <a class="highlight" href="https://app.omie.com.br/api/v1/produtos/variacao/"><pre><code>https://app.omie.com.br/api/v1/produtos/variacao/</code></pre></a>
+  </div>
+  <div role="tabpanel" class="tab-pane fade" id="section-wsdl">
+    <h4>WSDL URI</h4>
+    <a class="highlight" href="https://app.omie.com.br/api/v1/produtos/variacao/?WSDL"><pre><code>https://app.omie.com.br/api/v1/produtos/variacao/?WSDL</code></pre></a>
+  </div>
+  <div role="tabpanel" class="tab-pane fade" id="section-php-soap">
+    <h4>PHP SOAP client download</h4>
+    <a class="highlight" href="https://app.omie.com.br/api/v1/produtos/variacao/?PHPSOAPCLIENT""><pre><code>https://app.omie.com.br/api/v1/produtos/variacao/?PHPSOAPCLIENT</code></pre></a>
+  </div>
+  <div role="tabpanel" class="tab-pane fade" id="section-json">
+    <h4>JSON client download URI</h4>
+    <h5>PHP</h5>
+    <a class="highlight" href="https://app.omie.com.br/api/v1/produtos/variacao/?PHPJSONCLIENT"><pre><code>https://app.omie.com.br/api/v1/produtos/variacao/?PHPJSONCLIENT</code></pre></a>
+    <h5>JavaScript (recomendado para uso apenas do lado do servidor)</h5>
+    <a class="highlight" href="https://app.omie.com.br/api/v1/produtos/variacao/?JSJSONCLIENT"><pre><code>https://app.omie.com.br/api/v1/produtos/variacao/?JSJSONCLIENT</code></pre></a>
+  </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="container">
+<div class="row">
+<div class="col-md-9">
+<h2>M&eacute;todos</h2>
+<p>Veja abaixo a documenta&ccedil;&atilde;o de cada m&eacute;todo dispon&iacute;vel para este servi&ccedil;o.</p>
+<div id="ConsultarVariacoes" class="methodItem">
+<h3 class="method-name">ConsultarVariacoes</h3>
+<p>
+
+</p>
+<div class="panel panel-default method">
+<div class="panel-heading"> Par&acirc;metros:
+</div>
+<table class="table table-condensed table-hover">
+<tr>
+<td class="">&nbsp;</td>
+<td class="method-parameter-type"><a href="#variacaoConsultarRequest">variacaoConsultarRequest</a></td>
+<td class="method-parameter-name">variacaoConsultarRequest</td><td class="method-parameter-docs"><div class="first">Solicitação da consulta de variação.</div></td>
+</tr>
+</table>
+<div class="panel-footer">
+Retorno <span class="pre"><a href="#variacaoConsultarResponse"><span class="lightBlue">variacaoConsultarResponse</span></a></span>: 
+</div>
+</div>
+<div class="method-example-area">
+<h5>Exemplo:</h5>
+<pre class="method-example-code">{<BR>  "nCodProd": 0,<BR>  "cCodIntProd": ""<BR>}</pre>
+<button class="btn btn-success method-example" data-method="ConsultarVariacoes" data-example="%7B++%22nCodProd%22%3A+0%2C++%22cCodIntProd%22%3A+%22%22%7D">Teste agora mesmo</button>
+</div>
+</div>
+<div id="IncluirVariacoes" class="methodItem">
+<h3 class="method-name">IncluirVariacoes</h3>
+<p>
+
+</p>
+<div class="panel panel-default method">
+<div class="panel-heading"> Par&acirc;metros:
+</div>
+<table class="table table-condensed table-hover">
+<tr>
+<td class="">&nbsp;</td>
+<td class="method-parameter-type"><a href="#variacaoIncluirRequest">variacaoIncluirRequest</a></td>
+<td class="method-parameter-name">variacaoIncluirRequest</td><td class="method-parameter-docs"><div class="first">Solicitação da inclusão de variação para o produto.</div></td>
+</tr>
+</table>
+<div class="panel-footer">
+Retorno <span class="pre"><a href="#variacaoIncluirResponse"><span class="lightBlue">variacaoIncluirResponse</span></a></span>: 
+</div>
+</div>
+<div class="method-example-area">
+<h5>Exemplo:</h5>
+<pre class="method-example-code">{<BR>   "nCodProd": 0,<BR>   "cCodIntProd": "",<BR>   "aCaracteristicas": [<BR>      {<BR>         "nIdCaract": 0<BR>      }<BR>   ],<BR>   "aVariacoes": [<BR>      {<BR>         "nCodProdAssoc": 0,<BR>         "cDescrProduto": "",<BR>         "cCodProduto": "",<BR>         "aValoresCaracteristicas": [<BR>            {<BR>               "nIdCaract": 0,<BR>               "nIdValor": 0<BR>            }<BR>         ]<BR>      }<BR>   ]<BR>}</pre>
+<button class="btn btn-success method-example" data-method="IncluirVariacoes" data-example="%7B+++%22nCodProd%22%3A+0%2C+++%22cCodIntProd%22%3A+%22%22%2C+++%22aCaracteristicas%22%3A+%5B++++++%7B+++++++++%22nIdCaract%22%3A+0++++++%7D+++%5D%2C+++%22aVariacoes%22%3A+%5B++++++%7B+++++++++%22nCodProdAssoc%22%3A+0%2C+++++++++%22cDescrProduto%22%3A+%22%22%2C+++++++++%22cCodProduto%22%3A+%22%22%2C+++++++++%22aValoresCaracteristicas%22%3A+%5B++++++++++++%7B+++++++++++++++%22nIdCaract%22%3A+0%2C+++++++++++++++%22nIdValor%22%3A+0++++++++++++%7D+++++++++%5D++++++%7D+++%5D%7D">Teste agora mesmo</button>
+</div>
+</div>
+<div id="ListarVariacoes" class="methodItem">
+<h3 class="method-name">ListarVariacoes</h3>
+<p>
+
+</p>
+<div class="panel panel-default method">
+<div class="panel-heading"> Par&acirc;metros:
+</div>
+<table class="table table-condensed table-hover">
+<tr>
+<td class="">&nbsp;</td>
+<td class="method-parameter-type"><a href="#variacaoListarRequest">variacaoListarRequest</a></td>
+<td class="method-parameter-name">variacaoListarRequest</td><td class="method-parameter-docs"><div class="first">Solicitação para listar as variações.</div></td>
+</tr>
+</table>
+<div class="panel-footer">
+Retorno <span class="pre"><a href="#variacaoListarResponse"><span class="lightBlue">variacaoListarResponse</span></a></span>: 
+</div>
+</div>
+<div class="method-example-area">
+<h5>Exemplo:</h5>
+<pre class="method-example-code">{<BR>  "nPagina": 1,<BR>  "nRegPorPagina": 50<BR>}</pre>
+<button class="btn btn-success method-example" data-method="ListarVariacoes" data-example="%7B++%22nPagina%22%3A+1%2C++%22nRegPorPagina%22%3A+50%7D">Teste agora mesmo</button>
+</div>
+</div>
+<h2>Tipos Complexos</h2>
+<div class="complexTypeItem">
+<a name="CaractVariacoes" class="anchorScroll"></a>
+<h3>CaractVariacoes</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">nIdCaract</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Id da Característica.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cNomeCaract</td>
+<td class="parameter-type">string<span class="parameter-lenght">30</span></td><td class="parameter-docs"><div class="first">Nome da característica variante.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cConteudoCaract</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Conteúdo da característica.</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="CaractVariacoesArray" class="anchorScroll"></a>
+<h3>CaractVariacoesArray</h3>
+<p>Este par&acirc;metro &eacute; um array do tipo <span class="pre"><a href="#CaractVariacoes"><span class="lightBlue">CaractVariacoes</span></a></span></p>
+<p>Lista de CaractVariacoes</p>
+</div>
+<div class="complexTypeItem">
+<a name="aCaracteristicas" class="anchorScroll"></a>
+<h3>aCaracteristicas</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">nIdCaract</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Id da Característica.</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="aCaracteristicasArray" class="anchorScroll"></a>
+<h3>aCaracteristicasArray</h3>
+<p>Este par&acirc;metro &eacute; um array do tipo <span class="pre"><a href="#aCaracteristicas"><span class="lightBlue">aCaracteristicas</span></a></span></p>
+<p>Lista de aCaracteristicas</p>
+</div>
+<div class="complexTypeItem">
+<a name="aValoresCaracteristicas" class="anchorScroll"></a>
+<h3>aValoresCaracteristicas</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">nIdCaract</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Id da Característica.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nIdValor</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Id do valor da característica.</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="aValoresCaracteristicasArray" class="anchorScroll"></a>
+<h3>aValoresCaracteristicasArray</h3>
+<p>Este par&acirc;metro &eacute; um array do tipo <span class="pre"><a href="#aValoresCaracteristicas"><span class="lightBlue">aValoresCaracteristicas</span></a></span></p>
+<p>Lista de aValoresCaracteristicas</p>
+</div>
+<div class="complexTypeItem">
+<a name="aVariacoes" class="anchorScroll"></a>
+<h3>aVariacoes</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">nCodProdAssoc</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código do produto a ser associado a essa variação.</div><div class="more"><a href="javascript:void(0)">+</a><div>Caso informado, não será gerado um novo produto variação e sim, associado a esse produto informado.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cDescrProduto</td>
+<td class="parameter-type">string<span class="parameter-lenght">120</span></td><td class="parameter-docs"><div class="first">Descrição do produto.</div><div class="more"><a href="javascript:void(0)">+</a><div>Descrição do nome do produto no Omie.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCodProduto</td>
+<td class="parameter-type">string<span class="parameter-lenght">60</span></td><td class="parameter-docs"><div class="first">Código do Produto exibido na tela de Produtos.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento Opcional.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">aValoresCaracteristicas</td>
+<td class="parameter-type"><a href="#aValoresCaracteristicasArray">aValoresCaracteristicasArray</a></td><td class="parameter-docs"><div class="first">Informação da característica e valor.</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="aVariacoesArray" class="anchorScroll"></a>
+<h3>aVariacoesArray</h3>
+<p>Este par&acirc;metro &eacute; um array do tipo <span class="pre"><a href="#aVariacoes"><span class="lightBlue">aVariacoes</span></a></span></p>
+<p>Lista de aVariacoes</p>
+</div>
+<div class="complexTypeItem">
+<a name="ident" class="anchorScroll"></a>
+<h3>ident</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">nCodProd</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código do produto.</div><div class="more"><a href="javascript:void(0)">+</a><div>É o ID do produto e será utilizado apenas nas APIs como chave principal para localizar um produto.<BR><BR>Quando um produto for incluído via API, você receberá um ID para esse novo produto.<BR>Recomendamos que você guarde essa informação no aplicativo que estiver integrando.<BR><BR>Utilize a tag "codigo_produto" do método "ListarProdutos" da API<BR>/api/v1/geral/produtos/<BR>para obter essa informação.<BR></div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCodIntProd</td>
+<td class="parameter-type">string<span class="parameter-lenght">60</span></td><td class="parameter-docs"><div class="first">Código de integração do produto.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento Opcional.<BR><BR>Esse campo deve ser informado apenas se você incluiu o produto via API e informou um código de integração para o produto. Do contrário, informe sempre a tag "nCodProd".</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCodProduto</td>
+<td class="parameter-type">string<span class="parameter-lenght">60</span></td><td class="parameter-docs"><div class="first">Código do Produto exibido na tela de Produtos.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento Opcional.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cDescrProduto</td>
+<td class="parameter-type">string<span class="parameter-lenght">120</span></td><td class="parameter-docs"><div class="first">Descrição do produto.</div><div class="more"><a href="javascript:void(0)">+</a><div>Descrição do nome do produto no Omie.</div></div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="listaVariacoes" class="anchorScroll"></a>
+<h3>listaVariacoes</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">ident</td>
+<td class="parameter-type"><a href="#ident">ident</a></td><td class="parameter-docs"><div class="first">Identificação do produto.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">variacoes</td>
+<td class="parameter-type"><a href="#variacoesArray">variacoesArray</a></td><td class="parameter-docs"><div class="first">Informação das variações do produto.</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="listaVariacoesArray" class="anchorScroll"></a>
+<h3>listaVariacoesArray</h3>
+<p>Este par&acirc;metro &eacute; um array do tipo <span class="pre"><a href="#listaVariacoes"><span class="lightBlue">listaVariacoes</span></a></span></p>
+<p>Lista de listaVariacoes</p>
+</div>
+<div class="complexTypeItem">
+<a name="omie_fail" class="anchorScroll"></a>
+<h3>omie_fail</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">code</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Codigo do erro</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">description</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Descricao do erro</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-required">referer</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Origem do erro</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-required">fatal</td>
+<td class="parameter-type">boolean</td><td class="parameter-docs"><div class="first">Indica se eh um erro fatal</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="variacaoConsultarRequest" class="anchorScroll"></a>
+<h3>variacaoConsultarRequest</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">nCodProd</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código do produto.</div><div class="more"><a href="javascript:void(0)">+</a><div>É o ID do produto e será utilizado apenas nas APIs como chave principal para localizar um produto.<BR><BR>Quando um produto for incluído via API, você receberá um ID para esse novo produto.<BR>Recomendamos que você guarde essa informação no aplicativo que estiver integrando.<BR><BR>Utilize a tag "codigo_produto" do método "ListarProdutos" da API<BR>/api/v1/geral/produtos/<BR>para obter essa informação.<BR></div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCodIntProd</td>
+<td class="parameter-type">string<span class="parameter-lenght">60</span></td><td class="parameter-docs"><div class="first">Código de integração do produto.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento Opcional.<BR><BR>Esse campo deve ser informado apenas se você incluiu o produto via API e informou um código de integração para o produto. Do contrário, informe sempre a tag "nCodProd".</div></div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="variacaoConsultarResponse" class="anchorScroll"></a>
+<h3>variacaoConsultarResponse</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">ident</td>
+<td class="parameter-type"><a href="#ident">ident</a></td><td class="parameter-docs"><div class="first">Identificação do produto.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">variacoes</td>
+<td class="parameter-type"><a href="#variacoesArray">variacoesArray</a></td><td class="parameter-docs"><div class="first">Informação das variações do produto.</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="variacaoIncluirRequest" class="anchorScroll"></a>
+<h3>variacaoIncluirRequest</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">nCodProd</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código do produto.</div><div class="more"><a href="javascript:void(0)">+</a><div>É o ID do produto e será utilizado apenas nas APIs como chave principal para localizar um produto.<BR><BR>Quando um produto for incluído via API, você receberá um ID para esse novo produto.<BR>Recomendamos que você guarde essa informação no aplicativo que estiver integrando.<BR><BR>Utilize a tag "codigo_produto" do método "ListarProdutos" da API<BR>/api/v1/geral/produtos/<BR>para obter essa informação.<BR></div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCodIntProd</td>
+<td class="parameter-type">string<span class="parameter-lenght">60</span></td><td class="parameter-docs"><div class="first">Código de integração do produto.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento Opcional.<BR><BR>Esse campo deve ser informado apenas se você incluiu o produto via API e informou um código de integração para o produto. Do contrário, informe sempre a tag "nCodProd".</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">aCaracteristicas</td>
+<td class="parameter-type"><a href="#aCaracteristicasArray">aCaracteristicasArray</a></td><td class="parameter-docs"><div class="first">Lista com as característica para a criação da variação do produto.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento obrigatório ao incluir uma variação.<BR><BR>É permitido informar no máximo 2 características.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">aVariacoes</td>
+<td class="parameter-type"><a href="#aVariacoesArray">aVariacoesArray</a></td><td class="parameter-docs"><div class="first">Configuração manual da variação do produto.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento opcional.<BR><BR>Deve ser preenchido apenas quando deseja informar manualmente as variações do produto.</div></div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="variacaoIncluirResponse" class="anchorScroll"></a>
+<h3>variacaoIncluirResponse</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">cCodStatus</td>
+<td class="parameter-type">string<span class="parameter-lenght">4</span></td><td class="parameter-docs"><div class="first">Identificação do Produto.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cDesStatus</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Descrição do status do processamento.</div><div class="more"><a href="javascript:void(0)">+</a><div>Essa tag explica o resultado da tag 'cCodigoStatus'.</div></div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="variacaoListarRequest" class="anchorScroll"></a>
+<h3>variacaoListarRequest</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">nPagina</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Número da página que será listada.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nRegPorPagina</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Número de registros retornados</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cFiltrarPorDataDe</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Informe aqui a data de início do filtro.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cFiltrarPorDataAte</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Informe aqui a data de início do filtro.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cFiltrarApenasInclusao</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Filtrar apenas registros incluídos para a data.</div><div class="more"><a href="javascript:void(0)">+</a><div> (S/N)</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cFiltrarApenasAlteracao</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Filtrar apenas registros alterados para a data.</div><div class="more"><a href="javascript:void(0)">+</a><div> (S/N)</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cExibirCaracteristicas</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Campo S/N para filtrar as características das variacoes.</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="variacaoListarResponse" class="anchorScroll"></a>
+<h3>variacaoListarResponse</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">nPagina</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Número da página que será listada.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nTotPaginas</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Total de páginas encontradas.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nRegistros</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Número de registros retornados</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nTotRegistros</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Número total de registros.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">listaVariacoes</td>
+<td class="parameter-type"><a href="#listaVariacoesArray">listaVariacoesArray</a></td><td class="parameter-docs"><div class="first">Informações das variações.</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="variacoes" class="anchorScroll"></a>
+<h3>variacoes</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">nIdVariacao</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Id da variação.</div><div class="more"><a href="javascript:void(0)">+</a><div>Id criado para integrar com a  característica do produto.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nIdProdVariacao</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Id do produto variação.</div><div class="more"><a href="javascript:void(0)">+</a><div>Id do produto criado pelas características selecionadas.<BR></div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cDescProdVariacao</td>
+<td class="parameter-type">string<span class="parameter-lenght">120</span></td><td class="parameter-docs"><div class="first">Descrição do produto variação .</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">CaractVariacoes</td>
+<td class="parameter-type"><a href="#CaractVariacoesArray">CaractVariacoesArray</a></td><td class="parameter-docs"><div class="first">Características das variações.</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="variacoesArray" class="anchorScroll"></a>
+<h3>variacoesArray</h3>
+<p>Este par&acirc;metro &eacute; um array do tipo <span class="pre"><a href="#variacoes"><span class="lightBlue">variacoes</span></a></span></p>
+<p>Lista de variacoes</p>
+</div>
+</div>
+<div class="col-md-3">
+<div id="affix-menu" data-spy="affix" data-offset-top="294">
+<h2>M&eacute;todos</h2>
+<nav id="index" class="hidden-print hidden-xs hidden-sm">
+<ul class="nav">
+<li><a href="#ConsultarVariacoes">ConsultarVariacoes</a></li>
+<li><a href="#IncluirVariacoes">IncluirVariacoes</a></li>
+<li><a href="#ListarVariacoes">ListarVariacoes</a></li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+</body>
+</html>

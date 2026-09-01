@@ -1,0 +1,1408 @@
+<nav class="navbar navbar-expand-lg bg-azul">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="https://developer.omie.com.br/">
+            <img class="lozad img-logo" data-src="https://static.omie.com.br/images/logo/logo-omie-topo.png" src="https://static.omie.com.br/images/logo/logo-omie-topo.png" data-loaded="true">
+        </a>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <span class="borda-hover"></span>
+                    <a class="nav-link" href="https://developer.omie.com.br/my-apps/"> Aplicativos </a>
+                </li>
+                <li class="nav-item ">
+                    <span class="borda-hover"></span>
+                    <a class="nav-link" href="https://developer.omie.com.br/service-list/">
+                        Lista das API's
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <span class="borda-hover"></span>
+                    <a class="nav-link" href="https://ajuda.omie.com.br/pt-BR/collections/3045828-apis" target="_blank"> Ajuda </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<html>
+<head>
+<title>ProdutosCadastro</title>
+<style type="text/css" media="all">
+  [id] { scroll-margin-top: 68px; }
+</style>
+<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+<script src="https://cdn.omie.com.br/omie-assets/js/omie-compat-v2.min.js"></script>
+<script src="/developer/themes/omie/developer.js?ts=2021.008"></script>
+<link rel="stylesheet" href="//app.omie.com.br/wp-content/themes/omie/bootstrap/css/bootstrap.min.css" async/>
+<link href="https://cdn.omie.com.br/assets/developer/css/site.css?ts=2021.008" media="all" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="/developer/themes/omie/developer.css?ts=2021.008" async/>
+</head>
+<body>
+<div class="jumbotron banner bg-azul">
+<div class="container">
+<img src="https://cdn.omie.com.br/assets/developer/images/seta-azuis.png" alt="" class="img-setas">
+<div class="row align-items-center">
+<div class="col-12">
+<h1>ProdutosCadastro</h1>
+<ul class="nav nav-tabs" role="tablist">
+  <li role="presentation" class="active"><a href="#section-endpoint" aria-controls="section-endpoint" role="tab" data-toggle="tab">Endpoint</a></li>
+  <li role="presentation" class="pull-right"><a href="#section-wsdl" aria-controls="section-wsdl" role="tab" data-toggle="tab">WSDL</a></li>
+  <li role="presentation" class="pull-right"><a href="#section-php-soap" aria-controls="section-php-soap" role="tab" data-toggle="tab">PHP SOAP</a></li>
+  <li role="presentation" class="pull-right"><a href="#section-json" aria-controls="section-json" role="tab" data-toggle="tab">JSON</a></li>
+</ul>
+<div class="tab-content">
+  <div role="tabpanel" class="tab-pane fade in active" id="section-endpoint">
+    <h4>Endpoint URI</h4>
+    <a class="highlight" href="https://app.omie.com.br/api/v1/geral/produtos/"><pre><code>https://app.omie.com.br/api/v1/geral/produtos/</code></pre></a>
+  </div>
+  <div role="tabpanel" class="tab-pane fade" id="section-wsdl">
+    <h4>WSDL URI</h4>
+    <a class="highlight" href="https://app.omie.com.br/api/v1/geral/produtos/?WSDL"><pre><code>https://app.omie.com.br/api/v1/geral/produtos/?WSDL</code></pre></a>
+  </div>
+  <div role="tabpanel" class="tab-pane fade" id="section-php-soap">
+    <h4>PHP SOAP client download</h4>
+    <a class="highlight" href="https://app.omie.com.br/api/v1/geral/produtos/?PHPSOAPCLIENT""><pre><code>https://app.omie.com.br/api/v1/geral/produtos/?PHPSOAPCLIENT</code></pre></a>
+  </div>
+  <div role="tabpanel" class="tab-pane fade" id="section-json">
+    <h4>JSON client download URI</h4>
+    <h5>PHP</h5>
+    <a class="highlight" href="https://app.omie.com.br/api/v1/geral/produtos/?PHPJSONCLIENT"><pre><code>https://app.omie.com.br/api/v1/geral/produtos/?PHPJSONCLIENT</code></pre></a>
+    <h5>JavaScript (recomendado para uso apenas do lado do servidor)</h5>
+    <a class="highlight" href="https://app.omie.com.br/api/v1/geral/produtos/?JSJSONCLIENT"><pre><code>https://app.omie.com.br/api/v1/geral/produtos/?JSJSONCLIENT</code></pre></a>
+  </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="container">
+<div class="row">
+<div class="col-md-9">
+<h2>M&eacute;todos</h2>
+<p>Veja abaixo a documenta&ccedil;&atilde;o de cada m&eacute;todo dispon&iacute;vel para este servi&ccedil;o.</p>
+<div id="AlterarProduto" class="methodItem">
+<h3 class="method-name">AlterarProduto</h3>
+<p>
+
+</p>
+<div class="panel panel-default method">
+<div class="panel-heading"> Par&acirc;metros:
+</div>
+<table class="table table-condensed table-hover">
+<tr>
+<td class="">&nbsp;</td>
+<td class="method-parameter-type"><a href="#produto_servico_cadastro">produto_servico_cadastro</a></td>
+<td class="method-parameter-name">produto_servico_cadastro</td><td class="method-parameter-docs"><div class="first">Cadastro completo de produtos</div></td>
+</tr>
+</table>
+<div class="panel-footer">
+Retorno <span class="pre"><a href="#produto_servico_status"><span class="lightBlue">produto_servico_status</span></a></span>: Status de retorno do cadastro de produtos
+</div>
+</div>
+<div class="method-example-area">
+<h5>Exemplo:</h5>
+<pre class="method-example-code">{<BR>   "codigo_produto_integracao": "1788306295",<BR>   "codigo": "teste0001",<BR>   "descricao": "Produto de teste",<BR>   "unidade":"UN"<BR>}</pre>
+<button class="btn btn-success method-example" data-method="AlterarProduto" data-example="%7B+++%22codigo_produto_integracao%22%3A+%221788306295%22%2C+++%22codigo%22%3A+%22teste0001%22%2C+++%22descricao%22%3A+%22Produto+de+teste%22%2C+++%22unidade%22%3A%22UN%22%7D">Teste agora mesmo</button>
+</div>
+</div>
+<div id="AssociarCodIntProduto" class="methodItem">
+<h3 class="method-name">AssociarCodIntProduto</h3>
+<p>
+
+</p>
+<div class="panel panel-default method">
+<div class="panel-heading"> Par&acirc;metros:
+</div>
+<table class="table table-condensed table-hover">
+<tr>
+<td class="">&nbsp;</td>
+<td class="method-parameter-type"><a href="#produto_servico_cadastro_chave">produto_servico_cadastro_chave</a></td>
+<td class="method-parameter-name">produto_servico_cadastro_chave</td><td class="method-parameter-docs"><div class="first">Pesquisa de produtos</div></td>
+</tr>
+</table>
+<div class="panel-footer">
+Retorno <span class="pre"><a href="#produto_servico_status"><span class="lightBlue">produto_servico_status</span></a></span>: Status de retorno do cadastro de produtos
+</div>
+</div>
+<div class="method-example-area">
+<h5>Exemplo:</h5>
+<pre class="method-example-code">{<BR>   "codigo_produto": 0,<BR>   "codigo_produto_integracao": ""<BR>}</pre>
+<button class="btn btn-success method-example" data-method="AssociarCodIntProduto" data-example="%7B+++%22codigo_produto%22%3A+0%2C+++%22codigo_produto_integracao%22%3A+%22%22%7D">Teste agora mesmo</button>
+</div>
+</div>
+<div id="ConsultarProduto" class="methodItem">
+<h3 class="method-name">ConsultarProduto</h3>
+<p>
+Consulta um produto.
+</p>
+<div class="panel panel-default method">
+<div class="panel-heading"> Par&acirc;metros:
+</div>
+<table class="table table-condensed table-hover">
+<tr>
+<td class="">&nbsp;</td>
+<td class="method-parameter-type"><a href="#produto_servico_cadastro_chave">produto_servico_cadastro_chave</a></td>
+<td class="method-parameter-name">produto_servico_cadastro_chave</td><td class="method-parameter-docs"><div class="first">Pesquisa de produtos</div></td>
+</tr>
+</table>
+<div class="panel-footer">
+Retorno <span class="pre"><a href="#produto_servico_cadastro"><span class="lightBlue">produto_servico_cadastro</span></a></span>: Cadastro completo de produtos
+</div>
+</div>
+<div class="method-example-area">
+<h5>Exemplo:</h5>
+<pre class="method-example-code">{<BR>   "codigo_produto": 0,<BR>   "codigo_produto_integracao": "",<BR>   "codigo": ""<BR>}</pre>
+<button class="btn btn-success method-example" data-method="ConsultarProduto" data-example="%7B+++%22codigo_produto%22%3A+0%2C+++%22codigo_produto_integracao%22%3A+%22%22%2C+++%22codigo%22%3A+%22%22%7D">Teste agora mesmo</button>
+</div>
+</div>
+<div id="ExcluirProduto" class="methodItem">
+<h3 class="method-name">ExcluirProduto</h3>
+<p>
+Exclui um produto
+</p>
+<div class="panel panel-default method">
+<div class="panel-heading"> Par&acirc;metros:
+</div>
+<table class="table table-condensed table-hover">
+<tr>
+<td class="">&nbsp;</td>
+<td class="method-parameter-type"><a href="#produto_servico_cadastro_chave">produto_servico_cadastro_chave</a></td>
+<td class="method-parameter-name">produto_servico_cadastro_chave</td><td class="method-parameter-docs"><div class="first">Pesquisa de produtos</div></td>
+</tr>
+</table>
+<div class="panel-footer">
+Retorno <span class="pre"><a href="#produto_servico_status"><span class="lightBlue">produto_servico_status</span></a></span>: Status de retorno do cadastro de produtos
+</div>
+</div>
+<div class="method-example-area">
+<h5>Exemplo:</h5>
+<pre class="method-example-code">{<BR>   "codigo_produto": 0,<BR>   "codigo_produto_integracao": "",<BR>   "codigo": ""<BR>}</pre>
+<button class="btn btn-success method-example" data-method="ExcluirProduto" data-example="%7B+++%22codigo_produto%22%3A+0%2C+++%22codigo_produto_integracao%22%3A+%22%22%2C+++%22codigo%22%3A+%22%22%7D">Teste agora mesmo</button>
+</div>
+</div>
+<div id="IncluirProduto" class="methodItem">
+<h3 class="method-name">IncluirProduto</h3>
+<p>
+Incluir um produto.
+</p>
+<div class="panel panel-default method">
+<div class="panel-heading"> Par&acirc;metros:
+</div>
+<table class="table table-condensed table-hover">
+<tr>
+<td class="">&nbsp;</td>
+<td class="method-parameter-type"><a href="#produto_servico_cadastro">produto_servico_cadastro</a></td>
+<td class="method-parameter-name">produto_servico_cadastro</td><td class="method-parameter-docs"><div class="first">Cadastro completo de produtos</div></td>
+</tr>
+</table>
+<div class="panel-footer">
+Retorno <span class="pre"><a href="#produto_servico_status"><span class="lightBlue">produto_servico_status</span></a></span>: Status de retorno do cadastro de produtos
+</div>
+</div>
+<div class="method-example-area">
+<h5>Exemplo:</h5>
+<pre class="method-example-code">{<BR>   "codigo_produto_integracao": "1788306295",<BR>   "codigo": "teste0001",<BR>   "descricao": "Produto de teste",<BR>   "unidade":"UN"<BR>}</pre>
+<button class="btn btn-success method-example" data-method="IncluirProduto" data-example="%7B+++%22codigo_produto_integracao%22%3A+%221788306295%22%2C+++%22codigo%22%3A+%22teste0001%22%2C+++%22descricao%22%3A+%22Produto+de+teste%22%2C+++%22unidade%22%3A%22UN%22%7D">Teste agora mesmo</button>
+</div>
+</div>
+<div id="IncluirProdutosPorLote" class="methodItem">
+<h3 class="method-name">IncluirProdutosPorLote</h3>
+<p>
+DEPRECATED
+</p>
+<div class="panel panel-default method">
+<div class="panel-heading"> Par&acirc;metros:
+</div>
+<table class="table table-condensed table-hover">
+<tr>
+<td class="">&nbsp;</td>
+<td class="method-parameter-type"><a href="#produto_servico_lote_request">produto_servico_lote_request</a></td>
+<td class="method-parameter-name">produto_servico_lote_request</td><td class="method-parameter-docs"><div class="first">Importação em Lote de produtos</div></td>
+</tr>
+</table>
+<div class="panel-footer">
+Retorno <span class="pre"><a href="#produto_servico_lote_response"><span class="lightBlue">produto_servico_lote_response</span></a></span>: Resposta do processamento do lote de produto importados.
+</div>
+</div>
+<div class="method-example-area">
+<h5>Exemplo:</h5>
+<pre class="method-example-code">{<BR>   "lote":123,<BR>   "produto_servico_cadastro": [<BR>      {<BR>         "codigo_produto_integracao": "1628097039",<BR>         "codigo": "teste1235",<BR>         "descricao": "Produto de teste",<BR>         "unidade": "UN",<BR>         "ncm": "9504.50.00"<BR>       },<BR>       {<BR>         "codigo_produto_integracao": "1628097040",<BR>         "codigo": "teste1234",<BR>         "descricao": "Produto de teste",<BR>         "unidade": "UN",<BR>         "ncm": "9504.50.00"<BR>       }         <BR>   ]<BR>}</pre>
+<button class="btn btn-success method-example" data-method="IncluirProdutosPorLote" data-example="%7B+++%22lote%22%3A123%2C+++%22produto_servico_cadastro%22%3A+%5B++++++%7B+++++++++%22codigo_produto_integracao%22%3A+%221628097039%22%2C+++++++++%22codigo%22%3A+%22teste1235%22%2C+++++++++%22descricao%22%3A+%22Produto+de+teste%22%2C+++++++++%22unidade%22%3A+%22UN%22%2C+++++++++%22ncm%22%3A+%229504.50.00%22+++++++%7D%2C+++++++%7B+++++++++%22codigo_produto_integracao%22%3A+%221628097040%22%2C+++++++++%22codigo%22%3A+%22teste1234%22%2C+++++++++%22descricao%22%3A+%22Produto+de+teste%22%2C+++++++++%22unidade%22%3A+%22UN%22%2C+++++++++%22ncm%22%3A+%229504.50.00%22+++++++%7D++++++++++++%5D%7D">Teste agora mesmo</button>
+</div>
+</div>
+<div id="ListarProdutos" class="methodItem">
+<h3 class="method-name">ListarProdutos</h3>
+<p>
+Lista completa do cadastro de produtos
+</p>
+<div class="panel panel-default method">
+<div class="panel-heading"> Par&acirc;metros:
+</div>
+<table class="table table-condensed table-hover">
+<tr>
+<td class="">&nbsp;</td>
+<td class="method-parameter-type"><a href="#produto_servico_list_request">produto_servico_list_request</a></td>
+<td class="method-parameter-name">produto_servico_list_request</td><td class="method-parameter-docs"><div class="first">Lista os produtos cadastrados</div></td>
+</tr>
+</table>
+<div class="panel-footer">
+Retorno <span class="pre"><a href="#produto_servico_listfull_response"><span class="lightBlue">produto_servico_listfull_response</span></a></span>: Lista completa de produtos encontrados no omie.
+</div>
+</div>
+<div class="method-example-area">
+<h5>Exemplo:</h5>
+<pre class="method-example-code">{<BR>  "pagina": 1,<BR>  "registros_por_pagina": 50,<BR>  "apenas_importado_api": "N",<BR>  "filtrar_apenas_omiepdv": "N"<BR>}</pre>
+<button class="btn btn-success method-example" data-method="ListarProdutos" data-example="%7B++%22pagina%22%3A+1%2C++%22registros_por_pagina%22%3A+50%2C++%22apenas_importado_api%22%3A+%22N%22%2C++%22filtrar_apenas_omiepdv%22%3A+%22N%22%7D">Teste agora mesmo</button>
+</div>
+</div>
+<div id="ListarProdutosResumido" class="methodItem">
+<h3 class="method-name">ListarProdutosResumido</h3>
+<p>
+Lista os produtos cadastrados
+</p>
+<div class="panel panel-default method">
+<div class="panel-heading"> Par&acirc;metros:
+</div>
+<table class="table table-condensed table-hover">
+<tr>
+<td class="">&nbsp;</td>
+<td class="method-parameter-type"><a href="#produto_servico_list_request">produto_servico_list_request</a></td>
+<td class="method-parameter-name">produto_servico_list_request</td><td class="method-parameter-docs"><div class="first">Lista os produtos cadastrados</div></td>
+</tr>
+</table>
+<div class="panel-footer">
+Retorno <span class="pre"><a href="#produto_servico_list_response"><span class="lightBlue">produto_servico_list_response</span></a></span>: Lista de produtos encontrados no omie.
+</div>
+</div>
+<div class="method-example-area">
+<h5>Exemplo:</h5>
+<pre class="method-example-code">{<BR>  "pagina": 1,<BR>  "registros_por_pagina": 50,<BR>  "apenas_importado_api": "N",<BR>  "filtrar_apenas_omiepdv": "N"<BR><BR>}</pre>
+<button class="btn btn-success method-example" data-method="ListarProdutosResumido" data-example="%7B++%22pagina%22%3A+1%2C++%22registros_por_pagina%22%3A+50%2C++%22apenas_importado_api%22%3A+%22N%22%2C++%22filtrar_apenas_omiepdv%22%3A+%22N%22%7D">Teste agora mesmo</button>
+</div>
+</div>
+<div id="UpsertProduto" class="methodItem">
+<h3 class="method-name">UpsertProduto</h3>
+<p>
+
+</p>
+<div class="panel panel-default method">
+<div class="panel-heading"> Par&acirc;metros:
+</div>
+<table class="table table-condensed table-hover">
+<tr>
+<td class="">&nbsp;</td>
+<td class="method-parameter-type"><a href="#produto_servico_cadastro">produto_servico_cadastro</a></td>
+<td class="method-parameter-name">produto_servico_cadastro</td><td class="method-parameter-docs"><div class="first">Cadastro completo de produtos</div></td>
+</tr>
+</table>
+<div class="panel-footer">
+Retorno <span class="pre"><a href="#produto_servico_status"><span class="lightBlue">produto_servico_status</span></a></span>: Status de retorno do cadastro de produtos
+</div>
+</div>
+<div class="method-example-area">
+<h5>Exemplo:</h5>
+<pre class="method-example-code">{<BR>   "codigo_produto_integracao": "1788306295",<BR>   "codigo": "teste0001",<BR>   "descricao": "Produto de teste",<BR>   "unidade":"UN"<BR>}<BR></pre>
+<button class="btn btn-success method-example" data-method="UpsertProduto" data-example="%7B+++%22codigo_produto_integracao%22%3A+%221788306295%22%2C+++%22codigo%22%3A+%22teste0001%22%2C+++%22descricao%22%3A+%22Produto+de+teste%22%2C+++%22unidade%22%3A%22UN%22%7D">Teste agora mesmo</button>
+</div>
+</div>
+<div id="UpsertProdutosPorLote" class="methodItem">
+<h3 class="method-name">UpsertProdutosPorLote</h3>
+<p>
+DEPRECATED
+</p>
+<div class="panel panel-default method">
+<div class="panel-heading"> Par&acirc;metros:
+</div>
+<table class="table table-condensed table-hover">
+<tr>
+<td class="">&nbsp;</td>
+<td class="method-parameter-type"><a href="#produto_servico_lote_request">produto_servico_lote_request</a></td>
+<td class="method-parameter-name">produto_servico_lote_request</td><td class="method-parameter-docs"><div class="first">Importação em Lote de produtos</div></td>
+</tr>
+</table>
+<div class="panel-footer">
+Retorno <span class="pre"><a href="#produto_servico_lote_response"><span class="lightBlue">produto_servico_lote_response</span></a></span>: Resposta do processamento do lote de produto importados.
+</div>
+</div>
+<div class="method-example-area">
+<h5>Exemplo:</h5>
+<pre class="method-example-code">{<BR>   "lote":123,<BR>   "produto_servico_cadastro": [<BR>      {<BR>         "codigo_produto_integracao": "1628097039",<BR>         "codigo": "teste1235",<BR>         "descricao": "Produto de teste 1235",<BR>         "unidade": "UN",<BR>         "ncm": "9504.50.00"<BR>       },<BR>       {<BR>         "codigo_produto_integracao": "1628097040",<BR>         "codigo": "teste1234",<BR>         "descricao": "Produto de teste 1234",<BR>         "unidade": "UN",<BR>         "ncm": "9504.50.00"<BR>       }         <BR>   ]<BR>}</pre>
+<button class="btn btn-success method-example" data-method="UpsertProdutosPorLote" data-example="%7B+++%22lote%22%3A123%2C+++%22produto_servico_cadastro%22%3A+%5B++++++%7B+++++++++%22codigo_produto_integracao%22%3A+%221628097039%22%2C+++++++++%22codigo%22%3A+%22teste1235%22%2C+++++++++%22descricao%22%3A+%22Produto+de+teste+1235%22%2C+++++++++%22unidade%22%3A+%22UN%22%2C+++++++++%22ncm%22%3A+%229504.50.00%22+++++++%7D%2C+++++++%7B+++++++++%22codigo_produto_integracao%22%3A+%221628097040%22%2C+++++++++%22codigo%22%3A+%22teste1234%22%2C+++++++++%22descricao%22%3A+%22Produto+de+teste+1234%22%2C+++++++++%22unidade%22%3A+%22UN%22%2C+++++++++%22ncm%22%3A+%229504.50.00%22+++++++%7D++++++++++++%5D%7D">Teste agora mesmo</button>
+</div>
+</div>
+<h2>Tipos Complexos</h2>
+<div class="complexTypeItem">
+<a name="armamento" class="anchorScroll"></a>
+<h3>armamento</h3>
+<p>Detalhamento especifco para cadastro de armamentos.</p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">serie_cano</td>
+<td class="parameter-type">string<span class="parameter-lenght">15</span></td><td class="parameter-docs"><div class="first">Número de série do cano</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">descr_arma</td>
+<td class="parameter-type">string<span class="parameter-lenght">256</span></td><td class="parameter-docs"><div class="first">Descrição completa da arma</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">serie_arma</td>
+<td class="parameter-type">string<span class="parameter-lenght">15</span></td><td class="parameter-docs"><div class="first">Número de série da arma</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">tipo_arma</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Indicador do tipo de arma de fogo</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="caracteristicas" class="anchorScroll"></a>
+<h3>caracteristicas</h3>
+<p>lista de caracteristicas do produto.</p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">nCodCaract</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código da característica de produto.</div><div class="more"><a href="javascript:void(0)">+</a><div>(Interno, utilizado apenas na integração via API, não é exibido na tela).<BR>O conteúdo desse campo é o código interno da característica do produto gerado pelo Omie.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCodIntCaract</td>
+<td class="parameter-type">string<span class="parameter-lenght">20</span></td><td class="parameter-docs"><div class="first">Código de integração da característica do produto.</div><div class="more"><a href="javascript:void(0)">+</a><div>(Interno, utilizado apenas na Integração via API, não aparece na tela).<BR>Utilize esse campo para informar o código da característica utilizado no seu aplicativo quando incluir uma característica no Omie. <BR>Assim, poderá utilizar esse campo para resgatar as informações da característica desejada.<BR>Caso informe esse campo, não informe a tag nCodCaract. Caso isso aconteça, o conteúdo dessa tag será desconsiderada.<BR></div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cNomeCaract</td>
+<td class="parameter-type">string<span class="parameter-lenght">30</span></td><td class="parameter-docs"><div class="first">Nome da característica.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cConteudo</td>
+<td class="parameter-type">string<span class="parameter-lenght">60</span></td><td class="parameter-docs"><div class="first">Conteúdo da característica.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cExibirItemNF</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Exibir esta característica no item da NF-e emitida (S/N).</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cExibirItemPedido</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Exibir esta característica no item do Pedido, Remessa ou Devolução (S/N).</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cExibirOrdemProd</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Exibe esta característica na Ordem de Produção e Mapa de Custo (S/N).</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="caracteristicasArray" class="anchorScroll"></a>
+<h3>caracteristicasArray</h3>
+<p>Este par&acirc;metro &eacute; um array do tipo <span class="pre"><a href="#caracteristicas"><span class="lightBlue">caracteristicas</span></a></span></p>
+<p>Lista de caracteristicas</p>
+</div>
+<div class="complexTypeItem">
+<a name="combustivel" class="anchorScroll"></a>
+<h3>combustivel</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">codigo_anp</td>
+<td class="parameter-type">string<span class="parameter-lenght">9</span></td><td class="parameter-docs"><div class="first">Código de Produto da ANP.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">descr_anp</td>
+<td class="parameter-type">string<span class="parameter-lenght">95</span></td><td class="parameter-docs"><div class="first">Descrição do Produto conforme ANP.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">percent_glp</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Percentual de GLP Derivado do Petróleo.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">percent_gas_nac</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Percentual de Gás Natural Nacional.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">percent_gas_imp</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Percentual de Gás Natural Importado.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">valor_part</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Valor de partida</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="componentes_kit" class="anchorScroll"></a>
+<h3>componentes_kit</h3>
+<p>Componetes do KIT.</p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">codigo_componente</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Identificação do componente do KIT, deve ser utilizado para Alterar e Excluir o componente.</div><div class="more"><a href="javascript:void(0)">+</a><div>Não deve ser informado na inclusão.<BR><BR>Esse código não aparece na tela do Omie.<BR><BR>Preenchimento obrigatório na Alteração e Exclusão.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">codigo_produto_componente</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código do produto componente.</div><div class="more"><a href="javascript:void(0)">+</a><div>(Código interno utilizado apenas na API).<BR>Esse código não aparece na tela do Omie.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">quantidade_componente</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Quantidade do componente.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">valor_unitario_componente</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Valor unitário do componente.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">local_estoque_componente</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Local estoque do componente.</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="componentes_kitArray" class="anchorScroll"></a>
+<h3>componentes_kitArray</h3>
+<p>Este par&acirc;metro &eacute; um array do tipo <span class="pre"><a href="#componentes_kit"><span class="lightBlue">componentes_kit</span></a></span></p>
+<p>Lista de componentes_kit</p>
+</div>
+<div class="complexTypeItem">
+<a name="dadosIbpt" class="anchorScroll"></a>
+<h3>dadosIbpt</h3>
+<p>Dados do IBPT.</p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">aliqFederal</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Carga tributária federal para os produtos nacionais.</div><div class="more"><a href="javascript:void(0)">+</a><div>Não deve ser informado na Inclusão/Alteração.<BR>Informação retornada apenas para consultas do PDV.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">aliqEstadual</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Carga tributária estadual.</div><div class="more"><a href="javascript:void(0)">+</a><div>Não deve ser informado na Inclusão/Alteração.<BR>Informação retornada apenas para consultas do PDV.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">aliqMunicipal</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Carga tributária municipal.</div><div class="more"><a href="javascript:void(0)">+</a><div>Não deve ser informado na Inclusão/Alteração.<BR>Informação retornada apenas para consultas do PDV.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">fonte</td>
+<td class="parameter-type">string<span class="parameter-lenght">34</span></td><td class="parameter-docs"><div class="first">Fonte do IBPT.</div><div class="more"><a href="javascript:void(0)">+</a><div>Não deve ser informado na Inclusão/Alteração.<BR>Informação retornada apenas para consultas do PDV.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">chave</td>
+<td class="parameter-type">string<span class="parameter-lenght">6</span></td><td class="parameter-docs"><div class="first">Número da versão do arquivo do IBPT.</div><div class="more"><a href="javascript:void(0)">+</a><div>Não deve ser informado na Inclusão/Alteração.<BR>Informação retornada apenas para consultas do PDV.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">versao</td>
+<td class="parameter-type">string<span class="parameter-lenght">6</span></td><td class="parameter-docs"><div class="first">Versão da Tabela IBPT.</div><div class="more"><a href="javascript:void(0)">+</a><div>Não deve ser informado na Inclusão/Alteração.<BR>Informação retornada apenas para consultas do PDV.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">valido_de</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Tabela do IBPT válilda a partir da data.</div><div class="more"><a href="javascript:void(0)">+</a><div>Não deve ser informado na Inclusão/Alteração.<BR>Informação retornada apenas para consultas do PDV.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">valido_ate</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Tabela do IBPT valida até a data.</div><div class="more"><a href="javascript:void(0)">+</a><div>Não deve ser informado na Inclusão/Alteração.<BR>Informação retornada apenas para consultas do PDV.</div></div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="imagens" class="anchorScroll"></a>
+<h3>imagens</h3>
+<p>Lista de imagens do produto.</p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">url_imagem</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">URL da Imagem do produto.</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="imagensArray" class="anchorScroll"></a>
+<h3>imagensArray</h3>
+<p>Este par&acirc;metro &eacute; um array do tipo <span class="pre"><a href="#imagens"><span class="lightBlue">imagens</span></a></span></p>
+<p>Lista de imagens</p>
+</div>
+<div class="complexTypeItem">
+<a name="info" class="anchorScroll"></a>
+<h3>info</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">dInc</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Data da Inclusão.</div><div class="more"><a href="javascript:void(0)">+</a><div>No formato dd/mm/aaaa.<BR><BR>Não deve ser informado na Inclusão/Alteração.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">hInc</td>
+<td class="parameter-type">string<span class="parameter-lenght">8</span></td><td class="parameter-docs"><div class="first">Hora da Inclusão.</div><div class="more"><a href="javascript:void(0)">+</a><div>No formato hh:mm:ss.<BR><BR>Não deve ser informado na Inclusão/Alteração.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">uInc</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Usuário da Inclusão.</div><div class="more"><a href="javascript:void(0)">+</a><div>Não deve ser informado na Inclusão/Alteração.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">dAlt</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Data da Alteração.</div><div class="more"><a href="javascript:void(0)">+</a><div>No formato dd/mm/aaaa.<BR><BR>Não deve ser informado na Inclusão/Alteração.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">hAlt</td>
+<td class="parameter-type">string<span class="parameter-lenght">8</span></td><td class="parameter-docs"><div class="first">Hora da Alteração.</div><div class="more"><a href="javascript:void(0)">+</a><div>No formato hh:mm:ss.<BR><BR>Não deve ser informado na Inclusão/Alteração.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">uAlt</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Usuário da Alteração.</div><div class="more"><a href="javascript:void(0)">+</a><div>Não deve ser informado na Inclusão/Alteração.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cImpAPI</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Importado pela API (S/N).</div><div class="more"><a href="javascript:void(0)">+</a><div>Não deve ser informado na Inclusão/Alteração.</div></div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="medicamento" class="anchorScroll"></a>
+<h3>medicamento</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">cod_anvisa</td>
+<td class="parameter-type">string<span class="parameter-lenght">13</span></td><td class="parameter-docs"><div class="first">Código de produto Anvisa</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">preco_max_cons</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Preço máximo consumidor</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="omie_fail" class="anchorScroll"></a>
+<h3>omie_fail</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">code</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Codigo do erro</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">description</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Descricao do erro</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-required">referer</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Origem do erro</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-required">fatal</td>
+<td class="parameter-type">boolean</td><td class="parameter-docs"><div class="first">Indica se eh um erro fatal</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="produto_servico_cadastro" class="anchorScroll"></a>
+<h3>produto_servico_cadastro</h3>
+<p>Cadastro completo de produtos</p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">codigo_produto</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código do produto.</div><div class="more"><a href="javascript:void(0)">+</a><div>É o ID do produto e será utilizado apenas nas APIs como chave principal para localizar um produto.<BR><BR>Quando um produto for incluído via API, você receberá um ID para esse novo produto. <BR>Recomendamos que você guarde essa informação no aplicativo que estiver integrando.<BR><BR>Esse campo não deve ser informado na inclusão de produtos. <BR><BR>Essa informação não será exibida nas telas do Omie.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">codigo_produto_integracao</td>
+<td class="parameter-type">string<span class="parameter-lenght">60</span></td><td class="parameter-docs"><div class="first">Código de integração do produto.</div><div class="more"><a href="javascript:void(0)">+</a><div>É o código do produto no aplicativo que você está integrando ao Omie.<BR>É utilizado basicamente na Inclusão de Produtos via API, para evitar duplicidade de cadastros.<BR><BR>Quando um produto for incluído via API, você receberá um ID para esse novo produto. <BR>Recomendamos que você guarde essa informação no aplicativo que estiver integrando.<BR><BR>O preenchimento desse campo é obrigatório na inclusão de produtos. <BR><BR>Essa informação não será exibida nas telas do Omie.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">codigo</td>
+<td class="parameter-type">string<span class="parameter-lenght">60</span></td><td class="parameter-docs"><div class="first">Código do Produto.</div><div class="more"><a href="javascript:void(0)">+</a><div>É um código único que identifica o produto no Omie. Se você tem um código SKU (Stock Keeping Unit = Unidade de Manutenção de Estoque) é aqui que ele deve ser informado, pois é essa informação que será exibida na tela do Omie.<BR><BR>Não recomendamos que ele seja utilizado como chave para integração, pois pode ser modificado pelo usuário a qualquer momento. No lugar deste campo, utilize o ID do produto, que você encontra na tag "codigo_produto".</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">descricao</td>
+<td class="parameter-type">string<span class="parameter-lenght">120</span></td><td class="parameter-docs"><div class="first">Descrição do produto.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento Obrigatório na inclusão.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">unidade</td>
+<td class="parameter-type">string<span class="parameter-lenght">6</span></td><td class="parameter-docs"><div class="first">Código da Unidade.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento Obrigatório.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">ncm</td>
+<td class="parameter-type">string<span class="parameter-lenght">13</span></td><td class="parameter-docs"><div class="first">Código da Nomenclatura Comum do Mercosul (NCM).</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento Obrigatório na Inclusão.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">ean</td>
+<td class="parameter-type">string<span class="parameter-lenght">14</span></td><td class="parameter-docs"><div class="first">Código EAN (GTIN - Global Trade Item Number).</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento Opcional.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">valor_unitario</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Preço Unitário de Venda.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento Obrigatório.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">codigo_familia</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código da Familia do Produto.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento Opcional.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">tipoItem</td>
+<td class="parameter-type">string<span class="parameter-lenght">2</span></td><td class="parameter-docs"><div class="first">Código do Tipo do Item para o SPED.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento Opcional.<BR><BR>Pode ser:<BR><BR>00 - Mercadoria para Revenda<BR>01 - Matéria Prima<BR>02 - Embalagem<BR>03 - Produto em Processo<BR>04 - Produto Acabado<BR>05 - Subproduto<BR>06 - Produto Intermediário<BR>07 - Material de Uso e Consumo<BR>08 - Ativo Imobilizado<BR>09 - Serviços<BR>10 - Outros Insumos<BR>99 - Outras</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">produto_variacao</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Indica se o Produto Possui Variações.</div><div class="more"><a href="javascript:void(0)">+</a><div>Campo disponível apenas para consulta.<BR><BR>(S/N) .<BR></div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">produto_lote</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Indica se o produto possui lote.</div><div class="more"><a href="javascript:void(0)">+</a><div>(S/N) .</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">variacao</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Indica se o Produto é uma variação de produto.</div><div class="more"><a href="javascript:void(0)">+</a><div>(S/N) .<BR><BR>No método ListarProdutos, esse campo só será exibido se a tag 'exibir_info_variacoes' for enviada como 'S'.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">id_produto_variacao</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código interno do produto variação que deu origem a variação.</div><div class="more"><a href="javascript:void(0)">+</a><div>Campo disponível apenas para consulta.<BR><BR>No método ListarProdutos, esse campo só será exibido se a tag 'exibir_info_variacoes' for enviada como 'S'.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">recomendacoes_fiscais</td>
+<td class="parameter-type"><a href="#recomendacoes_fiscais">recomendacoes_fiscais</a></td><td class="parameter-docs"><div class="first">Recomendações Fiscais.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">peso_liq</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Peso Líquido (Kg).</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento Opcional.<BR><BR>Localizado na aba "Informações Adicionais"</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">peso_bruto</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Peso Bruto (Kg).</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento Opcional.<BR><BR>Localizado na aba "Informações Adicionais"</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">altura</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Altura (centimentos).</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento Opcional.<BR><BR>Localizado na aba "Informações Adicionais"</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">largura</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Largura (centimetros)</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento Opcional.<BR><BR>Localizado na aba "Informações Adicionais"</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">profundidade</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Profundidade (centimetros).</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento Opcional.<BR><BR>Localizado na aba "Informações Adicionais"</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">marca</td>
+<td class="parameter-type">string<span class="parameter-lenght">60</span></td><td class="parameter-docs"><div class="first">Marca.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento Opcional.<BR><BR>Localizado na aba "Informações Adicionais"</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">modelo</td>
+<td class="parameter-type">string<span class="parameter-lenght">60</span></td><td class="parameter-docs"><div class="first">Modelo.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento Opcional.<BR><BR>Localizado na aba "Informações Adicionais"</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">dias_garantia</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Dias de Garantia.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento Opcional.<BR><BR>Localizado na aba "Informações Adicionais"</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">dias_crossdocking</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Dias de Crossdocking.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento Opcional.<BR><BR>Localizado na aba "Informações Adicionais"</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">descr_detalhada</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Descrição Detalhada para o Produto.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento Opcional.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">obs_internas</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Observações Internas.</div><div class="more"><a href="javascript:void(0)">+</a><div>(ficam registradas apenas no cadastro do produto).<BR><BR>Preenchimento Opcional.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">imagens</td>
+<td class="parameter-type"><a href="#imagensArray">imagensArray</a></td><td class="parameter-docs"><div class="first">Lista de imagens do produto.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">videos</td>
+<td class="parameter-type"><a href="#videosArray">videosArray</a></td><td class="parameter-docs"><div class="first">Lista de videos do produto.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">caracteristicas</td>
+<td class="parameter-type"><a href="#caracteristicasArray">caracteristicasArray</a></td><td class="parameter-docs"><div class="first">lista de caracteristicas do produto.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">tabelas_preco</td>
+<td class="parameter-type"><a href="#tabelas_precoArray">tabelas_precoArray</a></td><td class="parameter-docs"><div class="first">Lista de tabelas de preço.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">info</td>
+<td class="parameter-type"><a href="#info">info</a></td><td class="parameter-docs"><div class="first">Informações complemetares do cadastro do produto.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">exibir_descricao_nfe</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Indica se a Descrição Detalhada deve ser exibida nas Informações Adicionais do Item da NF-e (S/N).</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">exibir_descricao_pedido</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Indica se a Descrição Detalhada deve ser exibida na impressão do Pedido (S/N).</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">medicamento</td>
+<td class="parameter-type"><a href="#medicamento">medicamento</a></td><td class="parameter-docs"><div class="first">Detalhamento específico para cadastro de medicamentos</div><div class="more"><a href="javascript:void(0)">+</a><div>Obrigatório o preenchimento no caso de medicamentos e produtos farmacêuticos</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">combustivel</td>
+<td class="parameter-type"><a href="#combustivel">combustivel</a></td><td class="parameter-docs"><div class="first">Detalhamento específico para cadastro de combustíveis.</div><div class="more"><a href="javascript:void(0)">+</a><div></div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">veiculo</td>
+<td class="parameter-type"><a href="#veiculo">veiculo</a></td><td class="parameter-docs"><div class="first">Detalhamento específico para cadastro de veículos</div><div class="more"><a href="javascript:void(0)">+</a><div></div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">armamento</td>
+<td class="parameter-type"><a href="#armamento">armamento</a></td><td class="parameter-docs"><div class="first">Detalhamento especifco para cadastro de armamentos.</div><div class="more"><a href="javascript:void(0)">+</a><div>Descrição completa da arma, de modo a permitir sua perfeita identificação.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cst_icms</td>
+<td class="parameter-type">string<span class="parameter-lenght">2</span></td><td class="parameter-docs"><div class="first">Código da Situação Tributária do ICMS.</div><div class="more"><a href="javascript:void(0)">+</a><div>Não deve ser informado na Inclusão/Alteração.<BR>Informação retornada apenas para consultas do PDV.<BR>Utiliza o Cenário de Impostos Padrão.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">modalidade_icms</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Modalidade da Base de Cálculo do ICMS.</div><div class="more"><a href="javascript:void(0)">+</a><div>Não deve ser informado na Inclusão/Alteração.<BR>Informação retornada apenas para consultas do PDV.<BR>Utiliza o Cenário de Impostos Padrão.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">csosn_icms</td>
+<td class="parameter-type">string<span class="parameter-lenght">3</span></td><td class="parameter-docs"><div class="first">Código da Situação Tributária para Simples Nacional.</div><div class="more"><a href="javascript:void(0)">+</a><div>Não deve ser informado na Inclusão/Alteração.<BR>Informação retornada apenas para consultas do PDV.<BR>Utiliza o Cenário de Impostos Padrão.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">aliquota_icms</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Alíquota de ICMS.</div><div class="more"><a href="javascript:void(0)">+</a><div>Não deve ser informado na Inclusão/Alteração.<BR>Informação retornada apenas para consultas do PDV.<BR>Utiliza o Cenário de Impostos Padrão.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">red_base_icms</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Percentual de redução de base do ICMS.</div><div class="more"><a href="javascript:void(0)">+</a><div>Não deve ser informado na Inclusão/Alteração.<BR>Informação retornada apenas para consultas do PDV.<BR>Utiliza o Cenário de Impostos Padrão.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">motivo_deson_icms</td>
+<td class="parameter-type">string<span class="parameter-lenght">2</span></td><td class="parameter-docs"><div class="first">Motivo da desoneração do ICMS.</div><div class="more"><a href="javascript:void(0)">+</a><div>Não deve ser informado na Inclusão/Alteração.<BR>Informação retornada apenas para consultas do PDV.<BR>Utiliza o Cenário de Impostos Padrão.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">per_icms_fcp</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Percentual do Fundo de Combate a Pobreza do ICMS.</div><div class="more"><a href="javascript:void(0)">+</a><div>Não deve ser informado na Inclusão/Alteração.<BR>Informação retornada apenas para consultas do PDV.<BR>Utiliza o Cenário de Impostos Padrão.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">codigo_beneficio</td>
+<td class="parameter-type">string<span class="parameter-lenght">20</span></td><td class="parameter-docs"><div class="first">Código de integração da característica do produto.</div><div class="more"><a href="javascript:void(0)">+</a><div>(Interno, utilizado apenas na Integração via API, não aparece na tela).<BR>Utilize esse campo para informar o código da característica utilizado no seu aplicativo quando incluir uma característica no Omie. <BR>Assim, poderá utilizar esse campo para resgatar as informações da característica desejada.<BR>Caso informe esse campo, não informe a tag nCodCaract. Caso isso aconteça, o conteúdo dessa tag será desconsiderada.<BR></div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cst_pis</td>
+<td class="parameter-type">string<span class="parameter-lenght">2</span></td><td class="parameter-docs"><div class="first">Código da Situação Tributária do PIS.</div><div class="more"><a href="javascript:void(0)">+</a><div>Não deve ser informado na Inclusão/Alteração.<BR>Informação retornada apenas para consultas do PDV.<BR>Utiliza o Cenário de Impostos Padrão.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">aliquota_pis</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Alíquota do PIS.</div><div class="more"><a href="javascript:void(0)">+</a><div>Não deve ser informado na Inclusão/Alteração.<BR>Informação retornada apenas para consultas do PDV.<BR>Utiliza o Cenário de Impostos Padrão.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">red_base_pis</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Percentual de redução de base do PIS.</div><div class="more"><a href="javascript:void(0)">+</a><div>Não deve ser informado na Inclusão/Alteração.<BR>Informação retornada apenas para consultas do PDV.<BR>Utiliza o Cenário de Impostos Padrão.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cst_cofins</td>
+<td class="parameter-type">string<span class="parameter-lenght">2</span></td><td class="parameter-docs"><div class="first">Código da Situação Tributária do COFINS.</div><div class="more"><a href="javascript:void(0)">+</a><div>Não deve ser informado na Inclusão/Alteração.<BR>Informação retornada apenas para consultas do PDV.<BR>Utiliza o Cenário de Impostos Padrão.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">aliquota_cofins</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Alíquota do COFINS.</div><div class="more"><a href="javascript:void(0)">+</a><div>Não deve ser informado na Inclusão/Alteração.<BR>Informação retornada apenas para consultas do PDV.<BR>Utiliza o Cenário de Impostos Padrão.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">red_base_cofins</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Percentual de redução de base do COFINS.</div><div class="more"><a href="javascript:void(0)">+</a><div>Não deve ser informado na Inclusão/Alteração.<BR>Informação retornada apenas para consultas do PDV.<BR>Utiliza o Cenário de Impostos Padrão.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cfop</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">CFOP do Produto.</div><div class="more"><a href="javascript:void(0)">+</a><div>Não deve ser informado na Inclusão/Alteração.<BR>Informação retornada apenas para consultas do PDV.<BR>Utiliza o Cenário de Impostos Padrão.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">dadosIbpt</td>
+<td class="parameter-type"><a href="#dadosIbpt">dadosIbpt</a></td><td class="parameter-docs"><div class="first">Dados do IBPT.</div><div class="more"><a href="javascript:void(0)">+</a><div>Não deve ser informado na Inclusão/Alteração.<BR>Informação retornada apenas para consultas do PDV.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">codInt_familia</td>
+<td class="parameter-type">string<span class="parameter-lenght">20</span></td><td class="parameter-docs"><div class="first">Código de Integração da Familia do Produto.</div><div class="more"><a href="javascript:void(0)">+</a><div>Não deve ser informado na Inclusão/Alteração.<BR>Informação retornada apenas para consultas do PDV.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">descricao_familia</td>
+<td class="parameter-type">string<span class="parameter-lenght">50</span></td><td class="parameter-docs"><div class="first">Descrição da Familia do Produto.</div><div class="more"><a href="javascript:void(0)">+</a><div>Não deve ser informado na Inclusão/Alteração.<BR>Informação retornada apenas para consultas do PDV.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">bloqueado</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Indica se o registro está bloqueado (S/N).</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento Opcional.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">bloquear_exclusao</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Indica se a exclusão do registro está bloqueada (S/N).</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento Opcional.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">importado_api</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Indica se o registro foi incluído via API (S/N).</div><div class="more"><a href="javascript:void(0)">+</a><div>Não deve ser informado na Inclusão/Alteração.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">inativo</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Indica se o cadastro do produto está inativo (S/N).</div><div class="more"><a href="javascript:void(0)">+</a><div>Não deve ser informado na Inclusão/Alteração.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">componentes_kit</td>
+<td class="parameter-type"><a href="#componentes_kitArray">componentes_kitArray</a></td><td class="parameter-docs"><div class="first">Componetes do KIT.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">lead_time</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Lead Time médio de ressuprimento em dias.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">aliquota_ibpt</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">DEPRECATED.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cest</td>
+<td class="parameter-type">string<span class="parameter-lenght">9</span></td><td class="parameter-docs"><div class="first">DEPRECATED.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">quantidade_estoque</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">DEPRECATED.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">estoque_minimo</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">DEPRECATED.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">origem_imposto</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Origem do Imposto</div><div class="more"><a href="javascript:void(0)">+</a><div>"NCM" ou "PRD"<BR><BR>Esse campo não deve ser informado na inclusão ou alteração.<BR><BR>Finalidade: Indicar se a regra de imposto utilizada pelos PDV"s foi originada de uma configuração pelo NCM ou por uma configuração específica para o produto.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cst_ibs_cbs</td>
+<td class="parameter-type">string<span class="parameter-lenght">3</span></td><td class="parameter-docs"><div class="first">Código de Situação Tributária do IBS e CBS.</div><div class="more"><a href="javascript:void(0)">+</a><div>Não deve ser informado na Inclusão/Alteração.<BR>Informação retornada apenas para consultas do PDV.<BR>Utiliza o Cenário de Impostos Padrão.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">class_trib</td>
+<td class="parameter-type">string<span class="parameter-lenght">6</span></td><td class="parameter-docs"><div class="first">Código de Classificação Tributária do IBS e CBS.</div><div class="more"><a href="javascript:void(0)">+</a><div>Não deve ser informado na Inclusão/Alteração.<BR>Informação retornada apenas para consultas do PDV.<BR>Utiliza o Cenário de Impostos Padrão.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">aliquota_ibs_uf</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Alíquota do IBS de competência das UF.</div><div class="more"><a href="javascript:void(0)">+</a><div>Não deve ser informado na Inclusão/Alteração.<BR>Informação retornada apenas para consultas do PDV.<BR>Utiliza o Cenário de Impostos Padrão.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">aliquota_ibs_mun</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Alíquota do IBS de competência do Município.</div><div class="more"><a href="javascript:void(0)">+</a><div>Não deve ser informado na Inclusão/Alteração.<BR>Informação retornada apenas para consultas do PDV.<BR>Utiliza o Cenário de Impostos Padrão.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">perc_reducao_ibs_uf</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Percentual da redução de alíquota IBS UF.</div><div class="more"><a href="javascript:void(0)">+</a><div>Não deve ser informado na Inclusão/Alteração.<BR>Informação retornada apenas para consultas do PDV.<BR>Utiliza o Cenário de Impostos Padrão.<BR></div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">perc_reducao_ibs_mun</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Percentual da redução de alíquota IBS UF.</div><div class="more"><a href="javascript:void(0)">+</a><div>Não deve ser informado na Inclusão/Alteração.<BR>Informação retornada apenas para consultas do PDV.<BR>Utiliza o Cenário de Impostos Padrão.<BR></div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">aliquota_cbs</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Alíquota da CBS.</div><div class="more"><a href="javascript:void(0)">+</a><div>Não deve ser informado na Inclusão/Alteração.<BR>Informação retornada apenas para consultas do PDV.<BR>Utiliza o Cenário de Impostos Padrão.<BR></div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">perc_reducao_cbs</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Percentual da redução de alíquota do CBS.</div><div class="more"><a href="javascript:void(0)">+</a><div>Não deve ser informado na Inclusão/Alteração.<BR>Informação retornada apenas para consultas do PDV.<BR>Utiliza o Cenário de Impostos Padrão.<BR></div></div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="produto_servico_cadastroArray" class="anchorScroll"></a>
+<h3>produto_servico_cadastroArray</h3>
+<p>Este par&acirc;metro &eacute; um array do tipo <span class="pre"><a href="#produto_servico_cadastro"><span class="lightBlue">produto_servico_cadastro</span></a></span></p>
+<p>Lista de produto_servico_cadastro</p>
+</div>
+<div class="complexTypeItem">
+<a name="produto_servico_cadastro_chave" class="anchorScroll"></a>
+<h3>produto_servico_cadastro_chave</h3>
+<p>Pesquisa de produtos</p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">codigo_produto</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código do produto.</div><div class="more"><a href="javascript:void(0)">+</a><div>É o ID do produto e será utilizado apenas nas APIs como chave principal para localizar um produto.<BR><BR>Quando um produto for incluído via API, você receberá um ID para esse novo produto. <BR>Recomendamos que você guarde essa informação no aplicativo que estiver integrando.<BR><BR>Esse campo não deve ser informado na inclusão de produtos. <BR><BR>Essa informação não será exibida nas telas do Omie.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">codigo_produto_integracao</td>
+<td class="parameter-type">string<span class="parameter-lenght">60</span></td><td class="parameter-docs"><div class="first">Código de integração do produto.</div><div class="more"><a href="javascript:void(0)">+</a><div>É o código do produto no aplicativo que você está integrando ao Omie.<BR>É utilizado basicamente na Inclusão de Produtos via API, para evitar duplicidade de cadastros.<BR><BR>Quando um produto for incluído via API, você receberá um ID para esse novo produto. <BR>Recomendamos que você guarde essa informação no aplicativo que estiver integrando.<BR><BR>O preenchimento desse campo é obrigatório na inclusão de produtos. <BR><BR>Essa informação não será exibida nas telas do Omie.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">codigo</td>
+<td class="parameter-type">string<span class="parameter-lenght">60</span></td><td class="parameter-docs"><div class="first">Código do Produto.</div><div class="more"><a href="javascript:void(0)">+</a><div>É um código único que identifica o produto no Omie. Se você tem um código SKU (Stock Keeping Unit = Unidade de Manutenção de Estoque) é aqui que ele deve ser informado, pois é essa informação que será exibida na tela do Omie.<BR><BR>Não recomendamos que ele seja utilizado como chave para integração, pois pode ser modificado pelo usuário a qualquer momento. No lugar deste campo, utilize o ID do produto, que você encontra na tag "codigo_produto".</div></div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="produto_servico_list_request" class="anchorScroll"></a>
+<h3>produto_servico_list_request</h3>
+<p>Lista os produtos cadastrados</p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">pagina</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Número da página retornada</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">registros_por_pagina</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Número de registros retornados na página.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">apenas_importado_api</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Exibir apenas os registros gerados pela API.</div><div class="more"><a href="javascript:void(0)">+</a><div><BR>Preenchimento Opcional.<BR><BR>Preencher com "S" ou "N".</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">ordenar_por</td>
+<td class="parameter-type">string<span class="parameter-lenght">100</span></td><td class="parameter-docs"><div class="first">Ordem de exibição dos dados. Padrão: Código.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">ordem_decrescente</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Se a lista será apresentada em ordem decrescente (S/N).</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento Opcional.<BR><BR>Preencher com "S" ou "N".</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">filtrar_por_data_de</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Filtrar os registros a partir de uma data.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento Opcional.<BR><BR>Formato: "dd/mm/aaaa"</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">filtrar_por_hora_de</td>
+<td class="parameter-type">string<span class="parameter-lenght">8</span></td><td class="parameter-docs"><div class="first">Filtrar a partir da hora.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento Opcional.<BR><BR>Formato: "hh:mm:ss"</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">filtrar_por_data_ate</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Filtrar os registros até uma data.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento Opcional.<BR><BR>Formato: "dd/mm/aaaa"</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">filtrar_por_hora_ate</td>
+<td class="parameter-type">string<span class="parameter-lenght">8</span></td><td class="parameter-docs"><div class="first">Filtrar até a hora.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento Opcional.<BR><BR>Formato: "hh:mm:ss"</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">filtrar_apenas_inclusao</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Filtrar apenas os registros incluídos (S/N).</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento Opcional.<BR><BR>Preencher com "S" ou "N".</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">filtrar_apenas_alteracao</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Filtrar apenas os registros alterados (S/N).</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento Opcional.<BR><BR>Preencher com "S" ou "N".</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">filtrar_apenas_omiepdv</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Filtrar apenas produtos marcados para venda via PDV.</div><div class="more"><a href="javascript:void(0)">+</a><div>ATENÇÃO:<BR>Todos os PDVs integrados devem preencher esse campo com "S".<BR>O preenchimento desse campo é obrigatório e o seu padrão é "S".<BR>Quando preenchido como "S" filtra apenas o produtos que tenham configuração de impostos definidas para o PDV.<BR><BR>Preenchimento Obrigatório.<BR><BR>Preencher com "S" ou "N".</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">filtrar_apenas_familia</td>
+<td class="parameter-type">string<span class="parameter-lenght">50</span></td><td class="parameter-docs"><div class="first">Filtrar por ID da Familia de Produto.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento Opcional.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">filtrar_apenas_tipo</td>
+<td class="parameter-type">string<span class="parameter-lenght">2</span></td><td class="parameter-docs"><div class="first">Código do Tipo do Item para o SPED.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento Opcional.<BR><BR>Pode ser:<BR><BR>00 - Mercadoria para Revenda<BR>01 - Matéria Prima<BR>02 - Embalagem<BR>03 - Produto em Processo<BR>04 - Produto Acabado<BR>05 - Subproduto<BR>06 - Produto Intermediário<BR>07 - Material de Uso e Consumo<BR>08 - Ativo Imobilizado<BR>09 - Serviços<BR>10 - Outros Insumos<BR>99 - Outras</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">filtrar_apenas_descricao</td>
+<td class="parameter-type">string<span class="parameter-lenght">200</span></td><td class="parameter-docs"><div class="first">Filtro pela descrição do produto.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento Opcional.<BR><BR>Para filtrar utilize:<BR><BR>"TEXTO" - Para pesquisa exata.<BR>"TEXTO%" - Para pesquisa começando com.<BR>"%TEXTO" - Para pesquisa terminando com.<BR>"%TEXTO%" - Para pesquisa contendo.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">filtrar_apenas_marketplace</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Filtrar apenas produtos marcados para venda via Market Place ou e-Commerce.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento Opcional.<BR><BR>Preencher com "S" ou "N".</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">filtrar_apenas_pdv</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Filtrar apenas produtos marcados para venda via Ponto de Venda (PDV).</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento Opcional.<BR><BR>Preencher com "S" ou "N".</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">exibir_caracteristicas</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Exibir as características do produto (S/N).</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento Opcional.<BR><BR>Preencher com "S" ou "N".</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">exibir_tabelas_preco</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Exibir as tabelas de preço do produto (S/N).</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento Opcional.<BR><BR>Preencher com "S" ou "N".</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">caracteristicas</td>
+<td class="parameter-type"><a href="#caracteristicasArray">caracteristicasArray</a></td><td class="parameter-docs"><div class="first">lista de caracteristicas do produto.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">produtosPorCodigo</td>
+<td class="parameter-type"><a href="#produtosPorCodigoArray">produtosPorCodigoArray</a></td><td class="parameter-docs"><div class="first">Filtro por código do produto.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento Opcional.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">inativo</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Indica se o cadastro do produto está inativo (S/N).</div><div class="more"><a href="javascript:void(0)">+</a><div>Não deve ser informado na Inclusão/Alteração.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">ncm</td>
+<td class="parameter-type">string<span class="parameter-lenght">13</span></td><td class="parameter-docs"><div class="first">Código da Nomenclatura Comum do Mercosul (NCM).</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento Obrigatório na Inclusão.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">ean</td>
+<td class="parameter-type">string<span class="parameter-lenght">14</span></td><td class="parameter-docs"><div class="first">Código EAN (GTIN - Global Trade Item Number).</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento Opcional.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">ordem_descrescente</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">DEPRECATED.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">exibir_obs</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Exibir as observações do produto (S/N).</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento Opcional.<BR><BR>Preencher com "S" ou "N".</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">exibir_kit</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Exibir os componentes do KIT (S/N).</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento Opcional.<BR><BR>Preencher com "S" ou "N".</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">exibir_info_variacoes</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Opcional. Indica se deve retornar informações sobre as variações de produto. </div><div class="more"><a href="javascript:void(0)">+</a><div>Preencher com S/N.<BR><BR>Disponível apenas para o método ListarProdutos.</div></div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="produto_servico_list_response" class="anchorScroll"></a>
+<h3>produto_servico_list_response</h3>
+<p>Lista de produtos encontrados no omie.</p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">pagina</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Número da página retornada</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">total_de_paginas</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Número total de páginas</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">registros</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Número de registros retornados na página.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">total_de_registros</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">total de registros encontrados</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">produto_servico_resumido</td>
+<td class="parameter-type"><a href="#produto_servico_resumidoArray">produto_servico_resumidoArray</a></td><td class="parameter-docs"><div class="first">Cadastro reduzido de produtos</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="produto_servico_listfull_response" class="anchorScroll"></a>
+<h3>produto_servico_listfull_response</h3>
+<p>Lista completa de produtos encontrados no omie.</p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">pagina</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Número da página retornada</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">total_de_paginas</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Número total de páginas</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">registros</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Número de registros retornados na página.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">total_de_registros</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">total de registros encontrados</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">produto_servico_cadastro</td>
+<td class="parameter-type"><a href="#produto_servico_cadastroArray">produto_servico_cadastroArray</a></td><td class="parameter-docs"><div class="first">Cadastro completo de produtos</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="produto_servico_lote_request" class="anchorScroll"></a>
+<h3>produto_servico_lote_request</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">lote</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Número do lote</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">produto_servico_cadastro</td>
+<td class="parameter-type"><a href="#produto_servico_cadastroArray">produto_servico_cadastroArray</a></td><td class="parameter-docs"><div class="first">Cadastro completo de produtos</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="produto_servico_lote_response" class="anchorScroll"></a>
+<h3>produto_servico_lote_response</h3>
+<p>Resposta do processamento do lote de produto importados.</p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">lote</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Número do lote</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">codigo_status</td>
+<td class="parameter-type">string<span class="parameter-lenght">4</span></td><td class="parameter-docs"><div class="first">Código do status do processamento.</div><div class="more"><a href="javascript:void(0)">+</a><div>Se o retorno for '0' significa que a solicitação foi executada com sucesso.<BR>Se o retorno for maior que '0' ocorreu algum erro durante o processamento da solicitação.<BR>A tag 'cDesStatus' descreve o problema ocorrido.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">descricao_status</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Descrição do status do processamento.</div><div class="more"><a href="javascript:void(0)">+</a><div>Essa tag explica o resultado da tag 'cCodigoStatus'.</div></div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="produto_servico_resumido" class="anchorScroll"></a>
+<h3>produto_servico_resumido</h3>
+<p>Cadastro reduzido de produtos</p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">codigo_produto</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código do produto.</div><div class="more"><a href="javascript:void(0)">+</a><div>É o ID do produto e será utilizado apenas nas APIs como chave principal para localizar um produto.<BR><BR>Quando um produto for incluído via API, você receberá um ID para esse novo produto. <BR>Recomendamos que você guarde essa informação no aplicativo que estiver integrando.<BR><BR>Esse campo não deve ser informado na inclusão de produtos. <BR><BR>Essa informação não será exibida nas telas do Omie.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">codigo_produto_integracao</td>
+<td class="parameter-type">string<span class="parameter-lenght">60</span></td><td class="parameter-docs"><div class="first">Código de integração do produto.</div><div class="more"><a href="javascript:void(0)">+</a><div>É o código do produto no aplicativo que você está integrando ao Omie.<BR>É utilizado basicamente na Inclusão de Produtos via API, para evitar duplicidade de cadastros.<BR><BR>Quando um produto for incluído via API, você receberá um ID para esse novo produto. <BR>Recomendamos que você guarde essa informação no aplicativo que estiver integrando.<BR><BR>O preenchimento desse campo é obrigatório na inclusão de produtos. <BR><BR>Essa informação não será exibida nas telas do Omie.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">codigo</td>
+<td class="parameter-type">string<span class="parameter-lenght">60</span></td><td class="parameter-docs"><div class="first">Código do Produto.</div><div class="more"><a href="javascript:void(0)">+</a><div>É um código único que identifica o produto no Omie. Se você tem um código SKU (Stock Keeping Unit = Unidade de Manutenção de Estoque) é aqui que ele deve ser informado, pois é essa informação que será exibida na tela do Omie.<BR><BR>Não recomendamos que ele seja utilizado como chave para integração, pois pode ser modificado pelo usuário a qualquer momento. No lugar deste campo, utilize o ID do produto, que você encontra na tag "codigo_produto".</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">descricao</td>
+<td class="parameter-type">string<span class="parameter-lenght">120</span></td><td class="parameter-docs"><div class="first">Descrição do produto.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento Obrigatório na inclusão.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">valor_unitario</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Preço Unitário de Venda.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento Obrigatório.</div></div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="produto_servico_resumidoArray" class="anchorScroll"></a>
+<h3>produto_servico_resumidoArray</h3>
+<p>Este par&acirc;metro &eacute; um array do tipo <span class="pre"><a href="#produto_servico_resumido"><span class="lightBlue">produto_servico_resumido</span></a></span></p>
+<p>Lista de produto_servico_resumido</p>
+</div>
+<div class="complexTypeItem">
+<a name="produto_servico_status" class="anchorScroll"></a>
+<h3>produto_servico_status</h3>
+<p>Status de retorno do cadastro de produtos</p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">codigo_produto</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código do produto.</div><div class="more"><a href="javascript:void(0)">+</a><div>É o ID do produto e será utilizado apenas nas APIs como chave principal para localizar um produto.<BR><BR>Quando um produto for incluído via API, você receberá um ID para esse novo produto. <BR>Recomendamos que você guarde essa informação no aplicativo que estiver integrando.<BR><BR>Esse campo não deve ser informado na inclusão de produtos. <BR><BR>Essa informação não será exibida nas telas do Omie.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">codigo_produto_integracao</td>
+<td class="parameter-type">string<span class="parameter-lenght">60</span></td><td class="parameter-docs"><div class="first">Código de integração do produto.</div><div class="more"><a href="javascript:void(0)">+</a><div>É o código do produto no aplicativo que você está integrando ao Omie.<BR>É utilizado basicamente na Inclusão de Produtos via API, para evitar duplicidade de cadastros.<BR><BR>Quando um produto for incluído via API, você receberá um ID para esse novo produto. <BR>Recomendamos que você guarde essa informação no aplicativo que estiver integrando.<BR><BR>O preenchimento desse campo é obrigatório na inclusão de produtos. <BR><BR>Essa informação não será exibida nas telas do Omie.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">codigo_status</td>
+<td class="parameter-type">string<span class="parameter-lenght">4</span></td><td class="parameter-docs"><div class="first">Código do status do processamento.</div><div class="more"><a href="javascript:void(0)">+</a><div>Se o retorno for '0' significa que a solicitação foi executada com sucesso.<BR>Se o retorno for maior que '0' ocorreu algum erro durante o processamento da solicitação.<BR>A tag 'cDesStatus' descreve o problema ocorrido.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">descricao_status</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Descrição do status do processamento.</div><div class="more"><a href="javascript:void(0)">+</a><div>Essa tag explica o resultado da tag 'cCodigoStatus'.</div></div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="produtosPorCodigo" class="anchorScroll"></a>
+<h3>produtosPorCodigo</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">codigo_produto</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código do produto.</div><div class="more"><a href="javascript:void(0)">+</a><div>É o ID do produto e será utilizado apenas nas APIs como chave principal para localizar um produto.<BR><BR>Quando um produto for incluído via API, você receberá um ID para esse novo produto. <BR>Recomendamos que você guarde essa informação no aplicativo que estiver integrando.<BR><BR>Esse campo não deve ser informado na inclusão de produtos. <BR><BR>Essa informação não será exibida nas telas do Omie.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">codigo_produto_integracao</td>
+<td class="parameter-type">string<span class="parameter-lenght">60</span></td><td class="parameter-docs"><div class="first">Código de integração do produto.</div><div class="more"><a href="javascript:void(0)">+</a><div>É o código do produto no aplicativo que você está integrando ao Omie.<BR>É utilizado basicamente na Inclusão de Produtos via API, para evitar duplicidade de cadastros.<BR><BR>Quando um produto for incluído via API, você receberá um ID para esse novo produto. <BR>Recomendamos que você guarde essa informação no aplicativo que estiver integrando.<BR><BR>O preenchimento desse campo é obrigatório na inclusão de produtos. <BR><BR>Essa informação não será exibida nas telas do Omie.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">codigo</td>
+<td class="parameter-type">string<span class="parameter-lenght">60</span></td><td class="parameter-docs"><div class="first">Código do Produto.</div><div class="more"><a href="javascript:void(0)">+</a><div>É um código único que identifica o produto no Omie. Se você tem um código SKU (Stock Keeping Unit = Unidade de Manutenção de Estoque) é aqui que ele deve ser informado, pois é essa informação que será exibida na tela do Omie.<BR><BR>Não recomendamos que ele seja utilizado como chave para integração, pois pode ser modificado pelo usuário a qualquer momento. No lugar deste campo, utilize o ID do produto, que você encontra na tag "codigo_produto".</div></div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="produtosPorCodigoArray" class="anchorScroll"></a>
+<h3>produtosPorCodigoArray</h3>
+<p>Este par&acirc;metro &eacute; um array do tipo <span class="pre"><a href="#produtosPorCodigo"><span class="lightBlue">produtosPorCodigo</span></a></span></p>
+<p>Lista de produtosPorCodigo</p>
+</div>
+<div class="complexTypeItem">
+<a name="recomendacoes_fiscais" class="anchorScroll"></a>
+<h3>recomendacoes_fiscais</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">origem_mercadoria</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Origem da Mercadoria.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento Opcional.<BR><BR>Pode ser:<BR>0 - Nacional, exceto as indicadas nos códigos 3, 4, 5 e 8<BR>1 - Estrangeira - Importação direta, exceto a indicada no código 6<BR>2 - Estrangeira - Adquirida no mercado interno, exceto a indicada no código 7<BR>3 - Nacional, mercadoria ou bem com Conteúdo de Importação superior a 40% e inferior ou igual a 70<BR>4 - Nacional, cuja produção tenha sido feita em conformidade com os processos produtivos básicos de que tratam as legislações citadas nos Ajustes<BR>5 - Nacional, mercadoria ou bem com Conteúdo de Importação inferior ou igual a 40<BR>6 - Estrangeira - Importação direta, sem similar nacional, constante em lista da CAMEX e gás natural<BR>7 - Estrangeira - Adquirida no mercado interno, sem similar nacional, constante em lista da CAMEX e gás natural<BR>8 - Nacional, mercadoria ou bem com Conteúdo de Importação superior a 70<BR></div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">id_preco_tabelado</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">ID do Preço tabelado (Pauta).</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento Opcional.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">id_cest</td>
+<td class="parameter-type">string<span class="parameter-lenght">9</span></td><td class="parameter-docs"><div class="first">Código do CEST.</div><div class="more"><a href="javascript:void(0)">+</a><div>(Código Especificador da Substituíção Tributária).<BR><BR>Preenchimento Opcional.<BR><BR>Formato: 99.999.99</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cupom_fiscal</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Indica se o produto é comercializado via PDV.</div><div class="more"><a href="javascript:void(0)">+</a><div>Através de emissão de Cupom Fiscal ECF, SAT ou NFC-e.<BR><BR>Preenchimento opcional.<BR><BR>Preencher com "S" ou "N".</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">market_place</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Indica se o produto será comercializado via Market Place ou e-commerce (S/N)</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento opcional.<BR><BR>Preencher com "S" ou "N".</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">indicador_escala</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Indicador de Produção em Escala Relevante.</div><div class="more"><a href="javascript:void(0)">+</a><div>Pode ser:<BR>"S" para Produzido em Escala Relevante.<BR>"N" para Produzido em Escala NÃO Relevante.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cnpj_fabricante</td>
+<td class="parameter-type">string<span class="parameter-lenght">20</span></td><td class="parameter-docs"><div class="first">CNPJ do Fabricante da Mercadoria.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento opcional.</div></div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="tabelas_preco" class="anchorScroll"></a>
+<h3>tabelas_preco</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">nCodTabPreco</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Id da tabela de preço.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cNomeTabPreco</td>
+<td class="parameter-type">string<span class="parameter-lenght">50</span></td><td class="parameter-docs"><div class="first">Nome da tabela de preço.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nValorTabPreco</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Valor do produto na tabela de preço.</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="tabelas_precoArray" class="anchorScroll"></a>
+<h3>tabelas_precoArray</h3>
+<p>Este par&acirc;metro &eacute; um array do tipo <span class="pre"><a href="#tabelas_preco"><span class="lightBlue">tabelas_preco</span></a></span></p>
+<p>Lista de tabelas_preco</p>
+</div>
+<div class="complexTypeItem">
+<a name="veiculo" class="anchorScroll"></a>
+<h3>veiculo</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">ano_fabr</td>
+<td class="parameter-type">string<span class="parameter-lenght">4</span></td><td class="parameter-docs"><div class="first">Veículos - Ano de Fabricação</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">ano_modelo</td>
+<td class="parameter-type">string<span class="parameter-lenght">4</span></td><td class="parameter-docs"><div class="first">Ano modelo de fabricação</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">chassi</td>
+<td class="parameter-type">string<span class="parameter-lenght">17</span></td><td class="parameter-docs"><div class="first">Chassi do veículo</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cilin</td>
+<td class="parameter-type">string<span class="parameter-lenght">4</span></td><td class="parameter-docs"><div class="first">Cilindradas</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cmt</td>
+<td class="parameter-type">string<span class="parameter-lenght">9</span></td><td class="parameter-docs"><div class="first">Capacidade máxima de tração</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cond_veic</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Condição do veículo</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cod_cor_veic</td>
+<td class="parameter-type">string<span class="parameter-lenght">4</span></td><td class="parameter-docs"><div class="first">Código da cor do veículo</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cod_cor_den</td>
+<td class="parameter-type">string<span class="parameter-lenght">2</span></td><td class="parameter-docs"><div class="first">Código da cor DENATRAN</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">descr_cor</td>
+<td class="parameter-type">string<span class="parameter-lenght">40</span></td><td class="parameter-docs"><div class="first">Descrição da cor</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">dist_eixo</td>
+<td class="parameter-type">string<span class="parameter-lenght">4</span></td><td class="parameter-docs"><div class="first">Distância entre eixos</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">especie_veic</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Espécie do veículo</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">lota_max</td>
+<td class="parameter-type">string<span class="parameter-lenght">3</span></td><td class="parameter-docs"><div class="first">Capacidade máxima de lotação</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cod_modelo</td>
+<td class="parameter-type">string<span class="parameter-lenght">6</span></td><td class="parameter-docs"><div class="first">Código marca modelo</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">motor</td>
+<td class="parameter-type">string<span class="parameter-lenght">21</span></td><td class="parameter-docs"><div class="first">Número do motor</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">peso_bruto_veic</td>
+<td class="parameter-type">string<span class="parameter-lenght">9</span></td><td class="parameter-docs"><div class="first">Peso bruto</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">peso_liquido_veic</td>
+<td class="parameter-type">string<span class="parameter-lenght">9</span></td><td class="parameter-docs"><div class="first">Peso líquido</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">potencia</td>
+<td class="parameter-type">string<span class="parameter-lenght">4</span></td><td class="parameter-docs"><div class="first">Potência motor</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">serie_veic</td>
+<td class="parameter-type">string<span class="parameter-lenght">9</span></td><td class="parameter-docs"><div class="first">Série do veículo</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">tipo_comb</td>
+<td class="parameter-type">string<span class="parameter-lenght">2</span></td><td class="parameter-docs"><div class="first">Tipo de combustível</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">tipo_oper</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Tipo da operação</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">tipo_pintura</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Tipo de pintura</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">tipo_restricao</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Restrição</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">tipo_veic</td>
+<td class="parameter-type">string<span class="parameter-lenght">2</span></td><td class="parameter-docs"><div class="first">Tipo de veículo de acordo com a tabela RENAVAM</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cond_vin</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Condição do VIN</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="videos" class="anchorScroll"></a>
+<h3>videos</h3>
+<p>Lista de videos do produto.</p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">url_video</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">URL do Video do produto.</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="videosArray" class="anchorScroll"></a>
+<h3>videosArray</h3>
+<p>Este par&acirc;metro &eacute; um array do tipo <span class="pre"><a href="#videos"><span class="lightBlue">videos</span></a></span></p>
+<p>Lista de videos</p>
+</div>
+</div>
+<div class="col-md-3">
+<div id="affix-menu" data-spy="affix" data-offset-top="294">
+<h2>M&eacute;todos</h2>
+<nav id="index" class="hidden-print hidden-xs hidden-sm">
+<ul class="nav">
+<li><a href="#AlterarProduto">AlterarProduto</a></li>
+<li><a href="#AssociarCodIntProduto">AssociarCodIntProduto</a></li>
+<li><a href="#ConsultarProduto">ConsultarProduto</a></li>
+<li><a href="#ExcluirProduto">ExcluirProduto</a></li>
+<li><a href="#IncluirProduto">IncluirProduto</a></li>
+<li><a href="#IncluirProdutosPorLote">IncluirProdutosPorLote</a></li>
+<li><a href="#ListarProdutos">ListarProdutos</a></li>
+<li><a href="#ListarProdutosResumido">ListarProdutosResumido</a></li>
+<li><a href="#UpsertProduto">UpsertProduto</a></li>
+<li><a href="#UpsertProdutosPorLote">UpsertProdutosPorLote</a></li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+</body>
+</html>

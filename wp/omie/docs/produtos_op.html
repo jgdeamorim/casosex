@@ -1,0 +1,1016 @@
+<nav class="navbar navbar-expand-lg bg-azul">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="https://developer.omie.com.br/">
+            <img class="lozad img-logo" data-src="https://static.omie.com.br/images/logo/logo-omie-topo.png" src="https://static.omie.com.br/images/logo/logo-omie-topo.png" data-loaded="true">
+        </a>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <span class="borda-hover"></span>
+                    <a class="nav-link" href="https://developer.omie.com.br/my-apps/"> Aplicativos </a>
+                </li>
+                <li class="nav-item ">
+                    <span class="borda-hover"></span>
+                    <a class="nav-link" href="https://developer.omie.com.br/service-list/">
+                        Lista das API's
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <span class="borda-hover"></span>
+                    <a class="nav-link" href="https://ajuda.omie.com.br/pt-BR/collections/3045828-apis" target="_blank"> Ajuda </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<html>
+<head>
+<title>OrdemProducao</title>
+<style type="text/css" media="all">
+  [id] { scroll-margin-top: 68px; }
+</style>
+<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+<script src="https://cdn.omie.com.br/omie-assets/js/omie-compat-v2.min.js"></script>
+<script src="/developer/themes/omie/developer.js?ts=2021.008"></script>
+<link rel="stylesheet" href="//app.omie.com.br/wp-content/themes/omie/bootstrap/css/bootstrap.min.css" async/>
+<link href="https://cdn.omie.com.br/assets/developer/css/site.css?ts=2021.008" media="all" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="/developer/themes/omie/developer.css?ts=2021.008" async/>
+</head>
+<body>
+<div class="jumbotron banner bg-azul">
+<div class="container">
+<img src="https://cdn.omie.com.br/assets/developer/images/seta-azuis.png" alt="" class="img-setas">
+<div class="row align-items-center">
+<div class="col-12">
+<h1>OrdemProducao</h1>
+<ul class="nav nav-tabs" role="tablist">
+  <li role="presentation" class="active"><a href="#section-endpoint" aria-controls="section-endpoint" role="tab" data-toggle="tab">Endpoint</a></li>
+  <li role="presentation" class="pull-right"><a href="#section-wsdl" aria-controls="section-wsdl" role="tab" data-toggle="tab">WSDL</a></li>
+  <li role="presentation" class="pull-right"><a href="#section-php-soap" aria-controls="section-php-soap" role="tab" data-toggle="tab">PHP SOAP</a></li>
+  <li role="presentation" class="pull-right"><a href="#section-json" aria-controls="section-json" role="tab" data-toggle="tab">JSON</a></li>
+</ul>
+<div class="tab-content">
+  <div role="tabpanel" class="tab-pane fade in active" id="section-endpoint">
+    <h4>Endpoint URI</h4>
+    <a class="highlight" href="https://app.omie.com.br/api/v1/produtos/op/"><pre><code>https://app.omie.com.br/api/v1/produtos/op/</code></pre></a>
+  </div>
+  <div role="tabpanel" class="tab-pane fade" id="section-wsdl">
+    <h4>WSDL URI</h4>
+    <a class="highlight" href="https://app.omie.com.br/api/v1/produtos/op/?WSDL"><pre><code>https://app.omie.com.br/api/v1/produtos/op/?WSDL</code></pre></a>
+  </div>
+  <div role="tabpanel" class="tab-pane fade" id="section-php-soap">
+    <h4>PHP SOAP client download</h4>
+    <a class="highlight" href="https://app.omie.com.br/api/v1/produtos/op/?PHPSOAPCLIENT""><pre><code>https://app.omie.com.br/api/v1/produtos/op/?PHPSOAPCLIENT</code></pre></a>
+  </div>
+  <div role="tabpanel" class="tab-pane fade" id="section-json">
+    <h4>JSON client download URI</h4>
+    <h5>PHP</h5>
+    <a class="highlight" href="https://app.omie.com.br/api/v1/produtos/op/?PHPJSONCLIENT"><pre><code>https://app.omie.com.br/api/v1/produtos/op/?PHPJSONCLIENT</code></pre></a>
+    <h5>JavaScript (recomendado para uso apenas do lado do servidor)</h5>
+    <a class="highlight" href="https://app.omie.com.br/api/v1/produtos/op/?JSJSONCLIENT"><pre><code>https://app.omie.com.br/api/v1/produtos/op/?JSJSONCLIENT</code></pre></a>
+  </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="container">
+<div class="row">
+<div class="col-md-9">
+<h2>M&eacute;todos</h2>
+<p>Veja abaixo a documenta&ccedil;&atilde;o de cada m&eacute;todo dispon&iacute;vel para este servi&ccedil;o.</p>
+<div id="AlterarOrdemProducao" class="methodItem">
+<h3 class="method-name">AlterarOrdemProducao</h3>
+<p>
+
+</p>
+<div class="panel panel-default method">
+<div class="panel-heading"> Par&acirc;metros:
+</div>
+<table class="table table-condensed table-hover">
+<tr>
+<td class="">&nbsp;</td>
+<td class="method-parameter-type"><a href="#copAlterarRequest">copAlterarRequest</a></td>
+<td class="method-parameter-name">copAlterarRequest</td><td class="method-parameter-docs"><div class="first">Solicitação de alteração da ordem de produção.</div></td>
+</tr>
+</table>
+<div class="panel-footer">
+Retorno <span class="pre"><a href="#copAlterarResponse"><span class="lightBlue">copAlterarResponse</span></a></span>: 
+</div>
+</div>
+<div class="method-example-area">
+<h5>Exemplo:</h5>
+<pre class="method-example-code">{<BR>     "identificacao": <BR>     {<BR>         "cCodIntOP": "OP0001",<BR>         "dDtPrevisao": "01/09/2026",<BR>         "nCodProduto": 0,<BR>         "nQtde": 3<BR>      }<BR>}</pre>
+<button class="btn btn-success method-example" data-method="AlterarOrdemProducao" data-example="%7B+++++%22identificacao%22%3A++++++%7B+++++++++%22cCodIntOP%22%3A+%22OP0001%22%2C+++++++++%22dDtPrevisao%22%3A+%2201%2F09%2F2026%22%2C+++++++++%22nCodProduto%22%3A+0%2C+++++++++%22nQtde%22%3A+3++++++%7D%7D">Teste agora mesmo</button>
+</div>
+</div>
+<div id="ConcluirOrdemProducao" class="methodItem">
+<h3 class="method-name">ConcluirOrdemProducao</h3>
+<p>
+
+</p>
+<div class="panel panel-default method">
+<div class="panel-heading"> Par&acirc;metros:
+</div>
+<table class="table table-condensed table-hover">
+<tr>
+<td class="">&nbsp;</td>
+<td class="method-parameter-type"><a href="#copConcluirRequest">copConcluirRequest</a></td>
+<td class="method-parameter-name">copConcluirRequest</td><td class="method-parameter-docs"><div class="first">Solicitação de conclusão da ordem de produção.</div></td>
+</tr>
+</table>
+<div class="panel-footer">
+Retorno <span class="pre"><a href="#copConcluirResponse"><span class="lightBlue">copConcluirResponse</span></a></span>: 
+</div>
+</div>
+<div class="method-example-area">
+<h5>Exemplo:</h5>
+<pre class="method-example-code">{ <BR>   "cCodIntOP": "",<BR>   "nCodOP": 0,<BR>   "dDtConclusao": "01/09/2026",<BR>   "nQtdeProduzida": 3,<BR>   "cObsConclusao": ""    <BR>}<BR></pre>
+<button class="btn btn-success method-example" data-method="ConcluirOrdemProducao" data-example="%7B++++%22cCodIntOP%22%3A+%22%22%2C+++%22nCodOP%22%3A+0%2C+++%22dDtConclusao%22%3A+%2201%2F09%2F2026%22%2C+++%22nQtdeProduzida%22%3A+3%2C+++%22cObsConclusao%22%3A+%22%22++++%7D">Teste agora mesmo</button>
+</div>
+</div>
+<div id="ConsultarOrdemProducao" class="methodItem">
+<h3 class="method-name">ConsultarOrdemProducao</h3>
+<p>
+
+</p>
+<div class="panel panel-default method">
+<div class="panel-heading"> Par&acirc;metros:
+</div>
+<table class="table table-condensed table-hover">
+<tr>
+<td class="">&nbsp;</td>
+<td class="method-parameter-type"><a href="#copConsultarRequest">copConsultarRequest</a></td>
+<td class="method-parameter-name">copConsultarRequest</td><td class="method-parameter-docs"><div class="first">Solicitação da consulta da ordem de produção.</div></td>
+</tr>
+</table>
+<div class="panel-footer">
+Retorno <span class="pre"><a href="#copConsultarResponse"><span class="lightBlue">copConsultarResponse</span></a></span>: 
+</div>
+</div>
+<div class="method-example-area">
+<h5>Exemplo:</h5>
+<pre class="method-example-code">{ <BR>   "cCodIntOP": "",<BR>   "nCodOP": 0<BR>}</pre>
+<button class="btn btn-success method-example" data-method="ConsultarOrdemProducao" data-example="%7B++++%22cCodIntOP%22%3A+%22%22%2C+++%22nCodOP%22%3A+0%7D">Teste agora mesmo</button>
+</div>
+</div>
+<div id="ExcluirOrdemProducao" class="methodItem">
+<h3 class="method-name">ExcluirOrdemProducao</h3>
+<p>
+
+</p>
+<div class="panel panel-default method">
+<div class="panel-heading"> Par&acirc;metros:
+</div>
+<table class="table table-condensed table-hover">
+<tr>
+<td class="">&nbsp;</td>
+<td class="method-parameter-type"><a href="#copExcluirRequest">copExcluirRequest</a></td>
+<td class="method-parameter-name">copExcluirRequest</td><td class="method-parameter-docs"><div class="first">Solicitação de exclusão da ordem de produção.</div></td>
+</tr>
+</table>
+<div class="panel-footer">
+Retorno <span class="pre"><a href="#copExcluirResponse"><span class="lightBlue">copExcluirResponse</span></a></span>: 
+</div>
+</div>
+<div class="method-example-area">
+<h5>Exemplo:</h5>
+<pre class="method-example-code">{ <BR>   "cCodIntOP": "",<BR>   "nCodOP": 0<BR>}</pre>
+<button class="btn btn-success method-example" data-method="ExcluirOrdemProducao" data-example="%7B++++%22cCodIntOP%22%3A+%22%22%2C+++%22nCodOP%22%3A+0%7D">Teste agora mesmo</button>
+</div>
+</div>
+<div id="IncluirOrdemProducao" class="methodItem">
+<h3 class="method-name">IncluirOrdemProducao</h3>
+<p>
+
+</p>
+<div class="panel panel-default method">
+<div class="panel-heading"> Par&acirc;metros:
+</div>
+<table class="table table-condensed table-hover">
+<tr>
+<td class="">&nbsp;</td>
+<td class="method-parameter-type"><a href="#copIncluirRequest">copIncluirRequest</a></td>
+<td class="method-parameter-name">copIncluirRequest</td><td class="method-parameter-docs"><div class="first">Solicitação de Inclusão da ordem de produção.</div></td>
+</tr>
+</table>
+<div class="panel-footer">
+Retorno <span class="pre"><a href="#copIncluirResponse"><span class="lightBlue">copIncluirResponse</span></a></span>: 
+</div>
+</div>
+<div class="method-example-area">
+<h5>Exemplo:</h5>
+<pre class="method-example-code">{<BR>     "identificacao": <BR>     {<BR>         "cCodIntOP": "OP0001",<BR>         "dDtPrevisao": "01/09/2026",<BR>         "nCodProduto": 0,<BR>         "nQtde": 3<BR>      }<BR>}<BR></pre>
+<button class="btn btn-success method-example" data-method="IncluirOrdemProducao" data-example="%7B+++++%22identificacao%22%3A++++++%7B+++++++++%22cCodIntOP%22%3A+%22OP0001%22%2C+++++++++%22dDtPrevisao%22%3A+%2201%2F09%2F2026%22%2C+++++++++%22nCodProduto%22%3A+0%2C+++++++++%22nQtde%22%3A+3++++++%7D%7D">Teste agora mesmo</button>
+</div>
+</div>
+<div id="ListarOrdemProducao" class="methodItem">
+<h3 class="method-name">ListarOrdemProducao</h3>
+<p>
+
+</p>
+<div class="panel panel-default method">
+<div class="panel-heading"> Par&acirc;metros:
+</div>
+<table class="table table-condensed table-hover">
+<tr>
+<td class="">&nbsp;</td>
+<td class="method-parameter-type"><a href="#copListarRequest">copListarRequest</a></td>
+<td class="method-parameter-name">copListarRequest</td><td class="method-parameter-docs"><div class="first">Solicitação da listagem de ordens de produção.</div></td>
+</tr>
+</table>
+<div class="panel-footer">
+Retorno <span class="pre"><a href="#copListarResponse"><span class="lightBlue">copListarResponse</span></a></span>: 
+</div>
+</div>
+<div class="method-example-area">
+<h5>Exemplo:</h5>
+<pre class="method-example-code">{<BR>  "pagina": 1,<BR>  "registros_por_pagina": 20,<BR>   "dDtConclusaoDe":"01/09/2026",<BR>   "dDtConclusaoAte":"01/09/2026"<BR>}</pre>
+<button class="btn btn-success method-example" data-method="ListarOrdemProducao" data-example="%7B++%22pagina%22%3A+1%2C++%22registros_por_pagina%22%3A+20%2C+++%22dDtConclusaoDe%22%3A%2201%2F09%2F2026%22%2C+++%22dDtConclusaoAte%22%3A%2201%2F09%2F2026%22%7D">Teste agora mesmo</button>
+</div>
+</div>
+<div id="ReverterOrdemProducao" class="methodItem">
+<h3 class="method-name">ReverterOrdemProducao</h3>
+<p>
+
+</p>
+<div class="panel panel-default method">
+<div class="panel-heading"> Par&acirc;metros:
+</div>
+<table class="table table-condensed table-hover">
+<tr>
+<td class="">&nbsp;</td>
+<td class="method-parameter-type"><a href="#copReverterRequest">copReverterRequest</a></td>
+<td class="method-parameter-name">copReverterRequest</td><td class="method-parameter-docs"><div class="first">Solicitação de reversão da conclusão da ordem de produção.</div></td>
+</tr>
+</table>
+<div class="panel-footer">
+Retorno <span class="pre"><a href="#copReverterResponse"><span class="lightBlue">copReverterResponse</span></a></span>: 
+</div>
+</div>
+<div class="method-example-area">
+<h5>Exemplo:</h5>
+<pre class="method-example-code">{ <BR>   "cCodIntOP": "",<BR>   "nCodOP": 0<BR>}</pre>
+<button class="btn btn-success method-example" data-method="ReverterOrdemProducao" data-example="%7B++++%22cCodIntOP%22%3A+%22%22%2C+++%22nCodOP%22%3A+0%7D">Teste agora mesmo</button>
+</div>
+</div>
+<div id="UpsertOrdemProducao" class="methodItem">
+<h3 class="method-name">UpsertOrdemProducao</h3>
+<p>
+
+</p>
+<div class="panel panel-default method">
+<div class="panel-heading"> Par&acirc;metros:
+</div>
+<table class="table table-condensed table-hover">
+<tr>
+<td class="">&nbsp;</td>
+<td class="method-parameter-type"><a href="#copUpsertRequest">copUpsertRequest</a></td>
+<td class="method-parameter-name">copUpsertRequest</td><td class="method-parameter-docs"><div class="first">Solicitação de upsert de ordem de produção.</div></td>
+</tr>
+</table>
+<div class="panel-footer">
+Retorno <span class="pre"><a href="#copUpsertResponse"><span class="lightBlue">copUpsertResponse</span></a></span>: 
+</div>
+</div>
+<div class="method-example-area">
+<h5>Exemplo:</h5>
+<pre class="method-example-code">{<BR>     "identificacao": <BR>     {<BR>         "cCodIntOP": "OP0001",<BR>         "dDtPrevisao": "01/09/2026",<BR>         "nCodProduto": 0,<BR>         "nQtde": 3<BR>      }<BR>}</pre>
+<button class="btn btn-success method-example" data-method="UpsertOrdemProducao" data-example="%7B+++++%22identificacao%22%3A++++++%7B+++++++++%22cCodIntOP%22%3A+%22OP0001%22%2C+++++++++%22dDtPrevisao%22%3A+%2201%2F09%2F2026%22%2C+++++++++%22nCodProduto%22%3A+0%2C+++++++++%22nQtde%22%3A+3++++++%7D%7D">Teste agora mesmo</button>
+</div>
+</div>
+<h2>Tipos Complexos</h2>
+<div class="complexTypeItem">
+<a name="cadastros" class="anchorScroll"></a>
+<h3>cadastros</h3>
+<p>Lista os cadastros encontrados.</p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">identificacao</td>
+<td class="parameter-type"><a href="#identificacao">identificacao</a></td><td class="parameter-docs"><div class="first">Cabeçalho da ordem de produção.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">infAdicionais</td>
+<td class="parameter-type"><a href="#infAdicionais">infAdicionais</a></td><td class="parameter-docs"><div class="first">Informações adicionais.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">observacoes</td>
+<td class="parameter-type"><a href="#observacoes">observacoes</a></td><td class="parameter-docs"><div class="first">Observações da ordem de produção.&nbsp;</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">outrasInf</td>
+<td class="parameter-type"><a href="#outrasInf">outrasInf</a></td><td class="parameter-docs"><div class="first">Outras informações da ordem de produção.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">itens</td>
+<td class="parameter-type"><a href="#itensArray">itensArray</a></td><td class="parameter-docs"><div class="first">Itens da ordem de produção</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">itensDetalhes</td>
+<td class="parameter-type"><a href="#itensDetalhesArray">itensDetalhesArray</a></td><td class="parameter-docs"><div class="first">Detalhes dos itens da Ordem de Produção</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="cadastrosArray" class="anchorScroll"></a>
+<h3>cadastrosArray</h3>
+<p>Este par&acirc;metro &eacute; um array do tipo <span class="pre"><a href="#cadastros"><span class="lightBlue">cadastros</span></a></span></p>
+<p>Lista de cadastros</p>
+</div>
+<div class="complexTypeItem">
+<a name="copAlterarRequest" class="anchorScroll"></a>
+<h3>copAlterarRequest</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">identificacao</td>
+<td class="parameter-type"><a href="#identificacao">identificacao</a></td><td class="parameter-docs"><div class="first">Cabeçalho da ordem de produção.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">infAdicionais</td>
+<td class="parameter-type"><a href="#infAdicionais">infAdicionais</a></td><td class="parameter-docs"><div class="first">Informações adicionais.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">observacoes</td>
+<td class="parameter-type"><a href="#observacoes">observacoes</a></td><td class="parameter-docs"><div class="first">Observações da ordem de produção.&nbsp;</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">outrasInf</td>
+<td class="parameter-type"><a href="#outrasInf">outrasInf</a></td><td class="parameter-docs"><div class="first">Outras informações da ordem de produção.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">itens</td>
+<td class="parameter-type"><a href="#itensArray">itensArray</a></td><td class="parameter-docs"><div class="first">Itens da ordem de produção</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="copAlterarResponse" class="anchorScroll"></a>
+<h3>copAlterarResponse</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">nCodOP</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código da ordem de produção.</div><div class="more"><a href="javascript:void(0)">+</a><div>(Gerado internamente, não é visualizado na tela)</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCodIntOP</td>
+<td class="parameter-type">string<span class="parameter-lenght">20</span></td><td class="parameter-docs"><div class="first">Código de integração da ordem de produção.</div><div class="more"><a href="javascript:void(0)">+</a><div>(Utilizado em títulos criados via API, não é visualizado na tela)</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCodStatus</td>
+<td class="parameter-type">string<span class="parameter-lenght">4</span></td><td class="parameter-docs"><div class="first">Código do Status</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cDesStatus</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Descrição do Status</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="copConcluirRequest" class="anchorScroll"></a>
+<h3>copConcluirRequest</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">nCodOP</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código da ordem de produção.</div><div class="more"><a href="javascript:void(0)">+</a><div>(Gerado internamente, não é visualizado na tela)</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCodIntOP</td>
+<td class="parameter-type">string<span class="parameter-lenght">20</span></td><td class="parameter-docs"><div class="first">Código de integração da ordem de produção.</div><div class="more"><a href="javascript:void(0)">+</a><div>(Utilizado em títulos criados via API, não é visualizado na tela)</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">dDtConclusao</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Data de conclusão da produção.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nQtdeProduzida</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Quantidade produzida.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cObsConclusao</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Observação da ordem de produção.</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="copConcluirResponse" class="anchorScroll"></a>
+<h3>copConcluirResponse</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">nCodOP</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código da ordem de produção.</div><div class="more"><a href="javascript:void(0)">+</a><div>(Gerado internamente, não é visualizado na tela)</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCodIntOP</td>
+<td class="parameter-type">string<span class="parameter-lenght">20</span></td><td class="parameter-docs"><div class="first">Código de integração da ordem de produção.</div><div class="more"><a href="javascript:void(0)">+</a><div>(Utilizado em títulos criados via API, não é visualizado na tela)</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCodStatus</td>
+<td class="parameter-type">string<span class="parameter-lenght">4</span></td><td class="parameter-docs"><div class="first">Código do Status</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cDesStatus</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Descrição do Status</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="copConsultarRequest" class="anchorScroll"></a>
+<h3>copConsultarRequest</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">nCodOP</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código da ordem de produção.</div><div class="more"><a href="javascript:void(0)">+</a><div>(Gerado internamente, não é visualizado na tela)</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCodIntOP</td>
+<td class="parameter-type">string<span class="parameter-lenght">20</span></td><td class="parameter-docs"><div class="first">Código de integração da ordem de produção.</div><div class="more"><a href="javascript:void(0)">+</a><div>(Utilizado em títulos criados via API, não é visualizado na tela)</div></div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="copConsultarResponse" class="anchorScroll"></a>
+<h3>copConsultarResponse</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">identificacao</td>
+<td class="parameter-type"><a href="#identificacao">identificacao</a></td><td class="parameter-docs"><div class="first">Cabeçalho da ordem de produção.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">infAdicionais</td>
+<td class="parameter-type"><a href="#infAdicionais">infAdicionais</a></td><td class="parameter-docs"><div class="first">Informações adicionais.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">observacoes</td>
+<td class="parameter-type"><a href="#observacoes">observacoes</a></td><td class="parameter-docs"><div class="first">Observações da ordem de produção.&nbsp;</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">outrasInf</td>
+<td class="parameter-type"><a href="#outrasInf">outrasInf</a></td><td class="parameter-docs"><div class="first">Outras informações da ordem de produção.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">itens</td>
+<td class="parameter-type"><a href="#itensArray">itensArray</a></td><td class="parameter-docs"><div class="first">Itens da ordem de produção</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">itensDetalhes</td>
+<td class="parameter-type"><a href="#itensDetalhesArray">itensDetalhesArray</a></td><td class="parameter-docs"><div class="first">Detalhes dos itens da Ordem de Produção</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="copExcluirRequest" class="anchorScroll"></a>
+<h3>copExcluirRequest</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">nCodOP</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código da ordem de produção.</div><div class="more"><a href="javascript:void(0)">+</a><div>(Gerado internamente, não é visualizado na tela)</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCodIntOP</td>
+<td class="parameter-type">string<span class="parameter-lenght">20</span></td><td class="parameter-docs"><div class="first">Código de integração da ordem de produção.</div><div class="more"><a href="javascript:void(0)">+</a><div>(Utilizado em títulos criados via API, não é visualizado na tela)</div></div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="copExcluirResponse" class="anchorScroll"></a>
+<h3>copExcluirResponse</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">nCodOP</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código da ordem de produção.</div><div class="more"><a href="javascript:void(0)">+</a><div>(Gerado internamente, não é visualizado na tela)</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCodIntOP</td>
+<td class="parameter-type">string<span class="parameter-lenght">20</span></td><td class="parameter-docs"><div class="first">Código de integração da ordem de produção.</div><div class="more"><a href="javascript:void(0)">+</a><div>(Utilizado em títulos criados via API, não é visualizado na tela)</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCodStatus</td>
+<td class="parameter-type">string<span class="parameter-lenght">4</span></td><td class="parameter-docs"><div class="first">Código do Status</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cDesStatus</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Descrição do Status</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="copIncluirRequest" class="anchorScroll"></a>
+<h3>copIncluirRequest</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">identificacao</td>
+<td class="parameter-type"><a href="#identificacao">identificacao</a></td><td class="parameter-docs"><div class="first">Cabeçalho da ordem de produção.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">infAdicionais</td>
+<td class="parameter-type"><a href="#infAdicionais">infAdicionais</a></td><td class="parameter-docs"><div class="first">Informações adicionais.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">observacoes</td>
+<td class="parameter-type"><a href="#observacoes">observacoes</a></td><td class="parameter-docs"><div class="first">Observações da ordem de produção.&nbsp;</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">outrasInf</td>
+<td class="parameter-type"><a href="#outrasInf">outrasInf</a></td><td class="parameter-docs"><div class="first">Outras informações da ordem de produção.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">itens</td>
+<td class="parameter-type"><a href="#itensArray">itensArray</a></td><td class="parameter-docs"><div class="first">Itens da ordem de produção</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="copIncluirResponse" class="anchorScroll"></a>
+<h3>copIncluirResponse</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">nCodOP</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código da ordem de produção.</div><div class="more"><a href="javascript:void(0)">+</a><div>(Gerado internamente, não é visualizado na tela)</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCodIntOP</td>
+<td class="parameter-type">string<span class="parameter-lenght">20</span></td><td class="parameter-docs"><div class="first">Código de integração da ordem de produção.</div><div class="more"><a href="javascript:void(0)">+</a><div>(Utilizado em títulos criados via API, não é visualizado na tela)</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCodStatus</td>
+<td class="parameter-type">string<span class="parameter-lenght">4</span></td><td class="parameter-docs"><div class="first">Código do Status</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cDesStatus</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Descrição do Status</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="copListarRequest" class="anchorScroll"></a>
+<h3>copListarRequest</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">pagina</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Número da página retornada</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">registros_por_pagina</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Número de registros retornados na página.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">apenas_importado_api</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Exibir apenas os registros gerados pela API</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">ordenar_por</td>
+<td class="parameter-type">string<span class="parameter-lenght">100</span></td><td class="parameter-docs"><div class="first">Ordem de exibição dos dados. Padrão: Código.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">ordem_decrescente</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Se a lista será apresentada em ordem decrescente.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nCodProjeto</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código do projeto.</div><div class="more"><a href="javascript:void(0)">+</a><div>(Gerado internamente, não é visualizado na tela)</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nIdProd</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">ID do produto</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">lExibirItens</td>
+<td class="parameter-type">boolean</td><td class="parameter-docs"><div class="first">Exibir os itens da ordem de produção.</div><div class="more"><a href="javascript:void(0)">+</a><div>Será retornado os detalhes dos itens da ordem de produção na tag "itensDetalhes".<BR><BR>Default false<BR><BR>Pode ser:<BR>false<BR>true</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">dDtConclusaoDe</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Data inicial da consulta de Ordem de Produção por data de conclusão.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">dDtConclusaoAte</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Data final da consulta de Ordem de Produção por data de conclusão.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cConcluida</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Indica se a ordem de produção está concluída.</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="copListarResponse" class="anchorScroll"></a>
+<h3>copListarResponse</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">pagina</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Número da página retornada</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">total_de_paginas</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Número total de páginas</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">registros</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Número de registros retornados na página.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">total_de_registros</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">total de registros encontrados</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cadastros</td>
+<td class="parameter-type"><a href="#cadastrosArray">cadastrosArray</a></td><td class="parameter-docs"><div class="first">Lista os cadastros encontrados.</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="copReverterRequest" class="anchorScroll"></a>
+<h3>copReverterRequest</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">nCodOP</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código da ordem de produção.</div><div class="more"><a href="javascript:void(0)">+</a><div>(Gerado internamente, não é visualizado na tela)</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCodIntOP</td>
+<td class="parameter-type">string<span class="parameter-lenght">20</span></td><td class="parameter-docs"><div class="first">Código de integração da ordem de produção.</div><div class="more"><a href="javascript:void(0)">+</a><div>(Utilizado em títulos criados via API, não é visualizado na tela)</div></div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="copReverterResponse" class="anchorScroll"></a>
+<h3>copReverterResponse</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">nCodOP</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código da ordem de produção.</div><div class="more"><a href="javascript:void(0)">+</a><div>(Gerado internamente, não é visualizado na tela)</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCodIntOP</td>
+<td class="parameter-type">string<span class="parameter-lenght">20</span></td><td class="parameter-docs"><div class="first">Código de integração da ordem de produção.</div><div class="more"><a href="javascript:void(0)">+</a><div>(Utilizado em títulos criados via API, não é visualizado na tela)</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCodStatus</td>
+<td class="parameter-type">string<span class="parameter-lenght">4</span></td><td class="parameter-docs"><div class="first">Código do Status</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cDesStatus</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Descrição do Status</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="copUpsertRequest" class="anchorScroll"></a>
+<h3>copUpsertRequest</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">identificacao</td>
+<td class="parameter-type"><a href="#identificacao">identificacao</a></td><td class="parameter-docs"><div class="first">Cabeçalho da ordem de produção.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">infAdicionais</td>
+<td class="parameter-type"><a href="#infAdicionais">infAdicionais</a></td><td class="parameter-docs"><div class="first">Informações adicionais.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">observacoes</td>
+<td class="parameter-type"><a href="#observacoes">observacoes</a></td><td class="parameter-docs"><div class="first">Observações da ordem de produção.&nbsp;</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">outrasInf</td>
+<td class="parameter-type"><a href="#outrasInf">outrasInf</a></td><td class="parameter-docs"><div class="first">Outras informações da ordem de produção.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">itens</td>
+<td class="parameter-type"><a href="#itensArray">itensArray</a></td><td class="parameter-docs"><div class="first">Itens da ordem de produção</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="copUpsertResponse" class="anchorScroll"></a>
+<h3>copUpsertResponse</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">nCodOP</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código da ordem de produção.</div><div class="more"><a href="javascript:void(0)">+</a><div>(Gerado internamente, não é visualizado na tela)</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCodIntOP</td>
+<td class="parameter-type">string<span class="parameter-lenght">20</span></td><td class="parameter-docs"><div class="first">Código de integração da ordem de produção.</div><div class="more"><a href="javascript:void(0)">+</a><div>(Utilizado em títulos criados via API, não é visualizado na tela)</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCodStatus</td>
+<td class="parameter-type">string<span class="parameter-lenght">4</span></td><td class="parameter-docs"><div class="first">Código do Status</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cDesStatus</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Descrição do Status</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="identificacao" class="anchorScroll"></a>
+<h3>identificacao</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">nCodOP</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código da ordem de produção.</div><div class="more"><a href="javascript:void(0)">+</a><div>(Gerado internamente, não é visualizado na tela)</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCodIntOP</td>
+<td class="parameter-type">string<span class="parameter-lenght">20</span></td><td class="parameter-docs"><div class="first">Código de integração da ordem de produção.</div><div class="more"><a href="javascript:void(0)">+</a><div>(Utilizado em títulos criados via API, não é visualizado na tela)</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cNumOP</td>
+<td class="parameter-type">string<span class="parameter-lenght">15</span></td><td class="parameter-docs"><div class="first">Número da ordem de produção.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nCodProduto</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código do produto.</div><div class="more"><a href="javascript:void(0)">+</a><div>(Gerado internamente, não é visualizado na tela)</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCodIntProd</td>
+<td class="parameter-type">string<span class="parameter-lenght">60</span></td><td class="parameter-docs"><div class="first">Código do Integração do Produto</div><div class="more"><a href="javascript:void(0)">+</a><div>(Utilizado para para integração via API, não aparece na tela)</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">dDtPrevisao</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Data de previsão da conclusão da produção.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nQtde</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Quantidade a produzir.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">codigo_local_estoque</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código do Local do Estoque.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento opcional.<BR><BR>Caso não informado assumirá o Local do Estoque padrão.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">lote_validade_op</td>
+<td class="parameter-type"><a href="#lote_validade_op">lote_validade_op</a></td><td class="parameter-docs"><div class="first">Informação do lote.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cReservado</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Indica se os itens da OP serão reservados</div><div class="more"><a href="javascript:void(0)">+</a><div>Preencher com "S" ou "N"<BR><BR>Default "N"<BR><BR>Utilizado apenas nos métodos de inclusão e alteração</div></div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="infAdicionais" class="anchorScroll"></a>
+<h3>infAdicionais</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">dDtInicio</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Data de início da produção</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">dDtConclusao</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Data de conclusão da produção.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nCodProjeto</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código do projeto.</div><div class="more"><a href="javascript:void(0)">+</a><div>(Gerado internamente, não é visualizado na tela)</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cEtapa</td>
+<td class="parameter-type">string<span class="parameter-lenght">2</span></td><td class="parameter-docs"><div class="first">Etapa da Ordem de Produção</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento automatico.</div></div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="info" class="anchorScroll"></a>
+<h3>info</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">dInc</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Data da Inclusão.</div><div class="more"><a href="javascript:void(0)">+</a><div>No formato dd/mm/aaaa.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">hInc</td>
+<td class="parameter-type">string<span class="parameter-lenght">8</span></td><td class="parameter-docs"><div class="first">Hora da Inclusão.</div><div class="more"><a href="javascript:void(0)">+</a><div>No formato hh:mm:ss.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">uInc</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Usuário da Inclusão.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">dAlt</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Data da Alteração.</div><div class="more"><a href="javascript:void(0)">+</a><div>No formato dd/mm/aaaa.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">hAlt</td>
+<td class="parameter-type">string<span class="parameter-lenght">8</span></td><td class="parameter-docs"><div class="first">Hora da Alteração.</div><div class="more"><a href="javascript:void(0)">+</a><div>No formato hh:mm:ss.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">uAlt</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Usuário da Alteração.</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="itens" class="anchorScroll"></a>
+<h3>itens</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">nIdProdutoMalha</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">ID do produto da malha</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cUtilizarDoEstoque</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Utilizar os itens que já estão prontos no estoque deste produto</div><div class="more"><a href="javascript:void(0)">+</a><div>Valores possíveis:<BR><BR>S = Sim <BR>N = Não</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">lote_validade</td>
+<td class="parameter-type"><a href="#lote_validadeArray">lote_validadeArray</a></td><td class="parameter-docs"><div class="first">Informação do lote.</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="itensArray" class="anchorScroll"></a>
+<h3>itensArray</h3>
+<p>Este par&acirc;metro &eacute; um array do tipo <span class="pre"><a href="#itens"><span class="lightBlue">itens</span></a></span></p>
+<p>Lista de itens</p>
+</div>
+<div class="complexTypeItem">
+<a name="itensDetalhes" class="anchorScroll"></a>
+<h3>itensDetalhes</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">nIdProdutoMalha</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">ID do produto da malha</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cUtilizarDoEstoque</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Utilizar os itens que já estão prontos no estoque deste produto</div><div class="more"><a href="javascript:void(0)">+</a><div>Valores possíveis:<BR><BR>S = Sim <BR>N = Não</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nQtde</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Quantidade necessária do item.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">codigo_local_estoque</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código do local do estoque.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cObs</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Observação do Item.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">info</td>
+<td class="parameter-type"><a href="#info">info</a></td><td class="parameter-docs"><div class="first">Informações complementares do Item.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cReservado</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Indica se o item da OP está reservado</div><div class="more"><a href="javascript:void(0)">+</a><div>Utilizado apenas nos métodos de Consulta e Listagem</div></div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="itensDetalhesArray" class="anchorScroll"></a>
+<h3>itensDetalhesArray</h3>
+<p>Este par&acirc;metro &eacute; um array do tipo <span class="pre"><a href="#itensDetalhes"><span class="lightBlue">itensDetalhes</span></a></span></p>
+<p>Lista de itensDetalhes</p>
+</div>
+<div class="complexTypeItem">
+<a name="lote_validade" class="anchorScroll"></a>
+<h3>lote_validade</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">nIdLote</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código do lote.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nQtdLote</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Quantidade do lote.</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="lote_validadeArray" class="anchorScroll"></a>
+<h3>lote_validadeArray</h3>
+<p>Este par&acirc;metro &eacute; um array do tipo <span class="pre"><a href="#lote_validade"><span class="lightBlue">lote_validade</span></a></span></p>
+<p>Lista de lote_validade</p>
+</div>
+<div class="complexTypeItem">
+<a name="lote_validade_op" class="anchorScroll"></a>
+<h3>lote_validade_op</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">nIdLote</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código do lote.</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="observacoes" class="anchorScroll"></a>
+<h3>observacoes</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">cObs</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Observação do Item.</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="omie_fail" class="anchorScroll"></a>
+<h3>omie_fail</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">code</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Codigo do erro</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">description</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Descricao do erro</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-required">referer</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Origem do erro</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-required">fatal</td>
+<td class="parameter-type">boolean</td><td class="parameter-docs"><div class="first">Indica se eh um erro fatal</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="outrasInf" class="anchorScroll"></a>
+<h3>outrasInf</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">cConcluida</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Indica se a ordem de produção está concluída.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">dConclusao</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Data da conclusão.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">hConclusao</td>
+<td class="parameter-type">string<span class="parameter-lenght">8</span></td><td class="parameter-docs"><div class="first">Hora da conclusão.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">dInclusao</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Data de inclusão da oportunidade.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">hInclusao</td>
+<td class="parameter-type">string<span class="parameter-lenght">8</span></td><td class="parameter-docs"><div class="first">Hora de inclusão da oportunidade.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">uInc</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Usuário da Inclusão.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">dAlteracao</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Data de alteração da oportunidade.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">hAlteracao</td>
+<td class="parameter-type">string<span class="parameter-lenght">8</span></td><td class="parameter-docs"><div class="first">Hora de alteração da oportunidade.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">uAlt</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Usuário da Alteração.</div></td>
+<tr>
+</table>
+</div>
+</div>
+<div class="col-md-3">
+<div id="affix-menu" data-spy="affix" data-offset-top="294">
+<h2>M&eacute;todos</h2>
+<nav id="index" class="hidden-print hidden-xs hidden-sm">
+<ul class="nav">
+<li><a href="#AlterarOrdemProducao">AlterarOrdemProducao</a></li>
+<li><a href="#ConcluirOrdemProducao">ConcluirOrdemProducao</a></li>
+<li><a href="#ConsultarOrdemProducao">ConsultarOrdemProducao</a></li>
+<li><a href="#ExcluirOrdemProducao">ExcluirOrdemProducao</a></li>
+<li><a href="#IncluirOrdemProducao">IncluirOrdemProducao</a></li>
+<li><a href="#ListarOrdemProducao">ListarOrdemProducao</a></li>
+<li><a href="#ReverterOrdemProducao">ReverterOrdemProducao</a></li>
+<li><a href="#UpsertOrdemProducao">UpsertOrdemProducao</a></li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+</body>
+</html>

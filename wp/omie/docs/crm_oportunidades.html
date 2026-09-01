@@ -1,0 +1,1084 @@
+<nav class="navbar navbar-expand-lg bg-azul">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="https://developer.omie.com.br/">
+            <img class="lozad img-logo" data-src="https://static.omie.com.br/images/logo/logo-omie-topo.png" src="https://static.omie.com.br/images/logo/logo-omie-topo.png" data-loaded="true">
+        </a>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <span class="borda-hover"></span>
+                    <a class="nav-link" href="https://developer.omie.com.br/my-apps/"> Aplicativos </a>
+                </li>
+                <li class="nav-item ">
+                    <span class="borda-hover"></span>
+                    <a class="nav-link" href="https://developer.omie.com.br/service-list/">
+                        Lista das API's
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <span class="borda-hover"></span>
+                    <a class="nav-link" href="https://ajuda.omie.com.br/pt-BR/collections/3045828-apis" target="_blank"> Ajuda </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<html>
+<head>
+<title>oportunidades</title>
+<style type="text/css" media="all">
+  [id] { scroll-margin-top: 68px; }
+</style>
+<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+<script src="https://cdn.omie.com.br/omie-assets/js/omie-compat-v2.min.js"></script>
+<script src="/developer/themes/omie/developer.js?ts=2021.008"></script>
+<link rel="stylesheet" href="//app.omie.com.br/wp-content/themes/omie/bootstrap/css/bootstrap.min.css" async/>
+<link href="https://cdn.omie.com.br/assets/developer/css/site.css?ts=2021.008" media="all" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="/developer/themes/omie/developer.css?ts=2021.008" async/>
+</head>
+<body>
+<div class="jumbotron banner bg-azul">
+<div class="container">
+<img src="https://cdn.omie.com.br/assets/developer/images/seta-azuis.png" alt="" class="img-setas">
+<div class="row align-items-center">
+<div class="col-12">
+<h1>oportunidades</h1>
+<ul class="nav nav-tabs" role="tablist">
+  <li role="presentation" class="active"><a href="#section-endpoint" aria-controls="section-endpoint" role="tab" data-toggle="tab">Endpoint</a></li>
+  <li role="presentation" class="pull-right"><a href="#section-wsdl" aria-controls="section-wsdl" role="tab" data-toggle="tab">WSDL</a></li>
+  <li role="presentation" class="pull-right"><a href="#section-php-soap" aria-controls="section-php-soap" role="tab" data-toggle="tab">PHP SOAP</a></li>
+  <li role="presentation" class="pull-right"><a href="#section-json" aria-controls="section-json" role="tab" data-toggle="tab">JSON</a></li>
+</ul>
+<div class="tab-content">
+  <div role="tabpanel" class="tab-pane fade in active" id="section-endpoint">
+    <h4>Endpoint URI</h4>
+    <a class="highlight" href="https://app.omie.com.br/api/v1/crm/oportunidades/"><pre><code>https://app.omie.com.br/api/v1/crm/oportunidades/</code></pre></a>
+  </div>
+  <div role="tabpanel" class="tab-pane fade" id="section-wsdl">
+    <h4>WSDL URI</h4>
+    <a class="highlight" href="https://app.omie.com.br/api/v1/crm/oportunidades/?WSDL"><pre><code>https://app.omie.com.br/api/v1/crm/oportunidades/?WSDL</code></pre></a>
+  </div>
+  <div role="tabpanel" class="tab-pane fade" id="section-php-soap">
+    <h4>PHP SOAP client download</h4>
+    <a class="highlight" href="https://app.omie.com.br/api/v1/crm/oportunidades/?PHPSOAPCLIENT""><pre><code>https://app.omie.com.br/api/v1/crm/oportunidades/?PHPSOAPCLIENT</code></pre></a>
+  </div>
+  <div role="tabpanel" class="tab-pane fade" id="section-json">
+    <h4>JSON client download URI</h4>
+    <h5>PHP</h5>
+    <a class="highlight" href="https://app.omie.com.br/api/v1/crm/oportunidades/?PHPJSONCLIENT"><pre><code>https://app.omie.com.br/api/v1/crm/oportunidades/?PHPJSONCLIENT</code></pre></a>
+    <h5>JavaScript (recomendado para uso apenas do lado do servidor)</h5>
+    <a class="highlight" href="https://app.omie.com.br/api/v1/crm/oportunidades/?JSJSONCLIENT"><pre><code>https://app.omie.com.br/api/v1/crm/oportunidades/?JSJSONCLIENT</code></pre></a>
+  </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="container">
+<div class="row">
+<div class="col-md-9">
+<h2>M&eacute;todos</h2>
+<p>Veja abaixo a documenta&ccedil;&atilde;o de cada m&eacute;todo dispon&iacute;vel para este servi&ccedil;o.</p>
+<div id="AlterarOportunidade" class="methodItem">
+<h3 class="method-name">AlterarOportunidade</h3>
+<p>
+
+</p>
+<div class="panel panel-default method">
+<div class="panel-heading"> Par&acirc;metros:
+</div>
+<table class="table table-condensed table-hover">
+<tr>
+<td class="">&nbsp;</td>
+<td class="method-parameter-type"><a href="#opAlterarRequest">opAlterarRequest</a></td>
+<td class="method-parameter-name">opAlterarRequest</td><td class="method-parameter-docs"><div class="first">Solicitação de alteração de oportunidades</div></td>
+</tr>
+</table>
+<div class="panel-footer">
+Retorno <span class="pre"><a href="#opAlterarResponse"><span class="lightBlue">opAlterarResponse</span></a></span>: 
+</div>
+</div>
+<div class="method-example-area">
+<h5>Exemplo:</h5>
+<pre class="method-example-code">{<BR>   "identificacao": <BR>   {<BR>       "nCodOp": 0,<BR>       "cCodIntOp": "",<BR>       "cDesOp": "",<BR>       "nCodConta": 0,<BR>       "nCodContato": 0,<BR>       "nCodOrigem": 0,<BR>       "nCodSolucao": 0,<BR>       "nCodVendedor": 0<BR>  }<BR>}</pre>
+<button class="btn btn-success method-example" data-method="AlterarOportunidade" data-example="%7B+++%22identificacao%22%3A++++%7B+++++++%22nCodOp%22%3A+0%2C+++++++%22cCodIntOp%22%3A+%22%22%2C+++++++%22cDesOp%22%3A+%22%22%2C+++++++%22nCodConta%22%3A+0%2C+++++++%22nCodContato%22%3A+0%2C+++++++%22nCodOrigem%22%3A+0%2C+++++++%22nCodSolucao%22%3A+0%2C+++++++%22nCodVendedor%22%3A+0++%7D%7D">Teste agora mesmo</button>
+</div>
+</div>
+<div id="ConsultarOportunidade" class="methodItem">
+<h3 class="method-name">ConsultarOportunidade</h3>
+<p>
+Consulta de oportunidade.
+</p>
+<div class="panel panel-default method">
+<div class="panel-heading"> Par&acirc;metros:
+</div>
+<table class="table table-condensed table-hover">
+<tr>
+<td class="">&nbsp;</td>
+<td class="method-parameter-type"><a href="#opConsultarRequest">opConsultarRequest</a></td>
+<td class="method-parameter-name">opConsultarRequest</td><td class="method-parameter-docs"><div class="first">Solicitação de consulta de oportunidades.</div></td>
+</tr>
+</table>
+<div class="panel-footer">
+Retorno <span class="pre"><a href="#opConsultarResponse"><span class="lightBlue">opConsultarResponse</span></a></span>: Resposta da consulta de oportunidades.
+</div>
+</div>
+<div class="method-example-area">
+<h5>Exemplo:</h5>
+<pre class="method-example-code">{<BR>  "nCodOp": 0,<BR>  "cCodIntOp": ""<BR>}</pre>
+<button class="btn btn-success method-example" data-method="ConsultarOportunidade" data-example="%7B++%22nCodOp%22%3A+0%2C++%22cCodIntOp%22%3A+%22%22%7D">Teste agora mesmo</button>
+</div>
+</div>
+<div id="ExcluirOportunidade" class="methodItem">
+<h3 class="method-name">ExcluirOportunidade</h3>
+<p>
+
+</p>
+<div class="panel panel-default method">
+<div class="panel-heading"> Par&acirc;metros:
+</div>
+<table class="table table-condensed table-hover">
+<tr>
+<td class="">&nbsp;</td>
+<td class="method-parameter-type"><a href="#opExcluirRequest">opExcluirRequest</a></td>
+<td class="method-parameter-name">opExcluirRequest</td><td class="method-parameter-docs"><div class="first">Solicitação de exclusão de oportunidades.</div></td>
+</tr>
+</table>
+<div class="panel-footer">
+Retorno <span class="pre"><a href="#opExcluirResponse"><span class="lightBlue">opExcluirResponse</span></a></span>: 
+</div>
+</div>
+<div class="method-example-area">
+<h5>Exemplo:</h5>
+<pre class="method-example-code">{<BR>  "nCodOp": 0,<BR>  "cCodIntOp": ""<BR>}</pre>
+<button class="btn btn-success method-example" data-method="ExcluirOportunidade" data-example="%7B++%22nCodOp%22%3A+0%2C++%22cCodIntOp%22%3A+%22%22%7D">Teste agora mesmo</button>
+</div>
+</div>
+<div id="IncluirOportunidade" class="methodItem">
+<h3 class="method-name">IncluirOportunidade</h3>
+<p>
+Incluir uma oportunidade.
+</p>
+<div class="panel panel-default method">
+<div class="panel-heading"> Par&acirc;metros:
+</div>
+<table class="table table-condensed table-hover">
+<tr>
+<td class="">&nbsp;</td>
+<td class="method-parameter-type"><a href="#opIncluirRequest">opIncluirRequest</a></td>
+<td class="method-parameter-name">opIncluirRequest</td><td class="method-parameter-docs"><div class="first">Solicitação de Inclusão de oportunidades</div></td>
+</tr>
+</table>
+<div class="panel-footer">
+Retorno <span class="pre"><a href="#opIncluirResponse"><span class="lightBlue">opIncluirResponse</span></a></span>: 
+</div>
+</div>
+<div class="method-example-area">
+<h5>Exemplo:</h5>
+<pre class="method-example-code">{<BR>    "identificacao": <BR>    {<BR>        "cCodIntOp": "",<BR>        "cDesOp": "",<BR>        "nCodConta": 0,<BR>        "nCodContato": 0,<BR>        "nCodOrigem": 0,<BR>        "nCodSolucao": 0,<BR>        "nCodVendedor": 0<BR>   }<BR>}</pre>
+<button class="btn btn-success method-example" data-method="IncluirOportunidade" data-example="%7B++++%22identificacao%22%3A+++++%7B++++++++%22cCodIntOp%22%3A+%22%22%2C++++++++%22cDesOp%22%3A+%22%22%2C++++++++%22nCodConta%22%3A+0%2C++++++++%22nCodContato%22%3A+0%2C++++++++%22nCodOrigem%22%3A+0%2C++++++++%22nCodSolucao%22%3A+0%2C++++++++%22nCodVendedor%22%3A+0+++%7D%7D">Teste agora mesmo</button>
+</div>
+</div>
+<div id="ListarOportunidades" class="methodItem">
+<h3 class="method-name">ListarOportunidades</h3>
+<p>
+Lista de oportunidades.
+</p>
+<div class="panel panel-default method">
+<div class="panel-heading"> Par&acirc;metros:
+</div>
+<table class="table table-condensed table-hover">
+<tr>
+<td class="">&nbsp;</td>
+<td class="method-parameter-type"><a href="#opListarRequest">opListarRequest</a></td>
+<td class="method-parameter-name">opListarRequest</td><td class="method-parameter-docs"><div class="first">Solicitação da listagem de oportunidades.</div></td>
+</tr>
+</table>
+<div class="panel-footer">
+Retorno <span class="pre"><a href="#opListarResponse"><span class="lightBlue">opListarResponse</span></a></span>: 
+</div>
+</div>
+<div class="method-example-area">
+<h5>Exemplo:</h5>
+<pre class="method-example-code">{<BR>  "pagina": 1,<BR>  "registros_por_pagina": 20<BR>}<BR></pre>
+<button class="btn btn-success method-example" data-method="ListarOportunidades" data-example="%7B++%22pagina%22%3A+1%2C++%22registros_por_pagina%22%3A+20%7D">Teste agora mesmo</button>
+</div>
+</div>
+<div id="UpsertOportunidade" class="methodItem">
+<h3 class="method-name">UpsertOportunidade</h3>
+<p>
+Upsert de oportunidade.
+</p>
+<div class="panel panel-default method">
+<div class="panel-heading"> Par&acirc;metros:
+</div>
+<table class="table table-condensed table-hover">
+<tr>
+<td class="">&nbsp;</td>
+<td class="method-parameter-type"><a href="#opUpsertRequest">opUpsertRequest</a></td>
+<td class="method-parameter-name">opUpsertRequest</td><td class="method-parameter-docs"><div class="first">Solicitação de Upsert de oportunidades</div></td>
+</tr>
+</table>
+<div class="panel-footer">
+Retorno <span class="pre"><a href="#opUpsertResponse"><span class="lightBlue">opUpsertResponse</span></a></span>: Resposta da upsert de oportunidades.
+</div>
+</div>
+<div class="method-example-area">
+<h5>Exemplo:</h5>
+<pre class="method-example-code">{<BR>   "identificacao": <BR>   {<BR>       "nCodOp": 0,<BR>       "cCodIntOp": "",<BR>       "cDesOp": "",<BR>       "nCodConta": 0,<BR>       "nCodContato": 0,<BR>       "nCodOrigem": 0,<BR>       "nCodSolucao": 0,<BR>       "nCodVendedor": 0<BR>  }<BR>}</pre>
+<button class="btn btn-success method-example" data-method="UpsertOportunidade" data-example="%7B+++%22identificacao%22%3A++++%7B+++++++%22nCodOp%22%3A+0%2C+++++++%22cCodIntOp%22%3A+%22%22%2C+++++++%22cDesOp%22%3A+%22%22%2C+++++++%22nCodConta%22%3A+0%2C+++++++%22nCodContato%22%3A+0%2C+++++++%22nCodOrigem%22%3A+0%2C+++++++%22nCodSolucao%22%3A+0%2C+++++++%22nCodVendedor%22%3A+0++%7D%7D">Teste agora mesmo</button>
+</div>
+</div>
+<h2>Tipos Complexos</h2>
+<div class="complexTypeItem">
+<a name="cadastros" class="anchorScroll"></a>
+<h3>cadastros</h3>
+<p>Lista os cadastros encontrados.</p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">identificacao</td>
+<td class="parameter-type"><a href="#identificacao">identificacao</a></td><td class="parameter-docs"><div class="first">Cabeçalho da Oportunidade&nbsp;</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">fasesStatus</td>
+<td class="parameter-type"><a href="#fasesStatus">fasesStatus</a></td><td class="parameter-docs"><div class="first">Fase e Status da Oportunidade.&nbsp;</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">ticket</td>
+<td class="parameter-type"><a href="#ticket">ticket</a></td><td class="parameter-docs"><div class="first">Ticket da Oportunidade&nbsp;</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">previsaoTemp</td>
+<td class="parameter-type"><a href="#previsaoTemp">previsaoTemp</a></td><td class="parameter-docs"><div class="first">Previsão e Temperatura</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">observacoes</td>
+<td class="parameter-type"><a href="#observacoes">observacoes</a></td><td class="parameter-docs"><div class="first">Observações da oportunidade.&nbsp;</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">outrasInf</td>
+<td class="parameter-type"><a href="#outrasInf">outrasInf</a></td><td class="parameter-docs"><div class="first">Outras informações.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">envolvidos</td>
+<td class="parameter-type"><a href="#envolvidos">envolvidos</a></td><td class="parameter-docs"><div class="first">Envolvidos na oportunidade.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">concorrentes</td>
+<td class="parameter-type"><a href="#concorrentesArray">concorrentesArray</a></td><td class="parameter-docs"><div class="first">Concorrentes</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">tarefas</td>
+<td class="parameter-type"><a href="#tarefasArray">tarefasArray</a></td><td class="parameter-docs"><div class="first">Lista de tarefas associadas.</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="cadastrosArray" class="anchorScroll"></a>
+<h3>cadastrosArray</h3>
+<p>Este par&acirc;metro &eacute; um array do tipo <span class="pre"><a href="#cadastros"><span class="lightBlue">cadastros</span></a></span></p>
+<p>Lista de cadastros</p>
+</div>
+<div class="complexTypeItem">
+<a name="concorrentes" class="anchorScroll"></a>
+<h3>concorrentes</h3>
+<p>Concorrentes</p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">nCodConc</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código do concorrente.</div><div class="more"><a href="javascript:void(0)">+</a><div>(Gerado internamente, não é visualizado na tela)</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCodIntConc</td>
+<td class="parameter-type">string<span class="parameter-lenght">20</span></td><td class="parameter-docs"><div class="first">Código de integração do concorrente.</div><div class="more"><a href="javascript:void(0)">+</a><div>(Utilizado em títulos criados via API, não é visualizado na tela)</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cObservacao</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Observação do Concorrente.</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="concorrentesArray" class="anchorScroll"></a>
+<h3>concorrentesArray</h3>
+<p>Este par&acirc;metro &eacute; um array do tipo <span class="pre"><a href="#concorrentes"><span class="lightBlue">concorrentes</span></a></span></p>
+<p>Lista de concorrentes</p>
+</div>
+<div class="complexTypeItem">
+<a name="envolvidos" class="anchorScroll"></a>
+<h3>envolvidos</h3>
+<p>Envolvidos na oportunidade.</p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">nCodFinder</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código do Finder.</div><div class="more"><a href="javascript:void(0)">+</a><div>(Gerado internamente, não é visualizado na tela)</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nCodParceiro</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código do parceiro.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nCodPrevenda</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código da prevenda.</div><div class="more"><a href="javascript:void(0)">+</a><div>(Gerado internamente, não é visualizado na tela)</div></div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="fasesStatus" class="anchorScroll"></a>
+<h3>fasesStatus</h3>
+<p>Fase e Status da Oportunidade.</p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">nCodFase</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código da fase. </div><div class="more"><a href="javascript:void(0)">+</a><div>(Gerado internamente, não é visualizado na tela)</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nCodStatus</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código do status.</div><div class="more"><a href="javascript:void(0)">+</a><div>(Gerado internamente, não é visualizado na tela)</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nCodMotivo</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código do motivo.</div><div class="more"><a href="javascript:void(0)">+</a><div>(Gerado internamente, não é visualizado na tela)</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">dNovoLead</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Data do Novo Lead.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">dQualificacao</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Data da Qualificação.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">dTreinamento</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Data de Treinamento.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">dShowRoom</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Data de ShowRoom</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">dProjeto</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Data de projeto.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">dConclusao</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Data de conclusão.</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="identificacao" class="anchorScroll"></a>
+<h3>identificacao</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">nCodOp</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código da oportunidade.</div><div class="more"><a href="javascript:void(0)">+</a><div>(Gerado internamente, não é visualizado na tela)</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCodIntOp</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Código de integração da oportunidade.</div><div class="more"><a href="javascript:void(0)">+</a><div>(Utilizado em títulos criados via API, não é visualizado na tela)</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cDesOp</td>
+<td class="parameter-type">string<span class="parameter-lenght">100</span></td><td class="parameter-docs"><div class="first">Descrição da oportunidade.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nCodContato</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código do contato.</div><div class="more"><a href="javascript:void(0)">+</a><div>(Gerado internamente, não é visualizado na tela)</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nCodSolucao</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código da solução.</div><div class="more"><a href="javascript:void(0)">+</a><div>(Gerado internamente, não é visualizado na tela)</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nCodOrigem</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código da origem.</div><div class="more"><a href="javascript:void(0)">+</a><div>(Gerado internamente, não é visualizado na tela)</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nCodConta</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código da conta.</div><div class="more"><a href="javascript:void(0)">+</a><div>(Gerado internamente, não é visualizado na tela)</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nCodVendedor</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código do vendedor.</div><div class="more"><a href="javascript:void(0)">+</a><div>(Gerado internamente, não é visualizado na tela)</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cNumOp</td>
+<td class="parameter-type">string<span class="parameter-lenght">20</span></td><td class="parameter-docs"><div class="first">Número da oportunidade.</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="lista_papeis" class="anchorScroll"></a>
+<h3>lista_papeis</h3>
+<p>Lista de Papeis</p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">cDescricaoPapel</td>
+<td class="parameter-type">string<span class="parameter-lenght">20</span></td><td class="parameter-docs"><div class="first">Descrição do Papel.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nOrdemPapel</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Ordem do Papel.</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="lista_papeisArray" class="anchorScroll"></a>
+<h3>lista_papeisArray</h3>
+<p>Este par&acirc;metro &eacute; um array do tipo <span class="pre"><a href="#lista_papeis"><span class="lightBlue">lista_papeis</span></a></span></p>
+<p>Lista de lista_papeis</p>
+</div>
+<div class="complexTypeItem">
+<a name="lista_tickets" class="anchorScroll"></a>
+<h3>lista_tickets</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">cDescricaoTicket</td>
+<td class="parameter-type">string<span class="parameter-lenght">20</span></td><td class="parameter-docs"><div class="first">Descrição do ticket.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nOrdemTicket</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Ordem do Ticket.</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="lista_ticketsArray" class="anchorScroll"></a>
+<h3>lista_ticketsArray</h3>
+<p>Este par&acirc;metro &eacute; um array do tipo <span class="pre"><a href="#lista_tickets"><span class="lightBlue">lista_tickets</span></a></span></p>
+<p>Lista de lista_tickets</p>
+</div>
+<div class="complexTypeItem">
+<a name="observacoes" class="anchorScroll"></a>
+<h3>observacoes</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">cObs</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Observações da Oportunidade</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="omie_fail" class="anchorScroll"></a>
+<h3>omie_fail</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">code</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Codigo do erro</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">description</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Descricao do erro</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-required">referer</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Origem do erro</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-required">fatal</td>
+<td class="parameter-type">boolean</td><td class="parameter-docs"><div class="first">Indica se eh um erro fatal</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="opAlterarRequest" class="anchorScroll"></a>
+<h3>opAlterarRequest</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">identificacao</td>
+<td class="parameter-type"><a href="#identificacao">identificacao</a></td><td class="parameter-docs"><div class="first">Cabeçalho da Oportunidade&nbsp;</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">fasesStatus</td>
+<td class="parameter-type"><a href="#fasesStatus">fasesStatus</a></td><td class="parameter-docs"><div class="first">Fase e Status da Oportunidade.&nbsp;</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">ticket</td>
+<td class="parameter-type"><a href="#ticket">ticket</a></td><td class="parameter-docs"><div class="first">Ticket da Oportunidade&nbsp;</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">previsaoTemp</td>
+<td class="parameter-type"><a href="#previsaoTemp">previsaoTemp</a></td><td class="parameter-docs"><div class="first">Previsão e Temperatura</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">observacoes</td>
+<td class="parameter-type"><a href="#observacoes">observacoes</a></td><td class="parameter-docs"><div class="first">Observações da oportunidade.&nbsp;</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">outrasInf</td>
+<td class="parameter-type"><a href="#outrasInf">outrasInf</a></td><td class="parameter-docs"><div class="first">Outras informações.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">envolvidos</td>
+<td class="parameter-type"><a href="#envolvidos">envolvidos</a></td><td class="parameter-docs"><div class="first">Envolvidos na oportunidade.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">concorrentes</td>
+<td class="parameter-type"><a href="#concorrentesArray">concorrentesArray</a></td><td class="parameter-docs"><div class="first">Concorrentes</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="opAlterarResponse" class="anchorScroll"></a>
+<h3>opAlterarResponse</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">nCodOp</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código da oportunidade.</div><div class="more"><a href="javascript:void(0)">+</a><div>(Gerado internamente, não é visualizado na tela)</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCodIntOp</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Código de integração da oportunidade.</div><div class="more"><a href="javascript:void(0)">+</a><div>(Utilizado em títulos criados via API, não é visualizado na tela)</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCodStatus</td>
+<td class="parameter-type">string<span class="parameter-lenght">4</span></td><td class="parameter-docs"><div class="first">Código do Status</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cDesStatus</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Descrição do Status</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="opConsultarRequest" class="anchorScroll"></a>
+<h3>opConsultarRequest</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">nCodOp</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código da oportunidade.</div><div class="more"><a href="javascript:void(0)">+</a><div>(Gerado internamente, não é visualizado na tela)</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCodIntOp</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Código de integração da oportunidade.</div><div class="more"><a href="javascript:void(0)">+</a><div>(Utilizado em títulos criados via API, não é visualizado na tela)</div></div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="opConsultarResponse" class="anchorScroll"></a>
+<h3>opConsultarResponse</h3>
+<p>Resposta da consulta de oportunidades.</p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">identificacao</td>
+<td class="parameter-type"><a href="#identificacao">identificacao</a></td><td class="parameter-docs"><div class="first">Cabeçalho da Oportunidade&nbsp;</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">fasesStatus</td>
+<td class="parameter-type"><a href="#fasesStatus">fasesStatus</a></td><td class="parameter-docs"><div class="first">Fase e Status da Oportunidade.&nbsp;</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">ticket</td>
+<td class="parameter-type"><a href="#ticket">ticket</a></td><td class="parameter-docs"><div class="first">Ticket da Oportunidade&nbsp;</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">previsaoTemp</td>
+<td class="parameter-type"><a href="#previsaoTemp">previsaoTemp</a></td><td class="parameter-docs"><div class="first">Previsão e Temperatura</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">observacoes</td>
+<td class="parameter-type"><a href="#observacoes">observacoes</a></td><td class="parameter-docs"><div class="first">Observações da oportunidade.&nbsp;</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">outrasInf</td>
+<td class="parameter-type"><a href="#outrasInf">outrasInf</a></td><td class="parameter-docs"><div class="first">Outras informações.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">envolvidos</td>
+<td class="parameter-type"><a href="#envolvidos">envolvidos</a></td><td class="parameter-docs"><div class="first">Envolvidos na oportunidade.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">concorrentes</td>
+<td class="parameter-type"><a href="#concorrentesArray">concorrentesArray</a></td><td class="parameter-docs"><div class="first">Concorrentes</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="opExcluirRequest" class="anchorScroll"></a>
+<h3>opExcluirRequest</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">nCodOp</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código da oportunidade.</div><div class="more"><a href="javascript:void(0)">+</a><div>(Gerado internamente, não é visualizado na tela)</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCodIntOp</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Código de integração da oportunidade.</div><div class="more"><a href="javascript:void(0)">+</a><div>(Utilizado em títulos criados via API, não é visualizado na tela)</div></div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="opExcluirResponse" class="anchorScroll"></a>
+<h3>opExcluirResponse</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">nCodOp</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código da oportunidade.</div><div class="more"><a href="javascript:void(0)">+</a><div>(Gerado internamente, não é visualizado na tela)</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCodIntOp</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Código de integração da oportunidade.</div><div class="more"><a href="javascript:void(0)">+</a><div>(Utilizado em títulos criados via API, não é visualizado na tela)</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCodStatus</td>
+<td class="parameter-type">string<span class="parameter-lenght">4</span></td><td class="parameter-docs"><div class="first">Código do Status</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cDesStatus</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Descrição do Status</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="opIncluirRequest" class="anchorScroll"></a>
+<h3>opIncluirRequest</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">identificacao</td>
+<td class="parameter-type"><a href="#identificacao">identificacao</a></td><td class="parameter-docs"><div class="first">Cabeçalho da Oportunidade&nbsp;</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">fasesStatus</td>
+<td class="parameter-type"><a href="#fasesStatus">fasesStatus</a></td><td class="parameter-docs"><div class="first">Fase e Status da Oportunidade.&nbsp;</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">ticket</td>
+<td class="parameter-type"><a href="#ticket">ticket</a></td><td class="parameter-docs"><div class="first">Ticket da Oportunidade&nbsp;</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">previsaoTemp</td>
+<td class="parameter-type"><a href="#previsaoTemp">previsaoTemp</a></td><td class="parameter-docs"><div class="first">Previsão e Temperatura</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">observacoes</td>
+<td class="parameter-type"><a href="#observacoes">observacoes</a></td><td class="parameter-docs"><div class="first">Observações da oportunidade.&nbsp;</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">outrasInf</td>
+<td class="parameter-type"><a href="#outrasInf">outrasInf</a></td><td class="parameter-docs"><div class="first">Outras informações.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">envolvidos</td>
+<td class="parameter-type"><a href="#envolvidos">envolvidos</a></td><td class="parameter-docs"><div class="first">Envolvidos na oportunidade.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">concorrentes</td>
+<td class="parameter-type"><a href="#concorrentesArray">concorrentesArray</a></td><td class="parameter-docs"><div class="first">Concorrentes</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="opIncluirResponse" class="anchorScroll"></a>
+<h3>opIncluirResponse</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">nCodOp</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código da oportunidade.</div><div class="more"><a href="javascript:void(0)">+</a><div>(Gerado internamente, não é visualizado na tela)</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCodIntOp</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Código de integração da oportunidade.</div><div class="more"><a href="javascript:void(0)">+</a><div>(Utilizado em títulos criados via API, não é visualizado na tela)</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCodStatus</td>
+<td class="parameter-type">string<span class="parameter-lenght">4</span></td><td class="parameter-docs"><div class="first">Código do Status</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cDesStatus</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Descrição do Status</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="opListarRequest" class="anchorScroll"></a>
+<h3>opListarRequest</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">pagina</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Número da página retornada</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">registros_por_pagina</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Número de registros retornados na página.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">apenas_importado_api</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Exibir apenas os registros gerados pela API</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">ordenar_por</td>
+<td class="parameter-type">string<span class="parameter-lenght">100</span></td><td class="parameter-docs"><div class="first">Ordem de exibição dos dados. Padrão: Código.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">ordem_decrescente</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Se a lista será apresentada em ordem decrescente.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">email_vendedor</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">E-Mail do Vendedor</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">codigo_vendedor</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código do Vendedor.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">ano_previsao_inicial</td>
+<td class="parameter-type">string<span class="parameter-lenght">4</span></td><td class="parameter-docs"><div class="first">Ano de previsão inicial da oportunidade.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">ano_previsao_final</td>
+<td class="parameter-type">string<span class="parameter-lenght">4</span></td><td class="parameter-docs"><div class="first">Ano de previsão final da oportunidade.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">mes_previsao_inicial</td>
+<td class="parameter-type">string<span class="parameter-lenght">2</span></td><td class="parameter-docs"><div class="first">Mês de previsão inicial da oportunidade.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">mes_previsao_final</td>
+<td class="parameter-type">string<span class="parameter-lenght">2</span></td><td class="parameter-docs"><div class="first">Mês de previsão final da oportunidade.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">data_inclusao_inicial</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Data de inclusão inicial da oportunidade.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">data_inclusao_final</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Data de inclusão final da oportunidade.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">hora_inclusao_inicial</td>
+<td class="parameter-type">string<span class="parameter-lenght">8</span></td><td class="parameter-docs"><div class="first">Hora de inclusão inicial.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">hora_inclusao_final</td>
+<td class="parameter-type">string<span class="parameter-lenght">8</span></td><td class="parameter-docs"><div class="first">Hora de inclusão final.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">data_alteracao_inicial</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Data de alteração inicial.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">data_alteracao_final</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Data de alteração final</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">hora_alteracao_inicial</td>
+<td class="parameter-type">string<span class="parameter-lenght">8</span></td><td class="parameter-docs"><div class="first">Hora de alteração inicial</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">hora_alteracao_final</td>
+<td class="parameter-type">string<span class="parameter-lenght">8</span></td><td class="parameter-docs"><div class="first">Hora de alteração final.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">status</td>
+<td class="parameter-type">string<span class="parameter-lenght">20</span></td><td class="parameter-docs"><div class="first">Status da oportunidade.</div><div class="more"><a href="javascript:void(0)">+</a><div>Pode ser:<BR><BR>A - Ativo                         <BR>C - Cancelado                     <BR>P - Perdido                       <BR>S - Suspenso                      <BR>V - Conquistado             <BR><BR>Para informar mais de um status utilize virgulas.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">fase</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código da fase da oportunidade.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">motivo</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código do motivo.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">exibir_detalhes</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Exibe os detalhes da oportunidade.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">exibir_apenas_op_vendedor</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Exibir apenas as oportunidades que pertencem ao vendedor selecionado.</div><div class="more"><a href="javascript:void(0)">+</a><div>Ativando esse filtro os vendedores com credenciais para visualizar todas as oportunidades passam a se comportam como um usuário comum, que tem acesso apenas as suas próprias oportunidades.<BR></div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">filtrar_por_descricao</td>
+<td class="parameter-type">string<span class="parameter-lenght">100</span></td><td class="parameter-docs"><div class="first">Descrição da oportunidade.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">filtrar_por_conta</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código da conta.</div><div class="more"><a href="javascript:void(0)">+</a><div>(Gerado internamente, não é visualizado na tela)</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">exibir_obs</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Exibir as observações da oportunidade (S/N).</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento Opcional.<BR><BR>Preencher com "S" ou "N".</div></div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="opListarResponse" class="anchorScroll"></a>
+<h3>opListarResponse</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">pagina</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Número da página retornada</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">total_de_paginas</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Número total de páginas</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">registros</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Número de registros retornados na página.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">total_de_registros</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">total de registros encontrados</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cadastros</td>
+<td class="parameter-type"><a href="#cadastrosArray">cadastrosArray</a></td><td class="parameter-docs"><div class="first">Lista os cadastros encontrados.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">lista_papeis</td>
+<td class="parameter-type"><a href="#lista_papeisArray">lista_papeisArray</a></td><td class="parameter-docs"><div class="first">Lista de Papeis</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">lista_tickets</td>
+<td class="parameter-type"><a href="#lista_ticketsArray">lista_ticketsArray</a></td><td class="parameter-docs"><div class="first">Lista de descrições dos títulos.</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="opUpsertRequest" class="anchorScroll"></a>
+<h3>opUpsertRequest</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">identificacao</td>
+<td class="parameter-type"><a href="#identificacao">identificacao</a></td><td class="parameter-docs"><div class="first">Cabeçalho da Oportunidade&nbsp;</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">fasesStatus</td>
+<td class="parameter-type"><a href="#fasesStatus">fasesStatus</a></td><td class="parameter-docs"><div class="first">Fase e Status da Oportunidade.&nbsp;</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">ticket</td>
+<td class="parameter-type"><a href="#ticket">ticket</a></td><td class="parameter-docs"><div class="first">Ticket da Oportunidade&nbsp;</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">previsaoTemp</td>
+<td class="parameter-type"><a href="#previsaoTemp">previsaoTemp</a></td><td class="parameter-docs"><div class="first">Previsão e Temperatura</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">observacoes</td>
+<td class="parameter-type"><a href="#observacoes">observacoes</a></td><td class="parameter-docs"><div class="first">Observações da oportunidade.&nbsp;</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">outrasInf</td>
+<td class="parameter-type"><a href="#outrasInf">outrasInf</a></td><td class="parameter-docs"><div class="first">Outras informações.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">envolvidos</td>
+<td class="parameter-type"><a href="#envolvidos">envolvidos</a></td><td class="parameter-docs"><div class="first">Envolvidos na oportunidade.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">concorrentes</td>
+<td class="parameter-type"><a href="#concorrentesArray">concorrentesArray</a></td><td class="parameter-docs"><div class="first">Concorrentes</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="opUpsertResponse" class="anchorScroll"></a>
+<h3>opUpsertResponse</h3>
+<p>Resposta da upsert de oportunidades.</p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">nCodOp</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código da oportunidade.</div><div class="more"><a href="javascript:void(0)">+</a><div>(Gerado internamente, não é visualizado na tela)</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCodIntOp</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Código de integração da oportunidade.</div><div class="more"><a href="javascript:void(0)">+</a><div>(Utilizado em títulos criados via API, não é visualizado na tela)</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCodStatus</td>
+<td class="parameter-type">string<span class="parameter-lenght">4</span></td><td class="parameter-docs"><div class="first">Código do Status</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cDesStatus</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Descrição do Status</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="outrasInf" class="anchorScroll"></a>
+<h3>outrasInf</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">nCodTipo</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código do tipo.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cEmailOp</td>
+<td class="parameter-type">string<span class="parameter-lenght">100</span></td><td class="parameter-docs"><div class="first">E-mail da oportunidade.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">dInclusao</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Data de inclusão da oportunidade.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">hInclusao</td>
+<td class="parameter-type">string<span class="parameter-lenght">8</span></td><td class="parameter-docs"><div class="first">Hora de inclusão da oportunidade.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">dAlteracao</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Data de alteração da oportunidade.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">hAlteracao</td>
+<td class="parameter-type">string<span class="parameter-lenght">8</span></td><td class="parameter-docs"><div class="first">Hora de alteração da oportunidade.</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="previsaoTemp" class="anchorScroll"></a>
+<h3>previsaoTemp</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">nTemperatura</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Temperatura</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nMesPrev</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Mês de previsão de fechamento.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nAnoPrev</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Ano de previsão de fechamento.</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="tarefas" class="anchorScroll"></a>
+<h3>tarefas</h3>
+<p>Lista de tarefas associadas.</p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">cCodIntTarefa</td>
+<td class="parameter-type">string<span class="parameter-lenght">20</span></td><td class="parameter-docs"><div class="first">Código de Integração da Tarefa.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cDescricaoTarefa</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Descrição da Tarefa.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cDataTarefa</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Data da Tarefa.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cHoraTarefa</td>
+<td class="parameter-type">string<span class="parameter-lenght">5</span></td><td class="parameter-docs"><div class="first">Hora da Tarefa.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cImportante</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Tarefa está definida como "Importante": S/N.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cEmExecucao</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Tarefa está definida como "Em Execução": S/N</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cRealizada</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Tarefa está definida como "Realizada": S/N</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cUrgente</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Tarefa está definida como "Urgente": S/N</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nCodAtividade</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código do Atividade.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cDesAtividade</td>
+<td class="parameter-type">string<span class="parameter-lenght">40</span></td><td class="parameter-docs"><div class="first">Descrição da Atividade.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nCodNotificacao</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código da Notificação.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cDesNotificacao</td>
+<td class="parameter-type">string<span class="parameter-lenght">20</span></td><td class="parameter-docs"><div class="first">Descrição da Notificação.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nCodUsuario</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código do usuário.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cNomUsuario</td>
+<td class="parameter-type">string<span class="parameter-lenght">100</span></td><td class="parameter-docs"><div class="first">Nome do usuário.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cEmailUsuario</td>
+<td class="parameter-type">string<span class="parameter-lenght">200</span></td><td class="parameter-docs"><div class="first">E-mail do usuário.</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="tarefasArray" class="anchorScroll"></a>
+<h3>tarefasArray</h3>
+<p>Este par&acirc;metro &eacute; um array do tipo <span class="pre"><a href="#tarefas"><span class="lightBlue">tarefas</span></a></span></p>
+<p>Lista de tarefas</p>
+</div>
+<div class="complexTypeItem">
+<a name="ticket" class="anchorScroll"></a>
+<h3>ticket</h3>
+<p>Ticket da Oportunidade</p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">nProdutos</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Valor de produtos.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nServicos</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Valor de serviços.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nRecorrencia</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Valor da recorrência.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nMeses</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Meses de contrato.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nTicket</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Valor do ticket calculado.</div><div class="more"><a href="javascript:void(0)">+</a><div>(Calculado automaticamente)</div></div></td>
+<tr>
+</table>
+</div>
+</div>
+<div class="col-md-3">
+<div id="affix-menu" data-spy="affix" data-offset-top="294">
+<h2>M&eacute;todos</h2>
+<nav id="index" class="hidden-print hidden-xs hidden-sm">
+<ul class="nav">
+<li><a href="#AlterarOportunidade">AlterarOportunidade</a></li>
+<li><a href="#ConsultarOportunidade">ConsultarOportunidade</a></li>
+<li><a href="#ExcluirOportunidade">ExcluirOportunidade</a></li>
+<li><a href="#IncluirOportunidade">IncluirOportunidade</a></li>
+<li><a href="#ListarOportunidades">ListarOportunidades</a></li>
+<li><a href="#UpsertOportunidade">UpsertOportunidade</a></li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+</body>
+</html>

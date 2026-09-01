@@ -1,0 +1,498 @@
+<nav class="navbar navbar-expand-lg bg-azul">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="https://developer.omie.com.br/">
+            <img class="lozad img-logo" data-src="https://static.omie.com.br/images/logo/logo-omie-topo.png" src="https://static.omie.com.br/images/logo/logo-omie-topo.png" data-loaded="true">
+        </a>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <span class="borda-hover"></span>
+                    <a class="nav-link" href="https://developer.omie.com.br/my-apps/"> Aplicativos </a>
+                </li>
+                <li class="nav-item ">
+                    <span class="borda-hover"></span>
+                    <a class="nav-link" href="https://developer.omie.com.br/service-list/">
+                        Lista das API's
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <span class="borda-hover"></span>
+                    <a class="nav-link" href="https://ajuda.omie.com.br/pt-BR/collections/3045828-apis" target="_blank"> Ajuda </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<html>
+<head>
+<title>ContaReceberBoleto</title>
+<style type="text/css" media="all">
+  [id] { scroll-margin-top: 68px; }
+</style>
+<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+<script src="https://cdn.omie.com.br/omie-assets/js/omie-compat-v2.min.js"></script>
+<script src="/developer/themes/omie/developer.js?ts=2021.008"></script>
+<link rel="stylesheet" href="//app.omie.com.br/wp-content/themes/omie/bootstrap/css/bootstrap.min.css" async/>
+<link href="https://cdn.omie.com.br/assets/developer/css/site.css?ts=2021.008" media="all" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="/developer/themes/omie/developer.css?ts=2021.008" async/>
+</head>
+<body>
+<div class="jumbotron banner bg-azul">
+<div class="container">
+<img src="https://cdn.omie.com.br/assets/developer/images/seta-azuis.png" alt="" class="img-setas">
+<div class="row align-items-center">
+<div class="col-12">
+<h1>ContaReceberBoleto</h1>
+<ul class="nav nav-tabs" role="tablist">
+  <li role="presentation" class="active"><a href="#section-endpoint" aria-controls="section-endpoint" role="tab" data-toggle="tab">Endpoint</a></li>
+  <li role="presentation" class="pull-right"><a href="#section-wsdl" aria-controls="section-wsdl" role="tab" data-toggle="tab">WSDL</a></li>
+  <li role="presentation" class="pull-right"><a href="#section-php-soap" aria-controls="section-php-soap" role="tab" data-toggle="tab">PHP SOAP</a></li>
+  <li role="presentation" class="pull-right"><a href="#section-json" aria-controls="section-json" role="tab" data-toggle="tab">JSON</a></li>
+</ul>
+<div class="tab-content">
+  <div role="tabpanel" class="tab-pane fade in active" id="section-endpoint">
+    <h4>Endpoint URI</h4>
+    <a class="highlight" href="https://app.omie.com.br/api/v1/financas/contareceberboleto/"><pre><code>https://app.omie.com.br/api/v1/financas/contareceberboleto/</code></pre></a>
+  </div>
+  <div role="tabpanel" class="tab-pane fade" id="section-wsdl">
+    <h4>WSDL URI</h4>
+    <a class="highlight" href="https://app.omie.com.br/api/v1/financas/contareceberboleto/?WSDL"><pre><code>https://app.omie.com.br/api/v1/financas/contareceberboleto/?WSDL</code></pre></a>
+  </div>
+  <div role="tabpanel" class="tab-pane fade" id="section-php-soap">
+    <h4>PHP SOAP client download</h4>
+    <a class="highlight" href="https://app.omie.com.br/api/v1/financas/contareceberboleto/?PHPSOAPCLIENT""><pre><code>https://app.omie.com.br/api/v1/financas/contareceberboleto/?PHPSOAPCLIENT</code></pre></a>
+  </div>
+  <div role="tabpanel" class="tab-pane fade" id="section-json">
+    <h4>JSON client download URI</h4>
+    <h5>PHP</h5>
+    <a class="highlight" href="https://app.omie.com.br/api/v1/financas/contareceberboleto/?PHPJSONCLIENT"><pre><code>https://app.omie.com.br/api/v1/financas/contareceberboleto/?PHPJSONCLIENT</code></pre></a>
+    <h5>JavaScript (recomendado para uso apenas do lado do servidor)</h5>
+    <a class="highlight" href="https://app.omie.com.br/api/v1/financas/contareceberboleto/?JSJSONCLIENT"><pre><code>https://app.omie.com.br/api/v1/financas/contareceberboleto/?JSJSONCLIENT</code></pre></a>
+  </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="container">
+<div class="row">
+<div class="col-md-9">
+<h2>M&eacute;todos</h2>
+<p>Veja abaixo a documenta&ccedil;&atilde;o de cada m&eacute;todo dispon&iacute;vel para este servi&ccedil;o.</p>
+<div id="CancelarBoleto" class="methodItem">
+<h3 class="method-name">CancelarBoleto</h3>
+<p>
+Cancela o Boleto.
+</p>
+<div class="panel panel-default method">
+<div class="panel-heading"> Par&acirc;metros:
+</div>
+<table class="table table-condensed table-hover">
+<tr>
+<td class="">&nbsp;</td>
+<td class="method-parameter-type"><a href="#boletoCancelarRequest">boletoCancelarRequest</a></td>
+<td class="method-parameter-name">boletoCancelarRequest</td><td class="method-parameter-docs"><div class="first">Cancela o Boleto.</div><div class="more"><a href="javascript:void(0)">+</a><div>ATENÇÃO: Os boletos gerados e já enviados ao banco estão sujeitos a tarifação (de emissão, cancelamento ou de alteração da data de vencimento do boleto).</div></div></td>
+</tr>
+</table>
+<div class="panel-footer">
+Retorno <span class="pre"><a href="#boletoCancelarResponse"><span class="lightBlue">boletoCancelarResponse</span></a></span>: 
+</div>
+</div>
+<div class="method-example-area">
+<h5>Exemplo:</h5>
+<pre class="method-example-code">{<BR>   "nCodTitulo": 0,<BR>   "cCodIntTitulo": ""<BR>}</pre>
+<button class="btn btn-success method-example" data-method="CancelarBoleto" data-example="%7B+++%22nCodTitulo%22%3A+0%2C+++%22cCodIntTitulo%22%3A+%22%22%7D">Teste agora mesmo</button>
+</div>
+</div>
+<div id="GerarBoleto" class="methodItem">
+<h3 class="method-name">GerarBoleto</h3>
+<p>
+Gera um Boleto referente a um Contas a Receber.
+</p>
+<div class="panel panel-default method">
+<div class="panel-heading"> Par&acirc;metros:
+</div>
+<table class="table table-condensed table-hover">
+<tr>
+<td class="">&nbsp;</td>
+<td class="method-parameter-type"><a href="#boletoGerarRequest">boletoGerarRequest</a></td>
+<td class="method-parameter-name">boletoGerarRequest</td><td class="method-parameter-docs"><div class="first">Gera um Boleto a partir de um Contas a Receber.</div><div class="more"><a href="javascript:void(0)">+</a><div>ATENÇÃO: Os boletos gerados e já enviados ao banco estão sujeitos a tarifação (de emissão, cancelamento ou de alteração da data de vencimento do boleto).</div></div></td>
+</tr>
+</table>
+<div class="panel-footer">
+Retorno <span class="pre"><a href="#boletoGerarResponse"><span class="lightBlue">boletoGerarResponse</span></a></span>: 
+</div>
+</div>
+<div class="method-example-area">
+<h5>Exemplo:</h5>
+<pre class="method-example-code">{<BR>   "nCodTitulo": 0,<BR>   "cCodIntTitulo": ""<BR>}</pre>
+<button class="btn btn-success method-example" data-method="GerarBoleto" data-example="%7B+++%22nCodTitulo%22%3A+0%2C+++%22cCodIntTitulo%22%3A+%22%22%7D">Teste agora mesmo</button>
+</div>
+</div>
+<div id="ObterBoleto" class="methodItem">
+<h3 class="method-name">ObterBoleto</h3>
+<p>
+Disponibiliza o link de Download do Boleto.
+</p>
+<div class="panel panel-default method">
+<div class="panel-heading"> Par&acirc;metros:
+</div>
+<table class="table table-condensed table-hover">
+<tr>
+<td class="">&nbsp;</td>
+<td class="method-parameter-type"><a href="#boletoObterRequest">boletoObterRequest</a></td>
+<td class="method-parameter-name">boletoObterRequest</td><td class="method-parameter-docs"><div class="first">Solicitação do link do boleto de um título.</div><div class="more"><a href="javascript:void(0)">+</a><div>ATENÇÃO: Os boletos gerados e já enviados ao banco estão sujeitos a tarifação (de emissão, cancelamento ou de alteração da data de vencimento do boleto).</div></div></td>
+</tr>
+</table>
+<div class="panel-footer">
+Retorno <span class="pre"><a href="#boletoObterResponse"><span class="lightBlue">boletoObterResponse</span></a></span>: 
+</div>
+</div>
+<div class="method-example-area">
+<h5>Exemplo:</h5>
+<pre class="method-example-code">{<BR>   "nCodTitulo": 0,<BR>   "cCodIntTitulo": ""<BR>}</pre>
+<button class="btn btn-success method-example" data-method="ObterBoleto" data-example="%7B+++%22nCodTitulo%22%3A+0%2C+++%22cCodIntTitulo%22%3A+%22%22%7D">Teste agora mesmo</button>
+</div>
+</div>
+<div id="ProrrogarBoleto" class="methodItem">
+<h3 class="method-name">ProrrogarBoleto</h3>
+<p>
+Prorroga o vencimento do Boleto.
+</p>
+<div class="panel panel-default method">
+<div class="panel-heading"> Par&acirc;metros:
+</div>
+<table class="table table-condensed table-hover">
+<tr>
+<td class="">&nbsp;</td>
+<td class="method-parameter-type"><a href="#boletoProrrogarRequest">boletoProrrogarRequest</a></td>
+<td class="method-parameter-name">boletoProrrogarRequest</td><td class="method-parameter-docs"><div class="first">Prorroga o vencimento de um Boleto.</div><div class="more"><a href="javascript:void(0)">+</a><div>ATENÇÃO: Os boletos gerados e já enviados ao banco estão sujeitos a tarifação (de emissão, cancelamento ou de alteração da data de vencimento do boleto).</div></div></td>
+</tr>
+</table>
+<div class="panel-footer">
+Retorno <span class="pre"><a href="#boletoProrrogarResponse"><span class="lightBlue">boletoProrrogarResponse</span></a></span>: 
+</div>
+</div>
+<div class="method-example-area">
+<h5>Exemplo:</h5>
+<pre class="method-example-code">{<BR>   "nCodTitulo": 0,<BR>   "cCodIntTitulo": "",<BR>   "dDtVenc":"01/09/2026"<BR>}</pre>
+<button class="btn btn-success method-example" data-method="ProrrogarBoleto" data-example="%7B+++%22nCodTitulo%22%3A+0%2C+++%22cCodIntTitulo%22%3A+%22%22%2C+++%22dDtVenc%22%3A%2201%2F09%2F2026%22%7D">Teste agora mesmo</button>
+</div>
+</div>
+<h2>Tipos Complexos</h2>
+<div class="complexTypeItem">
+<a name="boletoCancelarRequest" class="anchorScroll"></a>
+<h3>boletoCancelarRequest</h3>
+<p>Cancela o Boleto.</p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">nCodTitulo</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código do título</div><div class="more"><a href="javascript:void(0)">+</a><div>Código Interno do título no Omie.<BR><BR>Utilize a tag 'codigo_lancamento_omie' do método 'ListarContasReceber' da API<BR>/api/v1/financas/contareceber/<BR>para obter essa informação.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCodIntTitulo</td>
+<td class="parameter-type">string<span class="parameter-lenght">60</span></td><td class="parameter-docs"><div class="first">Código de Integração do Título.</div><div class="more"><a href="javascript:void(0)">+</a><div>Utilize a tag 'codigo_lancamento_integracao' do método 'ListarContasReceber' da API<BR>/api/v1/financas/contareceber/<BR>para obter essa informação.</div></div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="boletoCancelarResponse" class="anchorScroll"></a>
+<h3>boletoCancelarResponse</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">cCodStatus</td>
+<td class="parameter-type">string<span class="parameter-lenght">4</span></td><td class="parameter-docs"><div class="first">Código do status do processamento.</div><div class="more"><a href="javascript:void(0)">+</a><div>Se o retorno for '0' significa que a solicitação foi executada com sucesso.<BR>Se o retorno for maior que '0' ocorreu algum erro duranteo o processamento da solicitação.<BR>A tag 'cDesStatus' descreve o problema ocorrido.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cDesStatus</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Descrição do status do processamento.</div><div class="more"><a href="javascript:void(0)">+</a><div>Essa tag explica o resultado da tag 'cCodigoStatus'.</div></div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="boletoGerarRequest" class="anchorScroll"></a>
+<h3>boletoGerarRequest</h3>
+<p>Gera um Boleto a partir de um Contas a Receber.</p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">nCodTitulo</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código do título</div><div class="more"><a href="javascript:void(0)">+</a><div>Código Interno do título no Omie.<BR><BR>Utilize a tag 'codigo_lancamento_omie' do método 'ListarContasReceber' da API<BR>/api/v1/financas/contareceber/<BR>para obter essa informação.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCodIntTitulo</td>
+<td class="parameter-type">string<span class="parameter-lenght">60</span></td><td class="parameter-docs"><div class="first">Código de Integração do Título.</div><div class="more"><a href="javascript:void(0)">+</a><div>Utilize a tag 'codigo_lancamento_integracao' do método 'ListarContasReceber' da API<BR>/api/v1/financas/contareceber/<BR>para obter essa informação.</div></div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="boletoGerarResponse" class="anchorScroll"></a>
+<h3>boletoGerarResponse</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">cLinkBoleto</td>
+<td class="parameter-type">string<span class="parameter-lenght">500</span></td><td class="parameter-docs"><div class="first">Link do Boleto.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCodStatus</td>
+<td class="parameter-type">string<span class="parameter-lenght">4</span></td><td class="parameter-docs"><div class="first">Código do status do processamento.</div><div class="more"><a href="javascript:void(0)">+</a><div>Se o retorno for '0' significa que a solicitação foi executada com sucesso.<BR>Se o retorno for maior que '0' ocorreu algum erro duranteo o processamento da solicitação.<BR>A tag 'cDesStatus' descreve o problema ocorrido.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cDesStatus</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Descrição do status do processamento.</div><div class="more"><a href="javascript:void(0)">+</a><div>Essa tag explica o resultado da tag 'cCodigoStatus'.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">dDtEmBol</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Data de emissão do boleto.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cNumBoleto</td>
+<td class="parameter-type">string<span class="parameter-lenght">30</span></td><td class="parameter-docs"><div class="first">Número do boleto.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCodBarras</td>
+<td class="parameter-type">string<span class="parameter-lenght">70</span></td><td class="parameter-docs"><div class="first">Código de barras do Boleto.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nPerJuros</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Percentual de juros.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nPerMulta</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Percentual de multa.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cNumBancario</td>
+<td class="parameter-type">string<span class="parameter-lenght">30</span></td><td class="parameter-docs"><div class="first">Número bancário do boleto.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">dDescontoCond1</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Data de desconto condicional.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">vDescontoCond1</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Valor do desconto condicional.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">dDescontoCond2</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Data do desconto condicional.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">vDescontoCond2</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Valor do desconto condicional.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">dDescontoCond3</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Data do desconto condicional.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">vDescontoCond3</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Valor do desconto condicional.</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="boletoObterRequest" class="anchorScroll"></a>
+<h3>boletoObterRequest</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">nCodTitulo</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código do título</div><div class="more"><a href="javascript:void(0)">+</a><div>Código Interno do título no Omie.<BR><BR>Utilize a tag 'codigo_lancamento_omie' do método 'ListarContasReceber' da API<BR>/api/v1/financas/contareceber/<BR>para obter essa informação.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCodIntTitulo</td>
+<td class="parameter-type">string<span class="parameter-lenght">60</span></td><td class="parameter-docs"><div class="first">Código de Integração do Título.</div><div class="more"><a href="javascript:void(0)">+</a><div>Utilize a tag 'codigo_lancamento_integracao' do método 'ListarContasReceber' da API<BR>/api/v1/financas/contareceber/<BR>para obter essa informação.</div></div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="boletoObterResponse" class="anchorScroll"></a>
+<h3>boletoObterResponse</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">cLinkBoleto</td>
+<td class="parameter-type">string<span class="parameter-lenght">500</span></td><td class="parameter-docs"><div class="first">Link do Boleto.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCodStatus</td>
+<td class="parameter-type">string<span class="parameter-lenght">4</span></td><td class="parameter-docs"><div class="first">Código do status do processamento.</div><div class="more"><a href="javascript:void(0)">+</a><div>Se o retorno for '0' significa que a solicitação foi executada com sucesso.<BR>Se o retorno for maior que '0' ocorreu algum erro duranteo o processamento da solicitação.<BR>A tag 'cDesStatus' descreve o problema ocorrido.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cDesStatus</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Descrição do status do processamento.</div><div class="more"><a href="javascript:void(0)">+</a><div>Essa tag explica o resultado da tag 'cCodigoStatus'.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">dDtEmBol</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Data de emissão do boleto.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cNumBoleto</td>
+<td class="parameter-type">string<span class="parameter-lenght">30</span></td><td class="parameter-docs"><div class="first">Número do boleto.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCodBarras</td>
+<td class="parameter-type">string<span class="parameter-lenght">70</span></td><td class="parameter-docs"><div class="first">Código de barras do Boleto.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nPerJuros</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Percentual de juros.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nPerMulta</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Percentual de multa.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cNumBancario</td>
+<td class="parameter-type">string<span class="parameter-lenght">30</span></td><td class="parameter-docs"><div class="first">Número bancário do boleto.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">dDescontoCond1</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Data de desconto condicional.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">vDescontoCond1</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Valor do desconto condicional.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">dDescontoCond2</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Data do desconto condicional.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">vDescontoCond2</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Valor do desconto condicional.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">dDescontoCond3</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Data do desconto condicional.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">vDescontoCond3</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Valor do desconto condicional.</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="boletoProrrogarRequest" class="anchorScroll"></a>
+<h3>boletoProrrogarRequest</h3>
+<p>Prorroga o vencimento de um Boleto.</p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">nCodTitulo</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código do título</div><div class="more"><a href="javascript:void(0)">+</a><div>Código Interno do título no Omie.<BR><BR>Utilize a tag 'codigo_lancamento_omie' do método 'ListarContasReceber' da API<BR>/api/v1/financas/contareceber/<BR>para obter essa informação.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCodIntTitulo</td>
+<td class="parameter-type">string<span class="parameter-lenght">60</span></td><td class="parameter-docs"><div class="first">Código de Integração do Título.</div><div class="more"><a href="javascript:void(0)">+</a><div>Utilize a tag 'codigo_lancamento_integracao' do método 'ListarContasReceber' da API<BR>/api/v1/financas/contareceber/<BR>para obter essa informação.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">dDtVenc</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Data de vencimento.</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="boletoProrrogarResponse" class="anchorScroll"></a>
+<h3>boletoProrrogarResponse</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">cLinkBoleto</td>
+<td class="parameter-type">string<span class="parameter-lenght">500</span></td><td class="parameter-docs"><div class="first">Link do Boleto.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCodStatus</td>
+<td class="parameter-type">string<span class="parameter-lenght">4</span></td><td class="parameter-docs"><div class="first">Código do status do processamento.</div><div class="more"><a href="javascript:void(0)">+</a><div>Se o retorno for '0' significa que a solicitação foi executada com sucesso.<BR>Se o retorno for maior que '0' ocorreu algum erro duranteo o processamento da solicitação.<BR>A tag 'cDesStatus' descreve o problema ocorrido.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cDesStatus</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Descrição do status do processamento.</div><div class="more"><a href="javascript:void(0)">+</a><div>Essa tag explica o resultado da tag 'cCodigoStatus'.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">dDtEmBol</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Data de emissão do boleto.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cNumBoleto</td>
+<td class="parameter-type">string<span class="parameter-lenght">30</span></td><td class="parameter-docs"><div class="first">Número do boleto.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCodBarras</td>
+<td class="parameter-type">string<span class="parameter-lenght">70</span></td><td class="parameter-docs"><div class="first">Código de barras do Boleto.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nPerJuros</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Percentual de juros.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nPerMulta</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Percentual de multa.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cNumBancario</td>
+<td class="parameter-type">string<span class="parameter-lenght">30</span></td><td class="parameter-docs"><div class="first">Número bancário do boleto.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">dDescontoCond1</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Data de desconto condicional.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">vDescontoCond1</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Valor do desconto condicional.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">dDescontoCond2</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Data do desconto condicional.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">vDescontoCond2</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Valor do desconto condicional.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">dDescontoCond3</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Data do desconto condicional.</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="omie_fail" class="anchorScroll"></a>
+<h3>omie_fail</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">code</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Codigo do erro</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">description</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Descricao do erro</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-required">referer</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Origem do erro</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-required">fatal</td>
+<td class="parameter-type">boolean</td><td class="parameter-docs"><div class="first">Indica se eh um erro fatal</div></td>
+<tr>
+</table>
+</div>
+</div>
+<div class="col-md-3">
+<div id="affix-menu" data-spy="affix" data-offset-top="294">
+<h2>M&eacute;todos</h2>
+<nav id="index" class="hidden-print hidden-xs hidden-sm">
+<ul class="nav">
+<li><a href="#CancelarBoleto">CancelarBoleto</a></li>
+<li><a href="#GerarBoleto">GerarBoleto</a></li>
+<li><a href="#ObterBoleto">ObterBoleto</a></li>
+<li><a href="#ProrrogarBoleto">ProrrogarBoleto</a></li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+</body>
+</html>

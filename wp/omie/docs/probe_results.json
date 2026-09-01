@@ -1,0 +1,653 @@
+{
+  "credentials_loaded": true,
+  "app_name": "57.997.882 BRUNO AMIN COSTA DA SILVA",
+  "results": {
+    "Empresas": {
+      "status": "PASS",
+      "details": {
+        "pagina": 1,
+        "total_de_paginas": 1,
+        "registros": 1,
+        "total_de_registros": 1,
+        "empresas_cadastro": [
+          {
+            "bairro": "BARCELONA",
+            "cep": "29166510",
+            "cidade": "SERRA (ES)",
+            "cnae": "5611205",
+            "cnae_municipal": "",
+            "cnpj": "57.997.882/0001-29",
+            "codigo_empresa": "5961954076",
+            "codigo_pais": "1058",
+            "complemento": "",
+            "csc_homologacao": "",
+            "csc_id_homologacao": "",
+            "csc_id_producao": "",
+            "csc_producao": "",
+            "ecd_codigo_cadastral": "",
+            "ecd_codigo_instituicao_responsavel": "",
+            "efd_atividade_industrial": "",
+            "efd_perfil_arquivo_fiscal": "",
+            "email": "contatevolupia@gmail.com",
+            "endereco": "AVENIDA PETROPOLIS",
+            "endereco_numero": "216",
+            "estado": "ES",
+            "fax_ddd": "",
+            "fax_numero": "",
+            "gera_nfse": "",
+            "inativa": "N",
+            "inscricao_estadual": "084615907",
+            "inscricao_municipal": "",
+            "inscricao_suframa": "",
+            "logradouro": "",
+            "nome_fantasia": "57.997.882 BRUNO AMIN COSTA DA SILVA",
+            "optante_simples_nacional": "N",
+            "pdv_sincr_analitica": "",
+            "razao_social": "57.997.882 BRUNO AMIN COSTA DA SILVA",
+            "regime_tributario": "3",
+            "sped_codigo_criterio_escrituracao": "",
+            "sped_codigo_incidencia_tributaria": "",
+            "sped_codigo_indicador_apropriacao_credito": "",
+            "sped_codigo_tipo_atividade": "",
+            "sped_codigo_tipo_contribuicao": "",
+            "sped_cpf_contador": "",
+            "sped_crc_contador": "",
+            "sped_email_contador": "",
+            "sped_junta_comercial": "",
+            "sped_matriz": "",
+            "sped_natureza_pessoa_juridica": "",
+            "sped_nome_contador": "",
+            "sped_registro_junta_comercial": "",
+            "sped_usa_contabilidade_terceirizada": "",
+            "telefone1_ddd": "27",
+            "telefone1_numero": "9507-1636",
+            "telefone2_ddd": "",
+            "telefone2_numero": "",
+            "website": ""
+          }
+        ],
+        "produto_servico_resumido": []
+      }
+    },
+    "Clientes": {
+      "status": "PASS",
+      "details": {
+        "pagina": 1,
+        "total_de_paginas": 9,
+        "registros": 1,
+        "total_de_registros": 9,
+        "clientes_cadastro": [
+          {
+            "bairro": "",
+            "bloquear_faturamento": "N",
+            "cep": "13400000",
+            "cidade": "CAMPINAS (SP)",
+            "cidade_ibge": "3509502",
+            "cnpj_cpf": "57.351.558/0001-39",
+            "codigo_cliente_integracao": "57.351.558/0001-39",
+            "codigo_cliente_omie": 5961954093,
+            "codigo_pais": "1058",
+            "complemento": "",
+            "contato": "Roger",
+            "dadosBancarios": {
+              "agencia": "",
+              "cChavePix": "",
+              "codigo_banco": "",
+              "conta_corrente": "",
+              "doc_titular": "",
+              "nome_titular": "",
+              "transf_padrao": "N"
+            },
+            "endereco": "",
+            "enderecoEntrega": {},
+            "endereco_numero": "1",
+            "enviar_anexos": "N",
+            "estado": "SP",
+            "exterior": "N",
+            "inativo": "N",
+            "info": {
+              "cImpAPI": "N",
+              "dAlt": "01/09/2026",
+              "dInc": "01/09/2026",
+              "hAlt": "20:37:29",
+              "hInc": "20:37:18",
+              "uAlt": "P001571488",
+              "uInc": "P001571488"
+            },
+            "inscricao_estadual": "",
+            "inscricao_municipal": "",
+            "nome_fantasia": "Papelaria e Livraria Rápida",
+            "pessoa_fisica": "N",
+            "razao_social": "Papelaria e Livraria Rápida Ltda",
+            "recomendacoes": {
+              "gerar_boletos": "N"
+            },
+            "tags": [
+              {
+                "tag": "Cliente"
+              },
+              {
+                "tag": "Fornecedor"
+              }
+            ],
+            "telefone1_ddd": "11",
+            "telefone1_numero": "3775-7888"
+          }
+        ],
+        "cDesStatus": " Elapsed time: 0.05"
+      }
+    },
+    "Produtos": {
+      "status": "PASS",
+      "details": {
+        "pagina": 0,
+        "total_de_paginas": 0,
+        "registros": 0,
+        "total_de_registros": 0,
+        "produto_servico_cadastro": []
+      }
+    },
+    "Pedidos de Venda": {
+      "status": "PASS",
+      "details": {
+        "pagina": 1,
+        "total_de_paginas": 3,
+        "registros": 1,
+        "total_de_registros": 3,
+        "pedido_venda_produto": [
+          {
+            "cabecalho": {
+              "bloqueado": "",
+              "codigo_cliente": 5961954096,
+              "codigo_empresa": 5961954076,
+              "codigo_parcela": "002",
+              "codigo_pedido": 5961954222,
+              "codigo_pedido_integracao": "",
+              "data_previsao": "02/09/2026",
+              "enc_data": "",
+              "enc_hora": "",
+              "enc_motivo": "",
+              "enc_user": "",
+              "encerrado": "",
+              "etapa": "50",
+              "importado_api": "",
+              "numero_pedido": "1",
+              "origem_pedido": "",
+              "qtde_parcelas": 2,
+              "quantidade_itens": 2
+            },
+            "departamentos": [],
+            "det": [
+              {
+                "combustivel": {},
+                "ide": {
+                  "codigo_item": 5961954254,
+                  "codigo_item_integracao": "",
+                  "simples_nacional": "N"
+                },
+                "imposto": {
+                  "cbs": {
+                    "aliquota_cbs": 0,
+                    "perc_dif_cbs": 0,
+                    "perc_red_cbs": 0,
+                    "valor_cbs": 0,
+                    "valor_dif_cbs": 0
+                  },
+                  "cofins_padrao": {
+                    "aliq_cofins": 3,
+                    "base_cofins": 7990,
+                    "cod_sit_trib_cofins": "01",
+                    "qtde_unid_trib_cofins": 0,
+                    "tipo_calculo_cofins": "B",
+                    "valor_cofins": 239.7,
+                    "valor_unid_trib_cofins": 0
+                  },
+                  "cofins_st": {
+                    "aliq_cofins_st": 0,
+                    "base_cofins_st": 0,
+                    "cod_sit_trib_cofins_st": "01",
+                    "margem_cofins_st": 0,
+                    "qtde_unid_trib_cofins_st": 0,
+                    "tipo_calculo_cofins_st": "",
+                    "valor_cofins_st": 0,
+                    "valor_unid_trib_cofins_st": 0
+                  },
+                  "csll": {
+                    "aliq_csll": 0,
+                    "valor_csll": 0
+                  },
+                  "ibs": {
+                    "aliquota_ibs_mu": 0,
+                    "aliquota_ibs_uf": 0,
+                    "perc_dif_ibs_mu": 0,
+                    "perc_dif_ibs_uf": 0,
+                    "perc_red_ibs_mu": 0,
+                    "perc_red_ibs_uf": 0,
+                    "valor_dif_ibs_mu": 0,
+                    "valor_dif_ibs_uf": 0,
+                    "valor_ibs": 0,
+                    "valor_ibs_mu": 0,
+                    "valor_ibs_uf": 0
+                  },
+                  "ibs_cbs": {
+                    "base_ibs_cbs": 0,
+                    "class_trib": "",
+                    "cst_ibs_cbs": ""
+                  },
+                  "icms": {
+                    "aliq_icms": 18,
+                    "base_icms": 7990,
+                    "cod_sit_trib_icms": "00",
+                    "modalidade_icms": "3",
+                    "origem_icms": "0",
+                    "perc_red_base_icms": 0,
+                    "valor_icms": 1438.2
+                  },
+                  "icms_efet": {},
+                  "icms_ie": {
+                    "aliq_icms_FCP": 0,
+                    "aliq_interestadual": 0,
+                    "aliq_interna_uf_destino": 0,
+                    "aliq_partilha_icms": 0,
+                    "base_icms_uf_destino": 0,
+                    "valor_fcp_icms_inter": 0,
+                    "valor_icms_uf_dest": 0,
+                    "valor_icms_uf_remet": 0
+                  },
+                  "icms_sn": {},
+                  "icms_st": {
+                    "aliq_icms_opprop": 0,
+                    "aliq_icms_st": 0,
+                    "base_icms_st": 0,
+                    "cest": "",
+                    "cod_sit_trib_icms_st": "00",
+                    "margem_icms_st": 0,
+                    "modalidade_icms_st": "",
+                    "perc_red_base_icms_op": 0,
+                    "perc_red_base_icms_st": 0,
+                    "valor_icms_st": 0
+                  },
+                  "inss": {
+                    "aliq_inss": 0,
+                    "valor_inss": 0
+                  },
+                  "ipi": {
+                    "aliq_ipi": 0,
+                    "base_ipi": 0,
+                    "cod_sit_trib_ipi": "53",
+                    "enquadramento_ipi": "",
+                    "qtde_unid_trib_ipi": 0,
+                    "tipo_calculo_ipi": "",
+                    "valor_ipi": 0,
+                    "valor_unid_trib_ipi": 0
+                  },
+                  "irrf": {
+                    "aliq_irrf": 0,
+                    "valor_irrf": 0
+                  },
+                  "iss": {
+                    "aliq_iss": 0,
+                    "base_iss": 0,
+                    "retem_iss": "",
+                    "valor_iss": 0
+                  },
+                  "pis_padrao": {
+                    "aliq_pis": 0.65,
+                    "base_pis": 7990,
+                    "cod_sit_trib_pis": "01",
+                    "qtde_unid_trib_pis": 0,
+                    "tipo_calculo_pis": "B",
+                    "valor_pis": 51.94,
+                    "valor_unid_trib_pis": 0
+                  },
+                  "pis_st": {
+                    "aliq_pis_st": 0,
+                    "base_pis_st": 0,
+                    "cod_sit_trib_pis_st": "01",
+                    "margem_pis_st": 0,
+                    "qtde_unid_trib_pis_st": 0,
+                    "tipo_calculo_pis_st": "",
+                    "valor_pis_st": 0,
+                    "valor_unid_trib_pis_st": 0
+                  },
+                  "trib_reg": {
+                    "aliquota_reg_cbs": 0,
+                    "aliquota_reg_ibs_mu": 0,
+                    "aliquota_reg_ibs_uf": 0,
+                    "class_trib_reg": "",
+                    "cst_reg_ibs_cst": "",
+                    "valor_reg_cbs": 0,
+                    "valor_reg_ibs_mu": 0,
+                    "valor_reg_ibs_uf": 0
+                  }
+                },
+                "inf_adic": {
+                  "codigo_categoria_item": "",
+                  "codigo_local_estoque": 5961954091,
+                  "dados_adicionais_item": "",
+                  "item_pedido_compra": 0,
+                  "nao_gerar_financeiro": "N",
+                  "nao_movimentar_estoque": "N",
+                  "nao_somar_total": "N",
+                  "numero_pedido_compra": "",
+                  "peso_bruto": 0,
+                  "peso_liquido": 0
+                },
+                "observacao": {},
+                "produto": {
+                  "cfop": "5.102",
+                  "cnpj_fabricante": "",
+                  "codigo": "111937242",
+                  "codigo_produto": 5961954248,
+                  "codigo_tabela_preco": 0,
+                  "descricao": "Console Nintendo Wii Black Core - RVK",
+                  "ean": "0045496880651",
+                  "indicador_escala": "",
+                  "motivo_icms_desonerado": "",
+                  "ncm": "9594.10.10",
+                  "percentual_desconto": 0,
+                  "quantidade": 10,
+                  "reservado": "N",
+                  "tipo_desconto": "",
+                  "unidade": "PC",
+                  "valor_deducao": 0,
+                  "valor_desconto": 0,
+                  "valor_icms_desonerado": 0,
+                  "valor_mercadoria": 7990,
+                  "valor_total": 7990,
+                  "valor_unitario": 799
+                },
+                "rastreabilidade": {},
+                "tributavel": {}
+              },
+              {
+                "combustivel": {},
+                "ide": {
+                  "codigo_item": 5961954255,
+                  "codigo_item_integracao": "",
+                  "simples_nacional": "N"
+                },
+                "imposto": {
+                  "cbs": {
+                    "aliquota_cbs": 0,
+                    "perc_dif_cbs": 0,
+                    "perc_red_cbs": 0,
+                    "valor_cbs": 0,
+                    "valor_dif_cbs": 0
+                  },
+                  "cofins_padrao": {
+                    "aliq_cofins": 3,
+                    "base_cofins": 8499.5,
+                    "cod_sit_trib_cofins": "01",
+                    "qtde_unid_trib_cofins": 0,
+                    "tipo_calculo_cofins": "B",
+                    "valor_cofins": 254.99,
+                    "valor_unid_trib_cofins": 0
+                  },
+                  "cofins_st": {
+                    "aliq_cofins_st": 0,
+                    "base_cofins_st": 0,
+                    "cod_sit_trib_cofins_st": "01",
+                    "margem_cofins_st": 0,
+                    "qtde_unid_trib_cofins_st": 0,
+                    "tipo_calculo_cofins_st": "",
+                    "valor_cofins_st": 0,
+                    "valor_unid_trib_cofins_st": 0
+                  },
+                  "csll": {
+                    "aliq_csll": 0,
+                    "valor_csll": 0
+                  },
+                  "ibs": {
+                    "aliquota_ibs_mu": 0,
+                    "aliquota_ibs_uf": 0,
+                    "perc_dif_ibs_mu": 0,
+                    "perc_dif_ibs_uf": 0,
+                    "perc_red_ibs_mu": 0,
+                    "perc_red_ibs_uf": 0,
+                    "valor_dif_ibs_mu": 0,
+                    "valor_dif_ibs_uf": 0,
+                    "valor_ibs": 0,
+                    "valor_ibs_mu": 0,
+                    "valor_ibs_uf": 0
+                  },
+                  "ibs_cbs": {
+                    "base_ibs_cbs": 0,
+                    "class_trib": "",
+                    "cst_ibs_cbs": ""
+                  },
+                  "icms": {
+                    "aliq_icms": 18,
+                    "base_icms": 8499.5,
+                    "cod_sit_trib_icms": "00",
+                    "modalidade_icms": "3",
+                    "origem_icms": "0",
+                    "perc_red_base_icms": 0,
+                    "valor_icms": 1529.91
+                  },
+                  "icms_efet": {},
+                  "icms_ie": {
+                    "aliq_icms_FCP": 0,
+                    "aliq_interestadual": 0,
+                    "aliq_interna_uf_destino": 0,
+                    "aliq_partilha_icms": 0,
+                    "base_icms_uf_destino": 0,
+                    "valor_fcp_icms_inter": 0,
+                    "valor_icms_uf_dest": 0,
+                    "valor_icms_uf_remet": 0
+                  },
+                  "icms_sn": {},
+                  "icms_st": {
+                    "aliq_icms_opprop": 0,
+                    "aliq_icms_st": 0,
+                    "base_icms_st": 0,
+                    "cest": "",
+                    "cod_sit_trib_icms_st": "00",
+                    "margem_icms_st": 0,
+                    "modalidade_icms_st": "",
+                    "perc_red_base_icms_op": 0,
+                    "perc_red_base_icms_st": 0,
+                    "valor_icms_st": 0
+                  },
+                  "inss": {
+                    "aliq_inss": 0,
+                    "valor_inss": 0
+                  },
+                  "ipi": {
+                    "aliq_ipi": 0,
+                    "base_ipi": 0,
+                    "cod_sit_trib_ipi": "53",
+                    "enquadramento_ipi": "",
+                    "qtde_unid_trib_ipi": 0,
+                    "tipo_calculo_ipi": "",
+                    "valor_ipi": 0,
+                    "valor_unid_trib_ipi": 0
+                  },
+                  "irrf": {
+                    "aliq_irrf": 0,
+                    "valor_irrf": 0
+                  },
+                  "iss": {
+                    "aliq_iss": 0,
+                    "base_iss": 0,
+                    "retem_iss": "",
+                    "valor_iss": 0
+                  },
+                  "pis_padrao": {
+                    "aliq_pis": 0.65,
+                    "base_pis": 8499.5,
+                    "cod_sit_trib_pis": "01",
+                    "qtde_unid_trib_pis": 0,
+                    "tipo_calculo_pis": "B",
+                    "valor_pis": 55.25,
+                    "valor_unid_trib_pis": 0
+                  },
+                  "pis_st": {
+                    "aliq_pis_st": 0,
+                    "base_pis_st": 0,
+                    "cod_sit_trib_pis_st": "01",
+                    "margem_pis_st": 0,
+                    "qtde_unid_trib_pis_st": 0,
+                    "tipo_calculo_pis_st": "",
+                    "valor_pis_st": 0,
+                    "valor_unid_trib_pis_st": 0
+                  },
+                  "trib_reg": {
+                    "aliquota_reg_cbs": 0,
+                    "aliquota_reg_ibs_mu": 0,
+                    "aliquota_reg_ibs_uf": 0,
+                    "class_trib_reg": "",
+                    "cst_reg_ibs_cst": "",
+                    "valor_reg_cbs": 0,
+                    "valor_reg_ibs_mu": 0,
+                    "valor_reg_ibs_uf": 0
+                  }
+                },
+                "inf_adic": {
+                  "codigo_categoria_item": "",
+                  "codigo_local_estoque": 5961954091,
+                  "dados_adicionais_item": "",
+                  "item_pedido_compra": 0,
+                  "nao_gerar_financeiro": "N",
+                  "nao_movimentar_estoque": "N",
+                  "nao_somar_total": "N",
+                  "numero_pedido_compra": "",
+                  "peso_bruto": 0,
+                  "peso_liquido": 0
+                },
+                "observacao": {},
+                "produto": {
+                  "cfop": "5.102",
+                  "cnpj_fabricante": "",
+                  "codigo": "111954114",
+                  "codigo_produto": 5961954240,
+                  "codigo_tabela_preco": 0,
+                  "descricao": "Console Oficial PlayStation 3 Slim 250 GB - Sony",
+                  "ean": "711719990802",
+                  "indicador_escala": "",
+                  "motivo_icms_desonerado": "",
+                  "ncm": "9594.10.10",
+                  "percentual_desconto": 0,
+                  "quantidade": 5,
+                  "reservado": "N",
+                  "tipo_desconto": "",
+                  "unidade": "PC",
+                  "valor_deducao": 0,
+                  "valor_desconto": 0,
+                  "valor_icms_desonerado": 0,
+                  "valor_mercadoria": 8499.5,
+                  "valor_total": 8499.5,
+                  "valor_unitario": 1699.9
+                },
+                "rastreabilidade": {},
+                "tributavel": {}
+              }
+            ],
+            "frete": {
+              "codigo_rastreio": "",
+              "codigo_tipo_entrega": 0,
+              "codigo_transportadora": 0,
+              "especie_volumes": "",
+              "link_rastreio": "",
+              "marca_volumes": "",
+              "modalidade": "9",
+              "numeracao_volumes": "",
+              "numero_lacre": "",
+              "outras_despesas": 0,
+              "peso_bruto": 0,
+              "peso_liquido": 0,
+              "placa": "",
+              "placa_estado": "",
+              "previsao_entrega": "",
+              "quantidade_volumes": 0,
+              "registro_transportador": "",
+              "valor_frete": 0,
+              "valor_seguro": 0,
+              "veiculo_proprio": ""
+            },
+            "infoCadastro": {
+              "autorizado": "N",
+              "cImpAPI": "N",
+              "cancelado": "N",
+              "dInc": "01/09/2026",
+              "denegado": "N",
+              "devolvido": "N",
+              "devolvido_parcial": "N",
+              "faturado": "N",
+              "hInc": "20:37:27"
+            },
+            "informacoes_adicionais": {
+              "codProj": 0,
+              "codVend": 0,
+              "codigo_categoria": "1.01.03",
+              "codigo_conta_corrente": 5961954083,
+              "consumidor_final": "",
+              "contato": "Paulo",
+              "dados_adicionais_nf": "",
+              "enviar_email": "N",
+              "enviar_pix": "N",
+              "numero_contrato": "",
+              "numero_pedido_cliente": "",
+              "outros_detalhes": {},
+              "utilizar_emails": ""
+            },
+            "lista_parcelas": {
+              "parcela": [
+                {
+                  "data_vencimento": "02/10/2026",
+                  "numero_parcela": 1,
+                  "percentual": 50,
+                  "quantidade_dias": 30,
+                  "valor": 53.6
+                },
+                {
+                  "data_vencimento": "02/11/2026",
+                  "numero_parcela": 2,
+                  "percentual": 50,
+                  "quantidade_dias": 61,
+                  "valor": 53.59
+                }
+              ]
+            },
+            "observacoes": {
+              "obs_venda": ""
+            },
+            "total_pedido": {
+              "base_calculo_icms": 16489.5,
+              "base_calculo_st": 0,
+              "base_ibs_cbs": 0,
+              "valor_IPI": 0,
+              "valor_cbs": 0,
+              "valor_cofins": 494.69,
+              "valor_csll": 0,
+              "valor_deducoes": 0,
+              "valor_descontos": 0,
+              "valor_dif_cbs": 0,
+              "valor_dif_ibs_mu": 0,
+              "valor_dif_ibs_uf": 0,
+              "valor_ibs": 0,
+              "valor_ibs_mu": 0,
+              "valor_ibs_uf": 0,
+              "valor_icms": 2968.11,
+              "valor_inss": 0,
+              "valor_ir": 0,
+              "valor_iss": 0,
+              "valor_mercadorias": 16489.5,
+              "valor_pis": 107.19,
+              "valor_st": 0,
+              "valor_tot_ibs_cbs_is": 0,
+              "valor_total_pedido": 16489.5
+            }
+          }
+        ]
+      }
+    },
+    "Estoque": {
+      "status": "FAIL",
+      "details": {
+        "status": "error",
+        "message": "HTTP Error 500: Internal Server Error"
+      }
+    }
+  }
+}

@@ -1,0 +1,912 @@
+<nav class="navbar navbar-expand-lg bg-azul">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="https://developer.omie.com.br/">
+            <img class="lozad img-logo" data-src="https://static.omie.com.br/images/logo/logo-omie-topo.png" src="https://static.omie.com.br/images/logo/logo-omie-topo.png" data-loaded="true">
+        </a>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <span class="borda-hover"></span>
+                    <a class="nav-link" href="https://developer.omie.com.br/my-apps/"> Aplicativos </a>
+                </li>
+                <li class="nav-item ">
+                    <span class="borda-hover"></span>
+                    <a class="nav-link" href="https://developer.omie.com.br/service-list/">
+                        Lista das API's
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <span class="borda-hover"></span>
+                    <a class="nav-link" href="https://ajuda.omie.com.br/pt-BR/collections/3045828-apis" target="_blank"> Ajuda </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<html>
+<head>
+<title>ConsultaEstoque</title>
+<style type="text/css" media="all">
+  [id] { scroll-margin-top: 68px; }
+</style>
+<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+<script src="https://cdn.omie.com.br/omie-assets/js/omie-compat-v2.min.js"></script>
+<script src="/developer/themes/omie/developer.js?ts=2021.008"></script>
+<link rel="stylesheet" href="//app.omie.com.br/wp-content/themes/omie/bootstrap/css/bootstrap.min.css" async/>
+<link href="https://cdn.omie.com.br/assets/developer/css/site.css?ts=2021.008" media="all" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="/developer/themes/omie/developer.css?ts=2021.008" async/>
+</head>
+<body>
+<div class="jumbotron banner bg-azul">
+<div class="container">
+<img src="https://cdn.omie.com.br/assets/developer/images/seta-azuis.png" alt="" class="img-setas">
+<div class="row align-items-center">
+<div class="col-12">
+<h1>ConsultaEstoque</h1>
+<ul class="nav nav-tabs" role="tablist">
+  <li role="presentation" class="active"><a href="#section-endpoint" aria-controls="section-endpoint" role="tab" data-toggle="tab">Endpoint</a></li>
+  <li role="presentation" class="pull-right"><a href="#section-wsdl" aria-controls="section-wsdl" role="tab" data-toggle="tab">WSDL</a></li>
+  <li role="presentation" class="pull-right"><a href="#section-php-soap" aria-controls="section-php-soap" role="tab" data-toggle="tab">PHP SOAP</a></li>
+  <li role="presentation" class="pull-right"><a href="#section-json" aria-controls="section-json" role="tab" data-toggle="tab">JSON</a></li>
+</ul>
+<div class="tab-content">
+  <div role="tabpanel" class="tab-pane fade in active" id="section-endpoint">
+    <h4>Endpoint URI</h4>
+    <a class="highlight" href="https://app.omie.com.br/api/v1/estoque/consulta/"><pre><code>https://app.omie.com.br/api/v1/estoque/consulta/</code></pre></a>
+  </div>
+  <div role="tabpanel" class="tab-pane fade" id="section-wsdl">
+    <h4>WSDL URI</h4>
+    <a class="highlight" href="https://app.omie.com.br/api/v1/estoque/consulta/?WSDL"><pre><code>https://app.omie.com.br/api/v1/estoque/consulta/?WSDL</code></pre></a>
+  </div>
+  <div role="tabpanel" class="tab-pane fade" id="section-php-soap">
+    <h4>PHP SOAP client download</h4>
+    <a class="highlight" href="https://app.omie.com.br/api/v1/estoque/consulta/?PHPSOAPCLIENT""><pre><code>https://app.omie.com.br/api/v1/estoque/consulta/?PHPSOAPCLIENT</code></pre></a>
+  </div>
+  <div role="tabpanel" class="tab-pane fade" id="section-json">
+    <h4>JSON client download URI</h4>
+    <h5>PHP</h5>
+    <a class="highlight" href="https://app.omie.com.br/api/v1/estoque/consulta/?PHPJSONCLIENT"><pre><code>https://app.omie.com.br/api/v1/estoque/consulta/?PHPJSONCLIENT</code></pre></a>
+    <h5>JavaScript (recomendado para uso apenas do lado do servidor)</h5>
+    <a class="highlight" href="https://app.omie.com.br/api/v1/estoque/consulta/?JSJSONCLIENT"><pre><code>https://app.omie.com.br/api/v1/estoque/consulta/?JSJSONCLIENT</code></pre></a>
+  </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="container">
+<div class="row">
+<div class="col-md-9">
+<h2>M&eacute;todos</h2>
+<p>Veja abaixo a documenta&ccedil;&atilde;o de cada m&eacute;todo dispon&iacute;vel para este servi&ccedil;o.</p>
+<div id="ListarMovimentoEstoque" class="methodItem">
+<h3 class="method-name">ListarMovimentoEstoque</h3>
+<p>
+
+</p>
+<div class="panel panel-default method">
+<div class="panel-heading"> Par&acirc;metros:
+</div>
+<table class="table table-condensed table-hover">
+<tr>
+<td class="">&nbsp;</td>
+<td class="method-parameter-type"><a href="#ListarMovEstoqueRequest">ListarMovEstoqueRequest</a></td>
+<td class="method-parameter-name">ListarMovEstoqueRequest</td><td class="method-parameter-docs"><div class="first">Solicitação da listagem de movimentação do estoque.</div></td>
+</tr>
+</table>
+<div class="panel-footer">
+Retorno <span class="pre"><a href="#ListarMovEstoqueResponse"><span class="lightBlue">ListarMovEstoqueResponse</span></a></span>: 
+</div>
+</div>
+<div class="method-example-area">
+<h5>Exemplo:</h5>
+<pre class="method-example-code">{<BR>   "nPagina": 1,<BR>   "nRegPorPagina": 50,<BR>   "codigo_local_estoque": 0,<BR>   "idProd": 0,<BR>   "dDtInicial": "01/09/2026",<BR>   "dDtFinal": "01/09/2026",<BR>   "lista_local_estoque": ""<BR>}</pre>
+<button class="btn btn-success method-example" data-method="ListarMovimentoEstoque" data-example="%7B+++%22nPagina%22%3A+1%2C+++%22nRegPorPagina%22%3A+50%2C+++%22codigo_local_estoque%22%3A+0%2C+++%22idProd%22%3A+0%2C+++%22dDtInicial%22%3A+%2201%2F09%2F2026%22%2C+++%22dDtFinal%22%3A+%2201%2F09%2F2026%22%2C+++%22lista_local_estoque%22%3A+%22%22%7D">Teste agora mesmo</button>
+</div>
+</div>
+<div id="ListarPosEstoque" class="methodItem">
+<h3 class="method-name">ListarPosEstoque</h3>
+<p>
+
+</p>
+<div class="panel panel-default method">
+<div class="panel-heading"> Par&acirc;metros:
+</div>
+<table class="table table-condensed table-hover">
+<tr>
+<td class="">&nbsp;</td>
+<td class="method-parameter-type"><a href="#ListarEstPosRequest">ListarEstPosRequest</a></td>
+<td class="method-parameter-name">ListarEstPosRequest</td><td class="method-parameter-docs"><div class="first">Solicitação da listagem da posição do estoque.</div></td>
+</tr>
+</table>
+<div class="panel-footer">
+Retorno <span class="pre"><a href="#ListarEstPosResponse"><span class="lightBlue">ListarEstPosResponse</span></a></span>: 
+</div>
+</div>
+<div class="method-example-area">
+<h5>Exemplo:</h5>
+<pre class="method-example-code">{<BR>  "nPagina": 1,<BR>  "nRegPorPagina": 50,<BR>  "dDataPosicao": "01/09/2026",<BR>  "cExibeTodos": "N",<BR>  "codigo_local_estoque": 0<BR>}</pre>
+<button class="btn btn-success method-example" data-method="ListarPosEstoque" data-example="%7B++%22nPagina%22%3A+1%2C++%22nRegPorPagina%22%3A+50%2C++%22dDataPosicao%22%3A+%2201%2F09%2F2026%22%2C++%22cExibeTodos%22%3A+%22N%22%2C++%22codigo_local_estoque%22%3A+0%7D">Teste agora mesmo</button>
+</div>
+</div>
+<div id="ListarSaldoPendente" class="methodItem">
+<h3 class="method-name">ListarSaldoPendente</h3>
+<p>
+Lista o saldo pendente de estoque.
+</p>
+<div class="panel panel-default method">
+<div class="panel-heading"> Par&acirc;metros:
+</div>
+<table class="table table-condensed table-hover">
+<tr>
+<td class="">&nbsp;</td>
+<td class="method-parameter-type"><a href="#estoque_listar_pendente_request">estoque_listar_pendente_request</a></td>
+<td class="method-parameter-name">estoque_listar_pendente_request</td><td class="method-parameter-docs"><div class="first">Solicitação de listagem de saldo pendente de estoque.</div></td>
+</tr>
+</table>
+<div class="panel-footer">
+Retorno <span class="pre"><a href="#estoque_listar_pendente_response"><span class="lightBlue">estoque_listar_pendente_response</span></a></span>: 
+</div>
+</div>
+<div class="method-example-area">
+<h5>Exemplo:</h5>
+<pre class="method-example-code">{<BR>  "pagina": 1,<BR>  "registros_por_pagina": 50,<BR>  "codigo_local_estoque": 0,<BR>  "id_prod": 0,<BR>  "tipo": "TODOS"<BR>}</pre>
+<button class="btn btn-success method-example" data-method="ListarSaldoPendente" data-example="%7B++%22pagina%22%3A+1%2C++%22registros_por_pagina%22%3A+50%2C++%22codigo_local_estoque%22%3A+0%2C++%22id_prod%22%3A+0%2C++%22tipo%22%3A+%22TODOS%22%7D">Teste agora mesmo</button>
+</div>
+</div>
+<div id="MovimentoEstoque" class="methodItem">
+<h3 class="method-name">MovimentoEstoque</h3>
+<p>
+Consulta do Movimento de Estoque
+</p>
+<div class="panel panel-default method">
+<div class="panel-heading"> Par&acirc;metros:
+</div>
+<table class="table table-condensed table-hover">
+<tr>
+<td class="">&nbsp;</td>
+<td class="method-parameter-type"><a href="#estoqueMovimentoRequest">estoqueMovimentoRequest</a></td>
+<td class="method-parameter-name">estoqueMovimentoRequest</td><td class="method-parameter-docs"><div class="first">Consulta Movimento de Estoque de um Produto</div></td>
+</tr>
+</table>
+<div class="panel-footer">
+Retorno <span class="pre"><a href="#estoqueMovimentoResponse"><span class="lightBlue">estoqueMovimentoResponse</span></a></span>: 
+</div>
+</div>
+<div class="method-example-area">
+<h5>Exemplo:</h5>
+<pre class="method-example-code">{<BR>  "codigo_local_estoque": 0,<BR>  "id_prod": 0,<BR>  "cod_int": "",<BR>  "dataInicial": "01/09/2026",<BR>  "dataFinal": "01/09/2026"<BR>}</pre>
+<button class="btn btn-success method-example" data-method="MovimentoEstoque" data-example="%7B++%22codigo_local_estoque%22%3A+0%2C++%22id_prod%22%3A+0%2C++%22cod_int%22%3A+%22%22%2C++%22dataInicial%22%3A+%2201%2F09%2F2026%22%2C++%22dataFinal%22%3A+%2201%2F09%2F2026%22%7D">Teste agora mesmo</button>
+</div>
+</div>
+<div id="PosicaoEstoque" class="methodItem">
+<h3 class="method-name">PosicaoEstoque</h3>
+<p>
+
+</p>
+<div class="panel panel-default method">
+<div class="panel-heading"> Par&acirc;metros:
+</div>
+<table class="table table-condensed table-hover">
+<tr>
+<td class="">&nbsp;</td>
+<td class="method-parameter-type"><a href="#estoque_mov_consulta_cadastro">estoque_mov_consulta_cadastro</a></td>
+<td class="method-parameter-name">estoque_mov_consulta_cadastro</td><td class="method-parameter-docs"><div class="first">Registro de Consulta de Estoque</div></td>
+</tr>
+</table>
+<div class="panel-footer">
+Retorno <span class="pre"><a href="#estoque_mov_consulta_cadastro_resposta"><span class="lightBlue">estoque_mov_consulta_cadastro_resposta</span></a></span>: Status de Resposta da Consulta de Estoque
+</div>
+</div>
+<div class="method-example-area">
+<h5>Exemplo:</h5>
+<pre class="method-example-code">{<BR>  "codigo_local_estoque": 0,<BR>  "id_prod": 0,<BR>  "cod_int": "",<BR>  "data": "01/09/2026"<BR>}</pre>
+<button class="btn btn-success method-example" data-method="PosicaoEstoque" data-example="%7B++%22codigo_local_estoque%22%3A+0%2C++%22id_prod%22%3A+0%2C++%22cod_int%22%3A+%22%22%2C++%22data%22%3A+%2201%2F09%2F2026%22%7D">Teste agora mesmo</button>
+</div>
+</div>
+<h2>Tipos Complexos</h2>
+<div class="complexTypeItem">
+<a name="ListarEstPosRequest" class="anchorScroll"></a>
+<h3>ListarEstPosRequest</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">nPagina</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Número da página retornada.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nRegPorPagina</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Número de registros retornados na página.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">dDataPosicao</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Data do Movimento</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cExibeTodos</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Exibir todos os produtos mesmo que não haja movimento.</div><div class="more"><a href="javascript:void(0)">+</a><div>Padrão: "N"</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cExibeApenasPDV</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Exibe apenas os produtos marcados para PDV.</div><div class="more"><a href="javascript:void(0)">+</a><div>Esse recurso funciona apenas se o cenário de impostos estiver habilitado.<BR><BR>Padrão: "N"</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cExibeApenasMarketplace</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Exibe apenas os produtos marcados para venda como Marketplace.</div><div class="more"><a href="javascript:void(0)">+</a><div>Padrão: "N"</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">codigo_local_estoque</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código do local do estoque.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">lista_local_estoque</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Lista de Códigos de Locais do Estoque.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento opcional.<BR><BR>Separar os IDs por virgula (,) ou informar "TODOS" para listar todos os estoques de estoque.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cTipoItem</td>
+<td class="parameter-type">string<span class="parameter-lenght">2</span></td><td class="parameter-docs"><div class="first">Código do Tipo do Item.</div><div class="more"><a href="javascript:void(0)">+</a><div>Informação localizada na aba Recomendações Fiscais do cadastro do produto.<BR><BR>Preenchimento Opcional.<BR><BR>Pode ser:<BR><BR>00 - Mercadoria para Revenda<BR>01 - Matéria Prima<BR>02 - Embalagem<BR>03 - Produto em Processo<BR>04 - Produto Acabado<BR>05 - Subproduto<BR>06 - Produto Intermediário<BR>07 - Material de Uso e Consumo<BR>08 - Ativo Imobilizado<BR>09 - Serviços<BR>10 - Outros Insumos<BR>99 - Outras<BR>KT - Kit</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">lista_produtos</td>
+<td class="parameter-type"><a href="#lista_produtosArray">lista_produtosArray</a></td><td class="parameter-docs"><div class="first">Lista de produtos por ID, Código de Integração ou código do produto.</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="ListarEstPosResponse" class="anchorScroll"></a>
+<h3>ListarEstPosResponse</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">nPagina</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Número da página retornada.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nTotPaginas</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Número total de páginas.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nRegistros</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Número de registros retornados na página.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nTotRegistros</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">total de registros encontrados.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">dDataPosicao</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Data do Movimento</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">produtos</td>
+<td class="parameter-type"><a href="#produtosArray">produtosArray</a></td><td class="parameter-docs"><div class="first">Posição do estoque dos produtos encontrados.</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="ListarMovEstoqueRequest" class="anchorScroll"></a>
+<h3>ListarMovEstoqueRequest</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">nPagina</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Número da página retornada.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nRegPorPagina</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Número de registros retornados na página.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">idProd</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código do Produto.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCodInt</td>
+<td class="parameter-type">string<span class="parameter-lenght">60</span></td><td class="parameter-docs"><div class="first">Código de Integração do Produto.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">dDtInicial</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Data Inicial de Consulta de Estoque.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento obrigatório.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">dDtFinal</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Data Final da Consulta de Estoque.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento obrigatório.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">codigo_local_estoque</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código do local do estoque.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">lista_local_estoque</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Lista de Códigos de Locais do Estoque.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento opcional.<BR><BR>Separar os IDs por virgula (,) ou informar "TODOS" para listar todos os estoques de estoque.</div></div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="ListarMovEstoqueResponse" class="anchorScroll"></a>
+<h3>ListarMovEstoqueResponse</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">nPagina</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Número da página retornada.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nTotPaginas</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Número total de páginas.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nRegistros</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Número de registros retornados na página.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nTotRegistros</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">total de registros encontrados.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">movProdutoListar</td>
+<td class="parameter-type"><a href="#movProdutoListarArray">movProdutoListarArray</a></td><td class="parameter-docs"><div class="first">Movimentação do produto.</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="estoqueMovimentoRequest" class="anchorScroll"></a>
+<h3>estoqueMovimentoRequest</h3>
+<p>Consulta Movimento de Estoque de um Produto</p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">codigo_local_estoque</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código do local do estoque.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">id_prod</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código do Produto.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cod_int</td>
+<td class="parameter-type">string<span class="parameter-lenght">60</span></td><td class="parameter-docs"><div class="first">Código de Integração do Produto.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">dataInicial</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Data Inicial de Consulta de Estoque.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento obrigatório.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">dataFinal</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Data Final da Consulta de Estoque.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento obrigatório.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">tipo_movimento</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Tipo de movimento.</div><div class="more"><a href="javascript:void(0)">+</a><div>Pode ser:<BR>S - Saída<BR>E - Entrada<BR><BR>Preenchimento opcional.</div></div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="estoqueMovimentoResponse" class="anchorScroll"></a>
+<h3>estoqueMovimentoResponse</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">codigo_local_estoque</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código do local do estoque.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">id_prod</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código do Produto.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cod_int</td>
+<td class="parameter-type">string<span class="parameter-lenght">60</span></td><td class="parameter-docs"><div class="first">Código de Integração do Produto.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">descricao</td>
+<td class="parameter-type">string<span class="parameter-lenght">120</span></td><td class="parameter-docs"><div class="first">Descrição do Produto.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">movProduto</td>
+<td class="parameter-type"><a href="#movProdutoArray">movProdutoArray</a></td><td class="parameter-docs"><div class="first">Movimentação do produto</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="estoque_listar_pendente_request" class="anchorScroll"></a>
+<h3>estoque_listar_pendente_request</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">pagina</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Número da página retornada.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">registros_por_pagina</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Número de registros retornados na página.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">codigo_local_estoque</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código do Local do Estoque.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento opcional.<BR><BR>Caso não informado assumirá o Local do Estoque Padrão.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">lista_local_estoque</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Lista de Códigos de Locais do Estoque.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento opcional.<BR><BR>Separar os IDs por virgula (,) ou informar "TODOS" para listar todos os estoques de estoque.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">id_prod</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código do Produto.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">tipo</td>
+<td class="parameter-type">string<span class="parameter-lenght">100</span></td><td class="parameter-docs"><div class="first">Tipo da operação. </div><div class="more"><a href="javascript:void(0)">+</a><div>Pode ser:<BR>saida<BR>entrada</div></div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="estoque_listar_pendente_response" class="anchorScroll"></a>
+<h3>estoque_listar_pendente_response</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">pagina</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Número da página retornada.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">total_de_paginas</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Número total de páginas.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">registros</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Número de registros retornados na página.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">total_de_registros</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">total de registros encontrados.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">saldo_pendente_lista</td>
+<td class="parameter-type"><a href="#saldo_pendente_listaArray">saldo_pendente_listaArray</a></td><td class="parameter-docs"><div class="first">Estoque mínimo para o produto.</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="estoque_mov_consulta_cadastro" class="anchorScroll"></a>
+<h3>estoque_mov_consulta_cadastro</h3>
+<p>Registro de Consulta de Estoque</p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">codigo_local_estoque</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código do local do estoque.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">id_prod</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código do Produto.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cod_int</td>
+<td class="parameter-type">string<span class="parameter-lenght">20</span></td><td class="parameter-docs"><div class="first">Código de Integração do Produto.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento opcional.<BR><BR>Preencher esse campo apenas se não tiver informado o campo "id_prod".<BR></div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">data</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Data da Consulta de Estoque.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento obrigatório.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">apenas_saldo</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Exibir apenas saldo em estoque (S/N).</div><div class="more"><a href="javascript:void(0)">+</a><div>Obs: Se preenchido com "S" será exibido somente saldo em estoque.<BR>Informações como CMC, pedido de vendas em aberto e estoque mínimo não serão apresentados.<BR><BR>Padrão: "N"</div></div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="estoque_mov_consulta_cadastro_resposta" class="anchorScroll"></a>
+<h3>estoque_mov_consulta_cadastro_resposta</h3>
+<p>Status de Resposta da Consulta de Estoque</p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">codigo_status</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Código de Resposta do Status da Consulta de Estoque</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">descricao_status</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Descrição de Resposta do Status da Consulta de Estoque</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">saldo</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Saldo de Estoque da Consulta</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cmc</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Valor do CMC da Consulta de Estoque.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">pendente</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Saldo pendente em pedidos de venda em aberto (não faturados) e não cancelados.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">estoque_minimo</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Estoque mínimo para o produto.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">codigo_local_estoque</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código do local do estoque.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">reservado</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Indica a quantidade reservada do estoque para o produto.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">fisico</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Indica a quantidade física em estoque para o produto.</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="lista_produtos" class="anchorScroll"></a>
+<h3>lista_produtos</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">nCodProd</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código do Produto.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCodInt</td>
+<td class="parameter-type">string<span class="parameter-lenght">60</span></td><td class="parameter-docs"><div class="first">Código de Integração do Produto.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCodigo</td>
+<td class="parameter-type">string<span class="parameter-lenght">60</span></td><td class="parameter-docs"><div class="first">Código do produto.</div><div class="more"><a href="javascript:void(0)">+</a><div>(Visualizado na tela).</div></div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="lista_produtosArray" class="anchorScroll"></a>
+<h3>lista_produtosArray</h3>
+<p>Este par&acirc;metro &eacute; um array do tipo <span class="pre"><a href="#lista_produtos"><span class="lightBlue">lista_produtos</span></a></span></p>
+<p>Lista de lista_produtos</p>
+</div>
+<div class="complexTypeItem">
+<a name="movPeriodo" class="anchorScroll"></a>
+<h3>movPeriodo</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">tipo</td>
+<td class="parameter-type">string<span class="parameter-lenght">5</span></td><td class="parameter-docs"><div class="first">tipo do lançamento (Anterior,Entrada,Saída,Atual)</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">qtde</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Quantidade do Movimento</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cmcUnitario</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Custo Médio Contábil.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cmcTotal</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">CMC Total</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="movPeriodoArray" class="anchorScroll"></a>
+<h3>movPeriodoArray</h3>
+<p>Este par&acirc;metro &eacute; um array do tipo <span class="pre"><a href="#movPeriodo"><span class="lightBlue">movPeriodo</span></a></span></p>
+<p>Lista de movPeriodo</p>
+</div>
+<div class="complexTypeItem">
+<a name="movProduto" class="anchorScroll"></a>
+<h3>movProduto</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">idMov</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Identificação do Movimento.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">dtMov</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Data do movimento</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">codOrigem</td>
+<td class="parameter-type">string<span class="parameter-lenght">3</span></td><td class="parameter-docs"><div class="first">Código da Origem</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">desOrigem</td>
+<td class="parameter-type">string<span class="parameter-lenght">50</span></td><td class="parameter-docs"><div class="first">Descrição da Origem</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">numDoc</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Número do Documento (Nota Fiscal)</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">movPeriodo</td>
+<td class="parameter-type"><a href="#movPeriodoArray">movPeriodoArray</a></td><td class="parameter-docs"><div class="first">Movimentação no período.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">numPedido</td>
+<td class="parameter-type">string<span class="parameter-lenght">15</span></td><td class="parameter-docs"><div class="first">Número do Pedido.</div><div class="more"><a href="javascript:void(0)">+</a><div>Identifica o Pedido de Vendas de Produto, Remessa ou Devolução.<BR></div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">operacao</td>
+<td class="parameter-type">string<span class="parameter-lenght">2</span></td><td class="parameter-docs"><div class="first">Código da Operação realizada. </div><div class="more"><a href="javascript:void(0)">+</a><div>Pode ser:<BR><BR>00 - Ajuste no estoque<BR>11 - Venda de Produto              <BR>12 - Venda de Produto pelo PDV     <BR>13 - Devolução de Venda            <BR>14 - Remessa de Produto            <BR>16 - Nota Complementar de Saída<BR>21 - Compra de Produto             &nbsp;<BR>23 - Devolução ao Fornecedor       &nbsp;<BR>24 - Retorno de Remessa            &nbsp;<BR>26 - Nota Complementar de Entrada  &nbsp;<BR>22 - Compra de Produto (Importação)&nbsp;<BR>28 - Ordem de Produção</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cancelamento</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Indica se é um movimento de cancelamento de Nota Fiscal (S/N).</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">devolucao</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Indica se é um movimento de devolução de Nota Fiscal (S/N).</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">idAjuste</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Id do Ajuste de estoque.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">idDoc</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">ID da Nota Fiscal.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">idPedido</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">ID do Pedido.</div><div class="more"><a href="javascript:void(0)">+</a><div>Identifica o Pedido de Venda de Produto, Remessa ou Devolução.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">idCupom</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">ID do Cupom Fiscal.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">idCte</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">ID do CTE (Conhecimento de Transporte).</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">idRecebimento</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">ID do recebimento. </div><div class="more"><a href="javascript:void(0)">+</a><div>Para notas de entrada.</div></div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="movProdutoArray" class="anchorScroll"></a>
+<h3>movProdutoArray</h3>
+<p>Este par&acirc;metro &eacute; um array do tipo <span class="pre"><a href="#movProduto"><span class="lightBlue">movProduto</span></a></span></p>
+<p>Lista de movProduto</p>
+</div>
+<div class="complexTypeItem">
+<a name="movProdutoListar" class="anchorScroll"></a>
+<h3>movProdutoListar</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">idMov</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Identificação do Movimento.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">dtMov</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Data do movimento</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">dtEmissao</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Data de emissão.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">codOrigem</td>
+<td class="parameter-type">string<span class="parameter-lenght">3</span></td><td class="parameter-docs"><div class="first">Código da Origem</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">desOrigem</td>
+<td class="parameter-type">string<span class="parameter-lenght">50</span></td><td class="parameter-docs"><div class="first">Descrição da Origem</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">numDoc</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Número do Documento (Nota Fiscal)</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">numPedido</td>
+<td class="parameter-type">string<span class="parameter-lenght">15</span></td><td class="parameter-docs"><div class="first">Número do Pedido.</div><div class="more"><a href="javascript:void(0)">+</a><div>Identifica o Pedido de Vendas de Produto, Remessa ou Devolução.<BR></div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">operacao</td>
+<td class="parameter-type">string<span class="parameter-lenght">2</span></td><td class="parameter-docs"><div class="first">Código da Operação realizada. </div><div class="more"><a href="javascript:void(0)">+</a><div>Pode ser:<BR><BR>00 - Ajuste no estoque<BR>11 - Venda de Produto              <BR>12 - Venda de Produto pelo PDV     <BR>13 - Devolução de Venda            <BR>14 - Remessa de Produto            <BR>16 - Nota Complementar de Saída<BR>21 - Compra de Produto             &nbsp;<BR>23 - Devolução ao Fornecedor       &nbsp;<BR>24 - Retorno de Remessa            &nbsp;<BR>26 - Nota Complementar de Entrada  &nbsp;<BR>22 - Compra de Produto (Importação)&nbsp;<BR>28 - Ordem de Produção</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cancelamento</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Indica se é um movimento de cancelamento de Nota Fiscal (S/N).</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">devolucao</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Indica se é um movimento de devolução de Nota Fiscal (S/N).</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">idAjuste</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Id do Ajuste de estoque.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">idDoc</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">ID da Nota Fiscal.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">idPedido</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">ID do Pedido.</div><div class="more"><a href="javascript:void(0)">+</a><div>Identifica o Pedido de Venda de Produto, Remessa ou Devolução.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">idCupom</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">ID do Cupom Fiscal.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">idCte</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">ID do CTE (Conhecimento de Transporte).</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">idRecebimento</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">ID do recebimento. </div><div class="more"><a href="javascript:void(0)">+</a><div>Para notas de entrada.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">codigo_local_estoque</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código do local do estoque.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">idProd</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código do Produto.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">tipo</td>
+<td class="parameter-type">string<span class="parameter-lenght">100</span></td><td class="parameter-docs"><div class="first">Tipo da operação. </div><div class="more"><a href="javascript:void(0)">+</a><div>Pode ser:<BR>saida<BR>entrada</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">descricao</td>
+<td class="parameter-type">string<span class="parameter-lenght">120</span></td><td class="parameter-docs"><div class="first">Descrição do Produto.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cmc</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Valor do CMC da Consulta de Estoque.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">qtde</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Quantidade do Movimento</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">valor</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Valor do movimento.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">saldo</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Saldo de Estoque da Consulta</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">idItem</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Id do item do movimento.</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="movProdutoListarArray" class="anchorScroll"></a>
+<h3>movProdutoListarArray</h3>
+<p>Este par&acirc;metro &eacute; um array do tipo <span class="pre"><a href="#movProdutoListar"><span class="lightBlue">movProdutoListar</span></a></span></p>
+<p>Lista de movProdutoListar</p>
+</div>
+<div class="complexTypeItem">
+<a name="omie_fail" class="anchorScroll"></a>
+<h3>omie_fail</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">code</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Codigo do erro</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">description</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Descricao do erro</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-required">referer</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Origem do erro</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-required">fatal</td>
+<td class="parameter-type">boolean</td><td class="parameter-docs"><div class="first">Indica se eh um erro fatal</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="produtos" class="anchorScroll"></a>
+<h3>produtos</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">nCodProd</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código do Produto.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCodInt</td>
+<td class="parameter-type">string<span class="parameter-lenght">60</span></td><td class="parameter-docs"><div class="first">Código de Integração do Produto.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCodigo</td>
+<td class="parameter-type">string<span class="parameter-lenght">60</span></td><td class="parameter-docs"><div class="first">Código do produto.</div><div class="more"><a href="javascript:void(0)">+</a><div>(Visualizado na tela).</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cDescricao</td>
+<td class="parameter-type">string<span class="parameter-lenght">120</span></td><td class="parameter-docs"><div class="first">Descrição do Produto.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nPrecoUnitario</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Preço Unitário de venda.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nSaldo</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Saldo do produto.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nCMC</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Custo Médio Contábil.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nPendente</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Saldo pendente em pedidos de venda em aberto (não faturados) e não cancelados.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">estoque_minimo</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Estoque mínimo para o produto.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">codigo_local_estoque</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código do local do estoque.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">reservado</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Indica a quantidade reservada do estoque para o produto.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">fisico</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Indica a quantidade física em estoque para o produto.</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="produtosArray" class="anchorScroll"></a>
+<h3>produtosArray</h3>
+<p>Este par&acirc;metro &eacute; um array do tipo <span class="pre"><a href="#produtos"><span class="lightBlue">produtos</span></a></span></p>
+<p>Lista de produtos</p>
+</div>
+<div class="complexTypeItem">
+<a name="saldo_pendente_lista" class="anchorScroll"></a>
+<h3>saldo_pendente_lista</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">codigo_local_estoque</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código do local do estoque.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">id_prod</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código do Produto.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">qtde_saida</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Quantidade pendente de saída.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">qtde_entrada</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Quantidade pendente de entrada.</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="saldo_pendente_listaArray" class="anchorScroll"></a>
+<h3>saldo_pendente_listaArray</h3>
+<p>Este par&acirc;metro &eacute; um array do tipo <span class="pre"><a href="#saldo_pendente_lista"><span class="lightBlue">saldo_pendente_lista</span></a></span></p>
+<p>Lista de saldo_pendente_lista</p>
+</div>
+</div>
+<div class="col-md-3">
+<div id="affix-menu" data-spy="affix" data-offset-top="294">
+<h2>M&eacute;todos</h2>
+<nav id="index" class="hidden-print hidden-xs hidden-sm">
+<ul class="nav">
+<li><a href="#ListarMovimentoEstoque">ListarMovimentoEstoque</a></li>
+<li><a href="#ListarPosEstoque">ListarPosEstoque</a></li>
+<li><a href="#ListarSaldoPendente">ListarSaldoPendente</a></li>
+<li><a href="#MovimentoEstoque">MovimentoEstoque</a></li>
+<li><a href="#PosicaoEstoque">PosicaoEstoque</a></li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+</body>
+</html>

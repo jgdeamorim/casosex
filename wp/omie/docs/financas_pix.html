@@ -1,0 +1,799 @@
+<nav class="navbar navbar-expand-lg bg-azul">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="https://developer.omie.com.br/">
+            <img class="lozad img-logo" data-src="https://static.omie.com.br/images/logo/logo-omie-topo.png" src="https://static.omie.com.br/images/logo/logo-omie-topo.png" data-loaded="true">
+        </a>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <span class="borda-hover"></span>
+                    <a class="nav-link" href="https://developer.omie.com.br/my-apps/"> Aplicativos </a>
+                </li>
+                <li class="nav-item ">
+                    <span class="borda-hover"></span>
+                    <a class="nav-link" href="https://developer.omie.com.br/service-list/">
+                        Lista das API's
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <span class="borda-hover"></span>
+                    <a class="nav-link" href="https://ajuda.omie.com.br/pt-BR/collections/3045828-apis" target="_blank"> Ajuda </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<html>
+<head>
+<title>PIX</title>
+<style type="text/css" media="all">
+  [id] { scroll-margin-top: 68px; }
+</style>
+<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+<script src="https://cdn.omie.com.br/omie-assets/js/omie-compat-v2.min.js"></script>
+<script src="/developer/themes/omie/developer.js?ts=2021.008"></script>
+<link rel="stylesheet" href="//app.omie.com.br/wp-content/themes/omie/bootstrap/css/bootstrap.min.css" async/>
+<link href="https://cdn.omie.com.br/assets/developer/css/site.css?ts=2021.008" media="all" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="/developer/themes/omie/developer.css?ts=2021.008" async/>
+</head>
+<body>
+<div class="jumbotron banner bg-azul">
+<div class="container">
+<img src="https://cdn.omie.com.br/assets/developer/images/seta-azuis.png" alt="" class="img-setas">
+<div class="row align-items-center">
+<div class="col-12">
+<h1>PIX</h1>
+<ul class="nav nav-tabs" role="tablist">
+  <li role="presentation" class="active"><a href="#section-endpoint" aria-controls="section-endpoint" role="tab" data-toggle="tab">Endpoint</a></li>
+  <li role="presentation" class="pull-right"><a href="#section-wsdl" aria-controls="section-wsdl" role="tab" data-toggle="tab">WSDL</a></li>
+  <li role="presentation" class="pull-right"><a href="#section-php-soap" aria-controls="section-php-soap" role="tab" data-toggle="tab">PHP SOAP</a></li>
+  <li role="presentation" class="pull-right"><a href="#section-json" aria-controls="section-json" role="tab" data-toggle="tab">JSON</a></li>
+</ul>
+<div class="tab-content">
+  <div role="tabpanel" class="tab-pane fade in active" id="section-endpoint">
+    <h4>Endpoint URI</h4>
+    <a class="highlight" href="https://app.omie.com.br/api/v1/financas/pix/"><pre><code>https://app.omie.com.br/api/v1/financas/pix/</code></pre></a>
+  </div>
+  <div role="tabpanel" class="tab-pane fade" id="section-wsdl">
+    <h4>WSDL URI</h4>
+    <a class="highlight" href="https://app.omie.com.br/api/v1/financas/pix/?WSDL"><pre><code>https://app.omie.com.br/api/v1/financas/pix/?WSDL</code></pre></a>
+  </div>
+  <div role="tabpanel" class="tab-pane fade" id="section-php-soap">
+    <h4>PHP SOAP client download</h4>
+    <a class="highlight" href="https://app.omie.com.br/api/v1/financas/pix/?PHPSOAPCLIENT""><pre><code>https://app.omie.com.br/api/v1/financas/pix/?PHPSOAPCLIENT</code></pre></a>
+  </div>
+  <div role="tabpanel" class="tab-pane fade" id="section-json">
+    <h4>JSON client download URI</h4>
+    <h5>PHP</h5>
+    <a class="highlight" href="https://app.omie.com.br/api/v1/financas/pix/?PHPJSONCLIENT"><pre><code>https://app.omie.com.br/api/v1/financas/pix/?PHPJSONCLIENT</code></pre></a>
+    <h5>JavaScript (recomendado para uso apenas do lado do servidor)</h5>
+    <a class="highlight" href="https://app.omie.com.br/api/v1/financas/pix/?JSJSONCLIENT"><pre><code>https://app.omie.com.br/api/v1/financas/pix/?JSJSONCLIENT</code></pre></a>
+  </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="container">
+<div class="row">
+<div class="col-md-9">
+<h2>M&eacute;todos</h2>
+<p>Veja abaixo a documenta&ccedil;&atilde;o de cada m&eacute;todo dispon&iacute;vel para este servi&ccedil;o.</p>
+<div id="CancelarPix" class="methodItem">
+<h3 class="method-name">CancelarPix</h3>
+<p>
+Efetua o cancelamento de um PIX
+</p>
+<div class="panel panel-default method">
+<div class="panel-heading"> Par&acirc;metros:
+</div>
+<table class="table table-condensed table-hover">
+<tr>
+<td class="">&nbsp;</td>
+<td class="method-parameter-type"><a href="#CancelarPixRequest">CancelarPixRequest</a></td>
+<td class="method-parameter-name">CancelarPixRequest</td><td class="method-parameter-docs"><div class="first">Solicitação do cancelamento do PIX.</div></td>
+</tr>
+</table>
+<div class="panel-footer">
+Retorno <span class="pre"><a href="#CancelarPixResponse"><span class="lightBlue">CancelarPixResponse</span></a></span>: 
+</div>
+</div>
+<div class="method-example-area">
+<h5>Exemplo:</h5>
+<pre class="method-example-code">{<BR>   "nIdPix": 0,<BR>   "cCodIntPix": ""<BR>}</pre>
+<button class="btn btn-success method-example" data-method="CancelarPix" data-example="%7B+++%22nIdPix%22%3A+0%2C+++%22cCodIntPix%22%3A+%22%22%7D">Teste agora mesmo</button>
+</div>
+</div>
+<div id="GerarPix" class="methodItem">
+<h3 class="method-name">GerarPix</h3>
+<p>
+Gera o QrCode de um PIX.
+</p>
+<div class="panel panel-default method">
+<div class="panel-heading"> Par&acirc;metros:
+</div>
+<table class="table table-condensed table-hover">
+<tr>
+<td class="">&nbsp;</td>
+<td class="method-parameter-type"><a href="#GerarPixRequest">GerarPixRequest</a></td>
+<td class="method-parameter-name">GerarPixRequest</td><td class="method-parameter-docs"><div class="first">Gera um QrCode para pagamento PIX.</div></td>
+</tr>
+</table>
+<div class="panel-footer">
+Retorno <span class="pre"><a href="#GerarPixResponse"><span class="lightBlue">GerarPixResponse</span></a></span>: 
+</div>
+</div>
+<div class="method-example-area">
+<h5>Exemplo:</h5>
+<pre class="method-example-code">{<BR>   "cCodIntPix": "1670867357",<BR>   "nIdCliente": 0,<BR>   "vValor": 1.99,<BR>   "nIdConta": 0,<BR>   "cUrlNotif": ""<BR>}</pre>
+<button class="btn btn-success method-example" data-method="GerarPix" data-example="%7B+++%22cCodIntPix%22%3A+%221670867357%22%2C+++%22nIdCliente%22%3A+0%2C+++%22vValor%22%3A+1.99%2C+++%22nIdConta%22%3A+0%2C+++%22cUrlNotif%22%3A+%22%22%7D">Teste agora mesmo</button>
+</div>
+</div>
+<div id="GerarQrCodePix" class="methodItem">
+<h3 class="method-name">GerarQrCodePix</h3>
+<p>
+
+</p>
+<div class="panel panel-default method">
+<div class="panel-heading"> Par&acirc;metros:
+</div>
+<table class="table table-condensed table-hover">
+<tr>
+<td class="">&nbsp;</td>
+<td class="method-parameter-type"><a href="#GerarQrCodePixRequest">GerarQrCodePixRequest</a></td>
+<td class="method-parameter-name">GerarQrCodePixRequest</td><td class="method-parameter-docs"><div class="first">Gera um QrCode estático para pagamentos PIX.</div></td>
+</tr>
+</table>
+<div class="panel-footer">
+Retorno <span class="pre"><a href="#GerarQrCodePixResponse"><span class="lightBlue">GerarQrCodePixResponse</span></a></span>: 
+</div>
+</div>
+<div class="method-example-area">
+<h5>Exemplo:</h5>
+<pre class="method-example-code">{<BR>   "nIdConta": 0<BR>}</pre>
+<button class="btn btn-success method-example" data-method="GerarQrCodePix" data-example="%7B+++%22nIdConta%22%3A+0%7D">Teste agora mesmo</button>
+</div>
+</div>
+<div id="ListarPix" class="methodItem">
+<h3 class="method-name">ListarPix</h3>
+<p>
+
+</p>
+<div class="panel panel-default method">
+<div class="panel-heading"> Par&acirc;metros:
+</div>
+<table class="table table-condensed table-hover">
+<tr>
+<td class="">&nbsp;</td>
+<td class="method-parameter-type"><a href="#ListarPixRequest">ListarPixRequest</a></td>
+<td class="method-parameter-name">ListarPixRequest</td><td class="method-parameter-docs"><div class="first">Solicitação da listagem de detalhes do PIX.</div></td>
+</tr>
+</table>
+<div class="panel-footer">
+Retorno <span class="pre"><a href="#ListarPixResponse"><span class="lightBlue">ListarPixResponse</span></a></span>: 
+</div>
+</div>
+<div class="method-example-area">
+<h5>Exemplo:</h5>
+<pre class="method-example-code">{<BR>   "nPagina": 1,<BR>   "nRegPorPagina": 50<BR>}</pre>
+<button class="btn btn-success method-example" data-method="ListarPix" data-example="%7B+++%22nPagina%22%3A+1%2C+++%22nRegPorPagina%22%3A+50%7D">Teste agora mesmo</button>
+</div>
+</div>
+<div id="ListarStatusPix" class="methodItem">
+<h3 class="method-name">ListarStatusPix</h3>
+<p>
+
+</p>
+<div class="panel panel-default method">
+<div class="panel-heading"> Par&acirc;metros:
+</div>
+<table class="table table-condensed table-hover">
+<tr>
+<td class="">&nbsp;</td>
+<td class="method-parameter-type"><a href="#ListarStatusPixRequest">ListarStatusPixRequest</a></td>
+<td class="method-parameter-name">ListarStatusPixRequest</td><td class="method-parameter-docs"><div class="first">Solicitação da listagem de status do PIX.</div></td>
+</tr>
+</table>
+<div class="panel-footer">
+Retorno <span class="pre"><a href="#ListarStatusPixResponse"><span class="lightBlue">ListarStatusPixResponse</span></a></span>: 
+</div>
+</div>
+<div class="method-example-area">
+<h5>Exemplo:</h5>
+<pre class="method-example-code">{<BR>   "nPagina": 1,<BR>   "nRegPorPagina": 50<BR>}</pre>
+<button class="btn btn-success method-example" data-method="ListarStatusPix" data-example="%7B+++%22nPagina%22%3A+1%2C+++%22nRegPorPagina%22%3A+50%7D">Teste agora mesmo</button>
+</div>
+</div>
+<div id="ObterPix" class="methodItem">
+<h3 class="method-name">ObterPix</h3>
+<p>
+
+</p>
+<div class="panel panel-default method">
+<div class="panel-heading"> Par&acirc;metros:
+</div>
+<table class="table table-condensed table-hover">
+<tr>
+<td class="">&nbsp;</td>
+<td class="method-parameter-type"><a href="#ObterPixRequest">ObterPixRequest</a></td>
+<td class="method-parameter-name">ObterPixRequest</td><td class="method-parameter-docs"><div class="first">Solicitação dados do PIX.</div></td>
+</tr>
+</table>
+<div class="panel-footer">
+Retorno <span class="pre"><a href="#ObterPixResponse"><span class="lightBlue">ObterPixResponse</span></a></span>: Detalhes do PIX.
+</div>
+</div>
+<div class="method-example-area">
+<h5>Exemplo:</h5>
+<pre class="method-example-code">{<BR>   "nIdPix": 0,<BR>   "cCodIntPix": "",<BR>   "nCodTitulo": 0<BR>}</pre>
+<button class="btn btn-success method-example" data-method="ObterPix" data-example="%7B+++%22nIdPix%22%3A+0%2C+++%22cCodIntPix%22%3A+%22%22%2C+++%22nCodTitulo%22%3A+0%7D">Teste agora mesmo</button>
+</div>
+</div>
+<div id="ObterStatusPix" class="methodItem">
+<h3 class="method-name">ObterStatusPix</h3>
+<p>
+
+</p>
+<div class="panel panel-default method">
+<div class="panel-heading"> Par&acirc;metros:
+</div>
+<table class="table table-condensed table-hover">
+<tr>
+<td class="">&nbsp;</td>
+<td class="method-parameter-type"><a href="#ObterStatusPixRequest">ObterStatusPixRequest</a></td>
+<td class="method-parameter-name">ObterStatusPixRequest</td><td class="method-parameter-docs"><div class="first">Solicitação de Status do PIX.</div></td>
+</tr>
+</table>
+<div class="panel-footer">
+Retorno <span class="pre"><a href="#ObterStatusPixResponse"><span class="lightBlue">ObterStatusPixResponse</span></a></span>: 
+</div>
+</div>
+<div class="method-example-area">
+<h5>Exemplo:</h5>
+<pre class="method-example-code">{<BR>   "nIdPix": 0,<BR>   "cCodIntPix": "",<BR>   "nCodTitulo": 0<BR>}</pre>
+<button class="btn btn-success method-example" data-method="ObterStatusPix" data-example="%7B+++%22nIdPix%22%3A+0%2C+++%22cCodIntPix%22%3A+%22%22%2C+++%22nCodTitulo%22%3A+0%7D">Teste agora mesmo</button>
+</div>
+</div>
+<h2>Tipos Complexos</h2>
+<div class="complexTypeItem">
+<a name="CancelarPixRequest" class="anchorScroll"></a>
+<h3>CancelarPixRequest</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">nIdPix</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">ID do lançamento PIX.</div><div class="more"><a href="javascript:void(0)">+</a><div>O conteúdo desse campo é o código interno gerado pelo Omie ao gerar o PIX.<BR><BR>Esse campo não é exibido na tela do Omie, mas é a chave de integração via API. <BR>É uma informação interna, utilizada apenas nas APIs.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCodIntPix</td>
+<td class="parameter-type">string<span class="parameter-lenght">60</span></td><td class="parameter-docs"><div class="first">Código do lançamento gerado pelo integrador.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento obrigatório para o método 'GerarPix'.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">lDel</td>
+<td class="parameter-type">boolean</td><td class="parameter-docs"><div class="first">Indica se a conta a receber será excluída </div><div class="more"><a href="javascript:void(0)">+</a><div>ao efetuar o cancelamento do PIX.<BR><BR>Ao ser preenchida com true a conta a receber que gerou o PIX será excluída.<BR><BR>Pode ser:<BR>false<BR>true <BR><BR>Default: true</div></div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="CancelarPixResponse" class="anchorScroll"></a>
+<h3>CancelarPixResponse</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">cCodStatus</td>
+<td class="parameter-type">string<span class="parameter-lenght">4</span></td><td class="parameter-docs"><div class="first">Código do status do processamento.</div><div class="more"><a href="javascript:void(0)">+</a><div>Se o retorno for '0' significa que a solicitação foi executada com sucesso.<BR>Se o retorno for maior que '0' ocorreu algum erro durante o processamento da solicitação.<BR>A tag 'cDesStatus' descreve o problema ocorrido.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cDescStatus</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Descrição do status do processamento.</div><div class="more"><a href="javascript:void(0)">+</a><div>Essa tag explica o resultado da tag 'cCodigoStatus'.</div></div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="GerarPixRequest" class="anchorScroll"></a>
+<h3>GerarPixRequest</h3>
+<p>Gera um QrCode para pagamento PIX.</p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">cCodIntPix</td>
+<td class="parameter-type">string<span class="parameter-lenght">60</span></td><td class="parameter-docs"><div class="first">Código do lançamento gerado pelo integrador.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento obrigatório para o método 'GerarPix'.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nCodTitulo</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">ID da conta a receber que irá gerar o PIX.</div><div class="more"><a href="javascript:void(0)">+</a><div>Caso essa tag não seja preenchida uma nova conta a receber será gerada.<BR><BR><BR>Preenchimento opcional.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">vValor</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Valor do PIX.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento obrigatório para o método 'GerarPix'.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nIdConta</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código da Conta Corrente.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento Opcional.<BR><BR>Caso não informado, assumirá a conta omie.CASH<BR><BR>Utilize a tag 'codigo' do método 'PesquisarContaCorrente' da API<BR>/api/v1/geral/contacorrente/<BR>para obter essa informação.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cUrlNotif</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">URL de CallBack que será acionada quando o pagamento for efetuado.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento opcional.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nIdCliente</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código do cliente.</div><div class="more"><a href="javascript:void(0)">+</a><div>Informação utilizada para identificar o cadastro do Cliente.<BR><BR>Utilize a tag 'codigo_cliente_omie' do método 'ListarClientes' da API<BR>/api/v1/geral/clientes/<BR>para obter essa informação.<BR><BR>Preenchimento opcional.<BR><BR>Quando as  tags 'cIdCliente' e cCnpjCpf' não informadas, assumirá que o PIX foi realizado para um cliente consumidor padrão.<BR><BR>Caso não exista um cliente consumidor cadastrado, o mesmo será criado automaticamente.<BR><BR>Essa tag não deve ser preenchida quando a tag 'nCodTitulo' for informada.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCnpjCpf</td>
+<td class="parameter-type">string<span class="parameter-lenght">20</span></td><td class="parameter-docs"><div class="first">CNPJ/CPF do cliente.</div><div class="more"><a href="javascript:void(0)">+</a><div>Informação utilizada para identificar o cadastro do Cliente.<BR><BR>Utilize a tag 'cbpj_cpf' do método 'ListarClientes' da API<BR>/api/v1/geral/clientes/<BR>para obter essa informação.<BR><BR>Preenchimento opcional.<BR><BR>Quando as  tags 'cIdCliente' e cCnpjCpf' não informadas, assumirá que o PIX foi realizado para um cliente consumidor padrão.<BR><BR>Caso não exista um cliente consumidor cadastrado, o mesmo será criado automaticamente.</div></div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="GerarPixResponse" class="anchorScroll"></a>
+<h3>GerarPixResponse</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">nIdPix</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">ID do lançamento PIX.</div><div class="more"><a href="javascript:void(0)">+</a><div>O conteúdo desse campo é o código interno gerado pelo Omie ao gerar o PIX.<BR><BR>Esse campo não é exibido na tela do Omie, mas é a chave de integração via API. <BR>É uma informação interna, utilizada apenas nas APIs.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCodIntPix</td>
+<td class="parameter-type">string<span class="parameter-lenght">60</span></td><td class="parameter-docs"><div class="first">Código do lançamento gerado pelo integrador.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento obrigatório para o método 'GerarPix'.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nCodTitulo</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código da Conta a Receber.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cUrlPix</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Link para obter o PDF do QrCode do PIX.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cQrCode</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">String para a renderização do QR Code PIX.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCopiaCola</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Código gerado a partir do QR Code para pagamento do PIX.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCodStatus</td>
+<td class="parameter-type">string<span class="parameter-lenght">4</span></td><td class="parameter-docs"><div class="first">Código do status do processamento.</div><div class="more"><a href="javascript:void(0)">+</a><div>Se o retorno for '0' significa que a solicitação foi executada com sucesso.<BR>Se o retorno for maior que '0' ocorreu algum erro durante o processamento da solicitação.<BR>A tag 'cDesStatus' descreve o problema ocorrido.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cDescStatus</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Descrição do status do processamento.</div><div class="more"><a href="javascript:void(0)">+</a><div>Essa tag explica o resultado da tag 'cCodigoStatus'.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCliente</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código do Cliente pagador do PIX</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="GerarQrCodePixRequest" class="anchorScroll"></a>
+<h3>GerarQrCodePixRequest</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">nIdConta</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código da Conta Corrente.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento Opcional.<BR><BR>Caso não informado, assumirá a conta omie.CASH<BR><BR>Utilize a tag 'codigo' do método 'PesquisarContaCorrente' da API<BR>/api/v1/geral/contacorrente/<BR>para obter essa informação.</div></div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="GerarQrCodePixResponse" class="anchorScroll"></a>
+<h3>GerarQrCodePixResponse</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">cUrlPix</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Link para obter o PDF do QrCode do PIX.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cQrCode</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">String para a renderização do QR Code PIX.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCopiaCola</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Código gerado a partir do QR Code para pagamento do PIX.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCodStatus</td>
+<td class="parameter-type">string<span class="parameter-lenght">4</span></td><td class="parameter-docs"><div class="first">Código do status do processamento.</div><div class="more"><a href="javascript:void(0)">+</a><div>Se o retorno for '0' significa que a solicitação foi executada com sucesso.<BR>Se o retorno for maior que '0' ocorreu algum erro durante o processamento da solicitação.<BR>A tag 'cDesStatus' descreve o problema ocorrido.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cDescStatus</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Descrição do status do processamento.</div><div class="more"><a href="javascript:void(0)">+</a><div>Essa tag explica o resultado da tag 'cCodigoStatus'.</div></div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="ListaPix" class="anchorScroll"></a>
+<h3>ListaPix</h3>
+<p>Lista de detalhes do PIX.</p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">nIdPix</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">ID do lançamento PIX.</div><div class="more"><a href="javascript:void(0)">+</a><div>O conteúdo desse campo é o código interno gerado pelo Omie ao gerar o PIX.<BR><BR>Esse campo não é exibido na tela do Omie, mas é a chave de integração via API. <BR>É uma informação interna, utilizada apenas nas APIs.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCodIntPix</td>
+<td class="parameter-type">string<span class="parameter-lenght">60</span></td><td class="parameter-docs"><div class="first">Código do lançamento gerado pelo integrador.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento obrigatório para o método 'GerarPix'.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCliente</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código do Cliente pagador do PIX</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nCodTitulo</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código da Conta a Receber.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">vValor</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Valor do PIX.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento obrigatório para o método 'GerarPix'.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">dEmissao</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Data de emissão.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">dVencimento</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Data de vencimento.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cUrlPix</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Link para obter o PDF do QrCode do PIX.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCopiaCola</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Código gerado a partir do QR Code para pagamento do PIX.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cStatus</td>
+<td class="parameter-type">string<span class="parameter-lenght">100</span></td><td class="parameter-docs"><div class="first">Status do PIX.</div><div class="more"><a href="javascript:void(0)">+</a><div>Pode ser:<BR><BR>LIQUIDADO<BR>CANCELADO<BR>REGISTRADO</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cInfo</td>
+<td class="parameter-type"><a href="#cInfo">cInfo</a></td><td class="parameter-docs"><div class="first">Informações sobre o cadastro do PIX.</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="ListaPixArray" class="anchorScroll"></a>
+<h3>ListaPixArray</h3>
+<p>Este par&acirc;metro &eacute; um array do tipo <span class="pre"><a href="#ListaPix"><span class="lightBlue">ListaPix</span></a></span></p>
+<p>Lista de ListaPix</p>
+</div>
+<div class="complexTypeItem">
+<a name="ListaStatusPix" class="anchorScroll"></a>
+<h3>ListaStatusPix</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">nIdPix</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">ID do lançamento PIX.</div><div class="more"><a href="javascript:void(0)">+</a><div>O conteúdo desse campo é o código interno gerado pelo Omie ao gerar o PIX.<BR><BR>Esse campo não é exibido na tela do Omie, mas é a chave de integração via API. <BR>É uma informação interna, utilizada apenas nas APIs.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCodIntPix</td>
+<td class="parameter-type">string<span class="parameter-lenght">60</span></td><td class="parameter-docs"><div class="first">Código do lançamento gerado pelo integrador.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento obrigatório para o método 'GerarPix'.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nCodTitulo</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código da Conta a Receber.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">vValor</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Valor do PIX.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento obrigatório para o método 'GerarPix'.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cStatus</td>
+<td class="parameter-type">string<span class="parameter-lenght">100</span></td><td class="parameter-docs"><div class="first">Status do PIX.</div><div class="more"><a href="javascript:void(0)">+</a><div>Pode ser:<BR><BR>LIQUIDADO<BR>CANCELADO<BR>REGISTRADO</div></div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="ListaStatusPixArray" class="anchorScroll"></a>
+<h3>ListaStatusPixArray</h3>
+<p>Este par&acirc;metro &eacute; um array do tipo <span class="pre"><a href="#ListaStatusPix"><span class="lightBlue">ListaStatusPix</span></a></span></p>
+<p>Lista de ListaStatusPix</p>
+</div>
+<div class="complexTypeItem">
+<a name="ListarPixRequest" class="anchorScroll"></a>
+<h3>ListarPixRequest</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">nPagina</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Número da página que será listada.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nRegPorPagina</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Número de registros retornados</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">dEmissaoDe</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Filtrar pela data de emissão - de.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">dEmissaoAte</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Filtrar pela data de emissão - Ate.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cStatus</td>
+<td class="parameter-type">string<span class="parameter-lenght">100</span></td><td class="parameter-docs"><div class="first">Status do PIX.</div><div class="more"><a href="javascript:void(0)">+</a><div>Pode ser:<BR><BR>LIQUIDADO<BR>CANCELADO<BR>REGISTRADO</div></div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="ListarPixResponse" class="anchorScroll"></a>
+<h3>ListarPixResponse</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">nPagina</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Número da página que será listada.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nTotPaginas</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Total de páginas encontradas.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nRegistros</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Número de registros retornados</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nTotRegistros</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Total de registros encontrados.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">ListaPix</td>
+<td class="parameter-type"><a href="#ListaPixArray">ListaPixArray</a></td><td class="parameter-docs"><div class="first">Lista de detalhes do PIX.</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="ListarStatusPixRequest" class="anchorScroll"></a>
+<h3>ListarStatusPixRequest</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">nPagina</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Número da página que será listada.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nRegPorPagina</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Número de registros retornados</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">dEmissaoDe</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Filtrar pela data de emissão - de.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">dEmissaoAte</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Filtrar pela data de emissão - Ate.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cStatus</td>
+<td class="parameter-type">string<span class="parameter-lenght">100</span></td><td class="parameter-docs"><div class="first">Status do PIX.</div><div class="more"><a href="javascript:void(0)">+</a><div>Pode ser:<BR><BR>LIQUIDADO<BR>CANCELADO<BR>REGISTRADO</div></div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="ListarStatusPixResponse" class="anchorScroll"></a>
+<h3>ListarStatusPixResponse</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">nPagina</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Número da página que será listada.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nTotPaginas</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Total de páginas encontradas.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nRegistros</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Número de registros retornados</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nTotRegistros</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Total de registros encontrados.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">ListaStatusPix</td>
+<td class="parameter-type"><a href="#ListaStatusPixArray">ListaStatusPixArray</a></td><td class="parameter-docs"><div class="first">Lista de informações de Status do PIX.</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="ObterPixRequest" class="anchorScroll"></a>
+<h3>ObterPixRequest</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">nIdPix</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">ID do lançamento PIX.</div><div class="more"><a href="javascript:void(0)">+</a><div>O conteúdo desse campo é o código interno gerado pelo Omie ao gerar o PIX.<BR><BR>Esse campo não é exibido na tela do Omie, mas é a chave de integração via API. <BR>É uma informação interna, utilizada apenas nas APIs.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCodIntPix</td>
+<td class="parameter-type">string<span class="parameter-lenght">60</span></td><td class="parameter-docs"><div class="first">Código do lançamento gerado pelo integrador.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento obrigatório para o método 'GerarPix'.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nCodTitulo</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código da Conta a Receber.</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="ObterPixResponse" class="anchorScroll"></a>
+<h3>ObterPixResponse</h3>
+<p>Detalhes do PIX.</p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">nIdPix</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">ID do lançamento PIX.</div><div class="more"><a href="javascript:void(0)">+</a><div>O conteúdo desse campo é o código interno gerado pelo Omie ao gerar o PIX.<BR><BR>Esse campo não é exibido na tela do Omie, mas é a chave de integração via API. <BR>É uma informação interna, utilizada apenas nas APIs.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCodIntPix</td>
+<td class="parameter-type">string<span class="parameter-lenght">60</span></td><td class="parameter-docs"><div class="first">Código do lançamento gerado pelo integrador.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento obrigatório para o método 'GerarPix'.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCliente</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código do Cliente pagador do PIX</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nCodTitulo</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código da Conta a Receber.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">vValor</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Valor do PIX.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento obrigatório para o método 'GerarPix'.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">dEmissao</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Data de emissão.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">dVencimento</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Data de vencimento.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cUrlPix</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Link para obter o PDF do QrCode do PIX.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cQrCode</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">String para a renderização do QR Code PIX.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCopiaCola</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Código gerado a partir do QR Code para pagamento do PIX.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cStatus</td>
+<td class="parameter-type">string<span class="parameter-lenght">100</span></td><td class="parameter-docs"><div class="first">Status do PIX.</div><div class="more"><a href="javascript:void(0)">+</a><div>Pode ser:<BR><BR>LIQUIDADO<BR>CANCELADO<BR>REGISTRADO</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cInfo</td>
+<td class="parameter-type"><a href="#cInfo">cInfo</a></td><td class="parameter-docs"><div class="first">Informações sobre o cadastro do PIX.</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="ObterStatusPixRequest" class="anchorScroll"></a>
+<h3>ObterStatusPixRequest</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">nIdPix</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">ID do lançamento PIX.</div><div class="more"><a href="javascript:void(0)">+</a><div>O conteúdo desse campo é o código interno gerado pelo Omie ao gerar o PIX.<BR><BR>Esse campo não é exibido na tela do Omie, mas é a chave de integração via API. <BR>É uma informação interna, utilizada apenas nas APIs.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCodIntPix</td>
+<td class="parameter-type">string<span class="parameter-lenght">60</span></td><td class="parameter-docs"><div class="first">Código do lançamento gerado pelo integrador.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento obrigatório para o método 'GerarPix'.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nCodTitulo</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código da Conta a Receber.</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="ObterStatusPixResponse" class="anchorScroll"></a>
+<h3>ObterStatusPixResponse</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">nIdPix</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">ID do lançamento PIX.</div><div class="more"><a href="javascript:void(0)">+</a><div>O conteúdo desse campo é o código interno gerado pelo Omie ao gerar o PIX.<BR><BR>Esse campo não é exibido na tela do Omie, mas é a chave de integração via API. <BR>É uma informação interna, utilizada apenas nas APIs.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCodIntPix</td>
+<td class="parameter-type">string<span class="parameter-lenght">60</span></td><td class="parameter-docs"><div class="first">Código do lançamento gerado pelo integrador.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento obrigatório para o método 'GerarPix'.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nCodTitulo</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código da Conta a Receber.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">vValor</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Valor do PIX.</div><div class="more"><a href="javascript:void(0)">+</a><div>Preenchimento obrigatório para o método 'GerarPix'.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cStatus</td>
+<td class="parameter-type">string<span class="parameter-lenght">100</span></td><td class="parameter-docs"><div class="first">Status do PIX.</div><div class="more"><a href="javascript:void(0)">+</a><div>Pode ser:<BR><BR>LIQUIDADO<BR>CANCELADO<BR>REGISTRADO</div></div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="cInfo" class="anchorScroll"></a>
+<h3>cInfo</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">dInc</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Data da Inclusão.</div><div class="more"><a href="javascript:void(0)">+</a><div>No formato dd/mm/aaaa.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">hInc</td>
+<td class="parameter-type">string<span class="parameter-lenght">8</span></td><td class="parameter-docs"><div class="first">Hora da Inclusão.</div><div class="more"><a href="javascript:void(0)">+</a><div>No formato hh:mm:ss.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">uInc</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Usuário da Inclusão.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">dAlt</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Data da Alteração.</div><div class="more"><a href="javascript:void(0)">+</a><div>No formato dd/mm/aaaa.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">hAlt</td>
+<td class="parameter-type">string<span class="parameter-lenght">8</span></td><td class="parameter-docs"><div class="first">Hora da Alteração.</div><div class="more"><a href="javascript:void(0)">+</a><div>No formato hh:mm:ss.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">uAlt</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Usuário da Alteração.</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="omie_fail" class="anchorScroll"></a>
+<h3>omie_fail</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">code</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Codigo do erro</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">description</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Descricao do erro</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-required">referer</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Origem do erro</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-required">fatal</td>
+<td class="parameter-type">boolean</td><td class="parameter-docs"><div class="first">Indica se eh um erro fatal</div></td>
+<tr>
+</table>
+</div>
+</div>
+<div class="col-md-3">
+<div id="affix-menu" data-spy="affix" data-offset-top="294">
+<h2>M&eacute;todos</h2>
+<nav id="index" class="hidden-print hidden-xs hidden-sm">
+<ul class="nav">
+<li><a href="#CancelarPix">CancelarPix</a></li>
+<li><a href="#GerarPix">GerarPix</a></li>
+<li><a href="#GerarQrCodePix">GerarQrCodePix</a></li>
+<li><a href="#ListarPix">ListarPix</a></li>
+<li><a href="#ListarStatusPix">ListarStatusPix</a></li>
+<li><a href="#ObterPix">ObterPix</a></li>
+<li><a href="#ObterStatusPix">ObterStatusPix</a></li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+</body>
+</html>

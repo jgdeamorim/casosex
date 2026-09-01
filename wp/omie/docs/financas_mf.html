@@ -1,0 +1,728 @@
+<nav class="navbar navbar-expand-lg bg-azul">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="https://developer.omie.com.br/">
+            <img class="lozad img-logo" data-src="https://static.omie.com.br/images/logo/logo-omie-topo.png" src="https://static.omie.com.br/images/logo/logo-omie-topo.png" data-loaded="true">
+        </a>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <span class="borda-hover"></span>
+                    <a class="nav-link" href="https://developer.omie.com.br/my-apps/"> Aplicativos </a>
+                </li>
+                <li class="nav-item ">
+                    <span class="borda-hover"></span>
+                    <a class="nav-link" href="https://developer.omie.com.br/service-list/">
+                        Lista das API's
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <span class="borda-hover"></span>
+                    <a class="nav-link" href="https://ajuda.omie.com.br/pt-BR/collections/3045828-apis" target="_blank"> Ajuda </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<html>
+<head>
+<title>MovimentosFinanceiros</title>
+<style type="text/css" media="all">
+  [id] { scroll-margin-top: 68px; }
+</style>
+<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+<script src="https://cdn.omie.com.br/omie-assets/js/omie-compat-v2.min.js"></script>
+<script src="/developer/themes/omie/developer.js?ts=2021.008"></script>
+<link rel="stylesheet" href="//app.omie.com.br/wp-content/themes/omie/bootstrap/css/bootstrap.min.css" async/>
+<link href="https://cdn.omie.com.br/assets/developer/css/site.css?ts=2021.008" media="all" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="/developer/themes/omie/developer.css?ts=2021.008" async/>
+</head>
+<body>
+<div class="jumbotron banner bg-azul">
+<div class="container">
+<img src="https://cdn.omie.com.br/assets/developer/images/seta-azuis.png" alt="" class="img-setas">
+<div class="row align-items-center">
+<div class="col-12">
+<h1>MovimentosFinanceiros</h1>
+<ul class="nav nav-tabs" role="tablist">
+  <li role="presentation" class="active"><a href="#section-endpoint" aria-controls="section-endpoint" role="tab" data-toggle="tab">Endpoint</a></li>
+  <li role="presentation" class="pull-right"><a href="#section-wsdl" aria-controls="section-wsdl" role="tab" data-toggle="tab">WSDL</a></li>
+  <li role="presentation" class="pull-right"><a href="#section-php-soap" aria-controls="section-php-soap" role="tab" data-toggle="tab">PHP SOAP</a></li>
+  <li role="presentation" class="pull-right"><a href="#section-json" aria-controls="section-json" role="tab" data-toggle="tab">JSON</a></li>
+</ul>
+<div class="tab-content">
+  <div role="tabpanel" class="tab-pane fade in active" id="section-endpoint">
+    <h4>Endpoint URI</h4>
+    <a class="highlight" href="https://app.omie.com.br/api/v1/financas/mf/"><pre><code>https://app.omie.com.br/api/v1/financas/mf/</code></pre></a>
+  </div>
+  <div role="tabpanel" class="tab-pane fade" id="section-wsdl">
+    <h4>WSDL URI</h4>
+    <a class="highlight" href="https://app.omie.com.br/api/v1/financas/mf/?WSDL"><pre><code>https://app.omie.com.br/api/v1/financas/mf/?WSDL</code></pre></a>
+  </div>
+  <div role="tabpanel" class="tab-pane fade" id="section-php-soap">
+    <h4>PHP SOAP client download</h4>
+    <a class="highlight" href="https://app.omie.com.br/api/v1/financas/mf/?PHPSOAPCLIENT""><pre><code>https://app.omie.com.br/api/v1/financas/mf/?PHPSOAPCLIENT</code></pre></a>
+  </div>
+  <div role="tabpanel" class="tab-pane fade" id="section-json">
+    <h4>JSON client download URI</h4>
+    <h5>PHP</h5>
+    <a class="highlight" href="https://app.omie.com.br/api/v1/financas/mf/?PHPJSONCLIENT"><pre><code>https://app.omie.com.br/api/v1/financas/mf/?PHPJSONCLIENT</code></pre></a>
+    <h5>JavaScript (recomendado para uso apenas do lado do servidor)</h5>
+    <a class="highlight" href="https://app.omie.com.br/api/v1/financas/mf/?JSJSONCLIENT"><pre><code>https://app.omie.com.br/api/v1/financas/mf/?JSJSONCLIENT</code></pre></a>
+  </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="container">
+<div class="row">
+<div class="col-md-9">
+<h2>M&eacute;todos</h2>
+<p>Veja abaixo a documenta&ccedil;&atilde;o de cada m&eacute;todo dispon&iacute;vel para este servi&ccedil;o.</p>
+<div id="ListarMovimentos" class="methodItem">
+<h3 class="method-name">ListarMovimentos</h3>
+<div class="panel panel-default method">
+<div class="panel-heading"> Par&acirc;metros:
+</div>
+<table class="table table-condensed table-hover">
+<tr>
+<td class="">&nbsp;</td>
+<td class="method-parameter-type"><a href="#mfListarRequest">mfListarRequest</a></td>
+<td class="method-parameter-name">mfListarRequest</td><td class="method-parameter-docs"><div class="first">Solicitação de Listagem da movimentação financeira (Contas a Pagar, Contas a Receber e Lançamentos do Conta Corrente).</div></td>
+</tr>
+</table>
+<div class="panel-footer">
+Retorno <span class="pre"><a href="#mfListarResponse"><span class="lightBlue">mfListarResponse</span></a></span>: 
+</div>
+</div>
+<div class="method-example-area">
+<h5>Exemplo:</h5>
+<pre class="method-example-code">{<BR>  "nPagina": 1,<BR>  "nRegPorPagina": 500<BR>}</pre>
+<button class="btn btn-success method-example" data-method="ListarMovimentos" data-example="%7B++%22nPagina%22%3A+1%2C++%22nRegPorPagina%22%3A+500%7D">Teste agora mesmo</button>
+</div>
+</div>
+<h2>Tipos Complexos</h2>
+<div class="complexTypeItem">
+<a name="categorias" class="anchorScroll"></a>
+<h3>categorias</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">cCodCateg</td>
+<td class="parameter-type">string<span class="parameter-lenght">20</span></td><td class="parameter-docs"><div class="first">Código da Categoria.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nDistrPercentual</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Percentual da distribuição.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nDistrValor</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Valor da distribuição.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nValorFixo</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Indica que o valor foi fixado na distribuição (S/N).</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="categoriasArray" class="anchorScroll"></a>
+<h3>categoriasArray</h3>
+<p>Este par&acirc;metro &eacute; um array do tipo <span class="pre"><a href="#categorias"><span class="lightBlue">categorias</span></a></span></p>
+<p>Lista de categorias</p>
+</div>
+<div class="complexTypeItem">
+<a name="departamentos" class="anchorScroll"></a>
+<h3>departamentos</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">cCodDepartamento</td>
+<td class="parameter-type">string<span class="parameter-lenght">40</span></td><td class="parameter-docs"><div class="first">Código do Departamento.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nDistrPercentual</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Percentual da distribuição.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nDistrValor</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Valor da distribuição.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nValorFixo</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Indica que o valor foi fixado na distribuição (S/N).</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="departamentosArray" class="anchorScroll"></a>
+<h3>departamentosArray</h3>
+<p>Este par&acirc;metro &eacute; um array do tipo <span class="pre"><a href="#departamentos"><span class="lightBlue">departamentos</span></a></span></p>
+<p>Lista de departamentos</p>
+</div>
+<div class="complexTypeItem">
+<a name="detalhes" class="anchorScroll"></a>
+<h3>detalhes</h3>
+<p>Detalhes do movimento financeiro.</p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">nCodTitulo</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código do titulo.</div><div class="more"><a href="javascript:void(0)">+</a><div>(Gerado internamente, não é visualizado na tela)</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCodIntTitulo</td>
+<td class="parameter-type">string<span class="parameter-lenght">60</span></td><td class="parameter-docs"><div class="first">Código de integração do título.</div><div class="more"><a href="javascript:void(0)">+</a><div>(Utilizado em títulos criados via API, não é visualizado na tela)</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cNumTitulo</td>
+<td class="parameter-type">string<span class="parameter-lenght">20</span></td><td class="parameter-docs"><div class="first">Número do título.</div><div class="more"><a href="javascript:void(0)">+</a><div>(Informado pelo usuário / visualizado na tela)</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">dDtEmissao</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Data de emissão do título.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">dDtVenc</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Data de vencimento do título.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">dDtPrevisao</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Data de previsão de Pagamento/Recebimento.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">dDtPagamento</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Data de pagamento do título.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nCodCliente</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código de Cliente / Fornecedor.</div><div class="more"><a href="javascript:void(0)">+</a><div>(Gerado internamente, não é visualizado na tela)</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCPFCNPJCliente</td>
+<td class="parameter-type">string<span class="parameter-lenght">20</span></td><td class="parameter-docs"><div class="first">Filtrar os títulos por CPF/CNPJ do cliente.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nCodCtr</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código do contrato associado ao título.</div><div class="more"><a href="javascript:void(0)">+</a><div>(Gerado internamente, não é visualizado na tela)</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cNumCtr</td>
+<td class="parameter-type">string<span class="parameter-lenght">60</span></td><td class="parameter-docs"><div class="first">Número do contrato associado ao título.</div><div class="more"><a href="javascript:void(0)">+</a><div>(Informado pelo usuário / visualizado na tela)</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nCodOS</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código do Pedido de Venda / Ordem de Serviço.</div><div class="more"><a href="javascript:void(0)">+</a><div>(Gerado internamente, não é visualizado na tela)</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cNumOS</td>
+<td class="parameter-type">string<span class="parameter-lenght">15</span></td><td class="parameter-docs"><div class="first">Número do pedido de venda / Ordem de Serviço.</div><div class="more"><a href="javascript:void(0)">+</a><div>(visualizado na tela)</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nCodCC</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código da conta corrente.</div><div class="more"><a href="javascript:void(0)">+</a><div>(Gerado internamente, não é visualizado na tela)</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cStatus</td>
+<td class="parameter-type">string<span class="parameter-lenght">100</span></td><td class="parameter-docs"><div class="first">Status do título.</div><div class="more"><a href="javascript:void(0)">+</a><div>Pode ser:<BR><BR>CANCELADO<BR>RECEBIDO<BR>PAGO<BR>VENCEHOJE<BR>AVENCER<BR>ATRASADO<BR>EMABERTO<BR>PAGTOPARCIAL<BR></div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cNatureza</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Natureza do título.</div><div class="more"><a href="javascript:void(0)">+</a><div>Pode ser:<BR>P - Contas a Pagar<BR>R - Contas a Receber<BR></div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cTipo</td>
+<td class="parameter-type">string<span class="parameter-lenght">5</span></td><td class="parameter-docs"><div class="first">Tipo de documento.</div><div class="more"><a href="javascript:void(0)">+</a><div>Pode ser:<BR>ADI - Adiantamento                                      <BR>BOL - Boleto                                            <BR>CRT - Cartão                                            <BR>CHQ - Cheque                                            <BR>CON - Convênios                                         <BR>CRE - Crediário                                         <BR>DRF - DARF                                              <BR>DAS - DAS                                               <BR>DEB - Débito em conta                                   <BR>DIN - Dinheiro                                          <BR>DOC - DOC                                               <BR>GUIA - Guia de Recolhimento                              <BR>PROT - Protesto                                          <BR>REC - Recibo                                            <BR>RPA - RPA                                               <BR>TED - TED                                               <BR>TRA - Transferência                                    <BR>99999 - Outros      <BR><BR>Utilize a tag "codigo" do método "PesquisarTipoDocumento" da API:<BR>https://app.omie.com.br/api/v1/geral/tiposdoc/<BR>para obter essa informação.                                      <BR></div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cOperacao</td>
+<td class="parameter-type">string<span class="parameter-lenght">2</span></td><td class="parameter-docs"><div class="first">Operação do título.</div><div class="more"><a href="javascript:void(0)">+</a><div>Pode ser:<BR>01 - Venda de Serviço<BR>11 - Venda de Produto<BR>12 - Venda de Produto pelo PDV<BR>13 - Devolução de Venda <BR>14 - Remessa de Produto            <BR>16 - Transferência<BR>21 - Compra de Produto<BR>23 - Devolução ao Fornecedor        <BR>24 - Retorno de Remessa             <BR>26 - Nota Complementar de Entrada   <BR>22 - Compra de Produto (Importação) <BR>28 - Ordem de Produção<BR><BR>Obs: As operações abaixo não podem ser utilizadas como filtragem<BR>21 - Compra de Produto<BR>23 - Devolução ao Fornecedor        <BR>24 - Retorno de Remessa             <BR>26 - Nota Complementar de Entrada   <BR>22 - Compra de Produto (Importação) <BR>28 - Ordem de Produção</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cNumDocFiscal</td>
+<td class="parameter-type">string<span class="parameter-lenght">20</span></td><td class="parameter-docs"><div class="first">Número do documento fiscal (NF-e, NFC-e, NFS-e, etc)</div><div class="more"><a href="javascript:void(0)">+</a><div>(Informado pelo usuário / visualizado na tela)</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCodCateg</td>
+<td class="parameter-type">string<span class="parameter-lenght">20</span></td><td class="parameter-docs"><div class="first">Código da Categoria.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cNumParcela</td>
+<td class="parameter-type">string<span class="parameter-lenght">7</span></td><td class="parameter-docs"><div class="first">Número da parcela "Formatada" como 999/999</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nValorTitulo</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Valor do título.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nValorPIS</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Valor do PIS.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cRetPIS</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Indica que o Valor do PIS informado deve ser retido.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nValorCOFINS</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Valor do COFINS.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cRetCOFINS</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Indica que o Valor do COFINS informado deve ser retido.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nValorCSLL</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Valor do CSLL.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cRetCSLL</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Indica que o Valor do CSLL informado deve ser retido.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nValorIR</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Valor do Imposto de Renda.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cRetIR</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Indica que o Valor do Imposto de Renda  informado deve ser retido.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nValorISS</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Valor do ISS.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cRetISS</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Indica que o Valor do ISS informado deve ser retido.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nValorINSS</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Valor do INSS.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cRetINSS</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Indica que o Valor do INSS informado deve ser retido.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCodProjeto</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código do projeto.</div><div class="more"><a href="javascript:void(0)">+</a><div>(Gerado internamente, não é visualizado na tela)</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">observacao</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Observações do título.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCodVendedor</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código do vendedor.</div><div class="more"><a href="javascript:void(0)">+</a><div>(Gerado internamente, não é visualizado na tela)</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nCodComprador</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código do comprador.</div><div class="more"><a href="javascript:void(0)">+</a><div>(Gerado internamente, não é visualizado na tela)</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCodigoBarras</td>
+<td class="parameter-type">string<span class="parameter-lenght">70</span></td><td class="parameter-docs"><div class="first">Código de Barras do título.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cNSU</td>
+<td class="parameter-type">string<span class="parameter-lenght">100</span></td><td class="parameter-docs"><div class="first">Número Sequencial Único - Comprovante de pagamento.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nCodNF</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código da Nota Fiscal.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">dDtRegistro</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Data de registro da NF.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cNumBoleto</td>
+<td class="parameter-type">string<span class="parameter-lenght">30</span></td><td class="parameter-docs"><div class="first">Número do Boleto.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cChaveNFe</td>
+<td class="parameter-type">string<span class="parameter-lenght">44</span></td><td class="parameter-docs"><div class="first">Chave da NF-e de origem.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cOrigem</td>
+<td class="parameter-type">string<span class="parameter-lenght">4</span></td><td class="parameter-docs"><div class="first">Origem do lançamento.</div><div class="more"><a href="javascript:void(0)">+</a><div>Pode ser:<BR><BR>APBP Integração de Pagamento de Conta                  <BR>APBR Integração de Recebimento de Conta                <BR>APEP Integração de Lançamento de Despesa               <BR>APER Integração de Lançamento de Receita               <BR>APIP Integração de Conta a Pagar                       <BR>APIR Integração de Conta a Receber                     <BR>BARP Conta a Pagar Importada por Código de Barras      <BR>BARR Conta a Receber Importada por Código de Barras    <BR>BAXP Pagamento de Conta a Pagar                        <BR>BAXR Recebimento de Conta a Receber                    <BR>COMP Parcela a Pagar de Compras                        <BR>DEVP Conta a Pagar da Devolução de Venda               <BR>DEVR Conta a Receber da Devolução ao Fornecedor        <BR>EXTP Lançamento Manual de Despesa                      <BR>EXTR Lançamento Manual de Receita                      <BR>IMPP Parcela a Pagar de uma Nota de Importação         <BR>MANP Lançamento Manual de Conta a Pagar                <BR>MANR Lançamento Manual de Conta a Receber              <BR>NFEP Conta a Pagar Importada de uma NF-e               <BR>NFER Conta a Receber Importada de uma NF-e             <BR>OFXP Pagamento Importado de um arquivo OFX             <BR>OFXR Recebimento Importado de um arquivo OFX           <BR>RPTP Repetição de Contas a Pagar                       <BR>RPTR Repetição de Contas a Receber                     <BR>TRAP Débito de Transf. entre Contas Correntes          <BR>TRAR Crédito de Transf. entre Contas Correntes         <BR>VENR Parcela a Receber de Vendas                       <BR>XMLP Conta a Pagar Importada de um arquivo XML         <BR>XMLR Conta a Receber Importada de um arquivo XML</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nCodTitRepet</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código do título original que gerou a repetição dos lançamentos.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cGrupo</td>
+<td class="parameter-type">string<span class="parameter-lenght">20</span></td><td class="parameter-docs"><div class="first">Grupo do lançamento.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nCodMovCC</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código do movimento de Conta Corrente.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nValorMovCC</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Valor do movimento de Conta Corrente.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nCodMovCCRepet</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código do movimento de repetição,</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nDesconto</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Valor do Desconto.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nJuros</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Valor do Juros.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nMulta</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Valor da Multa.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nCodBaixa</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código da baixa.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">dDtCredito</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Data de credito.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">dDtConcilia</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Data da conciliação.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cHrConcilia</td>
+<td class="parameter-type">string<span class="parameter-lenght">8</span></td><td class="parameter-docs"><div class="first">Hora de conciliação.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cUsConcilia</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Código do usuário responsável pela conciliação</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">dDtInc</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Data de Inclusão.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cHrInc</td>
+<td class="parameter-type">string<span class="parameter-lenght">8</span></td><td class="parameter-docs"><div class="first">Hora de Inclusão.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cUsInc</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Usuário da Inclusão.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">dDtAlt</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Data de Alteração.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cHrAlt</td>
+<td class="parameter-type">string<span class="parameter-lenght">8</span></td><td class="parameter-docs"><div class="first">Hora de Alteração.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cUsAlt</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Usuário de alteração.</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="mfListarRequest" class="anchorScroll"></a>
+<h3>mfListarRequest</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">nPagina</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Número da página que será listada.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nRegPorPagina</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Número de registros retornados.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cOrdenarPor</td>
+<td class="parameter-type">string<span class="parameter-lenght">100</span></td><td class="parameter-docs"><div class="first">Ordem de exibição do dados.</div><div class="more"><a href="javascript:void(0)">+</a><div>Pode ser:<BR>CODIGO<BR>CODIGO_INTEGRACAO</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cOrdemDecrescente</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">DEPRECATED</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">lDadosCad</td>
+<td class="parameter-type">boolean</td><td class="parameter-docs"><div class="first">Exibir dados cadastrais como Data de Inclusão, Alteração do Título e Observações (S/N)?</div><div class="more"><a href="javascript:void(0)">+</a><div></div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nCodTitulo</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código do titulo.</div><div class="more"><a href="javascript:void(0)">+</a><div>(Gerado internamente, não é visualizado na tela)</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCodIntTitulo</td>
+<td class="parameter-type">string<span class="parameter-lenght">60</span></td><td class="parameter-docs"><div class="first">Código de integração do título.</div><div class="more"><a href="javascript:void(0)">+</a><div>(Utilizado em títulos criados via API, não é visualizado na tela)</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cNumTitulo</td>
+<td class="parameter-type">string<span class="parameter-lenght">20</span></td><td class="parameter-docs"><div class="first">Número do título.</div><div class="more"><a href="javascript:void(0)">+</a><div>(Informado pelo usuário / visualizado na tela)</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">dDtEmisDe</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Filtrar os títulos pela data de emissão - a partir de.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">dDtEmisAte</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Filtrar os títulos pela data de emissão - até.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">dDtVencDe</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Data de vencimento do título.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">dDtVencAte</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Data de vencimento do título.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">dDtPagtoDe</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Filtrar os títulos pela data de pagamento - a partir de.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">dDtPagtoAte</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Filtrar os títulos pela data de pagamento - até.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">dDtPrevDe</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Data de previsão de Pagamento/Recebimento.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">dDtPrevAte</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Data de previsão de Pagamento/Recebimento.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">dDtRegDe</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Data de registro da NF.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">dDtRegAte</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Data de registro da NF.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nCodCliente</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código de Cliente / Fornecedor.</div><div class="more"><a href="javascript:void(0)">+</a><div>(Gerado internamente, não é visualizado na tela)</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCPFCNPJCliente</td>
+<td class="parameter-type">string<span class="parameter-lenght">20</span></td><td class="parameter-docs"><div class="first">Filtrar os títulos por CPF/CNPJ do cliente.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nCodCtr</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código do contrato associado ao título.</div><div class="more"><a href="javascript:void(0)">+</a><div>(Gerado internamente, não é visualizado na tela)</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cNumCtr</td>
+<td class="parameter-type">string<span class="parameter-lenght">60</span></td><td class="parameter-docs"><div class="first">Número do contrato associado ao título.</div><div class="more"><a href="javascript:void(0)">+</a><div>(Informado pelo usuário / visualizado na tela)</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nCodOS</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código do Pedido de Venda / Ordem de Serviço.</div><div class="more"><a href="javascript:void(0)">+</a><div>(Gerado internamente, não é visualizado na tela)</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cNumOS</td>
+<td class="parameter-type">string<span class="parameter-lenght">15</span></td><td class="parameter-docs"><div class="first">Número do pedido de venda / Ordem de Serviço.</div><div class="more"><a href="javascript:void(0)">+</a><div>(visualizado na tela)</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nCodCC</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código da conta corrente.</div><div class="more"><a href="javascript:void(0)">+</a><div>(Gerado internamente, não é visualizado na tela)</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cStatus</td>
+<td class="parameter-type">string<span class="parameter-lenght">100</span></td><td class="parameter-docs"><div class="first">Status do título.</div><div class="more"><a href="javascript:void(0)">+</a><div>Pode ser:<BR><BR>CANCELADO<BR>RECEBIDO<BR>PAGO<BR>VENCEHOJE<BR>AVENCER<BR>ATRASADO<BR>EMABERTO<BR>PAGTOPARCIAL<BR></div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cNatureza</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Natureza do título.</div><div class="more"><a href="javascript:void(0)">+</a><div>Pode ser:<BR>P - Contas a Pagar<BR>R - Contas a Receber<BR></div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cTipo</td>
+<td class="parameter-type">string<span class="parameter-lenght">5</span></td><td class="parameter-docs"><div class="first">Tipo de documento.</div><div class="more"><a href="javascript:void(0)">+</a><div>Pode ser:<BR>ADI - Adiantamento                                      <BR>BOL - Boleto                                            <BR>CRT - Cartão                                            <BR>CHQ - Cheque                                            <BR>CON - Convênios                                         <BR>CRE - Crediário                                         <BR>DRF - DARF                                              <BR>DAS - DAS                                               <BR>DEB - Débito em conta                                   <BR>DIN - Dinheiro                                          <BR>DOC - DOC                                               <BR>GUIA - Guia de Recolhimento                              <BR>PROT - Protesto                                          <BR>REC - Recibo                                            <BR>RPA - RPA                                               <BR>TED - TED                                               <BR>TRA - Transferência                                    <BR>99999 - Outros      <BR><BR>Utilize a tag "codigo" do método "PesquisarTipoDocumento" da API:<BR>https://app.omie.com.br/api/v1/geral/tiposdoc/<BR>para obter essa informação.                                      <BR></div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cOperacao</td>
+<td class="parameter-type">string<span class="parameter-lenght">2</span></td><td class="parameter-docs"><div class="first">Operação do título.</div><div class="more"><a href="javascript:void(0)">+</a><div>Pode ser:<BR>01 - Venda de Serviço<BR>11 - Venda de Produto<BR>12 - Venda de Produto pelo PDV<BR>13 - Devolução de Venda <BR>14 - Remessa de Produto            <BR>16 - Transferência<BR>21 - Compra de Produto<BR>23 - Devolução ao Fornecedor        <BR>24 - Retorno de Remessa             <BR>26 - Nota Complementar de Entrada   <BR>22 - Compra de Produto (Importação) <BR>28 - Ordem de Produção<BR><BR>Obs: As operações abaixo não podem ser utilizadas como filtragem<BR>21 - Compra de Produto<BR>23 - Devolução ao Fornecedor        <BR>24 - Retorno de Remessa             <BR>26 - Nota Complementar de Entrada   <BR>22 - Compra de Produto (Importação) <BR>28 - Ordem de Produção</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cNumDocFiscal</td>
+<td class="parameter-type">string<span class="parameter-lenght">20</span></td><td class="parameter-docs"><div class="first">Número do documento fiscal (NF-e, NFC-e, NFS-e, etc)</div><div class="more"><a href="javascript:void(0)">+</a><div>(Informado pelo usuário / visualizado na tela)</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCodigoBarras</td>
+<td class="parameter-type">string<span class="parameter-lenght">70</span></td><td class="parameter-docs"><div class="first">Código de Barras do título.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nCodProjeto</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código do projeto.</div><div class="more"><a href="javascript:void(0)">+</a><div>(Gerado internamente, não é visualizado na tela)</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nCodVendedor</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código do vendedor.</div><div class="more"><a href="javascript:void(0)">+</a><div>(Gerado internamente, não é visualizado na tela)</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nCodComprador</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código do comprador.</div><div class="more"><a href="javascript:void(0)">+</a><div>(Gerado internamente, não é visualizado na tela)</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCodCateg</td>
+<td class="parameter-type">string<span class="parameter-lenght">20</span></td><td class="parameter-docs"><div class="first">Código da Categoria.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">dDtIncDe</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Data de inclusão</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">dDtIncAte</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Data de inclusão</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">dDtAltDe</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Data de alteração</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">dDtAltAte</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Data de alteração</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cTpLancamento</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Tipo de registro que será exibido. </div><div class="more"><a href="javascript:void(0)">+</a><div>Pode ser:<BR>CP - Lançamentos de Contas a Pagar.<BR>CR - Lançamentos de Contas a Receber.<BR>CPCR - Lançamentos de Contas a Pagar e Receber.<BR>BX - Baixas de lançamentos de Contas a Pagar e Receber.<BR>BXCP - Baixas de lançamentos de Contas a Pagar.<BR>BXCR - Baixas de lançamentos de Contas a Receber.<BR>CC - Lançamentos (todos) no Conta Corrente.<BR>CCE - Lançamentos de entrada no Conta Corrente.<BR>CCS - Lançamentos de saída no Conta Corrente.<BR>CCT - Lançamentos de transferência no Conta Corrente.<BR>PV - Previsão de Contratos de Serviço.<BR>POS - Previsão de Ordens de Serviço.<BR>PPV - Previsão de Pedidos de Venda.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cExibirDepartamentos</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Exibir distribuição por departamentos (S/N).</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nCodMovCC</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código do movimento de Conta Corrente.</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="mfListarResponse" class="anchorScroll"></a>
+<h3>mfListarResponse</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">nPagina</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Número da página que será listada.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nTotPaginas</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Total de páginas encontradas.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nRegistros</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Número de registros retornados.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nTotRegistros</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Total de registros encontrados.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">movimentos</td>
+<td class="parameter-type"><a href="#movimentosArray">movimentosArray</a></td><td class="parameter-docs"><div class="first">Listagem da movimentação financeira (Contas a Pagar, Contas a Receber e Lançamentos do Conta Corrente).</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="movimentos" class="anchorScroll"></a>
+<h3>movimentos</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">detalhes</td>
+<td class="parameter-type"><a href="#detalhes">detalhes</a></td><td class="parameter-docs"><div class="first">Detalhes do movimento financeiro.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">resumo</td>
+<td class="parameter-type"><a href="#resumo">resumo</a></td><td class="parameter-docs"><div class="first">Situação do movimento financeiro.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">departamentos</td>
+<td class="parameter-type"><a href="#departamentosArray">departamentosArray</a></td><td class="parameter-docs"><div class="first">Distribuição por departamentos.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">categorias</td>
+<td class="parameter-type"><a href="#categoriasArray">categoriasArray</a></td><td class="parameter-docs"><div class="first">Distribuição por Categorias.</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="movimentosArray" class="anchorScroll"></a>
+<h3>movimentosArray</h3>
+<p>Este par&acirc;metro &eacute; um array do tipo <span class="pre"><a href="#movimentos"><span class="lightBlue">movimentos</span></a></span></p>
+<p>Lista de movimentos</p>
+</div>
+<div class="complexTypeItem">
+<a name="omie_fail" class="anchorScroll"></a>
+<h3>omie_fail</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">code</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Codigo do erro</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">description</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Descricao do erro</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-required">referer</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Origem do erro</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-required">fatal</td>
+<td class="parameter-type">boolean</td><td class="parameter-docs"><div class="first">Indica se eh um erro fatal</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="resumo" class="anchorScroll"></a>
+<h3>resumo</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">cLiquidado</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Indica se o título está liquidado.</div><div class="more"><a href="javascript:void(0)">+</a><div>Pode ser:<BR>S - Sim, indicado que o título está quitado.<BR>N - Não, indicando que o título ainda está em aberto.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nValPago</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Valor total pago para o título.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nValAberto</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Valor total em aberto para o título.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nDesconto</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Valor do Desconto.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nJuros</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Valor do Juros.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nMulta</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Valor da Multa.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nValLiquido</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Valor líquido</div><div class="more"><a href="javascript:void(0)">+</a><div>(nValPago - nDesconto + Juros + nMulta)</div></div></td>
+<tr>
+</table>
+</div>
+</div>
+<div class="col-md-3">
+<div id="affix-menu" data-spy="affix" data-offset-top="294">
+<h2>M&eacute;todos</h2>
+<nav id="index" class="hidden-print hidden-xs hidden-sm">
+<ul class="nav">
+<li><a href="#ListarMovimentos">ListarMovimentos</a></li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,339 @@
+<nav class="navbar navbar-expand-lg bg-azul">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="https://developer.omie.com.br/">
+            <img class="lozad img-logo" data-src="https://static.omie.com.br/images/logo/logo-omie-topo.png" src="https://static.omie.com.br/images/logo/logo-omie-topo.png" data-loaded="true">
+        </a>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <span class="borda-hover"></span>
+                    <a class="nav-link" href="https://developer.omie.com.br/my-apps/"> Aplicativos </a>
+                </li>
+                <li class="nav-item ">
+                    <span class="borda-hover"></span>
+                    <a class="nav-link" href="https://developer.omie.com.br/service-list/">
+                        Lista das API's
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <span class="borda-hover"></span>
+                    <a class="nav-link" href="https://ajuda.omie.com.br/pt-BR/collections/3045828-apis" target="_blank"> Ajuda </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<html>
+<head>
+<title>ResumoEstoque</title>
+<style type="text/css" media="all">
+  [id] { scroll-margin-top: 68px; }
+</style>
+<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+<script src="https://cdn.omie.com.br/omie-assets/js/omie-compat-v2.min.js"></script>
+<script src="/developer/themes/omie/developer.js?ts=2021.008"></script>
+<link rel="stylesheet" href="//app.omie.com.br/wp-content/themes/omie/bootstrap/css/bootstrap.min.css" async/>
+<link href="https://cdn.omie.com.br/assets/developer/css/site.css?ts=2021.008" media="all" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="/developer/themes/omie/developer.css?ts=2021.008" async/>
+</head>
+<body>
+<div class="jumbotron banner bg-azul">
+<div class="container">
+<img src="https://cdn.omie.com.br/assets/developer/images/seta-azuis.png" alt="" class="img-setas">
+<div class="row align-items-center">
+<div class="col-12">
+<h1>ResumoEstoque</h1>
+<ul class="nav nav-tabs" role="tablist">
+  <li role="presentation" class="active"><a href="#section-endpoint" aria-controls="section-endpoint" role="tab" data-toggle="tab">Endpoint</a></li>
+  <li role="presentation" class="pull-right"><a href="#section-wsdl" aria-controls="section-wsdl" role="tab" data-toggle="tab">WSDL</a></li>
+  <li role="presentation" class="pull-right"><a href="#section-php-soap" aria-controls="section-php-soap" role="tab" data-toggle="tab">PHP SOAP</a></li>
+  <li role="presentation" class="pull-right"><a href="#section-json" aria-controls="section-json" role="tab" data-toggle="tab">JSON</a></li>
+</ul>
+<div class="tab-content">
+  <div role="tabpanel" class="tab-pane fade in active" id="section-endpoint">
+    <h4>Endpoint URI</h4>
+    <a class="highlight" href="https://app.omie.com.br/api/v1/estoque/resumo/"><pre><code>https://app.omie.com.br/api/v1/estoque/resumo/</code></pre></a>
+  </div>
+  <div role="tabpanel" class="tab-pane fade" id="section-wsdl">
+    <h4>WSDL URI</h4>
+    <a class="highlight" href="https://app.omie.com.br/api/v1/estoque/resumo/?WSDL"><pre><code>https://app.omie.com.br/api/v1/estoque/resumo/?WSDL</code></pre></a>
+  </div>
+  <div role="tabpanel" class="tab-pane fade" id="section-php-soap">
+    <h4>PHP SOAP client download</h4>
+    <a class="highlight" href="https://app.omie.com.br/api/v1/estoque/resumo/?PHPSOAPCLIENT""><pre><code>https://app.omie.com.br/api/v1/estoque/resumo/?PHPSOAPCLIENT</code></pre></a>
+  </div>
+  <div role="tabpanel" class="tab-pane fade" id="section-json">
+    <h4>JSON client download URI</h4>
+    <h5>PHP</h5>
+    <a class="highlight" href="https://app.omie.com.br/api/v1/estoque/resumo/?PHPJSONCLIENT"><pre><code>https://app.omie.com.br/api/v1/estoque/resumo/?PHPJSONCLIENT</code></pre></a>
+    <h5>JavaScript (recomendado para uso apenas do lado do servidor)</h5>
+    <a class="highlight" href="https://app.omie.com.br/api/v1/estoque/resumo/?JSJSONCLIENT"><pre><code>https://app.omie.com.br/api/v1/estoque/resumo/?JSJSONCLIENT</code></pre></a>
+  </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="container">
+<div class="row">
+<div class="col-md-9">
+<h2>M&eacute;todos</h2>
+<p>Veja abaixo a documenta&ccedil;&atilde;o de cada m&eacute;todo dispon&iacute;vel para este servi&ccedil;o.</p>
+<div id="ObterEstoqueProduto" class="methodItem">
+<h3 class="method-name">ObterEstoqueProduto</h3>
+<p>
+
+</p>
+<div class="panel panel-default method">
+<div class="panel-heading"> Par&acirc;metros:
+</div>
+<table class="table table-condensed table-hover">
+<tr>
+<td class="">&nbsp;</td>
+<td class="method-parameter-type"><a href="#ObterEstoqueProdRequest">ObterEstoqueProdRequest</a></td>
+<td class="method-parameter-name">ObterEstoqueProdRequest</td><td class="method-parameter-docs"><div class="first">Solicitação da posição de estoque do produto.</div></td>
+</tr>
+</table>
+<div class="panel-footer">
+Retorno <span class="pre"><a href="#ObterEstoqueProdResponse"><span class="lightBlue">ObterEstoqueProdResponse</span></a></span>: 
+</div>
+</div>
+<div class="method-example-area">
+<h5>Exemplo:</h5>
+<pre class="method-example-code">{<BR>  "cEAN": "",<BR>  "nIdProduto": 0,<BR>  "cCodigo": "",<BR>  "xCodigo": "",<BR>  "dDia": "01/09/2026"<BR>}</pre>
+<button class="btn btn-success method-example" data-method="ObterEstoqueProduto" data-example="%7B++%22cEAN%22%3A+%22%22%2C++%22nIdProduto%22%3A+0%2C++%22cCodigo%22%3A+%22%22%2C++%22xCodigo%22%3A+%22%22%2C++%22dDia%22%3A+%2201%2F09%2F2026%22%7D">Teste agora mesmo</button>
+</div>
+</div>
+<h2>Tipos Complexos</h2>
+<div class="complexTypeItem">
+<a name="ObterEstoqueProdRequest" class="anchorScroll"></a>
+<h3>ObterEstoqueProdRequest</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">cEAN</td>
+<td class="parameter-type">string<span class="parameter-lenght">14</span></td><td class="parameter-docs"><div class="first">Código EAN (GTIN - Global Trade Item Number).</div><div class="more"><a href="javascript:void(0)">+</a><div><BR>Preenchimento Opcional.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nIdProduto</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código do produto.</div><div class="more"><a href="javascript:void(0)">+</a><div>(Gerado internamente, não é visualizado na tela)<BR><BR><BR>Preenchimento Opcional.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCodigo</td>
+<td class="parameter-type">string<span class="parameter-lenght">60</span></td><td class="parameter-docs"><div class="first">Código do Produto.</div><div class="more"><a href="javascript:void(0)">+</a><div>(É o código do produto que é exibido na tela do Omie.)<BR><BR>Preenchimento Opcional.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">xCodigo</td>
+<td class="parameter-type">string<span class="parameter-lenght">120</span></td><td class="parameter-docs"><div class="first">Campo dinâmico para filtrar o cadastro de produto.</div><div class="more"><a href="javascript:void(0)">+</a><div>Pode ser: <BR><BR>EAN<BR>Código (SKU)<BR>Descrição.<BR><BR>Quando mais de um produto for encontrado, a lista de itens será retornada na tag 'ListaProduto' e a 'listaEstoque' não será retornada.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">dDia</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Data da consulta.</div><div class="more"><a href="javascript:void(0)">+</a><div><BR>Preenchimento opcional.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cExibirImagens</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Exibir imagens do produto? (S/N)</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="ObterEstoqueProdResponse" class="anchorScroll"></a>
+<h3>ObterEstoqueProdResponse</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">nIdProduto</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código do produto.</div><div class="more"><a href="javascript:void(0)">+</a><div>(Gerado internamente, não é visualizado na tela)<BR><BR><BR>Preenchimento Opcional.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCodigo</td>
+<td class="parameter-type">string<span class="parameter-lenght">60</span></td><td class="parameter-docs"><div class="first">Código do Produto.</div><div class="more"><a href="javascript:void(0)">+</a><div>(É o código do produto que é exibido na tela do Omie.)<BR><BR>Preenchimento Opcional.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cDescricao</td>
+<td class="parameter-type">string<span class="parameter-lenght">120</span></td><td class="parameter-docs"><div class="first">Descrição do produto.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cEAN</td>
+<td class="parameter-type">string<span class="parameter-lenght">14</span></td><td class="parameter-docs"><div class="first">Código EAN (GTIN - Global Trade Item Number).</div><div class="more"><a href="javascript:void(0)">+</a><div><BR>Preenchimento Opcional.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">dDia</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Data da consulta.</div><div class="more"><a href="javascript:void(0)">+</a><div><BR>Preenchimento opcional.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cNCM</td>
+<td class="parameter-type">string<span class="parameter-lenght">13</span></td><td class="parameter-docs"><div class="first">Código da Nomenclatura Comum do Mercosul (NCM).</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cUnidade</td>
+<td class="parameter-type">string<span class="parameter-lenght">6</span></td><td class="parameter-docs"><div class="first">Código da Unidade.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">listaEstoque</td>
+<td class="parameter-type"><a href="#listaEstoqueArray">listaEstoqueArray</a></td><td class="parameter-docs"><div class="first">Exibe os totais de estoque do produto.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">listaProduto</td>
+<td class="parameter-type"><a href="#listaProduto">listaProduto</a></td><td class="parameter-docs"><div class="first">Lista com as informações dos produtos encontrados a partir do dado informado na tag 'xCodigo'.</div><div class="more"><a href="javascript:void(0)">+</a><div>Essa estrutura será retornada apenas quando a tag 'xCodigo' for preenchida.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">listaImagens</td>
+<td class="parameter-type"><a href="#listaImagensArray">listaImagensArray</a></td><td class="parameter-docs"><div class="first">Lista de imagens do produto.</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="listaEstoque" class="anchorScroll"></a>
+<h3>listaEstoque</h3>
+<p>Exibe os totais de estoque do produto.</p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">nIdlocal</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código do local do estoque.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nFisico</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Indica a quantidade física em estoque para o produto.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nReservado</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Indica a quantidade reservada do estoque para o produto.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nPrevisaoSaida</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Indica a quantidade prevista de saída do produto.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nPrevisaoEntrada</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Indica a quantidade prevista de entrada do produto.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nDisponivel</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Indica a quantidade disponivel de estoque do produto.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nCMC</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Valor do CMC da Estoque do produto.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nPrecoUnitario</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Preço Unitário de venda.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nPrecoUltComp</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Preço unitário da última compra do produto.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">dDtUltComp</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Data da última compra do produto.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">nEstoqueMinimo</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Estoque mínimo para o produto.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cIcone</td>
+<td class="parameter-type">string<span class="parameter-lenght">100</span></td><td class="parameter-docs"><div class="first">Unicode do Ícone.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCor</td>
+<td class="parameter-type">string<span class="parameter-lenght">100</span></td><td class="parameter-docs"><div class="first">Hexadecimal da cor.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cDescricaoLocal</td>
+<td class="parameter-type">string<span class="parameter-lenght">250</span></td><td class="parameter-docs"><div class="first">Descrição do local de estoque.</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="listaEstoqueArray" class="anchorScroll"></a>
+<h3>listaEstoqueArray</h3>
+<p>Este par&acirc;metro &eacute; um array do tipo <span class="pre"><a href="#listaEstoque"><span class="lightBlue">listaEstoque</span></a></span></p>
+<p>Lista de listaEstoque</p>
+</div>
+<div class="complexTypeItem">
+<a name="listaImagens" class="anchorScroll"></a>
+<h3>listaImagens</h3>
+<p>Lista de imagens do produto.</p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">cUrlImagem</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">URL da Imagem do produto.</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="listaImagensArray" class="anchorScroll"></a>
+<h3>listaImagensArray</h3>
+<p>Este par&acirc;metro &eacute; um array do tipo <span class="pre"><a href="#listaImagens"><span class="lightBlue">listaImagens</span></a></span></p>
+<p>Lista de listaImagens</p>
+</div>
+<div class="complexTypeItem">
+<a name="listaProduto" class="anchorScroll"></a>
+<h3>listaProduto</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">nIdProduto</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código do produto.</div><div class="more"><a href="javascript:void(0)">+</a><div>(Gerado internamente, não é visualizado na tela)<BR><BR><BR>Preenchimento Opcional.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCodigo</td>
+<td class="parameter-type">string<span class="parameter-lenght">60</span></td><td class="parameter-docs"><div class="first">Código do Produto.</div><div class="more"><a href="javascript:void(0)">+</a><div>(É o código do produto que é exibido na tela do Omie.)<BR><BR>Preenchimento Opcional.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cDescricao</td>
+<td class="parameter-type">string<span class="parameter-lenght">120</span></td><td class="parameter-docs"><div class="first">Descrição do produto.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cEAN</td>
+<td class="parameter-type">string<span class="parameter-lenght">14</span></td><td class="parameter-docs"><div class="first">Código EAN (GTIN - Global Trade Item Number).</div><div class="more"><a href="javascript:void(0)">+</a><div><BR>Preenchimento Opcional.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cNCM</td>
+<td class="parameter-type">string<span class="parameter-lenght">13</span></td><td class="parameter-docs"><div class="first">Código da Nomenclatura Comum do Mercosul (NCM).</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cUnidade</td>
+<td class="parameter-type">string<span class="parameter-lenght">6</span></td><td class="parameter-docs"><div class="first">Código da Unidade.</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="omie_fail" class="anchorScroll"></a>
+<h3>omie_fail</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">code</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Codigo do erro</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">description</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Descricao do erro</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-required">referer</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Origem do erro</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-required">fatal</td>
+<td class="parameter-type">boolean</td><td class="parameter-docs"><div class="first">Indica se eh um erro fatal</div></td>
+<tr>
+</table>
+</div>
+</div>
+<div class="col-md-3">
+<div id="affix-menu" data-spy="affix" data-offset-top="294">
+<h2>M&eacute;todos</h2>
+<nav id="index" class="hidden-print hidden-xs hidden-sm">
+<ul class="nav">
+<li><a href="#ObterEstoqueProduto">ObterEstoqueProduto</a></li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+</body>
+</html>

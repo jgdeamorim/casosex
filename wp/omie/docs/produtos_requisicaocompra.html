@@ -1,0 +1,468 @@
+<nav class="navbar navbar-expand-lg bg-azul">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="https://developer.omie.com.br/">
+            <img class="lozad img-logo" data-src="https://static.omie.com.br/images/logo/logo-omie-topo.png" src="https://static.omie.com.br/images/logo/logo-omie-topo.png" data-loaded="true">
+        </a>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <span class="borda-hover"></span>
+                    <a class="nav-link" href="https://developer.omie.com.br/my-apps/"> Aplicativos </a>
+                </li>
+                <li class="nav-item ">
+                    <span class="borda-hover"></span>
+                    <a class="nav-link" href="https://developer.omie.com.br/service-list/">
+                        Lista das API's
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <span class="borda-hover"></span>
+                    <a class="nav-link" href="https://ajuda.omie.com.br/pt-BR/collections/3045828-apis" target="_blank"> Ajuda </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<html>
+<head>
+<title>RequisicaoCompra</title>
+<style type="text/css" media="all">
+  [id] { scroll-margin-top: 68px; }
+</style>
+<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+<script src="https://cdn.omie.com.br/omie-assets/js/omie-compat-v2.min.js"></script>
+<script src="/developer/themes/omie/developer.js?ts=2021.008"></script>
+<link rel="stylesheet" href="//app.omie.com.br/wp-content/themes/omie/bootstrap/css/bootstrap.min.css" async/>
+<link href="https://cdn.omie.com.br/assets/developer/css/site.css?ts=2021.008" media="all" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="/developer/themes/omie/developer.css?ts=2021.008" async/>
+</head>
+<body>
+<div class="jumbotron banner bg-azul">
+<div class="container">
+<img src="https://cdn.omie.com.br/assets/developer/images/seta-azuis.png" alt="" class="img-setas">
+<div class="row align-items-center">
+<div class="col-12">
+<h1>RequisicaoCompra</h1>
+<ul class="nav nav-tabs" role="tablist">
+  <li role="presentation" class="active"><a href="#section-endpoint" aria-controls="section-endpoint" role="tab" data-toggle="tab">Endpoint</a></li>
+  <li role="presentation" class="pull-right"><a href="#section-wsdl" aria-controls="section-wsdl" role="tab" data-toggle="tab">WSDL</a></li>
+  <li role="presentation" class="pull-right"><a href="#section-php-soap" aria-controls="section-php-soap" role="tab" data-toggle="tab">PHP SOAP</a></li>
+  <li role="presentation" class="pull-right"><a href="#section-json" aria-controls="section-json" role="tab" data-toggle="tab">JSON</a></li>
+</ul>
+<div class="tab-content">
+  <div role="tabpanel" class="tab-pane fade in active" id="section-endpoint">
+    <h4>Endpoint URI</h4>
+    <a class="highlight" href="https://app.omie.com.br/api/v1/produtos/requisicaocompra/"><pre><code>https://app.omie.com.br/api/v1/produtos/requisicaocompra/</code></pre></a>
+  </div>
+  <div role="tabpanel" class="tab-pane fade" id="section-wsdl">
+    <h4>WSDL URI</h4>
+    <a class="highlight" href="https://app.omie.com.br/api/v1/produtos/requisicaocompra/?WSDL"><pre><code>https://app.omie.com.br/api/v1/produtos/requisicaocompra/?WSDL</code></pre></a>
+  </div>
+  <div role="tabpanel" class="tab-pane fade" id="section-php-soap">
+    <h4>PHP SOAP client download</h4>
+    <a class="highlight" href="https://app.omie.com.br/api/v1/produtos/requisicaocompra/?PHPSOAPCLIENT""><pre><code>https://app.omie.com.br/api/v1/produtos/requisicaocompra/?PHPSOAPCLIENT</code></pre></a>
+  </div>
+  <div role="tabpanel" class="tab-pane fade" id="section-json">
+    <h4>JSON client download URI</h4>
+    <h5>PHP</h5>
+    <a class="highlight" href="https://app.omie.com.br/api/v1/produtos/requisicaocompra/?PHPJSONCLIENT"><pre><code>https://app.omie.com.br/api/v1/produtos/requisicaocompra/?PHPJSONCLIENT</code></pre></a>
+    <h5>JavaScript (recomendado para uso apenas do lado do servidor)</h5>
+    <a class="highlight" href="https://app.omie.com.br/api/v1/produtos/requisicaocompra/?JSJSONCLIENT"><pre><code>https://app.omie.com.br/api/v1/produtos/requisicaocompra/?JSJSONCLIENT</code></pre></a>
+  </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="container">
+<div class="row">
+<div class="col-md-9">
+<h2>M&eacute;todos</h2>
+<p>Veja abaixo a documenta&ccedil;&atilde;o de cada m&eacute;todo dispon&iacute;vel para este servi&ccedil;o.</p>
+<div id="AlterarReq" class="methodItem">
+<h3 class="method-name">AlterarReq</h3>
+<p>
+
+</p>
+<div class="panel panel-default method">
+<div class="panel-heading"> Par&acirc;metros:
+</div>
+<table class="table table-condensed table-hover">
+<tr>
+<td class="">&nbsp;</td>
+<td class="method-parameter-type"><a href="#requisicaoCadastro">requisicaoCadastro</a></td>
+<td class="method-parameter-name">requisicaoCadastro</td><td class="method-parameter-docs"><div class="first">Cadastro de Requisição de Compras&nbsp;</div></td>
+</tr>
+</table>
+<div class="panel-footer">
+Retorno <span class="pre"><a href="#rcStatus"><span class="lightBlue">rcStatus</span></a></span>: 
+</div>
+</div>
+<div class="method-example-area">
+<h5>Exemplo:</h5>
+<pre class="method-example-code">{<BR>      "codCateg": "2.04.06",<BR>      "codIntReqCompra": "INT001",<BR>      "codProj": 0,<BR>      "codReqCompra": 0,<BR>      "dtSugestao": "01/09/2026",<BR>      "obsIntReqCompra": "",<BR>      "obsReqCompra": "",<BR><BR>      "ItensReqCompra": [<BR>         {<BR>            "codIntItem": "                    ",<BR>            "codIntProd": "",<BR>            "codItem": 200000003040063,<BR>            "codProd": 993848,<BR>            "obsItem": "",<BR>            "precoUnit": 12,<BR>            "qtde": 1<BR>         }<BR>      ]<BR>}</pre>
+<button class="btn btn-success method-example" data-method="AlterarReq" data-example="%7B++++++%22codCateg%22%3A+%222.04.06%22%2C++++++%22codIntReqCompra%22%3A+%22INT001%22%2C++++++%22codProj%22%3A+0%2C++++++%22codReqCompra%22%3A+0%2C++++++%22dtSugestao%22%3A+%2201%2F09%2F2026%22%2C++++++%22obsIntReqCompra%22%3A+%22%22%2C++++++%22obsReqCompra%22%3A+%22%22%2C++++++%22ItensReqCompra%22%3A+%5B+++++++++%7B++++++++++++%22codIntItem%22%3A+%22++++++++++++++++++++%22%2C++++++++++++%22codIntProd%22%3A+%22%22%2C++++++++++++%22codItem%22%3A+200000003040063%2C++++++++++++%22codProd%22%3A+993848%2C++++++++++++%22obsItem%22%3A+%22%22%2C++++++++++++%22precoUnit%22%3A+12%2C++++++++++++%22qtde%22%3A+1+++++++++%7D++++++%5D%7D">Teste agora mesmo</button>
+</div>
+</div>
+<div id="ConsultarReq" class="methodItem">
+<h3 class="method-name">ConsultarReq</h3>
+<p>
+
+</p>
+<div class="panel panel-default method">
+<div class="panel-heading"> Par&acirc;metros:
+</div>
+<table class="table table-condensed table-hover">
+<tr>
+<td class="">&nbsp;</td>
+<td class="method-parameter-type"><a href="#rcChave">rcChave</a></td>
+<td class="method-parameter-name">rcChave</td><td class="method-parameter-docs"><div class="first">Dados para pesquisa da Requisição de Compras&nbsp;</div></td>
+</tr>
+</table>
+<div class="panel-footer">
+Retorno <span class="pre"><a href="#requisicaoCadastro"><span class="lightBlue">requisicaoCadastro</span></a></span>: 
+</div>
+</div>
+<div class="method-example-area">
+<h5>Exemplo:</h5>
+<pre class="method-example-code">{ <BR>   "codIntReqCompra": "INT001",<BR>   "codReqCompra": 0<BR>}</pre>
+<button class="btn btn-success method-example" data-method="ConsultarReq" data-example="%7B++++%22codIntReqCompra%22%3A+%22INT001%22%2C+++%22codReqCompra%22%3A+0%7D">Teste agora mesmo</button>
+</div>
+</div>
+<div id="ExcluirReq" class="methodItem">
+<h3 class="method-name">ExcluirReq</h3>
+<p>
+
+</p>
+<div class="panel panel-default method">
+<div class="panel-heading"> Par&acirc;metros:
+</div>
+<table class="table table-condensed table-hover">
+<tr>
+<td class="">&nbsp;</td>
+<td class="method-parameter-type"><a href="#rcChave">rcChave</a></td>
+<td class="method-parameter-name">rcChave</td><td class="method-parameter-docs"><div class="first">Dados para pesquisa da Requisição de Compras&nbsp;</div></td>
+</tr>
+</table>
+<div class="panel-footer">
+Retorno <span class="pre"><a href="#rcStatus"><span class="lightBlue">rcStatus</span></a></span>: 
+</div>
+</div>
+<div class="method-example-area">
+<h5>Exemplo:</h5>
+<pre class="method-example-code">{<BR>      "codIntReqCompra": "INT001",<BR>      "codReqCompra": 0<BR>}<BR></pre>
+<button class="btn btn-success method-example" data-method="ExcluirReq" data-example="%7B++++++%22codIntReqCompra%22%3A+%22INT001%22%2C++++++%22codReqCompra%22%3A+0%7D">Teste agora mesmo</button>
+</div>
+</div>
+<div id="IncluirReq" class="methodItem">
+<h3 class="method-name">IncluirReq</h3>
+<p>
+
+</p>
+<div class="panel panel-default method">
+<div class="panel-heading"> Par&acirc;metros:
+</div>
+<table class="table table-condensed table-hover">
+<tr>
+<td class="">&nbsp;</td>
+<td class="method-parameter-type"><a href="#requisicaoCadastro">requisicaoCadastro</a></td>
+<td class="method-parameter-name">requisicaoCadastro</td><td class="method-parameter-docs"><div class="first">Cadastro de Requisição de Compras&nbsp;</div></td>
+</tr>
+</table>
+<div class="panel-footer">
+Retorno <span class="pre"><a href="#rcStatus"><span class="lightBlue">rcStatus</span></a></span>: 
+</div>
+</div>
+<div class="method-example-area">
+<h5>Exemplo:</h5>
+<pre class="method-example-code">{<BR>      "codCateg": "2.04.06",<BR>      "codIntReqCompra": "INT001",<BR>      "codProj": 0,<BR>      "codReqCompra": 0,<BR>      "dtSugestao": "01/09/2026",<BR>      "obsIntReqCompra": "",<BR>      "obsReqCompra": "",<BR><BR>      "ItensReqCompra": [<BR>         {<BR>            "codIntItem": "                    ",<BR>            "codIntProd": "",<BR>            "codItem": 200000003040063,<BR>            "codProd": 993848,<BR>            "obsItem": "",<BR>            "precoUnit": 12,<BR>            "qtde": 1<BR>         }<BR>      ]<BR>}</pre>
+<button class="btn btn-success method-example" data-method="IncluirReq" data-example="%7B++++++%22codCateg%22%3A+%222.04.06%22%2C++++++%22codIntReqCompra%22%3A+%22INT001%22%2C++++++%22codProj%22%3A+0%2C++++++%22codReqCompra%22%3A+0%2C++++++%22dtSugestao%22%3A+%2201%2F09%2F2026%22%2C++++++%22obsIntReqCompra%22%3A+%22%22%2C++++++%22obsReqCompra%22%3A+%22%22%2C++++++%22ItensReqCompra%22%3A+%5B+++++++++%7B++++++++++++%22codIntItem%22%3A+%22++++++++++++++++++++%22%2C++++++++++++%22codIntProd%22%3A+%22%22%2C++++++++++++%22codItem%22%3A+200000003040063%2C++++++++++++%22codProd%22%3A+993848%2C++++++++++++%22obsItem%22%3A+%22%22%2C++++++++++++%22precoUnit%22%3A+12%2C++++++++++++%22qtde%22%3A+1+++++++++%7D++++++%5D%7D">Teste agora mesmo</button>
+</div>
+</div>
+<div id="PesquisarReq" class="methodItem">
+<h3 class="method-name">PesquisarReq</h3>
+<p>
+
+</p>
+<div class="panel panel-default method">
+<div class="panel-heading"> Par&acirc;metros:
+</div>
+<table class="table table-condensed table-hover">
+<tr>
+<td class="">&nbsp;</td>
+<td class="method-parameter-type"><a href="#rcListarRequest">rcListarRequest</a></td>
+<td class="method-parameter-name">rcListarRequest</td><td class="method-parameter-docs"><div class="first">Solicitação de Listagem de Requisição de Compras</div></td>
+</tr>
+</table>
+<div class="panel-footer">
+Retorno <span class="pre"><a href="#rcListarResponse"><span class="lightBlue">rcListarResponse</span></a></span>: 
+</div>
+</div>
+<div class="method-example-area">
+<h5>Exemplo:</h5>
+<pre class="method-example-code">{<BR>  "pagina": 1,<BR>  "registros_por_pagina": 50<BR>}</pre>
+<button class="btn btn-success method-example" data-method="PesquisarReq" data-example="%7B++%22pagina%22%3A+1%2C++%22registros_por_pagina%22%3A+50%7D">Teste agora mesmo</button>
+</div>
+</div>
+<div id="UpsertReq" class="methodItem">
+<h3 class="method-name">UpsertReq</h3>
+<p>
+
+</p>
+<div class="panel panel-default method">
+<div class="panel-heading"> Par&acirc;metros:
+</div>
+<table class="table table-condensed table-hover">
+<tr>
+<td class="">&nbsp;</td>
+<td class="method-parameter-type"><a href="#requisicaoCadastro">requisicaoCadastro</a></td>
+<td class="method-parameter-name">requisicaoCadastro</td><td class="method-parameter-docs"><div class="first">Cadastro de Requisição de Compras&nbsp;</div></td>
+</tr>
+</table>
+<div class="panel-footer">
+Retorno <span class="pre"><a href="#rcStatus"><span class="lightBlue">rcStatus</span></a></span>: 
+</div>
+</div>
+<div class="method-example-area">
+<h5>Exemplo:</h5>
+<pre class="method-example-code">{<BR>      "codCateg": "2.04.06",<BR>      "codIntReqCompra": "INT001",<BR>      "codProj": 0,<BR>      "codReqCompra": 0,<BR>      "dtSugestao": "01/09/2026",<BR>      "obsIntReqCompra": "",<BR>      "obsReqCompra": "",<BR><BR>      "ItensReqCompra": [<BR>         {<BR>            "codIntItem": "                    ",<BR>            "codIntProd": "",<BR>            "codItem": 200000003040063,<BR>            "codProd": 993848,<BR>            "obsItem": "",<BR>            "precoUnit": 12,<BR>            "qtde": 1<BR>         }<BR>      ]<BR>}</pre>
+<button class="btn btn-success method-example" data-method="UpsertReq" data-example="%7B++++++%22codCateg%22%3A+%222.04.06%22%2C++++++%22codIntReqCompra%22%3A+%22INT001%22%2C++++++%22codProj%22%3A+0%2C++++++%22codReqCompra%22%3A+0%2C++++++%22dtSugestao%22%3A+%2201%2F09%2F2026%22%2C++++++%22obsIntReqCompra%22%3A+%22%22%2C++++++%22obsReqCompra%22%3A+%22%22%2C++++++%22ItensReqCompra%22%3A+%5B+++++++++%7B++++++++++++%22codIntItem%22%3A+%22++++++++++++++++++++%22%2C++++++++++++%22codIntProd%22%3A+%22%22%2C++++++++++++%22codItem%22%3A+200000003040063%2C++++++++++++%22codProd%22%3A+993848%2C++++++++++++%22obsItem%22%3A+%22%22%2C++++++++++++%22precoUnit%22%3A+12%2C++++++++++++%22qtde%22%3A+1+++++++++%7D++++++%5D%7D">Teste agora mesmo</button>
+</div>
+</div>
+<h2>Tipos Complexos</h2>
+<div class="complexTypeItem">
+<a name="ItensReqCompra" class="anchorScroll"></a>
+<h3>ItensReqCompra</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">codItem</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código do Item da Requisição de Compras</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">codIntItem</td>
+<td class="parameter-type">string<span class="parameter-lenght">20</span></td><td class="parameter-docs"><div class="first">Código de integração do Item da requisição de Compra.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">codProd</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código do Produto</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">codIntProd</td>
+<td class="parameter-type">string<span class="parameter-lenght">60</span></td><td class="parameter-docs"><div class="first">Código do Integração do Produto</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">qtde</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Quantidade</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">precoUnit</td>
+<td class="parameter-type">decimal</td><td class="parameter-docs"><div class="first">Preço unitário sugerido</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">obsItem</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Observações do item,</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="ItensReqCompraArray" class="anchorScroll"></a>
+<h3>ItensReqCompraArray</h3>
+<p>Este par&acirc;metro &eacute; um array do tipo <span class="pre"><a href="#ItensReqCompra"><span class="lightBlue">ItensReqCompra</span></a></span></p>
+<p>Lista de ItensReqCompra</p>
+</div>
+<div class="complexTypeItem">
+<a name="omie_fail" class="anchorScroll"></a>
+<h3>omie_fail</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">code</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Codigo do erro</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">description</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Descricao do erro</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-required">referer</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Origem do erro</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-required">fatal</td>
+<td class="parameter-type">boolean</td><td class="parameter-docs"><div class="first">Indica se eh um erro fatal</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="rcChave" class="anchorScroll"></a>
+<h3>rcChave</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">codReqCompra</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código da Requisição de Compras</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">codIntReqCompra</td>
+<td class="parameter-type">string<span class="parameter-lenght">20</span></td><td class="parameter-docs"><div class="first">Código de integração da requisição de Compra.</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="rcListarRequest" class="anchorScroll"></a>
+<h3>rcListarRequest</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">pagina</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Número da página que será listada.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">registros_por_pagina</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Número de registros retornados</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">apenas_importado_api</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Exibir apenas os registros gerados pela API</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">ordenar_por</td>
+<td class="parameter-type">string<span class="parameter-lenght">100</span></td><td class="parameter-docs"><div class="first">Ordenar o resultado da página por:</div><div class="more"><a href="javascript:void(0)">+</a><div>CODIGO - Código do lançamento do Omie;<BR>INTEGRACAO - Código do lançamento interno do seu sistema;<BR>DATA_LANCAMENTO - Data do lançamento.</div></div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">ordem_descrescente</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Indica se a ordem de exibição é decrescente caso seja informado "S".</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">filtrar_por_data_de</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Filtrar lançamentos incluídos e/ou alterados até a data</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">filtrar_por_data_ate</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Filtrar lançamentos incluídos e/ou alterados até a data</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">filtrar_apenas_inclusao</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Filtrar apenas registros incluídos (S/N)</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">filtrar_apenas_alteracao</td>
+<td class="parameter-type">string<span class="parameter-lenght">1</span></td><td class="parameter-docs"><div class="first">Filtrar apenas registros alterados (S/N)</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="rcListarResponse" class="anchorScroll"></a>
+<h3>rcListarResponse</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">pagina</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Número da página que será listada.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">total_de_paginas</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Total de páginas encontradas.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">registros</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Número de registros retornados</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">total_de_registros</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Total de registros encontrados.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">requisicaoCadastro</td>
+<td class="parameter-type"><a href="#requisicaoCadastroArray">requisicaoCadastroArray</a></td><td class="parameter-docs"><div class="first">Cadastro de Requisição de Compras&nbsp;</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="rcStatus" class="anchorScroll"></a>
+<h3>rcStatus</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">codReqCompra</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código da Requisição de Compras</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">codIntReqCompra</td>
+<td class="parameter-type">string<span class="parameter-lenght">60</span></td><td class="parameter-docs"><div class="first">Código de Integração da Requisição de Compras</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cCodStatus</td>
+<td class="parameter-type">string<span class="parameter-lenght">4</span></td><td class="parameter-docs"><div class="first">Código do Status</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">cDesStatus</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Descrição do Status da Remessa</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="requisicaoCadastro" class="anchorScroll"></a>
+<h3>requisicaoCadastro</h3>
+<p></p>
+<table class="table table-hover table-condensed">
+<tr>
+<td class="parameter-name parameter-optional">codReqCompra</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código da Requisição de Compras</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">codIntReqCompra</td>
+<td class="parameter-type">string<span class="parameter-lenght">20</span></td><td class="parameter-docs"><div class="first">Código de integração da requisição de Compra.</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">codCateg</td>
+<td class="parameter-type">string<span class="parameter-lenght">20</span></td><td class="parameter-docs"><div class="first">Código da Categoria</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">codProj</td>
+<td class="parameter-type">integer</td><td class="parameter-docs"><div class="first">Código do Projeto</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">dtSugestao</td>
+<td class="parameter-type">string<span class="parameter-lenght">10</span></td><td class="parameter-docs"><div class="first">Data de Sugestão de Entrega</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">obsReqCompra</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Preencha aqui as observações desta requisição (elas serão impressas na carta de cotação para o fornecedor)</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">obsIntReqCompra</td>
+<td class="parameter-type">text</td><td class="parameter-docs"><div class="first">Preencha aqui as observações internas desta requisição (elas serão exibidas apenas aqui)</div></td>
+<tr>
+<tr>
+<td class="parameter-name parameter-optional">ItensReqCompra</td>
+<td class="parameter-type"><a href="#ItensReqCompraArray">ItensReqCompraArray</a></td><td class="parameter-docs"><div class="first">Itens da Requisição de Compras</div></td>
+<tr>
+</table>
+</div>
+<div class="complexTypeItem">
+<a name="requisicaoCadastroArray" class="anchorScroll"></a>
+<h3>requisicaoCadastroArray</h3>
+<p>Este par&acirc;metro &eacute; um array do tipo <span class="pre"><a href="#requisicaoCadastro"><span class="lightBlue">requisicaoCadastro</span></a></span></p>
+<p>Lista de requisicaoCadastro</p>
+</div>
+</div>
+<div class="col-md-3">
+<div id="affix-menu" data-spy="affix" data-offset-top="294">
+<h2>M&eacute;todos</h2>
+<nav id="index" class="hidden-print hidden-xs hidden-sm">
+<ul class="nav">
+<li><a href="#AlterarReq">AlterarReq</a></li>
+<li><a href="#ConsultarReq">ConsultarReq</a></li>
+<li><a href="#ExcluirReq">ExcluirReq</a></li>
+<li><a href="#IncluirReq">IncluirReq</a></li>
+<li><a href="#PesquisarReq">PesquisarReq</a></li>
+<li><a href="#UpsertReq">UpsertReq</a></li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+</body>
+</html>
