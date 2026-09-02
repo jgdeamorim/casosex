@@ -1,0 +1,508 @@
+{
+  "pagina": 1,
+  "total_de_paginas": 1,
+  "registros": 9,
+  "total_de_registros": 9,
+  "clientes_cadastro": [
+    {
+      "bairro": "",
+      "bloquear_faturamento": "N",
+      "cep": "13400000",
+      "cidade": "CAMPINAS (SP)",
+      "cidade_ibge": "3509502",
+      "cnpj_cpf": "57.351.558/0001-39",
+      "codigo_cliente_integracao": "57.351.558/0001-39",
+      "codigo_cliente_omie": 5961954093,
+      "codigo_pais": "1058",
+      "complemento": "",
+      "contato": "Roger",
+      "dadosBancarios": {
+        "agencia": "",
+        "cChavePix": "",
+        "codigo_banco": "",
+        "conta_corrente": "",
+        "doc_titular": "",
+        "nome_titular": "",
+        "transf_padrao": "N"
+      },
+      "endereco": "",
+      "enderecoEntrega": {},
+      "endereco_numero": "1",
+      "enviar_anexos": "N",
+      "estado": "SP",
+      "exterior": "N",
+      "inativo": "N",
+      "info": {
+        "cImpAPI": "N",
+        "dAlt": "01/09/2026",
+        "dInc": "01/09/2026",
+        "hAlt": "20:37:29",
+        "hInc": "20:37:18",
+        "uAlt": "P001571488",
+        "uInc": "P001571488"
+      },
+      "inscricao_estadual": "",
+      "inscricao_municipal": "",
+      "nome_fantasia": "Papelaria e Livraria Rápida",
+      "pessoa_fisica": "N",
+      "razao_social": "Papelaria e Livraria Rápida Ltda",
+      "recomendacoes": {
+        "gerar_boletos": "N"
+      },
+      "tags": [
+        {
+          "tag": "Cliente"
+        },
+        {
+          "tag": "Fornecedor"
+        }
+      ],
+      "telefone1_ddd": "11",
+      "telefone1_numero": "3775-7888"
+    },
+    {
+      "bairro": "Ipiranga",
+      "bloquear_faturamento": "N",
+      "cep": "04567100",
+      "cidade": "SAO PAULO (SP)",
+      "cidade_ibge": "3550308",
+      "cnpj_cpf": "65.654.303/0001-73",
+      "codigo_cliente_integracao": "65.654.303/0001-73",
+      "codigo_cliente_omie": 5961954095,
+      "codigo_pais": "1058",
+      "complemento": "Galpão 2",
+      "contato": "Fernando Siqueira",
+      "dadosBancarios": {
+        "agencia": "",
+        "cChavePix": "",
+        "codigo_banco": "",
+        "conta_corrente": "",
+        "doc_titular": "",
+        "nome_titular": "",
+        "transf_padrao": "N"
+      },
+      "email": "seuemail@empresa.com.br",
+      "endereco": "Rua Presidente Wilson",
+      "enderecoEntrega": {},
+      "endereco_numero": "3500",
+      "enviar_anexos": "N",
+      "estado": "SP",
+      "exterior": "N",
+      "homepage": "www.industriamalhas.com.br",
+      "inativo": "N",
+      "info": {
+        "cImpAPI": "N",
+        "dAlt": "01/09/2026",
+        "dInc": "01/09/2026",
+        "hAlt": "20:37:30",
+        "hInc": "20:37:18",
+        "uAlt": "P001571488",
+        "uInc": "P001571488"
+      },
+      "inscricao_estadual": "",
+      "inscricao_municipal": "",
+      "nome_fantasia": "Indústria de Malhas",
+      "pessoa_fisica": "N",
+      "razao_social": "Indústria de Malhas",
+      "recomendacoes": {
+        "gerar_boletos": "N"
+      },
+      "tags": [
+        {
+          "tag": "Cliente"
+        },
+        {
+          "tag": "Fornecedor"
+        }
+      ],
+      "telefone1_ddd": "11",
+      "telefone1_numero": "3775-7888"
+    },
+    {
+      "bairro": "Jardim Olinda",
+      "bloquear_faturamento": "N",
+      "cep": "13330123",
+      "cidade": "INDAIATUBA (SP)",
+      "cidade_ibge": "3520509",
+      "cnpj_cpf": "000.000.000-00",
+      "codigo_cliente_integracao": "000.000.000-00",
+      "codigo_cliente_omie": 5961954096,
+      "codigo_pais": "1058",
+      "complemento": "",
+      "contato": "Rodrigo",
+      "dadosBancarios": {
+        "agencia": "",
+        "cChavePix": "",
+        "codigo_banco": "",
+        "conta_corrente": "",
+        "doc_titular": "",
+        "nome_titular": "",
+        "transf_padrao": "N"
+      },
+      "email": "seuemail@empresa.com.br",
+      "endereco": "Rua Tomás de Aquino",
+      "enderecoEntrega": {},
+      "endereco_numero": "560",
+      "enviar_anexos": "N",
+      "estado": "SP",
+      "exterior": "N",
+      "inativo": "N",
+      "info": {
+        "cImpAPI": "N",
+        "dAlt": "01/09/2026",
+        "dInc": "01/09/2026",
+        "hAlt": "20:37:30",
+        "hInc": "20:37:18",
+        "uAlt": "P001571488",
+        "uInc": "P001571488"
+      },
+      "inscricao_estadual": "",
+      "inscricao_municipal": "",
+      "nome_fantasia": "Cerealista Alimentos",
+      "pessoa_fisica": "S",
+      "razao_social": "Cerealista Indústria e Comércio de Alimentos Ltda",
+      "recomendacoes": {
+        "gerar_boletos": "N"
+      },
+      "tags": [
+        {
+          "tag": "Cliente"
+        },
+        {
+          "tag": "Fornecedor"
+        }
+      ],
+      "telefone1_ddd": "11",
+      "telefone1_numero": "3775-7888"
+    },
+    {
+      "bairro": "Jardim Olinda",
+      "bloquear_faturamento": "N",
+      "cep": "",
+      "cidade": "",
+      "cidade_ibge": "",
+      "cnpj_cpf": "",
+      "codigo_cliente_integracao": "000.000.000-00",
+      "codigo_cliente_omie": 5961954097,
+      "codigo_pais": "2496",
+      "complemento": "",
+      "contato": "Paulo",
+      "dadosBancarios": {
+        "agencia": "",
+        "cChavePix": "",
+        "codigo_banco": "",
+        "conta_corrente": "",
+        "doc_titular": "",
+        "nome_titular": "",
+        "transf_padrao": "N"
+      },
+      "email": "seuemail@empresa.com.br",
+      "endereco": "Rua Tomás de Aquino",
+      "enderecoEntrega": {},
+      "endereco_numero": "506",
+      "enviar_anexos": "N",
+      "estado": "EX",
+      "exterior": "S",
+      "inativo": "N",
+      "info": {
+        "cImpAPI": "N",
+        "dAlt": "01/09/2026",
+        "dInc": "01/09/2026",
+        "hAlt": "20:37:30",
+        "hInc": "20:37:18",
+        "uAlt": "P001571488",
+        "uInc": "P001571488"
+      },
+      "inscricao_estadual": "",
+      "inscricao_municipal": "",
+      "nome_fantasia": "EquiServ Informática",
+      "pessoa_fisica": "N",
+      "razao_social": "Equipamentos e Serviços em Informática Ltda",
+      "recomendacoes": {
+        "gerar_boletos": "N"
+      },
+      "tags": [
+        {
+          "tag": "Cliente"
+        }
+      ],
+      "telefone1_ddd": "11",
+      "telefone1_numero": "3775.7888"
+    },
+    {
+      "bairro": "",
+      "bloquear_faturamento": "N",
+      "cep": "",
+      "cidade": "RIO DE JANEIRO (RJ)",
+      "cidade_ibge": "3304557",
+      "cnpj_cpf": "",
+      "codigo_cliente_integracao": "",
+      "codigo_cliente_omie": 5961954098,
+      "codigo_pais": "1058",
+      "complemento": "",
+      "contato": "Júnior",
+      "dadosBancarios": {
+        "agencia": "",
+        "cChavePix": "",
+        "codigo_banco": "",
+        "conta_corrente": "",
+        "doc_titular": "",
+        "nome_titular": "",
+        "transf_padrao": "N"
+      },
+      "email": "veiculos@ideal.com.br",
+      "endereco": "",
+      "enderecoEntrega": {},
+      "endereco_numero": "",
+      "enviar_anexos": "N",
+      "estado": "RJ",
+      "exterior": "N",
+      "inativo": "N",
+      "info": {
+        "cImpAPI": "N",
+        "dAlt": "01/09/2026",
+        "dInc": "01/09/2026",
+        "hAlt": "20:37:30",
+        "hInc": "20:37:18",
+        "uAlt": "P001571488",
+        "uInc": "P001571488"
+      },
+      "inscricao_estadual": "",
+      "inscricao_municipal": "",
+      "nome_fantasia": "Veículos Ideal",
+      "pessoa_fisica": "N",
+      "razao_social": "Concessionária de Veículos Ideal Ltda",
+      "recomendacoes": {
+        "gerar_boletos": "N"
+      },
+      "tags": [
+        {
+          "tag": "Cliente"
+        },
+        {
+          "tag": "Fornecedor"
+        }
+      ],
+      "telefone1_ddd": "11",
+      "telefone1_numero": "3775.7888"
+    },
+    {
+      "bairro": "Vila Brizzola",
+      "bloquear_faturamento": "N",
+      "cep": "13343400",
+      "cidade": "INDAIATUBA (SP)",
+      "cidade_ibge": "3520509",
+      "cnpj_cpf": "43.306.831/0001-07",
+      "codigo_cliente_integracao": "43.306.831/0001-07",
+      "codigo_cliente_omie": 5961954099,
+      "codigo_pais": "1058",
+      "complemento": "",
+      "contato": "Pedro",
+      "dadosBancarios": {
+        "agencia": "",
+        "cChavePix": "",
+        "codigo_banco": "",
+        "conta_corrente": "",
+        "doc_titular": "",
+        "nome_titular": "",
+        "transf_padrao": "N"
+      },
+      "email": "seuemail@empresa.com.br",
+      "endereco": "Rua Primo José Mattioni",
+      "enderecoEntrega": {},
+      "endereco_numero": "123",
+      "enviar_anexos": "N",
+      "estado": "SP",
+      "exterior": "N",
+      "inativo": "N",
+      "info": {
+        "cImpAPI": "N",
+        "dAlt": "01/09/2026",
+        "dInc": "01/09/2026",
+        "hAlt": "20:37:30",
+        "hInc": "20:37:18",
+        "uAlt": "P001571488",
+        "uInc": "P001571488"
+      },
+      "inscricao_estadual": "",
+      "inscricao_municipal": "",
+      "nome_fantasia": "Construtora e Incorporadora",
+      "pessoa_fisica": "N",
+      "razao_social": "Construtora e Incorporadora de Imóveis S/A",
+      "recomendacoes": {
+        "gerar_boletos": "N"
+      },
+      "tags": [
+        {
+          "tag": "Cliente"
+        },
+        {
+          "tag": "Fornecedor"
+        }
+      ],
+      "telefone1_ddd": "11",
+      "telefone1_numero": "3775-7888"
+    },
+    {
+      "bairro": "Centro",
+      "bloquear_faturamento": "N",
+      "cep": "05123120",
+      "cidade": "SAO PAULO (SP)",
+      "cidade_ibge": "3550308",
+      "cnpj_cpf": "44.480.747/0001-60",
+      "codigo_cliente_integracao": "44.480.747/0001-60",
+      "codigo_cliente_omie": 5961954100,
+      "codigo_pais": "1058",
+      "complemento": "Sala 3",
+      "dadosBancarios": {
+        "agencia": "",
+        "cChavePix": "",
+        "codigo_banco": "",
+        "conta_corrente": "",
+        "doc_titular": "",
+        "nome_titular": "",
+        "transf_padrao": "N"
+      },
+      "email": "seuemail@empresa.com.br",
+      "endereco": "Rua do Aprendiz",
+      "enderecoEntrega": {},
+      "endereco_numero": "1000",
+      "enviar_anexos": "N",
+      "estado": "SP",
+      "exterior": "N",
+      "homepage": "www.aprenderidiomas.com.br",
+      "inativo": "N",
+      "info": {
+        "cImpAPI": "N",
+        "dAlt": "01/09/2026",
+        "dInc": "01/09/2026",
+        "hAlt": "20:37:30",
+        "hInc": "20:37:18",
+        "uAlt": "P001571488",
+        "uInc": "P001571488"
+      },
+      "inscricao_estadual": "109269323113",
+      "inscricao_municipal": "",
+      "nome_fantasia": "Aprender Escola de Idiomas",
+      "pessoa_fisica": "N",
+      "razao_social": "Aprender Escola de Idiomas",
+      "recomendacoes": {
+        "gerar_boletos": "N"
+      },
+      "tags": [
+        {
+          "tag": "Cliente"
+        }
+      ],
+      "telefone1_ddd": "11",
+      "telefone1_numero": "3775-7888"
+    },
+    {
+      "bairro": "Vila Olímpia",
+      "bloquear_faturamento": "N",
+      "cep": "04547006",
+      "cidade": "SAO PAULO (SP)",
+      "cidade_ibge": "3550308",
+      "cnpj_cpf": "45.558.376/0001-54",
+      "codigo_cliente_integracao": "45.558.376/0001-54",
+      "codigo_cliente_omie": 5961954101,
+      "codigo_pais": "1058",
+      "complemento": "",
+      "contato": "Rosana Vidal",
+      "dadosBancarios": {
+        "agencia": "",
+        "cChavePix": "",
+        "codigo_banco": "",
+        "conta_corrente": "",
+        "doc_titular": "",
+        "nome_titular": "",
+        "transf_padrao": "N"
+      },
+      "email": "info@projetosesoluoes.com.br",
+      "endereco": "Rua Gomes de Carvalho",
+      "enderecoEntrega": {},
+      "endereco_numero": "1666",
+      "enviar_anexos": "N",
+      "estado": "SP",
+      "exterior": "N",
+      "homepage": "www.projetosesoluoes.com.br",
+      "inativo": "N",
+      "info": {
+        "cImpAPI": "N",
+        "dAlt": "01/09/2026",
+        "dInc": "01/09/2026",
+        "hAlt": "20:37:30",
+        "hInc": "20:37:18",
+        "uAlt": "P001571488",
+        "uInc": "P001571488"
+      },
+      "inscricao_estadual": "109609904110",
+      "inscricao_municipal": "",
+      "nome_fantasia": "Projetos e Soluções em TI",
+      "pessoa_fisica": "N",
+      "razao_social": "Projetos e Soluções em TI",
+      "recomendacoes": {
+        "gerar_boletos": "N"
+      },
+      "tags": [
+        {
+          "tag": "Cliente"
+        }
+      ],
+      "telefone1_ddd": "11",
+      "telefone1_numero": "3775-7888"
+    },
+    {
+      "bairro": "",
+      "bloquear_faturamento": "N",
+      "cep": "",
+      "cidade": "",
+      "cidade_ibge": "",
+      "cnpj_cpf": "000.000.000-00",
+      "codigo_cliente_integracao": "_CLIENTE_CONSUMIDOR_",
+      "codigo_cliente_omie": 5961954103,
+      "codigo_pais": "1058",
+      "complemento": "",
+      "dadosBancarios": {
+        "agencia": "",
+        "cChavePix": "",
+        "codigo_banco": "",
+        "conta_corrente": "",
+        "doc_titular": "",
+        "nome_titular": "",
+        "transf_padrao": "N"
+      },
+      "endereco": "",
+      "enderecoEntrega": {},
+      "endereco_numero": "",
+      "enviar_anexos": "N",
+      "estado": "",
+      "exterior": "N",
+      "inativo": "N",
+      "info": {
+        "cImpAPI": "N",
+        "dAlt": "01/09/2026",
+        "dInc": "01/09/2026",
+        "hAlt": "20:37:30",
+        "hInc": "20:37:19",
+        "uAlt": "P001571488",
+        "uInc": "P001571488"
+      },
+      "inscricao_estadual": "",
+      "inscricao_municipal": "",
+      "nome_fantasia": "Cliente Consumidor / Sem Tomador",
+      "optante_simples_nacional": "N",
+      "pessoa_fisica": "S",
+      "razao_social": "Cliente Consumidor / Sem Tomador",
+      "recomendacoes": {
+        "gerar_boletos": "N"
+      },
+      "tags": [
+        {
+          "tag": "Cliente"
+        }
+      ]
+    }
+  ],
+  "cDesStatus": " Elapsed time: 0.07"
+}

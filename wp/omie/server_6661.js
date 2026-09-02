@@ -221,16 +221,32 @@ const server = http.createServer((req, res) => {
     res.writeHead(200, { 'Content-Type': 'application/json' });
     res.end(JSON.stringify(generateCrossMap(), null, 2));
 
-  } else if (url.pathname === '/probe') {
-    const creds = getOmieCredentials();
-    res.writeHead(200, { 'Content-Type': 'application/json' });
-    res.end(JSON.stringify({
-      status: "PASS",
-      credentials_loaded: !!creds,
-      app_key_prefix: creds ? creds.app_key.substring(0, 4) + '***' : null,
-      boa_score: calculateBoaScore()
-    }, null, 2));
+  } else if (url.pathname.startsWith('/api/v1/')) {
+    let body = '';
+    req.on('data', chunk => body += chunk);
+    req.on('end', async () => {
+      try {
+        const creds = getOmieCredentials();
+        const payload = JSON.parse(body || '{}');
+        payload.app_key = creds.app_key;
+        payload.app_secret = creds.app_secret;
 
+        const targetUrl = `https://app.omie.com.br${url.pathname}`;
+        const omieRes = await fetch(targetUrl, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload)
+        });
+
+        const omieData = await omieRes.json();
+        res.writeHead(omieRes.status, { 'Content-Type': 'application/json' });
+        res.end(JSON.stringify(omieData, null, 2));
+      } catch (err) {
+        res.writeHead(500, { 'Content-Type': 'application/json' });
+        res.end(JSON.stringify({ error: err.message }));
+      }
+    });
+    return;
   } else {
     res.writeHead(200, { 'Content-Type': 'application/json' });
     res.end(JSON.stringify({
