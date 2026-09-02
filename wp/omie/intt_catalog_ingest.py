@@ -266,11 +266,16 @@ def ingest_product_to_woocommerce(product_data: dict, wc_url: str = WOOCOMMERCE_
 
     headers = _get_auth_header(ck, cs)
 
-    if existing and "id" in existing:
-        product_id = existing["id"]
-        endpoint = f"{wc_url}/wp-json/wc/v3/products/{product_id}?consumer_key={ck}&consumer_secret={cs}"
+    existing_id = None
+    if isinstance(existing, dict) and existing.get("id"):
+        existing_id = existing["id"]
+    elif isinstance(existing, list) and len(existing) > 0 and isinstance(existing[0], dict) and existing[0].get("id"):
+        existing_id = existing[0]["id"]
+
+    if existing_id:
+        endpoint = f"{wc_url}/wp-json/wc/v3/products/{existing_id}?consumer_key={ck}&consumer_secret={cs}"
         method = "PUT"
-        print(f"[CASOSEX INGEST] Atualizando produto existente ID #{product_id} (SKU: {sku}, Tipo: {payload['type']})")
+        print(f"[CASOSEX INGEST] Atualizando produto existente ID #{existing_id} (SKU: {sku}, Tipo: {payload['type']})")
     else:
         payload["status"] = "pending"
         endpoint = f"{wc_url}/wp-json/wc/v3/products?consumer_key={ck}&consumer_secret={cs}"
@@ -298,7 +303,7 @@ def ingest_product_to_woocommerce(product_data: dict, wc_url: str = WOOCOMMERCE_
             return res
     except Exception as e:
         print(f"[CASOSEX INGEST] Aviso REST API ({e}). Executando Fallback PHP Soberano...")
-        return _ingest_via_php(product_data, existing.get("id"))
+        return _ingest_via_php(product_data, existing_id)
 
 
 def _ingest_variations(parent_id: int, variations: list, wc_url: str, ck: str, cs: str):
@@ -363,6 +368,7 @@ def _ingest_variation_via_php(parent_id: int, var_payload: dict):
     var_sku = var_payload.get("sku", "")
     price = var_payload.get("regular_price", "0")
     stock = var_payload.get("stock_quantity", 0)
+    weight = var_payload.get("weight", "0.05")
     option_val = var_payload["attributes"][0]["option"] if var_payload.get("attributes") else "Opção"
     
     meta_pairs = {m["key"]: m["value"] for m in var_payload.get("meta_data", [])}
@@ -372,12 +378,21 @@ def _ingest_variation_via_php(parent_id: int, var_payload: dict):
 
     php_script = f"""
     require_once('/var/www/html/wp-load.php');
-    $variation = new WC_Product_Variation();
+    $existing_id = wc_get_product_id_by_sku('{var_sku}');
+    if ($existing_id) {{
+        $variation = wc_get_product($existing_id);
+    }} else {{
+        $variation = new WC_Product_Variation();
+    }}
     $variation->set_parent_id({parent_id});
     $variation->set_sku('{var_sku}');
     $variation->set_regular_price('{price}');
     $variation->set_manage_stock(true);
     $variation->set_stock_quantity({stock});
+    $variation->set_weight('{weight}');
+    $variation->set_length('4');
+    $variation->set_width('4');
+    $variation->set_height('12');
     $variation->set_attributes(array('opcao' => '{option_val}'));
     $variation->update_meta_data('_casosex_cost_price', '{cost}');
     $variation->update_meta_data('_cost_of_goods', '{cost}');
@@ -422,7 +437,20 @@ def _ingest_via_php(product_data: dict, product_id: int = None) -> dict:
     variations_data = product_data.get("variations", [])
     is_variable = len(variations_data) > 0
 
-    attr_options = json.dumps([v.get("option_name", v.get("name", f"Opção {i+1}")).strip() for i, v in enumerate(variations_data)])
+    if is_variable:
+        options_list = [v.get("option_name", v.get("name", f"Opção {i+1}")).strip() for i, v in enumerate(variations_data)]
+        options_str = " | ".join(options_list).replace("'", "\\'")
+        attr_php = f"""
+        $attr = new WC_Product_Attribute();
+        $attr->set_name('Opção');
+        $attr->set_options(explode(' | ', '{options_str}'));
+        $attr->set_position(0);
+        $attr->set_visible(true);
+        $attr->set_variation(true);
+        $product->set_attributes(array($attr));
+        """
+    else:
+        attr_php = ""
 
     php_script = f"""
     require_once('/var/www/html/wp-load.php');
@@ -455,7 +483,7 @@ def _ingest_via_php(product_data: dict, product_id: int = None) -> dict:
     }}
     if (!$product) {{
         $product = {'new WC_Product_Variable()' if is_variable else 'new WC_Product_Simple()'};
-        $product->set_status('pending');
+        $product->set_status('publish');
     }}
     $product->set_name('{name}');
     if ($product->get_sku() !== '{sku}') {{
@@ -472,13 +500,7 @@ def _ingest_via_php(product_data: dict, product_id: int = None) -> dict:
         $product->set_manage_stock(true);
         $product->set_stock_quantity({stock_qty});
     }} else if ($product->is_type('variable')) {{
-        $attr = new WC_Product_Attribute();
-        $attr->set_name('Opção');
-        $attr->set_options({attr_options});
-        $attr->set_position(0);
-        $attr->set_visible(true);
-        $attr->set_variation(true);
-        $product->set_attributes(array($attr));
+        {attr_php}
     }}
     if ({weight} > 0) $product->set_weight({weight});
     if ({length} > 0) $product->set_length({length});
@@ -806,6 +828,26 @@ def mock_sample_intt_ingest():
         ]
     }
 
+    sample_product_babalub = {
+        "sku": "INTT-BABALUB-HOT",
+        "name": "Babalub Vibra Esquenta INTT – Gel Estimulante Beijável Chiclete – 15g",
+        "description": "<p>Babalub Vibra Esquenta é um gel estimulante que vai levar sua experiência para um nível totalmente novo. Desenvolvido com uma fórmula exclusiva à base de jambu, este produto oferece sensações inigualáveis de vibrações e aquecimento, criando um turbilhão de prazer. Além disso, o Babalub é beijável, com um irresistível aroma de chiclete que torna os momentos de intimidade ainda mais deliciosos.</p><h4>Efeito Quente:</h4><p><strong>Aquecimento Sensual:</strong> O Babalub Vibra Esquenta oferece uma sensação de aquecimento suave e estimulante quando aplicado na região. Isso não apenas aumenta o desejo, mas também ajuda a relaxar e preparar o corpo para o prazer que está por vir.</p><p><strong>Estímulo Profundo:</strong> A sensação de calor proporcionada pelo Babalub aumenta o fluxo sanguíneo para a área, intensificando a sensibilidade e tornando cada toque e carícia mais incrivelmente prazeroso.</p><p><strong>Intimidade e Conexão:</strong> Compartilhar a aplicação deste produto com seu parceiro cria um momento de grande conexão, transformando preliminares em uma experiência compartilhada de intimidade e desejo.</p><p><strong>Exploração Sem Limites:</strong> O efeito quente do Babalub Vibra Esquenta permite que você e sua parceira explorem novas sensações e fantasias, elevando a paixão e a criatividade na intimidade.</p><h4>Benefícios:</h4><ul><li>Intensifica as sensações e a sensibilidade.</li><li>Proporciona uma experiência única devido à temperatura e vibração.</li><li>Estimula a criatividade e a intimidade no relacionamento.</li><li>Oferece momentos deliciosos e beijáveis para compartilhar com sua parceria.</li></ul><h4>Seus ativos:</h4><p><strong>Jambu:</strong> Mais conhecido como agrião do Pará. O Jambu é uma planta muito comum da região Norte do Brasil. O jambu quando aplicado proporciona sensação de vibração.</p><h4>Linha Sweet Secrets by Carla Geane:</h4><p>Descubra a Linha Sweet Secrets by Carla Geane, cuidadosamente desenvolvida para garantir sua satisfação e elevar seu prazer.</p><h4>📖 Modo de Uso:</h4><p>Aplicar uma quantidade suficiente sobre a região desejada e massagear levemente antes ou durante o ato.</p><h4>🧼 Higiene & Cuidados:</h4><p>Embalagem não reutilizável. Manter em lugar fresco ao abrigo do calor e da luz intensa. Mantenha fora do alcance das crianças. Em caso de contato com os olhos, lavá-los com água em abundância. Havendo irritação, suspenda o uso e procure um médico. USO EXTERNO.</p><p>Conteúdo: 15g | Origem: Nacional</p>",
+        "short_description": "Gel Estimulante Vibratório e Aquecedor Beijável Sabor Chiclete - 15g",
+        "cost_price": 19.90,
+        "suggested_price": 39.90,
+        "stock_quantity": 80,
+        "gtin": "7898563342007",
+        "ncm": "3304.99.90",
+        "weight": 0.05,
+        "weight_net": 0.015,
+        "length": 4.0,
+        "width": 4.0,
+        "height": 10.0,
+        "category": "Géis Sensacionais",
+        "brand": "INTT",
+        "images": ["https://www.lojaintt.com.br/images/babalub-hot.jpg"]
+    }
+
     print(f"[CASOSEX INGEST] Processando produto Simples INTT: {sample_product_simple['name']} (SKU: {sample_product_simple['sku']})")
     res_simple = ingest_product_to_woocommerce(sample_product_simple)
     print(f"[CASOSEX INGEST] Resposta WooCommerce (Simples): {json.dumps(res_simple, indent=2, ensure_ascii=False)}")
@@ -814,7 +856,11 @@ def mock_sample_intt_ingest():
     res_var = ingest_product_to_woocommerce(sample_product_variable)
     print(f"[CASOSEX INGEST] Resposta WooCommerce (Variável): {json.dumps(res_var, indent=2, ensure_ascii=False)}")
 
-    return {"simple": res_simple, "variable": res_var}
+    print(f"\n[CASOSEX INGEST] Processando produto Babalub Vibra Hot INTT: {sample_product_babalub['name']} (SKU: {sample_product_babalub['sku']})")
+    res_babalub = ingest_product_to_woocommerce(sample_product_babalub)
+    print(f"[CASOSEX INGEST] Resposta WooCommerce (Babalub): {json.dumps(res_babalub, indent=2, ensure_ascii=False)}")
+
+    return {"simple": res_simple, "variable": res_var, "babalub": res_babalub}
 
 
 if __name__ == "__main__":
