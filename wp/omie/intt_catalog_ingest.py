@@ -605,6 +605,16 @@ def fetch_intt_product_page_details(opener, product_url: str) -> dict:
                     zoom_imgs.append(img)
             final_imgs = zoom_imgs if zoom_imgs else list(dict.fromkeys(fixed_imgs))
 
+            # Extrair Descrição HTML Completa (incluindo composição, recomendações e cuidados)
+            full_desc_html = ""
+            try:
+                soup = BeautifulSoup(html, "html.parser")
+                desc_node = soup.select_one(".new-section__description") or soup.select_one(".new-product-description-content")
+                if desc_node:
+                    full_desc_html = desc_node.decode_contents().strip()
+            except Exception:
+                pass
+
             # Extrair Modo de Uso
             m_usage = re.search(r'Modo de uso:?\s*</\w+>\s*<p>(.*?)</p>', html, re.IGNORECASE | re.DOTALL) or \
                       re.search(r'Modo de uso:?\s*<p>(.*?)</p>', html, re.IGNORECASE | re.DOTALL)
@@ -617,12 +627,13 @@ def fetch_intt_product_page_details(opener, product_url: str) -> dict:
 
             return {
                 "images": final_imgs,
+                "full_description_html": full_desc_html,
                 "usage": usage,
                 "care": care
             }
     except Exception as e:
         print(f"[CASOSEX DEEP-SCRAPE] Aviso ao acessar {product_url}: {e}")
-        return {"images": [], "usage": "", "care": ""}
+        return {"images": [], "full_description_html": "", "usage": "", "care": ""}
 
 
 def fetch_intt_b2b_catalog(username: str = "", password: str = "") -> list:
@@ -710,7 +721,7 @@ def fetch_intt_b2b_catalog(username: str = "", password: str = "") -> list:
                     extracted_products.append({
                         "sku": sku if sku.startswith("INTT-") else f"INTT-{sku}",
                         "name": str(item.get("nome") or item.get("titulo") or item.get("name", "Produto INTT")),
-                        "description": str(item.get("descricao") or item.get("description", "")),
+                        "description": deep_details["full_description_html"] or str(item.get("descricao") or item.get("description", "")),
                         "short_description": str(item.get("resumo") or item.get("short_description", "")),
                         "cost_price": cost,
                         "suggested_price": price,
