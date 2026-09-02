@@ -1,0 +1,31 @@
+{
+  "version": "1.0.0",
+  "engine": "CASOSEX Style Profiler",
+  "timestamp": "2026-09-02T00:37:30.207Z",
+  "tokens": {
+    "colors": {
+      "primary": "#0284c7",
+      "primary_hover": "#0369a1",
+      "background_dark": "#020617",
+      "card_dark": "#0f172a",
+      "border_dark": "#1e293b",
+      "text_main": "#f8fafc",
+      "text_muted": "#94a3b8",
+      "accent_green": "#10b981",
+      "accent_purple": "#6366f1"
+    },
+    "typography": {
+      "font_family": "Inter, system-ui, -apple-system, sans-serif",
+      "font_size_base": "14px",
+      "font_size_heading": "20px",
+      "font_weight_bold": "700"
+    },
+    "elevation": {
+      "card_shadow": "0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1)",
+      "modal_shadow": "0 20px 25px -5px rgb(0 0 0 / 0.3), 0 8px 10px -6px rgb(0 0 0 / 0.3)"
+    },
+    "motion": {
+      "transition_default": "all 0.2s cubic-bezier(0.4, 0, 0.2, 1)"
+    }
+  }
+}
