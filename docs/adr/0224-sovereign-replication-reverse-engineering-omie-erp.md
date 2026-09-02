@@ -73,5 +73,8 @@ graph TD
 2. **Plano de Execução Imediato:**
    - [x] Documentação e Schemas de API 100% Ingeridos (`ADR-0224` / `SPEC-0095`).
    - [x] Servidor Bridge Militar de Testes `:6661` Rodando (`server_6661.js`).
-   - [ ] Rodar o extrator de **Design Tokens CSS** no painel logado da Omie.
-   - [ ] Sintetizar o Kit de Componentes `.tsx` das Telas Canônicas de Pedidos e Produtos.
+   - [x] Container Leve Firecrawl/Playwright na porta `:3000` Ativo e Validade em Modo Anti-OOM (305MB RAM max).
+   - [x] Registrado Adendo de Eficiência EVO-API / ECC (`0224-addendum-evo-ecc-enrichment.md`).
+   - [ ] Ingestão de Cookies de Sessão no Extractor Firecrawl (`wp/omie/firecrawl_omie_extractor.js`).
+   - [ ] Mapeamento do AST Mating Engine (`/cross-map`) no Servidor Bridge `:6661` para cruzar API com DOM.
+   - [ ] Sintetizar o Kit de Componentes Reativos `.tsx` (React 19 + Tailwind v4) das 4 Telas Canônicas.
