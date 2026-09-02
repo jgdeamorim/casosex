@@ -234,59 +234,64 @@ class WC_Dropshipping_Admin_Products_View {
 		}
 		?>
 		<style type="text/css">
-			/* Garante rolagem horizontal fluida do form e tabela */
+			/* Reseta e impede quebras de linha caractere por caractere em cabeçalhos e células */
+			body.post-type-product table.wp-list-table.products th,
+			body.post-type-product table.wp-list-table.products td,
+			body.post-type-product table.wp-list-table.products th a,
+			body.post-type-product table.wp-list-table.products th.manage-column,
+			body.post-type-product table.wp-list-table.products th span {
+				white-space: nowrap !important;
+				word-break: normal !important;
+				word-wrap: normal !important;
+				overflow-wrap: normal !important;
+				hyphens: manual !important;
+			}
+
+			/* O título do produto pode ter quebra de linha normal */
+			body.post-type-product table.wp-list-table.products .column-name,
+			body.post-type-product table.wp-list-table.products .column-name a {
+				white-space: normal !important;
+				word-break: break-word !important;
+			}
+
+			/* Container com rolagem horizontal suave */
 			#posts-filter {
 				overflow-x: auto !important;
 				max-width: 100% !important;
 				padding-bottom: 15px;
 			}
-			table.wp-list-table.products {
-				table-layout: auto !important;
+
+			/* Tabela com larguras fixas bem dimensionadas */
+			body.post-type-product table.wp-list-table.products {
+				table-layout: fixed !important;
 				width: 100% !important;
-				min-width: 1450px !important;
+				min-width: 1500px !important;
 			}
-			table.wp-list-table.products td, 
-			table.wp-list-table.products th {
-				vertical-align: top !important;
-				padding: 10px 8px !important;
-				word-break: normal !important;
-				overflow-wrap: normal !important;
-				hyphens: manual !important;
+
+			/* Larguras exatas em pixels por coluna */
+			body.post-type-product .fixed .column-cb { width: 32px !important; }
+			body.post-type-product .fixed .column-thumb { width: 52px !important; }
+			body.post-type-product .fixed .column-name { width: 220px !important; }
+			body.post-type-product .fixed .column-supplier_freight { width: 170px !important; }
+			body.post-type-product .fixed .column-sku { width: 100px !important; }
+			body.post-type-product .fixed .column-global_unique_id { width: 125px !important; }
+			body.post-type-product .fixed .column-is_in_stock { width: 110px !important; }
+			body.post-type-product .fixed .column-price { width: 100px !important; }
+			body.post-type-product .fixed .column-cost_margin { width: 160px !important; }
+			body.post-type-product .fixed .column-fiscal_data { width: 150px !important; }
+			body.post-type-product .fixed .column-curation_status { width: 140px !important; }
+			body.post-type-product .fixed .column-wholesale_price { width: 110px !important; }
+			body.post-type-product .fixed .column-product_cat { width: 140px !important; }
+			body.post-type-product .fixed .column-product_tag { width: 100px !important; }
+			body.post-type-product .fixed .column-featured { width: 50px !important; }
+			body.post-type-product .fixed .column-taxonomy-product_brand { width: 110px !important; }
+			body.post-type-product .fixed .column-date { width: 140px !important; }
+
+			/* Oculta colunas legadas no DOM caso reapareçam via JS/ScreenOptions */
+			body.post-type-product .column-est_profit,
+			body.post-type-product .column-taxonomy-dropship_supplier {
+				display: none !important;
 			}
-			/* Prevenção estrita contra quebras verticais de caracteres */
-			table.wp-list-table.products .column-date,
-			table.wp-list-table.products .column-taxonomy-product_brand,
-			table.wp-list-table.products .column-product_cat,
-			table.wp-list-table.products .column-product_tag,
-			table.wp-list-table.products .column-curation_status,
-			table.wp-list-table.products .column-fiscal_data,
-			table.wp-list-table.products .column-cost_margin,
-			table.wp-list-table.products .column-supplier_freight,
-			table.wp-list-table.products .column-wholesale_price,
-			table.wp-list-table.products .column-is_in_stock,
-			table.wp-list-table.products .column-price,
-			table.wp-list-table.products .column-sku,
-			table.wp-list-table.products .column-global_unique_id {
-				white-space: nowrap !important;
-				word-break: normal !important;
-			}
-			table.wp-list-table.products .column-name {
-				white-space: normal !important;
-				min-width: 180px;
-				max-width: 260px;
-			}
-			/* Definição de larguras mínimas reais */
-			.fixed .column-cb { width: 32px !important; }
-			.fixed .column-thumb { width: 52px !important; }
-			.fixed .column-supplier_freight { min-width: 145px !important; }
-			.fixed .column-cost_margin { min-width: 145px !important; }
-			.fixed .column-fiscal_data { min-width: 145px !important; }
-			.fixed .column-curation_status { min-width: 130px !important; }
-			.fixed .column-wholesale_price { min-width: 110px !important; }
-			.fixed .column-taxonomy-product_brand { min-width: 110px !important; }
-			.fixed .column-date { min-width: 120px !important; }
-			/* Esconde permanentemente a coluna legada est_profit do DOM */
-			.column-est_profit { display: none !important; }
 		</style>
 		<?php
 	}
