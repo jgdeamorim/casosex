@@ -1,8 +1,8 @@
 <?php
 /**
  * Plugin Name: CASOSEX Dropshipping Sync & Product Layout
- * Description: Sincroniza metadados nativos de custo (_cost_of_goods), gerencia abas, formata descrição, vincula Atributos Globais, aplica Trava de Segurança de Estoque (<= 5 un), resolve Hierarquia de Categorias em 3 Níveis (Matriz Oficial INTT 100% Fidelidade), orquestra o Mega Menu Responsivo Blocksy Pro (v2.5.0) e executa Sincronização Agendada (2x/dia) Nativamente no WordPress.
- * Version: 2.5.0
+ * Description: Sincroniza metadados nativos de custo (_cost_of_goods), gerencia abas, formata descrição, vincula Atributos Globais, aplica Trava de Segurança de Estoque (<= 5 un), resolve Hierarquia de Categorias em 3 Níveis (Matriz Oficial INTT 100% Fidelidade), orquestra o Mega Menu Responsivo Blocksy Pro & Elemento Header Contacts (v2.6.0) e executa Sincronização Agendada (2x/dia) Nativamente no WordPress.
+ * Version: 2.6.0
  * Author: CASOSEX Sovereign Engine
  */
 
@@ -527,12 +527,71 @@ function casosex_build_blocksy_mega_menu() {
         }
     }
 
+    // Sincronizar também os itens do elemento Contacts do Cabeçalho Blocksy (Blog e Seja Revendedora)
+    casosex_ensure_header_contacts_items();
+
     return array(
         'status'         => 'success',
         'menu_id'        => $menu_id,
         'total_created'  => count($created_items),
         'items'          => $created_items,
     );
+}
+
+/**
+ * Garante a injeção nativa dos itens Blog e Seja Revendedora no elemento Contacts do Header Blocksy Pro
+ */
+function casosex_ensure_header_contacts_items() {
+    $mods = get_option('theme_mods_blocksy', array());
+
+    if (!isset($mods['header_placements']['sections'][0]['items'])) {
+        return false;
+    }
+
+    $site_url = get_site_url();
+
+    foreach ($mods['header_placements']['sections'][0]['items'] as &$item) {
+        if ($item['id'] === 'contacts') {
+            if (!isset($item['values']['contact_items']) || !is_array($item['values']['contact_items'])) {
+                $item['values']['contact_items'] = array();
+            }
+
+            $has_blog = false;
+            $has_revendedora = false;
+
+            foreach ($item['values']['contact_items'] as $c) {
+                if (isset($c['__id']) && $c['__id'] === 'blog_item_casosex') $has_blog = true;
+                if (isset($c['__id']) && $c['__id'] === 'revendedora_item_casosex') $has_revendedora = true;
+            }
+
+            if (!$has_blog) {
+                $item['values']['contact_items'][] = array(
+                    'id'      => 'website',
+                    'enabled' => true,
+                    'title'   => 'Blog:',
+                    'content' => 'Blog Volúpia',
+                    'link'    => $site_url . '/blog',
+                    'icon'    => array('icon' => 'blc blc-globe'),
+                    '__id'    => 'blog_item_casosex'
+                );
+            }
+
+            if (!$has_revendedora) {
+                $item['values']['contact_items'][] = array(
+                    'id'      => 'website',
+                    'enabled' => true,
+                    'title'   => 'Parceira:',
+                    'content' => 'Seja Revendedora',
+                    'link'    => $site_url . '/seja-revendedora',
+                    'icon'    => array('icon' => 'blc blc-star'),
+                    '__id'    => 'revendedora_item_casosex'
+                );
+            }
+        }
+    }
+
+    update_option('theme_mods_blocksy', $mods);
+    return true;
 }
 
 /**
