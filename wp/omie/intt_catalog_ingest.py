@@ -605,6 +605,32 @@ def _ingest_via_php(product_data: dict, product_id: int = None) -> dict:
 
         // Fornecedor
         wp_set_object_terms($new_id, 69, 'dropship_supplier', true);
+
+        // Processar imagens via media_sideload_image se fornecidas
+        $img_urls = json_decode('{json.dumps(product_data.get("images", []))}', true);
+        if (!empty($img_urls) && is_array($img_urls)) {{
+            require_once(ABSPATH . 'wp-admin/includes/media.php');
+            require_once(ABSPATH . 'wp-admin/includes/file.php');
+            require_once(ABSPATH . 'wp-admin/includes/image.php');
+            $gallery_ids = array();
+            foreach ($img_urls as $idx => $url) {{
+                if (empty($url) || !is_string($url) || strpos($url, 'http') !== 0) continue;
+                $attach_id = media_sideload_image($url, $new_id, null, 'id');
+                if (!is_wp_error($attach_id)) {{
+                    if ($idx === 0 && !$product->get_image_id()) {{
+                        $product->set_image_id($attach_id);
+                    }} else {{
+                        $gallery_ids[] = $attach_id;
+                    }}
+                }}
+            }}
+            if (!empty($gallery_ids)) {{
+                $existing_g_ids = $product->get_gallery_image_ids();
+                $merged_g_ids = array_unique(array_merge($existing_g_ids, $gallery_ids));
+                $product->set_gallery_image_ids($merged_g_ids);
+            }}
+        }}
+
         $product->save();
     }}
 
@@ -820,7 +846,13 @@ def mock_sample_intt_ingest():
             "height": 10.0,
             "category": "Géis Sensacionais",
             "brand": "INTT",
-            "images": ["https://static.cdnlive.com.br/uploads/694/produto/16843452636254_zoom.png"]
+            "images": [
+                "https://static.cdnlive.com.br/uploads/687/produto/17164923665804_zoom.jpeg",
+                "https://static.cdnlive.com.br/uploads/687/produto/17164923679962_zoom.jpeg",
+                "https://static.cdnlive.com.br/uploads/687/produto/17164923673619_zoom.jpeg",
+                "https://static.cdnlive.com.br/uploads/687/produto/17164923674890_zoom.jpeg",
+                "https://static.cdnlive.com.br/uploads/687/produto/17164923689470_zoom.jpeg"
+            ]
         },
         {
             "sku": "INTT-799-PARENT",
