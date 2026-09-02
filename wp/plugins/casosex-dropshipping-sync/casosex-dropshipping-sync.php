@@ -1,8 +1,8 @@
 <?php
 /**
  * Plugin Name: CASOSEX Dropshipping Sync & Product Layout
- * Description: Sincroniza metadados nativos de custo (_cost_of_goods), gerencia abas, formata descrição, vincula Atributos Globais, aplica Trava de Segurança de Estoque (<= 5 un), resolve Hierarquia de Categorias em 3 Níveis (Matriz INTT), orquestra o Mega Menu Responsivo Blocksy Pro (v2.4.0) e executa Sincronização Agendada (2x/dia) Nativamente no WordPress.
- * Version: 2.4.0
+ * Description: Sincroniza metadados nativos de custo (_cost_of_goods), gerencia abas, formata descrição, vincula Atributos Globais, aplica Trava de Segurança de Estoque (<= 5 un), resolve Hierarquia de Categorias em 3 Níveis (Matriz Oficial INTT 100% Fidelidade), orquestra o Mega Menu Responsivo Blocksy Pro (v2.5.0) e executa Sincronização Agendada (2x/dia) Nativamente no WordPress.
+ * Version: 2.5.0
  * Author: CASOSEX Sovereign Engine
  */
 
@@ -78,7 +78,7 @@ function casosex_setup_scheduled_sync() {
     }
 }
 
-// 5. Registro de Endpoints REST Soberanos para Ingestão, Sincronização e Orquestração do Mega Menu
+// 5. Registro de Endpoints REST Soberanos
 add_action('rest_api_init', function() {
     register_rest_route('casosex/v1', '/sync-intt', array(
         'methods'             => 'POST',
@@ -106,7 +106,7 @@ add_action('rest_api_init', function() {
 });
 
 /**
- * Endpoint REST para Construção Automática do Mega Menu Blocksy
+ * REST Endpoint para Reconstrução Fiel do Mega Menu INTT no Blocksy
  */
 function casosex_rest_build_blocksy_mega_menu(WP_REST_Request $request) {
     $result = casosex_build_blocksy_mega_menu();
@@ -114,7 +114,7 @@ function casosex_rest_build_blocksy_mega_menu(WP_REST_Request $request) {
 }
 
 /**
- * Endpoint para Sincronização Rápida de Estoque e Custo (2x/dia)
+ * REST Endpoint para Sincronização de Estoque e Custo
  */
 function casosex_rest_sync_stock_cost(WP_REST_Request $request) {
     $items = $request->get_json_params();
@@ -126,17 +126,11 @@ function casosex_rest_sync_stock_cost(WP_REST_Request $request) {
     ));
 }
 
-/**
- * Função Executada pelo WP-Cron 2x/Dia
- */
 function casosex_execute_intt_stock_cost_cron() {
     error_log('[CASOSEX-CRON] Iniciando sincronização 2x/dia de estoque e custo INTT com trava de segurança (<= 5 un).');
     casosex_update_stock_and_cost_batch(array());
 }
 
-/**
- * Endpoint para Ingestão Soberana Nativa de um Produto
- */
 function casosex_rest_ingest_single_product(WP_REST_Request $request) {
     $item = $request->get_json_params();
     if (empty($item) || empty($item['sku'])) {
@@ -147,9 +141,6 @@ function casosex_rest_ingest_single_product(WP_REST_Request $request) {
     return rest_ensure_response($result);
 }
 
-/**
- * Endpoint para Sincronizar o Catálogo Completo INTT Nativamente
- */
 function casosex_rest_sync_intt_catalog(WP_REST_Request $request) {
     $items = $request->get_json_params();
     if (empty($items) || !is_array($items)) {
@@ -171,9 +162,10 @@ function casosex_rest_sync_intt_catalog(WP_REST_Request $request) {
 }
 
 /**
- * Helper para obter ou criar termo de Categoria com Hierarquia
+ * Helper para obter ou criar termo de Categoria no WooCommerce de Forma Idempotente
  */
 function casosex_ensure_category_term($name, $parent_id = 0) {
+    $name = trim($name);
     $existing = get_terms(array(
         'taxonomy'   => 'product_cat',
         'name'       => $name,
@@ -201,9 +193,117 @@ function casosex_ensure_category_term($name, $parent_id = 0) {
 }
 
 /**
- * Mapeador e Resolvedor Hierárquico de Categorias (3 Níveis) baseado na Matriz INTT
+ * MATRIZ OFICIAL INTT (100% Fidelidade ao Menu HTML da Lojaintt.com.br)
+ */
+function casosex_get_official_intt_taxonomy_tree() {
+    return array(
+        'Saúde e bem-estar' => array(
+            'Bem-estar' => array(
+                'Antisséptico bucal',
+                'Maquiagem e beleza',
+                'Óleo corporal',
+                'Perfumes',
+                'Suplemento',
+            ),
+            'Saúde íntima' => array(
+                'Clareador e Esfoliante',
+                'Coletor Menstrual',
+                'Desodorantes',
+                'Higienizador de Toys',
+                'Pompoarismo',
+                'Sabonetes',
+                'Sérum e Creme Hidratante',
+            ),
+        ),
+        'Gel Deslizante' => array(
+            'Hidratante Vaginal' => array(),
+            'Siliconados'        => array(),
+            'À base de água'     => array(
+                'Beijável',
+                'Neutro',
+                'Térmico',
+            ),
+        ),
+        'Cosméticos sensuais' => array(
+            'Adstringente' => array(),
+            'Kits'         => array(),
+            'Retardante'   => array(),
+            'Excitantes'   => array(
+                'Feminino',
+                'Masculinos',
+                'Unissex',
+            ),
+            'Massagem' => array(
+                'Géis',
+                'Óleos',
+                'Vela beijável',
+                'Vela de massagem',
+            ),
+            'Sexo Anal' => array(
+                'Dessensibilizante',
+                'Excitante anal',
+            ),
+            'Sexo Oral' => array(
+                'Beijáveis',
+                'Calcinha comestível',
+                'Garganta Profunda',
+            ),
+        ),
+        'Vibradores líquidos' => array(
+            'Vibration' => array(),
+        ),
+        'Vibradores' => array(
+            'Anal'             => array(),
+            'Bullet'           => array(),
+            'Com App'          => array(),
+            'Para casal'       => array(),
+            'Femininos'        => array(
+                'Multifuncional',
+                'Ponto G',
+                'Realísticos',
+                'Vibradores clitorianos',
+                'Vibradores Rabbit',
+                'Vibradores varinha mágica',
+            ),
+            'Marcas exclusivas' => array(
+                'Intt Toys',
+                'Satisfyer',
+                'Svakom',
+            ),
+            'Masculinos' => array(
+                'Anel peniano',
+                'Masturbadores',
+            ),
+        ),
+        'Sugadores de clitóris' => array(),
+        'Produtos eróticos' => array(
+            'BDSM e Fetiche'     => array(),
+            'Bomba peniana'      => array(),
+            'Livros e Jogos'     => array(),
+            'Masturbadores Eggs' => array(),
+            'Plug anal'          => array(),
+        ),
+        'Linhas' => array(
+            'Deborah Secco' => array(),
+            '50 tons'       => array(),
+            'Collors'       => array(),
+            'Intt Wellness' => array(),
+            'Laura Muller'  => array(),
+            'Poções'        => array(),
+            'Stripper'      => array(),
+        ),
+        'Promoção' => array(
+            'Descontos'     => array(),
+            'Mais vendidos' => array(),
+        ),
+    );
+}
+
+/**
+ * Resolvedor de Hierarquia de Categorias alinhado à Matriz INTT
  */
 function casosex_resolve_category_hierarchy($name, $description, $incoming_cat = '') {
+    $tree = casosex_get_official_intt_taxonomy_tree();
     $text = mb_strtolower($name . ' ' . strip_tags($description) . ' ' . $incoming_cat);
 
     $level1 = 'Cosméticos sensuais';
@@ -211,13 +311,15 @@ function casosex_resolve_category_hierarchy($name, $description, $incoming_cat =
     $level3 = 'Unissex';
 
     // 1. Saúde e bem-estar
-    if (strpos($text, 'antisséptico') !== false || strpos($text, 'maquiagem') !== false || strpos($text, 'suplemento') !== false || strpos($text, 'sabonete') !== false || strpos($text, 'higienizador') !== false || strpos($text, 'clareador') !== false || strpos($text, 'pompoarismo') !== false) {
+    if (strpos($text, 'antisséptico') !== false || strpos($text, 'maquiagem') !== false || strpos($text, 'suplemento') !== false || strpos($text, 'sabonete') !== false || strpos($text, 'higienizador') !== false || strpos($text, 'clareador') !== false || strpos($text, 'pompoarismo') !== false || strpos($text, 'coletor') !== false) {
         $level1 = 'Saúde e bem-estar';
-        if (strpos($text, 'sabonete') !== false || strpos($text, 'higienizador') !== false || strpos($text, 'clareador') !== false || strpos($text, 'pompoarismo') !== false || strpos($text, 'coletor') !== false) {
+        if (strpos($text, 'sabonete') !== false || strpos($text, 'higienizador') !== false || strpos($text, 'clareador') !== false || strpos($text, 'pompoarismo') !== false || strpos($text, 'coletor') !== false || strpos($text, 'desodorante') !== false || strpos($text, 'sérum') !== false || strpos($text, 'serum') !== false) {
             $level2 = 'Saúde íntima';
             if (strpos($text, 'sabonete') !== false) $level3 = 'Sabonetes';
             elseif (strpos($text, 'higienizador') !== false || strpos($text, 'limpa toys') !== false) $level3 = 'Higienizador de Toys';
             elseif (strpos($text, 'clareador') !== false) $level3 = 'Clareador e Esfoliante';
+            elseif (strpos($text, 'coletor') !== false) $level3 = 'Coletor Menstrual';
+            elseif (strpos($text, 'desodorante') !== false) $level3 = 'Desodorantes';
             elseif (strpos($text, 'pompoarismo') !== false) $level3 = 'Pompoarismo';
             else $level3 = 'Sérum e Creme Hidratante';
         } else {
@@ -234,10 +336,10 @@ function casosex_resolve_category_hierarchy($name, $description, $incoming_cat =
         $level1 = 'Gel Deslizante';
         if (strpos($text, 'siliconado') !== false) {
             $level2 = 'Siliconados';
-            $level3 = 'Siliconados';
+            $level3 = '';
         } elseif (strpos($text, 'hidratante vaginal') !== false) {
             $level2 = 'Hidratante Vaginal';
-            $level3 = 'Hidratante Vaginal';
+            $level3 = '';
         } else {
             $level2 = 'À base de água';
             if (strpos($text, 'beijável') !== false || strpos($text, 'beijavel') !== false) $level3 = 'Beijável';
@@ -249,20 +351,25 @@ function casosex_resolve_category_hierarchy($name, $description, $incoming_cat =
     elseif (strpos($text, 'vibrador líquido') !== false || strpos($text, 'vibrador liquido') !== false || strpos($text, 'vibration') !== false) {
         $level1 = 'Vibradores líquidos';
         $level2 = 'Vibration';
-        $level3 = 'Vibration';
+        $level3 = '';
     }
     // 4. Vibradores & Sugadores
-    elseif (strpos($text, 'vibrador') !== false || strpos($text, 'sugador') !== false || strpos($text, 'rabbit') !== false || strpos($text, 'bullet') !== false || strpos($text, 'masturbador') !== false) {
+    elseif (strpos($text, 'vibrador') !== false || strpos($text, 'sugador') !== false || strpos($text, 'rabbit') !== false || strpos($text, 'bullet') !== false || strpos($text, 'satisfyer') !== false || strpos($text, 'svakom') !== false) {
         if (strpos($text, 'sugador') !== false) {
             $level1 = 'Sugadores de clitóris';
-            $level2 = 'Sugadores de clitóris';
-            $level3 = 'Sugadores de clitóris';
+            $level2 = '';
+            $level3 = '';
         } else {
             $level1 = 'Vibradores';
-            if (strpos($text, 'anal') !== false) { $level2 = 'Anal'; $level3 = 'Anal'; }
-            elseif (strpos($text, 'bullet') !== false) { $level2 = 'Bullet'; $level3 = 'Bullet'; }
-            elseif (strpos($text, 'app') !== false) { $level2 = 'Com App'; $level3 = 'Com App'; }
-            elseif (strpos($text, 'casal') !== false) { $level2 = 'Para casal'; $level3 = 'Para casal'; }
+            if (strpos($text, 'satisfyer') !== false || strpos($text, 'svakom') !== false || strpos($text, 'intt toys') !== false) {
+                $level2 = 'Marcas exclusivas';
+                if (strpos($text, 'satisfyer') !== false) $level3 = 'Satisfyer';
+                elseif (strpos($text, 'svakom') !== false) $level3 = 'Svakom';
+                else $level3 = 'Intt Toys';
+            } elseif (strpos($text, 'anal') !== false) { $level2 = 'Anal'; $level3 = ''; }
+            elseif (strpos($text, 'bullet') !== false) { $level2 = 'Bullet'; $level3 = ''; }
+            elseif (strpos($text, 'app') !== false) { $level2 = 'Com App'; $level3 = ''; }
+            elseif (strpos($text, 'casal') !== false) { $level2 = 'Para casal'; $level3 = ''; }
             elseif (strpos($text, 'anel peniano') !== false || strpos($text, 'masturbador') !== false) {
                 $level2 = 'Masculinos';
                 $level3 = (strpos($text, 'anel') !== false) ? 'Anel peniano' : 'Masturbadores';
@@ -277,10 +384,23 @@ function casosex_resolve_category_hierarchy($name, $description, $incoming_cat =
             }
         }
     }
-    // 5. Cosméticos Sensuais (Padrão para géis, beijáveis, orais, anais)
+    // 5. Produtos eróticos (BDSM, Plugs, Eggs, Bombas)
+    elseif (strpos($text, 'bdsm') !== false || strpos($text, 'fetiche') !== false || strpos($text, 'algema') !== false || strpos($text, 'plug') !== false || strpos($text, 'egg') !== false || strpos($text, 'bomba peniana') !== false) {
+        $level1 = 'Produtos eróticos';
+        if (strpos($text, 'bdsm') !== false || strpos($text, 'fetiche') !== false || strpos($text, 'algema') !== false) $level2 = 'BDSM e Fetiche';
+        elseif (strpos($text, 'plug') !== false) $level2 = 'Plug anal';
+        elseif (strpos($text, 'egg') !== false) $level2 = 'Masturbadores Eggs';
+        elseif (strpos($text, 'bomba') !== false) $level2 = 'Bomba peniana';
+        else $level2 = 'Livros e Jogos';
+        $level3 = '';
+    }
+    // 6. Cosméticos sensuais (Padrão)
     else {
         $level1 = 'Cosméticos sensuais';
-        if (strpos($text, 'anal') !== false || strpos($text, 'dessensibilizante') !== false) {
+        if (strpos($text, 'adstringente') !== false) { $level2 = 'Adstringente'; $level3 = ''; }
+        elseif (strpos($text, 'kit') !== false) { $level2 = 'Kits'; $level3 = ''; }
+        elseif (strpos($text, 'retardante') !== false) { $level2 = 'Retardante'; $level3 = ''; }
+        elseif (strpos($text, 'anal') !== false || strpos($text, 'dessensibilizante') !== false) {
             $level2 = 'Sexo Anal';
             $level3 = (strpos($text, 'dessensibilizante') !== false) ? 'Dessensibilizante' : 'Excitante anal';
         } elseif (strpos($text, 'oral') !== false || strpos($text, 'beijável') !== false || strpos($text, 'beijavel') !== false || strpos($text, 'garganta') !== false || strpos($text, 'babalub') !== false) {
@@ -290,7 +410,8 @@ function casosex_resolve_category_hierarchy($name, $description, $incoming_cat =
             else $level3 = 'Beijáveis';
         } elseif (strpos($text, 'massagem') !== false || strpos($text, 'vela') !== false || strpos($text, 'óleo') !== false) {
             $level2 = 'Massagem';
-            if (strpos($text, 'vela') !== false) $level3 = 'Vela beijável';
+            if (strpos($text, 'vela beijável') !== false) $level3 = 'Vela beijável';
+            elseif (strpos($text, 'vela') !== false) $level3 = 'Vela de massagem';
             elseif (strpos($text, 'óleo') !== false) $level3 = 'Óleos';
             else $level3 = 'Géis';
         } else {
@@ -303,14 +424,14 @@ function casosex_resolve_category_hierarchy($name, $description, $incoming_cat =
 
     // Criar/obter Termos com vinculo Pai-Filho no WooCommerce
     $l1_id = casosex_ensure_category_term($level1, 0);
-    $l2_id = casosex_ensure_category_term($level2, $l1_id);
-    $l3_id = casosex_ensure_category_term($level3, $l2_id);
+    $l2_id = !empty($level2) ? casosex_ensure_category_term($level2, $l1_id) : 0;
+    $l3_id = (!empty($level3) && !empty($l2_id)) ? casosex_ensure_category_term($level3, $l2_id) : 0;
 
     return array_values(array_unique(array_filter(array($l1_id, $l2_id, $l3_id))));
 }
 
 /**
- * Função Soberana para Montar o Mega Menu Blocksy com Injeção de Meta `blocksy_post_meta_options`
+ * Construtor Soberano do Mega Menu Blocksy baseando-se 100% na Matriz Oficial da INTT
  */
 function casosex_build_blocksy_mega_menu() {
     $menu_name = 'Main Menu';
@@ -322,29 +443,31 @@ function casosex_build_blocksy_mega_menu() {
         $menu_id = (int)$menu_obj->term_id;
     }
 
+    // Limpar itens existentes no menu para garantir 100% de reconstrução fiel sem duplicações
+    $existing_items = wp_get_nav_menu_items($menu_id);
+    if ($existing_items && is_array($existing_items)) {
+        foreach ($existing_items as $item) {
+            wp_delete_post($item->ID, true);
+        }
+    }
+
     // Vincular menu às posições `menu_1` (Desktop) e `menu_mobile` (Mobile)
     $locations = get_theme_mod('nav_menu_locations', array());
     $locations['menu_1'] = $menu_id;
     $locations['menu_mobile'] = $menu_id;
     set_theme_mod('nav_menu_locations', $locations);
 
-    // Buscar categorias Nível 1 (Sem pai)
-    $l1_terms = get_terms(array(
-        'taxonomy'   => 'product_cat',
-        'parent'     => 0,
-        'hide_empty' => false,
-    ));
-
+    $tree = casosex_get_official_intt_taxonomy_tree();
     $created_items = array();
 
-    foreach ($l1_terms as $l1) {
-        if ($l1->slug === 'uncategorized') continue;
+    foreach ($tree as $l1_name => $l2_group) {
+        $l1_term_id = casosex_ensure_category_term($l1_name, 0);
 
         // Criar Item Nível 1 no Menu
         $l1_item_id = wp_update_nav_menu_item($menu_id, 0, array(
-            'menu-item-title'     => $l1->name,
+            'menu-item-title'     => $l1_name,
             'menu-item-object'    => 'product_cat',
-            'menu-item-object-id' => $l1->term_id,
+            'menu-item-object-id' => $l1_term_id,
             'menu-item-type'      => 'taxonomy',
             'menu-item-status'    => 'publish',
         ));
@@ -352,53 +475,53 @@ function casosex_build_blocksy_mega_menu() {
         if (is_wp_error($l1_item_id)) continue;
 
         // Injetar Configuração Nativa do Mega Menu Blocksy no Nível 1
-        update_post_meta($l1_item_id, 'blocksy_post_meta_options', array(
-            'has_mega_menu'     => 'yes',
-            'mega_menu_columns' => '4',
+        $mega_menu_opts = array(
+            'has_mega_menu'     => !empty($l2_group) ? 'yes' : 'no',
+            'mega_menu_columns' => count($l2_group) > 3 ? '4' : (count($l2_group) > 0 ? '3' : '2'),
             'mega_menu_width'   => 'container',
-        ));
+        );
 
-        $created_items[] = array('id' => $l1_item_id, 'name' => $l1->name, 'level' => 1);
+        if ($l1_name === 'Promoção') {
+            $mega_menu_opts['mega_menu_label'] = 'PROMO';
+        }
 
-        // Buscar Subcategorias Nível 2
-        $l2_terms = get_terms(array(
-            'taxonomy'   => 'product_cat',
-            'parent'     => $l1->term_id,
-            'hide_empty' => false,
-        ));
+        update_post_meta($l1_item_id, 'blocksy_post_meta_options', $mega_menu_opts);
 
-        foreach ($l2_terms as $l2) {
+        $created_items[] = array('id' => $l1_item_id, 'name' => $l1_name, 'level' => 1);
+
+        // Nível 2
+        foreach ($l2_group as $l2_name => $l3_list) {
+            $l2_term_id = casosex_ensure_category_term($l2_name, $l1_term_id);
+
             $l2_item_id = wp_update_nav_menu_item($menu_id, 0, array(
-                'menu-item-title'     => $l2->name,
+                'menu-item-title'     => $l2_name,
                 'menu-item-object'    => 'product_cat',
-                'menu-item-object-id' => $l2->term_id,
+                'menu-item-object-id' => $l2_term_id,
                 'menu-item-type'      => 'taxonomy',
                 'menu-item-parent-id' => $l1_item_id,
                 'menu-item-status'    => 'publish',
             ));
 
             if (is_wp_error($l2_item_id)) continue;
-            $created_items[] = array('id' => $l2_item_id, 'name' => $l2->name, 'level' => 2);
+            $created_items[] = array('id' => $l2_item_id, 'name' => $l2_name, 'level' => 2);
 
-            // Buscar Subcategorias Nível 3
-            $l3_terms = get_terms(array(
-                'taxonomy'   => 'product_cat',
-                'parent'     => $l2->term_id,
-                'hide_empty' => false,
-            ));
+            // Nível 3
+            if (!empty($l3_list) && is_array($l3_list)) {
+                foreach ($l3_list as $l3_name) {
+                    $l3_term_id = casosex_ensure_category_term($l3_name, $l2_term_id);
 
-            foreach ($l3_terms as $l3) {
-                $l3_item_id = wp_update_nav_menu_item($menu_id, 0, array(
-                    'menu-item-title'     => $l3->name,
-                    'menu-item-object'    => 'product_cat',
-                    'menu-item-object-id' => $l3->term_id,
-                    'menu-item-type'      => 'taxonomy',
-                    'menu-item-parent-id' => $l2_item_id,
-                    'menu-item-status'    => 'publish',
-                ));
+                    $l3_item_id = wp_update_nav_menu_item($menu_id, 0, array(
+                        'menu-item-title'     => $l3_name,
+                        'menu-item-object'    => 'product_cat',
+                        'menu-item-object-id' => $l3_term_id,
+                        'menu-item-type'      => 'taxonomy',
+                        'menu-item-parent-id' => $l2_item_id,
+                        'menu-item-status'    => 'publish',
+                    ));
 
-                if (!is_wp_error($l3_item_id)) {
-                    $created_items[] = array('id' => $l3_item_id, 'name' => $l3->name, 'level' => 3);
+                    if (!is_wp_error($l3_item_id)) {
+                        $created_items[] = array('id' => $l3_item_id, 'name' => $l3_name, 'level' => 3);
+                    }
                 }
             }
         }
@@ -545,7 +668,7 @@ function casosex_ingest_product_native($product_data) {
                 @$product->set_global_unique_id($gtin);
             }
         } catch (Exception $e) {
-            // Ignora exceção de duplicação pai/filho
+            // Ignora exceção
         }
     }
 
@@ -698,7 +821,6 @@ function casosex_map_global_attributes($name, $description, $payload) {
 function casosex_update_stock_and_cost_batch($items = array()) {
     $results = array();
 
-    // Se a lista estiver vazia, busca produtos INTT cadastrados no WooCommerce
     if (empty($items)) {
         $args = array(
             'post_type'      => array('product', 'product_variation'),
@@ -744,7 +866,6 @@ function casosex_update_stock_and_cost_batch($items = array()) {
             $cost = isset($item['cost_price']) ? floatval($item['cost_price']) : get_post_meta($pid, '_cost_of_goods', true);
             $stock_status = ($stock <= CASOSEX_SAFETY_STOCK_THRESHOLD) ? 'outofstock' : 'instock';
 
-            // Se for produto pai variável, atualiza o pai e todas as variações filhas!
             if ($product->is_type('variable')) {
                 $product->set_manage_stock(true);
                 $product->set_stock_quantity($stock);
