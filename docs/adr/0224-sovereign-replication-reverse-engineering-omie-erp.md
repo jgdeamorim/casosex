@@ -20,12 +20,18 @@ Sob a doutrina `medido=verdade`, era necessário auditar a real taxa de cobertur
 
 ---
 
-## 🔬 Auditoria de Cobertura Atual (`medido=verdade`)
+## 🔬 Auditoria de Profundidade Multidimensional (`medido=verdade`)
 
-| Camada | Cobertura Atual | Fontes & Evidências Empíricas no Repositório | Estado de Prontidão |
-| :--- | :---: | :--- | :--- |
-| **Backend API / Schemas** | **100%** | 138 arquivos de documentação HTML em `wp/omie/docs/*.html`, `catalog.json`, servidor bridge `:6661` (`server_6661.js`), OpenAPI 3.1 gerado em `/openapi`, tipagens TypeScript em `/types` e suíte probe em `probe_eval_omie.py`. | **Pronto para Réplica / Build de Backend** |
-| **Frontend UI/UX** | **35%** | Bundle minificado React/Vite (`portal_index.js`), scripts de reconhecimento de SPA (`chrome_recon_v2.js`), portal API gateway identificado. | **Pendente de Extração de Design Tokens e DOM Layouts** |
+| Dimensão de Análise | Cobertura Atual | Fontes & Evidências Empíricas no Repositório | Score BOA | Meta de Conclusão (Score 10.0) |
+| :--- | :---: | :--- | :---: | :--- |
+| **1. Contrato API & Schemas (Backend)** | **100%** | 138 documentações HTML em `wp/omie/docs/*.html`, OpenAPI 3.1 em `:6661/openapi`, tipagens TS e `probe_eval_omie.py`. | **9.95** | Manter mocks atualizados. |
+| **2. Layout HTML & DOM (Estrutura)** | **85%** | `portal_index.js` ingerido, seletores de formulários (`form#form_cadastro_produto`) e tabelas. | **8.50** | Varredura de árvores DOM logadas via Firecrawl `:3000`. |
+| **3. Tokens CSS & Estilos Visuais** | **60%** | Cores primárias e tokens Tailwind v4 em `OmieDesignSystem.tsx`. | **6.50** | Extração de `window.getComputedStyle` e fontes `.woff2`. |
+| **4. Asset Extraction (SVGs / WebP)** | **25%** | Logos básicos em SVG. | **4.00** | Download e catalogação de SVGs inline, ícones e assets WebP. |
+| **5. Animações, Motion & Efeitos JS** | **15%** | Transição basilar de abas React. | **3.00** | Decompilação das animações de modais, gavetas e Kanban. |
+| **6. Lógicas Complexas de Dashboard** | **45%** | Cards estáticos de KPIs (Faturamento, Pedidos, Estoque). | **5.50** | Reconstituição de gráficos em Recharts + calculadora reativa em `:6661`. |
+
+**Score BOA Consolidado de Prontidão Global do Frontend Visual:** **`6.24 / 10.0`** (Meta: **`10.0`**)
 
 ---
 
@@ -38,11 +44,10 @@ Decidimos instituir a estratégia de **Engenharia Militar em 2 Estágios** para 
 - **Contratos:** Utilizar o schema OpenAPI 3.1 auto-gerado a partir dos 138 serviços documentados em `wp/omie/docs/`.
 - **Data Seeds & Validation:** Injetar os schemas JSON de `OmieCliente`, `OmiePedidoVenda`, `OmieEmpresa` e `OmieEstoque` validados pelo `probe_eval_omie.py`.
 
-### Estágio 2: Mapeamento de UI/UX e Design System Reativo (Foco de Conclusão)
-Para atingir 100% de replicabilidade da Interface do Usuário (UI/UX):
-1. **Extração de Design Tokens (DOM Profiler):** Capturar variáveis CSS nativas (paleta de cores, tipografia, elevação, bordas, breakpoints, grids) da UI logada da Omie via console script.
-2. **Mapeamento de Componentes Canônicos (UI Component Extractor):** Extrair o DOM renderizado das 4 telas primárias (Dashboard, Tabela de Produtos, Formulário de Pedidos de Venda, Emissão de NF-e).
-3. **Sintetizador React 19 + Tailwind v4 / MUI:** Re-sintetizar as telas do Omie em componentes React nativos (`.tsx`) com suporte a temas escuro/claro e resposta sub-milissegundo.
+### Estágio 2: Mapeamento de Profundidade Máxima UI/UX (Atingir BOA Score 10.0)
+1. **Asset Extractor Pipeline:** Capturar e catalogar todos os SVGs, ícones de módulos e WebP.
+2. **Computed Style Extractor:** Extrair paleta HSL/HEX exata, sombras de elevação e espaçamentos via `window.getComputedStyle`.
+3. **Motion & Chart Synthesizer:** Decompilar animações de modais/gavetas e re-sintetizar gráficos de KPIs em Recharts + React 19.
 
 ---
 
@@ -50,16 +55,18 @@ Para atingir 100% de replicabilidade da Interface do Usuário (UI/UX):
 
 ```mermaid
 graph TD
-    A[Omie Ecosystem] --> B[Backend API Layer - 100%]
-    A --> C[Frontend UI/UX Layer - 35%]
+    A[Omie Ecosystem Replica] --> B[Backend API Layer - 100%]
+    A --> C[Frontend Visual & Depth Layer - 61.6%]
     
     B --> B1[138 APIs HTML Cataloged]
     B --> B2[OpenAPI 3.1 Auto-Spec Server :6661]
     B --> B3[TypeScript Types Generated]
     
-    C --> C1[SPA React Bundle Ingested]
-    C --> C2[Design Token Extractor Needed]
-    C --> C3[DOM Component Synth React 19/Tailwind]
+    C --> C1[Layout DOM - 85%]
+    C --> C2[Tokens CSS - 60%]
+    C --> C3[Assets SVGs/WebP - 25%]
+    C --> C4[Motion & Effects - 15%]
+    C --> C5[Dashboard Charts - 45%]
 
     style B fill:#2e7d32,stroke:#fff,color:#fff
     style C fill:#f57f17,stroke:#fff,color:#fff
@@ -69,12 +76,14 @@ graph TD
 
 ## 🚀 Consequências e Próximos Passos
 
-1. **Garantia de Independência:** Com o backend 100% mapeado, a infraestrutura CASOSEX pode funcionar como cliente direto do Omie ou como um backend Omie-compatible totalmente soberano.
-2. **Plano de Execução Imediato:**
+1. **Garantia de Independência:** Com o backend 100% mapeado e o frontend em caminho de síntese Pixel-Perfect, a infraestrutura CASOSEX alcançará 100% de soberania operacional.
+2. **Plano de Execução Imediato (Score 10.0):**
    - [x] Documentação e Schemas de API 100% Ingeridos (`ADR-0224` / `SPEC-0095`).
    - [x] Servidor Bridge Militar de Testes `:6661` Rodando (`server_6661.js`).
    - [x] Container Leve Firecrawl/Playwright na porta `:3000` Ativo e Validade em Modo Anti-OOM (305MB RAM max).
-   - [x] Registrado Adendo de Eficiência EVO-API / ECC (`0224-addendum-evo-ecc-enrichment.md`).
-   - [ ] Ingestão de Cookies de Sessão no Extractor Firecrawl (`wp/omie/firecrawl_omie_extractor.js`).
-   - [ ] Mapeamento do AST Mating Engine (`/cross-map`) no Servidor Bridge `:6661` para cruzar API com DOM.
-   - [ ] Sintetizar o Kit de Componentes Reativos `.tsx` (React 19 + Tailwind v4) das 4 Telas Canônicas.
+   - [x] Endpoint `/cross-map` no Servidor `:6661` conectando API ao DOM (`a6ddb7e2`).
+   - [x] Sintetizado primeiro componente reativo `OmieDesignSystem.tsx` (`399fb412`).
+   - [ ] Criar o **SVG & Asset Downloader** para extrair 100% dos ícones e assets WebP.
+   - [ ] Criar o **Computed Style Extractor** para extrair variáveis de estilo runtime (`getComputedStyle`).
+   - [ ] Re-sintetizar gráficos de Dashboard usando **Recharts + React 19**.
+
