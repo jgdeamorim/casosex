@@ -514,46 +514,58 @@
       </div>
 
       <!-- Hero Lockup SVG -->
-      <svg class="hero-logo-svg" viewBox="0 0 540 140" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <defs>
-          <linearGradient id="heroGold" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stop-color="#F5D0A9" />
-            <stop offset="50%" stop-color="#D4A373" />
-            <stop offset="100%" stop-color="#A87343" />
-          </linearGradient>
-          <linearGradient id="heroRose" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stop-color="#FB7185" />
-            <stop offset="100%" stop-color="#E11D48" />
-          </linearGradient>
-          <filter id="glowHero" x="-20%" y="-20%" width="140%" height="140%">
-            <feGaussianBlur stdDeviation="4" result="blur" />
-            <feComposite in="SourceGraphic" in2="blur" operator="over" />
-          </filter>
-        </defs>
-
-        <!-- Brandmark: Dynamic V Monogram -->
-        <g transform="translate(20, 20)">
-          <!-- Outer Crown Curve -->
-          <path d="M 15,15 C 35,5 65,5 85,15 C 75,45 50,85 50,95 C 50,85 25,45 15,15 Z" fill="url(#heroGold)" filter="url(#glowHero)" />
-          <!-- Inner Crimson Heart Core -->
-          <path d="M 35,22 C 45,18 55,18 65,22 C 58,40 50,68 50,75 C 50,68 42,40 35,22 Z" fill="url(#heroRose)" opacity="0.9" />
-          <!-- Organic Central Spark -->
-          <circle cx="50" cy="34" r="5" fill="#FAF7F5" />
-        </g>
-
-        <!-- Wordmark: VOLÚPIA -->
-        <text x="135" y="70" font-family="'Playfair Display', serif" font-size="52" font-weight="700" letter-spacing="9" fill="#FAF7F5">
-          VOLÚPIA
-        </text>
-
-        <!-- Tagline: Desperte seus sentidos -->
-        <text x="140" y="102" font-family="'Plus Jakarta Sans', sans-serif" font-size="13" font-weight="500" letter-spacing="6" fill="#D4A373" opacity="0.95">
-          DESPERTE SEUS SENTIDOS
-        </text>
-
-        <!-- Sovereign Seal Line -->
-        <line x1="135" y1="114" x2="480" y2="114" stroke="url(#heroGold)" stroke-width="1.5" opacity="0.4" />
-      </svg>
+      <svg class="hero-logo-svg" viewBox="0 0 1100 320" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="heroLipGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FB7185" />
+      <stop offset="40%" stop-color="#E11D48" />
+      <stop offset="80%" stop-color="#9F1239" />
+      <stop offset="100%" stop-color="#580A20" />
+    </linearGradient>
+    <linearGradient id="heroGoldGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#F7EBE1" />
+      <stop offset="100%" stop-color="#E5C3A6" />
+    </linearGradient>
+    <filter id="heroGlow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="4" stdDeviation="8" flood-color="#E11D48" flood-opacity="0.2" />
+    </filter>
+  </defs>
+  <g transform="translate(30, 60) scale(0.16)" fill="url(#heroLipGrad)" filter="url(#heroGlow)">
+<g transform="translate(212.250000, 1013.700000) scale(0.100000, -0.100000)" stroke="none">
+    <path d="M5630 9833 c-460 -44 -830 -185 -1284 -491 -329 -221 -565 -424
+-1156 -993 -423 -407 -714 -673 -910 -833 -305 -249 -606 -454 -879 -599 -94
+-50 -102 -56 -78 -62 44 -11 294 25 452 66 154 39 394 116 805 258 675 233
+1077 324 1552 352 513 30 952 -45 1793 -305 833 -258 1336 -348 1860 -333 437
+13 730 79 1462 331 600 206 818 267 1153 321 284 46 449 58 735 52 616 -12
+1052 -119 1890 -464 500 -206 718 -267 995 -279 l125 -5 -190 94 c-500 249
+-876 545 -1820 1435 -706 665 -1105 980 -1514 1194 -377 198 -779 290 -1121
+258 -129 -12 -333 -58 -450 -103 -365 -137 -722 -400 -1193 -874 l-177 -180
+-223 222 c-398 395 -670 607 -977 759 -286 142 -585 205 -850 179z"/>
+    <path d="M11075 6933 c-217 -18 -507 -76 -710 -142 -250 -81 -545 -219 -750
+-351 -342 -220 -633 -506 -856 -841 -327 -492 -531 -1019 -794 -2059 -163
+-647 -348 -1211 -549 -1679 -36 -85 -66 -156 -66 -160 0 -11 142 134 214 219
+333 391 652 944 1086 1885 527 1143 854 1662 1379 2185 192 191 320 300 504
+429 278 195 656 383 955 475 56 18 99 35 96 39 -7 7 -429 7 -509 0z"/>
+    <path d="M2685 6839 c-142 -14 -414 -47 -610 -74 -366 -51 -435 -57 -665 -62
+-193 -5 -255 -2 -345 12 -124 19 -236 50 -343 93 -39 16 -72 27 -72 24 0 -14
+93 -125 166 -198 197 -195 577 -464 1179 -834 637 -392 894 -589 1311 -1005
+469 -468 828 -922 1444 -1830 514 -757 777 -1098 1110 -1439 500 -512 969
+-788 1462 -861 138 -21 407 -16 538 10 591 115 1170 497 1775 1170 229 255
+407 482 693 885 462 649 521 732 621 865 323 430 627 784 955 1110 501 498
+821 739 1731 1297 631 388 897 584 1031 762 25 32 43 61 41 63 -3 2 -35 -8
+-73 -22 -304 -115 -672 -134 -1204 -64 -555 73 -692 84 -964 76 -237 -6 -413
+-31 -641 -91 -662 -175 -1282 -595 -1810 -1227 -413 -494 -734 -1068 -1143
+-2044 -125 -299 -245 -588 -305 -735 -112 -271 -213 -497 -325 -725 -99 -201
+-126 -250 -231 -410 -159 -246 -329 -412 -455 -446 -208 -56 -458 227 -666
+750 -88 223 -259 763 -353 1116 -51 191 -223 760 -309 1025 -257 793 -549
+1367 -912 1798 -170 202 -432 429 -665 575 -110 70 -349 191 -466 237 -199 79
+-407 136 -640 176 -136 24 -180 27 -460 29 -170 2 -350 -1 -400 -6z"/>
+</g>
+  </g>
+  <line x1="320" y1="65" x2="320" y2="255" stroke="#D4A373" stroke-width="1.5" stroke-linecap="round" opacity="0.45" />
+  <text x="360" y="168" font-family="'Playfair Display', Georgia, serif" font-size="74" font-weight="700" letter-spacing="14" fill="url(#heroGoldGrad)">VOLÚPIA</text>
+  <text x="365" y="225" font-family="'Plus Jakarta Sans', sans-serif" font-size="20" font-weight="500" letter-spacing="9" fill="#D4A373" opacity="0.9">DESPERTE SEUS SENTIDOS</text>
+</svg>
 
       <div class="brand-tagline-quote">“Erotic Luxury, Sophistication & Discreet Authority”</div>
       <p class="brand-subtitle">
