@@ -139,6 +139,42 @@ export interface OmiePedidoVenda {
 `;
 }
 
+// Generate Tri-Layer AST Cross-Map (API Schemas + UI DOM Elements)
+function generateCrossMap() {
+  const openApi = generateOpenApiSpec();
+  const crossMap = {
+    timestamp: new Date().toISOString(),
+    engine: "RSXT Tri-Layer Cross Matrix",
+    boa_score: calculateBoaScore().boa_score,
+    mappings: [
+      {
+        screen: "Produtos / Estreia",
+        route: "/geral/produtos/",
+        api_call: "ListarProdutos",
+        dom_form_selector: "form#form_cadastro_produto",
+        field_bindings: {
+          "input[name='codigo']": "codigo_produto",
+          "input[name='descricao']": "descricao",
+          "input[name='preco_venda']": "valor_unitario",
+          "input[name='ncm']": "ncm"
+        }
+      },
+      {
+        screen: "Pedidos de Venda",
+        route: "/vendas/pedidovenda/",
+        api_call: "IncluirPedido",
+        dom_form_selector: "form#form_pedido_venda",
+        field_bindings: {
+          "select[name='codigo_cliente']": "cabecalho.codigo_cliente",
+          "input[name='numero_pedido']": "cabecalho.codigo_pedido_integracao",
+          "select[name='etapa']": "cabecalho.etapa"
+        }
+      }
+    ]
+  };
+  return crossMap;
+}
+
 // Server HTTP Routing
 const server = http.createServer((req, res) => {
   const url = new URL(req.url, `http://${req.headers.host}`);
@@ -168,6 +204,10 @@ const server = http.createServer((req, res) => {
     res.writeHead(200, { 'Content-Type': 'text/plain; charset=utf-8' });
     res.end(generateTsTypes());
 
+  } else if (url.pathname === '/cross-map') {
+    res.writeHead(200, { 'Content-Type': 'application/json' });
+    res.end(JSON.stringify(generateCrossMap(), null, 2));
+
   } else if (url.pathname === '/probe') {
     const creds = getOmieCredentials();
     res.writeHead(200, { 'Content-Type': 'application/json' });
@@ -183,10 +223,11 @@ const server = http.createServer((req, res) => {
     res.end(JSON.stringify({
       message: "Omie ERP Sovereign Bridge Server (:6661)",
       endpoints: [
-        "GET /health  -> Status OODA / BOA Score",
-        "GET /openapi -> Esquema OpenAPI 3.1",
-        "GET /types   -> Tipagem TypeScript (.ts)",
-        "GET /probe   -> Status do Probe de Integração"
+        "GET /health     -> Status OODA / BOA Score",
+        "GET /openapi    -> Esquema OpenAPI 3.1",
+        "GET /types      -> Tipagem TypeScript (.ts)",
+        "GET /cross-map  -> AST Mating (API Schemas + UI DOM)",
+        "GET /probe      -> Status do Probe de Integração"
       ]
     }, null, 2));
   }
@@ -195,3 +236,4 @@ const server = http.createServer((req, res) => {
 server.listen(PORT, () => {
   console.log(`🚀 [BRIDGE OMIE :6661] Servidor militar rodando em http://localhost:${PORT}`);
 });
+
