@@ -179,6 +179,12 @@ class Wholesale_Product_Pricing {
      * @return boolean
      */
     public function has_wholesale_pricing() {
+        if ($this->product) {
+            $stock_type = get_post_meta($this->product->get_id(), '_casosex_stock_type', true);
+            if ($stock_type === 'dropshipping_intt') {
+                return false;
+            }
+        }
         $status = $this->get_wholesale_status();
 
         return !empty($status['enable_this_pricing']) && !empty($status['price_value']);
