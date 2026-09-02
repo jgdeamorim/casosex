@@ -1241,16 +1241,17 @@ $order_currency = $order->get_currency();
 
 
 
+				$customer_cpf = $order ? ($order->get_meta('_billing_cpf') ?: $order->get_meta('_shipping_cpf')) : '';
+				$cpf_label = !empty($customer_cpf) ? ' <br/><strong>CPF/CNPJ Destinatário:</strong> ' . $customer_cpf : '';
+
 				if (! empty($order_shipping_address_2)) {
-
-					$full_ship_address = $order_shipping_first_name . ' ' . $order_shipping_last_name . ' <br/>' . $order_shipping_company . ' <br/>' . $order_shipping_address_1 . ', <br/>' . $order_shipping_address_2 . ' <br/>' . $order_shipping_city . ' ' . $order_shipping_state . ' ' . $order_shipping_postcode . ' <br/>' . $order_shipping_country;
+					$full_ship_address = $order_shipping_first_name . ' ' . $order_shipping_last_name . ' <br/>' . $order_shipping_company . ' <br/>' . $order_shipping_address_1 . ', <br/>' . $order_shipping_address_2 . ' <br/>' . $order_shipping_city . ' ' . $order_shipping_state . ' ' . $order_shipping_postcode . ' <br/>' . $order_shipping_country . $cpf_label;
 				} else {
-
-					$full_ship_address = $order_shipping_first_name . ' ' . $order_shipping_last_name . ' <br/>' . $order_shipping_company . ' <br/>' . $order_shipping_address_1 . ' <br/>' . $order_shipping_city . ' ' . $order_shipping_state . ' ' . $order_shipping_postcode . ' <br/>' . $order_shipping_country;
+					$full_ship_address = $order_shipping_first_name . ' ' . $order_shipping_last_name . ' <br/>' . $order_shipping_company . ' <br/>' . $order_shipping_address_1 . ' <br/>' . $order_shipping_city . ' ' . $order_shipping_state . ' ' . $order_shipping_postcode . ' <br/>' . $order_shipping_country . $cpf_label;
 				}
 
 				if (empty($order_shipping_address_1)) {
-					$full_ship_address = $fullBillAddress;
+					$full_ship_address = $fullBillAddress . $cpf_label;
 				}
 
 				?>
