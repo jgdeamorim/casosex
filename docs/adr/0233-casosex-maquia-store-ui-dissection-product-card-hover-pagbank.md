@@ -80,6 +80,20 @@ Injetamos os seletores CSS extraídos da Maquia Store acoplados aos hooks e cont
 ### 3. Integração Não-Invasiva com Blocksy Product Reviews & Badges
 As estrelas de avaliação (`woo_advanced_reviews_summary`) e os selos de produto (`Product Badges`) do Blocksy permanecem intactos, aproveitando as personalizações do Customizer enquanto compartilham o layout do card durante o hover.
 
+### 4. Mapeamento de Responsabilidade: Customizer Blocksy PRO vs. Code Injections
+Conforme análise cirúrgica do Customizer do Blocksy PRO (`Personalizar > WooCommerce > Arquivos de Produtos`), estabelecemos a separação clara de responsabilidades sem duplicação de esforço:
+
+1. **Customizer Blocksy PRO (Configuração Zero-Code)**:
+   - **Card Type Base**: Seleção do `Type 1` ou `Type 2` em `Arquivos de Produtos > Configurações do Card`.
+   - **Troca de Imagem no Hover (Image Swap)**: Ativação nativa em `Arquivos de Produtos > Imagem do Produto > Efeito de Hover = Swap Image`.
+   - **Badges / Selos**: Gerenciamento de `SALE`, `Esgotado` e `Novo` em `Arquivos de Produtos > Badges / Selos`.
+   - **Star Rating & Atributos**: Habilitação dos seletores visuais nativos `Rating` e `Variation Swatches`.
+
+2. **Injeção de Código (Plugin `casosex-dropshipping-sync.php` + CSS Adicional)**:
+   - **Hook de Injeção**: `blocksy:woocommerce:product-card:summary:after` para o bloco de parcelas PagBank e desconto PIX.
+   - **CSS de Elevação de Card**: Classe `.product.show-down` acoplada ao container `.entry-card` para o efeito de elevação `translateY(-25px)` no desktop.
+   - **Responsividade Mobile**: Manutenção dos dados de pagamento de forma estática e legível em telas touch onde o hover não se aplica.
+
 ---
 
 ## 📊 Diagrama da Arquitetura
@@ -108,3 +122,4 @@ graph TD
 1. **Fidelidade Visual Benchmark**: Reconstrução pixel-perfect das melhores animações do tema Maquia Store Pro dentro do Blocksy Pro v2.1.55.
 2. **Reatividade Total a Gateways**: Alterações no parcelamento do PagBank refletem instantaneamente em toda a vitrine.
 3. **Alto Impacto em CRO**: Apresentação de parcelamento e desconto PIX no hover aumenta drasticamente a taxa de cliques e adição ao carrinho.
+
