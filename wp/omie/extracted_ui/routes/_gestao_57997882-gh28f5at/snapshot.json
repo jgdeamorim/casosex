@@ -1,0 +1,39 @@
+{
+  "route": "/gestao/57997882-gh28f5at/",
+  "url": "https://app.omie.com.br/gestao/57997882-gh28f5at/",
+  "title": "57.997.882: Bem vindo (Módulo de Configurações)",
+  "module": "Configurações",
+  "appHash": "57997882-gh28f5at",
+  "discovered_links": [
+    "https://www.omie.com.br",
+    "javascript:void(0)",
+    "/gestao/57997882-gh28f5at/#my-apps",
+    "/gestao/57997882-gh28f5at/#edit-profile",
+    "#collapse0"
+  ],
+  "forms_schema": [
+    {
+      "form_index": 0,
+      "id": "form_config_whatsapp",
+      "inputs": [
+        {
+          "name": "whatsappDDD",
+          "type": "text",
+          "className": "form-control input-sm"
+        },
+        {
+          "name": "whatsappNumber",
+          "type": "text",
+          "className": "form-control input-sm"
+        }
+      ]
+    }
+  ],
+  "computed_styles": {
+    "header_bg": "rgb(0, 30, 39)",
+    "cyan_accent": "rgb(0, 226, 244)",
+    "font_family": "Poppins, Roboto, sans-serif",
+    "border_radius": "24px",
+    "box_shadow": "rgba(0, 0, 0, 0.12) 0px 2px 5px 0px"
+  }
+}
