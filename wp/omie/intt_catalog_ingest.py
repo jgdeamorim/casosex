@@ -84,6 +84,15 @@ def ingest_product_to_woocommerce(product_data: dict, wc_url: str = WOOCOMMERCE_
     cost_price = float(product_data.get("cost_price", 0.0))
     suggested_price = float(product_data.get("suggested_price", cost_price * 2.0))
 
+    gtin = product_data.get("gtin", "")
+    ncm = product_data.get("ncm", "")
+    weight = float(product_data.get("weight", 0.0))
+    weight_net = float(product_data.get("weight_net", 0.0))
+    length = float(product_data.get("length", 0.0))
+    width = float(product_data.get("width", 0.0))
+    height = float(product_data.get("height", 0.0))
+    brand = product_data.get("brand", "INTT")
+
     payload = {
         "name": product_data.get("name", "Produto INTT"),
         "type": "simple",
@@ -94,12 +103,23 @@ def ingest_product_to_woocommerce(product_data: dict, wc_url: str = WOOCOMMERCE_
         "manage_stock": True,
         "stock_quantity": stock_qty,
         "stock_status": stock_status,
+        "weight": str(weight) if weight > 0 else "",
+        "dimensions": {
+            "length": str(length) if length > 0 else "",
+            "width": str(width) if width > 0 else "",
+            "height": str(height) if height > 0 else ""
+        },
         "meta_data": [
             {"key": "_casosex_stock_type", "value": "dropshipping_intt"},
             {"key": "_casosex_supplier", "value": "INTT"},
             {"key": "_casosex_supplier_id", "value": str(INTT_SUPPLIER_TERM_ID)},
             {"key": "_casosex_supplier_cnpj", "value": "21.725.006/0001-04"},
-            {"key": "_casosex_cost_price", "value": str(cost_price)}
+            {"key": "_casosex_cost_price", "value": str(cost_price)},
+            {"key": "_gtin", "value": gtin},
+            {"key": "_barcode", "value": gtin},
+            {"key": "_ncm", "value": ncm},
+            {"key": "_weight_net", "value": str(weight_net)},
+            {"key": "_casosex_brand", "value": brand}
         ]
     }
 
@@ -148,6 +168,14 @@ def _ingest_via_php(product_data: dict, product_id: int = None) -> dict:
     cost_price = float(product_data.get("cost_price", 0.0))
     suggested_price = float(product_data.get("suggested_price", cost_price * 2.0))
     stock_qty = int(product_data.get("stock_quantity", 10))
+    gtin = product_data.get("gtin", "")
+    ncm = product_data.get("ncm", "")
+    weight = float(product_data.get("weight", 0.0))
+    weight_net = float(product_data.get("weight_net", 0.0))
+    length = float(product_data.get("length", 0.0))
+    width = float(product_data.get("width", 0.0))
+    height = float(product_data.get("height", 0.0))
+    brand = product_data.get("brand", "INTT").replace("'", "\\'")
 
     php_script = f"""
     require_once('/var/www/html/wp-load.php');
@@ -170,11 +198,20 @@ def _ingest_via_php(product_data: dict, product_id: int = None) -> dict:
     $product->set_regular_price('{suggested_price}');
     $product->set_manage_stock(true);
     $product->set_stock_quantity({stock_qty});
+    if ({weight} > 0) $product->set_weight({weight});
+    if ({length} > 0) $product->set_length({length});
+    if ({width} > 0) $product->set_width({width});
+    if ({height} > 0) $product->set_height({height});
     $product->update_meta_data('_casosex_stock_type', 'dropshipping_intt');
     $product->update_meta_data('_casosex_supplier', 'INTT');
     $product->update_meta_data('_casosex_supplier_id', '69');
     $product->update_meta_data('_casosex_supplier_cnpj', '21.725.006/0001-04');
     $product->update_meta_data('_casosex_cost_price', '{cost_price}');
+    $product->update_meta_data('_gtin', '{gtin}');
+    $product->update_meta_data('_barcode', '{gtin}');
+    $product->update_meta_data('_ncm', '{ncm}');
+    $product->update_meta_data('_weight_net', '{weight_net}');
+    $product->update_meta_data('_casosex_brand', '{brand}');
     $new_id = $product->save();
     wp_set_object_terms($new_id, 69, 'dropship_supplier', true);
     echo json_encode(array('id' => $new_id, 'sku' => '{sku}', 'status' => $product->get_status(), 'stock' => {stock_qty}, 'price' => {suggested_price}));

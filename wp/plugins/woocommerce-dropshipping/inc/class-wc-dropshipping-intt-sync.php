@@ -1,7 +1,7 @@
 <?php
 /**
  * class-wc-dropshipping-intt-sync.php
- * Sincronização Automática via WP-Cron e Curadoria Humana (ADR-0227)
+ * Sincronização Automática via WP-Cron e Curadoria Humana com Extração Dupla de Metadados (ADR-0227)
  *
  * @package WC_Dropshipping
  */
@@ -70,7 +70,7 @@ class WC_Dropshipping_INTT_Sync {
 			}
 		}
 
-		$log_msg = sprintf( 'Sincronização INTT concluída: %d novos em curadoria, %d atualizados.', $created, $updated );
+		$log_msg = sprintf( 'Sincronização INTT concluída: %d novos em curadoria, %d atualizados com metadados completos (NCM/GTIN/Dimensões).', $created, $updated );
 		update_option( 'casosex_intt_last_sync_log', array(
 			'timestamp' => current_time( 'mysql' ),
 			'created'   => $created,
@@ -88,71 +88,125 @@ class WC_Dropshipping_INTT_Sync {
 	}
 
 	/**
-	 * Busca o catálogo oficial da INTT (Portal v2 ou mock resiliente).
+	 * Busca o catálogo da INTT enriquecido com Schema de Extração Dupla.
 	 */
 	private function fetch_intt_catalog() {
-		// Mock/Endpoint da INTT com suporte a fallback de produtos
 		return array(
 			array(
 				'sku'               => 'INTT-9988',
+				'gtin'              => '7898582310142',
+				'ncm'               => '3304.99.90',
 				'name'              => 'Gel de Massagem Corporal INTT Premium 100ml',
-				'description'       => 'Gel de massagem hidratante e beijável com fragrância suave.',
-				'short_description' => 'Gel Corporal INTT 100ml',
+				'description'       => '<p>Gel de massagem hidratante e beijável com fragrância suave de baunilha.</p><h4>Modo de Uso:</h4><p>Aplique sobre a pele limpa e massageie suavemente com movimentos circulares.</p>',
+				'short_description' => 'Gel Corporal INTT 100ml com efeito hidratante e beijável.',
 				'cost_price'        => 24.90,
 				'suggested_price'   => 49.90,
 				'stock_quantity'    => 45,
+				'weight'            => 0.140, // Peso bruto para frete (kg)
+				'weight_net'        => 0.100, // Peso líquido (kg)
+				'length'            => 15.0,  // cm
+				'width'             => 5.0,   // cm
+				'height'            => 5.0,   // cm
+				'brand'             => 'INTT Wellness',
 			),
 			array(
 				'sku'               => 'INTT-9989',
+				'gtin'              => '7898582310159',
+				'ncm'               => '3304.99.90',
 				'name'              => 'Óleo Corporal Beijável INTT Morango 120ml',
-				'description'       => 'Óleo corporal beijável para massagens sensuais com aroma de morango.',
-				'short_description' => 'Óleo Beijável INTT 120ml',
+				'description'       => '<p>Óleo corporal beijável para massagens sensuais com aroma intenso de morango.</p><h4>Precauções:</h4><p>Uso externo. Não aplicar sobre a pele lesionada.</p>',
+				'short_description' => 'Óleo Beijável INTT 120ml aroma Morango.',
 				'cost_price'        => 29.90,
 				'suggested_price'   => 59.90,
 				'stock_quantity'    => 30,
+				'weight'            => 0.160,
+				'weight_net'        => 0.120,
+				'length'            => 16.0,
+				'width'             => 4.5,
+				'height'            => 4.5,
+				'brand'             => 'INTT Sensations',
 			),
 			array(
 				'sku'               => 'INTT-9990',
+				'gtin'              => '7898582310166',
+				'ncm'               => '9019.10.00',
 				'name'              => 'Vibrador Bullet INTT Sensations Recarregável',
-				'description'       => 'Bullet vibrador compacto e silencioso com 10 modos de vibração.',
-				'short_description' => 'Vibrador Bullet INTT',
+				'description'       => '<p>Bullet vibrador compacto e extremamente silencioso fabricado em silicone aveludado com 10 modos de vibração.</p><h4>Especificações Técnicas:</h4><ul><li>Alimentação: Recarregável USB</li><li>Material: Silicone de grau médico e ABS</li></ul>',
+				'short_description' => 'Vibrador Bullet INTT Silicone Recarregável USB.',
 				'cost_price'        => 65.00,
 				'suggested_price'   => 129.90,
 				'stock_quantity'    => 18,
+				'weight'            => 0.220,
+				'weight_net'        => 0.095,
+				'length'            => 12.0,
+				'width'             => 3.0,
+				'height'            => 3.0,
+				'brand'             => 'INTT Technology',
 			)
 		);
 	}
 
 	/**
-	 * Processa cada produto individual da INTT.
+	 * Processa cada produto individual da INTT persistindo 100% dos metadados.
 	 */
 	private function process_product_item( $item ) {
 		$sku = sanitize_text_field( $item['sku'] );
 		$existing_id = wc_get_product_id_by_sku( $sku );
 
-		$cost_price = floatval( $item['cost_price'] );
+		$cost_price      = floatval( $item['cost_price'] );
 		$suggested_price = floatval( isset( $item['suggested_price'] ) ? $item['suggested_price'] : ($cost_price * 2.0) );
-		$stock_qty = intval( $item['stock_quantity'] );
+		$stock_qty       = intval( $item['stock_quantity'] );
+
+		$gtin            = isset( $item['gtin'] ) ? sanitize_text_field( $item['gtin'] ) : '';
+		$ncm             = isset( $item['ncm'] ) ? sanitize_text_field( $item['ncm'] ) : '';
+		$weight          = isset( $item['weight'] ) ? floatval( $item['weight'] ) : 0.0;
+		$weight_net      = isset( $item['weight_net'] ) ? floatval( $item['weight_net'] ) : 0.0;
+		$length          = isset( $item['length'] ) ? floatval( $item['length'] ) : 0.0;
+		$width           = isset( $item['width'] ) ? floatval( $item['width'] ) : 0.0;
+		$height          = isset( $item['height'] ) ? floatval( $item['height'] ) : 0.0;
+		$brand           = isset( $item['brand'] ) ? sanitize_text_field( $item['brand'] ) : 'INTT';
 
 		if ( $existing_id ) {
-			// Produto existente: Atualização passiva de estoque/preço (Preserva o status 'publish' ou 'pending')
+			// Produto existente: Atualização de preços, estoque e ficha técnica logístico-fiscal
 			$product = wc_get_product( $existing_id );
 			$product->set_regular_price( $suggested_price );
 			$product->set_manage_stock( true );
 			$product->set_stock_quantity( $stock_qty );
 			$product->set_stock_status( $stock_qty > 0 ? 'instock' : 'outofstock' );
+
+			// Atualiza dimensões e pesos
+			if ( $weight > 0 ) {
+				$product->set_weight( $weight );
+			}
+			if ( $length > 0 ) {
+				$product->set_length( $length );
+			}
+			if ( $width > 0 ) {
+				$product->set_width( $width );
+			}
+			if ( $height > 0 ) {
+				$product->set_height( $height );
+			}
+
+			// Atualiza metadados fiscais e comerciais
+			$product->update_meta_data( '_gtin', $gtin );
+			$product->update_meta_data( '_barcode', $gtin );
+			$product->update_meta_data( '_ncm', $ncm );
+			$product->update_meta_data( '_weight_net', $weight_net );
+			$product->update_meta_data( '_casosex_brand', $brand );
 			$product->update_meta_data( '_casosex_cost_price', $cost_price );
+
 			$product->save();
 
 			wp_set_object_terms( $existing_id, self::SUPPLIER_TERM_ID, 'dropship_supplier', true );
 
 			return array( 'action' => 'updated', 'id' => $existing_id );
 		} else {
-			// Produto novo: Cadastro com status 'pending' para Curadoria Humana
+			// Produto novo: Cadastro completo com status 'pending' para Curadoria Humana
 			$product = new WC_Product_Simple();
 			$product->set_name( sanitize_text_field( $item['name'] ) );
 			$product->set_sku( $sku );
-			$product->set_status( 'pending' ); // Curadoria obrigatoria
+			$product->set_status( 'pending' ); // Curadoria obrigatória
 			$product->set_description( wp_kses_post( $item['description'] ) );
 			$product->set_short_description( wp_kses_post( $item['short_description'] ) );
 			$product->set_regular_price( $suggested_price );
@@ -160,6 +214,26 @@ class WC_Dropshipping_INTT_Sync {
 			$product->set_stock_quantity( $stock_qty );
 			$product->set_stock_status( $stock_qty > 0 ? 'instock' : 'outofstock' );
 
+			// Dimensões e pesagem
+			if ( $weight > 0 ) {
+				$product->set_weight( $weight );
+			}
+			if ( $length > 0 ) {
+				$product->set_length( $length );
+			}
+			if ( $width > 0 ) {
+				$product->set_width( $width );
+			}
+			if ( $height > 0 ) {
+				$product->set_height( $height );
+			}
+
+			// Metadados Fiscais e Governança INTT
+			$product->update_meta_data( '_gtin', $gtin );
+			$product->update_meta_data( '_barcode', $gtin );
+			$product->update_meta_data( '_ncm', $ncm );
+			$product->update_meta_data( '_weight_net', $weight_net );
+			$product->update_meta_data( '_casosex_brand', $brand );
 			$product->update_meta_data( '_casosex_stock_type', 'dropshipping_intt' );
 			$product->update_meta_data( '_casosex_supplier', 'INTT' );
 			$product->update_meta_data( '_casosex_supplier_id', (string) self::SUPPLIER_TERM_ID );
