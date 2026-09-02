@@ -89,22 +89,23 @@ def get_or_create_category_id(category_name: str, wc_url: str = WOOCOMMERCE_URL,
             cats = json.loads(resp.read().decode("utf-8"))
             if isinstance(cats, list) and len(cats) > 0:
                 for c in cats:
-                    if c.get("name", "").lower() == category_name.lower():
-                        return c["id"]
-                return cats[0]["id"]
+                    if c.get("name", "").strip().lower() == category_name.strip().lower():
+                        return int(c["id"])
+                return int(cats[0]["id"])
     except Exception:
         pass
 
-    # Fallback PHP
+    # Fallback PHP soberano
+    escaped_cat = category_name.replace("'", "\\'")
     php_script = f"""
     require_once('/var/www/html/wp-load.php');
-    $term = get_term_by('name', '{category_name}', 'product_cat');
+    $term = get_term_by('name', '{escaped_cat}', 'product_cat');
     if ($term) {{
-        echo json_encode(array('id' => $term->term_id));
+        echo json_encode(array('id' => (int)$term->term_id));
     }} else {{
-        $new_term = wp_insert_term('{category_name}', 'product_cat');
+        $new_term = wp_insert_term('{escaped_cat}', 'product_cat');
         if (!is_wp_error($new_term)) {{
-            echo json_encode(array('id' => $new_term['term_id']));
+            echo json_encode(array('id' => (int)$new_term['term_id']));
         }} else {{
             echo json_encode(array('id' => 0));
         }}
@@ -113,7 +114,7 @@ def get_or_create_category_id(category_name: str, wc_url: str = WOOCOMMERCE_URL,
     res = subprocess.run(["docker", "exec", "-i", "casosex-wordpress", "php", "-r", php_script], capture_output=True, text=True)
     try:
         data = json.loads(res.stdout.strip())
-        return data.get("id", 0)
+        return int(data.get("id", 0))
     except Exception:
         return 0
 
@@ -131,8 +132,8 @@ def ingest_product_to_woocommerce(product_data: dict, wc_url: str = WOOCOMMERCE_
     cost_price = float(product_data.get("cost_price", 0.0))
     suggested_price = float(product_data.get("suggested_price", cost_price * 2.0))
 
-    gtin = product_data.get("gtin", "")
-    ncm = product_data.get("ncm", "")
+    gtin = str(product_data.get("gtin", "")).strip()
+    ncm = str(product_data.get("ncm", "")).strip()
     weight = float(product_data.get("weight", 0.0))
     weight_net = float(product_data.get("weight_net", 0.0))
     length = float(product_data.get("length", 0.0))
@@ -163,6 +164,8 @@ def ingest_product_to_woocommerce(product_data: dict, wc_url: str = WOOCOMMERCE_
             {"key": "_casosex_supplier_id", "value": str(INTT_SUPPLIER_TERM_ID)},
             {"key": "_casosex_supplier_cnpj", "value": "21.725.006/0001-04"},
             {"key": "_casosex_cost_price", "value": str(cost_price)},
+            {"key": "_cost_of_goods", "value": str(cost_price)},
+            {"key": "supplier", "value": "INTT"},
             {"key": "_gtin", "value": gtin},
             {"key": "_barcode", "value": gtin},
             {"key": "_ncm", "value": ncm},
@@ -181,7 +184,7 @@ def ingest_product_to_woocommerce(product_data: dict, wc_url: str = WOOCOMMERCE_
         payload["stock_status"] = stock_status
     else:
         attr_name = "Opção"
-        attr_options = [v.get("option_name", v.get("name", f"Opção {idx+1}")) for idx, v in enumerate(variations_data)]
+        attr_options = [v.get("option_name", v.get("name", f"Opção {idx+1}")).strip() for idx, v in enumerate(variations_data)]
         payload["attributes"] = [{
             "name": attr_name,
             "position": 0,
@@ -225,8 +228,8 @@ def ingest_product_to_woocommerce(product_data: dict, wc_url: str = WOOCOMMERCE_
                 if is_variable:
                     _ingest_variations(parent_id, variations_data, wc_url, ck, cs)
             return res
-    except Exception:
-        # Fallback via PHP soberano
+    except Exception as e:
+        print(f"[CASOSEX INGEST] Aviso REST API ({e}). Executando Fallback PHP Soberano...")
         return _ingest_via_php(product_data, existing.get("id"))
 
 
@@ -244,7 +247,9 @@ def _ingest_variations(parent_id: int, variations: list, wc_url: str, ck: str, c
         var_cost = float(var.get("cost_price", 0.0))
         var_price = float(var.get("suggested_price", var_cost * 2.0))
         var_stock = int(var.get("stock_quantity", 10))
-        option_val = var.get("option_name", var.get("name", f"Opção {idx+1}"))
+        option_val = var.get("option_name", var.get("name", f"Opção {idx+1}")).strip()
+        var_gtin = str(var.get("gtin", "")).strip()
+        var_ncm = str(var.get("ncm", "")).strip()
 
         var_payload = {
             "sku": var_sku,
@@ -255,7 +260,15 @@ def _ingest_variations(parent_id: int, variations: list, wc_url: str, ck: str, c
             "attributes": [{"name": "Opção", "option": option_val}],
             "meta_data": [
                 {"key": "_casosex_cost_price", "value": str(var_cost)},
-                {"key": "_gtin", "value": var.get("gtin", "")}
+                {"key": "_cost_of_goods", "value": str(var_cost)},
+                {"key": "supplier", "value": "INTT"},
+                {"key": "_casosex_supplier", "value": "INTT"},
+                {"key": "_casosex_supplier_id", "value": str(INTT_SUPPLIER_TERM_ID)},
+                {"key": "_casosex_supplier_cnpj", "value": "21.725.006/0001-04"},
+                {"key": "_casosex_stock_type", "value": "dropshipping_intt"},
+                {"key": "_gtin", "value": var_gtin},
+                {"key": "_barcode", "value": var_gtin},
+                {"key": "_ncm", "value": var_ncm}
             ]
         }
 
@@ -283,6 +296,11 @@ def _ingest_variation_via_php(parent_id: int, var_payload: dict):
     price = var_payload.get("regular_price", "0")
     stock = var_payload.get("stock_quantity", 0)
     option_val = var_payload["attributes"][0]["option"] if var_payload.get("attributes") else "Opção"
+    
+    meta_pairs = {m["key"]: m["value"] for m in var_payload.get("meta_data", [])}
+    cost = meta_pairs.get("_casosex_cost_price", "0.0")
+    gtin = meta_pairs.get("_gtin", "")
+    ncm = meta_pairs.get("_ncm", "")
 
     php_script = f"""
     require_once('/var/www/html/wp-load.php');
@@ -293,6 +311,16 @@ def _ingest_variation_via_php(parent_id: int, var_payload: dict):
     $variation->set_manage_stock(true);
     $variation->set_stock_quantity({stock});
     $variation->set_attributes(array('opcao' => '{option_val}'));
+    $variation->update_meta_data('_casosex_cost_price', '{cost}');
+    $variation->update_meta_data('_cost_of_goods', '{cost}');
+    $variation->update_meta_data('supplier', 'INTT');
+    $variation->update_meta_data('_casosex_supplier', 'INTT');
+    $variation->update_meta_data('_casosex_supplier_id', '{INTT_SUPPLIER_TERM_ID}');
+    $variation->update_meta_data('_casosex_supplier_cnpj', '21.725.006/0001-04');
+    $variation->update_meta_data('_casosex_stock_type', 'dropshipping_intt');
+    $variation->update_meta_data('_gtin', '{gtin}');
+    $variation->update_meta_data('_barcode', '{gtin}');
+    $variation->update_meta_data('_ncm', '{ncm}');
     $var_id = $variation->save();
     echo json_encode(array('id' => $var_id));
     """
@@ -307,8 +335,8 @@ def _ingest_via_php(product_data: dict, product_id: int = None) -> dict:
     cost_price = float(product_data.get("cost_price", 0.0))
     suggested_price = float(product_data.get("suggested_price", cost_price * 2.0))
     stock_qty = int(product_data.get("stock_quantity", 10))
-    gtin = product_data.get("gtin", "")
-    ncm = product_data.get("ncm", "")
+    gtin = str(product_data.get("gtin", "")).replace("'", "\\'")
+    ncm = str(product_data.get("ncm", "")).replace("'", "\\'")
     weight = float(product_data.get("weight", 0.0))
     weight_net = float(product_data.get("weight_net", 0.0))
     length = float(product_data.get("length", 0.0))
@@ -317,50 +345,101 @@ def _ingest_via_php(product_data: dict, product_id: int = None) -> dict:
     brand = product_data.get("brand", "INTT").replace("'", "\\'")
     cat_name = product_data.get("category", "Cosméticos & Géis Eróticos").replace("'", "\\'")
 
+    variations_data = product_data.get("variations", [])
+    is_variable = len(variations_data) > 0
+
+    attr_options = json.dumps([v.get("option_name", v.get("name", f"Opção {i+1}")).strip() for i, v in enumerate(variations_data)])
+
     php_script = f"""
     require_once('/var/www/html/wp-load.php');
     $id = {product_id if product_id else 0};
+    $product = false;
     if ($id > 0) {{
         $product = wc_get_product($id);
-    }} else {{
-        $existing_id = wc_get_product_id_by_sku('{sku}');
-        if ($existing_id) {{
-            $product = wc_get_product($existing_id);
-        }} else {{
-            $product = new WC_Product_Simple();
-            $product->set_status('pending');
+        if ($product && $product->is_type('variation')) {{
+            $parent_id = $product->get_parent_id();
+            if ($parent_id > 0) {{
+                $product = wc_get_product($parent_id);
+            }} else {{
+                $product = false;
+            }}
         }}
     }}
+    if (!$product) {{
+        $existing_id = wc_get_product_id_by_sku('{sku}');
+        if ($existing_id) {{
+            $p_check = wc_get_product($existing_id);
+            if ($p_check && $p_check->is_type('variation')) {{
+                $p_parent_id = $p_check->get_parent_id();
+                if ($p_parent_id > 0) {{
+                    $product = wc_get_product($p_parent_id);
+                }}
+            }} else {{
+                $product = $p_check;
+            }}
+        }}
+    }}
+    if (!$product) {{
+        $product = {'new WC_Product_Variable()' if is_variable else 'new WC_Product_Simple()'};
+        $product->set_status('pending');
+    }}
     $product->set_name('{name}');
-    $product->set_sku('{sku}');
+    if ($product->get_sku() !== '{sku}') {{
+        try {{
+            $product->set_sku('{sku}');
+        }} catch (Exception $e) {{
+            // SKU em uso por variação existente
+        }}
+    }}
     $product->set_description('{desc}');
     $product->set_short_description('{short_desc}');
-    $product->set_regular_price('{suggested_price}');
-    $product->set_manage_stock(true);
-    $product->set_stock_quantity({stock_qty});
+    if (!$product->is_type('variable') && !$product->is_type('variation')) {{
+        $product->set_regular_price('{suggested_price}');
+        $product->set_manage_stock(true);
+        $product->set_stock_quantity({stock_qty});
+    }} else if ($product->is_type('variable')) {{
+        $attr = new WC_Product_Attribute();
+        $attr->set_name('Opção');
+        $attr->set_options({attr_options});
+        $attr->set_position(0);
+        $attr->set_visible(true);
+        $attr->set_variation(true);
+        $product->set_attributes(array($attr));
+    }}
     if ({weight} > 0) $product->set_weight({weight});
     if ({length} > 0) $product->set_length({length});
     if ({width} > 0) $product->set_width({width});
     if ({height} > 0) $product->set_height({height});
     $product->update_meta_data('_casosex_stock_type', 'dropshipping_intt');
     $product->update_meta_data('_casosex_supplier', 'INTT');
+    $product->update_meta_data('supplier', 'INTT');
     $product->update_meta_data('_casosex_supplier_id', '69');
     $product->update_meta_data('_casosex_supplier_cnpj', '21.725.006/0001-04');
     $product->update_meta_data('_casosex_cost_price', '{cost_price}');
+    $product->update_meta_data('_cost_of_goods', '{cost_price}');
     $product->update_meta_data('_gtin', '{gtin}');
     $product->update_meta_data('_barcode', '{gtin}');
     $product->update_meta_data('_ncm', '{ncm}');
     $product->update_meta_data('_weight_net', '{weight_net}');
     $product->update_meta_data('_casosex_brand', '{brand}');
+
+    if (!$product->is_type('variation')) {{
+        $cat_term = get_term_by('name', '{cat_name}', 'product_cat');
+        if ($cat_term) {{
+            $product->set_category_ids(array((int)$cat_term->term_id));
+        }}
+    }}
+
     $new_id = $product->save();
     wp_set_object_terms($new_id, 69, 'dropship_supplier', true);
-    wp_set_object_terms($new_id, '{cat_name}', 'product_cat', true);
-    echo json_encode(array('id' => $new_id, 'sku' => '{sku}', 'status' => $product->get_status(), 'stock' => {stock_qty}, 'price' => {suggested_price}));
+    echo json_encode(array('id' => $new_id, 'sku' => '{sku}', 'status' => $product->get_status()));
     """
     res = subprocess.run(["docker", "exec", "-i", "casosex-wordpress", "php", "-r", php_script], capture_output=True, text=True)
     try:
         data = json.loads(res.stdout.strip())
         print(f"[CASOSEX INGEST] Ingestão Soberana via PHP executada com sucesso! Produto ID #{data.get('id')}")
+        if is_variable and data.get('id'):
+            _ingest_variations(data.get('id'), variations_data, WOOCOMMERCE_URL, WOOCOMMERCE_CK, WOOCOMMERCE_CS)
         return data
     except Exception as e:
         return {"error": str(e), "raw": res.stdout}
