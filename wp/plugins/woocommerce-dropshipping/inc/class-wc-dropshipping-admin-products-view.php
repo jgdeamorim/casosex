@@ -217,10 +217,37 @@ class WC_Dropshipping_Admin_Products_View {
 		}
 		?>
 		<style type="text/css">
-			.fixed .column-supplier_freight { width: 14%; }
-			.fixed .column-cost_margin { width: 14%; }
-			.fixed .column-fiscal_data { width: 13%; }
-			.fixed .column-curation_status { width: 12%; }
+			/* Otimização da Tabela de Produtos WooCommerce Admin */
+			.wp-list-table.products {
+				table-layout: auto !important;
+				min-width: 1280px;
+			}
+			.wp-list-table.products td, .wp-list-table.products th {
+				vertical-align: top !important;
+				padding: 10px 8px !important;
+			}
+			/* Impede quebras verticais de caracteres e altura excessiva de linhas */
+			.wp-list-table.products .column-date,
+			.wp-list-table.products .column-taxonomy-product_brand,
+			.wp-list-table.products .column-product_cat,
+			.wp-list-table.products .column-product_tag,
+			.wp-list-table.products .column-curation_status,
+			.wp-list-table.products .column-fiscal_data,
+			.wp-list-table.products .column-cost_margin,
+			.wp-list-table.products .column-supplier_freight {
+				white-space: nowrap !important;
+			}
+			.wp-list-table.products .column-name {
+				white-space: normal !important;
+				max-width: 220px;
+			}
+			.fixed .column-supplier_freight { width: 140px; }
+			.fixed .column-cost_margin { width: 140px; }
+			.fixed .column-fiscal_data { width: 140px; }
+			.fixed .column-curation_status { width: 130px; }
+			.fixed .column-wholesale_price { width: 110px; }
+			.fixed .column-taxonomy-product_brand { width: 110px; }
+			.fixed .column-date { width: 120px; }
 		</style>
 		<?php
 	}
