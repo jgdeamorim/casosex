@@ -46,6 +46,14 @@ Inspecionamos o banco de dados do WordPress (`casosex-wordpress`):
   - `woo_advanced_reviews_images` = `'yes'`
   - `woo_advanced_reviews_votes` = `'yes'`
 
+### 3. Alinhamento com a Documentação Oficial Blocksy WooCommerce General
+Conforme a documentação oficial (`https://creativethemes.com/blocksy/docs/woocommerce/woocommerce-general/`), o Blocksy Pro gerencia nativamente via Customizer:
+- **Product Badges**: Selos de desconto (% off), estoque e lançamentos.
+- **Star Rating & Quantity Inputs**: Estilo visual global para estrelas de avaliação e seletores numéricos (+ / -).
+- **Mensagens de Checkout/Carrinho**: Estilização de avisos de informação, sucesso e erros.
+
+A injeção do componente Hover Maquia respeita integralmente esses seletores nativos sem sobrescrevê-los ou quebrá-los.
+
 ---
 
 ## 🎯 Decisão de Arquitetura
@@ -59,12 +67,12 @@ No plugin soberano `casosex-dropshipping-sync.php` (v2.7.0), criamos a função 
 - Calcula o valor exato da parcela e o valor com desconto PIX para cada produto.
 
 ### 2. Animação Responsiva Hover no Blocksy Pro
-Injetamos os seletores CSS extraídos da Maquia Store acoplados aos containers nativos do Blocksy Pro (`.ct-media-container` e `.product`):
+Injetamos os seletores CSS extraídos da Maquia Store acoplados aos hooks e containers nativos do Blocksy Pro (`.ct-media-container`, `.product`, `blocksy:woocommerce:product-card:summary:after`):
 - Transição de 0.3s na troca da foto secundária do produto.
 - Revelação da gaveta de parcelamento/PIX ao passar o mouse.
 
-### 3. Integração com Blocksy Product Reviews
-As estrelas de avaliação (`woo_advanced_reviews_summary`) permanecem visíveis no estado normal do card e dão espaço suave à gaveta de parcelas/PIX durante o hover.
+### 3. Integração Não-Invasiva com Blocksy Product Reviews & Badges
+As estrelas de avaliação (`woo_advanced_reviews_summary`) e os selos de produto (`Product Badges`) do Blocksy permanecem intactos, aproveitando as personalizações do Customizer enquanto compartilham o layout do card durante o hover.
 
 ---
 
