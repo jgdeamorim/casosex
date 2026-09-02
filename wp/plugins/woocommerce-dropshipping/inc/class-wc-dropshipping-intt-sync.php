@@ -108,6 +108,9 @@ class WC_Dropshipping_INTT_Sync {
 				'width'             => 5.0,   // cm
 				'height'            => 5.0,   // cm
 				'brand'             => 'INTT Wellness',
+				'category'          => 'Cosméticos & Géis Eróticos',
+				'volume'            => '100ml',
+				'sabor'             => 'Baunilha',
 			),
 			array(
 				'sku'               => 'INTT-9989',
@@ -125,6 +128,9 @@ class WC_Dropshipping_INTT_Sync {
 				'width'             => 4.5,
 				'height'            => 4.5,
 				'brand'             => 'INTT Sensations',
+				'category'          => 'Óleos Corporais & Massagem',
+				'volume'            => '120ml',
+				'sabor'             => 'Morango',
 			),
 			array(
 				'sku'               => 'INTT-9990',
@@ -142,8 +148,87 @@ class WC_Dropshipping_INTT_Sync {
 				'width'             => 3.0,
 				'height'            => 3.0,
 				'brand'             => 'INTT Technology',
+				'category'          => 'Vibradores & Próteses',
+				'volume'            => 'Unidade',
+				'sabor'             => 'Neutro',
 			)
 		);
+	}
+
+	/**
+	 * Garante a existência da Classe de Entrega (Shipping Class) para INTT.
+	 */
+	private function ensure_shipping_class() {
+		$term = get_term_by( 'slug', 'dropship-intt', 'product_shipping_class' );
+		if ( ! $term ) {
+			$created = wp_insert_term(
+				'Dropshipping INTT (Lençóis Paulista - SP)',
+				'product_shipping_class',
+				array(
+					'slug'        => 'dropship-intt',
+					'description' => 'Produtos expedidos diretamente do Centro de Distribuição INTT (Lençóis Paulista - SP / CEP 18685-540)',
+				)
+			);
+			if ( ! is_wp_error( $created ) ) {
+				return $created['term_id'];
+			}
+		} else {
+			return $term->term_id;
+		}
+		return 0;
+	}
+
+	/**
+	 * Garante a existência de uma categoria de produto.
+	 */
+	private function ensure_category( $category_name ) {
+		if ( empty( $category_name ) ) {
+			return 0;
+		}
+		$term = get_term_by( 'name', $category_name, 'product_cat' );
+		if ( ! $term ) {
+			$created = wp_insert_term(
+				$category_name,
+				'product_cat'
+			);
+			if ( ! is_wp_error( $created ) ) {
+				return $created['term_id'];
+			}
+		} else {
+			return $term->term_id;
+		}
+		return 0;
+	}
+
+	/**
+	 * Atribui atributos estruturados ao produto.
+	 */
+	private function assign_attributes( &$product, $item ) {
+		$attributes = array();
+
+		$attr_list = array(
+			'Linha'  => isset( $item['brand'] ) ? $item['brand'] : 'INTT',
+			'Volume' => isset( $item['volume'] ) ? $item['volume'] : '',
+			'Sabor'  => isset( $item['sabor'] ) ? $item['sabor'] : '',
+		);
+
+		$position = 0;
+		foreach ( $attr_list as $label => $val ) {
+			if ( empty( $val ) ) {
+				continue;
+			}
+			$attribute = new WC_Product_Attribute();
+			$attribute->set_name( $label );
+			$attribute->set_options( array( $val ) );
+			$attribute->set_position( $position++ );
+			$attribute->set_visible( true );
+			$attribute->set_variation( false );
+			$attributes[] = $attribute;
+		}
+
+		if ( ! empty( $attributes ) ) {
+			$product->set_attributes( $attributes );
+		}
 	}
 
 	/**
@@ -165,6 +250,10 @@ class WC_Dropshipping_INTT_Sync {
 		$width           = isset( $item['width'] ) ? floatval( $item['width'] ) : 0.0;
 		$height          = isset( $item['height'] ) ? floatval( $item['height'] ) : 0.0;
 		$brand           = isset( $item['brand'] ) ? sanitize_text_field( $item['brand'] ) : 'INTT';
+		$category_name   = isset( $item['category'] ) ? sanitize_text_field( $item['category'] ) : '';
+
+		$shipping_class_id = $this->ensure_shipping_class();
+		$category_id       = $this->ensure_category( $category_name );
 
 		if ( $existing_id ) {
 			// Produto existente: Atualização de preços, estoque e ficha técnica logístico-fiscal
@@ -173,6 +262,16 @@ class WC_Dropshipping_INTT_Sync {
 			$product->set_manage_stock( true );
 			$product->set_stock_quantity( $stock_qty );
 			$product->set_stock_status( $stock_qty > 0 ? 'instock' : 'outofstock' );
+
+			if ( $shipping_class_id > 0 ) {
+				$product->set_shipping_class_id( $shipping_class_id );
+			}
+
+			if ( $category_id > 0 ) {
+				$product->set_category_ids( array( $category_id ) );
+			}
+
+			$this->assign_attributes( $product, $item );
 
 			// Atualiza dimensões e pesos
 			if ( $weight > 0 ) {
@@ -213,6 +312,16 @@ class WC_Dropshipping_INTT_Sync {
 			$product->set_manage_stock( true );
 			$product->set_stock_quantity( $stock_qty );
 			$product->set_stock_status( $stock_qty > 0 ? 'instock' : 'outofstock' );
+
+			if ( $shipping_class_id > 0 ) {
+				$product->set_shipping_class_id( $shipping_class_id );
+			}
+
+			if ( $category_id > 0 ) {
+				$product->set_category_ids( array( $category_id ) );
+			}
+
+			$this->assign_attributes( $product, $item );
 
 			// Dimensões e pesagem
 			if ( $weight > 0 ) {

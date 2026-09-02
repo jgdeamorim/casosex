@@ -217,10 +217,14 @@ $dashboard_data = array(
 
 		<div class="metric-box">
 			<img src="<?php echo esc_url( plugin_dir_url( __FILE__ ) . '../assets/icons/affiliate.svg' ); ?>">
-			<h2><?php esc_html_e( 'Fornecedor INTT', 'woocommerce-dropshipping' ); ?></h2>
-			<p class="plugin-setup-desc"><?php esc_html_e( 'Gerencie o fornecedor INTT e contatos de despacho.', 'woocommerce-dropshipping' ); ?></p>
+			<h2><?php esc_html_e( 'Fornecedor INTT & Frete', 'woocommerce-dropshipping' ); ?></h2>
+			<?php
+			$sc_term = get_term_by( 'slug', 'dropship-intt', 'product_shipping_class' );
+			$sc_status = ($sc_term && !is_wp_error($sc_term)) ? 'Classe de Frete Ativa (Lençóis Paulista)' : 'Classe de Frete Pendente';
+			?>
+			<p class="plugin-setup-desc"><strong>Origem CEP:</strong> 18685-540<br><span style="color:#22c55e; font-weight:600;"><?php echo esc_html($sc_status); ?></span></p>
 			<a href="<?php echo esc_url( admin_url( 'edit-tags.php?taxonomy=dropship_supplier&post_type=product' ) ); ?>">
-				<?php esc_html_e( 'Gerenciar Fornecedor', 'woocommerce-dropshipping' ); ?>
+				<?php esc_html_e( 'Gerenciar Fornecedor & Cadastro Fiscal', 'woocommerce-dropshipping' ); ?>
 			</a>
 		</div>
 	</div>
