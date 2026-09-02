@@ -1,0 +1,44 @@
+/**
+ * Variation Popup Styles
+ */
+
+.whols-bof__variation-popup__product-image-wrapper {
+    flex: 0 0 50%;
+    max-width: 50%;
+}
+
+.whols-bof__variation-popup__product-image-wrapper img {
+    border: 1px solid var(--whols-border-color, #ddd);
+    border-radius: 5px;
+}
+
+.whols-bof__variation-popup .variations_button {
+    display: none;
+}
+
+.whols-bof__variation-popup .whols-popup__content {
+    display: flex;
+    gap: 1rem;
+}
+
+.whols-bof__variation-popup .variations select {
+    width: 100%;
+}
+
+.whols-bof__variation-popup .reset_variations {
+    display: inline-block;
+    margin-top: 5px;
+    cursor: pointer;
+}
+
+.whols-bof__variation-popup .variations_form {
+    flex-grow: 1;
+}
+
+.woocommerce-js button.whols-bof-variation-add {
+    margin-top: 24px;
+}
+
+.woocommerce-js .whols-bof__variation-popup table.shop_table {
+    margin-bottom: 0;
+}

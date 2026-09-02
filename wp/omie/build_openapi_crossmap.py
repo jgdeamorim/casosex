@@ -159,6 +159,81 @@ PORTAL_AND_AUTH_ENDPOINTS = {
             "responses": {"200": {"description": "Sessão autorizada com sucesso"}}
         }
     },
+    "/api/v1/portal/workspaces": {
+        "get": {
+            "summary": "Lista todas as empresas e workspaces vinculados ao usuário (meus-aplicativos)",
+            "tags": ["Portal / Multi-Tenant Workspaces"],
+            "responses": {"200": {"description": "Lista de empresas com tenant_id, app_hash e razão social"}}
+        }
+    },
+    "/api/v1/portal/account/tenants": {
+        "get": {
+            "summary": "Obtém detalhes de licença e permissões dos tenants do usuário",
+            "tags": ["Portal / Multi-Tenant Workspaces"],
+            "responses": {"200": {"description": "Array com os detalhes de cada tenant"}}
+        }
+    },
+    "/api/v1/portal/session/switch": {
+        "post": {
+            "summary": "Alterna o contexto ativo para a empresa/tenant selecionada",
+            "tags": ["Portal / Multi-Tenant Workspaces"],
+            "requestBody": {
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "tenant_id": {"type": "string"},
+                                "app_hash": {"type": "string"}
+                            },
+                            "required": ["tenant_id", "app_hash"]
+                        }
+                    }
+                }
+            },
+            "responses": {"200": {"description": "Sessão alternada com sucesso"}}
+        }
+    },
+    "/api/v1/compras/pedidocompra/": {
+        "post": {
+            "summary": "Gerenciamento de Pedidos de Compra e Fornecedores (#COM)",
+            "tags": ["Compras (#COM)"],
+            "x-ko-module-hash": "#COM",
+            "x-ko-module-id": "COM",
+            "x-ko-module-name": "Compras e Suprimentos",
+            "responses": {"200": {"description": "Resposta JSON-RPC de Pedido de Compra"}}
+        }
+    },
+    "/api/v1/geral/fornecedor/": {
+        "post": {
+            "summary": "Cadastro e Consulta de Fornecedores (#COM)",
+            "tags": ["Compras (#COM)"],
+            "x-ko-module-hash": "#COM",
+            "x-ko-module-id": "COM",
+            "x-ko-module-name": "Compras e Suprimentos",
+            "responses": {"200": {"description": "Resposta JSON-RPC de Fornecedor"}}
+        }
+    },
+    "/api/v1/produtos/pedido/": {
+        "post": {
+            "summary": "Gestão de Pedidos de Venda (#VEN)",
+            "tags": ["Vendas (#VEN)"],
+            "x-ko-module-hash": "#VEN",
+            "x-ko-module-id": "VEN",
+            "x-ko-module-name": "Vendas e NF-e",
+            "responses": {"200": {"description": "Resposta JSON-RPC de Pedido de Venda"}}
+        }
+    },
+    "/api/v1/produtos/nfconsultar/": {
+        "post": {
+            "summary": "Consulta e Emissão de Notas Fiscais Eletrônicas NF-e (#VEN)",
+            "tags": ["Vendas (#VEN)"],
+            "x-ko-module-hash": "#VEN",
+            "x-ko-module-id": "VEN",
+            "x-ko-module-name": "Vendas e NF-e",
+            "responses": {"200": {"description": "Status e XML/PDF da NF-e"}}
+        }
+    },
     "/v5/{app_hash}/{tenant_id}/{dialog_id}/{hash}/get/fastcombo": {
         "get": {
             "summary": "Motor DBFast v5: Consulta otimizada para dropdowns e seletores de UI",
@@ -251,13 +326,14 @@ def generate_openapi_31():
         "openapi": "3.1.0",
         "info": {
             "title": "CASOSEX Sovereign Omie ERP API Specification",
-            "version": "1.2.0",
-            "description": "Matriz Soberana OpenAPI 3.1 compilada a partir de 138 serviços mapeados do Omie ERP + Endpoints do Portal, WebAuthn e DBFast v5."
+            "version": "1.3.0",
+            "description": "Matriz Soberana OpenAPI 3.1 compilada a partir de 138 serviços mapeados do Omie ERP + Endpoints do Portal Multi-Tenant, Compras (#COM), Vendas (#VEN), WebAuthn e DBFast v5."
         },
         "servers": [
+            { "url": "http://localhost:7070", "description": "Engine Omie Soberana Local CASOSEX" },
+            { "url": "http://localhost:6661", "description": "Bridge Militar Local CASOSEX" },
             { "url": "https://app.omie.com.br", "description": "Servidor Oficial Omie ERP" },
-            { "url": "https://dbfast.omie.com.br", "description": "Servidor DBFast Read-Replica v5" },
-            { "url": "http://localhost:6661", "description": "Bridge Militar Local CASOSEX" }
+            { "url": "https://dbfast.omie.com.br", "description": "Servidor DBFast Read-Replica v5" }
         ],
         "paths": paths
     }

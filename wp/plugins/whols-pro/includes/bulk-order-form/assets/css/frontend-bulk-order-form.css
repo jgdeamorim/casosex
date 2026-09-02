@@ -1,0 +1,824 @@
+/**
+ * Bulk Order Form Styles
+ */
+
+.whols-bulk-order-form {
+    /* Spacing */
+    --spacing-xs: 5px;
+    --spacing-sm: 8px;
+    --spacing-md: 10px;
+    --spacing-lg: 15px;
+    --spacing-xl: 20px;
+
+    /* Typography */
+    --font-size-xs: 0.8em;
+    --font-size-sm: 0.9em;
+    --font-size-md: 14px;
+    --font-size-lg: 1.2em;
+    --font-size-xl: 1.5em;
+    --font-weight-normal: 400;
+    --font-weight-medium: 500;
+    --font-weight-bold: 600;
+
+    /* Input */
+    --input-height: 40px;
+
+    /* Borders */
+    --border-radius-sm: 4px;
+    --border-radius-md: 8px;
+    --border-width: 1px;
+    --box-shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.05);
+    --box-shadow-md: 0 4px 10px rgba(0, 0, 0, 0.1);
+
+    /* Transitions */
+    --transition-duration: 0.2s;
+}
+
+/* Main container */
+.whols-bulk-order-form {
+    /* CSS Variables defined above */
+    margin: 0;
+}
+
+.whols-bulk-order-form * {
+    box-sizing: border-box;
+}
+
+/* Form title */
+.whols-bulk-order-form__title {
+    font-size: var(--font-size-xl);
+    margin-bottom: 0.5em;
+    font-weight: var(--font-weight-bold);
+    color: var(--wp-color-gray-80);
+}
+
+/* Form layout */
+.whols-bulk-order-form__content {
+    border: var(--border-width) solid var(--wp-color-gray-5);
+    border-radius: var(--border-radius-md);
+    box-shadow: var(--box-shadow-sm);
+}
+
+/* Header styles */
+.whols-bulk-order-form__header {
+    display: flex;
+    background-color: var(--wp-color-gray-0);
+    color: var(--wp-color-gray-80);
+    font-weight: var(--font-weight-bold);
+    border-bottom: var(--border-width) solid var(--wp-color-gray-5);
+}
+
+/* Body styles */
+.whols-bulk-order-form__body {
+    position: relative;
+}
+
+/* Row styles */
+.whols-bulk-order-form__row {
+    display: flex;
+    border-bottom: var(--border-width) solid var(--wp-color-gray-5);
+    align-items: center;
+    background-color: var(--wp-color-white);
+    transition: background-color var(--transition-duration);
+    padding: var(--spacing-md) 0;
+}
+
+.whols-bulk-order-form__row:last-child {
+    border-bottom: none;
+}
+
+.whols-bulk-order-form__row:hover {
+    background-color: var(--wp-color-gray-0);
+}
+
+/* Column styles */
+.whols-bulk-order-form__column {
+    padding: var(--spacing-lg);
+}
+
+.whols-bulk-order-form__column--remove {
+    padding-right: 0;
+}
+
+.whols-bulk-order-form__column--product {
+    flex: 3;
+    position: relative;
+}
+
+.whols-bulk-order-form__column--price {
+    flex: 1 0 250px;
+    text-align: center;
+    font-weight: var(--font-weight-medium);
+    flex-basis: fit-content;
+    max-width: 250px;
+}
+
+.woocommerce-account .whols-bulk-order-form__column--price {
+    flex-basis: min-content;
+}
+
+.whols-bulk-order-form__column--stock {
+    flex: 0 0 120px;
+    text-align: center;
+    color: var(--wp-color-gray-60);
+    font-size: var(--font-size-sm);
+    white-space: nowrap;
+}
+
+.whols-bulk-order-form__stock--out-of-stock {
+    color: var(--wp-color-red-50);
+    font-weight: var(--font-weight-medium);
+}
+
+.whols-bulk-order-form__column--quantity {
+    flex: 1 0 120px;
+    text-align: center;
+    max-width: 120px;
+}
+
+.whols-bulk-order-form__quantity-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing-xs);
+}
+
+/* Update quantity functionality removed */
+
+.whols-bulk-order-form__column--subtotal {
+    flex: 1;
+    text-align: right;
+    color: var(--wp-color-gray-80);
+    font-weight: var(--font-weight-medium);
+}
+
+.woocommerce-account .whols-bulk-order-form__column--subtotal {
+    padding-left: 0;
+}
+
+/* Product info layout */
+.whols-bulk-order-form__product-info {
+    display: flex;
+    gap: var(--spacing-md);
+    width: 100%;
+    align-items: center;
+}
+
+/* Category select */
+.whols-bulk-order-form__category-select-wrapper {
+    position: relative;
+}
+
+.whols-bulk-order-form__category-select {
+    width: 100%;
+    height: var(--input-height);
+    padding: var(--spacing-md) 12px;
+    border: var(--border-width) solid var(--wp-color-gray-5);
+    border-radius: var(--border-radius-sm);
+    background-color: var(--wp-color-white);
+    font-size: var(--font-size-md);
+    appearance: none;
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>');
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    background-size: 16px;
+    cursor: pointer;
+    transition: border-color var(--transition-duration), box-shadow var(--transition-duration);
+    color: var(--wp-color-gray-80);
+}
+
+.whols-bulk-order-form__category-select:focus {
+    outline: none;
+    border-color: var(--wp-color-blue-50);
+    box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.2);
+}
+
+.whols-bulk-order-form__category-select option {
+    padding: var(--spacing-sm);
+}
+
+
+
+
+
+/* Category lock icon */
+.whols-bulk-order-form__category-control {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.whols-bulk-order-form__top-category-select {
+    flex: 1;
+}
+
+.whols-bulk-order-form__category-lock {
+    cursor: pointer;
+    margin-left: 8px;
+    transition: transform 0.2s ease;
+    display: inline-flex;
+    align-items: center;
+}
+
+.whols-bulk-order-form__category-lock .dashicons {
+    font-size: 18px;
+    width: 18px;
+    height: 18px;
+    line-height: 1;
+}
+
+.whols-bulk-order-form__category-lock:hover {
+    transform: scale(1.2);
+}
+
+.whols-bulk-order-form__category-lock--locked .dashicons {
+    color: var(--wp-color-blue-50);
+}
+
+.whols-bulk-order-form__category-lock--hidden {
+    display: none;
+}
+
+/* Product search */
+.whols-bulk-order-form__product-search {
+    position: relative;
+}
+
+/* Top selected product */
+.whols-bulk-order-form__top-selected-product {
+    padding: var(--spacing-sm) var(--spacing-md);
+    border: var(--border-width) solid var(--wp-color-gray-5);
+    border-radius: var(--border-radius-sm);
+    background-color: var(--wp-color-gray-0);
+    position: relative;
+    display: flex;
+    align-items: center;
+    margin-top: 5px;
+}
+
+.whols-bulk-order-form__top-product-name {
+    font-weight: var(--font-weight-medium);
+    flex: 1;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 80%;
+}
+
+.whols-bulk-order-form__remove-top-product {
+    cursor: pointer;
+    font-size: 18px;
+    margin-left: var(--spacing-md);
+    color: var(--wp-color-gray-60);
+    transition: color var(--transition-duration);
+}
+
+.whols-bulk-order-form__remove-top-product:hover {
+    color: var(--wp-color-red-50);
+}
+
+.whols-bulk-order-form .whols-bulk-order-form__product-input,
+.whols-bulk-order-form .whols-bulk-order-form__product-input[type="text"] {
+    width: 100%;
+    padding: var(--spacing-md) 12px;
+    border: var(--border-width) solid var(--wp-color-gray-5);
+    border-radius: var(--border-radius-sm);
+    background-color: var(--wp-color-white);
+    font-size: var(--font-size-md);
+    color: var(--wp-color-gray-80);
+    transition: border-color var(--transition-duration), box-shadow var(--transition-duration);
+    height: var(--input-height);
+}
+
+.whols-bulk-order-form .whols-bulk-order-form__product-input:focus,
+.whols-bulk-order-form .whols-bulk-order-form__product-input:focus[type="text"] {
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.2);
+}
+
+.whols-bulk-order-form__search-results {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    overflow-y: auto;
+    background-color: var(--wp-color-white);
+    border: var(--border-width) solid var(--wp-color-gray-5);
+    border-radius: 0 0 var(--border-radius-sm) var(--border-radius-sm);
+    box-shadow: var(--box-shadow-md);
+    z-index: 10;
+    max-height: 500px;
+    overflow: auto;
+}
+
+.whols-bulk-order-form__search-item {
+    padding: var(--spacing-md);
+    cursor: pointer;
+    border-bottom: var(--border-width) solid var(--wp-color-gray-5);
+    transition: background-color var(--transition-duration);
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-md);
+}
+
+.whols-bulk-order-form__search-item:last-child {
+    border-bottom: none;
+}
+
+.whols-bulk-order-form__search-item:hover {
+    background-color: var(--wp-color-gray-0);
+}
+
+.whols-bulk-order-form__search-item-image {
+    flex-shrink: 0;
+    width: 40px;
+    height: 40px;
+    border: var(--border-width) solid var(--wp-color-gray-5);
+    border-radius: var(--border-radius-sm);
+    overflow: hidden;
+    background-color: var(--wp-color-gray-0);
+}
+
+.whols-bulk-order-form__search-item-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.whols-bulk-order-form__search-item-details {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.whols-bulk-order-form__product-name {
+    font-weight: var(--font-weight-medium);
+}
+
+.whols-bulk-order-form__search-item-price {
+    font-size: var(--font-size-sm);
+    color: var(--wp-color-gray-60);
+    margin-left: var(--spacing-xs);
+}
+
+.whols-bulk-order-form__search-item-sku {
+    display: block;
+    font-size: var(--font-size-xs);
+    color: var(--wp-color-gray-40);
+}
+
+/* Selected product */
+.whols-bulk-order-form__selected-product {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding: var(--spacing-sm) 0;
+}
+
+.whols-bulk-order-form__product-image {
+    border: var(--border-width) solid var(--wp-color-gray-5);
+    width: 60px;
+    height: 60px;
+    background-color: var(--wp-color-gray-0);
+    border-radius: var(--border-radius-sm);
+    overflow: hidden;
+    flex-shrink: 0;
+}
+
+.whols-bulk-order-form__product-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.whols-bulk-order-form__product-details {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.whols-bulk-order-form__product-name {
+    font-weight: var(--font-weight-medium);
+    color: var(--wp-color-gray-80);
+    line-height: 1.5;
+}
+
+/* Remove product button - specific styles */
+.whols-bulk-order-form__remove-product {
+    background-color: var(--wp-color-red-50);
+    margin-right: var(--spacing-sm);
+}
+
+.whols-bulk-order-form__remove-product:hover {
+    background-color: var(--wp-color-red-60);
+}
+
+/* Remove buttons - shared styles */
+.whols-bulk-order-form__remove-row,
+.whols-bulk-order-form__remove-product {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all var(--transition-duration);
+}
+
+/* Remove row button - specific styles */
+.whols-bulk-order-form__remove-row {
+    background-color: #888;
+}
+
+.whols-bulk-order-form__remove-row:hover {
+    background-color: #666;
+}
+
+/* Quantity input */
+.whols-bulk-order-form .whols-bulk-order-form__quantity {
+    width: 70px;
+    height: var(--input-height);
+    padding: var(--spacing-md);
+    border: var(--border-width) solid var(--wp-color-gray-5);
+    border-radius: var(--border-radius-sm);
+    text-align: center;
+    background-color: var(--wp-color-white);
+    font-size: var(--font-size-md);
+    color: var(--wp-color-gray-80);
+    transition: border-color var(--transition-duration), box-shadow var(--transition-duration);
+}
+
+.whols-bulk-order-form .whols-bulk-order-form__quantity:focus {
+    outline: none;
+    border-color: var(--wp-color-blue-50);
+    box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.2);
+}
+
+/* Product price */
+.whols-bulk-order-form__product-price {
+    color: var(--wp-color-gray-80);
+    font-weight: var(--font-weight-medium);
+    font-size: var(--font-size-md);
+}
+
+/* Subtotal */
+.whols-bulk-order-form__subtotal {
+    font-weight: var(--font-weight-medium);
+    color: var(--wp-color-gray-80);
+}
+
+/* Empty message */
+.whols-bulk-order-form__empty-message {
+    padding: var(--spacing-lg);
+    text-align: center;
+    color: var(--wp-color-gray-60);
+    font-size: var(--font-size-md);
+    background-color: var(--wp-color-gray-0);
+    border-radius: var(--border-radius-md);
+    margin: var(--spacing-md) 0;
+}
+
+/* Top Filter Section */
+.whols-bulk-order-form__top-filters {
+    background-color: var(--wp-color-gray-0);
+    border: var(--border-width) solid var(--wp-color-gray-5);
+    border-radius: var(--border-radius-md);
+    padding: var(--spacing-lg);
+    margin-bottom: var(--spacing-xl);
+    margin-top: var(--spacing-md);
+}
+
+.whols-bulk-order-form__filter-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-lg);
+    align-items: flex-end;
+}
+
+.whols-bulk-order-form__filter-column {
+    flex: 1;
+    min-width: 200px;
+}
+
+.whols-bulk-order-form__filter-column--category {
+    flex: 0 0 300px;
+}
+
+.whols-bulk-order-form__filter-column--add-product {
+    flex: 0 0 auto;
+    min-width: auto;
+}
+
+.whols-bulk-order-form__filter-label {
+    display: block;
+    font-weight: var(--font-weight-medium);
+    margin-bottom: var(--spacing-xs);
+    color: var(--wp-color-gray-60);
+}
+
+.whols-bulk-order-form__top-category-select,
+.whols-bulk-order-form .whols-bulk-order-form__top-product-input,
+.whols-bulk-order-form .whols-bulk-order-form__top-quantity {
+    width: 100%;
+    height: var(--input-height);
+    padding: var(--spacing-md);
+    border: var(--border-width) solid var(--wp-color-gray-5);
+    border-radius: var(--border-radius-sm);
+    background-color: var(--wp-color-white);
+    font-size: var(--font-size-md);
+    color: var(--wp-color-gray-80);
+    transition: border-color var(--transition-duration), box-shadow var(--transition-duration);
+}
+
+.whols-bulk-order-form__top-category-select:focus,
+.whols-bulk-order-form .whols-bulk-order-form__top-product-input:focus,
+.whols-bulk-order-form .whols-bulk-order-form__top-quantity:focus {
+    outline: none;
+    border-color: var(--wp-color-blue-50);
+    box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.2);
+}
+
+.whols-bulk-order-form .whols-bulk-order-form__top-quantity {
+    text-align: center;
+}
+
+/* Actions - No longer needed as the button is moved */
+.whols-bulk-order-form__actions {
+    display: none;
+}
+
+.whols-bulk-order-form__add-row {
+    background-color: var(--wp-color-gray-50);
+    color: var(--wp-color-white);
+    border: none;
+    padding: var(--spacing-md) 16px;
+    border-radius: var(--border-radius-sm);
+    cursor: pointer;
+    font-size: var(--font-size-md);
+    display: inline-flex;
+    align-items: center;
+    transition: background-color var(--transition-duration);
+    white-space: nowrap;
+    height: var(--input-height);
+}
+
+.whols-bulk-order-form__add-row:hover {
+    background-color: var(--wp-color-gray-60);
+}
+
+.whols-bulk-order-form__add-icon {
+    margin-right: var(--spacing-xs);
+    font-size: 16px;
+}
+
+/* Footer */
+.whols-bulk-order-form__footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--spacing-lg);
+    background-color: var(--wp-color-gray-0);
+    border-top: var(--border-width) solid var(--wp-color-gray-5);
+}
+
+/* Buttons */
+.whols-bulk-order-form__buttons {
+    display: flex;
+    gap: var(--spacing-md);
+}
+
+.whols-bulk-order-form__add-to-cart {
+    background-color: var(--wp-color-blue-50);
+    color: var(--wp-color-white);
+    border: none;
+    padding: 13px var(--spacing-xl);
+    border-radius: var(--border-radius-sm);
+    cursor: pointer;
+    font-size: var(--font-size-md);
+    transition: background-color var(--transition-duration);
+}
+
+.whols-bulk-order-form__add-to-cart:hover {
+    background-color: var(--wp-color-blue-60);
+}
+
+.whols-bulk-order-form__add-to-cart--disabled,
+.whols-bulk-order-form__add-to-cart--disabled:hover {
+    background-color: var(--wp-color-gray-40);
+    cursor: not-allowed;
+    opacity: 0.7;
+}
+
+.whols-bulk-order-form__save-list {
+    background-color: var(--wp-color-gray-50);
+    color: var(--wp-color-white);
+    border: none;
+    padding: var(--spacing-md) var(--spacing-xl);
+    border-radius: var(--border-radius-sm);
+    cursor: pointer;
+    font-size: var(--font-size-md);
+    transition: background-color var(--transition-duration);
+}
+
+.whols-bulk-order-form__save-list:hover {
+    background-color: var(--wp-color-gray-60);
+}
+
+/* Total */
+.whols-bulk-order-form__total {
+    text-align: right;
+}
+
+.whols-bulk-order-form__total-label {
+    margin-right: var(--spacing-md);
+    font-weight: var(--font-weight-medium);
+    color: var(--wp-color-gray-80);
+}
+
+.whols-bulk-order-form__total-value {
+    font-size: var(--font-size-lg);
+    font-weight: var(--font-weight-bold);
+    color: var(--wp-color-gray-80);
+}
+
+/* Save list form */
+.whols-bulk-order-form__save-form {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.whols-bulk-order-form__save-form-content {
+    background-color: var(--wp-color-white);
+    padding: var(--spacing-xl);
+    border-radius: var(--border-radius-md);
+    width: 100%;
+    max-width: 500px;
+    box-shadow: var(--box-shadow-md);
+}
+
+.whols-bulk-order-form__form-group {
+    margin-bottom: var(--spacing-lg);
+}
+
+.whols-bulk-order-form__form-group label {
+    display: block;
+    margin-bottom: var(--spacing-xs);
+    font-weight: var(--font-weight-medium);
+}
+
+.whols-bulk-order-form__list-name,
+.whols-bulk-order-form__list-description {
+    width: 100%;
+    padding: var(--spacing-md);
+    border: var(--border-width) solid var(--wp-color-gray-5);
+    border-radius: var(--border-radius-sm);
+}
+
+.whols-bulk-order-form__list-description {
+    min-height: 100px;
+    resize: vertical;
+}
+
+.whols-bulk-order-form__save-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: var(--spacing-md);
+    margin-top: var(--spacing-xl);
+}
+
+.whols-bulk-order-form__cancel-save {
+    background-color: #f7f7f7;
+    color: var(--wp-color-gray-80);
+    border: var(--border-width) solid var(--wp-color-gray-5);
+    padding: var(--spacing-sm) 16px;
+    border-radius: var(--border-radius-sm);
+    cursor: pointer;
+}
+
+.whols-bulk-order-form__confirm-save {
+    background-color: var(--wp-color-blue-40);
+    color: var(--wp-color-white);
+    border: none;
+    padding: var(--spacing-sm) 16px;
+    border-radius: var(--border-radius-sm);
+    cursor: pointer;
+}
+
+/* Notifications */
+.whols-bulk-order-form__notifications {
+    position: fixed;
+    bottom: var(--spacing-xl);
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 9999999;
+    /* Show over popups also */
+}
+
+.whols-bulk-order-form__notification {
+    padding: 12px var(--spacing-xl);
+    border-radius: var(--border-radius-sm);
+    font-size: var(--font-size-md);
+    box-shadow: var(--box-shadow-sm);
+    animation: notification-slide-in 0.3s ease;
+    background-color: var(--wp-color-blue-90);
+    color: var(--wp-color-white);
+}
+
+.whols-bulk-order-form__notification--error {
+    background-color: var(--wp-color-red-30);
+    color: var(--wp-color-white);
+}
+
+@keyframes notification-slide-in {
+    from {
+        transform: translateY(100%);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    .whols-bulk-order-form__row {
+        flex-direction: column;
+        padding: 12px;
+    }
+
+    .whols-bulk-order-form__header {
+        display: none;
+    }
+
+    .whols-bulk-order-form__column {
+        width: 100%;
+        padding: 6px 0;
+        text-align: left;
+        max-width: none;
+        flex: 1;
+    }
+
+    .whols-bulk-order-form__column--stock,
+    .whols-bulk-order-form__column--quantity,
+    .whols-bulk-order-form__column--subtotal {
+        text-align: left;
+    }
+
+    .whols-bulk-order-form__column--stock {
+        flex: 0 0 100%;
+    }
+
+    .whols-bulk-order-form__column--stock::before {
+        content: 'Stock: ';
+        font-weight: var(--font-weight-medium);
+    }
+
+    .whols-bulk-order-form__quantity-wrapper {
+        justify-content: flex-start;
+    }
+
+    .whols-bulk-order-form__column--quantity::before {
+        content: 'Quantity: ';
+        font-weight: var(--font-weight-medium);
+    }
+
+    .whols-bulk-order-form__column--subtotal::before {
+        content: 'Subtotal: ';
+        font-weight: var(--font-weight-medium);
+    }
+
+    .whols-bulk-order-form__product-filters {
+        flex-direction: column;
+    }
+
+    .whols-bulk-order-form__category-select-wrapper,
+    .whols-bulk-order-form__product-search {
+        width: 100%;
+        margin-bottom: var(--spacing-sm);
+    }
+
+    .whols-bulk-order-form__footer {
+        flex-direction: column;
+        gap: var(--spacing-md);
+    }
+
+    .whols-bulk-order-form__total {
+        order: -1;
+        text-align: left;
+        margin-bottom: var(--spacing-md);
+    }
+}

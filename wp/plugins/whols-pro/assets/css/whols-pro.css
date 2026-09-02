@@ -1,0 +1,316 @@
+/*
+ * CSS for both frontend and backend.
+ */
+ 
+ :root {
+  --wp-color-white: #fff;
+  --wp-color-black: #000;
+
+  --wp-color-gray-0: #f6f7f7;
+  --wp-color-gray-2: #f0f0f1;
+  --wp-color-gray-5: #dcdcde;
+  --wp-color-gray-10: #c3c4c7;
+  --wp-color-gray-20: #a7aaad;
+  --wp-color-gray-30: #8c8f94;
+  --wp-color-gray-40: #787c82;
+  --wp-color-gray-50: #646970;
+  --wp-color-gray-60: #50575e;
+  --wp-color-gray-70: #3c434a;
+  --wp-color-gray-80: #2c3338;
+  --wp-color-gray-90: #1d2327;
+  --wp-color-gray-100: #101517;
+
+  --wp-color-blue-0: #f0f6fc;
+  --wp-color-blue-5: #c5d9ed;
+  --wp-color-blue-10: #9ec2e6;
+  --wp-color-blue-20: #72aee6;
+  --wp-color-blue-30: #4f94d4;
+  --wp-color-blue-40: #3582c4;
+  --wp-color-blue-50: #2271b1;
+  --wp-color-blue-60: #135e96;
+  --wp-color-blue-70: #0a4b78;
+  --wp-color-blue-80: #043959;
+  --wp-color-blue-90: #01263a;
+  --wp-color-blue-100: #00131c;
+
+  --wp-color-red-0: #fcf0f1;
+  --wp-color-red-5: #facfd2;
+  --wp-color-red-10: #ffabaf;
+  --wp-color-red-20: #ff8085;
+  --wp-color-red-30: #f86368;
+  --wp-color-red-40: #e65054;
+  --wp-color-red-50: #d63638;
+  --wp-color-red-60: #b32d2e;
+  --wp-color-red-70: #8a2424;
+  --wp-color-red-80: #691c1c;
+  --wp-color-red-90: #451313;
+  --wp-color-red-100: #240a0a;
+
+  --wp-color-yellow-0: #fcf9e8;
+  --wp-color-yellow-5: #f5e6ab;
+  --wp-color-yellow-10: #f2d675;
+  --wp-color-yellow-20: #f0c33c;
+  --wp-color-yellow-30: #dba617;
+  --wp-color-yellow-40: #bd8600;
+  --wp-color-yellow-50: #996800;
+  --wp-color-yellow-60: #755100;
+  --wp-color-yellow-70: #614200;
+  --wp-color-yellow-80: #4a3200;
+  --wp-color-yellow-90: #362400;
+  --wp-color-yellow-100: #211600;
+
+  --wp-color-green-0: #edfaef;
+  --wp-color-green-5: #b8e6bf;
+  --wp-color-green-10: #68de7c;
+  --wp-color-green-20: #1ed14b;
+  --wp-color-green-30: #00ba37;
+  --wp-color-green-40: #00a32a;
+  --wp-color-green-50: #008a20;
+  --wp-color-green-60: #007017;
+  --wp-color-green-70: #005c12;
+  --wp-color-green-80: #00450c;
+  --wp-color-green-90: #003008;
+  --wp-color-green-100: #001c05;
+}
+
+/* General styles */
+.whols-conversations {
+  background: #f2f5f8;
+  color: #434651;
+  margin: 0 auto;
+  border-radius: 5px;
+}
+
+/* Table styles */
+.whols-conversations table {
+  border-collapse: collapse;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.whols-conversations td,
+.whols-conversations th {
+  border: 1px solid #ddd;
+  text-align: left;
+  padding: 8px;
+}
+
+/* Conversation title */
+.whols-conversation-title {
+  font-size: 22px;
+  font-weight: 600;
+  margin-bottom: 15px;
+}
+
+/* Chat threads */
+.whols-chat-threads {
+  padding: 30px 30px 20px;
+  border-bottom: 1px solid #dcdcde;
+}
+
+.whols-chat-threads ul {
+  list-style: none;
+  padding: 0;
+}
+
+/* Message styles */
+.whols-message-data {
+  margin-bottom: 15px;
+}
+
+.whols-message-data-time {
+  color: #a8aab1;
+  padding-left: 6px;
+}
+
+.whols-message {
+  color: white;
+  padding: 8px 15px;
+  line-height: 26px;
+  font-size: 16px;
+  border-radius: 7px;
+  margin-bottom: 15px;
+  position: relative;
+  width: fit-content;
+}
+
+.whols-message:after {
+  content: " ";
+  position: absolute;
+  bottom: 100%;
+  border: solid transparent;
+  height: 0;
+  width: 0;
+  pointer-events: none;
+  border-width: 10px;
+}
+
+/* Other message */
+.whols-other-message .whols-message {
+  background: #bdc3c7;
+  color: #000;
+}
+
+.whols-other-message .whols-message:after {
+  left: 20px;
+  border-bottom-color: #bdc3c7;
+}
+
+.whols-conversations span.message-data-name {
+    font-size: 15px;
+    font-weight: bold;
+}
+
+/* My message */
+.whols-my-message {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.whols-my-message .whols-message-data {
+  text-align: right;
+}
+
+.whols-my-message .whols-message {
+  background: #3498db;
+  text-align: right;
+}
+
+.whols-my-message .whols-message:after {
+  right: 20px;
+  border-bottom-color: #3498db;
+}
+
+/* Date separator */
+.whols-date-separator {
+  display: block;
+  width: 100%;
+  text-align: center;
+}
+
+/* Message box */
+.whols-message-box {
+  padding: 30px;
+}
+
+.whols-message-box textarea {
+  width: 100%;
+  border: none;
+  padding: 10px 20px;
+  font: 14px/22px "Lato", Arial, sans-serif;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  resize: none;
+}
+
+.whols-message-box button {
+  float: left;
+  font-size: 16px;
+  cursor: pointer;
+  font-weight: 500;
+  padding: 11px 23px;
+  border: 1px solid #8c8f94;
+  border-radius: 8px;
+  color: #000;
+  background: #fff;
+}
+
+.whols-message-box button:hover {
+  color: #75b1e8;
+  border-color: #75b1e8;
+}
+
+/* Start conversation button */
+.whols-start-conversation {
+  padding: 15px 30px;
+  font-family: inherit;
+  font-weight: 500;
+  font-size: 1rem;
+  line-height: 1em;
+  background-color: #046bd2;
+  color: #fff;
+  margin-bottom: 15px;
+  display: inline-block;
+}
+
+.whols-start-conversation:hover {
+  color: #fff;
+}
+
+/* View products button */
+.whols-view-products {
+  padding: 13px 30px;
+  font-family: inherit;
+  font-weight: 500;
+  font-size: 1rem;
+  line-height: 1em;
+  background-color: #dcdcde;
+  display: inline-block;
+  margin-bottom: 15px;
+  color: #444;
+  border-radius: 5px;
+}
+
+div.whols-products-data > button {
+  margin-bottom: 15px;
+}
+
+/* Loading spinner */
+.whols-raq-form button i.dashicons,
+.whols-message-box button i.dashicons,
+.whols-request-a-quote i.dashicons,
+.whols-wallet-otp i.dashicons {
+  animation: dashicons-spin 2s infinite linear;
+}
+
+.woocommerce-page #content table.cart a.whols-request-a-quote{
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+.whols-request-a-quote i.dashicons{
+  width: 15px;
+  height: 15px;
+  font-size: 15px;
+  line-height: 15px;
+}
+
+@keyframes dashicons-spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Status */
+.whols--is_wholesaler .whols-conversation-tab-content td:first-child a{
+	position: relative;
+	padding-left: 10px;
+}
+.whols--is_wholesaler .whols-conversation-tab-content td:first-child a::after {
+    content: "";
+    display: block;
+    width: 6px;
+    height: 6px;
+    background: #ddd;
+    border-radius: 100%;
+    position: absolute;
+    top: calc(50% - 3px);
+    bottom: 0;
+}
+
+.whols--is_wholesaler .whols-conversation-tab-content .whols-awaiting-reply td:first-child a::after{
+	background: red;
+}
+
+/* Utility classes */
+.align-left { text-align: left; }
+.align-right { text-align: right; }
+
+.clearfix:after {
+  visibility: hidden;
+  display: block;
+  font-size: 0;
+  content: " ";
+  clear: both;
+  height: 0;
+}

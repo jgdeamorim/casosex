@@ -1,0 +1,354 @@
+Changes Log:
+= Version: 2.4.12 - Date: 31 Mar 2026 =
+- Fixed: Slow admin pages caused by excessive license server API calls with 120s timeouts.
+- Fixed: PHP warning from foreach on non-array in Dynamic Rules.
+- Improved: License and update check API calls now use 15s timeout with negative caching on failures.
+
+= Version: 2.4.11 - Date: 26 Feb 2026 =
+- Improved: Admin notice display.
+
+= Version: 2.4.10 - Date: 03 Feb 2026 =
+- Added: Stock quantity column in Bulk Order Form to display available inventory
+
+= Version: 2.4.9 - Date: 02 Feb 2026 =
+- Fixed: Multi-role pricing showing same price for all wholesale roles instead of role-specific prices
+- Fixed: Bulk Order Form wholesale price not applied when minimum quantity is set to 0
+- Fixed: Bulk Order Form VAT display not respecting WooCommerce tax settings and wholesaler tax exemption
+
+= Version: 2.4.8 - Date: 11 Dec 2025 =
+- Fixed: Empty quantity in wholesale pricing meta during WooCommerce product export
+
+= Version: 2.4.7 - Date: 01 Dec 2025 =
+- Fixed: Critical fatal error when calling get_category_ids() on variation products with invalid parent products
+- Fixed: Undefined array index warnings in rule condition evaluations
+- Fixed: Missing WooCommerce cart validation in multiple conditions
+- Improved: Added comprehensive error handling throughout cart and product operations
+- Improved: Wholesale pricing calculation safety with product validation
+- Security: Eliminated all potential fatal errors from corrupted cart data or missing products
+
+= Version: 2.4.6 - Date: 04 Nov 2025 =
+- Fixed: Variable products with percentage-based global wholesale pricing displaying incorrect fixed prices
+- Fixed: Variation price display using assigned role in testing mode
+- Improved: Diagnostic data collection system with better handling and security
+
+= Version: 2.4.5 - Date: 29 Sep 2025 =
+- Added: Billing Address 2 field to WooCommerce fields in registration form
+- Enhanced: Wholesale product metadata synchronization with Polylang for WooCommerce plugin
+- Fixed: Fields Manager immediately adding field to list when clicking "Add New" button
+
+= Version: 2.4.4 - Date: 24 Sep 2025 =
+- Fixed: Wholesale price visibility not working in Public mode.
+- Fixed: Visibility issue with variable product wholesale prices.
+- Fixed: Variable product wholesale price not working correctly with role-based pricing.
+
+= Version: 2.4.3 -Date: 22 Sep 2025 =
+- Added: Support for custom fields and WooCommerce field placeholders in registration email notifications.
+
+= Version: 2.4.2 -Date: 11 Aug 2025 =
+- Fixed: Wholesaler price not showing for variation products issue.
+- Fixed: Wholesale price not displaying correctly for wholesalers when price visibility is set to "Testing Mode".
+
+= Version: 2.4.1 -Date: 15 Jul 2025 =
+- Fixed: Bogo rule buy product condition fulfillment issue
+
+= Version: 2.4.0 -Date: 09 Jul 2025 =
+- Added: Reset settings feature
+- Added: Quick & Bulk Edit Products feature
+- Added: Option to enable or disable dynamic rules inspector
+- Fixed: Field manager value does not save issue & Last name field issue
+
+= Version: 2.3.1 -Date: 24 Jun 2025 =
+- Fixed: Price was showing for everyone issue
+
+= Version: 2.3.0 -Date: 24 Jun 2025 =
+- Added: Added few email notification templates and added placeholders for them
+- Added: Added support for enabling/disabling email notifications from the templates list
+- Added: Last name field in the registration form
+- Fixed: Recaptcha secret key publically visible issue
+- Fixed: Plugin menu duplicate issue
+- Fixed: Registration form required field validation issue
+
+= Version: 2.2.0 -Date: 15 Jun 2025 =
+- Added: More conditions for dynamic rules
+- Added: New rule for free shipping
+- Added: New rule for payment gateway
+- Added: Dynamic rules inspector
+- Fixed: Wholesale price showing issue with Public pricing mode
+- Fixed: Number input field mouse scroll issue
+- Fixed: Cache busting issue for element-plus
+
+= Version: 2.1.0 -Date: 21 May 2025 =
+- Added: New feature Approve or Reject wholesalers from email without logging in to the admin panel
+- Tweak: Variable product price range if price is same
+
+= Version: 2.0.5 -Date: 14 May 2025 =
+- Fixed: Registration form field validation issue
+- Fixed: Endpoint url not found issue for save order list and conversation feature
+- Fixed: Text domain loading issue with latest WP 6.8
+- Fixed: Fix order filtering issues in WC Order list table was not working after WooCommerce 7.0
+- Fixed: Notice issue when there is no transection in the wallet tab
+- Fixed: Default wholesaler role issue
+- Fixed: State field validation issue
+- Fixed: Free plugin deactivation issue
+   
+= Version: 2.0.4 -Date: 15 Apr 2025 =
+- Added: Bulk Order Form feature
+- Fixed: Title was not showing in the settings for guest access
+
+= Version: 2.0.3 -Date: 26 Mar 2025 =
+- Fixed: Field type was not setting default value
+- Fixed: Default registration form fields field type was changable
+
+= Version: 2.0.2 -Date: 23 Mar 2025 =
+- Added: Save order list feature
+- Fixed: Conflict with WC Payment Gateway
+- Added: Reports feature with different reports
+
+= Version: 2.0.1 -Date: 11 Mar 2025 =
+- Added: Dynamic placeholder supports for registration form fields
+- Enhanced: Shown file url of the registration form in Wholesaler request manager
+- Enhanced: Loading was showing multiple times for the dynamic rule fields
+- Fixed: Min Qty Notice Custom Text field was not rendered
+- Fixed: Not a valid file type issue in the registration form
+- Fixed: Admin texts were not translated issue
+- Fixed: Must be a valid array offset type of the Manage_Rules class issue
+- Fixed: Multicurrency price multiplication double time & variation price issue
+
+= Version: 2.0.0 -Date: 16 Feb 2025 =
+- Enhanced: The dashboard settings with new design
+- Added: Compatibility with CURCY – Multi Currency plugin by VillaTheme Free and Pro
+- Added: Default messages & placeholder supports for all the email notifications
+- Added: Multiple recipients for admin email notification
+- Fixed: 3rd party payment gateways not showing in the payment gateways list
+- Fixed: Showing logout button in the registration form even customer was not logged in
+- Fixed: Public wholesale pricing default role was affecting price for the logged in wholesalers
+- Fixed: Ajax search of the "Goldish" theme was making infinite loop issue
+- Fixed: Undefined backgroundColor issue in the registration form block styling
+- Fixed: Options for the select field of registration form were not working properly in Windows environment
+- Fixed: Undefined reCaptcha data issue in the registration form
+
+
+= Version: 1.4.4 -Date: 24 Dec 2024 =
+- Fixed: class-gateway-Invoice-payment-manage.php file naming case sensative issue
+
+= Version: 1.4.3 -Date: 23 Dec 2024 =
+- Added: Registration form gutenberg block
+- Fixed: Wallet transection email content formating
+- Fixed: Payment gateway list was not showing issue fix with wpdb
+- Fixed: Unnaseccary notice div height issue in the registration form
+- Fixed: Conflict with Windcave payment gateway
+- Enhanced: Dynamic rules labels
+
+= Version: 1.4.2 -Date: 18 Dec 2024 =
+- Fixed: Conflict between Dynamic rule and Wallet feature and added compatibility
+- Fixed: Transections were not showing in the admin wallet page when HPOS is active
+- Fixed: Payment gateway list was not showing in the "Other" settings
+- Added: Cart empty notice for wallet product
+
+= Version: 1.4.1 -Date: 28 Nov 2024 =
+- Fixed: Auto update issue
+- Added: Wallet Payment feature
+
+= Version: 1.4.0 -Date: 25 Nov 2024 =
+- Fixed: load_textdomain notice issue with WP 6.7 version
+
+= Version: 1.3.9 -Date: 21 Oct 2024 =
+- Added: Conversation feature
+- Added: Request a quote feature
+- Added: Registration form upload/file field
+- Fixed: Undefined $variation_id after placing order
+- Fixed: Fixed cart and checkout page still being accessible when restiction is enabled
+
+= Version: 1.3.8 -Date: 11 Sep 2024 =
+- Added: Dynamic rules feature
+- Fixed: Undefined variation_id issue
+- Fixed: Prevent accessing wholesale products by non-wholesaler users
+- Fixed: Price range dummy price issue
+
+= Version: 1.3.7 -Date: 29 Aug 2024 =
+- Fixed: Manual order create price calculation doesn't work when HPOS is active
+- Fixed: Deprecated 'instructions' property issue with PHP >8.0
+
+= Version: 1.3.6 -Date: 11 Aug 2024 =
+- Added: Compatibility with Fibosearch plugin
+- Added: Compatibility with block based checkout page for Invoice payment gateway
+- Updated: 3rd party libraries for latest PHP version compatibility
+
+= Version: 1.3.5 -Date: 14 Jul 2024 =
+- Fixed: Variation price issue in the admin Column
+
+= Version: 1.3.4 -Date: 02 Jun 2024 =
+* Added Feature: Admin can order for Wholesaler
+* Fixed: Data migration too much loading time
+
+= Version: 1.3.3 -Date: 05 May 2024 =
+* Fixed: Registration form submission doesn't work with FSE theme
+
+= Version: 1.3.2 -Date: 13 Mar 2024 =
+* Added: Google Recaptcha Integration
+* Added: Option to enable or disable purchase Permission for public pricing
+* Added: Option to hide price for non wholesaler
+* Added: Data from the registration form can be viewed from the approve/reject wholesaler screen
+* Fixed: Admin bar menu links don't work the issue
+* Fixed: Remove "Login To See Price" label for the variation product
+* Tweak: Added custom body class
+
+= Version: 1.3.1 -Date: 10 Jan 2024 =
+* Improved: WPML compatibility
+* Fixed: Retailer products shows in related products
+* Fixed: Discount label issue
+* Fixed: Wholesaler variable price issue while using global price options
+* Tweak: Simplified the nonce verification message
+* Added: Force auto apply minimum quantity
+
+= Version: 1.3.0 -Date: 14 Dec 2023 =
+* Added: Compatibility with WPML & Polylang Plugin
+* Added: Force add to cart Min Quantity for product loops
+* Fixed: Wholesaler doesn't assign issue
+* Fixed: Auto apply min qty doesn't apply for single role
+
+= Version: 1.2.9 -Date: 21 Nov 2023 =
+* Fixed: Website Restriction Feature issue
+* Tweak: Improved Wholesaler Registration form error handling
+* Added: Wholesaler role field for the registration form and make it compatible with the "Default" Wholesaler role option.
+
+= Version: 1.2.8 -Date: 15 Oct 2023 =
+* Fixed: Generates warning while accessing $post->ID via ajax request
+* Fixed: Showing Duplicate Exclude Tax field
+* Tweak: Fixed the capability of showing "Add New" button
+
+= Version: 1.2.7 -Date: 19 Sep 2023 =
+* Fixed: Role doesn't update once it set on Wholesale request page.
+* Fixed: Compatibility with packing slip plugin.
+* Fixed: Added Compatibility With WooLentor's elementor addons and wc [products] shortcode.
+* Added: Auto Apply Minimum Quantity option.
+
+= Version: 1.2.6 -Date: 16 Aug 2023 =
+* Added: Retailer only feature in the product visibility option in the product metabox
+* Improved: Product Visibility option labels in the global settings
+* Fixed: Undefined $user->ID issue
+* Fixed: On click remove icon of variation product doesn't allow save change from product edit.
+* Updated: License Manager
+
+= Version: 1.2.5 -Date:  29 Apr 2023 =
+* Added: Option to change minimum quantity notice text
+* Added: Placeholder in the min qty metabox field
+* Fixed: Wholesaler role and label condition issue
+* Fixed: Price tax display issue for single role
+* Fixed: Discounted price doesn't reflect on mini cart issue
+* Fixed: Decimal pricing issue for price which is less than 1
+* Fixed: PHP version compatibility issue for the get_current_screen Undefined function
+
+= Version: 1.2.4 -Date: 09 Mar 2023 =
+* Added: Quantity based pricing for multiple role based pricing model
+* Fixed: Wholesaler request doesn't delete on deleting user
+
+= Version: 1.2.3 -Date: 07 Feb 2023 =
+* Fixed: Tax exempt override per role issue
+* Fixed: Field type for the registration form
+* Fixed: Role name change doesn't reflect in the role list issue
+* Tweak: Some improvements in the role add/edit page
+* Fixed: License page CSS missing
+
+= Version: 1.2.2 -Date: 24 Jan 2023 =
+* Fixed: Wholesale only products shows for the non wholesalers issue
+
+= Version: 1.2.1 -Date: 09 Jan 2022 =
+* Fixed: Price range doesn't show for variable product
+* Added: Option to change registration form submit button label
+* Added: Loading icon support for the registration form submit button
+* Added: Invoice payment method
+* Added: Compatibility with the "Favorite PDF Invoices & Packing Slips for WooCommerce" plugin
+* Added: Wholesale customer order reports
+* Tweak: Added scroll to notice for registration form
+* Tweak: Added support for email notification html formatting
+* Tweak: Added support for the last name, country, state field in the registration form
+* Tweak: Auto Scroll to notice after submit the form
+* Tweak: Added support for email notification html formatting
+
+= Version: 1.2.0 -Date: 29 Nov 2022 =
+* Fixed: Duplicate taxonomy metabox issue for tab & fieldset type field.
+* Fixed: Admin Column price were showing wrong for percentage price.
+* Fixed: Wholesaler price were shwoing 00 for free product or the product that doesn't have any price.
+* Fixed: Conflict with just tables plugin.
+* Fixed: Wholesale price Column global price were displaying even it is off.
+* Added: A dropdown options of the "order types" to filter the orders.
+* Added: "Order Type" Column in the order table.
+* Added: Label to display if an order item is wholesale price or not in order received page or order edit page.
+* Added: New feature "Custom thank you message for wholesales"
+* Added: Test mode feature
+* Added: Filter hook whols_minimum_quantity_notice_threshold
+* Tweak: Order type meta data mirgration for old users.
+
+= Version: 1.1.9 -Date: 05 Nov 2022 =
+* Fixed: Undefined variable $fields
+* Fixed: Price shows 0 for variable product while price value is empty from the global pricing.
+* Fixed: Login to view price link issue
+* Added: Wholesaler only categories.
+* Improved: Coding stracture by adding namespace and separated some functionalities into different class.
+
+= Version: 1.1.8 -Date: 18 Oct 2022 =
+* Fixed: Wraning from the email notification file while sending email
+* Improved: Field manager
+* Added: Wholesale Price Column
+* Added: Registration page state label into the page list table
+* Added: Option to assign wholesale registration form
+* Added: Conditionally add the registration form shortcode into the assigned page
+
+= Version: 1.1.7 -Date: 01 Oct 2022 =
+* Added: Registration fields manager
+
+= Version: 1.1.6 -Date: 19 Sep 2022 =
+* Updated: Pot file
+* Fixed: Whholesale label show on cart page for variation product
+* Added: Filter hook whols_hide_price_for_guest_users
+* Tweak: Compatibility with WooCommerce's tax display settings for simple product
+
+= Version: 1.1.5 -Date: 08 Aug 2022 =
+* Updated: Pot file
+* Fixed: Warning on plugin activation
+
+= Version: 1.1.4 -Date: 04 Aug 2022 =
+* Fixed: Coupon is applied even if it is disabled
+* Fixed: Price decimal issue for the taxonomy metabox price field
+* Fixed: Warning on profile edit page of additional fields
+* Fixed: Cart page price display as flat number
+
+= Version: 1.1.3 -Date: 04 Jul 2022 =
+* Compatibility: Compatible with WooCommerce's price decimal option
+* Fixed: Roles doesn't show properly after click on the "Add price another role" button
+
+= Version: 1.1.2 -Date: 21 June 2022 =
+* Updated: Pot(language) file
+* Improved: is_wholesaler user function, for client tax problem issue
+* Fixed: Multiple role current user role was not getting properly
+
+= Version: 1.1.1 -Date: 12 May 2022 =
+* Added: Filter hook whols_disable_del_tag
+* Added: WooCommerce default user fields support for the registration form
+* Fixed: Discount range show from 0%
+* Fixed: Login to view price custom label
+* Fixed: Multiple role current user role was not getting properly
+
+= Version: 1.1.0 -Date: 17 Apr 2022 =
+* Fixed: Incorrect price save info
+* Fixed: Multiple Role | Price doesn't apply issue
+
+= Version: 1.0.9 -Date: 12 Apr 2022 =
+* Improved: Price save info
+* Fixed: Showing available variation price when set to percentage but no qty
+* Fixed: Price doesn't apply on cart page when only global pricing is set with no qty
+* Fixed: Show min quantity table for non wholesale customers
+* Fixed: Variable product price range issue
+* Fixed: Login to view price link issue
+* Fixed: Variable product wrong discount save data issue
+
+= Version: 1.0.8 -Date: 12 Mar 2022 =
+* Added: Filter hook to manage capabilites
+* Fixed: Tax exempt option still applied even after plugin deactivation
+* Added: Checkbox field support for registration form
+
+= Version: 1.0.7 -Date: 10 Feb 2022 =
+* Fixed: Price does not apply on cart page for variable product
+* Added: Wholesale label
+* Fixed: Multiple role issue on cart page

@@ -1,0 +1,858 @@
+/**
+ * Dropshipping settings — design system & Overview (namespaced: .wc-ds-*).
+ * Loaded only on WooCommerce → Settings → Dropshipping.
+ */
+
+/* -------------------------------------------------------------------------
+   Design tokens (scoped to plugin shell; fallbacks match wp-admin neutrals)
+   ------------------------------------------------------------------------- */
+.wc-ds-settings-shell {
+	/* System stack: overrides legacy Poppins from custom.css inside this screen. */
+	font-family: var(--wc-ds-font) !important;
+	--wc-ds-radius: 6px;
+	--wc-ds-radius-sm: 4px;
+	--wc-ds-border: 1px solid #dcdcde;
+	--wc-ds-border-strong: 1px solid #c3c4c7;
+	--wc-ds-surface: #fff;
+	--wc-ds-surface-muted: #f6f7f7;
+	--wc-ds-surface-inset: #fcfcfd;
+	--wc-ds-text: #1d2327;
+	--wc-ds-text-muted: #646970;
+	--wc-ds-accent: #2271b1;
+	--wc-ds-accent-muted: rgba(34, 113, 177, 0.12);
+	--wc-ds-success: #00a32a;
+	--wc-ds-shadow: 0 1px 2px rgba(0, 0, 0, 0.06);
+	--wc-ds-shadow-card: 0 1px 3px rgba(0, 0, 0, 0.08);
+	--wc-ds-space-1: 4px;
+	--wc-ds-space-2: 8px;
+	--wc-ds-space-3: 12px;
+	--wc-ds-space-4: 16px;
+	--wc-ds-space-5: 24px;
+	--wc-ds-space-6: 32px;
+	--wc-ds-font: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+	--wc-ds-font-mono: ui-monospace, Menlo, Consolas, monospace;
+	max-width: 90%;
+	width: 100%;
+	color: var(--wc-ds-text);
+}
+
+body.woocommerce_page_wc-settings #mainform .wc-ds-settings-shell nav {
+    margin: 10px 0px 10px 0px;
+}
+
+.wc-ds-settings-shell *,
+.wc-ds-settings-shell *::before,
+.wc-ds-settings-shell *::after {
+	box-sizing: border-box;
+}
+
+/* Incomplete setup: one clear visual cue — not a banner, not a tour */
+.wc-ds-settings-shell--onboarding {
+	border-left: 4px solid var(--wc-ds-accent);
+	padding-left: var(--wc-ds-space-4);
+	margin-left: calc(-1 * var(--wc-ds-space-4));
+}
+
+@media (max-width: 782px) {
+	.wc-ds-settings-shell--onboarding {
+		margin-left: 0;
+		padding-left: var(--wc-ds-space-3);
+	}
+}
+
+/* -------------------------------------------------------------------------
+   Tab navigation — cleaner than legacy float layout when inside shell
+   ------------------------------------------------------------------------- */
+.wc-ds-settings-shell .wc-dropship-setting-tabs {
+	display: flex;
+	flex-wrap: wrap;
+	gap: var(--wc-ds-space-2);
+	margin: var(--wc-ds-space-5) 0 var(--wc-ds-space-4);
+	padding: var(--wc-ds-space-2);
+	list-style: none;
+	background: var(--wc-ds-surface-muted);
+	border: var(--wc-ds-border);
+	border-radius: var(--wc-ds-radius);
+	float: none;
+	width: 100%;
+	box-sizing: border-box;
+}
+
+.wc-ds-settings-shell .wc-dropship-setting-tabs li {
+	float: none;
+	margin: 0;
+	padding: var(--wc-ds-space-2) var(--wc-ds-space-3);
+	font-size: 13px;
+	font-weight: 500;
+	line-height: 1.4;
+	color: var(--wc-ds-text);
+	background: transparent;
+	border: 1px solid transparent;
+	border-radius: var(--wc-ds-radius-sm);
+	transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+}
+
+.wc-ds-settings-shell .wc-dropship-setting-tabs li:hover {
+	background: var(--wc-ds-surface);
+	color: var(--wc-ds-accent);
+	border-color: #dcdcde;
+}
+
+.wc-ds-settings-shell .wc-dropship-setting-tabs li:focus {
+	outline: 2px solid var(--wc-ds-accent);
+	outline-offset: 1px;
+}
+
+.wc-ds-settings-shell .wc-dropship-setting-tabs li.active {
+	background: var(--wc-ds-surface);
+	color: var(--wc-ds-accent);
+	border-color: var(--wc-ds-accent);
+	box-shadow: var(--wc-ds-shadow);
+	font-weight: 600;
+}
+
+/* -------------------------------------------------------------------------
+   Panels (tab content)
+   ------------------------------------------------------------------------- */
+.wc-ds-settings-shell .drop-setting-section {
+	display: none;
+	margin: 0 0 var(--wc-ds-space-5);
+	padding: var(--wc-ds-space-5);
+	background: var(--wc-ds-surface);
+	border: var(--wc-ds-border);
+	border-radius: var(--wc-ds-radius);
+	box-shadow: var(--wc-ds-shadow-card);
+}
+
+.wc-ds-settings-shell .drop-setting-section.active {
+	display: block;
+}
+
+.wc-ds-settings-shell .drop-setting-section > h3:first-child,
+.wc-ds-settings-shell .drop-setting-section > h2:first-child {
+	margin-top: 0;
+	padding-bottom: var(--wc-ds-space-3);
+	margin-bottom: var(--wc-ds-space-4);
+	border-bottom: var(--wc-ds-border);
+	font-size: 1.15em;
+	font-weight: 600;
+	line-height: 1.3;
+	color: var(--wc-ds-text);
+}
+
+.wc-ds-settings-shell .drop-setting-section > p.description:first-of-type,
+.wc-ds-settings-shell .drop-setting-section > p:first-of-type {
+	margin-top: 0;
+}
+
+/* Form tables: reduce “stretched admin table” feel */
+.wc-ds-settings-shell .form-table {
+	margin-top: var(--wc-ds-space-3);
+}
+
+.wc-ds-settings-shell .form-table th {
+	padding: var(--wc-ds-space-3) var(--wc-ds-space-4) var(--wc-ds-space-3) 0;
+	vertical-align: top;
+	font-weight: 500;
+	color: var(--wc-ds-text);
+	width: 240px;
+	max-width: 42%;
+}
+
+.wc-ds-settings-shell .form-table td {
+	padding: var(--wc-ds-space-3) 0;
+	vertical-align: top;
+}
+
+.wc-ds-settings-shell .form-table + .form-table {
+	margin-top: var(--wc-ds-space-4);
+}
+
+/* Inset help / notices */
+.wc-ds-settings-shell .description,
+.wc-ds-settings-shell p.description {
+	color: var(--wc-ds-text-muted);
+	font-size: 13px;
+	line-height: 1.5;
+	max-width: 52rem;
+}
+
+.wc-ds-callout {
+	margin: var(--wc-ds-space-4) 0;
+	padding: var(--wc-ds-space-3) var(--wc-ds-space-4);
+	background: var(--wc-ds-accent-muted);
+	border: 1px solid rgba(34, 113, 177, 0.25);
+	border-radius: var(--wc-ds-radius);
+	border-left-width: 4px;
+}
+
+.wc-ds-callout--notice {
+	background: #f0f6fc;
+	border-color: #c5d9ed;
+	border-left-color: var(--wc-ds-accent);
+}
+
+/* -------------------------------------------------------------------------
+   Overview — page header & cards
+   ------------------------------------------------------------------------- */
+.wc-ds-page-header {
+	margin-bottom: var(--wc-ds-space-5);
+	padding-bottom: var(--wc-ds-space-4);
+	border-bottom: var(--wc-ds-border);
+}
+
+.wc-ds-page-header__eyebrow {
+	margin: 0 0 var(--wc-ds-space-2);
+	font-size: 11px;
+	font-weight: 600;
+	letter-spacing: 0.05em;
+	text-transform: uppercase;
+	color: var(--wc-ds-accent);
+}
+
+.wc-ds-page-header__title {
+	margin: 0 0 var(--wc-ds-space-3);
+	font-size: 1.45em;
+	font-weight: 600;
+	line-height: 1.2;
+	color: var(--wc-ds-text);
+}
+
+.wc-ds-page-header__lead {
+	margin: 0;
+	font-size: 14px;
+	line-height: 1.55;
+}
+
+.wc-ds-overview__grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+	gap: var(--wc-ds-space-4);
+	margin-top: var(--wc-ds-space-3);
+}
+
+.wc-ds-card {
+	background: var(--wc-ds-surface);
+	border: var(--wc-ds-border);
+	border-radius: var(--wc-ds-radius);
+	padding: var(--wc-ds-space-4);
+	box-shadow: var(--wc-ds-shadow);
+}
+
+.wc-ds-card--panel {
+	background: var(--wc-ds-surface-inset);
+	border-color: #e0e0e0;
+	box-shadow: none;
+}
+
+.wc-ds-overview--first-run .wc-ds-card--hero {
+	border-color: rgba(34, 113, 177, 0.35);
+	background: var(--wc-ds-surface);
+}
+
+.wc-ds-card__head {
+	display: flex;
+	align-items: flex-start;
+	justify-content: space-between;
+	gap: var(--wc-ds-space-3);
+	margin-bottom: var(--wc-ds-space-2);
+}
+
+.wc-ds-card__title {
+	margin: 0 0 var(--wc-ds-space-2);
+	font-size: 14px;
+	font-weight: 600;
+	line-height: 1.35;
+	color: var(--wc-ds-text);
+}
+
+.wc-ds-card--panel .wc-ds-card__title {
+	margin-bottom: var(--wc-ds-space-2);
+}
+
+.wc-ds-field-help {
+	margin: 0 0 var(--wc-ds-space-3);
+	font-size: 13px;
+	line-height: 1.5;
+	color: var(--wc-ds-text-muted);
+}
+
+.wc-ds-select {
+	display: block;
+	width: 100%;
+	max-width: 100%;
+	margin-top: var(--wc-ds-space-2);
+	padding: var(--wc-ds-space-2) var(--wc-ds-space-3);
+	font-size: 14px;
+	line-height: 1.5;
+	color: var(--wc-ds-text);
+	background: var(--wc-ds-surface);
+	border: var(--wc-ds-border-strong);
+	border-radius: var(--wc-ds-radius-sm);
+}
+
+.wc-ds-select:focus {
+	border-color: var(--wc-ds-accent);
+	box-shadow: 0 0 0 1px var(--wc-ds-accent);
+	outline: none;
+}
+
+/* Progress */
+.wc-ds-progress {
+	height: 10px;
+	background: #dcdcde;
+	border-radius: 999px;
+	overflow: hidden;
+	margin: var(--wc-ds-space-3) 0;
+}
+
+.wc-ds-progress__bar {
+	height: 100%;
+	background: linear-gradient(90deg, #1e6cab 0%, var(--wc-ds-accent) 100%);
+	border-radius: 999px;
+	transition: width 0.25s ease;
+}
+
+/* Checklist */
+.wc-ds-checklist {
+	margin: var(--wc-ds-space-2) 0 0;
+	padding: 0;
+	list-style: none;
+}
+
+.wc-ds-checklist__item {
+	display: flex;
+	align-items: flex-start;
+	gap: var(--wc-ds-space-2);
+	margin: 0;
+	padding: var(--wc-ds-space-2) 0;
+	border-bottom: 1px solid #eee;
+	font-size: 14px;
+	line-height: 1.45;
+}
+
+.wc-ds-checklist__item:last-child {
+	border-bottom: none;
+}
+
+.wc-ds-checklist__item--done {
+	color: var(--wc-ds-text);
+}
+
+.wc-ds-checklist__item--todo {
+	color: var(--wc-ds-text-muted);
+}
+
+.wc-ds-status-dot {
+	flex-shrink: 0;
+	width: 8px;
+	height: 8px;
+	margin-top: 6px;
+	border-radius: 50%;
+	background: #dcdcde;
+}
+
+.wc-ds-status-dot--done {
+	background: var(--wc-ds-success);
+	box-shadow: 0 0 0 2px rgba(0, 163, 42, 0.2);
+}
+
+.wc-ds-goto-tab {
+	text-align: left;
+	padding: 0;
+	height: auto;
+	font-size: inherit;
+	line-height: inherit;
+	color: inherit;
+	text-decoration: underline;
+	text-underline-offset: 2px;
+}
+
+.wc-ds-goto-tab:hover,
+.wc-ds-goto-tab:focus {
+	color: var(--wc-ds-accent);
+}
+
+/* Badges */
+.wc-ds-badge {
+	display: inline-flex;
+	align-items: center;
+	padding: 2px 8px;
+	font-size: 11px;
+	font-weight: 600;
+	line-height: 1.4;
+	letter-spacing: 0.02em;
+	text-transform: uppercase;
+	border-radius: 999px;
+	border: 1px solid transparent;
+}
+
+.wc-ds-badge--neutral {
+	color: var(--wc-ds-text-muted);
+	background: #f0f0f1;
+	border-color: #dcdcde;
+}
+
+.wc-ds-badge--success {
+	color: #fff;
+	background: var(--wc-ds-success);
+}
+
+/* Empty state */
+.wc-ds-empty-state {
+	margin: var(--wc-ds-space-3) 0 0;
+	padding: var(--wc-ds-space-4);
+	text-align: center;
+	font-size: 13px;
+	color: var(--wc-ds-text-muted);
+	background: var(--wc-ds-surface-muted);
+	border-radius: var(--wc-ds-radius-sm);
+	border: 1px dashed #c3c4c7;
+}
+
+/* Collapsible secondary content (native <details>) */
+.wc-ds-details {
+	margin: var(--wc-ds-space-5) 0 0;
+	padding: 0;
+	border: var(--wc-ds-border);
+	border-radius: var(--wc-ds-radius);
+	background: var(--wc-ds-surface-muted);
+	overflow: hidden;
+}
+
+.wc-ds-details--subtle {
+	background: var(--wc-ds-surface);
+}
+
+.wc-ds-details__summary {
+	padding: var(--wc-ds-space-3) var(--wc-ds-space-4);
+	cursor: pointer;
+	font-size: 13px;
+	font-weight: 600;
+	color: var(--wc-ds-text-muted);
+	list-style: none;
+}
+
+.wc-ds-details__summary::-webkit-details-marker {
+	display: none;
+}
+
+.wc-ds-details__summary::before {
+	content: "";
+	display: inline-block;
+	width: 0;
+	height: 0;
+	margin-right: var(--wc-ds-space-2);
+	border-left: 5px solid var(--wc-ds-text-muted);
+	border-top: 4px solid transparent;
+	border-bottom: 4px solid transparent;
+	vertical-align: middle;
+	transition: transform 0.15s ease;
+}
+
+.wc-ds-details[open] .wc-ds-details__summary::before {
+	transform: rotate(90deg);
+}
+
+.wc-ds-details__body {
+	padding: 0 var(--wc-ds-space-4) var(--wc-ds-space-4);
+	border-top: 1px solid #eee;
+}
+
+.wc-ds-details__body p:last-child {
+	margin-bottom: 0;
+}
+
+/* “Advanced” pattern — use class on <details> wrapping optional fields */
+.wc-ds-advanced {
+	margin-top: var(--wc-ds-space-5);
+}
+
+/* Checkbox rows: align with WP but slightly clearer */
+.wc-ds-settings-shell input[type="checkbox"] {
+	margin-top: 0;
+	vertical-align: middle;
+}
+
+/* Packing slip legacy blocks inside shell */
+.wc-ds-settings-shell .packing-slip-sections {
+	border-radius: var(--wc-ds-radius);
+	border-color: #ddd;
+}
+
+/* Packing slips panel: grouped subsections */
+/* Merchant guidance — extra structure in high–support-ticket areas */
+.wc-ds-merchant-callout {
+	margin: var(--wc-ds-space-4) 0 var(--wc-ds-space-5);
+	padding: 14px 16px 14px 18px;
+	max-width: 75%;
+	border: 1px solid #c3c4c7;
+	border-left-width: 4px;
+	border-left-color: #72aee6;
+	background: #f0f6fc;
+	border-radius: 2px;
+	box-shadow: 0 1px 1px rgba(0, 0, 0, 0.04);
+}
+
+.wc-ds-merchant-callout--emphasis {
+	border-left-color: #dba617;
+	background: #fcf9e8;
+}
+
+.wc-ds-merchant-callout__kicker {
+	margin: 0 0 10px;
+	font-size: 13px;
+	font-weight: 600;
+	line-height: 1.35;
+	color: #1d2327;
+}
+
+.wc-ds-merchant-callout p {
+	margin: 8px 0 0;
+	font-size: 13px;
+	line-height: 1.55;
+	color: #2c3338;
+}
+
+.wc-ds-merchant-callout p:first-child {
+	margin-top: 0;
+}
+
+.wc-ds-merchant-callout ul {
+	margin: 8px 0 1.25em;
+	padding: 0;
+	font-size: 13px;
+	line-height: 1.55;
+	color: #2c3338;
+}
+
+.wc-ds-merchant-callout li {
+	margin: 4px 0 0;
+}
+
+.wc-ds-merchant-callout li:first-child {
+	margin-top: 0;
+}
+
+/* Packing tab: callout sits under page intro — slightly calmer than default callout margins */
+.wc-ds-merchant-callout--packing-intro {
+	margin-top: var(--wc-ds-space-4);
+	margin-bottom: var(--wc-ds-space-3);
+}
+
+.wc-ds-subsection-heading {
+	margin-top: 1.25em;
+}
+
+.wc-ds-subsection-heading--spaced {
+	margin-top: 1.75em;
+}
+
+/* Packing slips tab — top of panel: clearer step-down from title → lede → callout → first card */
+.wc-ds-panel-packing__intro {
+	margin: 0 0 calc(var(--wc-ds-space-6) + var(--wc-ds-space-2));
+	padding: 0 0 var(--wc-ds-space-6);
+	border-bottom: 1px solid #f0f0f1;
+}
+
+.wc-ds-panel-packing__title {
+	margin: 0 0 var(--wc-ds-space-4);
+	padding: 0;
+	font-size: 1.15em;
+	line-height: 1.35;
+	font-weight: 600;
+	color: var(--wc-ds-text);
+}
+
+.wc-ds-panel-packing__lede {
+	margin: 0 0 var(--wc-ds-space-6);
+	max-width: 68ch;
+	font-size: 14px;
+	line-height: 1.6;
+	color: var(--wc-ds-text-muted);
+}
+
+.wc-ds-panel-packing__intro .wc-ds-merchant-callout ul {
+	margin-bottom: 0.75em;
+}
+
+.wc-ds-panel-packing__intro .wc-ds-merchant-callout {
+	max-width: 75%;
+}
+
+.wc-ds-settings-group--packing {
+	margin-top: var(--wc-ds-space-5);
+	margin-bottom: var(--wc-ds-space-4);
+	padding: var(--wc-ds-space-4);
+	background: #fff;
+	border: 1px solid #c3c4c7;
+	border-radius: var(--wc-ds-radius);
+	box-shadow: 0 1px 1px rgba(0, 0, 0, 0.04);
+}
+
+.wc-ds-settings-group--packing .packing-slip-sections {
+	border:0;
+	padding: 0;
+	margin: 0;
+	background: transparent;
+	box-shadow: none;
+}
+
+.wc-ds-panel-packing__inner > .wc-ds-settings-group--packing:first-of-type {
+	margin-top: var(--wc-ds-space-6);
+}
+
+.wc-ds-settings-group__title {
+	margin: 0 0 var(--wc-ds-space-2);
+	padding: 0;
+	font-size: 14px;
+	font-weight: 600;
+	line-height: 1.4;
+	color: #1d2327;
+}
+
+.wc-ds-settings-group__description {
+	margin: 0 0 var(--wc-ds-space-3);
+	max-width: 72ch;
+}
+
+.wc-ds-settings-group__subhead {
+	margin: var(--wc-ds-space-4) 0 var(--wc-ds-space-2);
+	padding: 0;
+	font-size: 13px;
+	font-weight: 600;
+	line-height: 1.4;
+	color: #2c3338;
+}
+
+/* Price calculator: keep layout readable */
+.wc-ds-settings-shell #price_calculator_options table.form-table {
+	background: transparent;
+}
+
+/* -------------------------------------------------------------------------
+   Utilities & legacy hooks
+   ------------------------------------------------------------------------- */
+.wc-ds-settings-nav li[role="tab"] {
+	cursor: pointer;
+}
+
+.wc-ds-overview {
+	padding-bottom: var(--wc-ds-space-2);
+}
+
+/* Guided Back / Next (shared bar directly under tab strip; sticky while scrolling) */
+.wc-ds-guided-nav {
+	--wc-ds-guided-nav-max: 52rem;
+	margin-top: var(--wc-ds-space-3);
+	margin-bottom: var(--wc-ds-space-4);
+	padding: var(--wc-ds-space-3) var(--wc-ds-space-4);
+	max-width: var(--wc-ds-guided-nav-max);
+	background: var(--wc-ds-surface-muted);
+	border: var(--wc-ds-border);
+	border-radius: var(--wc-ds-radius);
+	position: sticky;
+	top: 32px;
+	z-index: 6;
+	box-shadow: var(--wc-ds-shadow);
+}
+
+#mainform .wc-ds-guided-nav {
+	max-width: 100%;
+}
+
+.wc-ds-guided-nav[hidden] {
+	display: none !important;
+}
+
+.wc-ds-guided-nav__helper {
+	margin: 0 0 var(--wc-ds-space-3);
+	max-width: 52ch;
+	font-size: 13px;
+	line-height: 1.55;
+	color: var(--wc-ds-text-muted);
+}
+
+/* Tight cluster: Back | step label | Continue — avoids stretching across the full settings shell */
+.wc-ds-guided-nav__bar {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: center;
+	gap: var(--wc-ds-space-2) var(--wc-ds-space-3);
+	max-width: 32rem;
+	margin: 0 auto;
+	padding-top: var(--wc-ds-space-2);
+	border-top: 1px solid #dcdcde;
+}
+
+.wc-ds-guided-nav__actions {
+	display: flex;
+	align-items: center;
+	gap: var(--wc-ds-space-2);
+	flex: 0 0 auto;
+}
+
+.wc-ds-guided-nav__actions--start {
+	justify-content: flex-start;
+}
+
+.wc-ds-guided-nav__actions--end {
+	justify-content: flex-end;
+}
+
+.wc-ds-guided-nav__center {
+	margin: 0;
+	flex: 0 1 auto;
+	min-width: 0;
+	max-width: min(18rem, 100%);
+	text-align: center;
+}
+
+.wc-ds-guided-nav__step {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 3px;
+	min-width: 0;
+}
+
+.wc-ds-guided-nav__progress {
+	margin: 0;
+	font-size: 11px;
+	font-weight: 600;
+	letter-spacing: 0.02em;
+	text-transform: uppercase;
+	color: var(--wc-ds-text-muted);
+	line-height: 1.3;
+}
+
+.wc-ds-guided-nav__step-title {
+	margin: 0;
+	font-size: 15px;
+	font-weight: 600;
+	color: var(--wc-ds-text);
+	line-height: 1.35;
+}
+
+.wc-ds-guided-nav__back:disabled,
+.wc-ds-guided-nav__next:disabled {
+	opacity: 0.45;
+	cursor: not-allowed;
+	box-shadow: none;
+}
+
+.wc-ds-guided-nav__back:disabled:hover,
+.wc-ds-guided-nav__next:disabled:hover {
+	background: inherit;
+	border-color: inherit;
+	color: inherit;
+}
+
+@media (max-width: 782px) {
+	.wc-ds-guided-nav {
+		padding: var(--wc-ds-space-4);
+		max-width: none;
+	}
+
+	.wc-ds-guided-nav__bar {
+		flex-direction: column;
+		align-items: stretch;
+		max-width: none;
+		margin: 0;
+	}
+
+	.wc-ds-guided-nav__center {
+		order: -1;
+		max-width: none;
+		text-align: left;
+	}
+
+	.wc-ds-guided-nav__step {
+		align-items: flex-start;
+	}
+
+	.wc-ds-guided-nav__actions--start,
+	.wc-ds-guided-nav__actions--end {
+		justify-content: stretch;
+	}
+
+	.wc-ds-guided-nav__actions--start .button,
+	.wc-ds-guided-nav__actions--end .button {
+		flex: 1;
+		text-align: center;
+		justify-content: center;
+	}
+}
+
+.wc-ds-panel-hint {
+	margin-top: var(--wc-ds-space-2);
+}
+
+/* Single primary save: WooCommerce submit moved into this bar (JS) */
+.wc-ds-save-bar {
+	margin-top: var(--wc-ds-space-5);
+	padding: var(--wc-ds-space-4) 0 0;
+	background: transparent;
+	border: 0;
+	border-radius: 0;
+	position: sticky;
+	bottom: 0;
+	z-index: 8;
+	box-shadow: none;
+}
+
+.wc-ds-save-bar__inner {
+	display: flex;
+	flex-direction: column;
+	gap: var(--wc-ds-space-2);
+	padding: var(--wc-ds-space-3) var(--wc-ds-space-4);
+	background: #f6f7f7;
+	border: var(--wc-ds-border);
+	border-radius: var(--wc-ds-radius);
+	box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.04);
+}
+
+.wc-ds-save-bar__note {
+	margin: 0;
+	font-size: 13px;
+	line-height: 1.45;
+	color: var(--wc-ds-text-muted);
+}
+
+.wc-ds-save-bar__unsaved {
+	margin: 0;
+	font-size: 13px;
+	font-weight: 600;
+	color: #b32d2e;
+}
+
+.wc-ds-save-bar__unsaved[hidden] {
+	display: none !important;
+}
+
+.wc-ds-save-bar__slot {
+	display: flex;
+	justify-content: flex-end;
+	align-items: center;
+	flex-wrap: wrap;
+	gap: var(--wc-ds-space-2);
+}
+
+.wc-ds-save-bar__slot p.submit {
+	margin: 0 !important;
+	padding: 0 !important;
+	border: none;
+	float: none;
+}
+
+.wc-ds-save-bar__slot .woocommerce-save-button {
+	min-width: 140px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.wc-ds-progress__bar,
+	.wc-ds-settings-shell .wc-dropship-setting-tabs li {
+		transition: none;
+	}
+}
