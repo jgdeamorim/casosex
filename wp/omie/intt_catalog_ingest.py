@@ -246,6 +246,7 @@ def ingest_product_to_woocommerce(product_data: dict, wc_url: str = WOOCOMMERCE_
             {"key": "supplier", "value": "INTT"},
             {"key": "_gtin", "value": gtin},
             {"key": "_barcode", "value": gtin},
+            {"key": "_global_unique_id", "value": gtin},
             {"key": "_ncm", "value": ncm},
             {"key": "_weight_net", "value": str(weight_net)},
             {"key": "_casosex_brand", "value": brand},
@@ -267,6 +268,8 @@ def ingest_product_to_woocommerce(product_data: dict, wc_url: str = WOOCOMMERCE_
         "variation": True,
         "options": attr_options
     }]
+    if attr_options:
+        payload["default_attributes"] = [{"name": attr_name, "option": attr_options[0]}]
 
     if product_data.get("images"):
         payload["images"] = [{"src": img} for img in product_data["images"] if isinstance(img, str) and img.startswith("http")]
@@ -410,6 +413,10 @@ def _ingest_variation_via_php(parent_id: int, var_payload: dict):
     $variation->update_meta_data('_casosex_stock_type', 'dropshipping_intt');
     $variation->update_meta_data('_gtin', '{gtin}');
     $variation->update_meta_data('_barcode', '{gtin}');
+    $variation->update_meta_data('_global_unique_id', '{gtin}');
+    if (method_exists($variation, 'set_global_unique_id')) {{
+        $variation->set_global_unique_id('{gtin}');
+    }}
     $variation->update_meta_data('_ncm', '{ncm}');
     $var_id = $variation->save();
     echo json_encode(array('id' => $var_id));
@@ -530,12 +537,18 @@ def _ingest_via_php(product_data: dict, product_id: int = None) -> dict:
     $product->update_meta_data('_cost_of_goods', '{cost_price}');
     $product->update_meta_data('_gtin', '{gtin}');
     $product->update_meta_data('_barcode', '{gtin}');
+    $product->update_meta_data('_global_unique_id', '{gtin}');
+    if (method_exists($product, 'set_global_unique_id')) {{
+        $product->set_global_unique_id('{gtin}');
+    }}
     $product->update_meta_data('_ncm', '{ncm}');
     $product->update_meta_data('_weight_net', '{weight_net}');
     $product->update_meta_data('_casosex_brand', '{brand}');
     $product->update_meta_data('_casosex_usage', '{usage_txt}');
     $product->update_meta_data('_casosex_care', '{care_txt}');
     $product->update_meta_data('_casosex_content', '{content_txt}');
+    $first_opt = '{options_list[0] if options_list else "Padrão"}';
+    $product->set_default_attributes(array('opcao' => $first_opt));
 
     $new_id = $product->save();
 
@@ -787,95 +800,165 @@ def fetch_intt_b2b_catalog(username: str = "", password: str = "") -> list:
 
 def mock_sample_intt_ingest():
     """
-    Simula uma ingestão de teste para validação de esteira auto-sync (Simples e Variável).
+    Ingestão e Validação Soberana do Catálogo de 7 produtos INTT com Descrições Longas, GTINs, NCMs e Atributos.
     """
-    sample_product_simple = {
-        "sku": "INTT-9988",
-        "name": "Gel de Massagem Corporal INTT Premium 100ml",
-        "description": "<p>Gel de massagem hidratante e beijável com fragrância suave.</p><h4>📖 Modo de Uso:</h4><p>Aplicar quantidade suficiente na palma da mão e massagear suavemente a região desejada.</p><h4>🧼 Higiene & Cuidados:</h4><p>Conservar em local seco e fresco, fora do alcance de crianças.</p><p>Conteúdo: 100ml | Origem: Nacional (Fabricação INTT)</p>",
-        "short_description": "Gel Corporal INTT 100ml",
-        "cost_price": 24.90,
-        "suggested_price": 49.90,
-        "stock_quantity": 45,
-        "gtin": "7898582310142",
-        "ncm": "3304.99.90",
-        "weight": 0.14,
-        "weight_net": 0.10,
-        "length": 15.0,
-        "width": 5.0,
-        "height": 5.0,
-        "category": "Géis Corporal & Massagem",
-        "brand": "INTT Wellness",
-        "images": ["https://www.lojaintt.com.br/images/sample.jpg"]
-    }
+    catalog_7_items = [
+        {
+            "sku": "INTT-BABALUB-HOT",
+            "name": "Babalub Vibra Esquenta INTT – Gel Estimulante Beijável Chiclete – 15g",
+            "description": "<p>Babalub Vibra Esquenta é um gel estimulante que vai levar sua experiência para um nível totalmente novo. Desenvolvido com uma fórmula exclusiva à base de jambu, este produto oferece sensações inigualáveis de vibrações e aquecimento, criando um turbilhão de prazer. Além disso, o Babalub é beijável, com um irresistível aroma de chiclete que torna os momentos de intimidade ainda mais deliciosos.</p><h4>Efeito Quente:</h4><p><strong>Aquecimento Sensual:</strong> O Babalub Vibra Esquenta oferece uma sensação de aquecimento suave e estimulante quando aplicado na região. Isso não apenas aumenta o desejo, mas também ajuda a relaxar e preparar o corpo para o prazer que está por vir.</p><p><strong>Estímulo Profundo:</strong> A sensação de calor proporcionada pelo Babalub aumenta o fluxo sanguíneo para a área, intensificando a sensibilidade e tornando cada toque e carícia mais incrivelmente prazeroso.</p><p><strong>Intimidade e Conexão:</strong> Compartilhar a aplicação deste produto com seu parceiro cria um momento de grande conexão, transformando preliminares em uma experiência compartilhada de intimidade e desejo.</p><p><strong>Exploração Sem Limites:</strong> O efeito quente do Babalub Vibra Esquenta permite que você e sua parceira explorem novas sensações e fantasias, elevando a paixão e a criatividade na intimidade.</p><h4>Benefícios:</h4><ul><li>Intensifica as sensações e a sensibilidade.</li><li>Proporciona uma experiência única devido à temperatura e vibração.</li><li>Estimula a criatividade e a intimidade no relacionamento.</li><li>Oferece momentos deliciosos e beijáveis para compartilhar com sua parceria.</li></ul><h4>Seus ativos:</h4><p><strong>Jambu:</strong> Mais conhecido como agrião do Pará. O Jambu é uma planta muito comum da região Norte do Brasil. O jambu quando aplicado proporciona sensação de vibração.</p><h4>Linha Sweet Secrets by Carla Geane:</h4><p>Descubra a Linha Sweet Secrets by Carla Geane, cuidadosamente desenvolvida para garantir sua satisfação e elevar seu prazer.</p><h4>📖 MODO DE USO:</h4><p>Aplicar uma quantidade suficiente sobre a região desejada e massagear levemente antes ou durante o ato.</p><h4>🧼 HIGIENE & CUIDADOS:</h4><p>Embalagem não reutilizável. Manter em lugar fresco ao abrigo do calor e da luz intensa. Mantenha fora do alcance das crianças. Em caso de contato com os olhos, lavá-los com água em abundância. Havendo irritação, suspenda o uso e procure um médico. USO EXTERNO.</p><p>Conteúdo: 15g | Origem: Nacional</p>",
+            "short_description": "Gel Estimulante Vibratório e Aquecedor Beijável Sabor Chiclete - 15g",
+            "cost_price": 19.90,
+            "suggested_price": 39.90,
+            "stock_quantity": 80,
+            "gtin": "7898563342007",
+            "ncm": "3304.99.90",
+            "weight": 0.05,
+            "weight_net": 0.015,
+            "length": 4.0,
+            "width": 4.0,
+            "height": 10.0,
+            "category": "Géis Sensacionais",
+            "brand": "INTT",
+            "images": ["https://static.cdnlive.com.br/uploads/694/produto/16843452636254_zoom.png"]
+        },
+        {
+            "sku": "INTT-799-PARENT",
+            "name": "Toque Hipnótico by Deborah Secco Gel Deslizante Siliconado – 60ml",
+            "description": "<p>Toque Hipnótico por Deborah Secco em parceria exclusiva com a INTT é um gel lubrificante e deslizante de silicone de altíssima performance. Desenvolvido para proporcionar um deslizar acetinado, duradouro e sedoso, não seca na pele e resiste inclusive à água.</p><h4>Características Especiais:</h4><ul><li>Fórmula 100% à base de silicone de grau farmacêutico.</li><li>Toque aveludado e sensação de hidratação prolongada.</li><li>Ideal para uso em massagens íntimas corporais e momentos especiais.</li><li>Assinado e testado pessoalmente pela atriz Deborah Secco.</li></ul><h4>📖 MODO DE USO:</h4><p>Aplique uma pequena quantidade nas mãos ou diretamente na área desejada e espalhe suavemente. Pode ser reaplicado conforme a necessidade.</p><h4>🧼 HIGIENE & CUIDADOS:</h4><p>Conservar ao abrigo da luz e do calor excessivo. Manter fora do alcance de crianças. Uso externo.</p><p>Conteúdo: 60ml | Origem: Nacional</p>",
+            "short_description": "Gel Deslizante Siliconado Alta Performance Deborah Secco 60ml",
+            "cost_price": 39.90,
+            "suggested_price": 79.90,
+            "stock_quantity": 30,
+            "gtin": "7898582310799",
+            "ncm": "3304.99.90",
+            "weight": 0.10,
+            "weight_net": 0.06,
+            "length": 5.0,
+            "width": 5.0,
+            "height": 14.0,
+            "category": "Géis Corporal & Massagem",
+            "brand": "INTT Deborah Secco",
+            "images": ["https://static.cdnlive.com.br/uploads/694/produto/17144837568551_zoom.png"]
+        },
+        {
+            "sku": "INTT-797-PARENT",
+            "name": "Pico Pulse Menta INTT – Gel Estimulante Chiclete de Menta – 16g",
+            "description": "<p>Pico Pulse Menta INTT é um gel estimulante oral e sensorial irresistível com sabor intenso de chiclete de menta. Formulado com extrato de Jambu, ele proporciona ondas de pulsação, vibração intensa e um frescor gélido eletrizante que eleva o prazer a um novo patamar.</p><h4>Benefícios Principais:</h4><ul><li>Efeito vibratório e pulsante de alta intensidade.</li><li>Frescor eletrizante e gélido que estimula a circulação local.</li><li>Totalmente beijável com delicioso sabor de chiclete de menta.</li><li>Fórmula concentrada em bisnaga prática de 16g.</li></ul><h4>📖 MODO DE USO:</h4><p>Aplique de 1 a 2 borrifadas ou pequenas gotas no local desejado e massageie levemente. Aguarde alguns segundos para sentir o pulsar.</p><h4>🧼 HIGIENE & CUIDADOS:</h4><p>Manter em temperatura ambiente e longe da luz solar direta. Em caso de irritação, suspenda o uso. Mantenha longe de crianças.</p><p>Conteúdo: 16g | Origem: Nacional</p>",
+            "short_description": "Gel Estimulante Pulsante Sensorial Menta 16g",
+            "cost_price": 21.90,
+            "suggested_price": 44.90,
+            "stock_quantity": 40,
+            "gtin": "7898582310797",
+            "ncm": "3304.99.90",
+            "weight": 0.05,
+            "weight_net": 0.016,
+            "length": 4.0,
+            "width": 4.0,
+            "height": 10.0,
+            "category": "Géis Sensacionais",
+            "brand": "INTT",
+            "images": ["https://static.cdnlive.com.br/uploads/694/produto/17144832442316_zoom.png"]
+        },
+        {
+            "sku": "INTT-801-PARENT",
+            "name": "Thor Egg Magnus Masturbador INTT Super Resistente",
+            "description": "<p>O Thor Egg Magnus da INTT é um masturbador masculino em formato de ovo desenvolvido com silicone TPE ultra elástico de última geração. Possui uma estrutura interna rica em estrias anatômicas e relevos ondulados projetados para proporcionar uma estimulação envolvente, intensa e surpreendente.</p><h4>Diferenciais do Thor Egg Magnus:</h4><ul><li>Material de altíssima elasticidade que se adapta perfeitamente a qualquer tamanho.</li><li>Textura interna exclusiva Magnus com relevos ondulados de estímulo profundo.</li><li>Acompanha sachê de lubrificante para uso imediato.</li><li>Discreto, portátil e de fácil higienização.</li></ul><h4>📖 MODO DE USO:</h4><p>Abra o invólucro do ovo, retire o sachê de lubrificante e aplique-o no interior do Egg. Encaixe na cabeça do pênis e deslide o material ao longo do corpo cavernoso em movimentos ritmados.</p><h4>🧼 HIGIENE & CUIDADOS:</h4><p>Lave com água morna e sabão neutro antes e após o uso. Seque à sombra e aplique amido de milho para preservar o material TPE. Guarde na embalagem original.</p><p>Conteúdo: 1 Unidade + 1 Sachê | Origem: Nacional</p>",
+            "short_description": "Masturbador Masculino Texturizado Ovo TPE Elástico",
+            "cost_price": 16.90,
+            "suggested_price": 34.90,
+            "stock_quantity": 60,
+            "gtin": "7898582310801",
+            "ncm": "3926.90.90",
+            "weight": 0.06,
+            "weight_net": 0.045,
+            "length": 5.0,
+            "width": 5.0,
+            "height": 7.0,
+            "category": "Masturbadores",
+            "brand": "INTT",
+            "images": ["https://static.cdnlive.com.br/uploads/694/produto/17144841223912_zoom.png"]
+        },
+        {
+            "sku": "INTT-9988-PARENT",
+            "name": "Gel de Massagem Corporal INTT Premium 100ml",
+            "description": "<p>Gel de Massagem Corporal INTT Premium é um gel hidratante, deslizante e beijável desenvolvido especialmente para massagens tântricas e preliminares envolventes. Com fragrância suave e textura aveludada, proporciona momentos de relaxamento e conexão profunda entre o casal.</p><h4>Diferenciais do Gel Premium:</h4><ul><li>Fórmula hidratante com alto poder de deslizamento.</li><li>Totalmente beijável e comestível com sabor delicado.</li><li>Não gorduroso e facilmente lavável com água.</li></ul><h4>📖 MODO DE USO:</h4><p>Aplicar quantidade suficiente na palma das mãos e massagear suavemente as regiões do corpo desejadas.</p><h4>🧼 HIGIENE & CUIDADOS:</h4><p>Conservar em local seco e fresco, fora do alcance de crianças. Havendo irritação, suspenda o uso.</p><p>Conteúdo: 100ml | Origem: Nacional</p>",
+            "short_description": "Gel de Massagem Corporal Hidratante Beijável 100ml",
+            "cost_price": 24.90,
+            "suggested_price": 49.90,
+            "stock_quantity": 45,
+            "gtin": "7898582310142",
+            "ncm": "3304.99.90",
+            "weight": 0.14,
+            "weight_net": 0.10,
+            "length": 15.0,
+            "width": 5.0,
+            "height": 5.0,
+            "category": "Géis Corporal & Massagem",
+            "brand": "INTT Wellness",
+            "images": ["https://static.cdnlive.com.br/uploads/694/produto/16843452636254_zoom.png"]
+        },
+        {
+            "sku": "INTT-9989-PARENT",
+            "name": "Óleo Corporal Beijável INTT Morango 120ml",
+            "description": "<p>Óleo Corporal Beijável INTT Morango é o acompanhante perfeito para aquecer a relação e transformar massagens corporais em momentos inesquecíveis de puro desejo. Possui aroma envolvente de morango fresco e é 100% beijável.</p><h4>Benefícios:</h4><ul><li>Sensação de aquecimento suave ao soprar ou friccionar a pele.</li><li>Sabor doce e envolvente de morango.</li><li>Livre de parabenos e testado dermatologicamente.</li></ul><h4>📖 MODO DE USO:</h4><p>Espalhe o óleo no corpo e sopre suavemente para ativar o efeito térmico aquecedor antes de beijar a área.</p><h4>🧼 HIGIENE & CUIDADOS:</h4><p>Manter a embalagem bem fechada e ao abrigo do calor. Mantenha fora do alcance de crianças.</p><p>Conteúdo: 120ml | Origem: Nacional</p>",
+            "short_description": "Óleo Massagem Térmico Beijável Morango 120ml",
+            "cost_price": 21.50,
+            "suggested_price": 42.90,
+            "stock_quantity": 35,
+            "gtin": "7898582310159",
+            "ncm": "3304.99.90",
+            "weight": 0.15,
+            "weight_net": 0.12,
+            "length": 6.0,
+            "width": 6.0,
+            "height": 16.0,
+            "category": "Óleos & Velas de Massagem",
+            "brand": "INTT",
+            "images": ["https://static.cdnlive.com.br/uploads/694/produto/16843452636254_zoom.png"]
+        },
+        {
+            "sku": "INTT-9990",
+            "name": "VibroBeijável INTT 15ml (Multissabores)",
+            "description": "<p>VibroBeijável INTT 15ml é um gel estimulante unissex que une a sensação de vibração pulsante com sabores gourmet irresistíveis para momentos de sexo oral e preliminares. Sua fórmula exclusiva à base de extratos vegetais ativa a circulação e amplia a sensibilidade das zonas erógenas.</p><h4>Diferenciais:</h4><ul><li>Sensação de vibração eletrizante na boca e na região íntima.</li><li>Sabores gourmet beijáveis de Morango e Hortelã.</li><li>Embalagem pump de fácil dosagem sem desperdício.</li></ul><h4>📖 MODO DE USO:</h4><p>Aplicar 2 a 3 borrifadas na região íntima ou nos lábios antes das preliminares.</p><h4>🧼 HIGIENE & CUIDADOS:</h4><p>Manter a embalagem fechada após o uso. Em caso de irritação suspenda o uso.</p><p>Conteúdo: 15ml | Origem: Nacional</p>",
+            "short_description": "Gel Estimulante Vibratório Beijável 15ml",
+            "cost_price": 18.50,
+            "suggested_price": 39.90,
+            "stock_quantity": 100,
+            "gtin": "7898582310200",
+            "ncm": "3304.99.90",
+            "weight": 0.05,
+            "category": "Géis Sensacionais",
+            "brand": "INTT",
+            "images": ["https://static.cdnlive.com.br/uploads/694/produto/16843452636254_zoom.png"],
+            "variations": [
+                {
+                    "sku": "INTT-9990-MINT",
+                    "option_name": "Hortelã",
+                    "cost_price": 18.50,
+                    "suggested_price": 39.90,
+                    "stock_quantity": 50,
+                    "gtin": "7898582310201"
+                },
+                {
+                    "sku": "INTT-9990-STRAW",
+                    "option_name": "Morango",
+                    "cost_price": 18.50,
+                    "suggested_price": 39.90,
+                    "stock_quantity": 50,
+                    "gtin": "7898582310202"
+                }
+            ]
+        }
+    ]
 
-    sample_product_variable = {
-        "sku": "INTT-9990",
-        "name": "VibroBeijável INTT 15ml (Multissabores)",
-        "description": "<p>Gel com sensação de vibração e sabor gourmet para preliminares inesquecíveis.</p><h4>📖 Modo de Uso:</h4><p>Aplicar 2 a 3 borrifadas na região íntima ou lábios e aguardar o efeito vibratório.</p><h4>🧼 Higiene & Cuidados:</h4><p>Manter a embalagem fechada após o uso. Em caso de irritação suspenda o uso.</p><p>Conteúdo: 15ml | Origem: Nacional</p>",
-        "short_description": "VibroBeijável INTT 15ml",
-        "cost_price": 18.50,
-        "suggested_price": 39.90,
-        "stock_quantity": 100,
-        "gtin": "7898582310200",
-        "ncm": "3304.99.90",
-        "weight": 0.05,
-        "category": "Géis Sensacionais",
-        "brand": "INTT",
-        "images": ["https://www.lojaintt.com.br/images/vibrobeijavel.jpg"],
-        "variations": [
-            {
-                "sku": "INTT-9990-MINT",
-                "option_name": "Hortelã",
-                "cost_price": 18.50,
-                "suggested_price": 39.90,
-                "stock_quantity": 50,
-                "gtin": "7898582310201"
-            },
-            {
-                "sku": "INTT-9990-STRAW",
-                "option_name": "Morango",
-                "cost_price": 18.50,
-                "suggested_price": 39.90,
-                "stock_quantity": 50,
-                "gtin": "7898582310202"
-            }
-        ]
-    }
-
-    sample_product_babalub = {
-        "sku": "INTT-BABALUB-HOT",
-        "name": "Babalub Vibra Esquenta INTT – Gel Estimulante Beijável Chiclete – 15g",
-        "description": "<p>Babalub Vibra Esquenta é um gel estimulante que vai levar sua experiência para um nível totalmente novo. Desenvolvido com uma fórmula exclusiva à base de jambu, este produto oferece sensações inigualáveis de vibrações e aquecimento, criando um turbilhão de prazer. Além disso, o Babalub é beijável, com um irresistível aroma de chiclete que torna os momentos de intimidade ainda mais deliciosos.</p><h4>Efeito Quente:</h4><p><strong>Aquecimento Sensual:</strong> O Babalub Vibra Esquenta oferece uma sensação de aquecimento suave e estimulante quando aplicado na região. Isso não apenas aumenta o desejo, mas também ajuda a relaxar e preparar o corpo para o prazer que está por vir.</p><p><strong>Estímulo Profundo:</strong> A sensação de calor proporcionada pelo Babalub aumenta o fluxo sanguíneo para a área, intensificando a sensibilidade e tornando cada toque e carícia mais incrivelmente prazeroso.</p><p><strong>Intimidade e Conexão:</strong> Compartilhar a aplicação deste produto com seu parceiro cria um momento de grande conexão, transformando preliminares em uma experiência compartilhada de intimidade e desejo.</p><p><strong>Exploração Sem Limites:</strong> O efeito quente do Babalub Vibra Esquenta permite que você e sua parceira explorem novas sensações e fantasias, elevando a paixão e a criatividade na intimidade.</p><h4>Benefícios:</h4><ul><li>Intensifica as sensações e a sensibilidade.</li><li>Proporciona uma experiência única devido à temperatura e vibração.</li><li>Estimula a criatividade e a intimidade no relacionamento.</li><li>Oferece momentos deliciosos e beijáveis para compartilhar com sua parceria.</li></ul><h4>Seus ativos:</h4><p><strong>Jambu:</strong> Mais conhecido como agrião do Pará. O Jambu é uma planta muito comum da região Norte do Brasil. O jambu quando aplicado proporciona sensação de vibração.</p><h4>Linha Sweet Secrets by Carla Geane:</h4><p>Descubra a Linha Sweet Secrets by Carla Geane, cuidadosamente desenvolvida para garantir sua satisfação e elevar seu prazer.</p><h4>📖 Modo de Uso:</h4><p>Aplicar uma quantidade suficiente sobre a região desejada e massagear levemente antes ou durante o ato.</p><h4>🧼 Higiene & Cuidados:</h4><p>Embalagem não reutilizável. Manter em lugar fresco ao abrigo do calor e da luz intensa. Mantenha fora do alcance das crianças. Em caso de contato com os olhos, lavá-los com água em abundância. Havendo irritação, suspenda o uso e procure um médico. USO EXTERNO.</p><p>Conteúdo: 15g | Origem: Nacional</p>",
-        "short_description": "Gel Estimulante Vibratório e Aquecedor Beijável Sabor Chiclete - 15g",
-        "cost_price": 19.90,
-        "suggested_price": 39.90,
-        "stock_quantity": 80,
-        "gtin": "7898563342007",
-        "ncm": "3304.99.90",
-        "weight": 0.05,
-        "weight_net": 0.015,
-        "length": 4.0,
-        "width": 4.0,
-        "height": 10.0,
-        "category": "Géis Sensacionais",
-        "brand": "INTT",
-        "images": ["https://www.lojaintt.com.br/images/babalub-hot.jpg"]
-    }
-
-    print(f"[CASOSEX INGEST] Processando produto Simples INTT: {sample_product_simple['name']} (SKU: {sample_product_simple['sku']})")
-    res_simple = ingest_product_to_woocommerce(sample_product_simple)
-    print(f"[CASOSEX INGEST] Resposta WooCommerce (Simples): {json.dumps(res_simple, indent=2, ensure_ascii=False)}")
-
-    print(f"\n[CASOSEX INGEST] Processando produto Variável INTT: {sample_product_variable['name']} (SKU: {sample_product_variable['sku']})")
-    res_var = ingest_product_to_woocommerce(sample_product_variable)
-    print(f"[CASOSEX INGEST] Resposta WooCommerce (Variável): {json.dumps(res_var, indent=2, ensure_ascii=False)}")
-
-    print(f"\n[CASOSEX INGEST] Processando produto Babalub Vibra Hot INTT: {sample_product_babalub['name']} (SKU: {sample_product_babalub['sku']})")
-    res_babalub = ingest_product_to_woocommerce(sample_product_babalub)
-    print(f"[CASOSEX INGEST] Resposta WooCommerce (Babalub): {json.dumps(res_babalub, indent=2, ensure_ascii=False)}")
-
-    return {"simple": res_simple, "variable": res_var, "babalub": res_babalub}
+    results = []
+    for item in catalog_7_items:
+        print(f"[CASOSEX INGEST] Processando produto INTT: {item['name']} (SKU: {item['sku']})")
+        res = ingest_product_to_woocommerce(item)
+        results.append(res)
+    
+    return results
 
 
 if __name__ == "__main__":
