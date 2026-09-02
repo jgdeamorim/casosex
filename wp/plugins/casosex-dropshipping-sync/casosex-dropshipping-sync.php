@@ -1,12 +1,15 @@
 <?php
 /**
  * Plugin Name: CASOSEX Dropshipping Sync & Product Layout
- * Description: Sincroniza metadados nativos de custo (_cost_of_goods), gerencia abas, formata descrição, vincula Atributos Globais e executa Sincronização Agendada (2x/dia) de Estoque e Custo INTT Nativamente no WordPress.
- * Version: 2.1.0
+ * Description: Sincroniza metadados nativos de custo (_cost_of_goods), gerencia abas, formata descrição, vincula Atributos Globais, aplica Trava de Segurança de Estoque (<= 5 un) e executa Sincronização Agendada (2x/dia) Nativamente no WordPress.
+ * Version: 2.2.0
  * Author: CASOSEX Sovereign Engine
  */
 
 if (!defined('ABSPATH')) exit;
+
+// Constante de Trava de Segurança de Dropshipping
+define('CASOSEX_SAFETY_STOCK_THRESHOLD', 5);
 
 // 1. Sincroniza _cost_of_goods automaticamente quando _casosex_cost_price for atualizado
 add_action('updated_post_meta', 'casosex_sync_cost_of_goods', 10, 4);
@@ -113,7 +116,7 @@ function casosex_rest_sync_stock_cost(WP_REST_Request $request) {
  * Função Executada pelo WP-Cron 2x/Dia
  */
 function casosex_execute_intt_stock_cost_cron() {
-    error_log('[CASOSEX-CRON] Iniciando sincronização 2x/dia de estoque e custo INTT.');
+    error_log('[CASOSEX-CRON] Iniciando sincronização 2x/dia de estoque e custo INTT com trava de segurança (<= 5 un).');
     casosex_update_stock_and_cost_batch(array());
 }
 
@@ -195,6 +198,7 @@ function casosex_ingest_product_native($product_data) {
     $product->set_status('publish');
     $product->set_manage_stock(true);
     $product->set_stock_quantity($stock_qty);
+
     $product->set_weight($weight);
     $product->set_length($length);
     $product->set_width($width);
@@ -252,6 +256,10 @@ function casosex_ingest_product_native($product_data) {
 
     $product->set_attributes($attributes_array);
     $product_id = $product->save();
+
+    // Aplicação Forçada da Trava de Segurança em Meta + Transients
+    $stock_status = ($stock_qty <= CASOSEX_SAFETY_STOCK_THRESHOLD) ? 'outofstock' : 'instock';
+    update_post_meta($product_id, '_stock_status', $stock_status);
 
     // Vincular termos das taxonomias globais no WordPress
     if ($product_id) {
@@ -364,6 +372,9 @@ function casosex_ingest_product_native($product_data) {
         $variation->update_meta_data('_cost_of_goods', $var_cost);
 
         $v_id = $variation->save();
+        $var_stock_status = ($var_stock <= CASOSEX_SAFETY_STOCK_THRESHOLD) ? 'outofstock' : 'instock';
+        update_post_meta($v_id, '_stock_status', $var_stock_status);
+
         if ($v_id && !empty($var_gtin)) {
             update_post_meta($v_id, '_gtin', $var_gtin);
             update_post_meta($v_id, '_barcode', $var_gtin);
@@ -372,10 +383,14 @@ function casosex_ingest_product_native($product_data) {
         $var_ids[] = $v_id;
     }
 
+    wc_delete_product_transients($product_id);
+
     return array(
         'success' => true,
         'product_id' => $product_id,
         'sku' => $sku,
+        'stock_quantity' => $stock_qty,
+        'stock_status' => get_post_meta($product_id, '_stock_status', true),
         'variations_count' => count($var_ids),
         'global_attributes' => array_keys($global_attrs),
         'image_id' => $product->get_image_id(),
@@ -431,7 +446,7 @@ function casosex_map_global_attributes($name, $description, $payload) {
 }
 
 /**
- * Atualização Leve e Rápida de Estoque e Custo em Lote (2x/dia)
+ * Atualização Leve e Rápida de Estoque e Custo em Lote (2x/dia) com Trava de Segurança (<= 5 un)
  */
 function casosex_update_stock_and_cost_batch($items = array()) {
     $results = array();
@@ -439,7 +454,7 @@ function casosex_update_stock_and_cost_batch($items = array()) {
     // Se a lista estiver vazia, busca produtos INTT cadastrados no WooCommerce
     if (empty($items)) {
         $args = array(
-            'post_type'      => 'product',
+            'post_type'      => array('product', 'product_variation'),
             'posts_per_page' => -1,
             'meta_key'       => '_casosex_supplier',
             'meta_value'     => 'INTT',
@@ -451,21 +466,22 @@ function casosex_update_stock_and_cost_batch($items = array()) {
             $product = wc_get_product($pid);
             if (!$product) continue;
 
+            $product->set_manage_stock(true);
             $stock = $product->get_stock_quantity();
             $cost = get_post_meta($pid, '_cost_of_goods', true);
 
-            // Garante estoque mínimo ativo
-            if ($stock === null || $stock <= 0) {
-                $product->set_stock_quantity(50);
-                $product->set_stock_status('instock');
-                $product->save();
-            }
+            $stock_status = ($stock === null || $stock <= CASOSEX_SAFETY_STOCK_THRESHOLD) ? 'outofstock' : 'instock';
+            $product->save();
+
+            update_post_meta($pid, '_stock_status', $stock_status);
+            wc_delete_product_transients($pid);
 
             $results[] = array(
-                'product_id' => $pid,
-                'sku'        => $product->get_sku(),
-                'stock'      => $product->get_stock_quantity(),
-                'cost'       => $cost
+                'product_id'   => $pid,
+                'sku'          => $product->get_sku(),
+                'stock'        => $stock,
+                'stock_status' => $stock_status,
+                'cost'         => $cost
             );
         }
     } else {
@@ -477,24 +493,56 @@ function casosex_update_stock_and_cost_batch($items = array()) {
             $product = wc_get_product($pid);
             if (!$product) continue;
 
-            if (isset($item['stock_quantity'])) {
-                $stock = intval($item['stock_quantity']);
+            $stock = isset($item['stock_quantity']) ? intval($item['stock_quantity']) : $product->get_stock_quantity();
+            $cost = isset($item['cost_price']) ? floatval($item['cost_price']) : get_post_meta($pid, '_cost_of_goods', true);
+            $stock_status = ($stock <= CASOSEX_SAFETY_STOCK_THRESHOLD) ? 'outofstock' : 'instock';
+
+            // Se for produto pai variável, atualiza o pai e todas as variações filhas!
+            if ($product->is_type('variable')) {
+                $product->set_manage_stock(true);
                 $product->set_stock_quantity($stock);
-                $product->set_stock_status($stock > 0 ? 'instock' : 'outofstock');
+                if (isset($item['cost_price'])) {
+                    update_post_meta($pid, '_casosex_cost_price', $cost);
+                    update_post_meta($pid, '_cost_of_goods', $cost);
+                }
+                $product->save();
+
+                update_post_meta($pid, '_stock_status', $stock_status);
+                wc_delete_product_transients($pid);
+
+                foreach ($product->get_children() as $child_id) {
+                    $child = wc_get_product($child_id);
+                    if (!$child) continue;
+                    $child->set_manage_stock(true);
+                    $child->set_stock_quantity($stock);
+                    if (isset($item['cost_price'])) {
+                        update_post_meta($child_id, '_casosex_cost_price', $cost);
+                        update_post_meta($child_id, '_cost_of_goods', $cost);
+                    }
+                    $child->save();
+
+                    update_post_meta($child_id, '_stock_status', $stock_status);
+                    wc_delete_product_transients($child_id);
+                }
+            } else {
+                $product->set_manage_stock(true);
+                $product->set_stock_quantity($stock);
+                if (isset($item['cost_price'])) {
+                    update_post_meta($pid, '_casosex_cost_price', $cost);
+                    update_post_meta($pid, '_cost_of_goods', $cost);
+                }
+                $product->save();
+
+                update_post_meta($pid, '_stock_status', $stock_status);
+                wc_delete_product_transients($pid);
             }
 
-            if (isset($item['cost_price'])) {
-                $cost = floatval($item['cost_price']);
-                update_post_meta($pid, '_casosex_cost_price', $cost);
-                update_post_meta($pid, '_cost_of_goods', $cost);
-            }
-
-            $product->save();
             $results[] = array(
-                'product_id' => $pid,
-                'sku'        => $item['sku'],
-                'stock'      => $product->get_stock_quantity(),
-                'cost'       => get_post_meta($pid, '_cost_of_goods', true)
+                'product_id'   => $pid,
+                'sku'          => $item['sku'],
+                'stock'        => $stock,
+                'stock_status' => $stock_status,
+                'cost'         => $cost
             );
         }
     }
