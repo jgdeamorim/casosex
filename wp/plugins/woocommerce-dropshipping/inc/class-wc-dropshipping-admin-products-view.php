@@ -20,10 +20,20 @@ class WC_Dropshipping_Admin_Products_View {
 		}
 
 		add_filter( 'manage_edit-product_columns', array( $this, 'add_custom_product_columns' ), 20 );
+		add_filter( 'manage_edit-product_columns', array( $this, 'sanitize_product_columns' ), 99999 );
 		add_action( 'manage_product_posts_custom_column', array( $this, 'render_custom_product_column_content' ), 10, 2 );
 		add_action( 'restrict_manage_posts', array( $this, 'add_supplier_filter_dropdown' ) );
 		add_action( 'parse_query', array( $this, 'filter_products_by_supplier_query' ) );
 		add_action( 'admin_head', array( $this, 'inject_admin_styles' ) );
+	}
+
+	/**
+	 * Sanitiza as colunas da tabela para eliminar duplicidades e redundâncias.
+	 */
+	public function sanitize_product_columns( $columns ) {
+		unset( $columns['est_profit'] );
+		unset( $columns['taxonomy-dropship_supplier'] );
+		return $columns;
 	}
 
 	/**
@@ -33,6 +43,10 @@ class WC_Dropshipping_Admin_Products_View {
 		$new_columns = array();
 
 		foreach ( $columns as $key => $title ) {
+			if ( 'est_profit' === $key || 'taxonomy-dropship_supplier' === $key ) {
+				continue;
+			}
+
 			$new_columns[ $key ] = $title;
 
 			// Insere a coluna Fornecedor & Frete após a coluna 'name'
@@ -47,6 +61,9 @@ class WC_Dropshipping_Admin_Products_View {
 				$new_columns['curation_status'] = __( 'Status Curadoria', 'woocommerce-dropshipping' );
 			}
 		}
+
+		unset( $new_columns['est_profit'] );
+		unset( $new_columns['taxonomy-dropship_supplier'] );
 
 		return $new_columns;
 	}
@@ -217,37 +234,59 @@ class WC_Dropshipping_Admin_Products_View {
 		}
 		?>
 		<style type="text/css">
-			/* Otimização da Tabela de Produtos WooCommerce Admin */
-			.wp-list-table.products {
-				table-layout: auto !important;
-				min-width: 1280px;
+			/* Garante rolagem horizontal fluida do form e tabela */
+			#posts-filter {
+				overflow-x: auto !important;
+				max-width: 100% !important;
+				padding-bottom: 15px;
 			}
-			.wp-list-table.products td, .wp-list-table.products th {
+			table.wp-list-table.products {
+				table-layout: auto !important;
+				width: 100% !important;
+				min-width: 1450px !important;
+			}
+			table.wp-list-table.products td, 
+			table.wp-list-table.products th {
 				vertical-align: top !important;
 				padding: 10px 8px !important;
+				word-break: normal !important;
+				overflow-wrap: normal !important;
+				hyphens: manual !important;
 			}
-			/* Impede quebras verticais de caracteres e altura excessiva de linhas */
-			.wp-list-table.products .column-date,
-			.wp-list-table.products .column-taxonomy-product_brand,
-			.wp-list-table.products .column-product_cat,
-			.wp-list-table.products .column-product_tag,
-			.wp-list-table.products .column-curation_status,
-			.wp-list-table.products .column-fiscal_data,
-			.wp-list-table.products .column-cost_margin,
-			.wp-list-table.products .column-supplier_freight {
+			/* Prevenção estrita contra quebras verticais de caracteres */
+			table.wp-list-table.products .column-date,
+			table.wp-list-table.products .column-taxonomy-product_brand,
+			table.wp-list-table.products .column-product_cat,
+			table.wp-list-table.products .column-product_tag,
+			table.wp-list-table.products .column-curation_status,
+			table.wp-list-table.products .column-fiscal_data,
+			table.wp-list-table.products .column-cost_margin,
+			table.wp-list-table.products .column-supplier_freight,
+			table.wp-list-table.products .column-wholesale_price,
+			table.wp-list-table.products .column-is_in_stock,
+			table.wp-list-table.products .column-price,
+			table.wp-list-table.products .column-sku,
+			table.wp-list-table.products .column-global_unique_id {
 				white-space: nowrap !important;
+				word-break: normal !important;
 			}
-			.wp-list-table.products .column-name {
+			table.wp-list-table.products .column-name {
 				white-space: normal !important;
-				max-width: 220px;
+				min-width: 180px;
+				max-width: 260px;
 			}
-			.fixed .column-supplier_freight { width: 140px; }
-			.fixed .column-cost_margin { width: 140px; }
-			.fixed .column-fiscal_data { width: 140px; }
-			.fixed .column-curation_status { width: 130px; }
-			.fixed .column-wholesale_price { width: 110px; }
-			.fixed .column-taxonomy-product_brand { width: 110px; }
-			.fixed .column-date { width: 120px; }
+			/* Definição de larguras mínimas reais */
+			.fixed .column-cb { width: 32px !important; }
+			.fixed .column-thumb { width: 52px !important; }
+			.fixed .column-supplier_freight { min-width: 145px !important; }
+			.fixed .column-cost_margin { min-width: 145px !important; }
+			.fixed .column-fiscal_data { min-width: 145px !important; }
+			.fixed .column-curation_status { min-width: 130px !important; }
+			.fixed .column-wholesale_price { min-width: 110px !important; }
+			.fixed .column-taxonomy-product_brand { min-width: 110px !important; }
+			.fixed .column-date { min-width: 120px !important; }
+			/* Esconde permanentemente a coluna legada est_profit do DOM */
+			.column-est_profit { display: none !important; }
 		</style>
 		<?php
 	}
