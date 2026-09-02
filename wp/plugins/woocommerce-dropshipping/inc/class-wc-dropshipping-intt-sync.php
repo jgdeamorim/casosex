@@ -207,14 +207,9 @@ class WC_Dropshipping_INTT_Sync {
 		$attributes = array();
 
 		$attr_list = array(
-			'Linha / Marca'          => isset( $item['brand'] ) ? $item['brand'] : 'INTT',
-			'Volume / Conteúdo'      => isset( $item['volume'] ) ? $item['volume'] : '',
-			'Sabor / Aroma'          => isset( $item['sabor'] ) ? $item['sabor'] : '',
-			'Efeito / Sensação'      => isset( $item['efeito'] ) ? $item['efeito'] : '',
-			'Modos de Vibração'      => isset( $item['modos_vibracao'] ) ? $item['modos_vibracao'] : '',
-			'Alimentação / Carga'    => isset( $item['alimentacao'] ) ? $item['alimentacao'] : '',
-			'Material / Composição' => isset( $item['material'] ) ? $item['material'] : '',
-			'Resistência à Água'    => isset( $item['resistencia_agua'] ) ? $item['resistencia_agua'] : '',
+			'Linha'  => isset( $item['brand'] ) ? $item['brand'] : 'INTT',
+			'Volume' => isset( $item['volume'] ) ? $item['volume'] : '',
+			'Sabor'  => isset( $item['sabor'] ) ? $item['sabor'] : '',
 		);
 
 		$position = 0;

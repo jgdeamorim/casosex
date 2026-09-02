@@ -682,7 +682,6 @@ function woo_product_custom_fields_for_profitcal() {
 	}
 }
 
-/*
 add_filter('manage_edit-product_columns', 'bbloomer_admin_products_visibility_column', 9999);
 
 function bbloomer_admin_products_visibility_column($columns) {
@@ -698,7 +697,6 @@ function est_profit_column_place($columns_array) {
 		+ array('est_profit' => 'est_profit')
 		+ array_slice($columns_array, 6, null, true);
 }
-*/
 
 add_action('manage_product_posts_custom_column', 'admin_products_est_profit_column_content', 10, 2);
 
