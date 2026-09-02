@@ -263,6 +263,7 @@ final class WC_Dropshipping {
 		$this->base_path = plugin_dir_path( __FILE__ );
 
 		require_once 'woocommerce-dropshipping-functions.php';
+		require_once 'inc/class-wc-dropshipping-intt-sync.php';
 
 		require_once 'includes/cbe-api/class-wc-cbe-v2-service.php';
 
@@ -465,6 +466,8 @@ final class WC_Dropshipping {
 
 		require_once 'inc/class-wc-dropshipping-dashboard.php';
 		$this->dashboard = new WC_Dropshipping_Dashboard();
+
+		require_once 'inc/class-wc-dropshipping-intt-sync.php';
 
 		// Load product/admin list hooks early so HPOS order columns register reliably.
 		if ( is_admin() ) {

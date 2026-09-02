@@ -202,6 +202,19 @@ $dashboard_data = array(
 			</a>
 		</div>
 
+		<div class="metric-box" style="border: 1px solid #7f54b3; background: rgba(127, 84, 179, 0.05);">
+			<img src="<?php echo esc_url( plugin_dir_url( __FILE__ ) . '../assets/icons/affiliate.svg' ); ?>">
+			<h2><?php esc_html_e( 'Sincronizar Catálogo INTT', 'woocommerce-dropshipping' ); ?></h2>
+			<?php 
+			$last_sync = get_option( 'casosex_intt_last_sync_log' );
+			$sync_info = is_array( $last_sync ) ? esc_html( $last_sync['message'] . ' (' . $last_sync['timestamp'] . ')' ) : 'Nenhuma sincronização recente.';
+			?>
+			<p class="plugin-setup-desc" id="intt-sync-status"><?php echo $sync_info; ?></p>
+			<button type="button" id="btn-sync-intt-catalog" class="button button-primary" style="background:#7f54b3; border-color:#7f54b3; color:#fff; cursor:pointer; padding:6px 16px; border-radius:4px;">
+				<?php esc_html_e( 'Sincronizar Agora', 'woocommerce-dropshipping' ); ?>
+			</button>
+		</div>
+
 		<div class="metric-box">
 			<img src="<?php echo esc_url( plugin_dir_url( __FILE__ ) . '../assets/icons/affiliate.svg' ); ?>">
 			<h2><?php esc_html_e( 'Fornecedor INTT', 'woocommerce-dropshipping' ); ?></h2>
@@ -213,6 +226,39 @@ $dashboard_data = array(
 	</div>
 </div>
 <!-- End of dashboard -->
+
+<script type="text/javascript">
+jQuery(document).ready(function($) {
+	$('#btn-sync-intt-catalog').on('click', function(e) {
+		e.preventDefault();
+		var $btn = $(this);
+		var $status = $('#intt-sync-status');
+		$btn.prop('disabled', true).text('Sincronizando...');
+		$status.text('Conectando ao portal INTT e atualizando WooCommerce...');
+
+		$.ajax({
+			url: ajaxurl,
+			type: 'POST',
+			data: {
+				action: 'casosex_sync_intt_catalog',
+				security: '<?php echo wp_create_nonce("casosex_intt_sync_nonce"); ?>'
+			},
+			success: function(response) {
+				if (response.success && response.data) {
+					$status.html('<strong style="color:#28a745;">' + response.data.message + '</strong>');
+				} else {
+					$status.html('<strong style="color:#dc3545;">Erro na sincronização. Consulte os logs.</strong>');
+				}
+				$btn.prop('disabled', false).text('Sincronizar Agora');
+			},
+			error: function() {
+				$status.html('<strong style="color:#dc3545;">Falha na requisição AJAX.</strong>');
+				$btn.prop('disabled', false).text('Sincronizar Agora');
+			}
+		});
+	});
+});
+</script>
 
 <?php wp_enqueue_style( 'add_custom_dashboard_style' ); ?>
 <?php wp_enqueue_script( 'add_dropshipping_chart_lib' ); ?>
