@@ -879,6 +879,7 @@ function admin_products_est_profit_column_content($column, $product_id) {
 	}
 }
 
+/*
 add_action('admin_head', 'ds_product_column_width');
 function ds_product_column_width() {
 	echo '<style type="text/css">';
@@ -886,4 +887,5 @@ function ds_product_column_width() {
 	echo 'table.wp-list-table .column-name {width: 17%;}';
 	echo '</style>';
 }
+*/
 /* Related to Price Calculator END */
