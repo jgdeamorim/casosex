@@ -1,8 +1,8 @@
 <?php
 /**
  * Plugin Name: CASOSEX Dropshipping Sync & Product Layout
- * Description: Sincroniza metadados nativos de custo (_cost_of_goods), gerencia abas, formata descrição, vincula Atributos Globais, aplica Trava de Segurança de Estoque (<= 5 un), resolve Hierarquia de Categorias em 3 Níveis (Matriz INTT) e executa Sincronização Agendada (2x/dia) Nativamente no WordPress.
- * Version: 2.3.0
+ * Description: Sincroniza metadados nativos de custo (_cost_of_goods), gerencia abas, formata descrição, vincula Atributos Globais, aplica Trava de Segurança de Estoque (<= 5 un), resolve Hierarquia de Categorias em 3 Níveis (Matriz INTT), orquestra o Mega Menu Responsivo Blocksy Pro (v2.4.0) e executa Sincronização Agendada (2x/dia) Nativamente no WordPress.
+ * Version: 2.4.0
  * Author: CASOSEX Sovereign Engine
  */
 
@@ -78,7 +78,7 @@ function casosex_setup_scheduled_sync() {
     }
 }
 
-// 5. Registro de Endpoints REST Soberanos para Ingestão e Sincronização 2x/dia
+// 5. Registro de Endpoints REST Soberanos para Ingestão, Sincronização e Orquestração do Mega Menu
 add_action('rest_api_init', function() {
     register_rest_route('casosex/v1', '/sync-intt', array(
         'methods'             => 'POST',
@@ -97,7 +97,21 @@ add_action('rest_api_init', function() {
         'callback'            => 'casosex_rest_sync_stock_cost',
         'permission_callback' => '__return_true',
     ));
+
+    register_rest_route('casosex/v1', '/build-menu', array(
+        'methods'             => array('GET', 'POST'),
+        'callback'            => 'casosex_rest_build_blocksy_mega_menu',
+        'permission_callback' => '__return_true',
+    ));
 });
+
+/**
+ * Endpoint REST para Construção Automática do Mega Menu Blocksy
+ */
+function casosex_rest_build_blocksy_mega_menu(WP_REST_Request $request) {
+    $result = casosex_build_blocksy_mega_menu();
+    return rest_ensure_response($result);
+}
 
 /**
  * Endpoint para Sincronização Rápida de Estoque e Custo (2x/dia)
@@ -293,6 +307,109 @@ function casosex_resolve_category_hierarchy($name, $description, $incoming_cat =
     $l3_id = casosex_ensure_category_term($level3, $l2_id);
 
     return array_values(array_unique(array_filter(array($l1_id, $l2_id, $l3_id))));
+}
+
+/**
+ * Função Soberana para Montar o Mega Menu Blocksy com Injeção de Meta `blocksy_post_meta_options`
+ */
+function casosex_build_blocksy_mega_menu() {
+    $menu_name = 'Main Menu';
+    $menu_obj = wp_get_nav_menu_object($menu_name);
+
+    if (!$menu_obj) {
+        $menu_id = wp_create_nav_menu($menu_name);
+    } else {
+        $menu_id = (int)$menu_obj->term_id;
+    }
+
+    // Vincular menu às posições `menu_1` (Desktop) e `menu_mobile` (Mobile)
+    $locations = get_theme_mod('nav_menu_locations', array());
+    $locations['menu_1'] = $menu_id;
+    $locations['menu_mobile'] = $menu_id;
+    set_theme_mod('nav_menu_locations', $locations);
+
+    // Buscar categorias Nível 1 (Sem pai)
+    $l1_terms = get_terms(array(
+        'taxonomy'   => 'product_cat',
+        'parent'     => 0,
+        'hide_empty' => false,
+    ));
+
+    $created_items = array();
+
+    foreach ($l1_terms as $l1) {
+        if ($l1->slug === 'uncategorized') continue;
+
+        // Criar Item Nível 1 no Menu
+        $l1_item_id = wp_update_nav_menu_item($menu_id, 0, array(
+            'menu-item-title'     => $l1->name,
+            'menu-item-object'    => 'product_cat',
+            'menu-item-object-id' => $l1->term_id,
+            'menu-item-type'      => 'taxonomy',
+            'menu-item-status'    => 'publish',
+        ));
+
+        if (is_wp_error($l1_item_id)) continue;
+
+        // Injetar Configuração Nativa do Mega Menu Blocksy no Nível 1
+        update_post_meta($l1_item_id, 'blocksy_post_meta_options', array(
+            'has_mega_menu'     => 'yes',
+            'mega_menu_columns' => '4',
+            'mega_menu_width'   => 'container',
+        ));
+
+        $created_items[] = array('id' => $l1_item_id, 'name' => $l1->name, 'level' => 1);
+
+        // Buscar Subcategorias Nível 2
+        $l2_terms = get_terms(array(
+            'taxonomy'   => 'product_cat',
+            'parent'     => $l1->term_id,
+            'hide_empty' => false,
+        ));
+
+        foreach ($l2_terms as $l2) {
+            $l2_item_id = wp_update_nav_menu_item($menu_id, 0, array(
+                'menu-item-title'     => $l2->name,
+                'menu-item-object'    => 'product_cat',
+                'menu-item-object-id' => $l2->term_id,
+                'menu-item-type'      => 'taxonomy',
+                'menu-item-parent-id' => $l1_item_id,
+                'menu-item-status'    => 'publish',
+            ));
+
+            if (is_wp_error($l2_item_id)) continue;
+            $created_items[] = array('id' => $l2_item_id, 'name' => $l2->name, 'level' => 2);
+
+            // Buscar Subcategorias Nível 3
+            $l3_terms = get_terms(array(
+                'taxonomy'   => 'product_cat',
+                'parent'     => $l2->term_id,
+                'hide_empty' => false,
+            ));
+
+            foreach ($l3_terms as $l3) {
+                $l3_item_id = wp_update_nav_menu_item($menu_id, 0, array(
+                    'menu-item-title'     => $l3->name,
+                    'menu-item-object'    => 'product_cat',
+                    'menu-item-object-id' => $l3->term_id,
+                    'menu-item-type'      => 'taxonomy',
+                    'menu-item-parent-id' => $l2_item_id,
+                    'menu-item-status'    => 'publish',
+                ));
+
+                if (!is_wp_error($l3_item_id)) {
+                    $created_items[] = array('id' => $l3_item_id, 'name' => $l3->name, 'level' => 3);
+                }
+            }
+        }
+    }
+
+    return array(
+        'status'         => 'success',
+        'menu_id'        => $menu_id,
+        'total_created'  => count($created_items),
+        'items'          => $created_items,
+    );
 }
 
 /**
