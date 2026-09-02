@@ -2,6 +2,7 @@
 """
 intt_catalog_ingest.py — Esteira Soberana CASOSEX (ADR-0225 & ADR-0227)
 Módulo de Sincronização Automática via Cron (INTT Live Sync & Curadoria Humana).
+Mapeamento completo: Produtos Simples e Variáveis, Taxonomia de Categorias e Custo Atacado B2B.
 """
 
 import json
@@ -48,7 +49,6 @@ def get_existing_product_by_sku(sku: str, wc_url: str = WOOCOMMERCE_URL, ck: str
             if isinstance(products, list) and len(products) > 0:
                 return products[0]
     except Exception:
-        # Fallback via PHP interno
         return _get_existing_product_via_php(sku)
     return {}
 
@@ -59,7 +59,7 @@ def _get_existing_product_via_php(sku: str) -> dict:
     $product_id = wc_get_product_id_by_sku('{sku}');
     if ($product_id) {{
         $product = wc_get_product($product_id);
-        echo json_encode(array('id' => $product_id, 'sku' => $product->get_sku(), 'status' => $product->get_status()));
+        echo json_encode(array('id' => $product_id, 'sku' => $product->get_sku(), 'type' => $product->get_type(), 'status' => $product->get_status()));
     }} else {{
         echo json_encode(array());
     }}
@@ -71,11 +71,57 @@ def _get_existing_product_via_php(sku: str) -> dict:
         return {}
 
 
+def get_or_create_category_id(category_name: str, wc_url: str = WOOCOMMERCE_URL, ck: str = WOOCOMMERCE_CK, cs: str = WOOCOMMERCE_CS) -> int:
+    """
+    Busca o ID da categoria WooCommerce pelo nome via REST API ou via PHP interno.
+    """
+    if not category_name:
+        category_name = "Cosméticos & Géis Eróticos"
+
+    endpoint = f"{wc_url}/wp-json/wc/v3/products/categories?search={urllib.parse.quote(category_name)}&consumer_key={ck}&consumer_secret={cs}"
+    headers = _get_auth_header(ck, cs)
+    req = urllib.request.Request(endpoint, headers=headers, method="GET")
+    try:
+        ctx = ssl.create_default_context()
+        ctx.check_hostname = False
+        ctx.verify_mode = ssl.CERT_NONE
+        with urllib.request.urlopen(req, timeout=5, context=ctx) as resp:
+            cats = json.loads(resp.read().decode("utf-8"))
+            if isinstance(cats, list) and len(cats) > 0:
+                for c in cats:
+                    if c.get("name", "").lower() == category_name.lower():
+                        return c["id"]
+                return cats[0]["id"]
+    except Exception:
+        pass
+
+    # Fallback PHP
+    php_script = f"""
+    require_once('/var/www/html/wp-load.php');
+    $term = get_term_by('name', '{category_name}', 'product_cat');
+    if ($term) {{
+        echo json_encode(array('id' => $term->term_id));
+    }} else {{
+        $new_term = wp_insert_term('{category_name}', 'product_cat');
+        if (!is_wp_error($new_term)) {{
+            echo json_encode(array('id' => $new_term['term_id']));
+        }} else {{
+            echo json_encode(array('id' => 0));
+        }}
+    }}
+    """
+    res = subprocess.run(["docker", "exec", "-i", "casosex-wordpress", "php", "-r", php_script], capture_output=True, text=True)
+    try:
+        data = json.loads(res.stdout.strip())
+        return data.get("id", 0)
+    except Exception:
+        return 0
+
+
 def ingest_product_to_woocommerce(product_data: dict, wc_url: str = WOOCOMMERCE_URL, ck: str = WOOCOMMERCE_CK, cs: str = WOOCOMMERCE_CS) -> dict:
     """
     Cadastra ou atualiza um produto da INTT no WooCommerce com Mapeamento Completo de Campos (ADR-0227).
-    - Novos produtos: criados como 'pending' (Rascunho / Curadoria Humana).
-    - Produtos existentes: atualizados sem alterar o post_status de publicação.
+    Suporta produtos simples e produtos variáveis com variações filhas.
     """
     sku = product_data.get("sku", "")
     existing = get_existing_product_by_sku(sku, wc_url, ck, cs) if sku else {}
@@ -93,17 +139,18 @@ def ingest_product_to_woocommerce(product_data: dict, wc_url: str = WOOCOMMERCE_
     width = float(product_data.get("width", 0.0))
     height = float(product_data.get("height", 0.0))
     brand = product_data.get("brand", "INTT")
+    category_name = product_data.get("category", "Cosméticos & Géis Eróticos")
+    cat_id = get_or_create_category_id(category_name, wc_url, ck, cs)
+
+    variations_data = product_data.get("variations", [])
+    is_variable = len(variations_data) > 0
 
     payload = {
         "name": product_data.get("name", "Produto INTT"),
-        "type": "simple",
+        "type": "variable" if is_variable else "simple",
         "description": product_data.get("description", ""),
         "short_description": product_data.get("short_description", ""),
         "sku": sku,
-        "regular_price": str(suggested_price),
-        "manage_stock": True,
-        "stock_quantity": stock_qty,
-        "stock_status": stock_status,
         "weight": str(weight) if weight > 0 else "",
         "dimensions": {
             "length": str(length) if length > 0 else "",
@@ -124,8 +171,27 @@ def ingest_product_to_woocommerce(product_data: dict, wc_url: str = WOOCOMMERCE_
         ]
     }
 
+    if cat_id > 0:
+        payload["categories"] = [{"id": cat_id}]
+
+    if not is_variable:
+        payload["regular_price"] = str(suggested_price)
+        payload["manage_stock"] = True
+        payload["stock_quantity"] = stock_qty
+        payload["stock_status"] = stock_status
+    else:
+        attr_name = "Opção"
+        attr_options = [v.get("option_name", v.get("name", f"Opção {idx+1}")) for idx, v in enumerate(variations_data)]
+        payload["attributes"] = [{
+            "name": attr_name,
+            "position": 0,
+            "visible": True,
+            "variation": True,
+            "options": attr_options
+        }]
+
     if product_data.get("images"):
-        payload["images"] = [{"src": img} for img in product_data["images"]]
+        payload["images"] = [{"src": img} for img in product_data["images"] if isinstance(img, str) and img.startswith("http")]
 
     headers = _get_auth_header(ck, cs)
 
@@ -133,12 +199,12 @@ def ingest_product_to_woocommerce(product_data: dict, wc_url: str = WOOCOMMERCE_
         product_id = existing["id"]
         endpoint = f"{wc_url}/wp-json/wc/v3/products/{product_id}?consumer_key={ck}&consumer_secret={cs}"
         method = "PUT"
-        print(f"[CASOSEX INGEST] Atualizando produto existente ID #{product_id} (SKU: {sku})")
+        print(f"[CASOSEX INGEST] Atualizando produto existente ID #{product_id} (SKU: {sku}, Tipo: {payload['type']})")
     else:
         payload["status"] = "pending"
         endpoint = f"{wc_url}/wp-json/wc/v3/products?consumer_key={ck}&consumer_secret={cs}"
         method = "POST"
-        print(f"[CASOSEX INGEST] Cadastrando novo produto em curadoria 'pending' (SKU: {sku})")
+        print(f"[CASOSEX INGEST] Cadastrando novo produto em curadoria 'pending' (SKU: {sku}, Tipo: {payload['type']})")
 
     req = urllib.request.Request(
         endpoint,
@@ -151,14 +217,86 @@ def ingest_product_to_woocommerce(product_data: dict, wc_url: str = WOOCOMMERCE_
         ctx = ssl.create_default_context()
         ctx.check_hostname = False
         ctx.verify_mode = ssl.CERT_NONE
-        with urllib.request.urlopen(req, timeout=5, context=ctx) as resp:
+        with urllib.request.urlopen(req, timeout=8, context=ctx) as resp:
             res = json.loads(resp.read().decode("utf-8"))
-            if res.get("id"):
-                _assign_supplier_term_via_wp(res["id"], INTT_SUPPLIER_TERM_ID)
+            parent_id = res.get("id")
+            if parent_id:
+                _assign_supplier_term_via_wp(parent_id, INTT_SUPPLIER_TERM_ID)
+                if is_variable:
+                    _ingest_variations(parent_id, variations_data, wc_url, ck, cs)
             return res
     except Exception:
-        # Direct PHP Sovereign Ingestion Fallback
+        # Fallback via PHP soberano
         return _ingest_via_php(product_data, existing.get("id"))
+
+
+def _ingest_variations(parent_id: int, variations: list, wc_url: str, ck: str, cs: str):
+    """
+    Ingesta variações filhas para um produto pai no WooCommerce.
+    """
+    headers = _get_auth_header(ck, cs)
+    ctx = ssl.create_default_context()
+    ctx.check_hostname = False
+    ctx.verify_mode = ssl.CERT_NONE
+
+    for idx, var in enumerate(variations):
+        var_sku = var.get("sku", f"VAR-{parent_id}-{idx+1}")
+        var_cost = float(var.get("cost_price", 0.0))
+        var_price = float(var.get("suggested_price", var_cost * 2.0))
+        var_stock = int(var.get("stock_quantity", 10))
+        option_val = var.get("option_name", var.get("name", f"Opção {idx+1}"))
+
+        var_payload = {
+            "sku": var_sku,
+            "regular_price": str(var_price),
+            "manage_stock": True,
+            "stock_quantity": var_stock,
+            "stock_status": "instock" if var_stock > 0 else "outofstock",
+            "attributes": [{"name": "Opção", "option": option_val}],
+            "meta_data": [
+                {"key": "_casosex_cost_price", "value": str(var_cost)},
+                {"key": "_gtin", "value": var.get("gtin", "")}
+            ]
+        }
+
+        if var.get("image"):
+            var_payload["image"] = {"src": var["image"]}
+
+        endpoint = f"{wc_url}/wp-json/wc/v3/products/{parent_id}/variations?consumer_key={ck}&consumer_secret={cs}"
+        req = urllib.request.Request(
+            endpoint,
+            data=json.dumps(var_payload).encode("utf-8"),
+            headers=headers,
+            method="POST"
+        )
+        try:
+            with urllib.request.urlopen(req, timeout=5, context=ctx) as resp:
+                var_res = json.loads(resp.read().decode("utf-8"))
+                print(f"[CASOSEX INGEST] Variação '{option_val}' cadastrada com sucesso (ID #{var_res.get('id')})")
+        except Exception as e:
+            print(f"[CASOSEX INGEST] Falha ao cadastrar variação via REST: {e}. Invocando fallback PHP...")
+            _ingest_variation_via_php(parent_id, var_payload)
+
+
+def _ingest_variation_via_php(parent_id: int, var_payload: dict):
+    var_sku = var_payload.get("sku", "")
+    price = var_payload.get("regular_price", "0")
+    stock = var_payload.get("stock_quantity", 0)
+    option_val = var_payload["attributes"][0]["option"] if var_payload.get("attributes") else "Opção"
+
+    php_script = f"""
+    require_once('/var/www/html/wp-load.php');
+    $variation = new WC_Product_Variation();
+    $variation->set_parent_id({parent_id});
+    $variation->set_sku('{var_sku}');
+    $variation->set_regular_price('{price}');
+    $variation->set_manage_stock(true);
+    $variation->set_stock_quantity({stock});
+    $variation->set_attributes(array('opcao' => '{option_val}'));
+    $var_id = $variation->save();
+    echo json_encode(array('id' => $var_id));
+    """
+    subprocess.run(["docker", "exec", "-i", "casosex-wordpress", "php", "-r", php_script], capture_output=True, text=True)
 
 
 def _ingest_via_php(product_data: dict, product_id: int = None) -> dict:
@@ -177,6 +315,7 @@ def _ingest_via_php(product_data: dict, product_id: int = None) -> dict:
     width = float(product_data.get("width", 0.0))
     height = float(product_data.get("height", 0.0))
     brand = product_data.get("brand", "INTT").replace("'", "\\'")
+    cat_name = product_data.get("category", "Cosméticos & Géis Eróticos").replace("'", "\\'")
 
     php_script = f"""
     require_once('/var/www/html/wp-load.php');
@@ -215,6 +354,7 @@ def _ingest_via_php(product_data: dict, product_id: int = None) -> dict:
     $product->update_meta_data('_casosex_brand', '{brand}');
     $new_id = $product->save();
     wp_set_object_terms($new_id, 69, 'dropship_supplier', true);
+    wp_set_object_terms($new_id, '{cat_name}', 'product_cat', true);
     echo json_encode(array('id' => $new_id, 'sku' => '{sku}', 'status' => $product->get_status(), 'stock' => {stock_qty}, 'price' => {suggested_price}));
     """
     res = subprocess.run(["docker", "exec", "-i", "casosex-wordpress", "php", "-r", php_script], capture_output=True, text=True)
@@ -288,6 +428,26 @@ def fetch_intt_b2b_catalog(username: str = None, password: str = None) -> list:
                     cost = float(item.get("preco_atacado") or item.get("preco_custo") or item.get("cost_price") or 0.0)
                     price = float(item.get("preco_sugerido") or item.get("preco_venda") or item.get("suggested_price") or (cost * 2.0 if cost > 0 else 0.0))
 
+                    # Parse de Variações
+                    raw_variations = item.get("variacoes") or item.get("opcoes") or []
+                    parsed_variations = []
+                    if isinstance(raw_variations, list):
+                        for v in raw_variations:
+                            v_sku = str(v.get("sku") or v.get("codigo") or f"{sku}-{v.get('id', '')}")
+                            v_cost = float(v.get("preco_atacado") or v.get("preco_custo") or cost)
+                            v_price = float(v.get("preco_sugerido") or v.get("preco_venda") or price)
+                            v_stock = int(v.get("estoque") or v.get("quantidade") or stock)
+                            v_name = str(v.get("sabor") or v.get("opcao") or v.get("nome") or "Variação")
+                            parsed_variations.append({
+                                "sku": v_sku if v_sku.startswith("INTT-") else f"INTT-{v_sku}",
+                                "option_name": v_name,
+                                "cost_price": v_cost,
+                                "suggested_price": v_price,
+                                "stock_quantity": v_stock,
+                                "gtin": str(v.get("gtin") or v.get("ean") or ""),
+                                "image": v.get("imagem") or v.get("image")
+                            })
+
                     extracted_products.append({
                         "sku": sku if sku.startswith("INTT-") else f"INTT-{sku}",
                         "name": str(item.get("nome") or item.get("titulo") or item.get("name", "Produto INTT")),
@@ -305,7 +465,8 @@ def fetch_intt_b2b_catalog(username: str = None, password: str = None) -> list:
                         "height": float(item.get("altura") or item.get("height") or 0.0),
                         "category": str(item.get("categoria") or item.get("category") or "Cosméticos & Géis Eróticos"),
                         "brand": str(item.get("marca") or item.get("linha") or item.get("brand") or "INTT"),
-                        "images": item.get("imagens", [item.get("imagem")] if item.get("imagem") else [])
+                        "images": item.get("imagens", [item.get("imagem")] if item.get("imagem") else []),
+                        "variations": parsed_variations
                     })
             except Exception:
                 print(f"[CASOSEX DUAL-SCRAPE] Retorno do catálogo não é JSON. Tamanho da resposta: {len(content)} bytes.")
@@ -317,9 +478,9 @@ def fetch_intt_b2b_catalog(username: str = None, password: str = None) -> list:
 
 def mock_sample_intt_ingest():
     """
-    Simula uma ingestão de teste para validação de esteira auto-sync.
+    Simula uma ingestão de teste para validação de esteira auto-sync (Simples e Variável).
     """
-    sample_product = {
+    sample_product_simple = {
         "sku": "INTT-9988",
         "name": "Gel de Massagem Corporal INTT Premium 100ml",
         "description": "Gel de massagem hidratante e beijável com fragrância suave.",
@@ -334,13 +495,54 @@ def mock_sample_intt_ingest():
         "length": 15.0,
         "width": 5.0,
         "height": 5.0,
+        "category": "Géis Corporal & Massagem",
         "brand": "INTT Wellness",
         "images": ["https://www.lojaintt.com.br/images/sample.jpg"]
     }
-    print(f"[CASOSEX INGEST] Processando produto INTT: {sample_product['name']} (SKU: {sample_product['sku']})")
-    res = ingest_product_to_woocommerce(sample_product)
-    print(f"[CASOSEX INGEST] Resposta WooCommerce: {json.dumps(res, indent=2, ensure_ascii=False)}")
-    return res
+
+    sample_product_variable = {
+        "sku": "INTT-9990",
+        "name": "VibroBeijável INTT 15ml (Multissabores)",
+        "description": "Gel com sensação de vibração e sabor gourmet para preliminares.",
+        "short_description": "VibroBeijável INTT 15ml",
+        "cost_price": 18.50,
+        "suggested_price": 39.90,
+        "stock_quantity": 100,
+        "gtin": "7898582310200",
+        "ncm": "3304.99.90",
+        "weight": 0.05,
+        "category": "Géis Sensacionais",
+        "brand": "INTT",
+        "images": ["https://www.lojaintt.com.br/images/vibrobeijavel.jpg"],
+        "variations": [
+            {
+                "sku": "INTT-9990-MINT",
+                "option_name": "Hortelã",
+                "cost_price": 18.50,
+                "suggested_price": 39.90,
+                "stock_quantity": 50,
+                "gtin": "7898582310201"
+            },
+            {
+                "sku": "INTT-9990-STRAW",
+                "option_name": "Morango",
+                "cost_price": 18.50,
+                "suggested_price": 39.90,
+                "stock_quantity": 50,
+                "gtin": "7898582310202"
+            }
+        ]
+    }
+
+    print(f"[CASOSEX INGEST] Processando produto Simples INTT: {sample_product_simple['name']} (SKU: {sample_product_simple['sku']})")
+    res_simple = ingest_product_to_woocommerce(sample_product_simple)
+    print(f"[CASOSEX INGEST] Resposta WooCommerce (Simples): {json.dumps(res_simple, indent=2, ensure_ascii=False)}")
+
+    print(f"\n[CASOSEX INGEST] Processando produto Variável INTT: {sample_product_variable['name']} (SKU: {sample_product_variable['sku']})")
+    res_var = ingest_product_to_woocommerce(sample_product_variable)
+    print(f"[CASOSEX INGEST] Resposta WooCommerce (Variável): {json.dumps(res_var, indent=2, ensure_ascii=False)}")
+
+    return {"simple": res_simple, "variable": res_var}
 
 
 if __name__ == "__main__":
@@ -352,4 +554,3 @@ if __name__ == "__main__":
     else:
         print("[CASOSEX INGEST] Nenhuma credencial/catálogo retornado via HTTP B2B live. Rodando fallback de validação Soberana...")
         mock_sample_intt_ingest()
-
