@@ -576,7 +576,52 @@ def _assign_supplier_term_via_wp(product_id: int, term_id: int = INTT_SUPPLIER_T
     os.system(cmd)
 
 
-def fetch_intt_b2b_catalog(username: str = None, password: str = None) -> list:
+def fetch_intt_product_page_details(opener, product_url: str) -> dict:
+    """
+    Realiza raspagem profunda na página individual do produto INTT para extrair:
+    - Imagens em alta resolução (_zoom)
+    - Modo de uso
+    - Higiene & Cuidados
+    """
+    if not product_url:
+        return {"images": [], "usage": "", "care": ""}
+
+    req = urllib.request.Request(
+        product_url,
+        headers={
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+        }
+    )
+
+    try:
+        with opener.open(req, timeout=10) as resp:
+            html = resp.read().decode("utf-8", errors="ignore")
+            # Extrair Imagens em Alta Resolução (_zoom ou cdn)
+            img_urls = list(set(re.findall(r'https://static\.cdnlive\.com\.br/uploads/\d+/produto/[a-zA-Z0-9_-]+\.(?:png|jpg|jpeg)', html)))
+            high_res_imgs = [img for img in img_urls if "_zoom" in img or "zoom" in img]
+            final_imgs = high_res_imgs if high_res_imgs else img_urls
+
+            # Extrair Modo de Uso
+            m_usage = re.search(r'Modo de uso:?\s*</\w+>\s*<p>(.*?)</p>', html, re.IGNORECASE | re.DOTALL) or \
+                      re.search(r'Modo de uso:?\s*<p>(.*?)</p>', html, re.IGNORECASE | re.DOTALL)
+            usage = m_usage.group(1).strip() if m_usage else ""
+
+            # Extrair Higiene & Cuidados
+            m_care = re.search(r'Cuidados:?\s*</\w+>\s*<p>(.*?)</p>', html, re.IGNORECASE | re.DOTALL) or \
+                     re.search(r'Precauções:?\s*</\w+>\s*<p>(.*?)</p>', html, re.IGNORECASE | re.DOTALL)
+            care = m_care.group(1).strip() if m_care else ""
+
+            return {
+                "images": final_imgs,
+                "usage": usage,
+                "care": care
+            }
+    except Exception as e:
+        print(f"[CASOSEX DEEP-SCRAPE] Aviso ao acessar {product_url}: {e}")
+        return {"images": [], "usage": "", "care": ""}
+
+
+def fetch_intt_b2b_catalog(username: str = "", password: str = "") -> list:
     """
     Executa a raspagem autenticada (Dual-Scrape B2B - ADR-0228):
     1. Realiza POST de login em https://www.lojaintt.com.br/v2/login (se credenciais forem fornecidas).
@@ -633,6 +678,9 @@ def fetch_intt_b2b_catalog(username: str = None, password: str = None) -> list:
                     cost = float(item.get("preco_atacado") or item.get("preco_custo") or item.get("cost_price") or 0.0)
                     price = float(item.get("preco_sugerido") or item.get("preco_venda") or item.get("suggested_price") or (cost * 2.0 if cost > 0 else 0.0))
 
+                    product_url = item.get("link") or item.get("url") or item.get("pagina") or ""
+                    deep_details = fetch_intt_product_page_details(opener, product_url) if product_url else {"images": [], "usage": "", "care": ""}
+
                     # Parse de Variações
                     raw_variations = item.get("variacoes") or item.get("opcoes") or []
                     parsed_variations = []
@@ -653,6 +701,8 @@ def fetch_intt_b2b_catalog(username: str = None, password: str = None) -> list:
                                 "image": v.get("imagem") or v.get("image")
                             })
 
+                    imgs = deep_details["images"] if deep_details["images"] else item.get("imagens", [item.get("imagem")] if item.get("imagem") else [])
+
                     extracted_products.append({
                         "sku": sku if sku.startswith("INTT-") else f"INTT-{sku}",
                         "name": str(item.get("nome") or item.get("titulo") or item.get("name", "Produto INTT")),
@@ -670,7 +720,9 @@ def fetch_intt_b2b_catalog(username: str = None, password: str = None) -> list:
                         "height": float(item.get("altura") or item.get("height") or 0.0),
                         "category": str(item.get("categoria") or item.get("category") or "Cosméticos & Géis Eróticos"),
                         "brand": str(item.get("marca") or item.get("linha") or item.get("brand") or "INTT"),
-                        "images": item.get("imagens", [item.get("imagem")] if item.get("imagem") else []),
+                        "images": imgs,
+                        "usage": deep_details["usage"],
+                        "care": deep_details["care"],
                         "variations": parsed_variations
                     })
             except Exception:
