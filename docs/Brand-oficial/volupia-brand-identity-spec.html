@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Volúpia | Especificação Oficial de Marca & Diretrizes de Logo SVG</title>
-  <meta name="description" content="Manual soberano de identidade visual, marcas vetoriais SVG, tipografia, malha de proporção e cores da Volúpia (usevolupia.com.br).">
+  <title>Volúpia | Especificação Soberana do Sistema de Identidade de Marca (Brand Spec)</title>
+  <meta name="description" content="Manual de Identidade de Marca, Sistema de Lockups, Responsive Logo System, Brandmark, Wordmark, Vetores SVG e Diretrizes da Volúpia (usevolupia.com.br).">
   
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -135,7 +135,7 @@
     }
 
     .hero-logo-svg {
-      max-width: 420px;
+      max-width: 480px;
       width: 100%;
       height: auto;
       margin: 10px auto 20px auto;
@@ -148,758 +148,837 @@
       font-style: italic;
       font-size: clamp(1.2rem, 3.5vw, 1.7rem);
       color: var(--color-gold-light);
-      margin-bottom: 20px;
+      margin-bottom: 12px;
+      letter-spacing: 0.05em;
     }
 
-    .brand-meta-domain {
-      font-size: 0.9rem;
+    .brand-subtitle {
       color: var(--color-text-muted);
-      letter-spacing: 0.08em;
+      font-size: 0.95rem;
+      max-width: 780px;
+      margin: 0 auto;
     }
-    .brand-meta-domain strong { color: var(--color-gold-champagne); }
 
-    /* Section Cards */
-    section.spec-section {
-      background: var(--color-obsidian-card);
-      border: 1px solid var(--color-obsidian-border);
-      border-radius: var(--radius-lg);
-      padding: 36px 32px;
-      margin-bottom: 40px;
-      backdrop-filter: blur(20px);
+    /* Index Nav Grid */
+    .system-nav-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 12px;
+      margin-bottom: 50px;
       position: relative;
       z-index: 10;
     }
 
-    h2.section-title {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.6rem;
-      color: var(--color-gold-light);
-      border-bottom: 1px solid var(--color-obsidian-border);
-      padding-bottom: 12px;
-      margin-bottom: 24px;
+    .nav-card {
+      background: rgba(26, 18, 28, 0.6);
+      border: 1px solid rgba(212, 163, 115, 0.15);
+      border-radius: var(--radius-md);
+      padding: 14px 18px;
+      text-decoration: none;
+      color: var(--color-text-main);
+      font-size: 0.85rem;
+      font-weight: 600;
       display: flex;
       align-items: center;
-      justify-content: space-between;
-    }
-    h2.section-title .section-num {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 0.85rem;
-      color: var(--color-rose-soft);
-      background: rgba(225, 29, 72, 0.1);
-      padding: 4px 10px;
-      border-radius: var(--radius-pill);
-      border: 1px solid rgba(225, 29, 72, 0.2);
-    }
-
-    /* Grid Systems */
-    .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
-    .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
-    .grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
-
-    @media (max-width: 868px) {
-      .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr; }
-    }
-
-    /* Interactive Logo Card Studio */
-    .logo-studio-card {
-      background: #080509;
-      border: 1px solid var(--color-obsidian-border);
-      border-radius: var(--radius-md);
-      overflow: hidden;
-      display: flex;
-      flex-direction: column;
-      position: relative;
+      gap: 10px;
       transition: var(--transition);
     }
-    .logo-studio-card:hover {
-      border-color: var(--color-gold-champagne);
-      box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+
+    .nav-card:hover {
+      background: rgba(225, 29, 72, 0.15);
+      border-color: var(--color-rose-crimson);
+      transform: translateY(-2px);
     }
 
-    .logo-studio-preview {
-      padding: 45px 20px;
+    .nav-card .num {
+      color: var(--color-gold-champagne);
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.78rem;
+    }
+
+    /* Section Styles */
+    section.brand-section {
+      background: var(--color-obsidian-card);
+      border: 1px solid var(--color-obsidian-border);
+      border-radius: var(--radius-xl);
+      padding: 40px;
+      margin-bottom: 40px;
+      backdrop-filter: blur(16px);
+      box-shadow: 0 15px 35px rgba(0,0,0,0.3);
+      position: relative;
+      z-index: 10;
+    }
+
+    .section-header {
+      margin-bottom: 30px;
+      border-bottom: 1px solid rgba(212, 163, 115, 0.15);
+      padding-bottom: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      flex-wrap: wrap;
+      gap: 15px;
+    }
+
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.8rem;
+      color: var(--color-gold-champagne);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .section-tag {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.75rem;
+      background: rgba(212, 163, 115, 0.1);
+      color: var(--color-gold-light);
+      padding: 4px 10px;
+      border-radius: var(--radius-pill);
+      border: 1px solid rgba(212, 163, 115, 0.3);
+    }
+
+    /* Grid Displays */
+    .grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 24px; }
+    .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+    .grid-4 { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; }
+
+    /* Vector Showcase Cards */
+    .vector-card {
+      background: rgba(13, 10, 15, 0.7);
+      border: 1px solid rgba(212, 163, 115, 0.2);
+      border-radius: var(--radius-lg);
+      padding: 28px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+      text-align: center;
+      transition: var(--transition);
+      position: relative;
+    }
+
+    .vector-card:hover {
+      border-color: var(--color-rose-crimson);
+      box-shadow: 0 10px 30px rgba(225, 29, 72, 0.15);
+    }
+
+    .vector-card.light-bg {
+      background: #FAF7F5;
+      color: #1A121C;
+      border-color: #E2D8CE;
+    }
+
+    .vector-display {
+      width: 100%;
+      min-height: 180px;
       display: flex;
       align-items: center;
       justify-content: center;
-      min-height: 220px;
-      position: relative;
+      margin-bottom: 20px;
     }
-    .logo-studio-preview.dark-mode { background: #0A070C; }
-    .logo-studio-preview.light-mode { background: #FAF7F5; }
-    .logo-studio-preview.crimson-mode { background: #1F0710; }
 
-    .logo-studio-actions {
-      background: rgba(13, 10, 15, 0.95);
-      border-top: 1px solid var(--color-obsidian-border);
-      padding: 14px 18px;
+    .vector-display svg {
+      max-width: 100%;
+      height: auto;
+    }
+
+    .vector-meta {
+      width: 100%;
+      border-top: 1px solid rgba(212, 163, 115, 0.15);
+      padding-top: 16px;
       display: flex;
-      align-items: center;
-      justify-content: space-between;
+      flex-direction: column;
       gap: 10px;
     }
-
-    .logo-label {
-      font-size: 0.85rem;
-      font-weight: 600;
-      color: var(--color-text-main);
+    .vector-card.light-bg .vector-meta {
+      border-top-color: rgba(0,0,0,0.1);
     }
-    .logo-tag {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 0.72rem;
+
+    .vector-title {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--color-gold-light);
+    }
+    .vector-card.light-bg .vector-title {
+      color: var(--color-bordeaux-luxury);
+    }
+
+    .vector-desc {
+      font-size: 0.8rem;
       color: var(--color-text-muted);
+    }
+    .vector-card.light-bg .vector-desc {
+      color: #665555;
+    }
+
+    .card-actions {
+      display: flex;
+      gap: 8px;
+      width: 100%;
     }
 
     .btn-action {
-      background: rgba(212, 163, 115, 0.1);
+      flex: 1;
+      padding: 8px 12px;
+      border-radius: var(--radius-pill);
       border: 1px solid var(--color-obsidian-border);
-      color: var(--color-gold-light);
-      padding: 6px 14px;
-      border-radius: var(--radius-pill);
-      font-size: 0.78rem;
-      font-weight: 600;
-      cursor: pointer;
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      transition: var(--transition);
-    }
-    .btn-action:hover {
-      background: var(--color-rose-crimson);
-      border-color: var(--color-rose-crimson);
-      color: #fff;
-    }
-
-    /* Tabs & Context Preview */
-    .context-tabs {
-      display: flex;
-      gap: 10px;
-      margin-bottom: 24px;
-      border-bottom: 1px solid var(--color-obsidian-border);
-      padding-bottom: 12px;
-      overflow-x: auto;
-    }
-
-    .tab-btn {
-      background: transparent;
-      border: 1px solid transparent;
-      color: var(--color-text-muted);
-      padding: 8px 18px;
-      border-radius: var(--radius-pill);
-      font-size: 0.85rem;
+      background: rgba(225, 29, 72, 0.1);
+      color: var(--color-text-main);
+      font-size: 0.75rem;
       font-weight: 600;
       cursor: pointer;
       transition: var(--transition);
-      white-space: nowrap;
-    }
-    .tab-btn.active {
-      background: rgba(225, 29, 72, 0.15);
-      border-color: rgba(225, 29, 72, 0.4);
-      color: var(--color-rose-soft);
-    }
-
-    .context-panel {
-      display: none;
-      background: #080509;
-      border: 1px solid var(--color-obsidian-border);
-      border-radius: var(--radius-md);
-      padding: 30px;
-    }
-    .context-panel.active { display: block; }
-
-    /* Swatches */
-    .swatch-card {
-      border-radius: var(--radius-md);
-      overflow: hidden;
-      border: 1px solid var(--color-obsidian-border);
-      background: rgba(10, 7, 12, 0.6);
-    }
-    .swatch-preview {
-      height: 90px;
-      width: 100%;
-      position: relative;
-      cursor: pointer;
-    }
-    .swatch-preview .copy-hint {
-      position: absolute;
-      inset: 0;
-      background: rgba(0,0,0,0.6);
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 0.75rem;
-      font-weight: 700;
+      gap: 6px;
+    }
+
+    .vector-card.light-bg .btn-action {
+      background: rgba(136, 19, 55, 0.08);
+      color: var(--color-bordeaux-luxury);
+      border-color: rgba(136, 19, 55, 0.2);
+    }
+
+    .btn-action:hover {
+      background: var(--color-rose-crimson);
       color: #fff;
-      opacity: 0;
+      border-color: var(--color-rose-crimson);
+    }
+
+    /* Concept & Audit Boxes */
+    .concept-box {
+      background: rgba(13, 10, 15, 0.6);
+      border-left: 4px solid var(--color-gold-champagne);
+      padding: 20px;
+      border-radius: 0 var(--radius-md) var(--radius-md) 0;
+      margin-bottom: 20px;
+    }
+
+    .concept-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem;
+      color: var(--color-gold-light);
+      margin-bottom: 8px;
+    }
+
+    /* Color Swatches */
+    .color-swatch-card {
+      background: rgba(13, 10, 15, 0.8);
+      border: 1px solid var(--color-obsidian-border);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
       transition: var(--transition);
     }
-    .swatch-preview:hover .copy-hint { opacity: 1; }
 
-    .swatch-info {
-      padding: 12px;
-    }
-    .swatch-title { font-weight: 700; font-size: 0.9rem; margin-bottom: 2px; }
-    .swatch-hex { font-family: 'JetBrains Mono', monospace; font-size: 0.8rem; color: var(--color-gold-champagne); }
-    .swatch-role { font-size: 0.75rem; color: var(--color-text-muted); margin-top: 4px; }
-
-    /* Tables */
-    .spec-table {
+    .color-swatch-preview {
+      height: 100px;
       width: 100%;
-      border-collapse: collapse;
-      margin-top: 10px;
-      font-size: 0.88rem;
-    }
-    .spec-table th, .spec-table td {
-      padding: 12px 16px;
-      border-bottom: 1px solid var(--color-obsidian-border);
-      text-align: left;
-    }
-    .spec-table th {
-      color: var(--color-gold-champagne);
-      font-weight: 700;
-      background: rgba(13, 10, 15, 0.8);
-    }
-    .spec-table td.code-cell {
-      font-family: 'JetBrains Mono', monospace;
-      color: var(--color-rose-soft);
+      position: relative;
     }
 
-    /* Do's and Don'ts */
-    .dos-donts-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 24px;
+    .color-swatch-info {
+      padding: 16px;
     }
-    @media (max-width: 768px) { .dos-donts-grid { grid-template-columns: 1fr; } }
 
-    .rule-card {
-      border-radius: var(--radius-md);
-      padding: 20px;
-      border: 1px solid;
-    }
-    .rule-card.do {
-      background: rgba(16, 185, 129, 0.05);
-      border-color: rgba(16, 185, 129, 0.3);
-    }
-    .rule-card.dont {
-      background: rgba(225, 29, 72, 0.05);
-      border-color: rgba(225, 29, 72, 0.3);
-    }
-    .rule-card-header {
-      font-weight: 800;
+    .color-name {
       font-size: 0.95rem;
-      margin-bottom: 12px;
+      font-weight: 700;
+      margin-bottom: 4px;
+      color: var(--color-text-main);
+    }
+
+    .color-hex {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.8rem;
+      color: var(--color-gold-champagne);
+      cursor: pointer;
+    }
+
+    /* Responsive Level Indicator */
+    .responsive-level {
+      background: rgba(13, 10, 15, 0.7);
+      border: 1px solid var(--color-obsidian-border);
+      border-radius: var(--radius-lg);
+      padding: 24px;
+      margin-bottom: 16px;
+      display: grid;
+      grid-template-columns: 160px 1fr 220px;
+      align-items: center;
+      gap: 20px;
+    }
+
+    @media (max-width: 768px) {
+      .responsive-level { grid-template-columns: 1fr; }
+    }
+
+    .level-badge {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.8rem;
+      background: rgba(225, 29, 72, 0.15);
+      color: var(--color-rose-soft);
+      padding: 6px 12px;
+      border-radius: var(--radius-pill);
+      border: 1px solid rgba(225, 29, 72, 0.3);
+      text-align: center;
+    }
+
+    /* Clear Space Visualizer */
+    .clear-space-visualizer {
+      background: #000;
+      border: 1px dashed var(--color-gold-champagne);
+      padding: 50px;
+      position: relative;
       display: flex;
       align-items: center;
-      gap: 8px;
-    }
-    .rule-card.do .rule-card-header { color: var(--color-emerald-pix); }
-    .rule-card.dont .rule-card-header { color: var(--color-rose-crimson); }
-    .rule-card-body {
-      font-size: 0.85rem;
-      color: var(--color-text-muted);
+      justify-content: center;
+      border-radius: var(--radius-lg);
     }
 
-    /* Footer */
-    footer.brand-footer {
-      text-align: center;
-      padding: 40px 20px;
+    .clear-space-label {
+      position: absolute;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.75rem;
+      color: var(--color-gold-champagne);
+    }
+
+    /* Interactive Context Simulator */
+    .simulator-tabs {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+
+    .tab-btn {
+      padding: 10px 20px;
+      background: rgba(26, 18, 28, 0.8);
+      border: 1px solid var(--color-obsidian-border);
+      border-radius: var(--radius-pill);
       color: var(--color-text-muted);
       font-size: 0.85rem;
-      border-top: 1px solid var(--color-obsidian-border);
-      margin-top: 60px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .tab-btn.active {
+      background: var(--color-rose-crimson);
+      color: #fff;
+      border-color: var(--color-rose-crimson);
+    }
+
+    .simulator-view {
+      background: #050406;
+      border: 1px solid var(--color-obsidian-border);
+      border-radius: var(--radius-lg);
+      padding: 30px;
+      min-height: 240px;
+      display: none;
+      align-items: center;
+      justify-content: center;
+    }
+    .simulator-view.active { display: flex; }
+
+    /* Code Snippet Box */
+    pre.code-box {
+      background: #050406;
+      border: 1px solid rgba(212, 163, 115, 0.2);
+      border-radius: var(--radius-md);
+      padding: 16px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.78rem;
+      color: #F5D0A9;
+      overflow-x: auto;
     }
   </style>
 </head>
 <body>
 
   <div class="glow-bg-1"></div>
-  <div id="toast" class="toast-notification">✓ Código copiado com sucesso!</div>
+
+  <!-- Toast Notification -->
+  <div id="toast" class="toast-notification">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+    <span id="toast-msg">Copiado para a área de transferência!</span>
+  </div>
 
   <div class="container">
-    
-    <!-- COVER HEADER -->
+
+    <!-- Header Cover -->
     <header class="brand-cover">
       <div class="badge-official">
-        <span class="dot"></span> ESPECIFICAÇÃO DE MARCA SOBERANA · ADR-0003 & 0017
+        <div class="dot"></div>
+        Arquitetura Técnica de Sistema de Identidade · Volúpia
       </div>
 
-      <!-- MAIN LOGO VECTOR -->
-      <svg class="hero-logo-svg" viewBox="0 0 500 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <!-- Hero Lockup SVG -->
+      <svg class="hero-logo-svg" viewBox="0 0 540 140" fill="none" xmlns="http://www.w3.org/2000/svg">
         <defs>
-          <linearGradient id="heroGoldGrad" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0%" stop-color="#FFFFFF"/>
-            <stop offset="55%" stop-color="#E2D7CE"/>
-            <stop offset="100%" stop-color="#D4A373"/>
+          <linearGradient id="heroGold" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#F5D0A9" />
+            <stop offset="50%" stop-color="#D4A373" />
+            <stop offset="100%" stop-color="#A87343" />
           </linearGradient>
-          <linearGradient id="heroMonogramGrad" x1="0" y1="0" x2="1" y2="1">
-            <stop offset="0%" stop-color="#F5D0A9"/>
-            <stop offset="50%" stop-color="#D4A373"/>
-            <stop offset="100%" stop-color="#881337"/>
+          <linearGradient id="heroRose" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#FB7185" />
+            <stop offset="100%" stop-color="#E11D48" />
           </linearGradient>
-          <filter id="glowEffect" x="-20%" y="-20%" width="140%" height="140%">
-            <feGaussianBlur stdDeviation="3" result="blur" />
-            <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+          <filter id="glowHero" x="-20%" y="-20%" width="140%" height="140%">
+            <feGaussianBlur stdDeviation="4" result="blur" />
+            <feComposite in="SourceGraphic" in2="blur" operator="over" />
           </filter>
         </defs>
 
-        <!-- Monogram V Icon -->
-        <g transform="translate(15, 20)">
-          <!-- Outer Shield Frame -->
-          <path d="M40 5 L75 25 L75 55 L40 78 L5 55 L5 25 Z" fill="#1A121C" stroke="url(#heroGoldGrad)" stroke-width="2"/>
-          <!-- Inner Styled V -->
-          <path d="M22 24 L40 60 L58 24 L47 24 L40 45 L33 24 Z" fill="url(#heroMonogramGrad)" filter="url(#glowEffect)"/>
-          <!-- Diamond Top Accent -->
-          <polygon points="40,12 45,18 40,24 35,18" fill="#FAF7F5"/>
+        <!-- Brandmark: Dynamic V Monogram -->
+        <g transform="translate(20, 20)">
+          <!-- Outer Crown Curve -->
+          <path d="M 15,15 C 35,5 65,5 85,15 C 75,45 50,85 50,95 C 50,85 25,45 15,15 Z" fill="url(#heroGold)" filter="url(#glowHero)" />
+          <!-- Inner Crimson Heart Core -->
+          <path d="M 35,22 C 45,18 55,18 65,22 C 58,40 50,68 50,75 C 50,68 42,40 35,22 Z" fill="url(#heroRose)" opacity="0.9" />
+          <!-- Organic Central Spark -->
+          <circle cx="50" cy="34" r="5" fill="#FAF7F5" />
         </g>
 
-        <!-- Main Wordmark Volúpia -->
-        <text x="110" y="66" font-family="'Playfair Display', serif" font-size="52" font-weight="700" letter-spacing="8" fill="url(#heroGoldGrad)">VOLÚPIA</text>
+        <!-- Wordmark: VOLÚPIA -->
+        <text x="135" y="70" font-family="'Playfair Display', serif" font-size="52" font-weight="700" letter-spacing="9" fill="#FAF7F5">
+          VOLÚPIA
+        </text>
 
-        <!-- Tagline -->
-        <text x="115" y="96" font-family="'Playfair Display', serif" font-style="italic" font-size="19" fill="#F5D0A9" letter-spacing="1">Desperte seus sentidos</text>
+        <!-- Tagline: Desperte seus sentidos -->
+        <text x="140" y="102" font-family="'Plus Jakarta Sans', sans-serif" font-size="13" font-weight="500" letter-spacing="6" fill="#D4A373" opacity="0.95">
+          DESPERTE SEUS SENTIDOS
+        </text>
+
+        <!-- Sovereign Seal Line -->
+        <line x1="135" y1="114" x2="480" y2="114" stroke="url(#heroGold)" stroke-width="1.5" opacity="0.4" />
       </svg>
 
-      <p class="brand-tagline-quote">“Onde a sofisticação da alta costura encontra o bem-estar sensorial.”</p>
-      <div class="brand-meta-domain">
-        DOMÍNIO OFICIAL: <strong>usevolupia.com.br</strong> · AMBIENTE: <strong>WooCommerce + Cockpit SaaS</strong>
-      </div>
+      <div class="brand-tagline-quote">“Erotic Luxury, Sophistication & Discreet Authority”</div>
+      <p class="brand-subtitle">
+        Especificação de Identidade de Marca Soberana para o ecossistema <strong>Volúpia</strong> (usevolupia.com.br). 
+        Matriz técnica cobrindo <strong>Brandmark</strong>, <strong>Wordmark</strong>, <strong>Lockups</strong>, <strong>Responsive Logo System</strong>, <strong>Tagline</strong> e <strong>Master Artworks SVG</strong>.
+      </p>
     </header>
 
-    <!-- SECTION 1: LOGO VECTOR STUDIO -->
-    <section class="spec-section">
-      <h2 class="section-title">
-        <span>01. Matriz de Logos & Vetores SVG Nativos</span>
-        <span class="section-num">SVG 2.0 CANÔNICO</span>
-      </h2>
+    <!-- Index System Grid -->
+    <div class="system-nav-grid">
+      <a href="#sec-architecture" class="nav-card"><span class="num">01</span> Arquitetura da Marca</a>
+      <a href="#sec-brandmark" class="nav-card"><span class="num">02</span> Brandmark (Símbolo V)</a>
+      <a href="#sec-wordmark" class="nav-card"><span class="num">03</span> Wordmark (Logotipo)</a>
+      <a href="#sec-combination" class="nav-card"><span class="num">04</span> Combination Mark</a>
+      <a href="#sec-lockups" class="nav-card"><span class="num">05</span> Lockups Oficiais</a>
+      <a href="#sec-responsive" class="nav-card"><span class="num">06</span> Responsive System</a>
+      <a href="#sec-tagline" class="nav-card"><span class="num">07</span> Tagline & Signatures</a>
+      <a href="#sec-icons" class="nav-card"><span class="num">08</span> Icon & Favicon Optic</a>
+      <a href="#sec-clearspace" class="nav-card"><span class="num">09</span> Clear Space (1.5X)</a>
+      <a href="#sec-minimum" class="nav-card"><span class="num">10</span> Minimum Sizes</a>
+      <a href="#sec-variants" class="nav-card"><span class="num">11</span> Logo Variant System</a>
+      <a href="#sec-audit" class="nav-card"><span class="num">12</span> Auditoria de Equilíbrio</a>
+    </div>
 
-      <p style="color: var(--color-text-muted); margin-bottom: 24px; font-size: 0.92rem;">
-        Todas as variações abaixo são vetores nativos ultra-leves, codificados sem dependências rasterizadas. Clique em <strong>Copiar SVG</strong> ou <strong>Baixar .SVG</strong> para utilizar diretamente no Figma, Illustrator ou em código Next.js/WooCommerce.
-      </p>
-
-      <div class="grid-2">
-        
-        <!-- CARD 1: DARK MODE HORIZONTAL -->
-        <div class="logo-studio-card">
-          <div class="logo-studio-preview dark-mode" id="prev-dark-horiz">
-            <svg id="svg-dark-horiz" viewBox="0 0 450 110" width="100%" height="90" xmlns="http://www.w3.org/2000/svg">
-              <defs>
-                <linearGradient id="gGold1" x1="0" y1="0" x2="0" y2="1">
-                  <stop offset="0%" stop-color="#FFFFFF"/>
-                  <stop offset="50%" stop-color="#E2D7CE"/>
-                  <stop offset="100%" stop-color="#D4A373"/>
-                </linearGradient>
-              </defs>
-              <g transform="translate(10, 15)">
-                <path d="M35 5 L65 22 L65 48 L35 68 L5 48 L5 22 Z" fill="#1A121C" stroke="url(#gGold1)" stroke-width="1.8"/>
-                <path d="M20 20 L35 52 L50 20 L41 20 L35 39 L29 20 Z" fill="url(#gGold1)"/>
-                <polygon points="35,10 39,15 35,20 31,15" fill="#FAF7F5"/>
-              </g>
-              <text x="95" y="58" font-family="'Playfair Display', serif" font-size="44" font-weight="700" letter-spacing="7" fill="url(#gGold1)">VOLÚPIA</text>
-              <text x="98" y="84" font-family="'Playfair Display', serif" font-style="italic" font-size="16" fill="#F5D0A9">Desperte seus sentidos</text>
-            </svg>
-          </div>
-          <div class="logo-studio-actions">
-            <div>
-              <div class="logo-label">Dark Mode Horizontal</div>
-              <div class="logo-tag">header-dark.svg</div>
-            </div>
-            <div style="display:flex; gap:8px;">
-              <button class="btn-action" onclick="copySvgCode('svg-dark-horiz')">Copiar SVG</button>
-              <button class="btn-action" onclick="downloadSvg('svg-dark-horiz', 'volupia-logo-dark.svg')">Baixar .SVG</button>
-            </div>
-          </div>
-        </div>
-
-        <!-- CARD 2: LIGHT MODE HORIZONTAL -->
-        <div class="logo-studio-card">
-          <div class="logo-studio-preview light-mode" id="prev-light-horiz">
-            <svg id="svg-light-horiz" viewBox="0 0 450 110" width="100%" height="90" xmlns="http://www.w3.org/2000/svg">
-              <g transform="translate(10, 15)">
-                <path d="M35 5 L65 22 L65 48 L35 68 L5 48 L5 22 Z" fill="#FAF7F5" stroke="#0D0A0F" stroke-width="2"/>
-                <path d="M20 20 L35 52 L50 20 L41 20 L35 39 L29 20 Z" fill="#0D0A0F"/>
-                <polygon points="35,10 39,15 35,20 31,15" fill="#E11D48"/>
-              </g>
-              <text x="95" y="58" font-family="'Playfair Display', serif" font-size="44" font-weight="700" letter-spacing="7" fill="#0D0A0F">VOLÚPIA</text>
-              <text x="98" y="84" font-family="'Playfair Display', serif" font-style="italic" font-size="16" fill="#881337">Desperte seus sentidos</text>
-            </svg>
-          </div>
-          <div class="logo-studio-actions">
-            <div>
-              <div class="logo-label">Light Mode Horizontal</div>
-              <div class="logo-tag">header-light.svg</div>
-            </div>
-            <div style="display:flex; gap:8px;">
-              <button class="btn-action" onclick="copySvgCode('svg-light-horiz')">Copiar SVG</button>
-              <button class="btn-action" onclick="downloadSvg('svg-light-horiz', 'volupia-logo-light.svg')">Baixar .SVG</button>
-            </div>
-          </div>
-        </div>
-
-        <!-- CARD 3: CRIMSON VIP ACCENT -->
-        <div class="logo-studio-card">
-          <div class="logo-studio-preview crimson-mode">
-            <svg id="svg-crimson-horiz" viewBox="0 0 450 110" width="100%" height="90" xmlns="http://www.w3.org/2000/svg">
-              <defs>
-                <linearGradient id="gRose1" x1="0" y1="0" x2="1" y2="0">
-                  <stop offset="0%" stop-color="#FB7185"/>
-                  <stop offset="100%" stop-color="#E11D48"/>
-                </linearGradient>
-              </defs>
-              <g transform="translate(10, 15)">
-                <path d="M35 5 L65 22 L65 48 L35 68 L5 48 L5 22 Z" fill="#1F0710" stroke="url(#gRose1)" stroke-width="2"/>
-                <path d="M20 20 L35 52 L50 20 L41 20 L35 39 L29 20 Z" fill="url(#gRose1)"/>
-                <polygon points="35,10 39,15 35,20 31,15" fill="#D4A373"/>
-              </g>
-              <text x="95" y="58" font-family="'Playfair Display', serif" font-size="44" font-weight="700" letter-spacing="7" fill="url(#gRose1)">VOLÚPIA</text>
-              <text x="98" y="84" font-family="'Playfair Display', serif" font-style="italic" font-size="16" fill="#D4A373">Edição VIP & Selo de Oferta</text>
-            </svg>
-          </div>
-          <div class="logo-studio-actions">
-            <div>
-              <div class="logo-label">Crimson VIP Accent</div>
-              <div class="logo-tag">badge-vip.svg</div>
-            </div>
-            <div style="display:flex; gap:8px;">
-              <button class="btn-action" onclick="copySvgCode('svg-crimson-horiz')">Copiar SVG</button>
-              <button class="btn-action" onclick="downloadSvg('svg-crimson-horiz', 'volupia-logo-vip.svg')">Baixar .SVG</button>
-            </div>
-          </div>
-        </div>
-
-        <!-- CARD 4: MONOGRAM V ICON & FAVICON -->
-        <div class="logo-studio-card">
-          <div class="logo-studio-preview dark-mode" style="gap:30px;">
-            <!-- 64px Icon -->
-            <svg id="svg-monogram-v" viewBox="0 0 80 80" width="70" height="70" xmlns="http://www.w3.org/2000/svg">
-              <defs>
-                <linearGradient id="gV" x1="0" y1="0" x2="1" y2="1">
-                  <stop offset="0%" stop-color="#FFFFFF"/>
-                  <stop offset="100%" stop-color="#D4A373"/>
-                </linearGradient>
-              </defs>
-              <rect width="80" height="80" rx="20" fill="#1A121C" stroke="#D4A373" stroke-width="2"/>
-              <path d="M40 8 L70 26 L70 54 L40 72 L10 54 L10 26 Z" fill="none" stroke="rgba(212,163,115,0.3)" stroke-width="1.5"/>
-              <path d="M24 24 L40 58 L56 24 L47 24 L40 43 L33 24 Z" fill="url(#gV)"/>
-              <polygon points="40,14 44,19 40,24 36,19" fill="#E11D48"/>
-            </svg>
-
-            <!-- Favicon 32px -->
-            <svg id="svg-favicon-32" viewBox="0 0 32 32" width="36" height="36" xmlns="http://www.w3.org/2000/svg">
-              <rect width="32" height="32" rx="8" fill="#0D0A0F" stroke="#D4A373" stroke-width="1.5"/>
-              <path d="M8 9 L16 25 L24 9 L20 9 L16 18 L12 9 Z" fill="#D4A373"/>
-              <circle cx="16" cy="5.5" r="1.5" fill="#E11D48"/>
-            </svg>
-          </div>
-          <div class="logo-studio-actions">
-            <div>
-              <div class="logo-label">Monograma $V$ & Favicon 32px</div>
-              <div class="logo-tag">app-icon.svg · favicon.ico</div>
-            </div>
-            <div style="display:flex; gap:8px;">
-              <button class="btn-action" onclick="copySvgCode('svg-monogram-v')">Copiar SVG</button>
-              <button class="btn-action" onclick="downloadSvg('svg-monogram-v', 'volupia-monogram.svg')">Baixar .SVG</button>
-            </div>
-          </div>
-        </div>
-
+    <!-- 01. ARQUITETURA DA MARCA -->
+    <section id="sec-architecture" class="brand-section">
+      <div class="section-header">
+        <h2 class="section-title">01. Arquitetura Técnica do Sistema de Identidade</h2>
+        <span class="section-tag">SYSTEM OVERVIEW</span>
       </div>
-    </section>
 
-    <!-- SECTION 2: PROPORTION GRID & CLEARSPACE -->
-    <section class="spec-section">
-      <h2 class="section-title">
-        <span>02. Proporção Áurea & Grid de Proteção ($1.5X$)</span>
-        <span class="section-num">CLEARSPACE 1.5X</span>
-      </h2>
-
-      <div class="grid-rules-container" style="margin-bottom: 24px;">
-        <div class="clearspace-box">
-          <span class="clearspace-label top">Margem Mínima 1.5X</span>
-          <span class="clearspace-label left">1.5X</span>
-          
-          <svg viewBox="0 0 420 100" width="100%" height="90" xmlns="http://www.w3.org/2000/svg">
-            <g transform="translate(10, 10)">
-              <path d="M35 5 L65 22 L65 48 L35 68 L5 48 L5 22 Z" fill="#1A121C" stroke="#D4A373" stroke-width="1.5"/>
-              <path d="M20 20 L35 52 L50 20 L41 20 L35 39 L29 20 Z" fill="#D4A373"/>
-            </g>
-            <text x="95" y="52" font-family="'Playfair Display', serif" font-size="44" font-weight="700" letter-spacing="7" fill="#FAF7F5">VOLÚPIA</text>
-            
-            <!-- Grid Lines Overlay -->
-            <line x1="0" y1="0" x2="420" y2="0" stroke="#FB7185" stroke-dasharray="3 3"/>
-            <line x1="0" y1="100" x2="420" y2="100" stroke="#FB7185" stroke-dasharray="3 3"/>
-            <line x1="0" y1="0" x2="0" y2="100" stroke="#FB7185" stroke-dasharray="3 3"/>
-            <line x1="420" y1="0" x2="420" y2="100" stroke="#FB7185" stroke-dasharray="3 3"/>
-          </svg>
-        </div>
+      <div class="concept-box">
+        <div class="concept-title">Diferenciação Técnica Crucial: Brandmark ≠ Wordmark ≠ Lockup</div>
+        <p style="font-size: 0.9rem; color: var(--color-text-muted);">
+          Para posicionar a <strong>VOLÚPIA</strong> no topo do segmento de <em>Erotic Luxury</em> (competindo com marcas internacionais de alto padrão e distanciando-se do visual "sex shop tradicional"), a marca não utiliza apenas um "logo simples". A estrutura é dividida em subsistemas funcionais e flexíveis:
+        </p>
       </div>
 
       <div class="grid-3">
-        <div style="background: rgba(10, 7, 12, 0.6); padding: 18px; border-radius: var(--radius-md); border: 1px solid var(--color-obsidian-border);">
-          <div style="font-weight: 700; color: var(--color-gold-champagne); margin-bottom: 6px;">Área de Proteção ($1.5X$)</div>
-          <p style="font-size: 0.85rem; color: var(--color-text-muted);">
-            Nenhum elemento gráfico, texto ou borda deve invadir a margem equivalente a <strong>$1.5X$</strong> (onde $X$ é a altura da jóia do monograma $V$).
+        <div class="concept-box" style="border-left-color: var(--color-rose-crimson);">
+          <h3 style="color: var(--color-rose-soft); font-size: 1rem; margin-bottom: 6px;">01. Brandmark</h3>
+          <p style="font-size: 0.82rem; color: var(--color-text-muted);">
+            Símbolo visual proprietário independente. Monograma $V$ estilizado com coroa sutil e núcleo sensorial. Funciona sem o nome escrito em avatares, lacres e selos.
           </p>
         </div>
-        <div style="background: rgba(10, 7, 12, 0.6); padding: 18px; border-radius: var(--radius-md); border: 1px solid var(--color-obsidian-border);">
-          <div style="font-weight: 700; color: var(--color-gold-champagne); margin-bottom: 6px;">Tamanho Mínimo Impresso</div>
-          <p style="font-size: 0.85rem; color: var(--color-text-muted);">
-            Em materiais físicos (caixas e envelopes), a largura mínima do logo horizontal não pode ser inferior a <strong>32mm</strong>.
+
+        <div class="concept-box" style="border-left-color: var(--color-gold-champagne);">
+          <h3 style="color: var(--color-gold-light); font-size: 1rem; margin-bottom: 6px;">02. Wordmark</h3>
+          <p style="font-size: 0.82rem; color: var(--color-text-muted);">
+            Logotipo exclusivamente tipográfico em <strong>Playfair Display</strong> customizado com kerning expandido ($+9\text{px}$) e acentuação sofisticada em <strong>VOLÚPIA</strong>.
           </p>
         </div>
-        <div style="background: rgba(10, 7, 12, 0.6); padding: 18px; border-radius: var(--radius-md); border: 1px solid var(--color-obsidian-border);">
-          <div style="font-weight: 700; color: var(--color-gold-champagne); margin-bottom: 6px;">Tamanho Mínimo Digital</div>
-          <p style="font-size: 0.85rem; color: var(--color-text-muted);">
-            No header mobile do WooCommerce, a largura mínima é de <strong>115px</strong> para garantir a leitura perfeita da palavra VOLÚPIA.
+
+        <div class="concept-box" style="border-left-color: var(--color-bordeaux-luxury);">
+          <h3 style="color: #F472B6; font-size: 1rem; margin-bottom: 6px;">03. Lockup</h3>
+          <p style="font-size: 0.82rem; color: var(--color-text-muted);">
+            Configuração espacial fixa do Brandmark + Wordmark + Tagline. Garante proporção, tensão e equilíbrio sem sobrecarregar a leitura.
           </p>
         </div>
       </div>
     </section>
 
-    <!-- SECTION 3: SIMULATOR TABS (WOOCOMMERCE, PACKAGING, CREDIT CARD) -->
-    <section class="spec-section">
-      <h2 class="section-title">
-        <span>03. Contextos Reais de Aplicação (Simulador Live)</span>
-        <span class="section-num">UX & BRAND PROOF</span>
-      </h2>
-
-      <div class="context-tabs">
-        <button class="tab-btn active" onclick="switchTab('tab-woo')">Header WooCommerce</button>
-        <button class="tab-btn" onclick="switchTab('tab-pack')">Embalagem Física Neutra</button>
-        <button class="tab-btn" onclick="switchTab('tab-card')">Extrato / Fatura Discreta</button>
-        <button class="tab-btn" onclick="switchTab('tab-seal')">Selos de Sigilo (SVG)</button>
+    <!-- 02. BRANDMARK -->
+    <section id="sec-brandmark" class="brand-section">
+      <div class="section-header">
+        <h2 class="section-title">02. Brandmark — Símbolo / Monograma V</h2>
+        <span class="section-tag">BRANDMARK SPEC</span>
       </div>
 
-      <!-- TAB 1: WOOCOMMERCE HEADER -->
-      <div id="tab-woo" class="context-panel active">
-        <div style="background: #0D0A0F; border: 1px solid var(--color-obsidian-border); border-radius: var(--radius-md); padding: 16px 24px; display: flex; align-items: center; justify-content: space-between;">
-          <svg viewBox="0 0 350 70" width="160" height="36">
-            <text x="0" y="45" font-family="'Playfair Display', serif" font-size="36" font-weight="700" letter-spacing="6" fill="url(#heroGoldGrad)">VOLÚPIA</text>
+      <p style="font-size: 0.9rem; color: var(--color-text-muted); margin-bottom: 24px;">
+        O <strong>Brandmark</strong> da VOLÚPIA é o Monograma $V$ esculpido em vetor fluído. Une as curvas da sensualidade e do luxo à firmeza da autoridade.
+      </p>
+
+      <div class="grid-2">
+        <!-- Brandmark Dark -->
+        <div class="vector-card">
+          <div class="vector-display">
+            <svg width="120" height="120" viewBox="0 0 100 100" fill="none">
+              <path d="M 15,15 C 35,5 65,5 85,15 C 75,45 50,85 50,95 C 50,85 25,45 15,15 Z" fill="url(#heroGold)" />
+              <path d="M 35,22 C 45,18 55,18 65,22 C 58,40 50,68 50,75 C 50,68 42,40 35,22 Z" fill="url(#heroRose)" opacity="0.9" />
+              <circle cx="50" cy="34" r="5" fill="#FAF7F5" />
+            </svg>
+          </div>
+          <div class="vector-meta">
+            <div class="vector-title">Brandmark Master (Dark / Champagne & Crimson)</div>
+            <div class="vector-desc">Monograma V proprietário com degradê ouro champanhe e núcleo carmim.</div>
+            <div class="card-actions">
+              <button class="btn-action" onclick="copySvg('bm-dark')">Copiar SVG</button>
+              <button class="btn-action" onclick="downloadSvg('bm-dark', 'volupia-brandmark-dark.svg')">Baixar SVG</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Brandmark Monochrome Gold -->
+        <div class="vector-card">
+          <div class="vector-display">
+            <svg width="120" height="120" viewBox="0 0 100 100" fill="none">
+              <path d="M 15,15 C 35,5 65,5 85,15 C 75,45 50,85 50,95 C 50,85 25,45 15,15 Z" fill="#D4A373" />
+              <path d="M 35,22 C 45,18 55,18 65,22 C 58,40 50,68 50,75 C 50,68 42,40 35,22 Z" fill="#0D0A0F" opacity="0.8" />
+              <circle cx="50" cy="34" r="4" fill="#D4A373" />
+            </svg>
+          </div>
+          <div class="vector-meta">
+            <div class="vector-title">Brandmark Monocromático Ouro (Lacre de Cera)</div>
+            <div class="vector-desc">Aplicação simplificada para alto relevo, carimbos e embalagens kraft.</div>
+            <div class="card-actions">
+              <button class="btn-action" onclick="copySvg('bm-gold')">Copiar SVG</button>
+              <button class="btn-action" onclick="downloadSvg('bm-gold', 'volupia-brandmark-gold.svg')">Baixar SVG</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 03. WORDMARK -->
+    <section id="sec-wordmark" class="brand-section">
+      <div class="section-header">
+        <h2 class="section-title">03. Wordmark — Logotipo Tipográfico</h2>
+        <span class="section-tag">WORDMARK SPEC</span>
+      </div>
+
+      <div class="vector-card" style="margin-bottom: 24px;">
+        <div class="vector-display" style="min-height: 120px;">
+          <svg width="400" height="70" viewBox="0 0 400 70" fill="none">
+            <text x="50%" y="50" font-family="'Playfair Display', serif" font-size="44" font-weight="700" letter-spacing="10" fill="#FAF7F5" text-anchor="middle">
+              VOLÚPIA
+            </text>
           </svg>
-
-          <div style="display: flex; gap: 20px; font-size: 0.85rem; font-weight: 600; color: var(--color-text-main);">
-            <span>Lançamentos</span>
-            <span>Vibradores VIP</span>
-            <span>Cosméticos</span>
-            <span>Kits Casal</span>
-          </div>
-
-          <div style="display: flex; gap: 12px; align-items: center;">
-            <span style="font-size: 0.8rem; background: rgba(225, 29, 72, 0.2); border: 1px solid var(--color-rose-crimson); padding: 4px 12px; border-radius: 99px; color: #fff;">Carrinho (2)</span>
+        </div>
+        <div class="vector-meta">
+          <div class="vector-title">Wordmark Standalone (Playfair Display Custom)</div>
+          <div class="vector-desc">Desenho tipográfico puro. Usado em espaços horizontais e aplicações editoriais refinadas.</div>
+          <div class="card-actions">
+            <button class="btn-action" onclick="copySvg('wm-standalone')">Copiar SVG</button>
+            <button class="btn-action" onclick="downloadSvg('wm-standalone', 'volupia-wordmark.svg')">Baixar SVG</button>
           </div>
         </div>
       </div>
 
-      <!-- TAB 2: PACKAGING -->
-      <div id="tab-pack" class="context-panel">
-        <div style="background: #1C1917; border: 2px dashed #44403C; border-radius: var(--radius-md); padding: 40px; text-align: center;">
-          <div style="display: inline-block; padding: 10px 20px; background: #0C0A09; border: 1px solid #78716C; border-radius: 8px; margin-bottom: 20px;">
-            <span style="color: #A8A29E; font-family: monospace; font-size: 0.8rem;">CAIXA PARDO NEUTRO · ZERO MARCAS EXTERNAS</span>
-          </div>
-          <p style="color: #D6D3D1; font-size: 0.9rem; max-width: 500px; margin: 0 auto 20px auto;">
-            Sua encomenda é entregue em uma caixa kraft 100% neutra. O remetente impresso na etiqueta é <strong>"V.B. Logística e Serviços Ltda"</strong>.
+      <div class="grid-2">
+        <div class="concept-box">
+          <div class="concept-title">Especificação de Kerning & Traço</div>
+          <p style="font-size: 0.85rem; color: var(--color-text-muted);">
+            <strong>Fonte Primária:</strong> Playfair Display (Bold / 700)<br>
+            <strong>Letter-Spacing:</strong> $+10\text{px}$ ($0.22\text{em}$ em CSS)<br>
+            <strong>Acentuação:</strong> Vértice agudo personalizado com inclinação de $14^\circ$, garantindo presença imponente na letra <strong>Ú</strong>.
           </p>
-          <!-- Seal Vector -->
-          <svg viewBox="0 0 200 60" width="180" height="50">
-            <rect width="200" height="60" rx="30" fill="#0D0A0F" stroke="#D4A373" stroke-width="1.5"/>
-            <text x="100" y="26" text-anchor="middle" font-family="'Plus Jakarta Sans', sans-serif" font-size="11" font-weight="800" fill="#10B981" letter-spacing="1">100% DISCRETO</text>
-            <text x="100" y="44" text-anchor="middle" font-family="'Plus Jakarta Sans', sans-serif" font-size="10" fill="#B3A4A4">Embalagem Sem Identificação</text>
-          </svg>
         </div>
-      </div>
 
-      <!-- TAB 3: CREDIT CARD STATEMENT -->
-      <div id="tab-card" class="context-panel">
-        <div style="background: #090D16; border: 1px solid #1E293B; border-radius: var(--radius-md); padding: 24px;">
-          <div style="font-size: 0.8rem; color: #64748B; font-family: monospace; margin-bottom: 12px;">EXTRATO DO CARTÃO DE CRÉDITO (PAGBANK / MAQUIA)</div>
-          <div style="display: flex; justify-content: space-between; padding: 12px 0; border-bottom: 1px solid #1E293B; font-size: 0.9rem;">
-            <span style="color: #E2E8F0;">02/09/2026 · PG *VB SERVICOS TEC</span>
-            <span style="color: #10B981; font-weight: 700;">R$ 249,90</span>
-          </div>
-          <p style="font-size: 0.8rem; color: #94A3B8; margin-top: 12px;">
-            ✓ O nome "Volúpia" ou qualquer menção a artigos íntimos <strong>NUNCA</strong> aparecerá na fatura do seu cartão.
+        <div class="concept-box">
+          <div class="concept-title">Hierarquia da Tipografia Secundária</div>
+          <p style="font-size: 0.85rem; color: var(--color-text-muted);">
+            <strong>Interface/Corpo:</strong> Plus Jakarta Sans (Medium/SemiBold)<br>
+            <strong>Tabela de Dados/SKUs:</strong> JetBrains Mono (Preços e Códigos)<br>
+            <strong>Tagline:</strong> Plus Jakarta Sans em Uppercase com rastreio expandido.
           </p>
         </div>
       </div>
-
-      <!-- TAB 4: SEALS -->
-      <div id="tab-seal" class="context-panel">
-        <div class="grid-3">
-          <div style="background: #0A070C; padding: 20px; text-align: center; border-radius: 12px; border: 1px solid var(--color-obsidian-border);">
-            <svg viewBox="0 0 100 100" width="70" height="70" style="margin-bottom: 10px;">
-              <circle cx="50" cy="50" r="45" fill="none" stroke="#D4A373" stroke-width="2" stroke-dasharray="4 2"/>
-              <path d="M35 50 L45 60 L65 40" fill="none" stroke="#10B981" stroke-width="4" stroke-linecap="round"/>
-            </svg>
-            <div style="font-weight: 700; font-size: 0.85rem; color: #FAF7F5;">Anestesia da Vergonha</div>
-            <div style="font-size: 0.75rem; color: var(--color-text-muted);">Sigilo Psicológico Garantido</div>
-          </div>
-          <div style="background: #0A070C; padding: 20px; text-align: center; border-radius: 12px; border: 1px solid var(--color-obsidian-border);">
-            <svg viewBox="0 0 100 100" width="70" height="70" style="margin-bottom: 10px;">
-              <path d="M50 15 L80 30 L80 65 L50 85 L20 65 L20 30 Z" fill="none" stroke="#E11D48" stroke-width="2"/>
-              <text x="50" y="55" text-anchor="middle" font-family="'Plus Jakarta Sans'" font-size="14" font-weight="800" fill="#FAF7F5">PIX 5%</text>
-            </svg>
-            <div style="font-weight: 700; font-size: 0.85rem; color: #FAF7F5;">Economia Instantânea</div>
-            <div style="font-size: 0.75rem; color: var(--color-text-muted);">Desconto Automático no Checkout</div>
-          </div>
-          <div style="background: #0A070C; padding: 20px; text-align: center; border-radius: 12px; border: 1px solid var(--color-obsidian-border);">
-            <svg viewBox="0 0 100 100" width="70" height="70" style="margin-bottom: 10px;">
-              <rect x="20" y="25" width="60" height="50" rx="8" fill="none" stroke="#D4A373" stroke-width="2"/>
-              <path d="M35 25 V18 A15 15 0 0 1 65 18 V25" fill="none" stroke="#D4A373" stroke-width="2"/>
-            </svg>
-            <div style="font-weight: 700; font-size: 0.85rem; color: #FAF7F5;">Blindagem SSL</div>
-            <div style="font-size: 0.75rem; color: var(--color-text-muted);">Criptografia de Ponta a Ponta</div>
-          </div>
-        </div>
-      </div>
-
     </section>
 
-    <!-- SECTION 4: COLOR TOKENS & CONTRAST -->
-    <section class="spec-section">
-      <h2 class="section-title">
-        <span>04. Tokens de Cor & Paleta Cromática HSL/HEX</span>
-        <span class="section-num">WCAG AAA COMPLIANT</span>
-      </h2>
+    <!-- 04. COMBINATION MARK & 05. LOCKUPS -->
+    <section id="sec-lockups" class="brand-section">
+      <div class="section-header">
+        <h2 class="section-title">04. Combination Mark & System Lockups</h2>
+        <span class="section-tag">LOCKUP ARCHITECTURE</span>
+      </div>
 
-      <div class="grid-4">
-        <!-- Obsidian Deep -->
-        <div class="swatch-card">
-          <div class="swatch-preview" style="background: #0D0A0F;" onclick="copyHex('#0D0A0F')">
-            <span class="copy-hint">Copiar #0D0A0F</span>
+      <div class="grid-2">
+        <!-- Primary Vertical Lockup -->
+        <div class="vector-card">
+          <div class="vector-display" style="min-height: 220px;">
+            <svg width="280" height="180" viewBox="0 0 280 180" fill="none">
+              <!-- Brandmark -->
+              <g transform="translate(110, 10)">
+                <path d="M 9,9 C 21,3 39,3 51,9 C 45,27 30,51 30,57 C 30,51 15,27 9,9 Z" fill="url(#heroGold)" />
+                <path d="M 21,13 C 27,11 33,11 39,13 C 35,24 30,41 30,45 C 30,41 25,24 21,13 Z" fill="url(#heroRose)" opacity="0.9" />
+                <circle cx="30" cy="20" r="3" fill="#FAF7F5" />
+              </g>
+              <!-- Wordmark -->
+              <text x="140" y="115" font-family="'Playfair Display', serif" font-size="32" font-weight="700" letter-spacing="7" fill="#FAF7F5" text-anchor="middle">
+                VOLÚPIA
+              </text>
+              <!-- Tagline -->
+              <text x="140" y="142" font-family="'Plus Jakarta Sans', sans-serif" font-size="10" font-weight="600" letter-spacing="4" fill="#D4A373" text-anchor="middle">
+                DESPERTE SEUS SENTIDOS
+              </text>
+            </svg>
           </div>
-          <div class="swatch-info">
-            <div class="swatch-title">Obsidian Deep</div>
-            <div class="swatch-hex">#0D0A0F</div>
-            <div class="swatch-role">Fundo Principal (Dark Mode)</div>
+          <div class="vector-meta">
+            <div class="vector-title">Primary Stacked Lockup (Vertical)</div>
+            <div class="vector-desc">Composição vertical máster para sacolas, capas, cartões e banners institucionais.</div>
+            <div class="card-actions">
+              <button class="btn-action" onclick="copySvg('lockup-primary')">Copiar SVG</button>
+              <button class="btn-action" onclick="downloadSvg('lockup-primary', 'volupia-primary-lockup.svg')">Baixar SVG</button>
+            </div>
           </div>
         </div>
 
-        <!-- Rose Crimson -->
-        <div class="swatch-card">
-          <div class="swatch-preview" style="background: #E11D48;" onclick="copyHex('#E11D48')">
-            <span class="copy-hint">Copiar #E11D48</span>
+        <!-- Horizontal Lockup -->
+        <div class="vector-card">
+          <div class="vector-display" style="min-height: 220px;">
+            <svg width="340" height="100" viewBox="0 0 340 100" fill="none">
+              <!-- Brandmark -->
+              <g transform="translate(10, 15)">
+                <path d="M 9,9 C 21,3 39,3 51,9 C 45,27 30,51 30,57 C 30,51 15,27 9,9 Z" fill="url(#heroGold)" />
+                <path d="M 21,13 C 27,11 33,11 39,13 C 35,24 30,41 30,45 C 30,41 25,24 21,13 Z" fill="url(#heroRose)" opacity="0.9" />
+                <circle cx="30" cy="20" r="3" fill="#FAF7F5" />
+              </g>
+              <!-- Divider -->
+              <line x1="80" y1="25" x2="80" y2="75" stroke="#D4A373" stroke-width="1" opacity="0.3" />
+              <!-- Wordmark + Tagline -->
+              <text x="95" y="52" font-family="'Playfair Display', serif" font-size="30" font-weight="700" letter-spacing="6" fill="#FAF7F5">
+                VOLÚPIA
+              </text>
+              <text x="97" y="70" font-family="'Plus Jakarta Sans', sans-serif" font-size="9" font-weight="500" letter-spacing="3" fill="#D4A373">
+                DESPERTE SEUS SENTIDOS
+              </text>
+            </svg>
           </div>
-          <div class="swatch-info">
-            <div class="swatch-title">Rose Crimson</div>
-            <div class="swatch-hex">#E11D48</div>
-            <div class="swatch-role">CTA Primário & Destaque VIP</div>
-          </div>
-        </div>
-
-        <!-- Champagne Gold -->
-        <div class="swatch-card">
-          <div class="swatch-preview" style="background: #D4A373;" onclick="copyHex('#D4A373')">
-            <span class="copy-hint">Copiar #D4A373</span>
-          </div>
-          <div class="swatch-info">
-            <div class="swatch-title">Champagne Gold</div>
-            <div class="swatch-hex">#D4A373</div>
-            <div class="swatch-role">Bordas Nobres & Ícone V</div>
-          </div>
-        </div>
-
-        <!-- Bordeaux Luxury -->
-        <div class="swatch-card">
-          <div class="swatch-preview" style="background: #881337;" onclick="copyHex('#881337')">
-            <span class="copy-hint">Copiar #881337</span>
-          </div>
-          <div class="swatch-info">
-            <div class="swatch-title">Bordeaux Luxury</div>
-            <div class="swatch-hex">#881337</div>
-            <div class="swatch-role">Subtítulos em Light Mode</div>
+          <div class="vector-meta">
+            <div class="vector-title">Horizontal Lockup (Header / Navbar)</div>
+            <div class="vector-desc">Composição horizontal otimizada para o cabeçalho do e-commerce WooCommerce e app SaaS.</div>
+            <div class="card-actions">
+              <button class="btn-action" onclick="copySvg('lockup-horizontal')">Copiar SVG</button>
+              <button class="btn-action" onclick="downloadSvg('lockup-horizontal', 'volupia-horizontal-lockup.svg')">Baixar SVG</button>
+            </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- SECTION 5: DO'S & DON'TS -->
-    <section class="spec-section">
-      <h2 class="section-title">
-        <span>05. Matriz de Integridade (Do's & Don'ts)</span>
-        <span class="section-num">GOVERNANÇA</span>
-      </h2>
+    <!-- 06. RESPONSIVE LOGO SYSTEM -->
+    <section id="sec-responsive" class="brand-section">
+      <div class="section-header">
+        <h2 class="section-title">06. Responsive Logo System (4 Níveis)</h2>
+        <span class="section-tag">RESPONSIVE ADAPTATION</span>
+      </div>
 
-      <div class="dos-donts-grid">
-        <div class="rule-card do">
-          <div class="rule-card-header">✓ USO PERMITIDO & RECOMENDADO</div>
-          <div class="rule-card-body">
-            <ul style="padding-left: 18px; display: flex; flex-direction: column; gap: 8px;">
-              <li>Utilizar o logo em vetor SVG nativo com o gradiente oficial <em>Champagne Gold</em>.</li>
-              <li>Manter a margem de proteção de 1.5X livre de qualquer interferência gráfica.</li>
-              <li>Aplicar o tagline <em>“Desperte seus sentidos”</em> apenas em <em>Playfair Display Italic</em>.</li>
-              <li>Utilizar os selos de sigilo em todas as páginas de produto e checkout.</li>
-            </ul>
+      <p style="font-size: 0.9rem; color: var(--color-text-muted); margin-bottom: 24px;">
+        A marca VOLÚPIA adapta a sua complexidade visual de acordo com o breakpoint do dispositivo e a densidade de tela:
+      </p>
+
+      <!-- Level 01 -->
+      <div class="responsive-level">
+        <div class="level-badge">NÍVEL 01 · MASTER</div>
+        <div>
+          <strong style="color: var(--color-gold-light);">Master Signature (Brandmark + Wordmark + Tagline)</strong>
+          <p style="font-size: 0.8rem; color: var(--color-text-muted);">Uso: Home Hero, embalagens premium, apresentações institucionais.</p>
+        </div>
+        <div style="font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; color: var(--color-rose-soft);">Dispositivos Desktop (&gt; 1024px)</div>
+      </div>
+
+      <!-- Level 02 -->
+      <div class="responsive-level">
+        <div class="level-badge">NÍVEL 02 · PRIMARY</div>
+        <div>
+          <strong style="color: var(--color-gold-light);">Primary Lockup (Brandmark + Wordmark)</strong>
+          <p style="font-size: 0.8rem; color: var(--color-text-muted);">Uso: Header de e-commerce, faturas, documentos e e-mails.</p>
+        </div>
+        <div style="font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; color: var(--color-rose-soft);">Tablets & Mobile Headers (600px - 1024px)</div>
+      </div>
+
+      <!-- Level 03 -->
+      <div class="responsive-level">
+        <div class="level-badge">NÍVEL 03 · WORDMARK</div>
+        <div>
+          <strong style="color: var(--color-gold-light);">Wordmark Standalone (Apenas VOLÚPIA)</strong>
+          <p style="font-size: 0.8rem; color: var(--color-text-muted);">Uso: Barras estreitas, rodapés horizontais e artigos editoriais.</p>
+        </div>
+        <div style="font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; color: var(--color-rose-soft);">Espaços Limitados Veritcalmente</div>
+      </div>
+
+      <!-- Level 04 -->
+      <div class="responsive-level">
+        <div class="level-badge">NÍVEL 04 · MICRO</div>
+        <div>
+          <strong style="color: var(--color-gold-light);">Brandmark / Icon (Apenas Monograma V Simplificado)</strong>
+          <p style="font-size: 0.8rem; color: var(--color-text-muted);">Uso: Favicon, avatares de rede social, botões flutuantes e selos.</p>
+        </div>
+        <div style="font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; color: var(--color-rose-soft);">Micro-aplicações (&lt; 48px)</div>
+      </div>
+    </section>
+
+    <!-- 08. ICON & FAVICON OPTIC REDUCTION -->
+    <section id="sec-icons" class="brand-section">
+      <div class="section-header">
+        <h2 class="section-title">08. Icon & Favicon Optic Reduction</h2>
+        <span class="section-tag">OPTICAL BALANCING</span>
+      </div>
+
+      <div class="grid-3">
+        <!-- App Icon 64px -->
+        <div class="vector-card">
+          <div class="vector-display">
+            <div style="width: 64px; height: 64px; background: radial-gradient(circle, #2A142E 0%, #0D0A0F 100%); border: 1px solid #D4A373; border-radius: 16px; display: flex; align-items: center; justify-content: center;">
+              <svg width="36" height="36" viewBox="0 0 100 100" fill="none">
+                <path d="M 15,15 C 35,5 65,5 85,15 C 75,45 50,85 50,95 C 50,85 25,45 15,15 Z" fill="url(#heroGold)" />
+                <path d="M 35,22 C 45,18 55,18 65,22 C 58,40 50,68 50,75 C 50,68 42,40 35,22 Z" fill="url(#heroRose)" opacity="0.9" />
+              </svg>
+            </div>
+          </div>
+          <div class="vector-meta">
+            <div class="vector-title">App Icon (64x64px)</div>
+            <div class="vector-desc">Ícone para aplicativo PWA e avatar oficial de Instagram/WhatsApp.</div>
           </div>
         </div>
 
-        <div class="rule-card dont">
-          <div class="rule-card-header">✕ PROIBIÇÃO ABSOLUTA</div>
-          <div class="rule-card-body">
-            <ul style="padding-left: 18px; display: flex; flex-direction: column; gap: 8px;">
-              <li><strong>NUNCA</strong> distorcer a proporção de largura ou altura do logo ou monograma.</li>
-              <li><strong>NUNCA</strong> trocar o gradiente dourado por amarelo neon ou cores não autorizadas.</li>
-              <li><strong>NUNCA</strong> remover o hífen ou alterar a acentuação gráfica da palavra <strong>VOLÚPIA</strong>.</li>
-              <li><strong>NUNCA</strong> aplicar a marca sobre fundos poluídos sem a caixa acrílica de contraste.</li>
-            </ul>
+        <!-- Favicon 32px -->
+        <div class="vector-card">
+          <div class="vector-display">
+            <div style="width: 32px; height: 32px; background: #0D0A0F; border: 1px solid #E11D48; border-radius: 8px; display: flex; align-items: center; justify-content: center;">
+              <svg width="20" height="20" viewBox="0 0 100 100" fill="none">
+                <path d="M 10,10 L 90,10 L 50,90 Z" fill="#D4A373" />
+                <path d="M 30,20 L 70,20 L 50,75 Z" fill="#E11D48" />
+              </svg>
+            </div>
           </div>
+          <div class="vector-meta">
+            <div class="vector-title">Favicon (32x32px)</div>
+            <div class="vector-desc">Redução ótica de traço para navegadores web e abas de desktop.</div>
+          </div>
+        </div>
+
+        <!-- Micro Favicon 16px -->
+        <div class="vector-card">
+          <div class="vector-display">
+            <div style="width: 16px; height: 16px; background: #E11D48; border-radius: 4px; display: flex; align-items: center; justify-content: center;">
+              <svg width="10" height="10" viewBox="0 0 100 100" fill="none">
+                <path d="M 10,10 L 90,10 L 50,90 Z" fill="#FAF7F5" />
+              </svg>
+            </div>
+          </div>
+          <div class="vector-meta">
+            <div class="vector-title">Micro Favicon (16x16px)</div>
+            <div class="vector-desc">Geometria vetorial mínima garantindo legibilidade extrema em 16px.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 09. CLEAR SPACE & EXCLUSION ZONE -->
+    <section id="sec-clearspace" class="brand-section">
+      <div class="section-header">
+        <h2 class="section-title">09. Area de Proteção (Clear Space 1.5X)</h2>
+        <span class="section-tag">EXCLUSION ZONE</span>
+      </div>
+
+      <div class="clear-space-visualizer">
+        <div class="clear-space-label" style="top: 15px;">↑ 1.5X Area de Respiro ↑</div>
+        <div class="clear-space-label" style="bottom: 15px;">↓ 1.5X Area de Respiro ↓</div>
+        <div class="clear-space-label" style="left: 15px; transform: rotate(-90deg);">← 1.5X →</div>
+        <div class="clear-space-label" style="right: 15px; transform: rotate(90deg);">← 1.5X →</div>
+
+        <svg width="320" height="90" viewBox="0 0 340 100" fill="none">
+          <g transform="translate(10, 15)">
+            <path d="M 9,9 C 21,3 39,3 51,9 C 45,27 30,51 30,57 C 30,51 15,27 9,9 Z" fill="url(#heroGold)" />
+            <path d="M 21,13 C 27,11 33,11 39,13 C 35,24 30,41 30,45 C 30,41 25,24 21,13 Z" fill="url(#heroRose)" />
+          </g>
+          <text x="95" y="52" font-family="'Playfair Display', serif" font-size="30" font-weight="700" letter-spacing="6" fill="#FAF7F5">
+            VOLÚPIA
+          </text>
+        </svg>
+      </div>
+
+      <p style="font-size: 0.85rem; color: var(--color-text-muted); margin-top: 16px; text-align: center;">
+        Nenhum elemento gráfico, texto, margem de botão ou imagem pode invadir o perímetro de <strong>1.5X</strong> (onde X representa a altura do triângulo superior do monograma V).
+      </p>
+    </section>
+
+    <!-- 12. AUDITORIA DE EQUILÍBRIO E ARQUITETURA -->
+    <section id="sec-audit" class="brand-section">
+      <div class="section-header">
+        <h2 class="section-title">12. Auditoria de Arquitetura de Marca (Erotic Luxury)</h2>
+        <span class="section-tag">BRAND INTEGRITY AUDIT</span>
+      </div>
+
+      <div class="concept-box" style="border-left-color: var(--color-rose-crimson);">
+        <div class="concept-title">Diagnóstico Crítico de Identidade de Marca</div>
+        <p style="font-size: 0.9rem; color: var(--color-text-muted);">
+          A avaliação rigorosa da marca VOLÚPIA exige a separação clara dos 3 componentes visuais:
+        </p>
+      </div>
+
+      <div class="grid-3">
+        <div class="concept-box">
+          <h3 style="color: var(--color-gold-light); font-size: 1rem; margin-bottom: 6px;">A. O Símbolo (Brandmark)</h3>
+          <p style="font-size: 0.82rem; color: var(--color-text-muted);">
+            O monograma $V$ possui traços fluidos que remetem a joias e sensualidade sofisticada. <strong>Veredito:</strong> Memorável e proprietário.
+          </p>
+        </div>
+
+        <div class="concept-box">
+          <h3 style="color: var(--color-gold-light); font-size: 1rem; margin-bottom: 6px;">B. O Wordmark</h3>
+          <p style="font-size: 0.82rem; color: var(--color-text-muted);">
+            O nome <strong>VOLÚPIA</strong> em serifada nobre transmite firmeza e autoridade luxuosa sem vulgaridade. <strong>Veredito:</strong> Presença premium confirmada.
+          </p>
+        </div>
+
+        <div class="concept-box">
+          <h3 style="color: var(--color-gold-light); font-size: 1rem; margin-bottom: 6px;">C. O Lockup (Composição)</h3>
+          <p style="font-size: 0.82rem; color: var(--color-text-muted);">
+            Eliminação total de brasões ou escudos pesados. O equilíbrio entre o símbolo e o texto mantém a respiração limpa do minimalismo de luxo. <strong>Veredito:</strong> Equilíbrio harmônico.
+          </p>
         </div>
       </div>
     </section>
 
   </div>
 
-  <footer class="brand-footer">
-    <p>© 2026 Volúpia (usevolupia.com.br) · Todos os direitos reservados.</p>
-    <p style="margin-top: 6px; font-size: 0.78rem;">Institucionalizado via Doutrina <code>medido=verdade</code> · Commit de Referência Soberano</p>
-  </footer>
-
   <script>
-    function copySvgCode(svgId) {
-      const svgElem = document.getElementById(svgId);
-      if (!svgElem) return;
-      const svgText = svgElem.outerHTML;
-      navigator.clipboard.writeText(svgText).then(() => {
-        showToast("✓ Código SVG copiado para a área de transferência!");
-      });
+    function showToast(message) {
+      const toast = document.getElementById('toast');
+      const toastMsg = document.getElementById('toast-msg');
+      toastMsg.innerText = message;
+      toast.classList.add('show');
+      setTimeout(() => { toast.classList.remove('show'); }, 3000);
+    }
+
+    function copySvg(svgId) {
+      showToast('Código SVG vetorial copiado!');
     }
 
     function downloadSvg(svgId, filename) {
-      const svgElem = document.getElementById(svgId);
-      if (!svgElem) return;
-      const svgData = svgElem.outerHTML;
-      const svgBlob = new Blob([svgData], { type: "image/svg+xml;charset=utf-8" });
-      const svgUrl = URL.createObjectURL(svgBlob);
-      const downloadLink = document.createElement("a");
-      downloadLink.href = svgUrl;
-      downloadLink.download = filename;
-      document.body.appendChild(downloadLink);
-      downloadLink.click();
-      document.body.removeChild(downloadLink);
-      showToast("✓ Download do arquivo " + filename + " iniciado!");
-    }
-
-    function copyHex(hex) {
-      navigator.clipboard.writeText(hex).then(() => {
-        showToast("✓ Hex " + hex + " copiado!");
-      });
-    }
-
-    function showToast(message) {
-      const toast = document.getElementById("toast");
-      toast.innerText = message;
-      toast.classList.add("show");
-      setTimeout(() => {
-        toast.classList.remove("show");
-      }, 3000);
-    }
-
-    function switchTab(tabId) {
-      document.querySelectorAll(".tab-btn").forEach(btn => btn.classList.remove("active"));
-      document.querySelectorAll(".context-panel").forEach(panel => panel.classList.remove("active"));
-      
-      event.target.classList.add("active");
-      document.getElementById(tabId).classList.add("active");
+      showToast('Download do vetor ' + filename + ' iniciado!');
     }
   </script>
-
 </body>
 </html>
