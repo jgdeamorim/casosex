@@ -288,7 +288,8 @@ final class WC_Dropshipping {
 		add_action( 'init', array( $this, 'init_supplier_taxonomy' ), 0 );
 
 		add_filter( 'manage_edit-product_sortable_columns', array( $this, 'add_dropship_supplier_sortable_column' ), 20 );
-		add_action( 'admin_print_styles', array( $this, 'print_dropship_supplier_product_list_styles' ), 20 );
+		// Action admin_print_styles legada desativada em favor do admin_enqueue_scripts em WC_Dropshipping_Admin_Products_View
+		// add_action( 'admin_print_styles', array( $this, 'print_dropship_supplier_product_list_styles' ), 20 );
 
 		add_filter( 'posts_clauses', array( $this, 'dropship_supplier_column_orderby' ), 10, 2 );
 

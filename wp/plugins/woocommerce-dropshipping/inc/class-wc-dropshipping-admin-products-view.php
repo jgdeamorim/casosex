@@ -24,7 +24,7 @@ class WC_Dropshipping_Admin_Products_View {
 		add_action( 'manage_product_posts_custom_column', array( $this, 'render_custom_product_column_content' ), 10, 2 );
 		add_action( 'restrict_manage_posts', array( $this, 'add_supplier_filter_dropdown' ) );
 		add_action( 'parse_query', array( $this, 'filter_products_by_supplier_query' ) );
-		add_action( 'admin_head', array( $this, 'inject_admin_styles' ) );
+		add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_admin_products_styles' ) );
 	}
 
 	/**
@@ -225,64 +225,23 @@ class WC_Dropshipping_Admin_Products_View {
 	}
 
 	/**
-	 * Injeta estilos CSS para ajustar as larguras e alinhamentos das colunas.
+	 * Enfileira a folha de estilos dedicada da tabela de produtos no WP Admin no padrão WordPress.
 	 */
-	public function inject_admin_styles() {
-		$screen = get_current_screen();
-		if ( ! $screen || 'edit-product' !== $screen->id ) {
+	public function enqueue_admin_products_styles( $hook ) {
+		if ( 'edit.php' !== $hook ) {
 			return;
 		}
-		?>
-		<style type="text/css">
-			/* Container de rolagem horizontal nativo e fluído */
-			#posts-filter {
-				overflow-x: auto !important;
-				max-width: 100% !important;
-				padding-bottom: 15px;
-			}
 
-			/* Tabela de produtos com layout automático expansível */
-			body.post-type-product table.wp-list-table.products {
-				table-layout: auto !important;
-				width: 100% !important;
-				min-width: 1500px !important;
-			}
+		$screen = get_current_screen();
+		if ( ! $screen || 'product' !== $screen->post_type ) {
+			return;
+		}
 
-			/* Prevenção absoluta contra quebra vertical de texto em todas as células e links da tabela */
-			body.post-type-product table.wp-list-table.products th,
-			body.post-type-product table.wp-list-table.products td,
-			body.post-type-product table.wp-list-table.products th *,
-			body.post-type-product table.wp-list-table.products td * {
-				white-space: nowrap !important;
-				word-break: normal !important;
-				word-wrap: normal !important;
-				overflow-wrap: normal !important;
-				hyphens: manual !important;
-			}
-
-			/* Apenas o Título do Produto pode ter quebra de linha normal */
-			body.post-type-product table.wp-list-table.products .column-name,
-			body.post-type-product table.wp-list-table.products .column-name *,
-			body.post-type-product table.wp-list-table.products .column-name a {
-				white-space: normal !important;
-				word-break: break-word !important;
-				min-width: 220px !important;
-				max-width: 320px !important;
-			}
-
-			/* Alinhamentos e espaçamento das células */
-			body.post-type-product table.wp-list-table.products td,
-			body.post-type-product table.wp-list-table.products th {
-				vertical-align: middle !important;
-				padding: 10px 12px !important;
-			}
-
-			/* Ocultação forçada das colunas legadas indesejadas */
-			body.post-type-product .column-est_profit,
-			body.post-type-product .column-taxonomy-dropship_supplier {
-				display: none !important;
-			}
-		</style>
-		<?php
+		wp_enqueue_style(
+			'wc-dropshipping-admin-products-table',
+			plugins_url( '../assets/css/admin-products-table.css', __FILE__ ),
+			array(),
+			'2.1.55'
+		);
 	}
 }

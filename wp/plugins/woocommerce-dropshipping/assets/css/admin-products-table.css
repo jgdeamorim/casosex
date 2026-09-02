@@ -1,0 +1,51 @@
+/* WooCommerce Dropshipping - Admin Products List Table Styles
+ * Compliant with WordPress Admin & WooCommerce Core Styling Standards
+ */
+
+/* Container de rolagem horizontal nativo do WordPress Admin */
+.post-type-product #posts-filter {
+    overflow-x: auto;
+    max-width: 100%;
+    padding-bottom: 12px;
+}
+
+/* Tabela de produtos com suporte a layout flexível e rolagem fluida */
+.post-type-product table.wp-list-table.products {
+    table-layout: auto;
+    width: 100%;
+    min-width: 1400px;
+}
+
+/* Alinhamento de células e prevenção contra quebra de texto vertical */
+.post-type-product table.wp-list-table.products th,
+.post-type-product table.wp-list-table.products td {
+    vertical-align: middle;
+    padding: 8px 10px;
+}
+
+/* Prevenção de quebra vertical de texto para badges, datas e campos numéricos */
+.post-type-product table.wp-list-table.products .column-supplier_freight,
+.post-type-product table.wp-list-table.products .column-sku,
+.post-type-product table.wp-list-table.products .column-global_unique_id,
+.post-type-product table.wp-list-table.products .column-is_in_stock,
+.post-type-product table.wp-list-table.products .column-price,
+.post-type-product table.wp-list-table.products .column-cost_margin,
+.post-type-product table.wp-list-table.products .column-fiscal_data,
+.post-type-product table.wp-list-table.products .column-curation_status,
+.post-type-product table.wp-list-table.products .column-wholesale_price,
+.post-type-product table.wp-list-table.products .column-date {
+    white-space: nowrap;
+}
+
+/* Título do produto com quebra de linha natural */
+.post-type-product table.wp-list-table.products .column-name {
+    white-space: normal;
+    min-width: 200px;
+    max-width: 300px;
+}
+
+/* Ocultação visual defensiva para colunas legadas desativadas */
+.post-type-product table.wp-list-table.products .column-est_profit,
+.post-type-product table.wp-list-table.products .column-taxonomy-dropship_supplier {
+    display: none !important;
+}
