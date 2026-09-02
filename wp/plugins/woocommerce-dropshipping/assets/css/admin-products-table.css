@@ -1,0 +1,49 @@
+/* ==========================================================================
+   WooCommerce Dropshipping - Admin Products List Table Styles
+   Compliant with WordPress Core & WooCommerce Admin Styling Standards
+   ========================================================================== */
+
+/* Contêiner com rolagem horizontal suave */
+body.post-type-product #posts-filter {
+    overflow-x: auto;
+    max-width: 100%;
+    padding-bottom: 12px;
+}
+
+/* Largura mínima expansível para a tabela sem quebrar o layout do WP Admin */
+body.post-type-product table.wp-list-table.products {
+    min-width: 1380px;
+}
+
+/* Alinhamento vertical padronizado */
+body.post-type-product table.wp-list-table.products th,
+body.post-type-product table.wp-list-table.products td {
+    vertical-align: middle;
+    padding: 10px 8px;
+}
+
+/* Coluna de Nome do Produto com quebra de linha natural */
+body.post-type-product table.wp-list-table.products .column-name {
+    white-space: normal;
+    min-width: 200px;
+    max-width: 320px;
+    word-wrap: break-word;
+}
+
+/* Prevenção de quebra de linha apenas nas colunas de dados concisos e métricas */
+body.post-type-product table.wp-list-table.products .column-supplier_freight,
+body.post-type-product table.wp-list-table.products .column-cost_margin,
+body.post-type-product table.wp-list-table.products .column-fiscal_data,
+body.post-type-product table.wp-list-table.products .column-curation_status,
+body.post-type-product table.wp-list-table.products .column-wholesale_price,
+body.post-type-product table.wp-list-table.products .column-sku,
+body.post-type-product table.wp-list-table.products .column-price,
+body.post-type-product table.wp-list-table.products .column-date {
+    white-space: nowrap;
+}
+
+/* Esconde colunas duplicadas ou legadas desnecessárias */
+body.post-type-product table.wp-list-table.products .column-est_profit,
+body.post-type-product table.wp-list-table.products .column-taxonomy-dropship_supplier {
+    display: none !important;
+}
