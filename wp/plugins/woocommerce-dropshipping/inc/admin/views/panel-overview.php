@@ -50,11 +50,7 @@ $wc_ds_first_run        = $progress < 100;
 			<p class="wc-ds-field-help"><?php esc_html_e( 'Optional. We only use this to tailor tips on this screen — nothing is turned on or off automatically.', 'woocommerce-dropshipping' ); ?></p>
 			<label for="wc_ds_merchant_profile" class="screen-reader-text"><?php esc_html_e( 'Primary business type', 'woocommerce-dropshipping' ); ?></label>
 			<select name="wc_ds_merchant_profile" id="wc_ds_merchant_profile" class="wc-ds-select">
-				<option value=""><?php esc_html_e( 'Choose an option…', 'woocommerce-dropshipping' ); ?></option>
-				<option value="aliexpress" <?php selected( $profile, 'aliexpress' ); ?>><?php esc_html_e( 'Mostly AliExpress', 'woocommerce-dropshipping' ); ?></option>
-				<option value="local" <?php selected( $profile, 'local' ); ?>><?php esc_html_e( 'Local suppliers', 'woocommerce-dropshipping' ); ?></option>
-				<option value="amazon_affiliate" <?php selected( $profile, 'amazon_affiliate' ); ?>><?php esc_html_e( 'Amazon affiliate', 'woocommerce-dropshipping' ); ?></option>
-				<option value="mixed" <?php selected( $profile, 'mixed' ); ?>><?php esc_html_e( 'Mixed', 'woocommerce-dropshipping' ); ?></option>
+				<option value="local" selected="selected"><?php esc_html_e( 'Local suppliers (INTT Dropshipping Nacional)', 'woocommerce-dropshipping' ); ?></option>
 			</select>
 		</section>
 
