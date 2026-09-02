@@ -1,29 +1,12 @@
 <?php
-/**
- * WooCommerce Dropshipping Admin Products View Class
- *
- * Encapsulates products list table enhancements (columns, filters, enqueued styles)
- * adhering to strict WordPress and WooCommerce core standards.
- *
- * @package WooCommerce_Dropshipping
- */
-
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
 class WC_Dropshipping_Admin_Products_View {
 
-	/**
-	 * Single instance of the class.
-	 *
-	 * @var WC_Dropshipping_Admin_Products_View
-	 */
 	private static $instance = null;
 
-	/**
-	 * Main instance launcher.
-	 */
 	public static function instance() {
 		if ( is_null( self::$instance ) ) {
 			self::$instance = new self();
@@ -31,122 +14,136 @@ class WC_Dropshipping_Admin_Products_View {
 		return self::$instance;
 	}
 
-	/**
-	 * Constructor. Registers all WordPress hooks.
-	 */
 	public function __construct() {
-		add_filter( 'manage_edit-product_columns', array( $this, 'register_custom_product_columns' ), 15 );
+		if ( ! is_admin() ) {
+			return;
+		}
+
+		add_filter( 'manage_edit-product_columns', array( $this, 'add_custom_product_columns' ), 20 );
+		add_filter( 'manage_edit-product_columns', array( $this, 'sanitize_product_columns' ), 99999 );
 		add_action( 'manage_product_posts_custom_column', array( $this, 'render_custom_product_column_content' ), 10, 2 );
 		add_action( 'restrict_manage_posts', array( $this, 'add_supplier_filter_dropdown' ) );
 		add_action( 'parse_query', array( $this, 'filter_products_by_supplier_query' ) );
-		add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_admin_products_styles' ) );
+		add_action( 'admin_head', array( $this, 'inject_admin_styles' ) );
 	}
 
 	/**
-	 * Enfileira a folha de estilos dedicada da tabela de produtos no WP Admin no padrão nativo do WordPress.
-	 *
-	 * @param string $hook Sufixo do hook de página do admin.
+	 * Sanitiza as colunas da tabela para eliminar duplicidades e redundâncias.
 	 */
-	public function enqueue_admin_products_styles( $hook ) {
-		if ( 'edit.php' !== $hook ) {
-			return;
-		}
-
-		$screen = get_current_screen();
-		if ( ! $screen || 'product' !== $screen->post_type ) {
-			return;
-		}
-
-		wp_enqueue_style(
-			'wc-dropshipping-admin-products-table',
-			plugins_url( '../assets/css/admin-products-table.css', __FILE__ ),
-			array(),
-			'2.1.5'
-		);
+	public function sanitize_product_columns( $columns ) {
+		unset( $columns['est_profit'] );
+		unset( $columns['taxonomy-dropship_supplier'] );
+		return $columns;
 	}
 
 	/**
-	 * Insere as colunas customizadas do INTT White Label na tabela de produtos admin.
-	 *
-	 * @param array $columns Colunas existentes.
-	 * @return array Colunas reordenadas.
+	 * Injeta colunas de governança B2B / Dropshipping na tabela de produtos.
 	 */
-	public function register_custom_product_columns( $columns ) {
+	public function add_custom_product_columns( $columns ) {
 		$new_columns = array();
 
-		foreach ( $columns as $key => $column ) {
-			$new_columns[ $key ] = $column;
+		foreach ( $columns as $key => $title ) {
+			if ( 'est_profit' === $key || 'taxonomy-dropship_supplier' === $key ) {
+				continue;
+			}
 
+			$new_columns[ $key ] = $title;
+
+			// Insere a coluna Fornecedor & Frete após a coluna 'name'
 			if ( 'name' === $key ) {
 				$new_columns['supplier_freight'] = __( 'Fornecedor & Frete', 'woocommerce-dropshipping' );
 			}
+
+			// Insere as colunas Fiscais e Financeiras após 'price'
 			if ( 'price' === $key ) {
-				$new_columns['cost_margin']     = __( 'Custo & Margem', 'woocommerce-dropshipping' );
-				$new_columns['fiscal_data']     = __( 'Dados Fiscais', 'woocommerce-dropshipping' );
+				$new_columns['cost_margin'] = __( 'Custo & Margem', 'woocommerce-dropshipping' );
+				$new_columns['fiscal_data'] = __( 'Dados Fiscais', 'woocommerce-dropshipping' );
 				$new_columns['curation_status'] = __( 'Status Curadoria', 'woocommerce-dropshipping' );
 			}
 		}
+
+		unset( $new_columns['est_profit'] );
+		unset( $new_columns['taxonomy-dropship_supplier'] );
 
 		return $new_columns;
 	}
 
 	/**
-	 * Renderiza o conteúdo das colunas personalizadas.
-	 *
-	 * @param string $column  Identificador da coluna.
-	 * @param int    $post_id ID do produto/post.
+	 * Renderiza o conteúdo das células das colunas personalizadas.
 	 */
 	public function render_custom_product_column_content( $column, $post_id ) {
+		$product = wc_get_product( $post_id );
+		if ( ! $product ) {
+			return;
+		}
+
 		switch ( $column ) {
 			case 'supplier_freight':
 				$terms = get_the_terms( $post_id, 'dropship_supplier' );
+				$supplier_html = '<span style="color:#6b7280; font-size:11px;">Estoque Próprio</span>';
+
 				if ( ! empty( $terms ) && ! is_wp_error( $terms ) ) {
-					$supplier_names = wp_list_pluck( $terms, 'name' );
-					echo '<div style="font-weight:600; color:#1e293b; font-size:12px;">' . esc_html( implode( ', ', $supplier_names ) ) . '</div>';
-				} else {
-					echo '<div style="color:#64748b; font-size:11px;">INTT Dropshipping Nacional</div>';
+					$supplier_names = array();
+					foreach ( $terms as $term ) {
+						$supplier_names[] = esc_html( $term->name );
+					}
+					$supplier_html = '<span style="background:#7f54b3; color:#fff; padding:2px 8px; border-radius:4px; font-weight:600; font-size:11px; display:inline-block; margin-bottom:4px;">' . implode( ', ', $supplier_names ) . '</span>';
 				}
 
-				$shipping_class_id = get_post_meta( $post_id, '_shipping_class_id', true );
-				if ( $shipping_class_id ) {
-					$term = get_term_by( 'id', $shipping_class_id, 'product_shipping_class' );
-					if ( $term ) {
-						echo '<div style="font-size:11px; color:#475569; margin-top:2px;">🚚 ' . esc_html( $term->name ) . '</div>';
-					}
-				} else {
-					echo '<div style="font-size:11px; color:#475569; margin-top:2px;">🚚 Dropshipping INTT (Lençóis Paulista - SP)</div>';
-				}
+				$shipping_class_id = $product->get_shipping_class_id();
+				$sc_term = $shipping_class_id ? get_term( $shipping_class_id, 'product_shipping_class' ) : false;
+				$sc_name = ( $sc_term && ! is_wp_error( $sc_term ) ) ? esc_html( $sc_term->name ) : 'Padrão';
+
+				echo '<div style="line-height:1.3;">';
+				echo $supplier_html . '<br>';
+				echo '<span style="color:#4b5563; font-size:11px;">🚚 ' . $sc_name . '</span>';
+				echo '</div>';
 				break;
 
 			case 'cost_margin':
-				$cost  = get_post_meta( $post_id, 'wholesale_price', true );
-				$price = get_post_meta( $post_id, '_price', true );
+				$cost_price = get_post_meta( $post_id, '_casosex_cost_price', true );
+				$sale_price = $product->get_price();
 
-				if ( '' !== $cost && numeric_check( $cost ) ) {
-					$cost_val  = floatval( $cost );
-					$price_val = floatval( $price );
-
-					echo '<div style="font-size:12px; font-weight:600; color:#1e293b;">Custo: R$ ' . esc_html( number_format( $cost_val, 2, ',', '.' ) ) . '</div>';
-
-					if ( $price_val > 0 ) {
-						$margin     = $price_val - $cost_val;
-						$margin_pct = ( $margin / $price_val ) * 100;
-						$color      = $margin >= 0 ? '#166534' : '#991b1b';
-						echo '<div style="font-size:11px; font-weight:600; color:' . esc_attr( $color ) . '; margin-top:2px;">Margem: R$ ' . esc_html( number_format( $margin, 2, ',', '.' ) ) . ' (' . esc_html( number_format( $margin_pct, 1, ',', '.' ) ) . '%)</div>';
-					}
-				} else {
-					echo '<span style="color:#9ca3af; font-size:11px;">–</span>';
+				if ( '' === $cost_price || false === $cost_price ) {
+					echo '<span style="color:#9ca3af; font-size:11px;">Não informado</span>';
+					break;
 				}
+
+				$cost_val = floatval( $cost_price );
+				$sale_val = floatval( $sale_price );
+
+				echo '<div style="font-size:11px; line-height:1.4;">';
+				echo '<span style="color:#4b5563;">Custo: <strong>R$ ' . number_format( $cost_val, 2, ',', '.' ) . '</strong></span><br>';
+
+				if ( $sale_val > 0 && $cost_val > 0 ) {
+					$profit = $sale_val - $cost_val;
+					$margin_pct = ( $profit / $sale_val ) * 100;
+
+					$color = '#b91c1c'; // Vermelho < 20%
+					if ( $margin_pct >= 40 ) {
+						$color = '#15803d'; // Verde >= 40%
+					} elseif ( $margin_pct >= 20 ) {
+						$color = '#b45309'; // Amarelo 20-39%
+					}
+
+					echo '<span style="color:' . $color . '; font-weight:600;">Margem: R$ ' . number_format( $profit, 2, ',', '.' ) . ' (' . number_format( $margin_pct, 1, ',', '.' ) . '%)</span>';
+				} else {
+					echo '<span style="color:#9ca3af;">Sem preço venda</span>';
+				}
+				echo '</div>';
 				break;
 
 			case 'fiscal_data':
 				$ncm = get_post_meta( $post_id, '_ncm', true );
+				if ( ! $ncm ) {
+					$ncm = get_post_meta( $post_id, '_ncm_code', true );
+				}
 				$gtin = get_post_meta( $post_id, '_gtin', true );
 				if ( ! $gtin ) {
 					$gtin = get_post_meta( $post_id, '_barcode', true );
 				}
 
-				$ncm_str  = $ncm ? esc_html( $ncm ) : '<span style="color:#9ca3af;">-</span>';
+				$ncm_str = $ncm ? esc_html( $ncm ) : '<span style="color:#9ca3af;">-</span>';
 				$gtin_str = $gtin ? esc_html( $gtin ) : '<span style="color:#9ca3af;">-</span>';
 
 				echo '<div style="font-size:11px; line-height:1.4; color:#374151;">';
@@ -173,8 +170,6 @@ class WC_Dropshipping_Admin_Products_View {
 
 	/**
 	 * Adiciona o dropdown de filtro por fornecedor na barra de filtros da tabela de produtos.
-	 *
-	 * @param string $post_type Tipo de post atual.
 	 */
 	public function add_supplier_filter_dropdown( $post_type ) {
 		if ( 'product' !== $post_type ) {
@@ -190,7 +185,7 @@ class WC_Dropshipping_Admin_Products_View {
 			return;
 		}
 
-		$current_supplier = isset( $_GET['filter_dropship_supplier'] ) ? sanitize_text_field( wp_unslash( $_GET['filter_dropship_supplier'] ) ) : '';
+		$current_supplier = isset( $_GET['filter_dropship_supplier'] ) ? sanitize_text_field( $_GET['filter_dropship_supplier'] ) : '';
 
 		echo '<select name="filter_dropship_supplier" id="filter_dropship_supplier">';
 		echo '<option value="">' . esc_html__( 'Todos os Fornecedores', 'woocommerce-dropshipping' ) . '</option>';
@@ -203,8 +198,6 @@ class WC_Dropshipping_Admin_Products_View {
 
 	/**
 	 * Filtra a query de produtos no WP Admin de acordo com a escolha do fornecedor.
-	 *
-	 * @param WP_Query $query Objeto de query do WordPress.
 	 */
 	public function filter_products_by_supplier_query( $query ) {
 		global $pagenow;
@@ -218,8 +211,8 @@ class WC_Dropshipping_Admin_Products_View {
 		}
 
 		if ( ! empty( $_GET['filter_dropship_supplier'] ) ) {
-			$supplier_slug = sanitize_text_field( wp_unslash( $_GET['filter_dropship_supplier'] ) );
-			$tax_query     = (array) $query->get( 'tax_query' );
+			$supplier_slug = sanitize_text_field( $_GET['filter_dropship_supplier'] );
+			$tax_query = (array) $query->get( 'tax_query' );
 
 			$tax_query[] = array(
 				'taxonomy' => 'dropship_supplier',
@@ -230,16 +223,71 @@ class WC_Dropshipping_Admin_Products_View {
 			$query->set( 'tax_query', $tax_query );
 		}
 	}
-}
 
-/**
- * Função auxiliar para validação numérica de string ou float.
- *
- * @param mixed $val Valor.
- * @return bool
- */
-if ( ! function_exists( 'numeric_check' ) ) {
-	function numeric_check( $val ) {
-		return is_numeric( $val );
+	/**
+	 * Injeta estilos CSS para ajustar as larguras e alinhamentos das colunas.
+	 */
+	public function inject_admin_styles() {
+		$screen = get_current_screen();
+		if ( ! $screen || 'edit-product' !== $screen->id ) {
+			return;
+		}
+		?>
+		<style type="text/css">
+			/* Garante rolagem horizontal fluida do form e tabela */
+			#posts-filter {
+				overflow-x: auto !important;
+				max-width: 100% !important;
+				padding-bottom: 15px;
+			}
+			table.wp-list-table.products {
+				table-layout: auto !important;
+				width: 100% !important;
+				min-width: 1450px !important;
+			}
+			table.wp-list-table.products td, 
+			table.wp-list-table.products th {
+				vertical-align: top !important;
+				padding: 10px 8px !important;
+				word-break: normal !important;
+				overflow-wrap: normal !important;
+				hyphens: manual !important;
+			}
+			/* Prevenção estrita contra quebras verticais de caracteres */
+			table.wp-list-table.products .column-date,
+			table.wp-list-table.products .column-taxonomy-product_brand,
+			table.wp-list-table.products .column-product_cat,
+			table.wp-list-table.products .column-product_tag,
+			table.wp-list-table.products .column-curation_status,
+			table.wp-list-table.products .column-fiscal_data,
+			table.wp-list-table.products .column-cost_margin,
+			table.wp-list-table.products .column-supplier_freight,
+			table.wp-list-table.products .column-wholesale_price,
+			table.wp-list-table.products .column-is_in_stock,
+			table.wp-list-table.products .column-price,
+			table.wp-list-table.products .column-sku,
+			table.wp-list-table.products .column-global_unique_id {
+				white-space: nowrap !important;
+				word-break: normal !important;
+			}
+			table.wp-list-table.products .column-name {
+				white-space: normal !important;
+				min-width: 180px;
+				max-width: 260px;
+			}
+			/* Definição de larguras mínimas reais */
+			.fixed .column-cb { width: 32px !important; }
+			.fixed .column-thumb { width: 52px !important; }
+			.fixed .column-supplier_freight { min-width: 145px !important; }
+			.fixed .column-cost_margin { min-width: 145px !important; }
+			.fixed .column-fiscal_data { min-width: 145px !important; }
+			.fixed .column-curation_status { min-width: 130px !important; }
+			.fixed .column-wholesale_price { min-width: 110px !important; }
+			.fixed .column-taxonomy-product_brand { min-width: 110px !important; }
+			.fixed .column-date { min-width: 120px !important; }
+			/* Esconde permanentemente a coluna legada est_profit do DOM */
+			.column-est_profit { display: none !important; }
+		</style>
+		<?php
 	}
 }
