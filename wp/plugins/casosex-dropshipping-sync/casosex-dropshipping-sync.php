@@ -976,3 +976,188 @@ function casosex_update_stock_and_cost_batch($items = array()) {
 
     return $results;
 }
+
+/**
+ * ============================================================================
+ * MAQUIA STORE UI BENCHMARK — DYNAMIC PAYMENT DRAWER & HOVER COMPONENT
+ * ============================================================================
+ */
+
+/**
+ * Calculates dynamic PagBank installments and PIX discount for a given WooCommerce product.
+ *
+ * @param WC_Product $product
+ * @return array
+ */
+function casosex_calculate_payment_breakdown($product) {
+    if (!$product || !is_a($product, 'WC_Product')) {
+        return array();
+    }
+
+    $price = floatval($product->get_price());
+    if ($price <= 0) {
+        return array();
+    }
+
+    // 1. PagBank Credit Card Settings
+    $pagbank_settings = get_option('woocommerce_pagbank_credit_card_settings', array());
+    $max_installments_free = isset($pagbank_settings['maximum_installments_interest_free']) 
+        ? intval($pagbank_settings['maximum_installments_interest_free']) 
+        : 6;
+
+    if ($max_installments_free < 1) {
+        $max_installments_free = 6;
+    }
+
+    $installment_value = $price / $max_installments_free;
+
+    // 2. PIX Discount Percent (Default 10%)
+    $pix_discount_percent = floatval(get_option('casosex_pix_discount_percent', 10));
+    $pix_price = $price * (1 - ($pix_discount_percent / 100));
+
+    // 3. WhatsApp Number & Message
+    $whatsapp_number = get_option('casosex_whatsapp_number', '5531999999999');
+    $product_name = $product->get_name();
+    $product_permalink = get_permalink($product->get_id());
+    $message = sprintf(
+        "Olá! Vi o produto *%s* por R$ %s na CASOSEX e gostaria de mais informações: %s",
+        $product_name,
+        number_format($price, 2, ',', '.'),
+        $product_permalink
+    );
+    $whatsapp_url = 'https://wa.me/' . preg_replace('/[^0-9]/', '', $whatsapp_number) . '?text=' . rawurlencode($message);
+
+    return array(
+        'price'                 => $price,
+        'max_installments_free' => $max_installments_free,
+        'installment_value'     => $installment_value,
+        'pix_discount_percent' => $pix_discount_percent,
+        'pix_price'             => $pix_price,
+        'whatsapp_url'          => $whatsapp_url,
+    );
+}
+
+/**
+ * Renders the Maquia Store style payment drawer on Blocksy product cards.
+ * Hooked to: blocksy:woocommerce:product-card:summary:after
+ */
+function casosex_render_maquia_product_card_payment_info() {
+    global $product;
+
+    if (!$product) {
+        return;
+    }
+
+    $info = casosex_calculate_payment_breakdown($product);
+    if (empty($info)) {
+        return;
+    }
+
+    ?>
+    <div class="casosex-maquia-payment-drawer">
+        <div class="casosex-card-installment">
+            <span class="casosex-installment-text">ou <strong><?php echo $info['max_installments_free']; ?>x</strong> de <strong>R$ <?php echo number_format($info['installment_value'], 2, ',', '.'); ?></strong> <span class="casosex-badge-free">Sem Juros</span></span>
+        </div>
+        <div class="casosex-card-pix">
+            <span class="casosex-pix-text">Preço à vista: <strong>R$ <?php echo number_format($info['pix_price'], 2, ',', '.'); ?></strong> <span class="casosex-pix-highlight">(<?php echo intval($info['pix_discount_percent']); ?>% OFF no PIX)</span></span>
+        </div>
+        <a href="<?php echo esc_url($info['whatsapp_url']); ?>" target="_blank" rel="noopener noreferrer" class="casosex-whatsapp-btn">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12.012 2C6.486 2 2 6.479 2 12.006c0 1.9.531 3.678 1.455 5.195l-1.455 5.316 5.46-1.431A9.957 9.957 0 0012.012 22c5.526 0 10.012-4.479 10.012-10.006A10.01 10.01 0 0012.012 2zM12 20.305c-1.57 0-3.05-.429-4.328-1.173l-.31-.182-3.218.843.858-3.134-.202-.321A8.28 8.28 0 013.69 12c0-4.582 3.73-8.311 8.31-8.311 4.58 0 8.31 3.729 8.31 8.311 0 4.582-3.73 8.305-8.31 8.305z"/>
+            </svg>
+            Comprar pelo WhatsApp
+        </a>
+    </div>
+    <?php
+}
+add_action('blocksy:woocommerce:product-card:summary:after', 'casosex_render_maquia_product_card_payment_info', 15);
+
+/**
+ * Injects CSS styles for Maquia Store product card hover animation and drawer.
+ */
+function casosex_enqueue_maquia_product_card_styles() {
+    ?>
+    <style id="casosex-maquia-card-styles">
+        .ct-media-container {
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+        }
+
+        .entry-card.product {
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s ease !important;
+        }
+
+        @media (min-width: 992px) {
+            .entry-card.product:hover {
+                transform: translateY(-6px) !important;
+                box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08) !important;
+            }
+        }
+
+        .casosex-maquia-payment-drawer {
+            margin-top: 10px;
+            padding: 10px 12px;
+            background: #fdf9f7;
+            border-radius: 8px;
+            border: 1px solid #f3e6e1;
+            font-size: 0.82rem;
+            line-height: 1.4;
+            color: #444;
+        }
+
+        .casosex-card-installment {
+            margin-bottom: 4px;
+        }
+
+        .casosex-badge-free {
+            display: inline-block;
+            background: #e6f4ea;
+            color: #137333;
+            font-size: 0.72rem;
+            font-weight: 700;
+            padding: 1px 6px;
+            border-radius: 4px;
+            margin-left: 4px;
+            text-transform: uppercase;
+        }
+
+        .casosex-card-pix {
+            margin-bottom: 8px;
+        }
+
+        .casosex-pix-highlight {
+            color: #00875a;
+            font-weight: 700;
+        }
+
+        .casosex-whatsapp-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            background: #25d366;
+            color: #ffffff !important;
+            font-weight: 600;
+            font-size: 0.8rem;
+            padding: 7px 12px;
+            border-radius: 6px;
+            text-decoration: none !important;
+            transition: background 0.2s ease;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        .casosex-whatsapp-btn:hover {
+            background: #1eb956;
+            color: #ffffff !important;
+        }
+
+        .casosex-whatsapp-btn svg {
+            flex-shrink: 0;
+            fill: currentColor;
+        }
+    </style>
+    <?php
+}
+add_action('wp_head', 'casosex_enqueue_maquia_product_card_styles', 99);
+
+
