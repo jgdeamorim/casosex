@@ -2,50 +2,51 @@
  * Compliant with WordPress Admin & WooCommerce Core Styling Standards
  */
 
-/* Container de rolagem horizontal nativo do WordPress Admin */
-.post-type-product #posts-filter {
-    overflow-x: auto;
-    max-width: 100%;
-    padding-bottom: 12px;
+/* Container de rolagem horizontal nativo e fluído */
+body.post-type-product #posts-filter {
+    overflow-x: auto !important;
+    max-width: 100% !important;
+    padding-bottom: 15px;
 }
 
-/* Tabela de produtos com suporte a layout flexível e rolagem fluida */
-.post-type-product table.wp-list-table.products {
-    table-layout: auto;
-    width: 100%;
-    min-width: 1400px;
+/* Tabela de produtos com layout automático expansível */
+body.post-type-product table.wp-list-table.products {
+    table-layout: auto !important;
+    width: 100% !important;
+    min-width: 1500px !important;
 }
 
-/* Alinhamento de células e prevenção contra quebra de texto vertical */
-.post-type-product table.wp-list-table.products th,
-.post-type-product table.wp-list-table.products td {
-    vertical-align: middle;
-    padding: 8px 10px;
+/* Prevenção absoluta contra quebra vertical de texto em todas as células, cabeçalhos e links da tabela */
+body.post-type-product table.wp-list-table.products th,
+body.post-type-product table.wp-list-table.products td,
+body.post-type-product table.wp-list-table.products th *,
+body.post-type-product table.wp-list-table.products td * {
+    white-space: nowrap !important;
+    word-break: normal !important;
+    word-wrap: normal !important;
+    overflow-wrap: normal !important;
+    hyphens: manual !important;
 }
 
-/* Prevenção de quebra vertical de texto para badges, datas e campos numéricos */
-.post-type-product table.wp-list-table.products .column-supplier_freight,
-.post-type-product table.wp-list-table.products .column-sku,
-.post-type-product table.wp-list-table.products .column-global_unique_id,
-.post-type-product table.wp-list-table.products .column-is_in_stock,
-.post-type-product table.wp-list-table.products .column-price,
-.post-type-product table.wp-list-table.products .column-cost_margin,
-.post-type-product table.wp-list-table.products .column-fiscal_data,
-.post-type-product table.wp-list-table.products .column-curation_status,
-.post-type-product table.wp-list-table.products .column-wholesale_price,
-.post-type-product table.wp-list-table.products .column-date {
-    white-space: nowrap;
+/* Apenas o Título do Produto pode ter quebra de linha normal */
+body.post-type-product table.wp-list-table.products .column-name,
+body.post-type-product table.wp-list-table.products .column-name *,
+body.post-type-product table.wp-list-table.products .column-name a {
+    white-space: normal !important;
+    word-break: break-word !important;
+    min-width: 220px !important;
+    max-width: 320px !important;
 }
 
-/* Título do produto com quebra de linha natural */
-.post-type-product table.wp-list-table.products .column-name {
-    white-space: normal;
-    min-width: 200px;
-    max-width: 300px;
+/* Alinhamentos e espaçamento das células */
+body.post-type-product table.wp-list-table.products td,
+body.post-type-product table.wp-list-table.products th {
+    vertical-align: middle !important;
+    padding: 10px 12px !important;
 }
 
-/* Ocultação visual defensiva para colunas legadas desativadas */
-.post-type-product table.wp-list-table.products .column-est_profit,
-.post-type-product table.wp-list-table.products .column-taxonomy-dropship_supplier {
+/* Ocultação forçada das colunas legadas indesejadas */
+body.post-type-product table.wp-list-table.products .column-est_profit,
+body.post-type-product table.wp-list-table.products .column-taxonomy-dropship_supplier {
     display: none !important;
 }
