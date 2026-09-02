@@ -14,6 +14,7 @@ import os
 import base64
 import subprocess
 import http.cookiejar
+import re
 
 WOOCOMMERCE_URL = os.environ.get("CASOSEX_WC_URL", "http://localhost:8085")
 WOOCOMMERCE_CK = os.environ.get("CASOSEX_WC_CK", "ck_0e3eee4f0fb2eb6f8b8861757fb3dba4330185c9")
@@ -71,11 +72,60 @@ def _get_existing_product_via_php(sku: str) -> dict:
         return {}
 
 
+def extract_description_sections(html_desc: str) -> dict:
+    """
+    Extrai seções estruturadas da descrição HTML da INTT para campos personalizados:
+    - usage: Modo de Uso
+    - care: Higiene & Cuidados
+    - content_origin: Conteúdo & Origem
+    """
+    if not html_desc:
+        return {"usage": "", "care": "", "content_origin": ""}
+
+    usage = ""
+    care = ""
+    content_origin = ""
+
+    m_usage = re.search(r'<h4>(?:📖\s*)?Modo de Uso:?</h4>\s*<p>(.*?)</p>', html_desc, re.IGNORECASE | re.DOTALL)
+    if m_usage:
+        usage = m_usage.group(1).strip()
+
+    m_care = re.search(r'<h4>(?:🧼\s*)?Higiene\s*&amp;?\s*Cuidados:?</h4>\s*<p>(.*?)</p>', html_desc, re.IGNORECASE | re.DOTALL)
+    if m_care:
+        care = m_care.group(1).strip()
+
+    m_origin = re.search(r'<p>(?:<strong>)?Conteúdo:?(?:</strong>)?.*?</p>', html_desc, re.IGNORECASE | re.DOTALL)
+    if m_origin:
+        content_origin = m_origin.group(0).strip()
+
+    return {
+        "usage": usage,
+        "care": care,
+        "content_origin": content_origin
+    }
+
+
+def resolve_category_by_product_name(product_name: str, raw_cat: str = "") -> str:
+    """
+    Resolve automaticamente a categoria caso venha vazia ou 'Uncategorized'.
+    """
+    if raw_cat and raw_cat.strip().lower() not in ["", "uncategorized", "sem categoria", "geral"]:
+        return raw_cat.strip()
+    name_lower = product_name.lower()
+    if any(k in name_lower for k in ["masturbador", "egg", "magnus", "stroker", "thor"]):
+        return "Masturbadores Masculinos"
+    if any(k in name_lower for k in ["gel", "lubrificante", "óleo", "oleo", "vibro", "menta", "chiclete", "estimulante", "beijável", "beijavel"]):
+        return "Cosméticos & Géis Eróticos"
+    if any(k in name_lower for k in ["vibrador", "bullet", "prótese", "protese", "plug"]):
+        return "Próteses & Vibradores"
+    return "Produtos Eróticos INTT"
+
+
 def get_or_create_category_id(category_name: str, wc_url: str = WOOCOMMERCE_URL, ck: str = WOOCOMMERCE_CK, cs: str = WOOCOMMERCE_CS) -> int:
     """
     Busca o ID da categoria WooCommerce pelo nome via REST API ou via PHP interno.
     """
-    if not category_name:
+    if not category_name or category_name.strip().lower() in ["uncategorized", "sem categoria"]:
         category_name = "Cosméticos & Géis Eróticos"
 
     endpoint = f"{wc_url}/wp-json/wc/v3/products/categories?search={urllib.parse.quote(category_name)}&consumer_key={ck}&consumer_secret={cs}"
@@ -140,16 +190,30 @@ def ingest_product_to_woocommerce(product_data: dict, wc_url: str = WOOCOMMERCE_
     width = float(product_data.get("width", 0.0))
     height = float(product_data.get("height", 0.0))
     brand = product_data.get("brand", "INTT")
-    category_name = product_data.get("category", "Cosméticos & Géis Eróticos")
+    
+    raw_desc = product_data.get("description", "")
+    sections = extract_description_sections(raw_desc)
+
+    raw_cat = product_data.get("category", "")
+    category_name = resolve_category_by_product_name(product_data.get("name", ""), raw_cat)
     cat_id = get_or_create_category_id(category_name, wc_url, ck, cs)
 
     variations_data = product_data.get("variations", [])
     is_variable = len(variations_data) > 0
 
+    tags_list = [{"name": "INTT"}, {"name": "Dropshipping Nacional"}, {"name": "Sex Shop"}]
+    name_lower = product_data.get("name", "").lower()
+    if "masturbador" in name_lower or "egg" in name_lower:
+        tags_list.append({"name": "Masturbador"})
+    if "gel" in name_lower or "óleo" in name_lower:
+        tags_list.append({"name": "Gel Erótico"})
+    if "vibro" in name_lower or "vibrador" in name_lower:
+        tags_list.append({"name": "Vibrador"})
+
     payload = {
         "name": product_data.get("name", "Produto INTT"),
         "type": "variable" if is_variable else "simple",
-        "description": product_data.get("description", ""),
+        "description": raw_desc,
         "short_description": product_data.get("short_description", ""),
         "sku": sku,
         "weight": str(weight) if weight > 0 else "",
@@ -158,6 +222,7 @@ def ingest_product_to_woocommerce(product_data: dict, wc_url: str = WOOCOMMERCE_
             "width": str(width) if width > 0 else "",
             "height": str(height) if height > 0 else ""
         },
+        "tags": tags_list,
         "meta_data": [
             {"key": "_casosex_stock_type", "value": "dropshipping_intt"},
             {"key": "_casosex_supplier", "value": "INTT"},
@@ -170,7 +235,10 @@ def ingest_product_to_woocommerce(product_data: dict, wc_url: str = WOOCOMMERCE_
             {"key": "_barcode", "value": gtin},
             {"key": "_ncm", "value": ncm},
             {"key": "_weight_net", "value": str(weight_net)},
-            {"key": "_casosex_brand", "value": brand}
+            {"key": "_casosex_brand", "value": brand},
+            {"key": "_casosex_usage", "value": sections["usage"]},
+            {"key": "_casosex_care", "value": sections["care"]},
+            {"key": "_casosex_content", "value": sections["content_origin"]}
         ]
     }
 
@@ -343,7 +411,13 @@ def _ingest_via_php(product_data: dict, product_id: int = None) -> dict:
     width = float(product_data.get("width", 0.0))
     height = float(product_data.get("height", 0.0))
     brand = product_data.get("brand", "INTT").replace("'", "\\'")
-    cat_name = product_data.get("category", "Cosméticos & Géis Eróticos").replace("'", "\\'")
+    raw_cat = product_data.get("category", "")
+    cat_name = resolve_category_by_product_name(product_data.get("name", ""), raw_cat).replace("'", "\\'")
+
+    sections = extract_description_sections(product_data.get("description", ""))
+    usage_txt = sections["usage"].replace("'", "\\'")
+    care_txt = sections["care"].replace("'", "\\'")
+    content_txt = sections["content_origin"].replace("'", "\\'")
 
     variations_data = product_data.get("variations", [])
     is_variable = len(variations_data) > 0
@@ -422,16 +496,68 @@ def _ingest_via_php(product_data: dict, product_id: int = None) -> dict:
     $product->update_meta_data('_ncm', '{ncm}');
     $product->update_meta_data('_weight_net', '{weight_net}');
     $product->update_meta_data('_casosex_brand', '{brand}');
-
-    if (!$product->is_type('variation')) {{
-        $cat_term = get_term_by('name', '{cat_name}', 'product_cat');
-        if ($cat_term) {{
-            $product->set_category_ids(array((int)$cat_term->term_id));
-        }}
-    }}
+    $product->update_meta_data('_casosex_usage', '{usage_txt}');
+    $product->update_meta_data('_casosex_care', '{care_txt}');
+    $product->update_meta_data('_casosex_content', '{content_txt}');
 
     $new_id = $product->save();
-    wp_set_object_terms($new_id, 69, 'dropship_supplier', true);
+
+    if (!$product->is_type('variation')) {{
+        // Categoria
+        $cat_name = '{cat_name}';
+        if (empty($cat_name) || strtolower($cat_name) === 'uncategorized' || strtolower($cat_name) === 'sem categoria') {{
+            $cat_name = 'Produtos Eróticos INTT';
+        }}
+        $cat_term = get_term_by('name', $cat_name, 'product_cat');
+        if (!$cat_term) {{
+            $new_cat = wp_insert_term($cat_name, 'product_cat');
+            if (!is_wp_error($new_cat)) {{
+                $cat_term_id = (int)$new_cat['term_id'];
+            }}
+        }} else {{
+            $cat_term_id = (int)$cat_term->term_id;
+        }}
+        if (isset($cat_term_id) && $cat_term_id > 0) {{
+            $product->set_category_ids(array($cat_term_id));
+            wp_set_object_terms($new_id, array($cat_term_id), 'product_cat');
+        }}
+
+        // Marca (product_brand)
+        $brand_name = '{brand}';
+        if (!empty($brand_name)) {{
+            $brand_term = get_term_by('name', $brand_name, 'product_brand');
+            if (!$brand_term) {{
+                $new_b = wp_insert_term($brand_name, 'product_brand');
+                if (!is_wp_error($new_b)) {{
+                    $brand_term_id = (int)$new_b['term_id'];
+                }}
+            }} else {{
+                $brand_term_id = (int)$brand_term->term_id;
+            }}
+            if (isset($brand_term_id) && $brand_term_id > 0) {{
+                wp_set_object_terms($new_id, array($brand_term_id), 'product_brand', true);
+            }}
+        }}
+
+        // Tags (product_tag)
+        $tags = array('INTT', 'Dropshipping Nacional', 'Sex Shop');
+        $n_low = strtolower('{name}');
+        if (strpos($n_low, 'masturbador') !== false || strpos($n_low, 'egg') !== false) {{
+            $tags[] = 'Masturbador';
+        }}
+        if (strpos($n_low, 'gel') !== false || strpos($n_low, 'óleo') !== false) {{
+            $tags[] = 'Gel Erótico';
+        }}
+        if (strpos($n_low, 'vibro') !== false || strpos($n_low, 'vibrador') !== false) {{
+            $tags[] = 'Vibrador';
+        }}
+        wp_set_object_terms($new_id, array_unique($tags), 'product_tag', true);
+
+        // Fornecedor
+        wp_set_object_terms($new_id, 69, 'dropship_supplier', true);
+        $product->save();
+    }}
+
     echo json_encode(array('id' => $new_id, 'sku' => '{sku}', 'status' => $product->get_status()));
     """
     res = subprocess.run(["docker", "exec", "-i", "casosex-wordpress", "php", "-r", php_script], capture_output=True, text=True)
@@ -562,7 +688,7 @@ def mock_sample_intt_ingest():
     sample_product_simple = {
         "sku": "INTT-9988",
         "name": "Gel de Massagem Corporal INTT Premium 100ml",
-        "description": "Gel de massagem hidratante e beijável com fragrância suave.",
+        "description": "<p>Gel de massagem hidratante e beijável com fragrância suave.</p><h4>📖 Modo de Uso:</h4><p>Aplicar quantidade suficiente na palma da mão e massagear suavemente a região desejada.</p><h4>🧼 Higiene & Cuidados:</h4><p>Conservar em local seco e fresco, fora do alcance de crianças.</p><p>Conteúdo: 100ml | Origem: Nacional (Fabricação INTT)</p>",
         "short_description": "Gel Corporal INTT 100ml",
         "cost_price": 24.90,
         "suggested_price": 49.90,
@@ -582,7 +708,7 @@ def mock_sample_intt_ingest():
     sample_product_variable = {
         "sku": "INTT-9990",
         "name": "VibroBeijável INTT 15ml (Multissabores)",
-        "description": "Gel com sensação de vibração e sabor gourmet para preliminares.",
+        "description": "<p>Gel com sensação de vibração e sabor gourmet para preliminares inesquecíveis.</p><h4>📖 Modo de Uso:</h4><p>Aplicar 2 a 3 borrifadas na região íntima ou lábios e aguardar o efeito vibratório.</p><h4>🧼 Higiene & Cuidados:</h4><p>Manter a embalagem fechada após o uso. Em caso de irritação suspenda o uso.</p><p>Conteúdo: 15ml | Origem: Nacional</p>",
         "short_description": "VibroBeijável INTT 15ml",
         "cost_price": 18.50,
         "suggested_price": 39.90,
