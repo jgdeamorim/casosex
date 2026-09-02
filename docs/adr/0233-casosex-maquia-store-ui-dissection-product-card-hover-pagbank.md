@@ -54,6 +54,12 @@ Conforme a documentação oficial (`https://creativethemes.com/blocksy/docs/wooc
 
 A injeção do componente Hover Maquia respeita integralmente esses seletores nativos sem sobrescrevê-los ou quebrá-los.
 
+### 4. Alinhamento com a Documentação Oficial Blocksy Header Builder Elements
+Conforme a documentação oficial (`https://creativethemes.com/blocksy/docs/header-elements/header-builder-elements/`), o Blocksy Pro fornece elementos modulares e suporte a duplicação de elementos:
+- **Contacts**: Elemento de links diretos configurado via `theme_mods_blocksy` para "Blog" e "Seja Revendedora".
+- **HTML Element & Top Row**: Utilizado para injetar a barra de ofertas rotativa (ticker Swiper) no `Top Row` do cabeçalho global com paleta Marsala/Blush.
+- **Cart, Search & Account**: Integram-se de forma nativa na `Main Row` mantendo a gaveta offcanvas e suporte a login modal.
+
 ---
 
 ## 🎯 Decisão de Arquitetura
