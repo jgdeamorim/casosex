@@ -41,6 +41,7 @@ State : <?php echo $order_info['shipping_info']['shipping_state']; ?><br>
 Postcode : <?php echo $order_info['shipping_info']['shipping_postcode']; ?><br>
 
 Country : <?php echo $order_info['shipping_info']['shipping_country']; ?> <br>
+CPF/CNPJ Destinatário : <?php echo !empty($order_info['order']->get_meta('_billing_cpf')) ? $order_info['order']->get_meta('_billing_cpf') : $order_info['order']->get_meta('_shipping_cpf'); ?><br>
 Phone : <?php echo $order_info['shipping_info']['phone']; ?><br>
 
 Customer Note :
