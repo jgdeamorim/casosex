@@ -1,8 +1,8 @@
 <?php
 /**
  * Plugin Name: CASOSEX Dropshipping Sync & Product Layout
- * Description: Sincroniza metadados nativos de custo (_cost_of_goods), gerencia abas, formata descrição, vincula Atributos Globais, aplica Trava de Segurança de Estoque (<= 5 un) e executa Sincronização Agendada (2x/dia) Nativamente no WordPress.
- * Version: 2.2.0
+ * Description: Sincroniza metadados nativos de custo (_cost_of_goods), gerencia abas, formata descrição, vincula Atributos Globais, aplica Trava de Segurança de Estoque (<= 5 un), resolve Hierarquia de Categorias em 3 Níveis (Matriz INTT) e executa Sincronização Agendada (2x/dia) Nativamente no WordPress.
+ * Version: 2.3.0
  * Author: CASOSEX Sovereign Engine
  */
 
@@ -157,6 +157,145 @@ function casosex_rest_sync_intt_catalog(WP_REST_Request $request) {
 }
 
 /**
+ * Helper para obter ou criar termo de Categoria com Hierarquia
+ */
+function casosex_ensure_category_term($name, $parent_id = 0) {
+    $existing = get_terms(array(
+        'taxonomy'   => 'product_cat',
+        'name'       => $name,
+        'parent'     => $parent_id,
+        'hide_empty' => false,
+    ));
+
+    if (!empty($existing) && !is_wp_error($existing)) {
+        return (int)$existing[0]->term_id;
+    }
+
+    $inserted = wp_insert_term($name, 'product_cat', array(
+        'parent' => $parent_id,
+    ));
+
+    if (!is_wp_error($inserted)) {
+        return (int)$inserted['term_id'];
+    }
+
+    if (isset($inserted->error_data['term_exists'])) {
+        return (int)$inserted->error_data['term_exists'];
+    }
+
+    return 0;
+}
+
+/**
+ * Mapeador e Resolvedor Hierárquico de Categorias (3 Níveis) baseado na Matriz INTT
+ */
+function casosex_resolve_category_hierarchy($name, $description, $incoming_cat = '') {
+    $text = mb_strtolower($name . ' ' . strip_tags($description) . ' ' . $incoming_cat);
+
+    $level1 = 'Cosméticos sensuais';
+    $level2 = 'Excitantes';
+    $level3 = 'Unissex';
+
+    // 1. Saúde e bem-estar
+    if (strpos($text, 'antisséptico') !== false || strpos($text, 'maquiagem') !== false || strpos($text, 'suplemento') !== false || strpos($text, 'sabonete') !== false || strpos($text, 'higienizador') !== false || strpos($text, 'clareador') !== false || strpos($text, 'pompoarismo') !== false) {
+        $level1 = 'Saúde e bem-estar';
+        if (strpos($text, 'sabonete') !== false || strpos($text, 'higienizador') !== false || strpos($text, 'clareador') !== false || strpos($text, 'pompoarismo') !== false || strpos($text, 'coletor') !== false) {
+            $level2 = 'Saúde íntima';
+            if (strpos($text, 'sabonete') !== false) $level3 = 'Sabonetes';
+            elseif (strpos($text, 'higienizador') !== false || strpos($text, 'limpa toys') !== false) $level3 = 'Higienizador de Toys';
+            elseif (strpos($text, 'clareador') !== false) $level3 = 'Clareador e Esfoliante';
+            elseif (strpos($text, 'pompoarismo') !== false) $level3 = 'Pompoarismo';
+            else $level3 = 'Sérum e Creme Hidratante';
+        } else {
+            $level2 = 'Bem-estar';
+            if (strpos($text, 'antisséptico') !== false) $level3 = 'Antisséptico bucal';
+            elseif (strpos($text, 'maquiagem') !== false) $level3 = 'Maquiagem e beleza';
+            elseif (strpos($text, 'óleo corporal') !== false) $level3 = 'Óleo corporal';
+            elseif (strpos($text, 'perfume') !== false) $level3 = 'Perfumes';
+            else $level3 = 'Suplemento';
+        }
+    }
+    // 2. Gel Deslizante (Lubrificantes)
+    elseif (strpos($text, 'lubrificante') !== false || strpos($text, 'gel deslizante') !== false || strpos($text, 'siliconado') !== false || strpos($text, 'hidratante vaginal') !== false) {
+        $level1 = 'Gel Deslizante';
+        if (strpos($text, 'siliconado') !== false) {
+            $level2 = 'Siliconados';
+            $level3 = 'Siliconados';
+        } elseif (strpos($text, 'hidratante vaginal') !== false) {
+            $level2 = 'Hidratante Vaginal';
+            $level3 = 'Hidratante Vaginal';
+        } else {
+            $level2 = 'À base de água';
+            if (strpos($text, 'beijável') !== false || strpos($text, 'beijavel') !== false) $level3 = 'Beijável';
+            elseif (strpos($text, 'térmico') !== false || strpos($text, 'esquenta') !== false) $level3 = 'Térmico';
+            else $level3 = 'Neutro';
+        }
+    }
+    // 3. Vibradores Líquidos
+    elseif (strpos($text, 'vibrador líquido') !== false || strpos($text, 'vibrador liquido') !== false || strpos($text, 'vibration') !== false) {
+        $level1 = 'Vibradores líquidos';
+        $level2 = 'Vibration';
+        $level3 = 'Vibration';
+    }
+    // 4. Vibradores & Sugadores
+    elseif (strpos($text, 'vibrador') !== false || strpos($text, 'sugador') !== false || strpos($text, 'rabbit') !== false || strpos($text, 'bullet') !== false || strpos($text, 'masturbador') !== false) {
+        if (strpos($text, 'sugador') !== false) {
+            $level1 = 'Sugadores de clitóris';
+            $level2 = 'Sugadores de clitóris';
+            $level3 = 'Sugadores de clitóris';
+        } else {
+            $level1 = 'Vibradores';
+            if (strpos($text, 'anal') !== false) { $level2 = 'Anal'; $level3 = 'Anal'; }
+            elseif (strpos($text, 'bullet') !== false) { $level2 = 'Bullet'; $level3 = 'Bullet'; }
+            elseif (strpos($text, 'app') !== false) { $level2 = 'Com App'; $level3 = 'Com App'; }
+            elseif (strpos($text, 'casal') !== false) { $level2 = 'Para casal'; $level3 = 'Para casal'; }
+            elseif (strpos($text, 'anel peniano') !== false || strpos($text, 'masturbador') !== false) {
+                $level2 = 'Masculinos';
+                $level3 = (strpos($text, 'anel') !== false) ? 'Anel peniano' : 'Masturbadores';
+            } else {
+                $level2 = 'Femininos';
+                if (strpos($text, 'rabbit') !== false) $level3 = 'Vibradores Rabbit';
+                elseif (strpos($text, 'ponto g') !== false) $level3 = 'Ponto G';
+                elseif (strpos($text, 'clitóris') !== false || strpos($text, 'clitoriano') !== false) $level3 = 'Vibradores clitorianos';
+                elseif (strpos($text, 'varinha') !== false) $level3 = 'Vibradores varinha mágica';
+                elseif (strpos($text, 'realístico') !== false) $level3 = 'Realísticos';
+                else $level3 = 'Multifuncional';
+            }
+        }
+    }
+    // 5. Cosméticos Sensuais (Padrão para géis, beijáveis, orais, anais)
+    else {
+        $level1 = 'Cosméticos sensuais';
+        if (strpos($text, 'anal') !== false || strpos($text, 'dessensibilizante') !== false) {
+            $level2 = 'Sexo Anal';
+            $level3 = (strpos($text, 'dessensibilizante') !== false) ? 'Dessensibilizante' : 'Excitante anal';
+        } elseif (strpos($text, 'oral') !== false || strpos($text, 'beijável') !== false || strpos($text, 'beijavel') !== false || strpos($text, 'garganta') !== false || strpos($text, 'babalub') !== false) {
+            $level2 = 'Sexo Oral';
+            if (strpos($text, 'garganta') !== false) $level3 = 'Garganta Profunda';
+            elseif (strpos($text, 'calcinha') !== false) $level3 = 'Calcinha comestível';
+            else $level3 = 'Beijáveis';
+        } elseif (strpos($text, 'massagem') !== false || strpos($text, 'vela') !== false || strpos($text, 'óleo') !== false) {
+            $level2 = 'Massagem';
+            if (strpos($text, 'vela') !== false) $level3 = 'Vela beijável';
+            elseif (strpos($text, 'óleo') !== false) $level3 = 'Óleos';
+            else $level3 = 'Géis';
+        } else {
+            $level2 = 'Excitantes';
+            if (strpos($text, 'feminino') !== false) $level3 = 'Feminino';
+            elseif (strpos($text, 'masculino') !== false) $level3 = 'Masculinos';
+            else $level3 = 'Unissex';
+        }
+    }
+
+    // Criar/obter Termos com vinculo Pai-Filho no WooCommerce
+    $l1_id = casosex_ensure_category_term($level1, 0);
+    $l2_id = casosex_ensure_category_term($level2, $l1_id);
+    $l3_id = casosex_ensure_category_term($level3, $l2_id);
+
+    return array_values(array_unique(array_filter(array($l1_id, $l2_id, $l3_id))));
+}
+
+/**
  * Função Nativa PHP de Ingestão e Atualização de Produto WooCommerce no WordPress
  */
 function casosex_ingest_product_native($product_data) {
@@ -178,7 +317,7 @@ function casosex_ingest_product_native($product_data) {
     $length = floatval($product_data['length'] ?? 10);
     $width = floatval($product_data['width'] ?? 5);
     $height = floatval($product_data['height'] ?? 5);
-    $category_name = sanitize_text_field($product_data['category'] ?? 'Produtos Eróticos INTT');
+    $category_name = sanitize_text_field($product_data['category'] ?? '');
     $brand_name = sanitize_text_field($product_data['brand'] ?? 'INTT');
     $variations = $product_data['variations'] ?? array();
     $images = $product_data['images'] ?? array();
@@ -261,6 +400,15 @@ function casosex_ingest_product_native($product_data) {
     $stock_status = ($stock_qty <= CASOSEX_SAFETY_STOCK_THRESHOLD) ? 'outofstock' : 'instock';
     update_post_meta($product_id, '_stock_status', $stock_status);
 
+    // 3. Vincular Hierarquia Completa de Categorias (3 Níveis)
+    if ($product_id) {
+        $cat_ids = casosex_resolve_category_hierarchy($name, $description, $category_name);
+        wp_set_object_terms($product_id, $cat_ids, 'product_cat');
+
+        // Fornecedor INTT (Term 69)
+        wp_set_object_terms($product_id, 69, 'dropship_supplier', true);
+    }
+
     // Vincular termos das taxonomias globais no WordPress
     if ($product_id) {
         foreach ($global_attrs as $tax_name => $term_slugs) {
@@ -284,26 +432,7 @@ function casosex_ingest_product_native($product_data) {
         }
     }
 
-    // Categorias e Termos de Fornecedor
-    if ($product_id) {
-        $cat_term = get_term_by('name', $category_name, 'product_cat');
-        if (!$cat_term) {
-            $new_cat = wp_insert_term($category_name, 'product_cat');
-            if (!is_wp_error($new_cat)) {
-                $cat_term_id = (int)$new_cat['term_id'];
-            }
-        } else {
-            $cat_term_id = (int)$cat_term->term_id;
-        }
-        if (isset($cat_term_id) && $cat_term_id > 0) {
-            wp_set_object_terms($product_id, array($cat_term_id), 'product_cat');
-        }
-
-        // Fornecedor INTT (Term 69)
-        wp_set_object_terms($product_id, 69, 'dropship_supplier', true);
-    }
-
-    // 3. Download e Vínculo de Imagens via Media Sideload
+    // 4. Download e Vínculo de Imagens via Media Sideload
     if (!empty($images) && is_array($images)) {
         require_once(ABSPATH . 'wp-admin/includes/media.php');
         require_once(ABSPATH . 'wp-admin/includes/file.php');
@@ -329,7 +458,7 @@ function casosex_ingest_product_native($product_data) {
         $product->save();
     }
 
-    // 4. Variações Filhas
+    // 5. Variações Filhas
     if (empty($variations)) {
         $variations = array(
             array(
@@ -392,6 +521,7 @@ function casosex_ingest_product_native($product_data) {
         'stock_quantity' => $stock_qty,
         'stock_status' => get_post_meta($product_id, '_stock_status', true),
         'variations_count' => count($var_ids),
+        'categories_assigned' => count(wp_get_post_terms($product_id, 'product_cat')),
         'global_attributes' => array_keys($global_attrs),
         'image_id' => $product->get_image_id(),
         'gallery_count' => count($product->get_gallery_image_ids())
