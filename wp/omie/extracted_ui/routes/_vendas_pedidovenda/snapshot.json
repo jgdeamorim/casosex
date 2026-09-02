@@ -1,0 +1,54 @@
+{
+  "route": "/vendas/pedidovenda/",
+  "url": "https://app.omie.com.br/vendas/pedidovenda/",
+  "title": "Gestão de Vendas & Pedidos (Omie ERP)",
+  "forms_schema": [
+    {
+      "id": "form_pedido_venda",
+      "inputs": [
+        {
+          "name": "codigo_cliente",
+          "type": "select",
+          "label": "Cliente / Razão Social"
+        },
+        {
+          "name": "codigo_pedido_integracao",
+          "type": "text",
+          "label": "Cód. Pedido Integrador"
+        },
+        {
+          "name": "etapa",
+          "type": "select",
+          "label": "Etapa do Pedido"
+        },
+        {
+          "name": "codigo_parcela",
+          "type": "select",
+          "label": "Condição de Pagamento"
+        },
+        {
+          "name": "codigo_produto",
+          "type": "select",
+          "label": "Item SKU"
+        },
+        {
+          "name": "quantidade",
+          "type": "number",
+          "label": "Quantidade"
+        },
+        {
+          "name": "valor_unitario",
+          "type": "number",
+          "label": "Valor Unitário (R$)"
+        }
+      ]
+    }
+  ],
+  "computed_styles": {
+    "header_bg": "rgb(0, 30, 39)",
+    "cyan_accent": "rgb(0, 226, 244)",
+    "font_family": "Poppins, Roboto, sans-serif",
+    "border_radius": "24px",
+    "box_shadow": "rgba(0, 0, 0, 0.12) 0px 2px 5px 0px"
+  }
+}

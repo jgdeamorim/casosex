@@ -1,0 +1,39 @@
+{
+  "route": "/crm/oportunidades/",
+  "url": "https://app.omie.com.br/crm/oportunidades/",
+  "title": "CRM e Funil de Vendas B2B (Omie ERP)",
+  "forms_schema": [
+    {
+      "id": "form_crm_oportunidade",
+      "inputs": [
+        {
+          "name": "codigo_cliente",
+          "type": "select",
+          "label": "Lead / Cliente B2B"
+        },
+        {
+          "name": "nome_oportunidade",
+          "type": "text",
+          "label": "Nome do Negócio"
+        },
+        {
+          "name": "valor_estimado",
+          "type": "number",
+          "label": "Valor Estimado (R$)"
+        },
+        {
+          "name": "fase_funil",
+          "type": "select",
+          "label": "Fase do Funil"
+        }
+      ]
+    }
+  ],
+  "computed_styles": {
+    "header_bg": "rgb(0, 30, 39)",
+    "cyan_accent": "rgb(0, 226, 244)",
+    "font_family": "Poppins, Roboto, sans-serif",
+    "border_radius": "24px",
+    "box_shadow": "rgba(0, 0, 0, 0.12) 0px 2px 5px 0px"
+  }
+}

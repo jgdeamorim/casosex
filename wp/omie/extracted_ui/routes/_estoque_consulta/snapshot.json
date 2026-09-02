@@ -1,0 +1,39 @@
+{
+  "route": "/estoque/consulta/",
+  "url": "https://app.omie.com.br/estoque/consulta/",
+  "title": "Consulta e Movimentação de Estoque (Omie ERP)",
+  "forms_schema": [
+    {
+      "id": "form_estoque_consulta",
+      "inputs": [
+        {
+          "name": "codigo_local_estoque",
+          "type": "select",
+          "label": "Local de Estoque"
+        },
+        {
+          "name": "codigo_produto",
+          "type": "text",
+          "label": "Código / SKU do Produto"
+        },
+        {
+          "name": "quantidade_ajuste",
+          "type": "number",
+          "label": "Quantidade para Ajuste"
+        },
+        {
+          "name": "motivo_movimentacao",
+          "type": "select",
+          "label": "Motivo da Movimentação"
+        }
+      ]
+    }
+  ],
+  "computed_styles": {
+    "header_bg": "rgb(0, 30, 39)",
+    "cyan_accent": "rgb(0, 226, 244)",
+    "font_family": "Poppins, Roboto, sans-serif",
+    "border_radius": "24px",
+    "box_shadow": "rgba(0, 0, 0, 0.12) 0px 2px 5px 0px"
+  }
+}

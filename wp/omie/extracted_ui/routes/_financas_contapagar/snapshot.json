@@ -1,0 +1,39 @@
+{
+  "route": "/financas/contapagar/",
+  "url": "https://app.omie.com.br/financas/contapagar/",
+  "title": "Gestão Financeira e Contas a Pagar/Receber (Omie ERP)",
+  "forms_schema": [
+    {
+      "id": "form_financas_contapagar",
+      "inputs": [
+        {
+          "name": "codigo_fornecedor",
+          "type": "select",
+          "label": "Fornecedor / Favorecido"
+        },
+        {
+          "name": "valor_titulo",
+          "type": "number",
+          "label": "Valor do Título (R$)"
+        },
+        {
+          "name": "data_vencimento",
+          "type": "date",
+          "label": "Data de Vencimento"
+        },
+        {
+          "name": "codigo_categoria",
+          "type": "select",
+          "label": "Categoria DRE"
+        }
+      ]
+    }
+  ],
+  "computed_styles": {
+    "header_bg": "rgb(0, 30, 39)",
+    "cyan_accent": "rgb(0, 226, 244)",
+    "font_family": "Poppins, Roboto, sans-serif",
+    "border_radius": "24px",
+    "box_shadow": "rgba(0, 0, 0, 0.12) 0px 2px 5px 0px"
+  }
+}
