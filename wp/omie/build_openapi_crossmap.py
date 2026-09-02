@@ -11,6 +11,15 @@ def load_catalog():
             return json.load(f)
     return []
 
+MODULE_ANCHORS = {
+    "crm": {"hash": "#SFA", "id": "SFA", "name": "CRM / Força de Vendas"},
+    "produtos": {"hash": "#VPR", "id": "VPR", "name": "Vendas e Produção / Estoque"},
+    "vendas": {"hash": "#VEN", "id": "VEN", "name": "Vendas e NF-e"},
+    "compras": {"hash": "#COM", "id": "COM", "name": "Compras e Suprimentos"},
+    "financas": {"hash": "#FIN", "id": "FIN", "name": "Finanças e DRE"},
+    "geral": {"hash": "#CTB", "id": "CTB", "name": "Contabilidade / Configurações"}
+}
+
 def generate_openapi_31():
     catalog = load_catalog()
     paths = {}
@@ -20,12 +29,17 @@ def generate_openapi_31():
         srv = item.get("service", "unknown")
         url_path = f"/api/v1/{cat}/{srv}/"
         
+        anchor_info = MODULE_ANCHORS.get(cat, {"hash": "#GEN", "id": cat.upper(), "name": cat.capitalize()})
+        
         paths[url_path] = {
             "post": {
                 "summary": f"Serviço Omie JSON-RPC: {cat.upper()} / {srv}",
                 "description": f"Endpoint operacional Omie ERP para o módulo {cat}. Suporta ações JSON-RPC como Incluir, Alterar, Consultar e Excluir.",
                 "operationId": f"{cat}_{srv}",
                 "tags": [cat.capitalize()],
+                "x-ko-module-hash": anchor_info["hash"],
+                "x-ko-module-id": anchor_info["id"],
+                "x-ko-module-name": anchor_info["name"],
                 "requestBody": {
                     "required": True,
                     "content": {
@@ -71,8 +85,8 @@ def generate_openapi_31():
         "openapi": "3.1.0",
         "info": {
             "title": "CASOSEX Sovereign Omie ERP API Specification",
-            "version": "1.0.0",
-            "description": "Matriz Soberana OpenAPI 3.1 compilada a partir de 138 serviços mapeados do Omie ERP."
+            "version": "1.1.0",
+            "description": "Matriz Soberana OpenAPI 3.1 compilada a partir de 138 serviços mapeados do Omie ERP com cruzamento Knockout.js UI."
         },
         "servers": [
             { "url": "https://app.omie.com.br", "description": "Servidor Oficial Omie ERP" },
@@ -85,7 +99,7 @@ def generate_openapi_31():
     with open(out_file, "w", encoding="utf-8") as f:
         json.dump(openapi_doc, f, indent=2, ensure_ascii=False)
     
-    print(f"🎉 OpenAPI 3.1 Spec gerada com {len(paths)} rotas em: {out_file}")
+    print(f"🎉 OpenAPI 3.1 Spec gerada com {len(paths)} rotas e âncoras Knockout.js em: {out_file}")
     return openapi_doc
 
 if __name__ == "__main__":
