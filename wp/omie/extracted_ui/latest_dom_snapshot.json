@@ -1,0 +1,660 @@
+{
+  "url": "https://portal.omie.com.br/meus-aplicativos",
+  "title": "Portal Omie",
+  "svg_count": 25,
+  "svgs": [
+    {
+      "id": "svg_0",
+      "className": "MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-u6g03j",
+      "viewBox": "0 0 24 24",
+      "outerHTML": "<svg class=\"MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-u6g03j\" focusable=\"false\" aria-hidden=\"true\" viewBox=\"0 0 24 24\" data-testid=\"SettingsIcon\"><path d=\"M19.14 12.94c.04-.3.06-.61.06-.94 0-.32-.02-.64-.07-.94l2.03-1.58c.18-.14.23-.41.12-.61l-1.92-3.32c-.12-.22-.37-.29-.59-.22l-2.39.96c-.5-.38-1.03-.7-1.62-.94l-.36-2.54c-.04-.24-.24-.41-.48-.41h-3.84c-.24 0-.43.17-.47.41l-.36 2.54c-.59.24-1.13.57-1.62.94l-2.39-.96c-.22-.08-.47 0-.59.22L2.74 8.87c-.12.21-.08.47.12.61l2.03 1.58c-.05.3-.09.63-.09.94s.02.64.07.94l-2.03 1.58c-.18.14-.23.41-.12.61l1.92 3.32c.12.22.37.29.59.22l2.39-.96c.5.38 1.03.7 1.62.94l.36 2.54c.05.24.24.41.48.41h3.84c.24 0 .44-.17.47-.41l.36-2.54c.59-.24 1.13-.56 1.62-.94l2.39.96c.22.08.47 0 .59-.22l1.92-3.32c.12-.22.07-.47-.12-.61zM12 15.6c-1.98 0-3.6-1.62-3.6-3.6s1.62-3.6 3.6-3.6 3.6 1.62 3.6 3.6-1.62 3.6-3.6 3.6\"></path></svg>"
+    },
+    {
+      "id": "svg_1",
+      "className": "MuiSvgIcon-root MuiSvgIcon-fontSizeMedium jss70 css-vubbuv",
+      "viewBox": "0 0 24 24",
+      "outerHTML": "<svg class=\"MuiSvgIcon-root MuiSvgIcon-fontSizeMedium jss70 css-vubbuv\" focusable=\"false\" aria-hidden=\"true\" viewBox=\"0 0 24 24\" data-testid=\"AddCircleIcon\"><path d=\"M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2m5 11h-4v4h-2v-4H7v-2h4V7h2v4h4z\"></path></svg>"
+    },
+    {
+      "id": "svg_2",
+      "className": "MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-1t8mnmp",
+      "viewBox": "0 0 24 24",
+      "outerHTML": "<svg class=\"MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-1t8mnmp\" focusable=\"false\" aria-hidden=\"true\" viewBox=\"0 0 24 24\" data-testid=\"SearchIcon\"><path d=\"M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14\"></path></svg>"
+    },
+    {
+      "id": "svg_3",
+      "className": "MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-a9rhlz",
+      "viewBox": "0 0 24 24",
+      "outerHTML": "<svg class=\"MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-a9rhlz\" focusable=\"false\" aria-hidden=\"true\" viewBox=\"0 0 24 24\" data-testid=\"HelpIcon\"><path d=\"M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2m1 17h-2v-2h2zm2.07-7.75-.9.92C13.45 12.9 13 13.5 13 15h-2v-.5c0-1.1.45-2.1 1.17-2.83l1.24-1.26c.37-.36.59-.86.59-1.41 0-1.1-.9-2-2-2s-2 .9-2 2H8c0-2.21 1.79-4 4-4s4 1.79 4 4c0 .88-.36 1.68-.93 2.25\"></path></svg>"
+    },
+    {
+      "id": "svg_4",
+      "className": "MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-1in87jz",
+      "viewBox": "0 0 24 24",
+      "outerHTML": "<svg class=\"MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-1in87jz\" focusable=\"false\" aria-hidden=\"true\" viewBox=\"0 0 24 24\" data-testid=\"FormatListBulletedIcon\"><path d=\"M4 10.5c-.83 0-1.5.67-1.5 1.5s.67 1.5 1.5 1.5 1.5-.67 1.5-1.5-.67-1.5-1.5-1.5m0-6c-.83 0-1.5.67-1.5 1.5S3.17 7.5 4 7.5 5.5 6.83 5.5 6 4.83 4.5 4 4.5m0 12c-.83 0-1.5.68-1.5 1.5s.68 1.5 1.5 1.5 1.5-.68 1.5-1.5-.67-1.5-1.5-1.5M7 19h14v-2H7zm0-6h14v-2H7zm0-8v2h14V5z\"></path></svg>"
+    },
+    {
+      "id": "svg_5",
+      "className": "MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-1in87jz",
+      "viewBox": "0 0 24 24",
+      "outerHTML": "<svg class=\"MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-1in87jz\" focusable=\"false\" aria-hidden=\"true\" viewBox=\"0 0 24 24\" data-testid=\"ViewModuleIcon\"><path d=\"M14.67 5v6.5H9.33V5zm1 6.5H21V5h-5.33zm-1 7.5v-6.5H9.33V19zm1-6.5V19H21v-6.5zm-7.34 0H3V19h5.33zm0-1V5H3v6.5z\"></path></svg>"
+    },
+    {
+      "id": "svg_6",
+      "className": "MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-1in87jz",
+      "viewBox": "0 0 24 24",
+      "outerHTML": "<svg class=\"MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-1in87jz\" focusable=\"false\" aria-hidden=\"true\" viewBox=\"0 0 24 24\" data-testid=\"FilterAltOutlinedIcon\"><path d=\"M7 6h10l-5.01 6.3zm-2.75-.39C6.27 8.2 10 13 10 13v6c0 .55.45 1 1 1h2c.55 0 1-.45 1-1v-6s3.72-4.8 5.74-7.39c.51-.66.04-1.61-.79-1.61H5.04c-.83 0-1.3.95-.79 1.61\"></path></svg>"
+    },
+    {
+      "id": "svg_7",
+      "className": "MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-1in87jz",
+      "viewBox": "0 0 24 24",
+      "outerHTML": "<svg class=\"MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-1in87jz\" focusable=\"false\" aria-hidden=\"true\" viewBox=\"0 0 24 24\" data-testid=\"SwapVertIcon\"><path d=\"M16 17.01V10h-2v7.01h-3L15 21l4-3.99zM9 3 5 6.99h3V14h2V6.99h3z\"></path></svg>"
+    },
+    {
+      "id": "svg_8",
+      "className": "MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-xdm81s",
+      "viewBox": "0 0 24 24",
+      "outerHTML": "<svg class=\"MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-xdm81s\" focusable=\"false\" aria-hidden=\"true\" viewBox=\"0 0 24 24\" data-testid=\"FavoriteBorderOutlinedIcon\"><path d=\"M16.5 3c-1.74 0-3.41.81-4.5 2.09C10.91 3.81 9.24 3 7.5 3 4.42 3 2 5.42 2 8.5c0 3.78 3.4 6.86 8.55 11.54L12 21.35l1.45-1.32C18.6 15.36 22 12.28 22 8.5 22 5.42 19.58 3 16.5 3m-4.4 15.55-.1.1-.1-.1C7.14 14.24 4 11.39 4 8.5 4 6.5 5.5 5 7.5 5c1.54 0 3.04.99 3.57 2.36h1.87C13.46 5.99 14.96 5 16.5 5c2 0 3.5 1.5 3.5 3.5 0 2.89-3.14 5.74-7.9 10.05\"></path></svg>"
+    },
+    {
+      "id": "svg_9",
+      "className": "MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-hypm0o",
+      "viewBox": "0 0 24 24",
+      "outerHTML": "<svg class=\"MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-hypm0o\" focusable=\"false\" aria-hidden=\"true\" viewBox=\"0 0 24 24\" data-testid=\"SettingsOutlinedIcon\"><path d=\"M19.43 12.98c.04-.32.07-.64.07-.98 0-.34-.03-.66-.07-.98l2.11-1.65c.19-.15.24-.42.12-.64l-2-3.46c-.09-.16-.26-.25-.44-.25-.06 0-.12.01-.17.03l-2.49 1c-.52-.4-1.08-.73-1.69-.98l-.38-2.65C14.46 2.18 14.25 2 14 2h-4c-.25 0-.46.18-.49.42l-.38 2.65c-.61.25-1.17.59-1.69.98l-2.49-1c-.06-.02-.12-.03-.18-.03-.17 0-.34.09-.43.25l-2 3.46c-.13.22-.07.49.12.64l2.11 1.65c-.04.32-.07.65-.07.98 0 .33.03.66.07.98l-2.11 1.65c-.19.15-.24.42-.12.64l2 3.46c.09.16.26.25.44.25.06 0 .12-.01.17-.03l2.49-1c.52.4 1.08.73 1.69.98l.38 2.65c.03.24.24.42.49.42h4c.25 0 .46-.18.49-.42l.38-2.65c.61-.25 1.17-.59 1.69-.98l2.49 1c.06.02.12.03.18.03.17 0 .34-.09.43-.25l2-3.46c.12-.22.07-.49-.12-.64zm-1.98-1.71c.04.31.05.52.05.73 0 .21-.02.43-.05.73l-.14 1.13.89.7 1.08.84-.7 1.21-1.27-.51-1.04-.42-.9.68c-.43.32-.84.56-1.25.73l-1.06.43-.16 1.13-.2 1.35h-1.4l-.19-1.35-.16-1.13-1.06-.43c-.43-.18-.83-.41-1.23-.71l-.91-.7-1.06.43-1.27.51-.7-1.21 1.08-.84.89-.7-.14-1.13c-.03-.31-.05-.54-.05-.74s.02-.43.05-.73l.14-1.13-.89-.7-1.08-.84.7-1.21 1.27.51 1.04.42.9-.68c.43-.32.84-.56 1.25-.73l1.06-.43.16-1.13.2-1.35h1.39l.19 1.35.16 1.13 1.06.43c.43.18.83.41 1.23.71l.91.7 1.06-.43 1.27-.51.7 1.21-1.07.85-.89.7zM12 8c-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4-1.79-4-4-4m0 6c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2\"></path></svg>"
+    },
+    {
+      "id": "svg_10",
+      "className": "MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-vubbuv",
+      "viewBox": "0 0 24 24",
+      "outerHTML": "<svg class=\"MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-vubbuv\" focusable=\"false\" aria-hidden=\"true\" viewBox=\"0 0 24 24\" data-testid=\"KeyboardArrowLeftIcon\"><path d=\"M15.41 16.59 10.83 12l4.58-4.59L14 6l-6 6 6 6z\"></path></svg>"
+    },
+    {
+      "id": "svg_11",
+      "className": "MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-vubbuv",
+      "viewBox": "0 0 24 24",
+      "outerHTML": "<svg class=\"MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-vubbuv\" focusable=\"false\" aria-hidden=\"true\" viewBox=\"0 0 24 24\" data-testid=\"KeyboardArrowRightIcon\"><path d=\"M8.59 16.59 13.17 12 8.59 7.41 10 6l6 6-6 6z\"></path></svg>"
+    },
+    {
+      "id": "svg_12",
+      "className": "MuiSvgIcon-root MuiSvgIcon-fontSizeMedium jss140 css-vubbuv",
+      "viewBox": "0 0 24 24",
+      "outerHTML": "<svg class=\"MuiSvgIcon-root MuiSvgIcon-fontSizeMedium jss140 css-vubbuv\" focusable=\"false\" aria-hidden=\"true\" viewBox=\"0 0 24 24\" data-testid=\"ArrowForwardIcon\"><path d=\"m12 4-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z\"></path></svg>"
+    },
+    {
+      "id": "svg_13",
+      "className": "MuiSvgIcon-root MuiSvgIcon-fontSizeMedium jss140 css-vubbuv",
+      "viewBox": "0 0 24 24",
+      "outerHTML": "<svg class=\"MuiSvgIcon-root MuiSvgIcon-fontSizeMedium jss140 css-vubbuv\" focusable=\"false\" aria-hidden=\"true\" viewBox=\"0 0 24 24\" data-testid=\"ArrowForwardIcon\"><path d=\"m12 4-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z\"></path></svg>"
+    },
+    {
+      "id": "svg_14",
+      "className": "MuiSvgIcon-root MuiSvgIcon-fontSizeMedium jss140 css-vubbuv",
+      "viewBox": "0 0 24 24",
+      "outerHTML": "<svg class=\"MuiSvgIcon-root MuiSvgIcon-fontSizeMedium jss140 css-vubbuv\" focusable=\"false\" aria-hidden=\"true\" viewBox=\"0 0 24 24\" data-testid=\"ArrowForwardIcon\"><path d=\"m12 4-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z\"></path></svg>"
+    },
+    {
+      "id": "svg_15",
+      "className": "MuiSvgIcon-root MuiSvgIcon-fontSizeMedium jss140 css-vubbuv",
+      "viewBox": "0 0 24 24",
+      "outerHTML": "<svg class=\"MuiSvgIcon-root MuiSvgIcon-fontSizeMedium jss140 css-vubbuv\" focusable=\"false\" aria-hidden=\"true\" viewBox=\"0 0 24 24\" data-testid=\"ArrowForwardIcon\"><path d=\"m12 4-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z\"></path></svg>"
+    },
+    {
+      "id": "svg_16",
+      "className": "MuiSvgIcon-root MuiSvgIcon-fontSizeMedium jss140 css-vubbuv",
+      "viewBox": "0 0 24 24",
+      "outerHTML": "<svg class=\"MuiSvgIcon-root MuiSvgIcon-fontSizeMedium jss140 css-vubbuv\" focusable=\"false\" aria-hidden=\"true\" viewBox=\"0 0 24 24\" data-testid=\"ArrowForwardIcon\"><path d=\"m12 4-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z\"></path></svg>"
+    },
+    {
+      "id": "svg_17",
+      "className": "MuiSvgIcon-root MuiSvgIcon-fontSizeMedium jss140 css-vubbuv",
+      "viewBox": "0 0 24 24",
+      "outerHTML": "<svg class=\"MuiSvgIcon-root MuiSvgIcon-fontSizeMedium jss140 css-vubbuv\" focusable=\"false\" aria-hidden=\"true\" viewBox=\"0 0 24 24\" data-testid=\"ArrowForwardIcon\"><path d=\"m12 4-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z\"></path></svg>"
+    },
+    {
+      "id": "svg_18",
+      "className": "MuiSvgIcon-root MuiSvgIcon-fontSizeMedium jss140 css-vubbuv",
+      "viewBox": "0 0 24 24",
+      "outerHTML": "<svg class=\"MuiSvgIcon-root MuiSvgIcon-fontSizeMedium jss140 css-vubbuv\" focusable=\"false\" aria-hidden=\"true\" viewBox=\"0 0 24 24\" data-testid=\"ArrowForwardIcon\"><path d=\"m12 4-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z\"></path></svg>"
+    },
+    {
+      "id": "svg_19",
+      "className": "MuiSvgIcon-root MuiSvgIcon-fontSizeMedium jss140 css-vubbuv",
+      "viewBox": "0 0 24 24",
+      "outerHTML": "<svg class=\"MuiSvgIcon-root MuiSvgIcon-fontSizeMedium jss140 css-vubbuv\" focusable=\"false\" aria-hidden=\"true\" viewBox=\"0 0 24 24\" data-testid=\"ArrowForwardIcon\"><path d=\"m12 4-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z\"></path></svg>"
+    },
+    {
+      "id": "svg_20",
+      "className": "MuiSvgIcon-root MuiSvgIcon-fontSizeMedium jss140 css-vubbuv",
+      "viewBox": "0 0 24 24",
+      "outerHTML": "<svg class=\"MuiSvgIcon-root MuiSvgIcon-fontSizeMedium jss140 css-vubbuv\" focusable=\"false\" aria-hidden=\"true\" viewBox=\"0 0 24 24\" data-testid=\"ArrowForwardIcon\"><path d=\"m12 4-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z\"></path></svg>"
+    },
+    {
+      "id": "svg_21",
+      "className": "",
+      "viewBox": "0 0 24 24",
+      "outerHTML": "<svg width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n  <path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M18.601 8.39897C18.269 8.06702 17.7309 8.06702 17.3989 8.39897L12 13.7979L6.60099 8.39897C6.26904 8.06702 5.73086 8.06702 5.39891 8.39897C5.06696 8.73091 5.06696 9.2691 5.39891 9.60105L11.3989 15.601C11.7309 15.933 12.269 15.933 12.601 15.601L18.601 9.60105C18.9329 9.2691 18.9329 8.73091 18.601 8.39897Z\" fill=\"currentColor\"></path>\n</svg>"
+    },
+    {
+      "id": "svg_22",
+      "className": "MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconOutlined css-1636szt",
+      "viewBox": "0 0 24 24",
+      "outerHTML": "<svg class=\"MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconOutlined css-1636szt\" focusable=\"false\" aria-hidden=\"true\" viewBox=\"0 0 24 24\" data-testid=\"ArrowDropDownIcon\"><path d=\"M7 10l5 5 5-5z\"></path></svg>"
+    },
+    {
+      "id": "svg_23",
+      "className": "MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-vubbuv",
+      "viewBox": "0 0 24 24",
+      "outerHTML": "<svg class=\"MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-vubbuv\" focusable=\"false\" aria-hidden=\"true\" viewBox=\"0 0 24 24\" data-testid=\"CheckBoxOutlineBlankIcon\"><path d=\"M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z\"></path></svg>"
+    },
+    {
+      "id": "svg_24",
+      "className": "MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconOutlined css-1636szt",
+      "viewBox": "0 0 24 24",
+      "outerHTML": "<svg class=\"MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconOutlined css-1636szt\" focusable=\"false\" aria-hidden=\"true\" viewBox=\"0 0 24 24\" data-testid=\"ArrowDropDownIcon\"><path d=\"M7 10l5 5 5-5z\"></path></svg>"
+    }
+  ],
+  "computed_styles": [
+    {
+      "tagName": "HEADER",
+      "className": "MuiPaper-root MuiPaper-elevation MuiPaper-elevation0 MuiAppBar-root MuiAppBar-colorInherit MuiAppBar-positionFixed jss6 mui-fixed css-25e6h",
+      "backgroundColor": "rgb(0, 30, 39)",
+      "color": "rgb(97, 97, 97)",
+      "fontFamily": "Roboto, sans-serif",
+      "borderRadius": "0px",
+      "boxShadow": "none",
+      "fontSize": "14px"
+    },
+    {
+      "tagName": "DIV",
+      "className": "jss16 MuiBox-root css-0",
+      "backgroundColor": "rgb(0, 226, 244)",
+      "color": "rgb(0, 30, 39)",
+      "fontFamily": "Poppins",
+      "borderRadius": "0px",
+      "boxShadow": "none",
+      "fontSize": "14px"
+    },
+    {
+      "tagName": "BUTTON",
+      "className": "MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary jss18 css-g5e9i6",
+      "backgroundColor": "rgb(255, 255, 255)",
+      "color": "rgb(0, 30, 39)",
+      "fontFamily": "Poppins",
+      "borderRadius": "50px",
+      "boxShadow": "none",
+      "fontSize": "14px"
+    },
+    {
+      "tagName": "DIV",
+      "className": "MuiToolbar-root MuiToolbar-gutters MuiToolbar-regular jss4 css-1ss4cyx",
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "color": "rgb(97, 97, 97)",
+      "fontFamily": "Roboto, sans-serif",
+      "borderRadius": "0px",
+      "boxShadow": "none",
+      "fontSize": "14px"
+    },
+    {
+      "tagName": "DIV",
+      "className": "MuiContainer-root MuiContainer-maxWidthLg jss5 css-1qsxih2",
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "color": "rgb(97, 97, 97)",
+      "fontFamily": "Roboto, sans-serif",
+      "borderRadius": "0px",
+      "boxShadow": "none",
+      "fontSize": "14px"
+    },
+    {
+      "tagName": "DIV",
+      "className": "MuiGrid-root MuiGrid-container css-1b1jvye",
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "color": "rgb(97, 97, 97)",
+      "fontFamily": "Roboto, sans-serif",
+      "borderRadius": "0px",
+      "boxShadow": "none",
+      "fontSize": "14px"
+    },
+    {
+      "tagName": "DIV",
+      "className": "MuiGrid-root MuiGrid-item MuiGrid-grid-xs-auto css-19g2724",
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "color": "rgb(97, 97, 97)",
+      "fontFamily": "Roboto, sans-serif",
+      "borderRadius": "0px",
+      "boxShadow": "none",
+      "fontSize": "14px"
+    },
+    {
+      "tagName": "DIV",
+      "className": "MuiGrid-root MuiGrid-item MuiGrid-grid-xs-auto css-19g2724",
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "color": "rgb(97, 97, 97)",
+      "fontFamily": "Roboto, sans-serif",
+      "borderRadius": "0px",
+      "boxShadow": "none",
+      "fontSize": "14px"
+    },
+    {
+      "tagName": "DIV",
+      "className": "MuiGrid-root MuiGrid-container jss30 css-bxtot6",
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "color": "rgb(97, 97, 97)",
+      "fontFamily": "Roboto, sans-serif",
+      "borderRadius": "0px",
+      "boxShadow": "none",
+      "fontSize": "14px"
+    },
+    {
+      "tagName": "DIV",
+      "className": "MuiGrid-root MuiGrid-item MuiGrid-grid-xs-auto css-19g2724",
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "color": "rgb(97, 97, 97)",
+      "fontFamily": "Roboto, sans-serif",
+      "borderRadius": "0px",
+      "boxShadow": "none",
+      "fontSize": "14px"
+    },
+    {
+      "tagName": "A",
+      "className": "MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary jss27 css-kfzq9y",
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "color": "rgb(0, 226, 244)",
+      "fontFamily": "Roboto, sans-serif",
+      "borderRadius": "4px",
+      "boxShadow": "none",
+      "fontSize": "14px"
+    },
+    {
+      "tagName": "DIV",
+      "className": "MuiGrid-root MuiGrid-item MuiGrid-grid-xs-auto css-19g2724",
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "color": "rgb(97, 97, 97)",
+      "fontFamily": "Roboto, sans-serif",
+      "borderRadius": "0px",
+      "boxShadow": "none",
+      "fontSize": "14px"
+    },
+    {
+      "tagName": "A",
+      "className": "MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary jss27 css-1ci7g0w",
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "color": "rgb(255, 255, 255)",
+      "fontFamily": "Roboto, sans-serif",
+      "borderRadius": "4px",
+      "boxShadow": "none",
+      "fontSize": "14px"
+    },
+    {
+      "tagName": "DIV",
+      "className": "MuiGrid-root MuiGrid-item MuiGrid-grid-xs-auto css-19g2724",
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "color": "rgb(97, 97, 97)",
+      "fontFamily": "Roboto, sans-serif",
+      "borderRadius": "0px",
+      "boxShadow": "none",
+      "fontSize": "14px"
+    },
+    {
+      "tagName": "A",
+      "className": "MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary jss27 css-1ci7g0w",
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "color": "rgb(255, 255, 255)",
+      "fontFamily": "Roboto, sans-serif",
+      "borderRadius": "4px",
+      "boxShadow": "none",
+      "fontSize": "14px"
+    },
+    {
+      "tagName": "DIV",
+      "className": "MuiGrid-root MuiGrid-item MuiGrid-grid-xs-auto css-19g2724",
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "color": "rgb(97, 97, 97)",
+      "fontFamily": "Roboto, sans-serif",
+      "borderRadius": "0px",
+      "boxShadow": "none",
+      "fontSize": "14px"
+    },
+    {
+      "tagName": "A",
+      "className": "MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary jss27 css-1ci7g0w",
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "color": "rgb(255, 255, 255)",
+      "fontFamily": "Roboto, sans-serif",
+      "borderRadius": "4px",
+      "boxShadow": "none",
+      "fontSize": "14px"
+    },
+    {
+      "tagName": "DIV",
+      "className": "MuiGrid-root MuiGrid-item MuiGrid-grid-xs-true css-kxu0dz",
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "color": "rgb(97, 97, 97)",
+      "fontFamily": "Roboto, sans-serif",
+      "borderRadius": "0px",
+      "boxShadow": "none",
+      "fontSize": "14px"
+    },
+    {
+      "tagName": "DIV",
+      "className": "MuiGrid-root MuiGrid-item MuiGrid-grid-xs-auto css-19g2724",
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "color": "rgb(97, 97, 97)",
+      "fontFamily": "Roboto, sans-serif",
+      "borderRadius": "0px",
+      "boxShadow": "none",
+      "fontSize": "14px"
+    },
+    {
+      "tagName": "DIV",
+      "className": "MuiButtonBase-root MuiChip-root MuiChip-outlined MuiChip-sizeMedium MuiChip-colorSecondary MuiChip-clickable MuiChip-clickableColorSecondary MuiChip-outlinedSecondary jss32 css-3kf7h0",
+      "backgroundColor": "rgb(0, 226, 244)",
+      "color": "rgb(216, 254, 0)",
+      "fontFamily": "Roboto, sans-serif",
+      "borderRadius": "27px",
+      "boxShadow": "none",
+      "fontSize": "13px"
+    },
+    {
+      "tagName": "DIV",
+      "className": "MuiContainer-root MuiContainer-maxWidthLg jss8 css-1qsxih2",
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "color": "rgb(97, 97, 97)",
+      "fontFamily": "Roboto, sans-serif",
+      "borderRadius": "0px",
+      "boxShadow": "none",
+      "fontSize": "14px"
+    },
+    {
+      "tagName": "DIV",
+      "className": "MuiGrid-root MuiGrid-container jss62 css-vfppur",
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "color": "rgb(97, 97, 97)",
+      "fontFamily": "Roboto, sans-serif",
+      "borderRadius": "0px",
+      "boxShadow": "none",
+      "fontSize": "14px"
+    },
+    {
+      "tagName": "DIV",
+      "className": "MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 css-15j76c0",
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "color": "rgb(97, 97, 97)",
+      "fontFamily": "Poppins",
+      "borderRadius": "0px",
+      "boxShadow": "none",
+      "fontSize": "14px"
+    },
+    {
+      "tagName": "BUTTON",
+      "className": "MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary jss65 css-g5e9i6",
+      "backgroundColor": "rgb(0, 227, 245)",
+      "color": "rgb(0, 30, 39)",
+      "fontFamily": "Poppins",
+      "borderRadius": "50px",
+      "boxShadow": "none",
+      "fontSize": "14px"
+    },
+    {
+      "tagName": "BUTTON",
+      "className": "MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary jss66 css-g5e9i6",
+      "backgroundColor": "rgb(0, 30, 39)",
+      "color": "rgb(255, 255, 255)",
+      "fontFamily": "Poppins",
+      "borderRadius": "50px",
+      "boxShadow": "none",
+      "fontSize": "14px"
+    },
+    {
+      "tagName": "DIV",
+      "className": "jss71 MuiBox-root css-0",
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "color": "rgb(97, 97, 97)",
+      "fontFamily": "Poppins",
+      "borderRadius": "0px",
+      "boxShadow": "none",
+      "fontSize": "14px"
+    },
+    {
+      "tagName": "BUTTON",
+      "className": "MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium jss72 css-1yxmbwk",
+      "backgroundColor": "rgb(94, 22, 255)",
+      "color": "rgb(255, 255, 255)",
+      "fontFamily": "Poppins",
+      "borderRadius": "50%",
+      "boxShadow": "none",
+      "fontSize": "24px"
+    },
+    {
+      "tagName": "DIV",
+      "className": "MuiFormControl-root MuiTextField-root jss73 css-i44wyl",
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "color": "rgb(97, 97, 97)",
+      "fontFamily": "Poppins",
+      "borderRadius": "0px",
+      "boxShadow": "none",
+      "fontSize": "14px"
+    },
+    {
+      "tagName": "DIV",
+      "className": "MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-formControl css-16ywg1g",
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "color": "rgb(97, 97, 97)",
+      "fontFamily": "Poppins",
+      "borderRadius": "12px",
+      "boxShadow": "none",
+      "fontSize": "14px"
+    },
+    {
+      "tagName": "BUTTON",
+      "className": "MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary css-4wgg6w",
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "color": "rgb(255, 255, 255)",
+      "fontFamily": "Poppins",
+      "borderRadius": "4px",
+      "boxShadow": "none",
+      "fontSize": "14px"
+    },
+    {
+      "tagName": "DIV",
+      "className": "MuiStack-root jss74 css-1ns8eki",
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "color": "rgb(97, 97, 97)",
+      "fontFamily": "Poppins",
+      "borderRadius": "0px",
+      "boxShadow": "none",
+      "fontSize": "14px"
+    },
+    {
+      "tagName": "BUTTON",
+      "className": "MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium css-1yxmbwk",
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "color": "rgba(0, 0, 0, 0.54)",
+      "fontFamily": "Poppins",
+      "borderRadius": "50%",
+      "boxShadow": "none",
+      "fontSize": "24px"
+    },
+    {
+      "tagName": "BUTTON",
+      "className": "MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium jss75 css-1yxmbwk",
+      "backgroundColor": "rgba(0, 0, 0, 0.2)",
+      "color": "rgba(0, 0, 0, 0.54)",
+      "fontFamily": "Poppins",
+      "borderRadius": "50%",
+      "boxShadow": "none",
+      "fontSize": "24px"
+    },
+    {
+      "tagName": "BUTTON",
+      "className": "MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium css-1yxmbwk",
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "color": "rgba(0, 0, 0, 0.54)",
+      "fontFamily": "Poppins",
+      "borderRadius": "50%",
+      "boxShadow": "none",
+      "fontSize": "24px"
+    },
+    {
+      "tagName": "BUTTON",
+      "className": "MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium css-1yxmbwk",
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "color": "rgba(0, 0, 0, 0.54)",
+      "fontFamily": "Poppins",
+      "borderRadius": "50%",
+      "boxShadow": "none",
+      "fontSize": "24px"
+    },
+    {
+      "tagName": "DIV",
+      "className": "MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 css-12o6q2q",
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "color": "rgb(97, 97, 97)",
+      "fontFamily": "Poppins",
+      "borderRadius": "0px",
+      "boxShadow": "none",
+      "fontSize": "14px"
+    },
+    {
+      "tagName": "DIV",
+      "className": "MuiGrid-root MuiGrid-container css-l75e4w",
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "color": "rgb(97, 97, 97)",
+      "fontFamily": "Poppins",
+      "borderRadius": "0px",
+      "boxShadow": "none",
+      "fontSize": "14px"
+    },
+    {
+      "tagName": "DIV",
+      "className": "MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-9 MuiGrid-grid-md-6 MuiGrid-grid-lg-4 css-rs4a97",
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "color": "rgb(97, 97, 97)",
+      "fontFamily": "Poppins",
+      "borderRadius": "0px",
+      "boxShadow": "none",
+      "fontSize": "14px"
+    },
+    {
+      "tagName": "DIV",
+      "className": "jss167 MuiBox-root css-whh5e5",
+      "backgroundColor": "rgb(255, 255, 255)",
+      "color": "rgb(97, 97, 97)",
+      "fontFamily": "Poppins",
+      "borderRadius": "24px",
+      "boxShadow": "rgba(0, 0, 0, 0.12) 0px 2px 5px 0px, rgba(0, 30, 39, 0.08) 0px 8px 24px 0px",
+      "fontSize": "14px"
+    },
+    {
+      "tagName": "DIV",
+      "className": "MuiGrid-root MuiGrid-container jss168 css-1d3bbye",
+      "backgroundColor": "rgb(235, 235, 235)",
+      "color": "rgb(97, 97, 97)",
+      "fontFamily": "Poppins",
+      "borderRadius": "24px 24px 0px 0px",
+      "boxShadow": "none",
+      "fontSize": "14px"
+    },
+    {
+      "tagName": "DIV",
+      "className": "MuiGrid-root MuiGrid-item MuiGrid-grid-xs-true css-kxu0dz",
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "color": "rgb(97, 97, 97)",
+      "fontFamily": "Poppins",
+      "borderRadius": "0px",
+      "boxShadow": "none",
+      "fontSize": "14px"
+    },
+    {
+      "tagName": "DIV",
+      "className": "MuiGrid-root MuiGrid-item MuiGrid-grid-xs-auto jss172 css-445w9a",
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "color": "rgb(97, 97, 97)",
+      "fontFamily": "Poppins",
+      "borderRadius": "0px",
+      "boxShadow": "none",
+      "fontSize": "14px"
+    },
+    {
+      "tagName": "DIV",
+      "className": "MuiGrid-root MuiGrid-item MuiGrid-grid-xs-auto jss172 css-19g2724",
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "color": "rgb(97, 97, 97)",
+      "fontFamily": "Poppins",
+      "borderRadius": "0px",
+      "boxShadow": "none",
+      "fontSize": "14px"
+    },
+    {
+      "tagName": "DIV",
+      "className": "MuiStack-root jss173 css-1xhj18k",
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "color": "rgb(97, 97, 97)",
+      "fontFamily": "Poppins",
+      "borderRadius": "0px",
+      "boxShadow": "none",
+      "fontSize": "14px"
+    },
+    {
+      "tagName": "BUTTON",
+      "className": "MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium jss175 css-1yxmbwk",
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "color": "rgba(0, 0, 0, 0.54)",
+      "fontFamily": "Poppins",
+      "borderRadius": "50%",
+      "boxShadow": "none",
+      "fontSize": "24px"
+    },
+    {
+      "tagName": "BUTTON",
+      "className": "MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium css-1yxmbwk",
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "color": "rgba(0, 0, 0, 0.54)",
+      "fontFamily": "Poppins",
+      "borderRadius": "50%",
+      "boxShadow": "none",
+      "fontSize": "24px"
+    },
+    {
+      "tagName": "DIV",
+      "className": "MuiGrid-root MuiGrid-container jss179 css-1d3bbye",
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "color": "rgb(97, 97, 97)",
+      "fontFamily": "Poppins",
+      "borderRadius": "0px",
+      "boxShadow": "none",
+      "fontSize": "14px"
+    },
+    {
+      "tagName": "DIV",
+      "className": "MuiGrid-root MuiGrid-container MuiGrid-item MuiGrid-grid-xs-12 css-1qv1jgt",
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "color": "rgb(97, 97, 97)",
+      "fontFamily": "Poppins",
+      "borderRadius": "0px",
+      "boxShadow": "none",
+      "fontSize": "14px"
+    },
+    {
+      "tagName": "DIV",
+      "className": "MuiGrid-root MuiGrid-item MuiGrid-grid-xs-auto jss174 css-19g2724",
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "color": "rgb(97, 97, 97)",
+      "fontFamily": "Poppins",
+      "borderRadius": "0px",
+      "boxShadow": "none",
+      "fontSize": "14px"
+    },
+    {
+      "tagName": "DIV",
+      "className": "MuiAvatar-root MuiAvatar-circular jss189 css-8icg04",
+      "backgroundColor": "rgb(255, 255, 255)",
+      "color": "rgb(0, 0, 0)",
+      "fontFamily": "Poppins",
+      "borderRadius": "50%",
+      "boxShadow": "none",
+      "fontSize": "20px"
+    }
+  ],
+  "innerHTML_sample": "<section class=\"Toastify\" aria-live=\"polite\" aria-atomic=\"false\" aria-relevant=\"additions text\" aria-label=\"Notifications Alt+T\"></section><header class=\"MuiPaper-root MuiPaper-elevation MuiPaper-elevation0 MuiAppBar-root MuiAppBar-colorInherit MuiAppBar-positionFixed jss6 mui-fixed css-25e6h\"><div class=\"jss16 MuiBox-root css-0\"><b style=\"margin-right: 5px;\">57.997.882 BRUNO AMIN COSTA DA SILVA</b> 6 dias restantes para conclusão do Teste Grátis<button class=\"MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary jss18 css-g5e9i6\" tabindex=\"0\" type=\"button\">Comprar agora &nbsp;&nbsp;<i class=\"fa fa-arrow-right\"></i><span class=\"MuiTouchRipple-root css-w0pj6f\"></span></button></div><div class=\"MuiToolbar-root MuiToolbar-gutters MuiToolbar-regular jss4 css-1ss4cyx\"><div class=\"MuiContainer-root MuiContainer-maxWidthLg jss5 css-1qsxih2\"><div class=\"MuiGrid-root MuiGrid-container css-1b1jvye\"><div class=\"MuiGrid-root MuiGrid-item MuiGrid-grid-xs-auto css-19g2724\"><div class=\"jss25\" style=\"padding-left: 8px;\"><img src=\"/assets/omie_logo_novo-DWxjglQB.png\" alt=\"Omie\" class=\"jss9\"></div></div><div class=\"MuiGrid-root MuiGrid-item MuiGrid-grid-xs-auto css-19g2724\"><div class=\"MuiGrid-root MuiGrid-container jss30 css-bxtot6\"><div class=\"MuiGrid-root MuiGrid-item MuiGrid-grid-xs-auto css-19g2724\"><a class=\"MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary jss27 css-kfzq9y\" tabindex=\"0\" href=\"/meus-aplicativos\">Meus Aplicativos<span class=\"MuiTouchRipple-root css-w0pj6f\"></span></a></div><div class=\"MuiGrid-root MuiGrid-item MuiGrid-grid-xs-auto css-19g2724\"><a class=\"MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary jss27 css-1ci7g0w\" tabindex=\"0\" href=\"https://app.omie.com.br/my-orders/\">Extrato Financeiro<span class=\"MuiTouchRipple-root css-w0pj6f\"></span></a></div><div class=\"MuiGrid-root MuiGrid-item MuiGrid-grid-xs-auto css-19g2724\"><a class=\"MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary jss27 css-1ci7g0w\" tabindex=\"0\" href=\"/treinamentos\">Treinamentos<span class=\"MuiTouchRipple-root css-w0pj6f\"></span></a></div><div class=\"MuiGrid-root MuiGrid-item MuiGrid-grid-xs-auto css-19g2724\"><a class=\"MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary jss27 css-1ci7g0w\" tabindex=\"0\" href=\"https://store.omie.com.br\">Omie.Store<span class=\"MuiTouchRipple-root css-w0pj6f\"></span></a></div></div></div><div class=\"MuiGrid-root MuiGrid-item MuiGrid-grid-xs-true css-kxu0dz\"></div><div class=\"MuiGrid-root MuiGrid-item MuiGrid-grid-xs-auto css-19g2724\"><div class=\"MuiButtonBase-root MuiChip-root MuiChip-outlined MuiChip-sizeMedium MuiChip-colorSecondary MuiChip-clickable MuiChip-clickableColorSecondary MuiChip-outlinedSecondary jss32 css-3kf7h0\" tabindex=\"0\" role=\"button\" aria-haspopup=\"true\"><p class=\"MuiChip-icon MuiChip-iconMedium MuiChip-iconColorSecondary jss31\">57.997.882</p><span class=\"MuiChip-label jss33 MuiChip-labelMedium css-k62kit\"><svg class=\"MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-u6g03j\" focusable=\"false\" aria-hidden=\"true\" viewBox=\"0 0 24 24\" data-testid=\"SettingsIcon\"><path d=\"M19.14 12.94c.04-.3.06-.61.06-.94 0-.32-.02-.64-.07-.94l2.03-1.58c.18-.14.23-.41.12-.61l-1.92-3.32c-.12-.22-.37-.29-.59-.22l-2.39.96c-.5-.38-1.03-.7-1.62-.94l-.36-2.54c-.04-.24-.24-.41-.48-.41h-3.84c-.24 0-.43.17-.47.41l-.36 2.54c-.59.24-1.13.57-1.62.94l-2.39-.96c-.22-.08-.47 0-.59.22L2.74 8.87c-.12.21-.08.47.12.61l2.03 1.58c-.05.3-.09.63-.09.94s.02.64.07.94l-2.03 1.58c-.18.14-.23.41-.12.61l1.92 3.32c.12.22.37.29.59.22l2.39-.96c.5.38 1.03.7 1.62.94l.36 2.54c.05.24.24.41.48.41h3.84c.24 0 .44-.17.47-.41l.36-2.54c.59-.24 1.13-.56 1.62-.94l2.39.96c.22.08.47 0 .59-.22l1.92-3.32c.12-.22.07-.47-.12-.61zM12 15.6c-1.98 0-3.6-1.62-3.6-3.6s1.62-3.6 3.6-3.6 3.6 1.62 3.6 3.6-1.62 3.6-3.6 3.6\"></path></svg></span><span class=\"MuiTouchRipple-root css-w0pj6f\"></span></div></div></div></div></div></header><main class=\"MuiGrid-root MuiGrid-container css-15kh1rj\"><div class=\"MuiContainer-root MuiContainer-maxWidthLg jss8 css-1qsxih2\"><div class=\"MuiGrid-root MuiGrid-container jss62 css-vfppur\"><div class=\"MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 css-15j76c0\"><div class=\"\" style=\"float: right;\"><button class=\"MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary jss65 css-g5e9i6\" tabindex=\"0\" type=\"button\">Comprar novo aplicativo<span class=\"MuiTouchRipple-root css-w0pj6f\"></span></button></div><button class=\"MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary jss66 css-g5e9i6\" tabindex=\"0\" type=\"button\"><svg class=\"MuiSvgIcon-root MuiSvgIcon-fontSizeMedium jss70 css-vubbuv\" focusable=\"false\" aria-hidden=\"true\" viewBox=\"0 0 24 24\" data-testid=\"AddCircleIcon\"><path d=\"M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2m5 11h-4v4h-2v-4H7v-2h4V7h2v4h4z\"></path></svg><p class=\"MuiTypography-root MuiTypography-body1 css-l86k8m\">Novo teste grátis</p><span class=\"MuiTouchRipple-root css-w0pj6f\"></span></button><div class=\"jss71 MuiBox-root css-0\"><button class=\"MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium jss72 css-1yxmbwk\" tabindex=\"0\" type=\"button\" aria-label=\"Pesquisar\"><svg class=\"MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-1t8mnmp\" focusable=\"false\" aria-hidden=\"true\" viewBox=\"0 0 24 24\" data-testid=\"SearchIcon\"><path d=\"M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14\"></path></svg><span class=\"MuiTouchRipple-root css-w0pj6f\"></span></button><div class=\"MuiFormControl-root MuiTextField-root jss73 css-i44wyl\"><div class=\"MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-formControl css-16ywg1g\"><input aria-invalid=\"false\" id=\"search\" placeholder=\"Busque sua empresa\" type=\"text\" data-hj-allow=\"\" class=\"MuiInputBase-input MuiOutlinedInput-input css-rjwwwj\" value=\"\"><fieldset aria-hidden=\"true\" class=\"MuiOutlinedInput-notchedOutline css-ncxurb\"><legend class=\"css-ihdtdm\"><span class=\"notranslate\">​</span></legend></fieldset></div></div><button class=\"MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary css-4wgg6w\" tabindex=\"0\" type=\"button\"><svg class=\"MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-a9rhlz\" focusable=\"false\" aria-hidden=\"true\" viewBox=\"0 0 24 24\" data-testid=\"HelpIcon\"><path d=\"M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2m1 17h-2v-2h2zm2.07-7.75-.9.92C13.45 12.9 13 13.5 13 15h-2v-.5c0-1.1.45-2.1 1.17-2.83l1.24-1.26c.37-.36.59-.86.59-1.41 0-1.1-.9-2-2-2s-2 .9-2 2H8c0-2.21 1.79-4 4-4s4 1.79 4 4c0 .88-.36 1.68-.93 2.25\"></path></svg><span class=\"MuiTouchRipple-root css-w0pj6f\"></span></button></div><p class=\"MuiTypography-root MuiTypography-body1 jss63 css-l86k8m\">Meus aplicativos</p><p class=\"MuiTypography-root MuiTypography-body1 jss64 css-l86k8m\">Acesse seu ERP Omie, configure seu aplicativo e crie uma nova versão de testes.</p><div class=\"MuiStack-root jss74 css-1ns8eki\"><button class=\"MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium css-1yxmbwk\" tabindex=\"0\" type=\"button\" aria-label=\"Exibir em lista\"><svg class=\"MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-1in87jz\" focusable=\"false\" aria-hidden=\"true\" viewBox=\"0 0 24 24\" data-testid=\"FormatListBulletedIcon\"><path d=\"M4 10.5c-.83 0-1.5.67-1.5 1.5s.67 1.5 1.5 1.5 1.5-.67 1.5-1.5-.67-1.5-1.5-1.5m0-6c-.83 0-1.5.67-1.5 1.5S3.17 7.5 4 7.5 5.5 6.83 5.5 6 4.83 4.5 4 4.5m0 12c-.83 0-1.5.68-1.5 1.5s.68 1.5 1.5 1.5 1.5-.68 1.5-1.5-.67-1.5-1.5-1.5M7 19h14v-2H7zm0-6h14v-2H7zm0-8v2h14V5z\"></path></svg><span class=\"MuiTouchRipple-root css-w0pj6f\"></span></button><button class=\"MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium jss75 css-1yxmbwk\" tabindex=\"0\" type=\"button\" aria-label=\"Exibir em módulos\"><svg class=\"MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-1in87jz\" focusable=\"false\" aria-hidden=\"true\" viewBox=\"0 0 24 24\" data-testid=\"ViewModuleIcon\"><path d=\"M14.67 5v6.5H9.33V5zm1 6.5H21V5h-5.33zm-1 7.5v-6.5H9.33V19zm1-6.5V19H21v-6.5zm-7.34 0H3V19h5.33zm0-1V5H3v6.5z\"></path></svg><span class=\"MuiTouchRipple-root css-w0pj6f\"></span></button><div><button class=\"MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium css-1yxmbwk\" tabindex=\"0\" type=\"button\" aria-label=\"Filtrar\" id=\"filter-button\" aria-haspopup=\"true\"><svg class=\"MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-1in87jz\" focusable=\"false\" aria-hidden=\"true\" viewBox=\"0 0 24 24\" data-testid=\"FilterAltOutlinedIcon\"><path d=\"M7 6h10l-5.01 6.3zm-2.75-.39C6.27 8.2 10 13 10 13v6c0 .55.45 1 1 1h2c.55 0 1-.45 1-1v-6s3.72-4.8 5.74-7.39c.51-.66.04-1.61-.79-1.61H5.04c-.83 0-1.3.95-.79 1.61\"></path></svg><span class=\"MuiTouchRipple-root css-w0pj6f\"></span></button></div><div><button class=\"MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium css-1yxmbwk\" tabindex=\"0\" type=\"button\" aria-label=\"Ordenar\" id=\"order-button\" aria-haspopup=\"true\"><svg class=\"MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-1in87jz\" focusable=\"false\" aria-hidden=\"true\" viewBox=\"0 0 24 24\" data-testid=\"SwapVertIcon\"><path d=\"M16 17.01V10h-2v7.01h-3L15 21l4-3.99zM9 3 5 6.99h3V14h2V6.99h3z\"></path></svg><span class=\"MuiTouchRipple-root css-w0pj6f\"></span></button></div></div></div><div class=\"MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 css-12o6q2q\"><div class=\"MuiGrid-root MuiGrid-container css-l75e4w\"><div class=\"MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-9 MuiGrid-grid-md-6 MuiGrid-grid-lg-4 css-rs4a97\"><div class=\"jss167 MuiBox-root css-whh5e5\"><div class=\"MuiGrid-root MuiGrid-container jss168 css-1d3bbye\"><div class=\"MuiGrid-root MuiGrid-item MuiGrid-grid-xs-true css-kxu0dz\"><p class=\"MuiTypography-root MuiTypography-body1 jss182 css-l86k8m\">Demonstração</p></div><div class=\"MuiGrid-root MuiGrid-item MuiGrid-grid-xs-auto jss172 css-445w9a\"><p class=\"MuiTypography-root MuiTypography-body1 jss178 css-l86k8m\">6 dias restantes</p><p class=\"MuiTypography-root MuiTypography-body1 jss177 css-l86k8m\"><b>Omie</b></p></div><div class=\"MuiGrid-root MuiGrid-item MuiGrid-grid-xs-auto jss172 css-19g2724\"><div class=\"MuiStack-root jss173 css-1xhj18k\"><button class=\"MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium jss175 css-1yxmbwk\" tabindex=\"0\" type=\"button\" aria-label=\"Marcar como favorito\"><svg class=\"MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-xdm81s\" focusable=\"false\" aria-hidden=\"true\" viewBox=\"0 0 24 24\" data-testid=\"FavoriteBorderOutlinedIcon\"><path d=\"M16.5 3c-1.74 0-3.41.81-4.5 2.09C10.91 3.81 9.24 3 7.5 3 4.42 3 2 5.42 2 8.5c0 3.78 3.4 6.86 8.55 11.54L12 21.35l1.45-1.32C18.6 15.36 22 12.28 22 8.5 22 5.42 19.58 3 16.5 3m-4.4 15.55-.1.1-.1-.1C7.14 14.24 4 11.39 4 8.5 4 6.5 5.5 5 7.5 5c1.54 0 3.04.99 3.57 2.36h1.87C13.46 5.99 14.96 5 16.5 5c2 0 3.5 1.5 3.5 3.5 0 2.89-3.14 5.74-7.9 10.05\"></path></svg><span class=\"MuiTouchRipple-root css-w0pj6f\"></span></button><div><button class=\"MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium css-1yxmbwk\" tabindex=\"0\" type=\"button\" aria-label=\"Configurações\" id=\"basic-button\" aria-haspopup=\"true\"><svg class=\"MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-hypm0o\" focusable=\"false\" aria-hidden=\"true\" viewBox=\"0 0 24 24\" data-testid=\"SettingsOutlinedIcon\"><path d=\"M19.43 12.98c.04-.32.07-.64.07-.98 0-.34-.03-.66-.07-.98l2.11-1.65c.19-.15.24-.42.12-.64l-2-3.46c-.09-.16-.26-.25-.44-.25-.06 0-.12.01-.17.03l-2.49 1c-.52-.4-1.08-.73-1.69-.98l-.38-2.65C14.46 2.18 14.25 2 14 2h-4c-.25 0-.46.18-.49.42l-.38 2.65c-.61.25-1.17.59-1.69.98l-2.49-1c-.06-.02-.12-.03-.18-.03-.17 0-.34.09-.43.25l-2 3.46c-.13.22-.07.49.12.64l2.11 1.65c-.04.32-.07.65-.07.98 0 .33.03.66.07.98l-2.11 1.65c-.19.15-.24.42-.12.64l2 3.46c.09.16.26.25.44.25.06 0 .12-.01.17-.03l2.49-1c.52.4 1.08.73 1.69.98l.38 2.65c.03.24.24.42.49.42h4c.25 0 .46-.18.49-.42l.38-2.65c.61-.25 1.17-.59 1.69-.98l2.49 1c.06.02.12.03.18.03.17 0 .34-.09.43-.25l2-3.46c.12-.22.07-.49-.12-.64zm-1.98-1.71c.04.31.05.52.05.73 0 .21-.02.43-.05.73l-.14 1.13.89.7 1.08.84-.7 1.21-1.27-.51-1.04-.42-.9.68c-.43.32-.84.56-1.25.73l-1.06.43-.16 1.13-.2 1.35h-1.4l-.19-1.35-.16-1.13-1.06-.43c-.43-.18-.83-.41-1.23-.71l-.91-.7-1.06.43-1.27.51-.7-1.21 1.08-.84.89-.7-.14-1.13c-.03-.31-.05-.54-.05-.74s.02-.43.05-.73l.14-1.13-.89-.7-1.08-.84.7-1.21 1.27.51 1.04.42.9-.68c.43-.32.84-.56 1.25-.73l1.06-.43.16-1.13.2-1.35h1.39l.19 1.35.16 1.13 1.06.43c.43.18.83.41 1.23.71l.91.7 1.06-.43 1.27-.51.7 1.21-1.07.85-.89.7zM12 8c-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4-1.79-4-4-4m0 6c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2\"></path></svg><span class=\"MuiTouchRipple-root css-w0pj6f\"></span></button></div></div></div></div><div class=\"MuiGrid-root MuiGrid-container jss179 css-1d3bbye\"><div class=\"MuiGrid-root MuiGrid-container MuiGrid-item MuiGrid-grid-xs-12 css-1qv1jgt\"><div class=\"MuiGrid-root MuiGrid-item MuiGrid-grid-xs-auto jss174 css-19g2724\"><div class=\"MuiAvatar-root MuiAvatar-circular jss189 css-8icg04\"><img alt=\"57.997.882 BRUNO AMIN COSTA DA SILVA\" src=\"https://cdn.omie.com.br/images/logo/logo-omie-escuro.png\" class=\"MuiAvatar-img css-1hy9t21\"></div></div><div class=\"MuiGrid-root MuiGrid-container MuiGrid-item MuiGrid-grid-xs-true css-1ag80em\"><div class=\"MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 css-15j76c0\"><p class=\"MuiTypography-root MuiTypography-body1 jss180 css-l86k8m\">57.997.882 BRUNO AMIN COSTA DA SILVA</p></div></div></div><div class=\"MuiGrid-root MuiGrid-container MuiGrid-item MuiGrid-grid-xs-12 css-1dizhzq\"><div class=\"MuiGrid-root MuiGrid-item MuiGrid-grid-xs-auto css-19g2724\"><div class=\"MuiStack-root jss173 css-1pb6ay7\"><button class=\"MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary jss194 css-g5e9i6\" tabindex=\"0\" type=\"button\">Comprar<span class=\"MuiTouchRipple-root css-w0pj6f\"></span></button><button class=\"MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary jss197 css-g5e9i6\" tabindex=\"0\" type=\"button\">Acessar<span class=\"MuiTouchRipple-root css-w0pj6f\"></span></button></div></div></div></div></div></div><div class=\"MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-9 MuiGrid-grid-md-6 MuiGrid-grid-lg-4 css-1k4b598\"><div class=\"MuiBox-root css-k008qs\"><button class=\"MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeSmall MuiButton-textSizeSmall MuiButton-colorPrimary MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeSmall MuiButton-textSizeSmall MuiButton-colorPrimary jss211 css-1b1c80w\" tabindex=\"0\" type=\"button\"><svg class=\"MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-vubbuv\" focusable=\"false\" aria-hidden=\"true\" viewBox=\"0 0 24 24\" data-testid=\"KeyboardArrowLeftIcon\"><path d=\"M15.41 16.59 10.83 12l4.58-4.59L14 6l-6 6 6 6z\"></path></svg><span class=\"MuiTouchRipple-root css-w0pj6f\"></span></button><div class=\"MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-12 MuiGrid-grid-md-12 MuiGrid-grid-lg-12 jss586 css-uma0hz\"><div class=\"jss587 MuiBox-root css-1h4nu4k\"></div></div><button class=\"MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeSmall MuiButton-textSizeSmall MuiButton-colorPrimary MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeSmall MuiButton-textSizeSmall MuiButton-colorPrimary jss212 css-1b1c80w\" tabindex=\"0\" type=\"button\"><svg class=\"MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-vubbuv\" focusable=\"false\" aria-hidden=\"true\" viewBox=\"0 0 24 24\" data-testid=\"KeyboardArrowRightIcon\"><path d=\"M8.59 16.59 13.17 12 8.59 7.41 10 6l6 6-6 6z\"></path></svg><span class=\"MuiTouchRipple-root css-w0pj6f\"></span></button></div><div class=\"jss215 MuiBox-root css-0\"><div class=\"jss216 MuiBox-root css-0\"></div><div class=\"jss217 MuiBox-root css-0\"></div><div class=\"jss216 MuiBox-root css-0\"></div></div></div></div></div></div><div class=\"MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-2 jss122 css-1x9nne5\"><div class=\"MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 css-t4pc3u\"><p class=\"MuiTypography-root MuiTypography-body1 jss123 css-l86k8m\">Meus treinamentos</p><p class=\"MuiTypography-root MuiTypography-body1 jss124 css-l86k8m\">Tire suas dúvidas com treinamentos ao vivo e assista a aulas gravadas com quem entende do assunto.</p></div><div class=\"MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 css-15j76c0\"><div class=\"MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-6 css-sayu3r\"><div class=\"MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-6 MuiGrid-grid-lg-true css-ennc8k\"><div class=\"MuiGrid-root jss126 css-rfnosa\"><div class=\"MuiGrid-root jss128 css-rfnosa\"><i class=\"fa-regular fa-signal-stream fa-beat\"></i></div><div class=\"MuiGrid-root jss130 css-rfnosa\"><p class=\"MuiTypography-root MuiTypography-body1 jss131 css-l86k8m\">Treinamentos ao vivo</p><p class=\"MuiTypography-root MuiTypography-body1 jss133 css-l86k8m\">Tire suas dúvidas com nossos especialistas.</p></div></div></div><div class=\"MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-6 MuiGrid-grid-lg-true css-ennc8k\"><div class=\"MuiGrid-root jss126 css-rfnosa\"><div class=\"MuiGrid-root jss128 css-rfnosa\"><i class=\"fa-sharp fa-regular fa-circle-play\"></i></div><div class=\"MuiGrid-root jss130 css-rfnosa\"><p class=\"MuiTypography-root MuiTypography-body1 jss131 css-l86k8m\">Treinamentos gravados</p><p class=\"MuiTypography-root MuiTypography-body1 jss133 css-l86k8m\">Todos os treinamentos em um só clique.</p></div></div></div><div class=\"MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-6 MuiGrid-grid-lg-true css-ennc8k\"><div class=\"MuiGrid-root jss126 css-rfnosa\"><div class=\"MuiGrid-root jss128 css-rfnosa\"><i class=\"fa-regular fa-arrow-pointer\"></i></div><div class=\"MuiGrid-root jss130 css-rfnosa\"><p class=\"MuiTypography-root MuiTypography-body1 jss131 css-l86k8m\">Novidades do produto</p><p class=\"MuiTypography-root MuiTypography-body1 jss133 css-l86k8m\">Mensalmente novidades para você!</p></div></div></div></div></div></div><div class=\"MuiGrid-root MuiGrid-container jss134 css-9u1uh3\"><div class=\"MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 css-15j76c0\"><p class=\"MuiTypography-root MuiTypography-body1 jss135 css-l86k8m\">Soluções para seu negócio</p><p class=\"MuiTypography-root MuiTypography-body1 jss136 css-l86k8m\">Diversos recursos e opções para potencializar ainda mais o seu negócio.</p></div><div class=\"MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-12 MuiGrid-grid-md-4 css-19egsyp\"><p class=\"MuiTypography-root MuiTypography-body1 jss137 css-l86k8m\">SOLUÇÕES FINANCEIRAS</p><div class=\"MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation0 MuiCard-root jss138 css-1g8qc7u\" hidden=\"\"><div class=\"MuiCardContent-root jss139 css-18mhetb\"><svg class=\"MuiSvgIcon-root MuiSvgIcon-fontSizeMedium jss140 css-vubbuv\" focusable=\"false\" aria-hidden=\"true\" viewBox=\"0 0 24 24\" data-testid=\"ArrowForwardIcon\"><path d=\"m12 4-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z\"></path></svg><p class=\"MuiTypography-root MuiTypography-body1 jss141 css-l86k8m\">Omie.Cash<img src=\"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAAAXNSR0IArs4c6QAAAh5JREFUeJztmTFS20AUhr+niV0yKmnIKFVc4hMEbpAjwAlIjpATJJwAjgAnwDlBKM2k2YEmpdo4M2wKxRMsLbbwPnml4X2d12/27f7z9PZfCQzDMAzDMAzDeI2Iyiz7k4KRv0A4BHKVOTXxXPFHPvNr7up/xQuwPykY+x/0ceOrlCxkWhchi5525L/S/80D5Iz8RX0wXgDhY/Qcu6J6RFd4o57k/k6nr2jx9r1/8qtRqfEVMHBMgNQLSI1+D9iWvMjZG5/h5QjhqBr0t3h/zsPPy67Sxjes1SazXROsvMQNUDwT4VjIccjIxK4vXAFtnJ1mt1+/eYBKoLyYUrpSLS+hHrB0dlUZdm9wDiYnrN/8koK98Sft9E0Bdu3s5PGsdayXD9rpmwLs3NlJw509H7psjnpsPgX65uyUSe8DhNkLom+106cXwPvv7WMfz7XTpxcgW3wD2pzvrgtDlF4A50oyOWa9CO5fjDrpBQBwc8f93Tu8nIL//5x7ZiBfyH5PcVu4wBb05y4A8DC/BDrz/SH6UQEJMQFSLyA1Gj2g5OndoX797Dkab4XV3VmHXNcHFASQU6oq6DslmTSu0/ECuLkjkynCVfRc3VDimZFJ0Es0b3oar7gGhJ0CqRcQTWTFvvoKMAFSLyA1JkDqBaQmdAoM2tu/lNB3gSF5+zoNr7+JgACD8fZ1gl5/E00B+u/t66z1+oZhGIZhGIZhGCH+AsBpiPe1Aw3GAAAAAElFTkSuQmCC\" class=\"jss143\"></p><p class=\"MuiTypography-root MuiTypography-body1 jss142 css-l86k8m\">Tenha um banco digital integrado ao seu sistema de gestão, saiba mais.</p></div></div><div class=\"MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation0 MuiCard-root jss138 css-1g8qc7u\"><div class=\"MuiCardContent-root jss139 css-18mhetb\"><svg class=\"MuiSvgIcon-root MuiSvgIcon-fontSizeMedium jss140 css-vubbuv\" focusable=\"false\" aria-hidden=\"true\" viewBox=\"0 0 24 24\" data-testid=\"ArrowForwardIcon\"><path d=\"m12 4-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z\"></path></svg><p class=\"MuiTypography-root MuiTypography-body1 jss141 css-zn1dmc\">Cartão Omie<img src=\"/assets/icon_omie_card-CWl4X67H.jpg\" class=\"jss143\" alt=\"Ícone Cartão Omie\"></p><p class=\"MuiTypography-root MuiTypography-body1 jss142 css-l86k8m\">O único integrado ao sistema de gestão, com limite flexível e zero anuidade, para você ter controle e conciliação total das despesas direto no seu ERP.</p></div></div><div class=\"MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation0 MuiCard-root jss138 css-1g8qc7u\"><div class=\"MuiCardContent-root jss139 css-18mhetb\"><svg class=\"MuiSvgIcon-root MuiSvgIcon-fontSizeMedium jss140 css-vubbuv\" focusable=\"false\" aria-hidden=\"true\" viewBox=\"0 0 24 24\" data-testid=\"ArrowForwardIcon\"><path d=\"m12 4-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z\"></path></svg><p class=\"MuiTypography-root MuiTypography-body1 jss141 css-1hhdx0s\">Desconto de Duplicatas</p><p class=\"MuiTypography-root MuiTypography-body1 jss142 css-l86k8m\">Mantenha o fluxo de caixa fluído, antecipando o pagamento de duplicatas.</p></div></div></div><div class=\"MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-12 MuiGrid-grid-md-4 css-19egsyp\"><p class=\"MuiTypography-root MuiTypography-body1 jss137 css-l86k8m\">EDUCAÇÃO EMPREENDEDORA</p><div class=\"MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation0 MuiCard-root jss138 css-1g8qc7u\"><div class=\"MuiCardContent-root jss139 css-18mhetb\"><svg class=\"MuiSvgIcon-root MuiSvgIcon-fontSizeMedium jss140 css-vubbuv\" focusable=\"false\" aria-hidden=\"true\" viewBox=\"0 0 24 24\" data-testid=\"ArrowForwardIcon\"><path d=\"m12 4-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z\"></path></svg><p class=\"MuiTypography-root MuiTypography-body1 jss141 css-zn1dmc\">Omie.Academy<img src=\"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAAAXNSR0IArs4c6QAAAt1JREFUaIHtmU9SE1EQxn/9gsjCglhsqAJTY5WSFKtwAs0JxBMIJ8CcQHICwgmAG+AJgBOYlTXAwjFx4cZyrHKlMO2CoCTzJ/OSCZlYfLvkvfq6v3n9pnu6BYClisMD3UeoAkWsoS1UPAje07k4iN1WdIrMP9xEedG15djbApQjfkudr64nLFUcZvXDcI5HwkODRkjIk9UNRPYztOPzS9YLPF68efJZoYjIBguL8OPbKQCl8i4iTWAuQztzGKpCqawZkvZCaSLqg+yMyYIfFtA+E2saZ61KELwFfZPGKMgeASd8cU+sbfX5m42AGzgVh0CPib+cHkZqeK43tI0+f83QRFHw3GsHwY9cH9X5KMosyYBrEeheeEEPsnYexiEAIDDh2DZRokbHeAREXU7vojUOU+MRcIe4FzBpTL2AmcRV2zIjkFqq7Foqf8KmEtVgK67KnfoTuBcwaSTfgVEKu2Tep1lRTf0JTL2AAa/R1X0rNmMaqSrOlXITowupeQNzGPd6ThaAbKY2AnDJITBYgOEVSPo8IFen8VRTjqkXkBxCKluWbOm+uFTrYNL3hwqF2PIkWUDHje+yjYLO+VFWVP95CK08e2nF9vOyhe9FdyTGhGQBpnBsxfZopoaPfbNqBAzIA3eEolNkfnYbFevu+OQF3O6OD1E6JgsQy3DQK/v4n9VjRmi5Jwv4fFYbljgVlp8PP+QAQBqTDSHRvievLQJTD+0zwS5I7wxD5ZCOuzP5O3AbKn6o6iytvgs5j7bonG1C3hPZtfP9wxEPY17f/MjXCdxGqbwNRDjf26LP5wksr1WBZt+/ftR8IX8ClioOhatwBWAKkcORfAkQnJi8UMf7GNmez9sdiMgJ0qDt9ofTX+TrBEKQBm03cUSbtxP4h26iGrRNKJW/k934PyNoi/b5epqdBmEss6sR0JOoBsEgskXcXPfuYT0IN93h9DpCZh/aXfgoJ+l5tTXMIPwPo/3iysmo68AAAAAASUVORK5CYII=\" class=\"jss144\"></p><p class=\"MuiTypography-root MuiTypography-body1 jss142 css-l86k8m\">Aproveite cursos gratuitos criados por especialistas do mercado e com certificação</p></div></div><div class=\"MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation0 MuiCard-root jss138 css-1g8qc7u\"><div class=\"MuiCardContent-root jss139 css-18mhetb\"><svg class=\"MuiSvgIcon-root MuiSvgIcon-fontSizeMedium jss140 css-vubbuv\" focusable=\"false\" aria-hidden=\"true\" viewBox=\"0 0 24 24\" data-testid=\"ArrowForwardIcon\"><path d=\"m12 4-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z\"></path></svg><p class=\"MuiTypography-root MuiTypography-body1 jss141 css-zn1dmc\">IODE-PMEs</p><p class=\"MuiTypography-root MuiTypography-body1 jss142 css-l86k8m\">Entenda o comportamento do mercado de pequenas e médias empresas no Brasil e aprimore sua tomada de decisões!</p></div></div><div class=\"MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation0 MuiCard-root jss138 css-1g8qc7u\"><div class=\"MuiCardContent-root jss139 css-18mhetb\"><svg class=\"MuiSvgIcon-root MuiSvgIcon-fontSizeMedium jss140 css-vubbuv\" focusable=\"false\" aria-hidden=\"true\" viewBox=\"0 0 24 24\" data-testid=\"ArrowForwardIcon\"><path d=\"m12 4-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z\"></path></svg><p class=\"MuiTypography-root MuiTypography-body1 jss141 css-1hhdx0s\">Blog</p><p class=\"MuiTypography-root MuiTypography-body1 jss142 css-l86k8m\">Aprenda sobre gestão, empreendedorismo, contabilidade, finanças e muito mais.</p></div></div></div><div class=\"MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-12 MuiGrid-grid-md-4 css-19egsyp\"><p class=\"MuiTypography-root MuiTypography-body1 jss137 css-l86k8m\">COMPLEMENTOS PARA O SISTEMA</p><div class=\"MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation0 MuiCard-root jss138 css-1g8qc7u\"><div class=\"MuiCardContent-root jss139 css-18mhetb\"><svg class=\"MuiSvgIcon-root MuiSvgIcon-fontSizeMedium jss140 css-vubbuv\" focusable=\"false\" aria-hidden=\"true\" viewBox=\"0 0 24 24\" data-testid=\"ArrowForwardIcon\"><path d=\"m12 4-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z\"></path></svg><p class=\"MuiTypography-root MuiTypography-body1 jss141 css-zn1dmc\">Omie.Store<img src=\"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAAAXNSR0IArs4c6QAAA01JREFUaIHtmrFOG1kUhr9zx4lTWUOykZACZCIhsLZZ6NIt7raDPAGmS4f2CaI8AcsTBMpUCU+A6bbD6ZxkJe7iRCJKIs3SGTZztjBOwsw1O2MukoPm63xmfP75NXPtc3+NMGCyHnFD1xFWgIjCaBuVFqeyyVHHXnhqGIXUbq6DNEfTwqLa4tQ8HWgJAPd+XiD4sguEIzTNipxIY6iZyXrETd1lNANpYr4kDd6/bctZ4338mBhgOe4tEts4c2Rm/gA/JgbEnMhiwMRPGwgPPTYGCKlWPvDP5z/PVafrTYSmZ61bSCIG0SXPjQdk+xpdvRIlY5YruG6zkQfY/1mw3zM9t4LIi1T1l8x5quFgWX4lkQbvOq3cWlE9ItGDdNU4Ty5iAkCT7FpwIpdfh0OuzW3kB6Q0Mm6URsaN0si4URoZN66NkYqzOjVbbJA0QXaugnxji/l3ganZ/FqizjGnAljSg6MJdvN3HsrfmYrSRtJDarDh4bloG9DtS7dxoclLR/FqtBL2hCgKSar7eN21aZvDN4vOQ/fnd1HHXmV0LEYaBmtjjDToP2KXR2lhzKOhx0XWQNtetM5MYDv2/C5nut7E6OrZBqjY3kFok+g23TeOR8pBX2sZ1WgkLWUP09vCOnKBkpKSDN8WexiF1KpNlF8RFoq10RgVC8kO3bdbub4yPbcCsjqiVgzJ9vdafSNeY0xtc2IeXRiZ3tBniJf/kq/xrHjOYvsoLbqvG85jM3P7IAXvwoVYjnuLAbfvPAF+89gYhIjanVccf+6cq/cj08detSCkGvQMXFFkKuLIeHX5SrSQ1YrzNqusFeujC8B6qpod7UWjbGTKJiL5R5b+GL+Rqkbu/Ui3k++XZ8DU7BImSBtxXYVjFJGXdAtkvwAz82kj12eHWBoZN0oj40ZpZNwojYwb19xIGPl4CyJfuiGJlzcu3JFprXpAbb5IzJK9GHUYcUWmIs9cs1MhLbAVYIfs5BoO+UIBkmw8KuwBK/61tGUw8gd5H4P8WILTbFBnelv4SjS/EWPMU4PtWEzQwJ+ZsxjTkQD6jmchRuV3bMcG/Y8fj5i4+xyVCUa/1RZkE9Nbw/51NFz6U8zE3R0UAb0FMjmaFtsYWeOwv5f5DzNmDgintkFDAAAAAElFTkSuQmCC\" class=\"jss145\"></p><p class=\"MuiTypography-root MuiTypography-body1 jss142 css-l86k8m\">Acesse nossa loja virtual e complemente seu sistema de acordo com suas demandas.</p><ul class=\"jss142 jss147\"><li>Apps integrados ao sistema;</li><li>Operações automatizadas;</li><li>Atualizações em tempo real.</li></ul></div></div><div class=\"MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation0 MuiCard-root jss138 css-1g8qc7u\"><div class=\"MuiCardContent-root jss139 css-18mhetb\"><svg class=\"MuiSvgIcon-root MuiSvgIcon-fontSizeMedium jss140 css-vubbuv\" focusable=\"false\" aria-hidden=\"true\" viewBox=\"0 0 24 24\" data-testid=\"ArrowForwardIcon\"><path d=\"m12 4-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z\"></path></svg><p class=\"MuiTypography-root MuiTypography-body1 jss141 css-zn1dmc\">Omie.IA Fiscal<img src=\"/assets/icon_omie_ia_fiscal-BM6-rpgG.jpg\" class=\"jss143\" alt=\"Ícone Omie.IA Fiscal\"></p><p class=\"MuiTypography-root MuiTypography-body1 jss142 css-l86k8m\">Tributação automática de produtos, já em conformidade com a Reforma Tributária.</p></div></div><div class=\"MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation0 MuiCard-root jss138 css-1g8qc7u\"><div class=\"MuiCardContent-root jss139 css-18mhetb\"><svg class=\"MuiSvgIcon-root MuiSvgIcon-fontSizeMedium jss140 css-vubbuv\" focusable=\"false\" aria-hidden=\"true\" viewBox=\"0 0 24 24\" data-testid=\"ArrowForwardIcon\"><path d=\"m12 4-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z\"></path></svg><p class=\"MuiTypography-root MuiTypography-body1 jss141 css-zn1dmc\">Omie no WhatsApp<img src=\"/assets/icon_whatsapp-dQREDJdX.png\" class=\"jss146\"></p><p class=\"MuiTypography-root MuiTypography-body1 jss142 css-l86k8m\">O poder do seu sistema, agora no seu WhatsApp. Acesse informações e funcionalidades com apenas uma mensagem e mantenha o controle do seu negócio de onde estiver. Ative agora.</p></div></div></div></div></div></main><footer class=\"MuiGrid-root MuiGrid-container jss7 css-1qici0f\"></footer>"
+}

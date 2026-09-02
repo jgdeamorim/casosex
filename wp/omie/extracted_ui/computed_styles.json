@@ -1,0 +1,502 @@
+[
+  {
+    "tagName": "HEADER",
+    "className": "MuiPaper-root MuiPaper-elevation MuiPaper-elevation0 MuiAppBar-root MuiAppBar-colorInherit MuiAppBar-positionFixed jss6 mui-fixed css-25e6h",
+    "backgroundColor": "rgb(0, 30, 39)",
+    "color": "rgb(97, 97, 97)",
+    "fontFamily": "Roboto, sans-serif",
+    "borderRadius": "0px",
+    "boxShadow": "none",
+    "fontSize": "14px"
+  },
+  {
+    "tagName": "DIV",
+    "className": "jss16 MuiBox-root css-0",
+    "backgroundColor": "rgb(0, 226, 244)",
+    "color": "rgb(0, 30, 39)",
+    "fontFamily": "Poppins",
+    "borderRadius": "0px",
+    "boxShadow": "none",
+    "fontSize": "14px"
+  },
+  {
+    "tagName": "BUTTON",
+    "className": "MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary jss18 css-g5e9i6",
+    "backgroundColor": "rgb(255, 255, 255)",
+    "color": "rgb(0, 30, 39)",
+    "fontFamily": "Poppins",
+    "borderRadius": "50px",
+    "boxShadow": "none",
+    "fontSize": "14px"
+  },
+  {
+    "tagName": "DIV",
+    "className": "MuiToolbar-root MuiToolbar-gutters MuiToolbar-regular jss4 css-1ss4cyx",
+    "backgroundColor": "rgba(0, 0, 0, 0)",
+    "color": "rgb(97, 97, 97)",
+    "fontFamily": "Roboto, sans-serif",
+    "borderRadius": "0px",
+    "boxShadow": "none",
+    "fontSize": "14px"
+  },
+  {
+    "tagName": "DIV",
+    "className": "MuiContainer-root MuiContainer-maxWidthLg jss5 css-1qsxih2",
+    "backgroundColor": "rgba(0, 0, 0, 0)",
+    "color": "rgb(97, 97, 97)",
+    "fontFamily": "Roboto, sans-serif",
+    "borderRadius": "0px",
+    "boxShadow": "none",
+    "fontSize": "14px"
+  },
+  {
+    "tagName": "DIV",
+    "className": "MuiGrid-root MuiGrid-container css-1b1jvye",
+    "backgroundColor": "rgba(0, 0, 0, 0)",
+    "color": "rgb(97, 97, 97)",
+    "fontFamily": "Roboto, sans-serif",
+    "borderRadius": "0px",
+    "boxShadow": "none",
+    "fontSize": "14px"
+  },
+  {
+    "tagName": "DIV",
+    "className": "MuiGrid-root MuiGrid-item MuiGrid-grid-xs-auto css-19g2724",
+    "backgroundColor": "rgba(0, 0, 0, 0)",
+    "color": "rgb(97, 97, 97)",
+    "fontFamily": "Roboto, sans-serif",
+    "borderRadius": "0px",
+    "boxShadow": "none",
+    "fontSize": "14px"
+  },
+  {
+    "tagName": "DIV",
+    "className": "MuiGrid-root MuiGrid-item MuiGrid-grid-xs-auto css-19g2724",
+    "backgroundColor": "rgba(0, 0, 0, 0)",
+    "color": "rgb(97, 97, 97)",
+    "fontFamily": "Roboto, sans-serif",
+    "borderRadius": "0px",
+    "boxShadow": "none",
+    "fontSize": "14px"
+  },
+  {
+    "tagName": "DIV",
+    "className": "MuiGrid-root MuiGrid-container jss30 css-bxtot6",
+    "backgroundColor": "rgba(0, 0, 0, 0)",
+    "color": "rgb(97, 97, 97)",
+    "fontFamily": "Roboto, sans-serif",
+    "borderRadius": "0px",
+    "boxShadow": "none",
+    "fontSize": "14px"
+  },
+  {
+    "tagName": "DIV",
+    "className": "MuiGrid-root MuiGrid-item MuiGrid-grid-xs-auto css-19g2724",
+    "backgroundColor": "rgba(0, 0, 0, 0)",
+    "color": "rgb(97, 97, 97)",
+    "fontFamily": "Roboto, sans-serif",
+    "borderRadius": "0px",
+    "boxShadow": "none",
+    "fontSize": "14px"
+  },
+  {
+    "tagName": "A",
+    "className": "MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary jss27 css-kfzq9y",
+    "backgroundColor": "rgba(0, 0, 0, 0)",
+    "color": "rgb(0, 226, 244)",
+    "fontFamily": "Roboto, sans-serif",
+    "borderRadius": "4px",
+    "boxShadow": "none",
+    "fontSize": "14px"
+  },
+  {
+    "tagName": "DIV",
+    "className": "MuiGrid-root MuiGrid-item MuiGrid-grid-xs-auto css-19g2724",
+    "backgroundColor": "rgba(0, 0, 0, 0)",
+    "color": "rgb(97, 97, 97)",
+    "fontFamily": "Roboto, sans-serif",
+    "borderRadius": "0px",
+    "boxShadow": "none",
+    "fontSize": "14px"
+  },
+  {
+    "tagName": "A",
+    "className": "MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary jss27 css-1ci7g0w",
+    "backgroundColor": "rgba(0, 0, 0, 0)",
+    "color": "rgb(255, 255, 255)",
+    "fontFamily": "Roboto, sans-serif",
+    "borderRadius": "4px",
+    "boxShadow": "none",
+    "fontSize": "14px"
+  },
+  {
+    "tagName": "DIV",
+    "className": "MuiGrid-root MuiGrid-item MuiGrid-grid-xs-auto css-19g2724",
+    "backgroundColor": "rgba(0, 0, 0, 0)",
+    "color": "rgb(97, 97, 97)",
+    "fontFamily": "Roboto, sans-serif",
+    "borderRadius": "0px",
+    "boxShadow": "none",
+    "fontSize": "14px"
+  },
+  {
+    "tagName": "A",
+    "className": "MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary jss27 css-1ci7g0w",
+    "backgroundColor": "rgba(0, 0, 0, 0)",
+    "color": "rgb(255, 255, 255)",
+    "fontFamily": "Roboto, sans-serif",
+    "borderRadius": "4px",
+    "boxShadow": "none",
+    "fontSize": "14px"
+  },
+  {
+    "tagName": "DIV",
+    "className": "MuiGrid-root MuiGrid-item MuiGrid-grid-xs-auto css-19g2724",
+    "backgroundColor": "rgba(0, 0, 0, 0)",
+    "color": "rgb(97, 97, 97)",
+    "fontFamily": "Roboto, sans-serif",
+    "borderRadius": "0px",
+    "boxShadow": "none",
+    "fontSize": "14px"
+  },
+  {
+    "tagName": "A",
+    "className": "MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary jss27 css-1ci7g0w",
+    "backgroundColor": "rgba(0, 0, 0, 0)",
+    "color": "rgb(255, 255, 255)",
+    "fontFamily": "Roboto, sans-serif",
+    "borderRadius": "4px",
+    "boxShadow": "none",
+    "fontSize": "14px"
+  },
+  {
+    "tagName": "DIV",
+    "className": "MuiGrid-root MuiGrid-item MuiGrid-grid-xs-true css-kxu0dz",
+    "backgroundColor": "rgba(0, 0, 0, 0)",
+    "color": "rgb(97, 97, 97)",
+    "fontFamily": "Roboto, sans-serif",
+    "borderRadius": "0px",
+    "boxShadow": "none",
+    "fontSize": "14px"
+  },
+  {
+    "tagName": "DIV",
+    "className": "MuiGrid-root MuiGrid-item MuiGrid-grid-xs-auto css-19g2724",
+    "backgroundColor": "rgba(0, 0, 0, 0)",
+    "color": "rgb(97, 97, 97)",
+    "fontFamily": "Roboto, sans-serif",
+    "borderRadius": "0px",
+    "boxShadow": "none",
+    "fontSize": "14px"
+  },
+  {
+    "tagName": "DIV",
+    "className": "MuiButtonBase-root MuiChip-root MuiChip-outlined MuiChip-sizeMedium MuiChip-colorSecondary MuiChip-clickable MuiChip-clickableColorSecondary MuiChip-outlinedSecondary jss32 css-3kf7h0",
+    "backgroundColor": "rgb(0, 226, 244)",
+    "color": "rgb(216, 254, 0)",
+    "fontFamily": "Roboto, sans-serif",
+    "borderRadius": "27px",
+    "boxShadow": "none",
+    "fontSize": "13px"
+  },
+  {
+    "tagName": "DIV",
+    "className": "MuiContainer-root MuiContainer-maxWidthLg jss8 css-1qsxih2",
+    "backgroundColor": "rgba(0, 0, 0, 0)",
+    "color": "rgb(97, 97, 97)",
+    "fontFamily": "Roboto, sans-serif",
+    "borderRadius": "0px",
+    "boxShadow": "none",
+    "fontSize": "14px"
+  },
+  {
+    "tagName": "DIV",
+    "className": "MuiGrid-root MuiGrid-container jss62 css-vfppur",
+    "backgroundColor": "rgba(0, 0, 0, 0)",
+    "color": "rgb(97, 97, 97)",
+    "fontFamily": "Roboto, sans-serif",
+    "borderRadius": "0px",
+    "boxShadow": "none",
+    "fontSize": "14px"
+  },
+  {
+    "tagName": "DIV",
+    "className": "MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 css-15j76c0",
+    "backgroundColor": "rgba(0, 0, 0, 0)",
+    "color": "rgb(97, 97, 97)",
+    "fontFamily": "Poppins",
+    "borderRadius": "0px",
+    "boxShadow": "none",
+    "fontSize": "14px"
+  },
+  {
+    "tagName": "BUTTON",
+    "className": "MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary jss65 css-g5e9i6",
+    "backgroundColor": "rgb(0, 227, 245)",
+    "color": "rgb(0, 30, 39)",
+    "fontFamily": "Poppins",
+    "borderRadius": "50px",
+    "boxShadow": "none",
+    "fontSize": "14px"
+  },
+  {
+    "tagName": "BUTTON",
+    "className": "MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary jss66 css-g5e9i6",
+    "backgroundColor": "rgb(0, 30, 39)",
+    "color": "rgb(255, 255, 255)",
+    "fontFamily": "Poppins",
+    "borderRadius": "50px",
+    "boxShadow": "none",
+    "fontSize": "14px"
+  },
+  {
+    "tagName": "DIV",
+    "className": "jss71 MuiBox-root css-0",
+    "backgroundColor": "rgba(0, 0, 0, 0)",
+    "color": "rgb(97, 97, 97)",
+    "fontFamily": "Poppins",
+    "borderRadius": "0px",
+    "boxShadow": "none",
+    "fontSize": "14px"
+  },
+  {
+    "tagName": "BUTTON",
+    "className": "MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium jss72 css-1yxmbwk",
+    "backgroundColor": "rgb(94, 22, 255)",
+    "color": "rgb(255, 255, 255)",
+    "fontFamily": "Poppins",
+    "borderRadius": "50%",
+    "boxShadow": "none",
+    "fontSize": "24px"
+  },
+  {
+    "tagName": "DIV",
+    "className": "MuiFormControl-root MuiTextField-root jss73 css-i44wyl",
+    "backgroundColor": "rgba(0, 0, 0, 0)",
+    "color": "rgb(97, 97, 97)",
+    "fontFamily": "Poppins",
+    "borderRadius": "0px",
+    "boxShadow": "none",
+    "fontSize": "14px"
+  },
+  {
+    "tagName": "DIV",
+    "className": "MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-formControl css-16ywg1g",
+    "backgroundColor": "rgba(0, 0, 0, 0)",
+    "color": "rgb(97, 97, 97)",
+    "fontFamily": "Poppins",
+    "borderRadius": "12px",
+    "boxShadow": "none",
+    "fontSize": "14px"
+  },
+  {
+    "tagName": "BUTTON",
+    "className": "MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary css-4wgg6w",
+    "backgroundColor": "rgba(0, 0, 0, 0)",
+    "color": "rgb(255, 255, 255)",
+    "fontFamily": "Poppins",
+    "borderRadius": "4px",
+    "boxShadow": "none",
+    "fontSize": "14px"
+  },
+  {
+    "tagName": "DIV",
+    "className": "MuiStack-root jss74 css-1ns8eki",
+    "backgroundColor": "rgba(0, 0, 0, 0)",
+    "color": "rgb(97, 97, 97)",
+    "fontFamily": "Poppins",
+    "borderRadius": "0px",
+    "boxShadow": "none",
+    "fontSize": "14px"
+  },
+  {
+    "tagName": "BUTTON",
+    "className": "MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium css-1yxmbwk",
+    "backgroundColor": "rgba(0, 0, 0, 0)",
+    "color": "rgba(0, 0, 0, 0.54)",
+    "fontFamily": "Poppins",
+    "borderRadius": "50%",
+    "boxShadow": "none",
+    "fontSize": "24px"
+  },
+  {
+    "tagName": "BUTTON",
+    "className": "MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium jss75 css-1yxmbwk",
+    "backgroundColor": "rgba(0, 0, 0, 0.2)",
+    "color": "rgba(0, 0, 0, 0.54)",
+    "fontFamily": "Poppins",
+    "borderRadius": "50%",
+    "boxShadow": "none",
+    "fontSize": "24px"
+  },
+  {
+    "tagName": "BUTTON",
+    "className": "MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium css-1yxmbwk",
+    "backgroundColor": "rgba(0, 0, 0, 0)",
+    "color": "rgba(0, 0, 0, 0.54)",
+    "fontFamily": "Poppins",
+    "borderRadius": "50%",
+    "boxShadow": "none",
+    "fontSize": "24px"
+  },
+  {
+    "tagName": "BUTTON",
+    "className": "MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium css-1yxmbwk",
+    "backgroundColor": "rgba(0, 0, 0, 0)",
+    "color": "rgba(0, 0, 0, 0.54)",
+    "fontFamily": "Poppins",
+    "borderRadius": "50%",
+    "boxShadow": "none",
+    "fontSize": "24px"
+  },
+  {
+    "tagName": "DIV",
+    "className": "MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 css-12o6q2q",
+    "backgroundColor": "rgba(0, 0, 0, 0)",
+    "color": "rgb(97, 97, 97)",
+    "fontFamily": "Poppins",
+    "borderRadius": "0px",
+    "boxShadow": "none",
+    "fontSize": "14px"
+  },
+  {
+    "tagName": "DIV",
+    "className": "MuiGrid-root MuiGrid-container css-l75e4w",
+    "backgroundColor": "rgba(0, 0, 0, 0)",
+    "color": "rgb(97, 97, 97)",
+    "fontFamily": "Poppins",
+    "borderRadius": "0px",
+    "boxShadow": "none",
+    "fontSize": "14px"
+  },
+  {
+    "tagName": "DIV",
+    "className": "MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-9 MuiGrid-grid-md-6 MuiGrid-grid-lg-4 css-rs4a97",
+    "backgroundColor": "rgba(0, 0, 0, 0)",
+    "color": "rgb(97, 97, 97)",
+    "fontFamily": "Poppins",
+    "borderRadius": "0px",
+    "boxShadow": "none",
+    "fontSize": "14px"
+  },
+  {
+    "tagName": "DIV",
+    "className": "jss167 MuiBox-root css-whh5e5",
+    "backgroundColor": "rgb(255, 255, 255)",
+    "color": "rgb(97, 97, 97)",
+    "fontFamily": "Poppins",
+    "borderRadius": "24px",
+    "boxShadow": "rgba(0, 0, 0, 0.12) 0px 2px 5px 0px, rgba(0, 30, 39, 0.08) 0px 8px 24px 0px",
+    "fontSize": "14px"
+  },
+  {
+    "tagName": "DIV",
+    "className": "MuiGrid-root MuiGrid-container jss168 css-1d3bbye",
+    "backgroundColor": "rgb(235, 235, 235)",
+    "color": "rgb(97, 97, 97)",
+    "fontFamily": "Poppins",
+    "borderRadius": "24px 24px 0px 0px",
+    "boxShadow": "none",
+    "fontSize": "14px"
+  },
+  {
+    "tagName": "DIV",
+    "className": "MuiGrid-root MuiGrid-item MuiGrid-grid-xs-true css-kxu0dz",
+    "backgroundColor": "rgba(0, 0, 0, 0)",
+    "color": "rgb(97, 97, 97)",
+    "fontFamily": "Poppins",
+    "borderRadius": "0px",
+    "boxShadow": "none",
+    "fontSize": "14px"
+  },
+  {
+    "tagName": "DIV",
+    "className": "MuiGrid-root MuiGrid-item MuiGrid-grid-xs-auto jss172 css-445w9a",
+    "backgroundColor": "rgba(0, 0, 0, 0)",
+    "color": "rgb(97, 97, 97)",
+    "fontFamily": "Poppins",
+    "borderRadius": "0px",
+    "boxShadow": "none",
+    "fontSize": "14px"
+  },
+  {
+    "tagName": "DIV",
+    "className": "MuiGrid-root MuiGrid-item MuiGrid-grid-xs-auto jss172 css-19g2724",
+    "backgroundColor": "rgba(0, 0, 0, 0)",
+    "color": "rgb(97, 97, 97)",
+    "fontFamily": "Poppins",
+    "borderRadius": "0px",
+    "boxShadow": "none",
+    "fontSize": "14px"
+  },
+  {
+    "tagName": "DIV",
+    "className": "MuiStack-root jss173 css-1xhj18k",
+    "backgroundColor": "rgba(0, 0, 0, 0)",
+    "color": "rgb(97, 97, 97)",
+    "fontFamily": "Poppins",
+    "borderRadius": "0px",
+    "boxShadow": "none",
+    "fontSize": "14px"
+  },
+  {
+    "tagName": "BUTTON",
+    "className": "MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium jss175 css-1yxmbwk",
+    "backgroundColor": "rgba(0, 0, 0, 0)",
+    "color": "rgba(0, 0, 0, 0.54)",
+    "fontFamily": "Poppins",
+    "borderRadius": "50%",
+    "boxShadow": "none",
+    "fontSize": "24px"
+  },
+  {
+    "tagName": "BUTTON",
+    "className": "MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium css-1yxmbwk",
+    "backgroundColor": "rgba(0, 0, 0, 0)",
+    "color": "rgba(0, 0, 0, 0.54)",
+    "fontFamily": "Poppins",
+    "borderRadius": "50%",
+    "boxShadow": "none",
+    "fontSize": "24px"
+  },
+  {
+    "tagName": "DIV",
+    "className": "MuiGrid-root MuiGrid-container jss179 css-1d3bbye",
+    "backgroundColor": "rgba(0, 0, 0, 0)",
+    "color": "rgb(97, 97, 97)",
+    "fontFamily": "Poppins",
+    "borderRadius": "0px",
+    "boxShadow": "none",
+    "fontSize": "14px"
+  },
+  {
+    "tagName": "DIV",
+    "className": "MuiGrid-root MuiGrid-container MuiGrid-item MuiGrid-grid-xs-12 css-1qv1jgt",
+    "backgroundColor": "rgba(0, 0, 0, 0)",
+    "color": "rgb(97, 97, 97)",
+    "fontFamily": "Poppins",
+    "borderRadius": "0px",
+    "boxShadow": "none",
+    "fontSize": "14px"
+  },
+  {
+    "tagName": "DIV",
+    "className": "MuiGrid-root MuiGrid-item MuiGrid-grid-xs-auto jss174 css-19g2724",
+    "backgroundColor": "rgba(0, 0, 0, 0)",
+    "color": "rgb(97, 97, 97)",
+    "fontFamily": "Poppins",
+    "borderRadius": "0px",
+    "boxShadow": "none",
+    "fontSize": "14px"
+  },
+  {
+    "tagName": "DIV",
+    "className": "MuiAvatar-root MuiAvatar-circular jss189 css-8icg04",
+    "backgroundColor": "rgb(255, 255, 255)",
+    "color": "rgb(0, 0, 0)",
+    "fontFamily": "Poppins",
+    "borderRadius": "50%",
+    "boxShadow": "none",
+    "fontSize": "20px"
+  }
+]
