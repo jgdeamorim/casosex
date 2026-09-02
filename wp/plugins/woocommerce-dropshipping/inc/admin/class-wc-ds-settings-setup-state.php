@@ -37,9 +37,9 @@ class WC_DS_Settings_Setup_State {
 
 		return array(
 			array(
-				'id'         => 'aliexpress',
-				'label'      => __( 'Connect AliExpress (extension and API key)', 'woocommerce-dropshipping' ),
-				'done'       => ! empty( $o['ali_cbe_enable_name'] ) && '1' === (string) $o['ali_cbe_enable_name'],
+				'id'         => 'intt_local_supplier',
+				'label'      => __( 'Verificar fornecedor local INTT (White Label e Romaneio Fiscal)', 'woocommerce-dropshipping' ),
+				'done'       => ! empty( $o['hide_suppliername'] ) && '1' === (string) $o['hide_suppliername'],
 				'target_tab' => 'general_settings',
 			),
 			array(

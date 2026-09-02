@@ -1167,93 +1167,16 @@ if (! class_exists('WC_DS_Settings')) :
 
 				echo '<div class="drop-setting-section' . ( 'general_settings' === $wc_ds_active_tab ? ' active' : '' ) . '" id="general_settings">';
 
-					echo '<h3>' . esc_html__('AliExpress Chrome Browser Extension (CBE) Settings', 'woocommerce-dropshipping') . '</h3>';
+					echo '<h3>' . esc_html__('Configurações de Dropshipping Nacional & White Label CASOSEX', 'woocommerce-dropshipping') . '</h3>';
 
-					echo '<table>
-						<tr>
-							<td><h4><label for="ali_cbe_enable_name">' . esc_html__('Enable Support for the AliExpress CBE:', 'woocommerce-dropshipping') . '</label></h4></td>
-							<td><input name="ali_cbe_enable_name" id="ali_cbe_enable_name" type="checkbox" ' . esc_attr($ali_cbe_enable_checkbox) . ' /></td>
-						</tr>
-					</table>';
-					// @phpstan-ignore-next-line
-					if (isset($ali_cbe_enable_setting)) {
-
-						if ($ali_cbe_enable_setting == '1') {
-
-							echo '<table>
-									<tr>
-										<td><h4>' . esc_html__('Generate AliExpress API Key:', 'woocommerce-dropshipping') . '</h4></td>
-										<td>
-											<span>
-												<button type="button" id="generate_ali_key" class="button-primary">' . esc_html__('Generate AliExpress API Key', 'woocommerce-dropshipping') . '</button>
-											</span>
-										<td>
-									</tr>
-								</table>';
-
-							echo '<table>
-
-								<tr id="hide_key">
-									<td id="ali_api_key"></td>
-								</tr>
-
-							</table>';
-
-							echo '
-							<style>
-								.setup-guide {
-								padding: 20px 10px 20px 5px;
-								max-width: 100%;
-								box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-								}
-
-								.setup-guide h2 {
-								color: #333;
-								margin-bottom: 20px;
-								}
-
-								.setup-guide ol {
-								list-style-type: decimal;
-								padding-left: 20px;
-								}
-
-								.setup-guide strong {
-								color: #0056b3;
-								}
-
-								.setup-guide em {
-								font-style: italic;
-								color: #444;
-								}
-							</style>							
-							<div class="setup-guide">
-								<h4>How to Configure the CBE After Generating the Link</h4>
-								<ol>
-									<li>
-										<strong>Generate Your AliExpress API Key:</strong>  
-										Generate a new API key for your store.This key is required to authorize and connect your store with AliExpress.
-									</li>
-									<li>
-										<strong>Go to the AliExpress Website:</strong>  
-										After generating the key, navigate to the official AliExpress website.
-									</li>
-									<li>
-										<strong>Activate the WooCommerce Dropshipping Extension:</strong>  
-										Ensure that the WooCommerce Dropshipping Extension is installed and activated.
-									</li>
-									<li>
-										<strong>Open the Category Page on AliExpress:</strong>  
-										Visit any product category page. To connect the extension, click on the “Extensions” option and select <em>WooCommerce Dropshipping Extension</em>.
-									</li>
-									<li>
-										<strong>Configure the Extension:</strong>  
-										Click on the "Setup" button in the extension popup. Enter your Store URL and the AliExpress API Key generated using the button above, then save the settings.
-									</li>
-								</ol>
-							</div>';
-						}
-					}
-
+					echo '<div class="wc-ds-merchant-callout" role="note">
+						<p class="wc-ds-merchant-callout__kicker">' . esc_html__( 'Operação de Dropshipping Nacional (INTT / CASOSEX)', 'woocommerce-dropshipping' ) . '</p>
+						<p>' . esc_html__( 'As ordens de compra e romaneios fiscais são processados automaticamente para o fornecedor cadastrado (INTT) com os dados completos de entrega e o CPF/CNPJ do destinatário final.', 'woocommerce-dropshipping' ) . '</p>
+						<ul>
+							<li>' . esc_html__( 'O nome do fornecedor (INTT) é mantido 100% confidencial no e-commerce (White Label estrito).', 'woocommerce-dropshipping' ) . '</li>
+							<li>' . esc_html__( 'Produtos importados são mantidos como Pendentes de Revisão antes da aprovação final para a vitrine.', 'woocommerce-dropshipping' ) . '</li>
+						</ul>
+					</div>';
 				echo '</div>';
 
 				echo '<div class="drop-setting-section" id="supplier_email_notifications">';

@@ -29,7 +29,7 @@ class WC_DS_Settings_Registry {
 			),
 			array(
 				'id'    => 'general_settings',
-				'label' => __( 'Sales channels', 'woocommerce-dropshipping' ),
+				'label' => __( 'Dropshipping & White Label (INTT)', 'woocommerce-dropshipping' ),
 			),
 			array(
 				'id'    => 'supplier_email_notifications',

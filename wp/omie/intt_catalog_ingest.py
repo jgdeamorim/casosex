@@ -10,12 +10,15 @@ import urllib.parse
 import ssl
 import sys
 import os
+import base64
 
 WOOCOMMERCE_URL = os.environ.get("CASOSEX_WC_URL", "http://localhost:8085")
+WOOCOMMERCE_CK = os.environ.get("CASOSEX_WC_CK", "ck_7d629e674f63624ac51ef8903e735a4beed30bd2")
+WOOCOMMERCE_CS = os.environ.get("CASOSEX_WC_CS", "cs_7bd99d9165ad950dba5fd286f4d1a9e249ef1963")
 INTT_LOGIN_URL = "https://www.lojaintt.com.br/v2/login"
 INTT_CATALOG_URL = "https://www.lojaintt.com.br/v2/ajax/catalogo.php"
 
-def ingest_product_to_woocommerce(product_data: dict, wc_url: str = WOOCOMMERCE_URL, auth_header: str = None) -> dict:
+def ingest_product_to_woocommerce(product_data: dict, wc_url: str = WOOCOMMERCE_URL, ck: str = WOOCOMMERCE_CK, cs: str = WOOCOMMERCE_CS) -> dict:
     """
     Cadastra um produto vindo do catálogo INTT no WooCommerce com status 'pending' (rascunho para curadoria).
     """
@@ -25,7 +28,7 @@ def ingest_product_to_woocommerce(product_data: dict, wc_url: str = WOOCOMMERCE_
         "status": "pending",  # Status obrigatório de curadoria
         "description": product_data.get("description", ""),
         "short_description": product_data.get("short_description", ""),
-        "sku": f"INTT-{product_data.get('sku', '')}",
+        "sku": product_data.get('sku', ''),
         "regular_price": str(product_data.get("suggested_price", product_data.get("cost_price", 0.0) * 2.0)),
         "meta_data": [
             {"key": "_casosex_stock_type", "value": "dropshipping_intt"},
@@ -37,8 +40,10 @@ def ingest_product_to_woocommerce(product_data: dict, wc_url: str = WOOCOMMERCE_
     if product_data.get("images"):
         payload["images"] = [{"src": img} for img in product_data["images"]]
 
+    endpoint = f"{wc_url}/wp-json/wc/v3/products?consumer_key={ck}&consumer_secret={cs}"
+
     req = urllib.request.Request(
-        f"{wc_url}/wp-json/wc/v3/products",
+        endpoint,
         data=json.dumps(payload).encode("utf-8"),
         headers={
             "Content-Type": "application/json",
@@ -46,9 +51,6 @@ def ingest_product_to_woocommerce(product_data: dict, wc_url: str = WOOCOMMERCE_
         },
         method="POST"
     )
-    
-    if auth_header:
-        req.add_header("Authorization", auth_header)
         
     try:
         ctx = ssl.create_default_context()
