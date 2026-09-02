@@ -24,7 +24,7 @@ class WC_Dropshipping_Admin_Products_View {
 		add_action( 'manage_product_posts_custom_column', array( $this, 'render_custom_product_column_content' ), 10, 2 );
 		add_action( 'restrict_manage_posts', array( $this, 'add_supplier_filter_dropdown' ) );
 		add_action( 'parse_query', array( $this, 'filter_products_by_supplier_query' ) );
-		add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_admin_products_styles' ) );
+		add_action( 'admin_head', array( $this, 'inject_admin_styles' ) );
 	}
 
 	/**
@@ -225,23 +225,69 @@ class WC_Dropshipping_Admin_Products_View {
 	}
 
 	/**
-	 * Enfileira a folha de estilos dedicada da tabela de produtos no WP Admin no padrão WordPress.
+	 * Injeta estilos CSS para ajustar as larguras e alinhamentos das colunas.
 	 */
-	public function enqueue_admin_products_styles( $hook ) {
-		if ( 'edit.php' !== $hook ) {
-			return;
-		}
-
+	public function inject_admin_styles() {
 		$screen = get_current_screen();
-		if ( ! $screen || 'product' !== $screen->post_type ) {
+		if ( ! $screen || 'edit-product' !== $screen->id ) {
 			return;
 		}
-
-		wp_enqueue_style(
-			'wc-dropshipping-admin-products-table',
-			plugins_url( '../assets/css/admin-products-table.css', __FILE__ ),
-			array(),
-			'2.1.55'
-		);
+		?>
+		<style type="text/css">
+			/* Garante rolagem horizontal fluida do form e tabela */
+			#posts-filter {
+				overflow-x: auto !important;
+				max-width: 100% !important;
+				padding-bottom: 15px;
+			}
+			table.wp-list-table.products {
+				table-layout: auto !important;
+				width: 100% !important;
+				min-width: 1450px !important;
+			}
+			table.wp-list-table.products td, 
+			table.wp-list-table.products th {
+				vertical-align: top !important;
+				padding: 10px 8px !important;
+				word-break: normal !important;
+				overflow-wrap: normal !important;
+				hyphens: manual !important;
+			}
+			/* Prevenção estrita contra quebras verticais de caracteres */
+			table.wp-list-table.products .column-date,
+			table.wp-list-table.products .column-taxonomy-product_brand,
+			table.wp-list-table.products .column-product_cat,
+			table.wp-list-table.products .column-product_tag,
+			table.wp-list-table.products .column-curation_status,
+			table.wp-list-table.products .column-fiscal_data,
+			table.wp-list-table.products .column-cost_margin,
+			table.wp-list-table.products .column-supplier_freight,
+			table.wp-list-table.products .column-wholesale_price,
+			table.wp-list-table.products .column-is_in_stock,
+			table.wp-list-table.products .column-price,
+			table.wp-list-table.products .column-sku,
+			table.wp-list-table.products .column-global_unique_id {
+				white-space: nowrap !important;
+				word-break: normal !important;
+			}
+			table.wp-list-table.products .column-name {
+				white-space: normal !important;
+				min-width: 180px;
+				max-width: 260px;
+			}
+			/* Definição de larguras mínimas reais */
+			.fixed .column-cb { width: 32px !important; }
+			.fixed .column-thumb { width: 52px !important; }
+			.fixed .column-supplier_freight { min-width: 145px !important; }
+			.fixed .column-cost_margin { min-width: 145px !important; }
+			.fixed .column-fiscal_data { min-width: 145px !important; }
+			.fixed .column-curation_status { min-width: 130px !important; }
+			.fixed .column-wholesale_price { min-width: 110px !important; }
+			.fixed .column-taxonomy-product_brand { min-width: 110px !important; }
+			.fixed .column-date { min-width: 120px !important; }
+			/* Esconde permanentemente a coluna legada est_profit do DOM */
+			.column-est_profit { display: none !important; }
+		</style>
+		<?php
 	}
 }
