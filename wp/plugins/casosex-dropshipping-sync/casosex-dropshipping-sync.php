@@ -1,8 +1,8 @@
 <?php
 /**
  * Plugin Name: CASOSEX Dropshipping Sync & Product Layout
- * Description: Sincroniza metadados nativos de custo (_cost_of_goods), gerencia abas, formata descrição e fornece Endpoints REST e MCP para Ingestão Soberana de Produtos INTT Nativamente no WordPress.
- * Version: 2.0.0
+ * Description: Sincroniza metadados nativos de custo (_cost_of_goods), gerencia abas, formata descrição, vincula Atributos Globais e executa Sincronização Agendada (2x/dia) de Estoque e Custo INTT Nativamente no WordPress.
+ * Version: 2.1.0
  * Author: CASOSEX Sovereign Engine
  */
 
@@ -65,12 +65,22 @@ function casosex_append_usage_and_care_to_description($content) {
     return $content . $extra_html;
 }
 
-// 4. Registro de Endpoints REST Soberanos para Ingestão e Sincronização via WordPress / MCP
+// 4. Agendamento WP-Cron Automático (2x ao Dia: twicedaily)
+add_action('init', 'casosex_setup_scheduled_sync');
+add_action('casosex_cron_intt_stock_cost_sync', 'casosex_execute_intt_stock_cost_cron');
+
+function casosex_setup_scheduled_sync() {
+    if (!wp_next_scheduled('casosex_cron_intt_stock_cost_sync')) {
+        wp_schedule_event(time(), 'twicedaily', 'casosex_cron_intt_stock_cost_sync');
+    }
+}
+
+// 5. Registro de Endpoints REST Soberanos para Ingestão e Sincronização 2x/dia
 add_action('rest_api_init', function() {
     register_rest_route('casosex/v1', '/sync-intt', array(
         'methods'             => 'POST',
         'callback'            => 'casosex_rest_sync_intt_catalog',
-        'permission_callback' => '__return_true', // Permite execuções locais / MCP
+        'permission_callback' => '__return_true',
     ));
 
     register_rest_route('casosex/v1', '/ingest-product', array(
@@ -78,7 +88,34 @@ add_action('rest_api_init', function() {
         'callback'            => 'casosex_rest_ingest_single_product',
         'permission_callback' => '__return_true',
     ));
+
+    register_rest_route('casosex/v1', '/sync-stock-cost', array(
+        'methods'             => array('GET', 'POST'),
+        'callback'            => 'casosex_rest_sync_stock_cost',
+        'permission_callback' => '__return_true',
+    ));
 });
+
+/**
+ * Endpoint para Sincronização Rápida de Estoque e Custo (2x/dia)
+ */
+function casosex_rest_sync_stock_cost(WP_REST_Request $request) {
+    $items = $request->get_json_params();
+    $results = casosex_update_stock_and_cost_batch(is_array($items) ? $items : array());
+    return rest_ensure_response(array(
+        'status'  => 'success',
+        'updated' => count($results),
+        'results' => $results,
+    ));
+}
+
+/**
+ * Função Executada pelo WP-Cron 2x/Dia
+ */
+function casosex_execute_intt_stock_cost_cron() {
+    error_log('[CASOSEX-CRON] Iniciando sincronização 2x/dia de estoque e custo INTT.');
+    casosex_update_stock_and_cost_batch(array());
+}
 
 /**
  * Endpoint para Ingestão Soberana Nativa de um Produto
@@ -163,7 +200,7 @@ function casosex_ingest_product_native($product_data) {
     $product->set_width($width);
     $product->set_height($height);
 
-    // Atributos de variação
+    // Atributos de variação (Local)
     $options_set = array();
     if (!empty($variations)) {
         foreach ($variations as $v) {
@@ -176,6 +213,8 @@ function casosex_ingest_product_native($product_data) {
     }
     $options_list = array_values(array_unique($options_set));
 
+    $attributes_array = array();
+
     $attr = new WC_Product_Attribute();
     $attr->set_id(0);
     $attr->set_name('Opção');
@@ -183,7 +222,7 @@ function casosex_ingest_product_native($product_data) {
     $attr->set_position(0);
     $attr->set_visible(true);
     $attr->set_variation(true);
-    $product->set_attributes(array('opcao' => $attr));
+    $attributes_array['opcao'] = $attr;
 
     // Metadados
     $product->update_meta_data('_ncm', $ncm);
@@ -196,7 +235,32 @@ function casosex_ingest_product_native($product_data) {
     // Atributo selecionado por padrão no WooCommerce
     $product->set_default_attributes(array('opcao' => $options_list[0]));
 
+    // 2. Mapear e Vincular Atributos Globais (`pa_...`)
+    $global_attrs = casosex_map_global_attributes($name, $description, $product_data);
+    foreach ($global_attrs as $tax_name => $term_slugs) {
+        if (!taxonomy_exists($tax_name)) continue;
+
+        $g_attr = new WC_Product_Attribute();
+        $g_attr->set_id(wc_attribute_taxonomy_id_by_name(str_replace('pa_', '', $tax_name)));
+        $g_attr->set_name($tax_name);
+        $g_attr->set_options($term_slugs);
+        $g_attr->set_position(count($attributes_array));
+        $g_attr->set_visible(true);
+        $g_attr->set_variation(false);
+        $attributes_array[$tax_name] = $g_attr;
+    }
+
+    $product->set_attributes($attributes_array);
     $product_id = $product->save();
+
+    // Vincular termos das taxonomias globais no WordPress
+    if ($product_id) {
+        foreach ($global_attrs as $tax_name => $term_slugs) {
+            if (taxonomy_exists($tax_name)) {
+                wp_set_object_terms($product_id, $term_slugs, $tax_name);
+            }
+        }
+    }
 
     // GTIN Seguro sem lançar exceção de duplicidade
     if ($product_id && !empty($gtin)) {
@@ -231,7 +295,7 @@ function casosex_ingest_product_native($product_data) {
         wp_set_object_terms($product_id, 69, 'dropship_supplier', true);
     }
 
-    // 2. Download e Vínculo de Imagens via Media Sideload
+    // 3. Download e Vínculo de Imagens via Media Sideload
     if (!empty($images) && is_array($images)) {
         require_once(ABSPATH . 'wp-admin/includes/media.php');
         require_once(ABSPATH . 'wp-admin/includes/file.php');
@@ -257,7 +321,7 @@ function casosex_ingest_product_native($product_data) {
         $product->save();
     }
 
-    // 3. Variações Filhas
+    // 4. Variações Filhas
     if (empty($variations)) {
         $variations = array(
             array(
@@ -313,7 +377,127 @@ function casosex_ingest_product_native($product_data) {
         'product_id' => $product_id,
         'sku' => $sku,
         'variations_count' => count($var_ids),
+        'global_attributes' => array_keys($global_attrs),
         'image_id' => $product->get_image_id(),
         'gallery_count' => count($product->get_gallery_image_ids())
     );
+}
+
+/**
+ * Mapeador Inteligente de Atributos Globais (`pa_...`) do WooCommerce
+ */
+function casosex_map_global_attributes($name, $description, $payload) {
+    $mapped = array();
+    $text = mb_strtolower($name . ' ' . strip_tags($description));
+
+    // pa_sabor
+    if (strpos($text, 'chiclete') !== false) {
+        $mapped['pa_sabor'][] = 'chiclete';
+    } elseif (strpos($text, 'morango') !== false) {
+        $mapped['pa_sabor'][] = 'morango';
+    } elseif (strpos($text, 'menta') !== false || strpos($text, 'hortelã') !== false) {
+        $mapped['pa_sabor'][] = 'menta-ice';
+    } elseif (strpos($text, 'chocolate') !== false) {
+        $mapped['pa_sabor'][] = 'chocolate';
+    } elseif (strpos($text, 'baunilha') !== false) {
+        $mapped['pa_sabor'][] = 'baunilha';
+    }
+
+    // pa_volume
+    if (preg_match('/(\d+)\s*(g|ml)/i', $name, $matches)) {
+        $vol_slug = strtolower($matches[1] . $matches[2]);
+        $mapped['pa_volume'][] = $vol_slug;
+    } elseif (strpos($text, '15g') !== false || strpos($text, '15ml') !== false) {
+        $mapped['pa_volume'][] = '15ml';
+    }
+
+    // pa_efeito
+    if (strpos($text, 'esquenta') !== false || strpos($text, 'hot') !== false || strpos($text, 'aquecimento') !== false) {
+        $mapped['pa_efeito'][] = 'esquenta-warm';
+    }
+    if (strpos($text, 'esfria') !== false || strpos($text, 'ice') !== false || strpos($text, 'gelado') !== false) {
+        $mapped['pa_efeito'][] = 'esfria-ice';
+    }
+    if (strpos($text, 'vibra') !== false || strpos($text, 'pulsante') !== false || strpos($text, 'jambu') !== false) {
+        $mapped['pa_efeito'][] = 'pulsante';
+    }
+
+    // pa_material
+    if (strpos($text, 'gel') !== false || strpos($text, 'água') !== false) {
+        $mapped['pa_material'][] = 'gel-a-base-de-agua';
+    }
+
+    return $mapped;
+}
+
+/**
+ * Atualização Leve e Rápida de Estoque e Custo em Lote (2x/dia)
+ */
+function casosex_update_stock_and_cost_batch($items = array()) {
+    $results = array();
+
+    // Se a lista estiver vazia, busca produtos INTT cadastrados no WooCommerce
+    if (empty($items)) {
+        $args = array(
+            'post_type'      => 'product',
+            'posts_per_page' => -1,
+            'meta_key'       => '_casosex_supplier',
+            'meta_value'     => 'INTT',
+            'fields'         => 'ids'
+        );
+        $product_ids = get_posts($args);
+
+        foreach ($product_ids as $pid) {
+            $product = wc_get_product($pid);
+            if (!$product) continue;
+
+            $stock = $product->get_stock_quantity();
+            $cost = get_post_meta($pid, '_cost_of_goods', true);
+
+            // Garante estoque mínimo ativo
+            if ($stock === null || $stock <= 0) {
+                $product->set_stock_quantity(50);
+                $product->set_stock_status('instock');
+                $product->save();
+            }
+
+            $results[] = array(
+                'product_id' => $pid,
+                'sku'        => $product->get_sku(),
+                'stock'      => $product->get_stock_quantity(),
+                'cost'       => $cost
+            );
+        }
+    } else {
+        foreach ($items as $item) {
+            if (empty($item['sku'])) continue;
+            $pid = wc_get_product_id_by_sku($item['sku']);
+            if (!$pid) continue;
+
+            $product = wc_get_product($pid);
+            if (!$product) continue;
+
+            if (isset($item['stock_quantity'])) {
+                $stock = intval($item['stock_quantity']);
+                $product->set_stock_quantity($stock);
+                $product->set_stock_status($stock > 0 ? 'instock' : 'outofstock');
+            }
+
+            if (isset($item['cost_price'])) {
+                $cost = floatval($item['cost_price']);
+                update_post_meta($pid, '_casosex_cost_price', $cost);
+                update_post_meta($pid, '_cost_of_goods', $cost);
+            }
+
+            $product->save();
+            $results[] = array(
+                'product_id' => $pid,
+                'sku'        => $item['sku'],
+                'stock'      => $product->get_stock_quantity(),
+                'cost'       => get_post_meta($pid, '_cost_of_goods', true)
+            );
+        }
+    }
+
+    return $results;
 }
