@@ -596,10 +596,14 @@ def fetch_intt_product_page_details(opener, product_url: str) -> dict:
     try:
         with opener.open(req, timeout=10) as resp:
             html = resp.read().decode("utf-8", errors="ignore")
-            # Extrair Imagens em Alta Resolução (_zoom ou cdn)
-            img_urls = list(set(re.findall(r'https://static\.cdnlive\.com\.br/uploads/\d+/produto/[a-zA-Z0-9_-]+\.(?:png|jpg|jpeg)', html)))
-            high_res_imgs = [img for img in img_urls if "_zoom" in img or "zoom" in img]
-            final_imgs = high_res_imgs if high_res_imgs else img_urls
+            # Extrair Imagens em Alta Resolução (_zoom ou cdn) incluindo URLs relativas de protocolo
+            raw_imgs = re.findall(r'(?:https?:)?//static\.cdnlive\.com\.br/uploads/\d+/produto/[a-zA-Z0-9_-]+\.(?:png|jpg|jpeg|webp)', html)
+            fixed_imgs = ['https:' + img if img.startswith('//') else img for img in raw_imgs]
+            zoom_imgs = []
+            for img in fixed_imgs:
+                if '_zoom' in img and img not in zoom_imgs:
+                    zoom_imgs.append(img)
+            final_imgs = zoom_imgs if zoom_imgs else list(dict.fromkeys(fixed_imgs))
 
             # Extrair Modo de Uso
             m_usage = re.search(r'Modo de uso:?\s*</\w+>\s*<p>(.*?)</p>', html, re.IGNORECASE | re.DOTALL) or \
