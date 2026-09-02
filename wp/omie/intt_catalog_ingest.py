@@ -12,6 +12,7 @@ import sys
 import os
 import base64
 import subprocess
+import http.cookiejar
 
 WOOCOMMERCE_URL = os.environ.get("CASOSEX_WC_URL", "http://localhost:8085")
 WOOCOMMERCE_CK = os.environ.get("CASOSEX_WC_CK", "ck_0e3eee4f0fb2eb6f8b8861757fb3dba4330185c9")
@@ -230,6 +231,90 @@ def _assign_supplier_term_via_wp(product_id: int, term_id: int = INTT_SUPPLIER_T
     os.system(cmd)
 
 
+def fetch_intt_b2b_catalog(username: str = None, password: str = None) -> list:
+    """
+    Executa a raspagem autenticada (Dual-Scrape B2B - ADR-0228):
+    1. Realiza POST de login em https://www.lojaintt.com.br/v2/login (se credenciais forem fornecidas).
+    2. Mantém o cookie de sessão PHPSESSID via HTTPCookieProcessor.
+    3. Faz GET em https://www.lojaintt.com.br/v2/ajax/catalogo.php para obter o catálogo B2B completo com estoque físico real.
+    """
+    username = username or os.environ.get("INTT_B2B_USER", "")
+    password = password or os.environ.get("INTT_B2B_PASS", "")
+
+    cj = http.cookiejar.CookieJar()
+    ctx = ssl.create_default_context()
+    ctx.check_hostname = False
+    ctx.verify_mode = ssl.CERT_NONE
+
+    opener = urllib.request.build_opener(
+        urllib.request.HTTPCookieProcessor(cj),
+        urllib.request.HTTPSHandler(context=ctx)
+    )
+
+    headers = {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
+        "Accept": "application/json, text/javascript, */*; q=0.01",
+        "X-Requested-With": "XMLHttpRequest"
+    }
+
+    if username and password:
+        login_data = urllib.parse.urlencode({
+            "usuario": username,
+            "senha": password,
+            "acao": "login"
+        }).encode("utf-8")
+
+        login_req = urllib.request.Request(INTT_LOGIN_URL, data=login_data, headers=headers, method="POST")
+        try:
+            with opener.open(login_req, timeout=10) as resp:
+                print(f"[CASOSEX DUAL-SCRAPE] Handshake B2B efetuado com sucesso em {INTT_LOGIN_URL}")
+        except Exception as e:
+            print(f"[CASOSEX DUAL-SCRAPE] AVISO: Falha no login B2B ({e}). Tentando endpoint de catálogo...")
+
+    catalog_req = urllib.request.Request(INTT_CATALOG_URL, headers=headers, method="GET")
+    extracted_products = []
+
+    try:
+        with opener.open(catalog_req, timeout=15) as resp:
+            content = resp.read().decode("utf-8")
+            try:
+                raw_data = json.loads(content)
+                items = raw_data if isinstance(raw_data, list) else raw_data.get("produtos", raw_data.get("data", []))
+                for item in items:
+                    sku = str(item.get("sku") or item.get("codigo") or item.get("id", ""))
+                    if not sku:
+                        continue
+                    stock = int(item.get("estoque") or item.get("quantidade") or item.get("stock_quantity") or 0)
+                    cost = float(item.get("preco_atacado") or item.get("preco_custo") or item.get("cost_price") or 0.0)
+                    price = float(item.get("preco_sugerido") or item.get("preco_venda") or item.get("suggested_price") or (cost * 2.0 if cost > 0 else 0.0))
+
+                    extracted_products.append({
+                        "sku": sku if sku.startswith("INTT-") else f"INTT-{sku}",
+                        "name": str(item.get("nome") or item.get("titulo") or item.get("name", "Produto INTT")),
+                        "description": str(item.get("descricao") or item.get("description", "")),
+                        "short_description": str(item.get("resumo") or item.get("short_description", "")),
+                        "cost_price": cost,
+                        "suggested_price": price,
+                        "stock_quantity": stock,
+                        "gtin": str(item.get("gtin") or item.get("ean") or item.get("barcode") or ""),
+                        "ncm": str(item.get("ncm") or ""),
+                        "weight": float(item.get("peso_bruto") or item.get("weight") or 0.0),
+                        "weight_net": float(item.get("peso_liquido") or item.get("weight_net") or 0.0),
+                        "length": float(item.get("comprimento") or item.get("length") or 0.0),
+                        "width": float(item.get("largura") or item.get("width") or 0.0),
+                        "height": float(item.get("altura") or item.get("height") or 0.0),
+                        "category": str(item.get("categoria") or item.get("category") or "Cosméticos & Géis Eróticos"),
+                        "brand": str(item.get("marca") or item.get("linha") or item.get("brand") or "INTT"),
+                        "images": item.get("imagens", [item.get("imagem")] if item.get("imagem") else [])
+                    })
+            except Exception:
+                print(f"[CASOSEX DUAL-SCRAPE] Retorno do catálogo não é JSON. Tamanho da resposta: {len(content)} bytes.")
+    except Exception as e:
+        print(f"[CASOSEX DUAL-SCRAPE] Erro na consulta ao catálogo B2B: {e}")
+
+    return extracted_products
+
+
 def mock_sample_intt_ingest():
     """
     Simula uma ingestão de teste para validação de esteira auto-sync.
@@ -242,6 +327,14 @@ def mock_sample_intt_ingest():
         "cost_price": 24.90,
         "suggested_price": 49.90,
         "stock_quantity": 45,
+        "gtin": "7898582310142",
+        "ncm": "3304.99.90",
+        "weight": 0.14,
+        "weight_net": 0.10,
+        "length": 15.0,
+        "width": 5.0,
+        "height": 5.0,
+        "brand": "INTT Wellness",
         "images": ["https://www.lojaintt.com.br/images/sample.jpg"]
     }
     print(f"[CASOSEX INGEST] Processando produto INTT: {sample_product['name']} (SKU: {sample_product['sku']})")
@@ -251,4 +344,12 @@ def mock_sample_intt_ingest():
 
 
 if __name__ == "__main__":
-    mock_sample_intt_ingest()
+    products = fetch_intt_b2b_catalog()
+    if products:
+        print(f"[CASOSEX INGEST] {len(products)} produtos B2B extraídos da INTT. Iniciando sincronização WooCommerce...")
+        for p in products:
+            ingest_product_to_woocommerce(p)
+    else:
+        print("[CASOSEX INGEST] Nenhuma credencial/catálogo retornado via HTTP B2B live. Rodando fallback de validação Soberana...")
+        mock_sample_intt_ingest()
+
