@@ -33,6 +33,8 @@ def ingest_product_to_woocommerce(product_data: dict, wc_url: str = WOOCOMMERCE_
         "meta_data": [
             {"key": "_casosex_stock_type", "value": "dropshipping_intt"},
             {"key": "_casosex_supplier", "value": "INTT"},
+            {"key": "_casosex_supplier_id", "value": "69"},
+            {"key": "_casosex_supplier_cnpj", "value": "21.725.006/0001-04"},
             {"key": "_casosex_cost_price", "value": str(product_data.get("cost_price", 0.0))}
         ]
     }
