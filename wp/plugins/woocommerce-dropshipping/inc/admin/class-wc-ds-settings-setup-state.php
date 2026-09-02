@@ -38,25 +38,25 @@ class WC_DS_Settings_Setup_State {
 		return array(
 			array(
 				'id'         => 'intt_local_supplier',
-				'label'      => __( 'Verificar fornecedor local INTT (White Label e Romaneio Fiscal)', 'woocommerce-dropshipping' ),
+				'label'      => __( 'Trava White Label & Fornecedor INTT', 'woocommerce-dropshipping' ),
 				'done'       => ! empty( $o['hide_suppliername'] ) && '1' === (string) $o['hide_suppliername'],
 				'target_tab' => 'general_settings',
 			),
 			array(
 				'id'         => 'supplier_emails',
-				'label'      => __( 'Review supplier notification defaults', 'woocommerce-dropshipping' ),
+				'label'      => __( 'Notificações & E-mail Automático ao Fornecedor INTT', 'woocommerce-dropshipping' ),
 				'done'       => $this->has_text( $o, 'email_order_note' ),
 				'target_tab' => 'supplier_email_notifications',
 			),
 			array(
-				'id'         => 'smtp',
-				'label'      => __( 'Confirm email delivery (use SMTP if your host requires it)', 'woocommerce-dropshipping' ),
-				'done'       => ! empty( $o['smtp_check'] ) && '1' === (string) $o['smtp_check'] ? $this->has_text( $o, 'from_email' ) : true,
-				'target_tab' => 'smtp_options',
+				'id'         => 'packing_slips',
+				'label'      => __( 'Romaneios PDF com CPF/CNPJ do Destinatário Final', 'woocommerce-dropshipping' ),
+				'done'       => ! empty( $o['full_information'] ) && '1' === (string) $o['full_information'],
+				'target_tab' => 'packing_slips',
 			),
 			array(
 				'id'         => 'pricing',
-				'label'      => __( 'Review pricing and profit calculator', 'woocommerce-dropshipping' ),
+				'label'      => __( 'Precificação e Regras de Margem em BRL (R$)', 'woocommerce-dropshipping' ),
 				'done'       => $this->has_text( $o, 'profit_percent_value' ) || $this->has_text( $o, 'profit_doller_value' ) || ! empty( $o['dynamic_profit_margin'] ) || $this->has_text( $o, 'profit_margin_hidden_textarea' ),
 				'target_tab' => 'price_calculator_options',
 			),

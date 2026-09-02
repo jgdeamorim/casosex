@@ -31,33 +31,33 @@ $wc_ds_first_run        = $progress < 100;
 >
 	<header class="wc-ds-page-header">
 		<?php if ( $wc_ds_first_run ) : ?>
-			<p class="wc-ds-page-header__eyebrow"><?php esc_html_e( 'Start here', 'woocommerce-dropshipping' ); ?></p>
-			<h2 class="wc-ds-page-header__title"><?php esc_html_e( 'Set up Dropshipping', 'woocommerce-dropshipping' ); ?></h2>
+			<p class="wc-ds-page-header__eyebrow"><?php esc_html_e( 'Configuração Inicial', 'woocommerce-dropshipping' ); ?></p>
+			<h2 class="wc-ds-page-header__title"><?php esc_html_e( 'Operação Dropshipping INTT (White Label CASOSEX)', 'woocommerce-dropshipping' ); ?></h2>
 			<p class="wc-ds-page-header__lead description">
-				<?php esc_html_e( 'Run through the checklist, optionally say how you sell, then use Continue to visit each section in order. Save once at the bottom when you are finished — one save stores every tab.', 'woocommerce-dropshipping' ); ?>
+				<?php esc_html_e( 'Governador e painel de parametrização para despacho direto com o fornecedor nacional INTT. Utilize o checklist para conferir os parâmetros de White Label e faturamento fiscal.', 'woocommerce-dropshipping' ); ?>
 			</p>
 		<?php else : ?>
-			<h2 class="wc-ds-page-header__title"><?php esc_html_e( 'Overview', 'woocommerce-dropshipping' ); ?></h2>
+			<h2 class="wc-ds-page-header__title"><?php esc_html_e( 'Visão Geral & Governança INTT', 'woocommerce-dropshipping' ); ?></h2>
 			<p class="wc-ds-page-header__lead description">
-				<?php esc_html_e( 'Checklist and shortcuts. All sections share one Save changes at the bottom.', 'woocommerce-dropshipping' ); ?>
+				<?php esc_html_e( 'Checklist de prontidão da operação B2C Dropshipping INTT. Todas as abas compartilham o botão único "Salvar alterações" no rodapé.', 'woocommerce-dropshipping' ); ?>
 			</p>
 		<?php endif; ?>
 	</header>
 
 	<div class="wc-ds-overview__grid">
 		<section class="wc-ds-card wc-ds-card--panel wc-ds-card--hero" aria-labelledby="wc-ds-overview-profile-heading">
-			<h3 id="wc-ds-overview-profile-heading" class="wc-ds-card__title"><?php esc_html_e( 'How do you sell?', 'woocommerce-dropshipping' ); ?></h3>
-			<p class="wc-ds-field-help"><?php esc_html_e( 'Optional. We only use this to tailor tips on this screen — nothing is turned on or off automatically.', 'woocommerce-dropshipping' ); ?></p>
-			<label for="wc_ds_merchant_profile" class="screen-reader-text"><?php esc_html_e( 'Primary business type', 'woocommerce-dropshipping' ); ?></label>
+			<h3 id="wc-ds-overview-profile-heading" class="wc-ds-card__title"><?php esc_html_e( 'Canal de Operação Principal', 'woocommerce-dropshipping' ); ?></h3>
+			<p class="wc-ds-field-help"><?php esc_html_e( 'Canal ativo exclusivo para o ecossistema CASOSEX:', 'woocommerce-dropshipping' ); ?></p>
+			<label for="wc_ds_merchant_profile" class="screen-reader-text"><?php esc_html_e( 'Modo de Operação', 'woocommerce-dropshipping' ); ?></label>
 			<select name="wc_ds_merchant_profile" id="wc_ds_merchant_profile" class="wc-ds-select">
-				<option value="local" selected="selected"><?php esc_html_e( 'Local suppliers (INTT Dropshipping Nacional)', 'woocommerce-dropshipping' ); ?></option>
+				<option value="local" selected="selected"><?php esc_html_e( 'Dropshipping Nacional INTT (White Label)', 'woocommerce-dropshipping' ); ?></option>
 			</select>
 		</section>
 
 		<section class="wc-ds-card wc-ds-card--panel" aria-labelledby="wc-ds-overview-progress-heading">
 			<div class="wc-ds-card__head">
-				<h3 id="wc-ds-overview-progress-heading" class="wc-ds-card__title"><?php esc_html_e( 'Your checklist', 'woocommerce-dropshipping' ); ?></h3>
-				<span class="wc-ds-badge wc-ds-badge--neutral" title="<?php esc_attr_e( 'Checklist completion', 'woocommerce-dropshipping' ); ?>">
+				<h3 id="wc-ds-overview-progress-heading" class="wc-ds-card__title"><?php esc_html_e( 'Checklist de Prontidão INTT', 'woocommerce-dropshipping' ); ?></h3>
+				<span class="wc-ds-badge wc-ds-badge--neutral" title="<?php esc_attr_e( 'Progresso da Configuração', 'woocommerce-dropshipping' ); ?>">
 					<?php echo esc_html( (string) $progress ); ?>%
 				</span>
 			</div>
@@ -67,7 +67,7 @@ $wc_ds_first_run        = $progress < 100;
 				aria-valuemin="0"
 				aria-valuemax="100"
 				aria-valuenow="<?php echo esc_attr( (string) $progress ); ?>"
-				aria-label="<?php esc_attr_e( 'Setup progress', 'woocommerce-dropshipping' ); ?>"
+				aria-label="<?php esc_attr_e( 'Progresso da configuração', 'woocommerce-dropshipping' ); ?>"
 			>
 				<div class="wc-ds-progress__bar" style="width: <?php echo esc_attr( (string) $progress ); ?>%;"></div>
 			</div>
@@ -80,35 +80,35 @@ $wc_ds_first_run        = $progress < 100;
 							<?php echo esc_html( $item['label'] ); ?>
 						</button>
 						<?php if ( $done ) : ?>
-							<span class="screen-reader-text"><?php esc_html_e( 'Done', 'woocommerce-dropshipping' ); ?></span>
+							<span class="screen-reader-text"><?php esc_html_e( 'Concluído', 'woocommerce-dropshipping' ); ?></span>
 						<?php else : ?>
-							<span class="screen-reader-text"><?php esc_html_e( 'To do', 'woocommerce-dropshipping' ); ?></span>
+							<span class="screen-reader-text"><?php esc_html_e( 'Pendente', 'woocommerce-dropshipping' ); ?></span>
 						<?php endif; ?>
 					</li>
 				<?php endforeach; ?>
 			</ul>
 			<?php if ( empty( $items ) ) : ?>
-				<p class="wc-ds-empty-state"><?php esc_html_e( 'No checklist items are available yet.', 'woocommerce-dropshipping' ); ?></p>
+				<p class="wc-ds-empty-state"><?php esc_html_e( 'Nenhum item de checklist disponível.', 'woocommerce-dropshipping' ); ?></p>
 			<?php endif; ?>
 		</section>
 	</div>
 
 	<details class="wc-ds-details wc-ds-details--subtle">
-		<summary class="wc-ds-details__summary"><?php esc_html_e( 'Why one save?', 'woocommerce-dropshipping' ); ?></summary>
+		<summary class="wc-ds-details__summary"><?php esc_html_e( 'Como funciona a persistência de dados?', 'woocommerce-dropshipping' ); ?></summary>
 		<div class="wc-ds-details__body">
 			<p class="description">
-				<?php esc_html_e( 'WooCommerce saves all Dropshipping options in a single form. Switch tabs freely; nothing is stored until you click Save changes.', 'woocommerce-dropshipping' ); ?>
+				<?php esc_html_e( 'O WooCommerce armazena todas as opções de Dropshipping em um formulário unificado. Navegue livremente entre as abas e clique em "Salvar alterações" no rodapé para persistir.', 'woocommerce-dropshipping' ); ?>
 			</p>
 		</div>
 	</details>
 
 	<details class="wc-ds-details wc-ds-details--subtle">
-		<summary class="wc-ds-details__summary"><?php esc_html_e( 'Common support topics (quick answers)', 'woocommerce-dropshipping' ); ?></summary>
+		<summary class="wc-ds-details__summary"><?php esc_html_e( 'Diretrizes da Operação INTT (Suporte Operacional)', 'woocommerce-dropshipping' ); ?></summary>
 		<div class="wc-ds-details__body">
-			<ul class="description" style="margin: 0 0 1.2em 1.25em; max-width: 75%; padding: 0;">
-				<li><?php esc_html_e( '“No PDF attached” — usually supplier emails are disabled under Packing slips & PDFs → Notifications, or the order never reached Processing.', 'woocommerce-dropshipping' ); ?></li>
-				<li><?php esc_html_e( '“Email colors changed but PDF didn’t” — PDF content is under Packing slips & PDFs; colors in Supplier email design only affect the HTML email.', 'woocommerce-dropshipping' ); ?></li>
-				<li><?php esc_html_e( '“Suppliers never get mail” — check Email delivery (SMTP), spam, and that notifications are not disabled.', 'woocommerce-dropshipping' ); ?></li>
+			<ul class="description" style="margin: 0 0 1.2em 1.25em; max-width: 85%; padding: 0;">
+				<li><?php esc_html_e( '• "Dados Fiscais no Romaneio" — O CPF/CNPJ e telefone do destinatário são injetados automaticamente no PDF de expedição para emissão da NF de despacho pela INTT.', 'woocommerce-dropshipping' ); ?></li>
+				<li><?php esc_html_e( '• "Sigilo de Marca (White Label)" — Nome e marca do fornecedor são omitidos em todos os e-mails e telas visíveis ao cliente final.', 'woocommerce-dropshipping' ); ?></li>
+				<li><?php esc_html_e( '• "Notificação ao Fornecedor" — Certifique-se de que o e-mail de notificação do fornecedor INTT está cadastrado na aba "Fornecedores & Despacho INTT".', 'woocommerce-dropshipping' ); ?></li>
 			</ul>
 		</div>
 	</details>

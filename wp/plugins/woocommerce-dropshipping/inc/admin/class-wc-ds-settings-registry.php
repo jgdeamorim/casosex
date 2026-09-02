@@ -25,7 +25,7 @@ class WC_DS_Settings_Registry {
 		$tabs = array(
 			array(
 				'id'    => 'overview',
-				'label' => __( 'Overview', 'woocommerce-dropshipping' ),
+				'label' => __( 'Overview & Governança INTT', 'woocommerce-dropshipping' ),
 			),
 			array(
 				'id'    => 'general_settings',
@@ -33,23 +33,15 @@ class WC_DS_Settings_Registry {
 			),
 			array(
 				'id'    => 'supplier_email_notifications',
-				'label' => __( 'Suppliers & fulfilment', 'woocommerce-dropshipping' ),
+				'label' => __( 'Fornecedores & Despacho INTT', 'woocommerce-dropshipping' ),
 			),
 			array(
 				'id'    => 'packing_slips',
-				'label' => __( 'Packing slips & PDFs', 'woocommerce-dropshipping' ),
-			),
-			array(
-				'id'    => 'customised_supplier_emails',
-				'label' => __( 'Supplier email design', 'woocommerce-dropshipping' ),
-			),
-			array(
-				'id'    => 'smtp_options',
-				'label' => __( 'Email delivery (SMTP)', 'woocommerce-dropshipping' ),
+				'label' => __( 'Romaneios & PDFs (CPF/CNPJ)', 'woocommerce-dropshipping' ),
 			),
 			array(
 				'id'    => 'price_calculator_options',
-				'label' => __( 'Pricing & inventory', 'woocommerce-dropshipping' ),
+				'label' => __( 'Precificação & Margem BRL', 'woocommerce-dropshipping' ),
 			),
 		);
 
@@ -73,8 +65,6 @@ class WC_DS_Settings_Registry {
 			'general_settings',
 			'supplier_email_notifications',
 			'packing_slips',
-			'customised_supplier_emails',
-			'smtp_options',
 			'price_calculator_options',
 		);
 
