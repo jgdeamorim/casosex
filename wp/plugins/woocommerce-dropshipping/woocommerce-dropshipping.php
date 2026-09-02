@@ -264,6 +264,8 @@ final class WC_Dropshipping {
 
 		require_once 'woocommerce-dropshipping-functions.php';
 		require_once 'inc/class-wc-dropshipping-intt-sync.php';
+		require_once 'inc/class-wc-dropshipping-admin-products-view.php';
+		WC_Dropshipping_Admin_Products_View::instance();
 
 		require_once 'includes/cbe-api/class-wc-cbe-v2-service.php';
 
