@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Volúpia | Especificação Oficial de Marca & Diretrizes de Logo</title>
+  <meta name="description" content="Manual soberano de identidade visual, marcas, tipografia, malha de proporção e cores da Volúpia (usevolupia.com.br).">
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      /* Base Colors */
+      --color-obsidian-deep: #0D0A0F;
+      --color-obsidian-card: rgba(26, 18, 28, 0.85);
+      --color-obsidian-border: rgba(212, 163, 115, 0.25);
+      
+      /* Accents */
+      --color-rose-crimson: #E11D48;
+      --color-rose-soft: #FB7185;
+      --color-bordeaux-luxury: #881337;
+      --color-gold-champagne: #D4A373;
+      --color-gold-light: #F5D0A9;
+      --color-emerald-pix: #10B981;
+      
+      /* Typography Colors */
+      --color-text-main: #FAF7F5;
+      --color-text-muted: #B3A4A4;
+      --color-text-dark: #1A121C;
+
+      /* Visual FX */
+      --glow-rose: rgba(225, 29, 72, 0.25);
+      --glow-gold: rgba(212, 163, 115, 0.20);
+      --radius-xl: 24px;
+      --radius-lg: 16px;
+      --radius-md: 12px;
+      --radius-pill: 9999px;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    
+    body {
+      background: radial-gradient(circle at 50% 15%, #251227 0%, #0d0a0f 65%, #050406 100%);
+      color: var(--color-text-main);
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      line-height: 1.6;
+      padding: 40px 20px 80px 20px;
+      min-height: 100vh;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    /* Ambient Glows */
+    .glow-bg-1 {
+      position: fixed;
+      top: -100px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 700px;
+      height: 700px;
+      background: radial-gradient(circle, var(--glow-rose) 0%, transparent 70%);
+      filter: blur(100px);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* Header & Title Cover */
+    header.brand-cover {
+      text-align: center;
+      padding: 60px 30px;
+      background: var(--color-obsidian-card);
+      border: 1px solid var(--color-obsidian-border);
+      border-radius: var(--radius-xl);
+      backdrop-filter: blur(24px);
+      box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+      margin-bottom: 50px;
+      position: relative;
+      z-index: 10;
+    }
+
+    .badge-official {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 18px;
+      background: rgba(225, 29, 72, 0.15);
+      border: 1px solid rgba(225, 29, 72, 0.4);
+      border-radius: var(--radius-pill);
+      color: var(--color-rose-soft);
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 24px;
+    }
+
+    .badge-official .dot {
+      width: 8px; height: 8px;
+      background: var(--color-rose-crimson);
+      border-radius: 50%;
+      box-shadow: 0 0 10px var(--color-rose-crimson);
+    }
+
+    h1.brand-logo-headline {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(3rem, 8vw, 5rem);
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      background: linear-gradient(180deg, #FFFFFF 0%, #E2D7CE 55%, var(--color-gold-champagne) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 8px;
+    }
+
+    .brand-tagline-quote {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-size: clamp(1.2rem, 3.5vw, 1.7rem);
+      color: var(--color-gold-light);
+      margin-bottom: 20px;
+    }
+
+    .brand-meta-domain {
+      font-size: 0.9rem;
+      color: var(--color-text-muted);
+      letter-spacing: 0.08em;
+    }
+    .brand-meta-domain strong { color: var(--color-gold-champagne); }
+
+    /* Section Cards */
+    section.spec-section {
+      background: var(--color-obsidian-card);
+      border: 1px solid var(--color-obsidian-border);
+      border-radius: var(--radius-lg);
+      padding: 36px 32px;
+      margin-bottom: 40px;
+      backdrop-filter: blur(20px);
+      position: relative;
+      z-index: 10;
+    }
+
+    h2.section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.6rem;
+      color: var(--color-gold-light);
+      border-bottom: 1px solid var(--color-obsidian-border);
+      padding-bottom: 12px;
+      margin-bottom: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    /* Grid Layouts */
+    .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+    .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+    .grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+
+    @media (max-width: 768px) {
+      .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr; }
+    }
+
+    /* Logo Showcase Box */
+    .logo-display-box {
+      background: #080509;
+      border: 1px dashed var(--color-obsidian-border);
+      border-radius: var(--radius-md);
+      padding: 40px 20px;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+
+    .logo-display-box.light-mode {
+      background: #FAF7F5;
+      border-color: #E2D7CE;
+    }
+
+    .logo-display-box .logo-text {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.8rem;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+    }
+    .logo-display-box.dark-mode .logo-text {
+      background: linear-gradient(180deg, #FFFFFF 0%, #E2D7CE 55%, var(--color-gold-champagne) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .logo-display-box.light-mode .logo-text {
+      color: var(--color-obsidian-deep);
+    }
+    .logo-display-box.crimson-mode .logo-text {
+      color: var(--color-rose-crimson);
+    }
+
+    .logo-display-box .tagline-text {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-size: 1.1rem;
+      margin-top: 6px;
+    }
+    .logo-display-box.dark-mode .tagline-text { color: var(--color-gold-light); }
+    .logo-display-box.light-mode .tagline-text { color: #881337; }
+
+    /* Proportions & Grid overlay */
+    .grid-rules-container {
+      position: relative;
+      padding: 30px;
+      background: rgba(13, 10, 15, 0.95);
+      border: 1px solid var(--color-gold-champagne);
+      border-radius: var(--radius-md);
+      text-align: center;
+    }
+    .clearspace-box {
+      border: 1px dashed var(--color-rose-soft);
+      padding: 24px 40px;
+      display: inline-block;
+      position: relative;
+    }
+    .clearspace-label {
+      position: absolute;
+      font-size: 0.72rem;
+      font-family: monospace;
+      color: var(--color-rose-soft);
+      background: var(--color-obsidian-deep);
+      padding: 2px 6px;
+    }
+    .clearspace-label.top { top: -10px; left: 50%; transform: translateX(-50%); }
+    .clearspace-label.left { left: -15px; top: 50%; transform: translateY(-50%); }
+
+    /* Swatches */
+    .swatch-card {
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      border: 1px solid var(--color-obsidian-border);
+      background: rgba(10, 7, 12, 0.6);
+    }
+    .swatch-preview {
+      height: 100px;
+      width: 100%;
+    }
+    .swatch-info {
+      padding: 14px;
+    }
+    .swatch-info h4 { font-size: 0.95rem; color: var(--color-text-main); margin-bottom: 4px; }
+    .swatch-info p { font-size: 0.8rem; color: var(--color-text-muted); font-family: monospace; }
+
+    /* Typography Table */
+    table.spec-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 16px;
+      font-size: 0.9rem;
+    }
+    table.spec-table th, table.spec-table td {
+      padding: 12px 16px;
+      text-align: left;
+      border-bottom: 1px solid var(--color-obsidian-border);
+    }
+    table.spec-table th {
+      background: rgba(225, 29, 72, 0.1);
+      color: var(--color-gold-light);
+      font-weight: 700;
+      text-transform: uppercase;
+      font-size: 0.78rem;
+      letter-spacing: 0.05em;
+    }
+    table.spec-table td.font-preview-playfair {
+      font-family: 'Playfair Display', serif;
+    }
+    table.spec-table td.font-preview-sans {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+    }
+
+    /* Badges & Trust Icons */
+    .trust-badge-card {
+      background: rgba(32, 21, 35, 0.7);
+      border: 1px solid var(--color-obsidian-border);
+      border-radius: var(--radius-md);
+      padding: 20px;
+      text-align: center;
+    }
+    .trust-badge-card svg { color: var(--color-gold-champagne); margin-bottom: 10px; }
+    .trust-badge-card h4 { font-size: 0.95rem; color: var(--color-text-main); margin-bottom: 4px; }
+    .trust-badge-card p { font-size: 0.82rem; color: var(--color-text-muted); }
+
+    /* Footer */
+    footer.spec-footer {
+      text-align: center;
+      padding-top: 30px;
+      border-top: 1px solid var(--color-obsidian-border);
+      font-size: 0.85rem;
+      color: var(--color-text-muted);
+    }
+  </style>
+</head>
+<body>
+  <div class="glow-bg-1"></div>
+
+  <div class="container">
+
+    <!-- COVER HEADER -->
+    <header class="brand-cover">
+      <div class="badge-official">
+        <span class="dot"></span>
+        Diretriz de Marca Soberana 2026 · Volúpia OS
+      </div>
+      <h1 class="brand-logo-headline">VOLÚPIA</h1>
+      <div class="brand-tagline-quote">“Desperte seus sentidos”</div>
+      <div class="brand-meta-domain">
+        Domínio Oficial Registrado: <strong>usevolupia.com.br</strong> &nbsp;·&nbsp; Cockpit: <strong>app.usevolupia.com.br</strong>
+      </div>
+    </header>
+
+    <!-- SECTION 1: LOGOTYPE ARCHITECTURE & VARIATIONS -->
+    <section class="spec-section">
+      <h2 class="section-title">
+        <span>1. Arquitetura do Logotipo Oficial</span>
+        <span style="font-size:0.8rem; color:var(--color-gold-champagne); font-family:sans-serif;">Versões de Aplicação</span>
+      </h2>
+      <p style="margin-bottom: 24px; color: var(--color-text-muted);">
+        O logotipo oficial da <strong>Volúpia</strong> é composto pela marca tipográfica em caixa alta (All-Caps) refinada com a fonte serifada de alta costura <em>Playfair Display Bold (700)</em> e a assinatura <em>“Desperte seus sentidos”</em> em itálico.
+      </p>
+
+      <div class="grid-3" style="margin-bottom: 30px;">
+        
+        <!-- Primary Dark -->
+        <div class="logo-display-box dark-mode">
+          <div class="logo-text">VOLÚPIA</div>
+          <div class="tagline-text">“Desperte seus sentidos”</div>
+          <span style="margin-top:16px; font-size:0.72rem; color:var(--color-gold-champagne); text-transform:uppercase; letter-spacing:0.1em;">1. Principal (Obsidian Deep)</span>
+        </div>
+
+        <!-- Secondary Light -->
+        <div class="logo-display-box light-mode">
+          <div class="logo-text">VOLÚPIA</div>
+          <div class="tagline-text">“Desperte seus sentidos”</div>
+          <span style="margin-top:16px; font-size:0.72rem; color:#881337; text-transform:uppercase; letter-spacing:0.1em;">2. Fundo Claro / Impressão</span>
+        </div>
+
+        <!-- Crimson Accent -->
+        <div class="logo-display-box dark-mode crimson-mode">
+          <div class="logo-text">VOLÚPIA</div>
+          <div class="tagline-text" style="color:var(--color-rose-soft);">“Desperte seus sentidos”</div>
+          <span style="margin-top:16px; font-size:0.72rem; color:var(--color-rose-crimson); text-transform:uppercase; letter-spacing:0.1em;">3. Acento Carmim / Selo VIP</span>
+        </div>
+
+      </div>
+
+      <!-- Clear Space Rules -->
+      <h3 style="color: var(--color-rose-soft); font-size:1.1rem; margin-bottom:12px;">Área de Proteção (Clear Space) & Proporção</h3>
+      <div class="grid-rules-container">
+        <div class="clearspace-box">
+          <span class="clearspace-label top">Área Mínima = 1.5X (1.5x Altura da letra 'V')</span>
+          <span class="clearspace-label left">1.5X</span>
+          <div style="font-family:'Playfair Display', serif; font-size:2.5rem; font-weight:700; letter-spacing:0.16em; background: linear-gradient(180deg, #FFF, #D4A373); -webkit-background-clip:text; -webkit-text-fill-color:transparent;">
+            VOLÚPIA
+          </div>
+        </div>
+        <p style="margin-top:16px; font-size:0.85rem; color:var(--color-text-muted);">
+          <strong>Tamanhos Mínimos de Exibição:</strong> Web Desktop: <code>160px</code> &nbsp;·&nbsp; Mobile Header: <code>115px</code> &nbsp;·&nbsp; Favicon/App Icon: <code>36px</code> (Monograma 'V')
+        </p>
+      </div>
+    </section>
+
+    <!-- SECTION 2: OFFICIAL COLOR PALETTE -->
+    <section class="spec-section">
+      <h2 class="section-title">
+        <span>2. Paleta Canônica de Cores (Erotic Luxury)</span>
+        <span style="font-size:0.8rem; color:var(--color-gold-champagne); font-family:sans-serif;">Design Tokens</span>
+      </h2>
+
+      <div class="grid-4">
+        
+        <!-- Swatch 1 -->
+        <div class="swatch-card">
+          <div class="swatch-preview" style="background:#0D0A0F;"></div>
+          <div class="swatch-info">
+            <h4>Obsidian Deep</h4>
+            <p>HEX: #0D0A0F</p>
+            <p>Fundo Principal & Boutique</p>
+          </div>
+        </div>
+
+        <!-- Swatch 2 -->
+        <div class="swatch-card">
+          <div class="swatch-preview" style="background:#E11D48;"></div>
+          <div class="swatch-info">
+            <h4>Passion Crimson</h4>
+            <p>HEX: #E11D48</p>
+            <p>CTA, Botões & Glows</p>
+          </div>
+        </div>
+
+        <!-- Swatch 3 -->
+        <div class="swatch-card">
+          <div class="swatch-preview" style="background:#D4A373;"></div>
+          <div class="swatch-info">
+            <h4>Champagne Gold</h4>
+            <p>HEX: #D4A373</p>
+            <p>Logo Metálico & Bordas</p>
+          </div>
+        </div>
+
+        <!-- Swatch 4 -->
+        <div class="swatch-card">
+          <div class="swatch-preview" style="background:#10B981;"></div>
+          <div class="swatch-info">
+            <h4>Emerald Pix</h4>
+            <p>HEX: #10B981</p>
+            <p>Preço & Economia PIX</p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SECTION 3: TYPOGRAPHY SPECIFICATION SHEET -->
+    <section class="spec-section">
+      <h2 class="section-title">
+        <span>3. Especificação Tipográfica</span>
+        <span style="font-size:0.8rem; color:var(--color-gold-champagne); font-family:sans-serif;">Google Fonts Integration</span>
+      </h2>
+
+      <table class="spec-table">
+        <thead>
+          <tr>
+            <th>Elemento</th>
+            <th>Família Tipográfica</th>
+            <th>Peso / Estilo</th>
+            <th>Espaçamento (Letter-Spacing)</th>
+            <th>Exemplo Visual</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Logotipo Marca</strong></td>
+            <td class="font-preview-playfair">Playfair Display</td>
+            <td>700 (Bold / Caps)</td>
+            <td><code>0.16em</code> (2.5px)</td>
+            <td class="font-preview-playfair" style="font-size:1.4rem; font-weight:700; color:var(--color-gold-champagne);">VOLÚPIA</td>
+          </tr>
+          <tr>
+            <td><strong>Tagline Oficial</strong></td>
+            <td class="font-preview-playfair">Playfair Display</td>
+            <td>400 (Italic)</td>
+            <td><code>0.04em</code></td>
+            <td class="font-preview-playfair" style="font-size:1.1rem; font-style:italic; color:var(--color-gold-light);">“Desperte seus sentidos”</td>
+          </tr>
+          <tr>
+            <td><strong>Títulos H1 / H2</strong></td>
+            <td class="font-preview-playfair">Playfair Display</td>
+            <td>600 (Semibold)</td>
+            <td><code>0.08em</code></td>
+            <td class="font-preview-playfair" style="font-size:1.2rem; font-weight:600; color:#FFF;">Experiência Sensorial</td>
+          </tr>
+          <tr>
+            <td><strong>Corpo / Interface</strong></td>
+            <td class="font-preview-sans">Plus Jakarta Sans</td>
+            <td>400 (Regular) / 600 (Semibold)</td>
+            <td>Normal</td>
+            <td class="font-preview-sans" style="font-size:0.9rem; color:var(--color-text-muted);">Entrega discreta em caixa neutra.</td>
+          </tr>
+          <tr>
+            <td><strong>Botões / CTA</strong></td>
+            <td class="font-preview-sans">Plus Jakarta Sans</td>
+            <td>700 (Bold / Uppercase)</td>
+            <td><code>0.09em</code></td>
+            <td class="font-preview-sans" style="font-size:0.85rem; font-weight:700; color:var(--color-rose-crimson);">COMPRAR COM DISCRIÇÃO</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- SECTION 4: TRUST & PRIVACY BADGES -->
+    <section class="spec-section">
+      <h2 class="section-title">
+        <span>4. Selos de Garantia & Sigilo ("Anestesia da Vergonha")</span>
+        <span style="font-size:0.8rem; color:var(--color-gold-champagne); font-family:sans-serif;">CRO & Trust Tokens</span>
+      </h2>
+
+      <div class="grid-3">
+        
+        <div class="trust-badge-card">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+          <h4>Embalagem 100% Neutra</h4>
+          <p>Caixa sem nome de loja ou conteúdo impresso por fora. Nem o porteiro saberá.</p>
+        </div>
+
+        <div class="trust-badge-card">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          <h4>Fatura Genérica Discreta</h4>
+          <p>Descrição genérica no comprovante do cartão de crédito ou PIX.</p>
+        </div>
+
+        <div class="trust-badge-card">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+          <h4>Garantia PagBank & SSL</h4>
+          <p>Pagamento seguro em até 12x no cartão com 5% de desconto no PIX.</p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="spec-footer">
+      Volúpia Brand Guidelines &nbsp;·&nbsp; Documento Oficial Registrado &nbsp;·&nbsp; <strong>usevolupia.com.br</strong>
+    </footer>
+
+  </div>
+</body>
+</html>
