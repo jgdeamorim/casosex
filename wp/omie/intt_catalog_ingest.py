@@ -199,7 +199,20 @@ def ingest_product_to_woocommerce(product_data: dict, wc_url: str = WOOCOMMERCE_
     cat_id = get_or_create_category_id(category_name, wc_url, ck, cs)
 
     variations_data = product_data.get("variations", [])
-    is_variable = len(variations_data) > 0
+    if not variations_data:
+        var_sku = f"{sku}-VAR1" if not sku.endswith("-PARENT") else sku.replace("-PARENT", "-VAR1")
+        variations_data = [{
+            "sku": var_sku,
+            "option_name": "Padrão",
+            "cost_price": cost_price,
+            "suggested_price": suggested_price,
+            "stock_quantity": stock_qty,
+            "gtin": gtin,
+            "ncm": ncm,
+            "weight": weight
+        }]
+        product_data["variations"] = variations_data
+    is_variable = True
 
     tags_list = [{"name": "INTT"}, {"name": "Dropshipping Nacional"}, {"name": "Sex Shop"}]
     name_lower = product_data.get("name", "").lower()
@@ -212,7 +225,7 @@ def ingest_product_to_woocommerce(product_data: dict, wc_url: str = WOOCOMMERCE_
 
     payload = {
         "name": product_data.get("name", "Produto INTT"),
-        "type": "variable" if is_variable else "simple",
+        "type": "variable",
         "description": raw_desc,
         "short_description": product_data.get("short_description", ""),
         "sku": sku,
@@ -245,21 +258,15 @@ def ingest_product_to_woocommerce(product_data: dict, wc_url: str = WOOCOMMERCE_
     if cat_id > 0:
         payload["categories"] = [{"id": cat_id}]
 
-    if not is_variable:
-        payload["regular_price"] = str(suggested_price)
-        payload["manage_stock"] = True
-        payload["stock_quantity"] = stock_qty
-        payload["stock_status"] = stock_status
-    else:
-        attr_name = "Opção"
-        attr_options = [v.get("option_name", v.get("name", f"Opção {idx+1}")).strip() for idx, v in enumerate(variations_data)]
-        payload["attributes"] = [{
-            "name": attr_name,
-            "position": 0,
-            "visible": True,
-            "variation": True,
-            "options": attr_options
-        }]
+    attr_name = "Opção"
+    attr_options = [v.get("option_name", v.get("name", f"Opção {idx+1}")).strip() for idx, v in enumerate(variations_data)]
+    payload["attributes"] = [{
+        "name": attr_name,
+        "position": 0,
+        "visible": True,
+        "variation": True,
+        "options": attr_options
+    }]
 
     if product_data.get("images"):
         payload["images"] = [{"src": img} for img in product_data["images"] if isinstance(img, str) and img.startswith("http")]
@@ -435,22 +442,32 @@ def _ingest_via_php(product_data: dict, product_id: int = None) -> dict:
     content_txt = sections["content_origin"].replace("'", "\\'")
 
     variations_data = product_data.get("variations", [])
-    is_variable = len(variations_data) > 0
+    if not variations_data:
+        var_sku = f"{sku}-VAR1" if not sku.endswith("-PARENT") else sku.replace("-PARENT", "-VAR1")
+        variations_data = [{
+            "sku": var_sku,
+            "option_name": "Padrão",
+            "cost_price": cost_price,
+            "suggested_price": suggested_price,
+            "stock_quantity": stock_qty,
+            "gtin": gtin,
+            "ncm": ncm,
+            "weight": weight
+        }]
+        product_data["variations"] = variations_data
+    is_variable = True
 
-    if is_variable:
-        options_list = [v.get("option_name", v.get("name", f"Opção {i+1}")).strip() for i, v in enumerate(variations_data)]
-        options_str = " | ".join(options_list).replace("'", "\\'")
-        attr_php = f"""
-        $attr = new WC_Product_Attribute();
-        $attr->set_name('Opção');
-        $attr->set_options(explode(' | ', '{options_str}'));
-        $attr->set_position(0);
-        $attr->set_visible(true);
-        $attr->set_variation(true);
-        $product->set_attributes(array($attr));
-        """
-    else:
-        attr_php = ""
+    options_list = [v.get("option_name", v.get("name", f"Opção {i+1}")).strip() for i, v in enumerate(variations_data)]
+    options_str = " | ".join(options_list).replace("'", "\\'")
+    attr_php = f"""
+    $attr = new WC_Product_Attribute();
+    $attr->set_name('Opção');
+    $attr->set_options(explode(' | ', '{options_str}'));
+    $attr->set_position(0);
+    $attr->set_visible(true);
+    $attr->set_variation(true);
+    $product->set_attributes(array($attr));
+    """
 
     php_script = f"""
     require_once('/var/www/html/wp-load.php');
@@ -481,8 +498,12 @@ def _ingest_via_php(product_data: dict, product_id: int = None) -> dict:
             }}
         }}
     }}
+    if ($product && !$product->is_type('variable') && !$product->is_type('variation')) {{
+        wp_set_object_terms($product->get_id(), 'variable', 'product_type');
+        $product = wc_get_product($product->get_id());
+    }}
     if (!$product) {{
-        $product = {'new WC_Product_Variable()' if is_variable else 'new WC_Product_Simple()'};
+        $product = new WC_Product_Variable();
         $product->set_status('publish');
     }}
     $product->set_name('{name}');
@@ -495,13 +516,7 @@ def _ingest_via_php(product_data: dict, product_id: int = None) -> dict:
     }}
     $product->set_description('{desc}');
     $product->set_short_description('{short_desc}');
-    if (!$product->is_type('variable') && !$product->is_type('variation')) {{
-        $product->set_regular_price('{suggested_price}');
-        $product->set_manage_stock(true);
-        $product->set_stock_quantity({stock_qty});
-    }} else if ($product->is_type('variable')) {{
-        {attr_php}
-    }}
+    {attr_php}
     if ({weight} > 0) $product->set_weight({weight});
     if ({length} > 0) $product->set_length({length});
     if ({width} > 0) $product->set_width({width});
