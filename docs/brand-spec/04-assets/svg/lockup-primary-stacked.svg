@@ -1,0 +1,30 @@
+<svg width="280" height="180" viewBox="0 0 280 180" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="primaryGold" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#F5D0A9" />
+      <stop offset="50%" stop-color="#D4A373" />
+      <stop offset="100%" stop-color="#A87343" />
+    </linearGradient>
+    <linearGradient id="primaryRose" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FB7185" />
+      <stop offset="100%" stop-color="#E11D48" />
+    </linearGradient>
+  </defs>
+
+  <!-- Brandmark Monogram V -->
+  <g transform="translate(110, 10)">
+    <path d="M 9,9 C 21,3 39,3 51,9 C 45,27 30,51 30,57 C 30,51 15,27 9,9 Z" fill="url(#primaryGold)" />
+    <path d="M 21,13 C 27,11 33,11 39,13 C 35,24 30,41 30,45 C 30,41 25,24 21,13 Z" fill="url(#primaryRose)" opacity="0.9" />
+    <circle cx="30" cy="20" r="3" fill="#FAF7F5" />
+  </g>
+
+  <!-- Wordmark VOLÚPIA -->
+  <text x="140" y="115" font-family="'Playfair Display', Georgia, serif" font-size="32" font-weight="700" letter-spacing="7" fill="#FAF7F5" text-anchor="middle">
+    VOLÚPIA
+  </text>
+
+  <!-- Tagline DESPERTE SEUS SENTIDOS -->
+  <text x="140" y="142" font-family="'Plus Jakarta Sans', sans-serif" font-size="10" font-weight="600" letter-spacing="4" fill="#D4A373" text-anchor="middle">
+    DESPERTE SEUS SENTIDOS
+  </text>
+</svg>
