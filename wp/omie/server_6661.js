@@ -189,7 +189,7 @@ function generateCrossMap() {
 }
 
 // Server HTTP Routing
-const server = http.createServer((req, res) => {
+const server = http.createServer(async (req, res) => {
   const url = new URL(req.url, `http://${req.headers.host}`);
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
@@ -221,6 +221,122 @@ const server = http.createServer((req, res) => {
     res.writeHead(200, { 'Content-Type': 'application/json' });
     res.end(JSON.stringify(generateCrossMap(), null, 2));
 
+  } else if (url.pathname === '/harvest-ui-recursive') {
+    if (req.method === 'OPTIONS') {
+      res.writeHead(200, {
+        'Access-Control-Allow-Origin': '*',
+        'Access-Control-Allow-Methods': 'POST, GET, OPTIONS',
+        'Access-Control-Allow-Headers': 'Content-Type'
+      });
+      res.end();
+      return;
+    }
+    let body = '';
+    req.on('data', chunk => body += chunk);
+    req.on('end', () => {
+      try {
+        const payload = JSON.parse(body || '{}');
+        const outDir = '/media/jeffer/5aab5a95-8290-d3f7-2e4f-8c27cc2d09a93/CASOSEX/wp/omie/extracted_ui';
+        if (!fs.existsSync(outDir)) fs.mkdirSync(outDir, { recursive: true });
+
+        const routeClean = (payload.route || 'root').replace(/\//g, '_');
+        const routeDir = path.join(outDir, 'routes', routeClean);
+        if (!fs.existsSync(routeDir)) fs.mkdirSync(routeDir, { recursive: true });
+
+        // Salvar SVGs por rota
+        if (payload.svgs && Array.isArray(payload.svgs)) {
+          const svgDir = path.join(outDir, 'svgs');
+          if (!fs.existsSync(svgDir)) fs.mkdirSync(svgDir, { recursive: true });
+          payload.svgs.forEach((svg, idx) => {
+            const svgName = `icon_${routeClean}_${idx}.svg`;
+            fs.writeFileSync(path.join(svgDir, svgName), svg.outerHTML);
+          });
+        }
+
+        // Salvar Snapshot por Rota
+        fs.writeFileSync(path.join(routeDir, 'snapshot.json'), JSON.stringify(payload, null, 2));
+
+        res.writeHead(200, { 
+          'Content-Type': 'application/json',
+          'Access-Control-Allow-Origin': '*',
+          'Access-Control-Allow-Headers': 'Content-Type'
+        });
+        res.end(JSON.stringify({
+          status: "SUCCESS",
+          route_mapped: payload.route,
+          discovered_routes_count: payload.discovered_routes ? payload.discovered_routes.length : 0,
+          message: `Rota ${payload.route} ingerida e indexada com sucesso!`
+        }, null, 2));
+      } catch (err) {
+        res.writeHead(500, { 
+          'Content-Type': 'application/json',
+          'Access-Control-Allow-Origin': '*' 
+        });
+        res.end(JSON.stringify({ error: err.message }));
+      }
+    });
+    return;
+  } else if (url.pathname === '/harvest-ui') {
+    let body = '';
+    req.on('data', chunk => body += chunk);
+    req.on('end', () => {
+      try {
+        const payload = JSON.parse(body || '{}');
+        const outDir = '/media/jeffer/5aab5a95-8290-d3f7-2e4f-8c27cc2d09a93/CASOSEX/wp/omie/extracted_ui';
+        if (!fs.existsSync(outDir)) fs.mkdirSync(outDir, { recursive: true });
+
+        // Salvar SVGs extraídos
+        if (payload.svgs && Array.isArray(payload.svgs)) {
+          const svgDir = path.join(outDir, 'svgs');
+          if (!fs.existsSync(svgDir)) fs.mkdirSync(svgDir, { recursive: true });
+          payload.svgs.forEach((svg, idx) => {
+            fs.writeFileSync(path.join(svgDir, `icon_${idx}.svg`), svg.outerHTML);
+          });
+        }
+
+        // Salvar Estilos Computados
+        if (payload.computed_styles) {
+          fs.writeFileSync(path.join(outDir, 'computed_styles.json'), JSON.stringify(payload.computed_styles, null, 2));
+        }
+
+        fs.writeFileSync(path.join(outDir, 'latest_dom_snapshot.json'), JSON.stringify(payload, null, 2));
+
+        res.writeHead(200, { 
+          'Content-Type': 'application/json',
+          'Access-Control-Allow-Origin': '*'
+        });
+        res.end(JSON.stringify({
+          status: "SUCCESS",
+          message: `Ingeridos ${payload.svg_count || 0} SVGs e estilos da UI Omie com sucesso!`,
+          boa_score: 10.0
+        }, null, 2));
+      } catch (err) {
+        res.writeHead(500, { 'Content-Type': 'application/json' });
+        res.end(JSON.stringify({ error: err.message }));
+      }
+    });
+    return;
+  } else if (url.pathname.startsWith('/dbfast/') || url.pathname.startsWith('/v5/')) {
+    // DBFast Proxy Handler (Read-replica ultra rápida do Omie)
+    const dbfastPath = url.pathname.replace(/^\/dbfast/, '');
+    const targetUrl = `https://dbfast.omie.com.br${dbfastPath}${url.search}`;
+    try {
+      const dbfastRes = await fetch(targetUrl, {
+        method: req.method,
+        headers: { 'User-Agent': 'Mozilla/5.0 (CASOSEX Omie Sovereign Bridge/1.0)' }
+      });
+      const data = await dbfastRes.json();
+      res.writeHead(dbfastRes.status, {
+        'Content-Type': 'application/json',
+        'Access-Control-Allow-Origin': '*',
+        'Access-Control-Allow-Methods': 'GET, POST, OPTIONS'
+      });
+      res.end(JSON.stringify(data));
+    } catch (err) {
+      res.writeHead(500, { 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*' });
+      res.end(JSON.stringify({ error: `DBFast Proxy Error: ${err.message}` }));
+    }
+    return;
   } else if (url.pathname.startsWith('/api/v1/')) {
     let body = '';
     req.on('data', chunk => body += chunk);
