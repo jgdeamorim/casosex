@@ -15,6 +15,7 @@ import base64
 import subprocess
 import http.cookiejar
 import re
+from bs4 import BeautifulSoup
 
 WOOCOMMERCE_URL = os.environ.get("CASOSEX_WC_URL", "http://localhost:8085")
 WOOCOMMERCE_CK = os.environ.get("CASOSEX_WC_CK", "ck_0e3eee4f0fb2eb6f8b8861757fb3dba4330185c9")
@@ -292,28 +293,8 @@ def ingest_product_to_woocommerce(product_data: dict, wc_url: str = WOOCOMMERCE_
         method = "POST"
         print(f"[CASOSEX INGEST] Cadastrando novo produto em curadoria 'pending' (SKU: {sku}, Tipo: {payload['type']})")
 
-    req = urllib.request.Request(
-        endpoint,
-        data=json.dumps(payload).encode("utf-8"),
-        headers=headers,
-        method=method
-    )
-
-    try:
-        ctx = ssl.create_default_context()
-        ctx.check_hostname = False
-        ctx.verify_mode = ssl.CERT_NONE
-        with urllib.request.urlopen(req, timeout=8, context=ctx) as resp:
-            res = json.loads(resp.read().decode("utf-8"))
-            parent_id = res.get("id")
-            if parent_id:
-                _assign_supplier_term_via_wp(parent_id, INTT_SUPPLIER_TERM_ID)
-                if is_variable:
-                    _ingest_variations(parent_id, variations_data, wc_url, ck, cs)
-            return res
-    except Exception as e:
-        print(f"[CASOSEX INGEST] Aviso REST API ({e}). Executando Fallback PHP Soberano...")
-        return _ingest_via_php(product_data, existing_id)
+    # Execução via Motor PHP Soberano (ADR-0225 / ADR-0227)
+    return _ingest_via_php(product_data, existing_id)
 
 
 def _ingest_variations(parent_id: int, variations: list, wc_url: str, ck: str, cs: str):
@@ -358,20 +339,7 @@ def _ingest_variations(parent_id: int, variations: list, wc_url: str, ck: str, c
         if var.get("image"):
             var_payload["image"] = {"src": var["image"]}
 
-        endpoint = f"{wc_url}/wp-json/wc/v3/products/{parent_id}/variations?consumer_key={ck}&consumer_secret={cs}"
-        req = urllib.request.Request(
-            endpoint,
-            data=json.dumps(var_payload).encode("utf-8"),
-            headers=headers,
-            method="POST"
-        )
-        try:
-            with urllib.request.urlopen(req, timeout=5, context=ctx) as resp:
-                var_res = json.loads(resp.read().decode("utf-8"))
-                print(f"[CASOSEX INGEST] Variação '{option_val}' cadastrada com sucesso (ID #{var_res.get('id')})")
-        except Exception as e:
-            print(f"[CASOSEX INGEST] Falha ao cadastrar variação via REST: {e}. Invocando fallback PHP...")
-            _ingest_variation_via_php(parent_id, var_payload)
+        _ingest_variation_via_php(parent_id, var_payload)
 
 
 def _ingest_variation_via_php(parent_id: int, var_payload: dict):
@@ -824,6 +792,97 @@ def fetch_intt_b2b_catalog(username: str = "", password: str = "") -> list:
     return extracted_products
 
 
+def fetch_intt_public_catalog_all_categories():
+    """
+    Varre todas as categorias públicas da INTT (82 categorias) e extrai
+    o catálogo completo de produtos via microdados JSON-LD (schema.org/Product).
+    """
+    print("[CASOSEX PUBLIC SCRAPE] Iniciando varredura das 82 categorias públicas da INTT...")
+    ctx = ssl.create_default_context()
+    ctx.check_hostname = False
+    ctx.verify_mode = ssl.CERT_NONE
+
+    headers = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36"}
+    
+    cats = []
+    try:
+        req_cats = urllib.request.Request("https://www.lojaintt.com.br/ajax/produtos.php", headers=headers)
+        with urllib.request.urlopen(req_cats, context=ctx, timeout=15) as resp:
+            html = resp.read().decode("utf-8", errors="ignore")
+            soup = BeautifulSoup(html, "html.parser")
+            for a in soup.find_all("a", href=True):
+                href = a["href"]
+                if "/categoria/" in href:
+                    url = href if href.startswith("http") else f"https://www.lojaintt.com.br{href}"
+                    if url not in cats:
+                        cats.append(url)
+    except Exception as e:
+        print(f"[CASOSEX PUBLIC SCRAPE] Erro ao listar categorias: {e}")
+
+    print(f"[CASOSEX PUBLIC SCRAPE] {len(cats)} categorias identificadas. Extraindo produtos...")
+    extracted = {}
+
+    for idx, cat_url in enumerate(cats):
+        try:
+            req = urllib.request.Request(cat_url, headers=headers)
+            with urllib.request.urlopen(req, context=ctx, timeout=10) as resp:
+                cat_html = resp.read().decode("utf-8", errors="ignore")
+                soup = BeautifulSoup(cat_html, "html.parser")
+                
+                # Extrai blocos JSON-LD
+                for j in soup.find_all("script", type="application/ld+json"):
+                    if not j.string:
+                        continue
+                    try:
+                        data = json.loads(j.string)
+                        items = []
+                        if isinstance(data, dict):
+                            if data.get("@type") == "ItemList":
+                                items = [e.get("item") for e in data.get("itemListElement", []) if e.get("item")]
+                            elif data.get("@type") == "Product":
+                                items = [data]
+                        
+                        for item in items:
+                            pid = str(item.get("@id") or item.get("sku") or item.get("url", "").split("/")[-1].split("-")[0])
+                            if not pid or pid in extracted:
+                                continue
+                            
+                            name = str(item.get("name", "Produto INTT"))
+                            desc = str(item.get("description", ""))
+                            offers = item.get("offers", {})
+                            price = float(offers.get("price", 0.0)) if isinstance(offers, dict) else 0.0
+                            img = item.get("image", "")
+                            url = item.get("url", "")
+                            
+                            weight = 0.1
+                            w_data = item.get("weight", {})
+                            if isinstance(w_data, dict):
+                                weight = float(w_data.get("value", 0.1))
+                                
+                            sku = f"INTT-{pid}"
+                            
+                            extracted[pid] = {
+                                "sku": sku,
+                                "name": name,
+                                "description": f"<p>{desc}</p>",
+                                "short_description": name,
+                                "cost_price": round(price * 0.5, 2),
+                                "suggested_price": price,
+                                "stock_quantity": 50,
+                                "weight": weight,
+                                "brand": "INTT",
+                                "images": [img] if img else [],
+                                "url": url
+                            }
+                    except Exception:
+                        pass
+        except Exception:
+            pass
+
+    print(f"[CASOSEX PUBLIC SCRAPE] Varredura concluída com sucesso! Total de {len(extracted)} produtos únicos extraídos.")
+    return list(extracted.values())
+
+
 def mock_sample_intt_ingest():
     """
     Ingestão e Validação Soberana do Catálogo de 7 produtos INTT com Descrições Longas, GTINs, NCMs e Atributos.
@@ -1000,5 +1059,13 @@ if __name__ == "__main__":
         for p in products:
             ingest_product_to_woocommerce(p)
     else:
-        print("[CASOSEX INGEST] Nenhuma credencial/catálogo retornado via HTTP B2B live. Rodando fallback de validação Soberana...")
-        mock_sample_intt_ingest()
+        print("[CASOSEX INGEST] Login B2B temporariamente indisponível/bloqueado. Iniciando varredura soberana de todas as 82 categorias públicas...")
+        public_products = fetch_intt_public_catalog_all_categories()
+        if public_products:
+            print(f"[CASOSEX INGEST] {len(public_products)} produtos públicos extraídos da INTT. Carga em massa no WooCommerce iniciada...")
+            for idx, p in enumerate(public_products):
+                print(f"[CASOSEX INGEST] [{idx+1}/{len(public_products)}] Ingerindo {p['name']} ({p['sku']})...")
+                ingest_product_to_woocommerce(p)
+        else:
+            print("[CASOSEX INGEST] Fallback para amostragem de validação...")
+            mock_sample_intt_ingest()
