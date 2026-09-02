@@ -829,14 +829,8 @@ final class WC_Dropshipping {
 	 * Column width tweaks for the Products list table (avoid echo inside sortable-columns filter).
 	 */
 	public function print_dropship_supplier_product_list_styles() {
-		$screen = function_exists( 'get_current_screen' ) ? get_current_screen() : null;
-		if ( ! $screen || 'edit-product' !== $screen->id ) {
-			return;
-		}
-		echo '<style>.fixed .column-date {width: auto !important; }
-		table.wp-list-table .column-product_cat, table.wp-list-table .column-product_tag {width: auto !important;	}
-		table.wp-list-table .column-odoo_status_field { width: auto; }
-		</style>';
+		// Estilos legados com width: auto !important foram desativados em favor do layout responsivo de class-wc-dropshipping-admin-products-view.php
+		return;
 	}
 
 	/**

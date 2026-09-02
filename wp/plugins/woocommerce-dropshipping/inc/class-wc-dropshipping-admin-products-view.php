@@ -234,12 +234,25 @@ class WC_Dropshipping_Admin_Products_View {
 		}
 		?>
 		<style type="text/css">
-			/* Reseta e impede quebras de linha caractere por caractere em cabeçalhos e células */
+			/* Container de rolagem horizontal nativo e fluído */
+			#posts-filter {
+				overflow-x: auto !important;
+				max-width: 100% !important;
+				padding-bottom: 15px;
+			}
+
+			/* Tabela de produtos com layout automático expansível */
+			body.post-type-product table.wp-list-table.products {
+				table-layout: auto !important;
+				width: 100% !important;
+				min-width: 1500px !important;
+			}
+
+			/* Prevenção absoluta contra quebra vertical de texto em todas as células e links da tabela */
 			body.post-type-product table.wp-list-table.products th,
 			body.post-type-product table.wp-list-table.products td,
-			body.post-type-product table.wp-list-table.products th a,
-			body.post-type-product table.wp-list-table.products th.manage-column,
-			body.post-type-product table.wp-list-table.products th span {
+			body.post-type-product table.wp-list-table.products th *,
+			body.post-type-product table.wp-list-table.products td * {
 				white-space: nowrap !important;
 				word-break: normal !important;
 				word-wrap: normal !important;
@@ -247,47 +260,24 @@ class WC_Dropshipping_Admin_Products_View {
 				hyphens: manual !important;
 			}
 
-			/* O título do produto pode ter quebra de linha normal */
+			/* Apenas o Título do Produto pode ter quebra de linha normal */
 			body.post-type-product table.wp-list-table.products .column-name,
+			body.post-type-product table.wp-list-table.products .column-name *,
 			body.post-type-product table.wp-list-table.products .column-name a {
 				white-space: normal !important;
 				word-break: break-word !important;
+				min-width: 220px !important;
+				max-width: 320px !important;
 			}
 
-			/* Container com rolagem horizontal suave */
-			#posts-filter {
-				overflow-x: auto !important;
-				max-width: 100% !important;
-				padding-bottom: 15px;
+			/* Alinhamentos e espaçamento das células */
+			body.post-type-product table.wp-list-table.products td,
+			body.post-type-product table.wp-list-table.products th {
+				vertical-align: middle !important;
+				padding: 10px 12px !important;
 			}
 
-			/* Tabela com larguras fixas bem dimensionadas */
-			body.post-type-product table.wp-list-table.products {
-				table-layout: fixed !important;
-				width: 100% !important;
-				min-width: 1500px !important;
-			}
-
-			/* Larguras exatas em pixels por coluna */
-			body.post-type-product .fixed .column-cb { width: 32px !important; }
-			body.post-type-product .fixed .column-thumb { width: 52px !important; }
-			body.post-type-product .fixed .column-name { width: 220px !important; }
-			body.post-type-product .fixed .column-supplier_freight { width: 170px !important; }
-			body.post-type-product .fixed .column-sku { width: 100px !important; }
-			body.post-type-product .fixed .column-global_unique_id { width: 125px !important; }
-			body.post-type-product .fixed .column-is_in_stock { width: 110px !important; }
-			body.post-type-product .fixed .column-price { width: 100px !important; }
-			body.post-type-product .fixed .column-cost_margin { width: 160px !important; }
-			body.post-type-product .fixed .column-fiscal_data { width: 150px !important; }
-			body.post-type-product .fixed .column-curation_status { width: 140px !important; }
-			body.post-type-product .fixed .column-wholesale_price { width: 110px !important; }
-			body.post-type-product .fixed .column-product_cat { width: 140px !important; }
-			body.post-type-product .fixed .column-product_tag { width: 100px !important; }
-			body.post-type-product .fixed .column-featured { width: 50px !important; }
-			body.post-type-product .fixed .column-taxonomy-product_brand { width: 110px !important; }
-			body.post-type-product .fixed .column-date { width: 140px !important; }
-
-			/* Oculta colunas legadas no DOM caso reapareçam via JS/ScreenOptions */
+			/* Ocultação forçada das colunas legadas indesejadas */
 			body.post-type-product .column-est_profit,
 			body.post-type-product .column-taxonomy-dropship_supplier {
 				display: none !important;
