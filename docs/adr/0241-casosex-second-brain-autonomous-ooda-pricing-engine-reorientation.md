@@ -90,8 +90,34 @@ Para evitar fragmentação de responsabilidades:
 
 ---
 
-## 5. Consequências & Ganhos
+## 5. Logística & Frete Inteligente: Integração com Melhor Envio
+
+A operação da CASOSEX baseia-se em **Estoque Físico Próprio no Espírito Santo (ES)** através de compras em caixa fechada da distribuidora local **INTT ES** (com retirada imediata e frete de fábrica R$ 0,00).
+
+Para a expedição e entrega ao cliente final nos diferentes canais de venda, a ADR-0241 formaliza a governança de frete via **Melhor Envio**:
+
+1. **Origem e Despacho Centralizado:**
+   * **CEP de Origem:** Cadastro do CEP sede da operação no Espírito Santo (ES) nas configurações de frete do WooCommerce (`woocommerce_store_postcode` e zona de envio ES).
+   * **Embalagem Sigilosa Padronizada:** A taxa fixa de **R$ 3,50** por pedido já cobrada pelo motor algorítmico cobre a caixa de papelão kraft lisa, fita gomada sem impressão e plástico bolha, garantindo discrição total (sem menção a sex shop na etiqueta).
+
+2. **Diferenciação por Canal:**
+   * **Loja Virtual (`casosex.com.br`):**
+     * O plugin oficial do **Melhor Envio** cota em tempo real com múltiplas transportadoras (Correios SEDEX/PAC, Jadlog, Loggi, Azul Cargo).
+     * O frete é pago diretamente pelo cliente final no checkout ou bonificado acima de ticket médio definido (ex: Frete Grátis acima de R$ 199,00 absorvido pela margem líquida de 40%).
+   * **Mercado Livre (Clássico & Premium):**
+     * Operação sob **Mercado Envios** (coleta ou agência / cross-docking `xd_drop_off`). Produtos acima de R$ 79,00 contam com coparticipação obrigatória de frete já descontada no motor de precificação.
+   * **Landing Pages de Conversão (`lp.casosex.com.br`):**
+     * **Estratégia de Oferta Irresistível:** "Frete Fixo Simbólico" (ex: R$ 9,90 para Sudeste) ou "Frete Grátis Embutido".
+     * Com a recalibração da **DataForSEO**, o CPA de Google Ads caiu de R$ 115,00 para **R$ 23,60** (CPC real R$ 0,59), abrindo uma folga de margem líquida superior a **R$ 250,00**.
+     * Parte dessa folga (R$ 15,00 a R$ 22,00) pode subsidiar o frete via Melhor Envio (Jadlog/SEDEX), permitindo anunciar na Landing Page **"Produto Original com Envio Discreto e Frete Grátis"** sem jamais ferir a trava de piso rígido anti-prejuízo.
+
+---
+
+## 6. Consequências & Ganhos
 
 - **Zero Esforço Operacional:** O founder nunca precisa abrir um produto no admin para digitar preço ou calcular margem.
+- **Competitividade Extrema na Landing Page:** O preço da LP passa a ser agressivo (R$ 912 a R$ 989 em vez de R$ 1.691), permitindo conversões em escala com CPA baixo medido no Google Ads.
+- **Logística Profissional & Sigilosa:** Integração fluida entre o estoque local no ES, frete barato pelo Melhor Envio e rastreamento automático para o comprador.
 - **Auditoria Transparente:** O Dossiê Comercial (`/?casosex_dossier={id}`) permanece como a tela de visualização dos dados consolidados gerados pela IA.
 - **Alinhamento com a Doutrina Mãe:** Respeita integralmente `medido=verdade` e preserva os tokens e saldos de APIs via cache determinístico.
+
