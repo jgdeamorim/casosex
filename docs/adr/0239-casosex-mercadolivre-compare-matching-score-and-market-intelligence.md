@@ -43,10 +43,23 @@ O plugin armazena no `wp_postmeta` do produto:
 - `_meli_opportunity_index`: Classificação de viabilidade para Landing Page (`HIGH_MARGIN`, `ORDER_BUMP`, `SEO_ONLY`).
 
 ### 2.2.1. Integração Soberana com ACF / Secure Custom Fields & Easy MCP AI
-Para interoperabilidade máxima com o servidor MCP (`easy-mcp-ai/v1/mcp`) e as 6 ferramentas ativas de ACF (`wp_acf_get_fields`, `wp_acf_update_fields`, etc.):
-- O plugin registra um **ACF Local Field Group** (`group_casosex_meli_intelligence`) com `show_in_rest => true`.
-- Todos os campos de inteligência de mercado aparecem nativamente na chave `"acf"` nas respostas da REST API do WordPress (`/wp-json/wp/v2/product/{id}`).
-- Qualquer agente autônomo Antigravity pode inspecionar ou atualizar o matching score diretamente via MCP REST API sem necessidade de comandos de baixo nível.
+Para interoperabilidade máxima com o servidor MCP (`http://localhost:8085/wp-json/easy-mcp-ai/v1/mcp`) e as 6 ferramentas ativas de ACF (`wp_acf_get_fields`, `wp_acf_update_fields`, `wp_acf_list_field_groups`, etc.):
+- O plugin registra programaticamente um **ACF Local Field Group** (`group_casosex_meli_intelligence`) vinculado ao `post_type == 'product'` com `show_in_rest => true`.
+- Todos os campos aparecem na chave `"acf"` nas respostas REST do WordPress (`/wp-json/wp/v2/product/{id}`):
+
+| Campo ACF (Name / Key) | Tipo | Descrição Operacional |
+| :--- | :--- | :--- |
+| `meli_matching_score` | Number | Score ponderado de similaridade (0 a 100%). |
+| `meli_catalog_id` | Text | ID oficial do produto de catálogo no MeLi (ex: `MLB41352084`). |
+| `meli_market_price` | Number | Preço vencedor do Buy Box no Mercado Livre (R$). |
+| `meli_sales_tier` | Text | Faixa de tração comercial (ex: `+1000 vendidos`). |
+| `meli_rating` | Number | Nota média das avaliações dos clientes (ex: `4.5`). |
+| `meli_reviews_count` | Number | Quantidade total de reviews de compradores reais. |
+| `meli_active_days` | Number | Dias em que o produto está ativo em catálogo desde a criação. |
+| `meli_opportunity_index` | Select | Viabilidade estratégica (`HIGH_MARGIN`, `ORDER_BUMP`, `SEO_ONLY`). |
+| `meli_last_sync` | Date Time | Timestamp da última checagem de dados na API. |
+
+- Qualquer agente autônomo Antigravity pode auditar ou enriquecer os produtos via tool nativa MCP `wp_acf_update_fields` em tempo real.
 
 ### 2.3. Enriquecimento de Atributos Globais (`pa_*`)
 Mapeamento dos 29 atributos do catálogo MeLi para os atributos globais do WooCommerce:
@@ -62,6 +75,7 @@ wp-content/plugins/casosex-mercadolivre-compare/
 ├── inc/
 │   ├── class-meli-oauth.php              # Auth e renovação de token via .env.MERCADOLIVRE
 │   ├── class-meli-matcher.php            # Algoritmo de cálculo do Matching Score
+│   ├── class-meli-acf-fields.php         # Registro do Local Field Group ACF com show_in_rest
 │   ├── class-meli-enricher.php           # Ingestão de atributos MeLi -> pa_*
 │   ├── class-meli-metabox.php            # Metabox no editor do produto (post.php)
 │   └── class-meli-admin-columns.php      # Coluna de inteligência competitiva na listagem
