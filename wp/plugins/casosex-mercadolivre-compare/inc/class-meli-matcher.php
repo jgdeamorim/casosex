@@ -75,8 +75,19 @@ class CasoSex_MeLi_Matcher {
         $market_price = !empty($top5_bench['avg_price']) ? $top5_bench['avg_price'] : self::fetch_market_price($catalog_id, $token);
         $lowest_competitor = !empty($top5_bench['lowest_price']) ? $top5_bench['lowest_price'] : $market_price;
         
-        // Motor Algorítmico Multicanal (ADR-0240) - ZERO 1.8x cego
-        $pricing = CasoSex_MeLi_Pricing_Engine::calculate_all_channels($cost_price, $box_units, $market_price);
+        // Sensor DataForSEO: Volume de Busca & CPA Real (ADR-0241)
+        $cpa_real = 0;
+        if (class_exists('Adsentice_DataForSEO_Bridge')) {
+            $clean_kw = self::sanitize_query($title);
+            $dfs_metrics = Adsentice_DataForSEO_Bridge::get_keyword_metrics($clean_kw);
+            if (!empty($dfs_metrics['cpc']) && floatval($dfs_metrics['cpc']) > 0) {
+                // CPA = CPC / Taxa de Conversão estimada de LP (2.5%)
+                $cpa_real = round(floatval($dfs_metrics['cpc']) / 0.025, 2);
+            }
+        }
+
+        // Motor Algorítmico Multicanal (ADR-0240 / ADR-0241) - ZERO 1.8x cego
+        $pricing = CasoSex_MeLi_Pricing_Engine::calculate_all_channels($cost_price, $box_units, $market_price, $cpa_real);
 
         if ($market_price <= 0 && !empty($pricing)) {
             $market_price = $pricing['price_meli_premium']; // Preço seguro Premium como fallback
@@ -115,6 +126,8 @@ class CasoSex_MeLi_Matcher {
             'pricing_meli_premium'      => !empty($pricing['price_meli_premium']) ? $pricing['price_meli_premium'] : 0,
             'pricing_loja_virtual'      => !empty($pricing['price_store']) ? $pricing['price_store'] : 0,
             'pricing_landing_page'      => !empty($pricing['price_landing_page']) ? $pricing['price_landing_page'] : 0,
+            'pricing_kit_duplo'         => !empty($pricing['price_kit_duplo']) ? $pricing['price_kit_duplo'] : 0,
+            'pricing_cpa_ads_target'    => !empty($pricing['cpa_ads_estimated']) ? $pricing['cpa_ads_estimated'] : 0,
             'pricing_hard_floor_limit'  => !empty($pricing['hard_floor_limit']) ? $pricing['hard_floor_limit'] : 0,
             'meli_last_sync'            => current_time('Y-m-d H:i:s')
         ];

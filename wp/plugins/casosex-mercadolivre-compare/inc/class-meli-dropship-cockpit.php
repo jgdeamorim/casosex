@@ -43,55 +43,75 @@ class CasoSex_MeLi_Dropship_Cockpit {
                             <span style="width: 8px; height: 8px; background: #38bdf8; border-radius: 50%; display: inline-block;"></span>
                             ADR-0240 · ESTOQUE PRÓPRIO ATACADO B2B (INTT ES)
                         </div>
-                        <h2 style="color: #fff; font-size: 22px; font-weight: 800; margin: 0 0 6px 0;">⚡ Cockpit Financeiro & Simulador de Precificação Multicanal</h2>
+                        <h2 style="color: #fff; font-size: 22px; font-weight: 800; margin: 0 0 6px 0;">🧠 Console de Telemetria OODA & Governança Autônoma (ADR-0241)</h2>
                         <p style="color: #94a3b8; margin: 0; font-size: 13px;">
-                            Operação própria com compra em caixa fechada da fábrica local (frete R$ 0, pedido mínimo R$ 450,00). Preços calculados sem multiplicador cego de 1.8x.
+                            Gânglio Nervoso Adsentice Second Brain: precificação 100% autônoma, classificação semântica de canais e trava anti-prejuízo sem necessidade de digitação manual.
                         </p>
                     </div>
                 </div>
 
-                <!-- SIMULADOR INTERATIVO -->
+                <?php
+                // Telemetria do Catálogo
+                $total_prods = wp_count_posts('product')->publish ?? 0;
+                $prods_synced = count(get_posts([
+                    'post_type'   => 'product',
+                    'meta_key'    => 'meli_last_sync',
+                    'post_status' => 'publish',
+                    'numberposts' => -1,
+                    'fields'      => 'ids'
+                ]));
+                $high_margin_count = count(get_posts([
+                    'post_type'   => 'product',
+                    'meta_key'    => 'meli_opportunity_index',
+                    'meta_value'  => 'HIGH_MARGIN',
+                    'post_status' => 'publish',
+                    'numberposts' => -1,
+                    'fields'      => 'ids'
+                ]));
+                $order_bump_count = count(get_posts([
+                    'post_type'   => 'product',
+                    'meta_key'    => 'meli_opportunity_index',
+                    'meta_value'  => 'ORDER_BUMP',
+                    'post_status' => 'publish',
+                    'numberposts' => -1,
+                    'fields'      => 'ids'
+                ]));
+                $pct_synced = $total_prods > 0 ? round(($prods_synced / $total_prods) * 100, 1) : 0;
+                ?>
+
+                <!-- PAINEL DE TELEMETRIA OODA (ZERO MANUALIDADE) -->
                 <div style="background: rgba(15, 23, 42, 0.8); border: 1px solid #334155; border-radius: 10px; padding: 18px; margin-bottom: 25px;">
-                    <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 15px; flex-wrap: wrap;">
-                        <div style="flex: 1; min-width: 200px;">
-                            <label style="color: #cbd5e1; font-size: 12px; text-transform: uppercase; font-weight: 700; display: block; margin-bottom: 5px;">Custo Fábrica INTT ES (R$)</label>
-                            <input type="number" id="sim_cost" value="37.70" step="0.01" style="width: 100%; font-size: 16px; font-weight: bold; background: #1e293b; color: #38bdf8; border: 1px solid #475569; padding: 8px 12px; border-radius: 6px;">
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin-bottom: 20px;">
+                        <div style="background: rgba(30, 41, 59, 0.7); border: 1px solid #475569; padding: 15px; border-radius: 8px;">
+                            <div style="color: #94a3b8; font-size: 11px; text-transform: uppercase; font-weight: bold;">Sincronização Autônoma</div>
+                            <div style="color: #38bdf8; font-size: 22px; font-weight: 800; margin: 4px 0;"><?php echo esc_html($pct_synced); ?>%</div>
+                            <div style="color: #cbd5e1; font-size: 12px;"><?php echo esc_html($prods_synced); ?> de <?php echo esc_html($total_prods); ?> produtos ativos</div>
                         </div>
-                        <div style="flex: 1; min-width: 140px;">
-                            <label style="color: #cbd5e1; font-size: 12px; text-transform: uppercase; font-weight: 700; display: block; margin-bottom: 5px;">Unidades Caixa</label>
-                            <input type="number" id="sim_box" value="72" step="1" style="width: 100%; font-size: 16px; font-weight: bold; background: #1e293b; color: #fff; border: 1px solid #475569; padding: 8px 12px; border-radius: 6px;">
+                        <div style="background: rgba(30, 41, 59, 0.7); border: 1px solid #475569; padding: 15px; border-radius: 8px;">
+                            <div style="color: #94a3b8; font-size: 11px; text-transform: uppercase; font-weight: bold;">Candidatos Landing Page</div>
+                            <div style="color: #4ade80; font-size: 22px; font-weight: 800; margin: 4px 0;"><?php echo esc_html($high_margin_count); ?> SKUs</div>
+                            <div style="color: #cbd5e1; font-size: 12px;">🟢 Alta Margem + Tráfego Pago</div>
                         </div>
-                        <div style="flex: 1; min-width: 160px;">
-                            <label style="color: #cbd5e1; font-size: 12px; text-transform: uppercase; font-weight: 700; display: block; margin-bottom: 5px;">Concorrente MeLi (R$)</label>
-                            <input type="number" id="sim_meli" value="113.99" step="0.01" style="width: 100%; font-size: 16px; font-weight: bold; background: #1e293b; color: #a3e635; border: 1px solid #475569; padding: 8px 12px; border-radius: 6px;">
+                        <div style="background: rgba(30, 41, 59, 0.7); border: 1px solid #475569; padding: 15px; border-radius: 8px;">
+                            <div style="color: #94a3b8; font-size: 11px; text-transform: uppercase; font-weight: bold;">Combos & Order Bumps</div>
+                            <div style="color: #facc15; font-size: 22px; font-weight: 800; margin: 4px 0;"><?php echo esc_html($order_bump_count); ?> SKUs</div>
+                            <div style="color: #cbd5e1; font-size: 12px;">🟡 Kit Duplo & Loja Virtual</div>
+                        </div>
+                        <div style="background: rgba(30, 41, 59, 0.7); border: 1px solid #475569; padding: 15px; border-radius: 8px;">
+                            <div style="color: #94a3b8; font-size: 11px; text-transform: uppercase; font-weight: bold;">Health & APIs</div>
+                            <div style="color: #a78bfa; font-size: 16px; font-weight: 800; margin: 6px 0;">✓ DFS · MeLi · Merchant</div>
+                            <div style="color: #cbd5e1; font-size: 12px;">Saldo DataForSEO: $13.52 USD</div>
                         </div>
                     </div>
 
-                    <!-- 4 COLUNAS DE PREÇO -->
-                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px;" id="sim_cards">
-                        <div style="background: rgba(30, 41, 59, 0.7); border: 1px solid #475569; padding: 14px; border-radius: 8px;">
-                            <div style="color: #94a3b8; font-size: 11px; text-transform: uppercase; font-weight: bold;">MeLi Clássico (13%)</div>
-                            <div style="color: #fff; font-size: 20px; font-weight: 800; margin: 4px 0;" id="card_classic_price">R$ 0,00</div>
-                            <div style="color: #4ade80; font-size: 12px;" id="card_classic_profit">Lucro Líquido: R$ 0,00</div>
+                    <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; background: rgba(30, 41, 59, 0.5); padding: 12px 16px; border-radius: 8px; border: 1px dashed #475569;">
+                        <div>
+                            <strong style="color: #fff; font-size: 13px;">Gatilho do Ciclo OODA em Lote:</strong>
+                            <p style="color: #94a3b8; margin: 0; font-size: 12px;">Executa benchmarking dos Top 5 do Mercado Livre, busca CPC no DataForSEO e atualiza preços com Piso Rígido.</p>
                         </div>
-                        <div style="background: rgba(30, 41, 59, 0.7); border: 1px solid #475569; padding: 14px; border-radius: 8px;">
-                            <div style="color: #94a3b8; font-size: 11px; text-transform: uppercase; font-weight: bold;">MeLi Premium (18% / 10x)</div>
-                            <div style="color: #fff; font-size: 20px; font-weight: 800; margin: 4px 0;" id="card_premium_price">R$ 0,00</div>
-                            <div style="color: #4ade80; font-size: 12px;" id="card_premium_profit">Lucro Líquido: R$ 0,00</div>
-                        </div>
-                        <div style="background: rgba(30, 41, 59, 0.7); border: 1px solid #475569; padding: 14px; border-radius: 8px;">
-                            <div style="color: #94a3b8; font-size: 11px; text-transform: uppercase; font-weight: bold;">Loja casosex.com.br</div>
-                            <div style="color: #fff; font-size: 20px; font-weight: 800; margin: 4px 0;" id="card_store_price">R$ 0,00</div>
-                            <div style="color: #4ade80; font-size: 12px;" id="card_store_profit">Lucro Líquido: R$ 0,00</div>
-                        </div>
-                        <div style="background: rgba(30, 41, 59, 0.7); border: 1px solid #475569; padding: 14px; border-radius: 8px;">
-                            <div style="color: #94a3b8; font-size: 11px; text-transform: uppercase; font-weight: bold;">Landing Page (com Ads)</div>
-                            <div style="color: #fff; font-size: 20px; font-weight: 800; margin: 4px 0;" id="card_lp_price">R$ 0,00</div>
-                            <div style="color: #4ade80; font-size: 12px;" id="card_lp_profit">Lucro Líquido: R$ 0,00</div>
-                        </div>
-                    </div>
-                    <div style="margin-top: 10px; font-size: 12px; color: #a3e635;" id="card_break_even">
-                        🎯 Ponto de Equilíbrio: Venda X unidades para pagar a caixa inteira.
+                        <a href="<?php echo admin_url('admin.php?page=casosex-meli-batch'); ?>" class="button button-primary" style="background: linear-gradient(135deg, #10b981, #059669); border-color: #059669; font-weight: bold; padding: 4px 16px; height: auto; font-size: 13px;">
+                            ⚡ Disparar Ciclo OODA em Lote
+                        </a>
                     </div>
                 </div>
 
@@ -143,65 +163,6 @@ class CasoSex_MeLi_Dropship_Cockpit {
             </div>
         </div>
 
-        <script>
-        jQuery(document).ready(function($) {
-            function updateSimulator() {
-                var cost = parseFloat($('#sim_cost').val()) || 0;
-                var box = parseInt($('#sim_box').val()) || 1;
-                var meli = parseFloat($('#sim_meli').val()) || 0;
-
-                var pkg = <?php echo json_encode($cfg['packaging_cost']); ?>;
-                var tax = <?php echo json_encode($cfg['tax_percent']); ?>;
-                var gw = <?php echo json_encode($cfg['gateway_fee']); ?>;
-                var classic_fee = <?php echo json_encode($cfg['meli_classic_fee']); ?>;
-                var premium_fee = <?php echo json_encode($cfg['meli_premium_fee']); ?>;
-                var m_store = <?php echo json_encode($cfg['target_margin_store']); ?>;
-                var m_meli = <?php echo json_encode($cfg['target_margin_meli']); ?>;
-                var m_lp = <?php echo json_encode($cfg['target_margin_lp']); ?>;
-                var min_order = <?php echo json_encode($cfg['b2b_min_order']); ?>;
-
-                var hard_floor = ((cost * 1.25) + pkg) / (1 - (tax / 100));
-
-                // Store
-                var p_store = Math.max((cost + pkg) / (1 - ((tax + gw + m_store)/100)), hard_floor);
-                var l_store = p_store - cost - pkg - (p_store * (tax + gw)/100);
-
-                // Classic
-                var p_classic = Math.max((cost + pkg) / (1 - ((tax + classic_fee + m_meli)/100)), hard_floor);
-                var l_classic = p_classic - cost - pkg - (p_classic * (tax + classic_fee)/100);
-
-                // Premium
-                var p_premium = Math.max((cost + pkg) / (1 - ((tax + premium_fee + m_meli)/100)), hard_floor);
-                var l_premium = p_premium - cost - pkg - (p_premium * (tax + premium_fee)/100);
-
-                // LP
-                var cpa = cost * 0.20;
-                var p_lp = Math.max((cost + pkg + cpa) / (1 - ((tax + gw + m_lp)/100)), hard_floor);
-                var l_lp = p_lp - cost - pkg - cpa - (p_lp * (tax + gw)/100);
-
-                // Break-even
-                var box_inv = Math.max(cost * box, min_order);
-                var be_units = p_store > 0 ? Math.ceil(box_inv / p_store) : box;
-
-                $('#card_classic_price').text('R$ ' + p_classic.toFixed(2));
-                $('#card_classic_profit').text('Lucro Líquido: R$ ' + l_classic.toFixed(2));
-
-                $('#card_premium_price').text('R$ ' + p_premium.toFixed(2));
-                $('#card_premium_profit').text('Lucro Líquido: R$ ' + l_premium.toFixed(2));
-
-                $('#card_store_price').text('R$ ' + p_store.toFixed(2));
-                $('#card_store_profit').text('Lucro Líquido: R$ ' + l_store.toFixed(2));
-
-                $('#card_lp_price').text('R$ ' + p_lp.toFixed(2));
-                $('#card_lp_profit').text('Lucro Líquido: R$ ' + l_lp.toFixed(2));
-
-                $('#card_break_even').html('🎯 <strong>Ponto de Equilíbrio:</strong> Venda apenas <strong>' + be_units + ' de ' + box + ' unidades</strong> para pagar o investimento da caixa/pedido mínimo (R$ ' + box_inv.toFixed(2) + ').');
-            }
-
-            $('#sim_cost, #sim_box, #sim_meli').on('input', updateSimulator);
-            updateSimulator();
-        });
-        </script>
         <?php
     }
 }

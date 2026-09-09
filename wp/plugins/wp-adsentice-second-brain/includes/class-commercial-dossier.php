@@ -256,14 +256,65 @@ class Adsentice_Commercial_Dossier {
                                 <td>~25% Líquido</td>
                             </tr>
                             <tr>
-                                <td><strong>Landing Page (Tráfego Pago)</strong></td>
+                                <td><strong>Landing Page Unitária</strong></td>
                                 <td style="color: #f472b6; font-weight: bold;">R$ <?php echo number_format($pricing['price_landing_page'], 2, ',', '.'); ?></td>
-                                <td>CPA Ads (R$ <?php echo number_format($pricing['cpa_ads_estimated'], 2, ',', '.'); ?>) + Gateway + NF</td>
+                                <td>CPA DataForSEO (R$ <?php echo number_format($pricing['cpa_ads_estimated'], 2, ',', '.'); ?>) + Gateway + NF</td>
                                 <td style="color: #4ade80; font-weight: bold;">R$ <?php echo number_format($pricing['net_profit_lp'], 2, ',', '.'); ?></td>
-                                <td>~50% Líquido</td>
+                                <td>~28% Líquido</td>
                             </tr>
+                            <?php if (!empty($pricing['price_kit_duplo'])): ?>
+                            <tr style="background: rgba(161, 225, 74, 0.08); border-left: 3px solid var(--green-bright);">
+                                <td><strong style="color: var(--green-bright);">🔥 D2C Kit Duplo (Landing Page)</strong></td>
+                                <td style="color: var(--green-bright); font-weight: bold;">R$ <?php echo number_format($pricing['price_kit_duplo'], 2, ',', '.'); ?></td>
+                                <td>CPA Diluído + Frete Grátis Melhor Envio + NF</td>
+                                <td style="color: var(--green-bright); font-weight: bold;">R$ <?php echo number_format($pricing['net_profit_kit_duplo'], 2, ',', '.'); ?></td>
+                                <td><span class="badge-opportunity" style="font-size: 0.75rem;">⚡ TOP MARGEM NET</span></td>
+                            </tr>
+                            <?php endif; ?>
                         </tbody>
                     </table>
+                </div>
+
+                <!-- SIMULAÇÃO DE ESCALA POR LOTES (MATRIZ PICO PULSE) -->
+                <?php
+                $box_cost_total = round($cost * $box_units, 2);
+                $lot1_net_total = round(($pricing['net_profit_kit_duplo'] ?: $pricing['net_profit_store']) * floor($box_units / 2), 2);
+                $lot100_net_total = round(($pricing['net_profit_kit_duplo'] ?: $pricing['net_profit_store']) * 100, 2);
+                $lot500_net_total = round(($pricing['net_profit_kit_duplo'] ?: $pricing['net_profit_store']) * 250, 2);
+                ?>
+                <div class="section-box">
+                    <h2 class="section-title">📦 Simulação Comercial de Escala por Lote (Matriz Pico Pulse)</h2>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; margin-top: 15px;">
+                        <div style="background: rgba(15, 7, 28, 0.65); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 16px; padding: 20px;">
+                            <div style="font-family: 'Outfit', sans-serif; font-size: 1.1rem; font-weight: 700; color: #fff; margin-bottom: 6px;">Lote 1 Caixa Fechada (<?php echo esc_html($box_units); ?> un)</div>
+                            <div style="font-size: 1.6rem; font-weight: 800; color: var(--green-bright); margin-bottom: 10px;">R$ <?php echo number_format($lot1_net_total, 2, ',', '.'); ?> <span style="font-size: 0.8rem; font-weight: normal; color: var(--text-muted);">Lucro Líquido</span></div>
+                            <div style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.6;">
+                                • Investimento Caixa: <strong>R$ <?php echo number_format($box_cost_total, 2, ',', '.'); ?></strong><br>
+                                • Break-Even: <strong><?php echo esc_html($pricing['break_even_units']); ?> unidades pagam a caixa inteira</strong><br>
+                                • Retorno NET: <strong style="color: var(--green-bright);">+40% a +48% s/ Custo</strong>
+                            </div>
+                        </div>
+
+                        <div style="background: rgba(42, 17, 75, 0.85); border: 1px solid var(--green-bright); border-radius: 16px; padding: 20px; box-shadow: 0 0 15px rgba(161, 225, 74, 0.15);">
+                            <div style="font-family: 'Outfit', sans-serif; font-size: 1.1rem; font-weight: 700; color: #fff; margin-bottom: 6px;">Lote 100 Pedidos D2C (Tração)</div>
+                            <div style="font-size: 1.6rem; font-weight: 800; color: var(--green-bright); margin-bottom: 10px;">R$ <?php echo number_format($lot100_net_total, 2, ',', '.'); ?> <span style="font-size: 0.8rem; font-weight: normal; color: var(--text-muted);">Lucro Líquido</span></div>
+                            <div style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.6;">
+                                • Escala com Google Ads (DataForSEO CPC R$ 0,59)<br>
+                                • Despacho via Melhor Envio no mesmo dia no ES<br>
+                                • Status: <strong style="color: var(--green-bright);">Escala Previsível com Tráfego</strong>
+                            </div>
+                        </div>
+
+                        <div style="background: rgba(15, 7, 28, 0.65); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 16px; padding: 20px;">
+                            <div style="font-family: 'Outfit', sans-serif; font-size: 1.1rem; font-weight: 700; color: #fff; margin-bottom: 6px;">Lote Atacadista (500+ un)</div>
+                            <div style="font-size: 1.6rem; font-weight: 800; color: var(--green-bright); margin-bottom: 10px;">R$ <?php echo number_format($lot500_net_total, 2, ',', '.'); ?> <span style="font-size: 0.8rem; font-weight: normal; color: var(--text-muted);">Lucro Líquido</span></div>
+                            <div style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.6;">
+                                • Distribuição multicanal (Loja + LP + MeLi)<br>
+                                • Bonificação e desconto adicional de fábrica INTT<br>
+                                • Operação Soberana de Alto Volume
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
                 <!-- TABELA BENCHMARKING TOP 5 VENDEDORES MERCADO LIVRE -->
