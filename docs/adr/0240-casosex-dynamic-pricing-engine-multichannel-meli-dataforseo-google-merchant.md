@@ -1,100 +1,165 @@
-# ADR-0240: Motor Dinâmico de Precificação Multicanal (Dynamic Pricing & Fee Engine) — WooCommerce Dropshipping, Mercado Livre, DataForSEO e Google Merchant
+# ADR-0240: Motor Dinâmico de Precificação Multicanal & Hub de Inteligência Comercial (Second Brain) — Dropshipping, Mercado Livre, DataForSEO, Google Merchant e Dossiê Vivo do Produto
 
-- **Status:** Proposed & Accepted (`medido=verdade`)
+- **Status:** Approved & Canonical (`medido=verdade`)
 - **Data:** 2026-09-09
 - **Autor:** Jeferson Amorim (Founder) & Antigravity AI Engine
-- **Decisões Relacionadas:** ADR-0223, ADR-0225, ADR-0237, ADR-0238, ADR-0239
+- **Decisões Relacionadas:** ADR-0110, ADR-0223, ADR-0225, ADR-0237, ADR-0238, ADR-0239, ADR-0248
+- **Plugins Envolvidos:** `wp-adsentice-second-brain`, `casosex-mercadolivre-compare`, `woocommerce-dropshipping`, `easy-mcp-ai`
 
 ---
 
 ## 1. Contexto e Problema
 
-Atualmente, o catálogo de **680 produtos** do CASOSEX (`casosex-wordpress` na porta `:8085`) possui custo de fábrica capturado via integração B2B Mercos/INTT ES, porém a precificação de venda para o consumidor final opera sob regras estáticas (markup arbitrário de 1.8x fixado em `_regular_price`). 
+O catálogo do CASOSEX (`casosex-wordpress` :8085) conta com **680 produtos** cadastrados com custo base de fábrica via distribuidora INTT ES / Mercos, porém a precificação para o consumidor final operava de forma cega (markup estático arbitrário de 1.8x fixado em banco de dados).
 
-Na aba de configurações do WooCommerce Dropshipping (`/wp-admin/admin.php?page=wc-settings&tab=wc_dropship_settings`), o cálculo de *Estimated Profit* limita-se a subtrair o custo do preço de venda, desconsiderando:
-1. **Diferenciação por Canal de Venda:**
-   - **Mercado Livre:** Taxas variáveis entre Anúncio Clássico (~12-14%), Premium (~17-19% com 10x/12x sem juros), Catálogo/BuyBox e frete fixo de envio no Full.
-   - **Loja Virtual (`casosex.com.br`):** Custos de gateway de pagamento (PagBank / Asaas ~3-5%) e frete local.
-   - **Landing Pages (`lp.casosex.com.br`):** Margem bruta expandida para absorver CPA de tráfego pago (Google Ads / Meta Ads) com Order Bumps e Upsells.
-2. **Custos Tributários e Fiscais:** Alíquota de Simples Nacional / ICMS ST incidente na operação de dropshipping nacional.
-3. **Benchmarking Real de Mercado & Palavras-Chave:**
-   - Dados de menor preço concorrente no Mercado Livre (ADR-0239).
-   - Dados de CPC médio e volume de buscas via **DataForSEO API** (saldo disponível de $13.52 USD salvo em `easy-mcp-ai`).
-   - Sincronização e auditoria de leilão via **Google Merchant Center MCP** (`adsentice/packages/adsentice-merchant-mcp`).
+Na aba de configurações do WooCommerce Dropshipping (`/wp-admin/admin.php?page=wc-settings&tab=wc_dropship_settings`), o cálculo de *Estimated Profit* limita-se a uma subtração linear simples sem considerar:
+1. **Diferenciação Crítica por Canal de Venda:**
+   - **Mercado Livre Clássico:** Comissão de 12% a 14%, sem parcelamento sem juros embutido.
+   - **Mercado Livre Premium:** Comissão de 17% a 19%, exigindo absorção obrigatória do custo financeiro de parcelamento em até 10x ou 12x sem juros.
+   - **Mercado Livre Catálogo / BuyBox / Full:** Taxa fixa de frete para produtos abaixo de R$ 79,00 e disputa agressiva pelo menor preço.
+   - **Loja Virtual Própria (`casosex.com.br`):** Taxa de gateway de pagamento (~3% a 5%) e frete local.
+   - **Landing Pages de Conversão (`lp.casosex.com.br`):** Necessidade de margem bruta expandida para cobrir o **CPA de Tráfego Pago (Google Ads / Meta Ads)** e ofertas de Order Bump / Upsell.
+2. **Custos Fiscais / Tributários:** Alíquota incidente de Simples Nacional / ICMS ST.
+3. **Ausência de Inteligência Visual e Contingência:** O lojista não possui um dossiê comercial detalhado para avaliar o potencial de cada produto antes de decidir investir em tráfego ou campanhas.
 
 ---
 
 ## 2. Decisão Arquitetural
 
-Fica decidida a criação e institucionalização do **Motor Dinâmico de Precificação Multicanal (Dynamic Pricing & Fee Engine)**, transformando a aba nativa `wc_dropship_settings` no Cockpit de Governança Financeira e integrando os módulos de dados externos.
+Fica estabelecida a criação do **Motor Dinâmico de Precificação Multicanal & Hub de Inteligência Comercial**, utilizando o plugin nativo **`wp-adsentice-second-brain`** como o *Gânglio Nervoso Local* no WordPress, transformando a aba `wc_dropship_settings` no Cockpit Financeiro e gerando um **Dossiê Comercial Vivo (Estilo Pico Pulse)** para cada produto do catálogo.
 
-### 2.1. A Equação Algorítmica Unificada de Precificação
+```
+┌────────────────────────────────────────────────────────────────────────────────────────┐
+│                   HUB DE INTELIGÊNCIA COMERCIAL CASOSEX (SECONDBRAIN)                  │
+├────────────────────────────────────────────────────────────────────────────────────────┤
+│                                                                                        │
+│   ┌───────────────────────────┐    REST 0ms     ┌──────────────────────────────────┐   │
+│   │ wc_dropship_settings      │ <─────────────> │ wp-adsentice-second-brain        │   │
+│   │ (Cockpit de Margem & Fees)│                 │ (Transient Cache + TTL + Resili) │   │
+│   └─────────────┬─────────────┘                 └──────────────┬───────────────────┘   │
+│                 │                                              │                       │
+│                 ▼                                              ▼                       │
+│   ┌───────────────────────────┐                 ┌──────────────────────────────────┐   │
+│   │ Equação Multicanal        │                 │ Dossiê Comercial Vivo (HTML/CSS) │   │
+│   │ • MeLi Clássico / Premium │                 │ • KPIs Financeiros Multicanal    │   │
+│   │ • Loja Própria            │                 │ • Benchmarking Mercado Livre     │   │
+│   │ • Landing Page (CPA Ads)  │                 │ • Palavra-Chave & CPC DataForSEO │   │
+│   │ • Trava de Piso (Floor)   │                 │ • Reviews, Elogios & Dúvidas FAQ │   │
+│   └─────────────┬─────────────┘                 └──────────────┬───────────────────┘   │
+│                 │                                              │                       │
+│                 └───────────────────────┬──────────────────────┘                       │
+│                                         │                                              │
+│                                         ▼                                              │
+│               ┌──────────────────────────────────────────────────┐                     │
+│               │ PROVEDORES EXTERNOS & SUBSTRATO SOBERANO RSXT    │                     │
+│               │ • MeLi API (Concorrentes, Vendas, BuyBox)        │                     │
+│               │ • DataForSEO API ($13.52 saldo no Easy MCP AI)   │                     │
+│               │ • Google Merchant MCP (Feed & Paridade Shopping) │                     │
+│               │ • rsxt-router 2.0 (:9755 / Qdrant :6352)         │                     │
+│               └──────────────────────────────────────────────────┘                     │
+└────────────────────────────────────────────────────────────────────────────────────────┘
+```
 
-Para cada produto $i$ no canal $c \in \{\text{MeLi-Classico}, \text{MeLi-Premium}, \text{Loja-Virtual}, \text{Landing-Page}\}$, o preço ideal $P_{i,c}$ é computado como:
+---
+
+## 3. Especificação Matemática do Motor de Preços
+
+### 3.1. Equação Geral de Precificação por Canal
+
+Para qualquer canal $c$, o preço sugerido $P_{i,c}$ é calculado pela fórmula de margem sobre a venda:
 
 $$P_{i,c} = \frac{C_{\text{fabrica}} + F_{\text{fixo}} + \text{CPA}_{\text{ads}}(c)}{1 - \big( \tau_{\text{canal}}(c) + \tau_{\text{imposto}} + \tau_{\text{gateway}}(c) + M_{\text{liquida}}(c) \big)}$$
 
 Onde:
 - $C_{\text{fabrica}}$: Custo base B2B fornecido pela distribuidora INTT ES (`_cost_price`).
-- $F_{\text{fixo}}$: Custo fixo por envio (ex: taxa fixa MeLi para produtos < R$ 79,00 ou embalagem).
-- $\text{CPA}_{\text{ads}}(c)$: Custo estimado de aquisição por tráfego, parametrizado por palavra-chave via DataForSEO ($0 para canais orgânicos).
-- $\tau_{\text{canal}}(c)$: Taxa percentual cobrada pelo canal de venda.
-- $\tau_{\text{imposto}}$: Carga tributária Simples Nacional (ex: 6% a 11%).
-- $\tau_{\text{gateway}}(c)$: Taxa do processador de pagamento.
-- $M_{\text{liquida}}(c)$: Margem de lucro líquida mínima exigida para o canal.
+- $F_{\text{fixo}}$: Custo operacional fixo (taxa fixa MeLi para produtos < R$ 79,00 ou custo de expedição).
+- $\text{CPA}_{\text{ads}}(c)$: Custo estimado de aquisição por tráfego pago via **DataForSEO** ($0 para canais puramente orgânicos).
+- $\tau_{\text{canal}}(c)$: Taxa percentual da plataforma:
+  - MeLi Clássico: $12\% \text{ a } 14\%$
+  - MeLi Premium: $17\% \text{ a } 19\%$ (absorvendo parcelamento 10x sem juros)
+  - Loja Própria: $0\%$ (apenas gateway)
+- $\tau_{\text{imposto}}$: Carga tributária Simples Nacional (ex: $6\% \text{ a } 11\%$).
+- $\tau_{\text{gateway}}(c)$: Taxa do checkout transparente ($3.5\% \text{ a } 4.99\%$).
+- $M_{\text{liquida}}(c)$: Margem líquida mínima pretendida.
+
+### 3.2. Trava de Segurança "Prejuízo Impossível" (Hard Floor Margin)
+Para impedir que a BuyBox ou promoções forcem venda com margem negativa:
+
+$$P_{\text{final}} = \max\Big( P_{i,c}, \quad C_{\text{fabrica}} \times 1.25 + F_{\text{fixo}} \Big)$$
+
+Se o menor preço concorrente no Mercado Livre for inferior a esse piso, o produto é sinalizado com a tag de proteção: `OPPORTUNITY: UNCOMPETITIVE_SAFE`.
 
 ---
 
-## 3. Estrutura dos Módulos Integradores
+## 4. O Papel Estratégico do `wp-adsentice-second-brain`
 
-### 3.1. Cockpit de Configuração na Aba Dropshipping (`wc_dropship_settings`)
-Extensão dos campos na aba de configurações do WooCommerce para registrar as regras globais e por categoria:
-- Taxas padrão de canais (MeLi Clássico, Premium, Loja Própria).
-- Percentual de impostos fiscais.
-- Margem de lucro alvo por faixa de preço ou categoria.
-- Flag de atualização automática de preços no catálogo.
+O plugin atua como o motor de orquestração local, fornecendo:
 
-### 3.2. Módulo DataForSEO (SERP & Google Ads Intelligence)
-- Consumo seguro das credenciais ativas em `easy-mcp-ai-external-data`.
-- Extração de CPC médio e Search Volume para os termos de busca canônicos de cada produto.
-- Injeção da métrica `cpa_target_estimate` no cálculo da precificação de Landing Pages.
-
-### 3.3. Módulo Google Merchant Center MCP
-- Conexão via OAuth / Service Account (`client_secret_...apps.googleusercontent.com.json` e `.secret/.env.GOOGLE`).
-- Exportação automatizada do feed de produtos enriquecidos com atributos Google Shopping (`gtin`, `mpn`, `brand`, `google_product_category`).
-- Auditoria contínua de paridade com os preços praticados por concorrentes no Google Shopping Brasil.
+1. **Cache com TTL e Fallback em Banco de Dados (`Transient Cache`):**
+   - Respostas de benchmarking de concorrentes, volume de busca e CPC ficam armazenadas no banco de dados local do WordPress (`wp_options` / transients) com TTL de 15 a 30 dias.
+   - **Zero Latência (0ms):** Se os serviços externos oscilarem, a loja opera no último estado gravado sem quebrar checkout ou listagens.
+2. **Integração com DataForSEO Inteligente:**
+   - Consumo das credenciais salvas em `easy-mcp-ai-external-data` ($13.52 USD de saldo).
+   - Otimização de custos: apenas produtos classificados como `HIGH_MARGIN` ou selecionados para Landing Pages disparam consultas de Search Volume e CPC na DataForSEO, preservando o saldo.
+3. **Google Merchant Center MCP Bridge:**
+   - Exportação contínua de feeds XML/JSON com campos enriquecidos de catálogo para o Google Shopping Brasil, utilizando as credenciais em `.secret/client_secret_...json`.
 
 ---
 
-## 4. Persistência de Dados & Paridade REST (ACF)
+## 5. Dossiê Comercial Vivo do Produto (Padrão Mobile-First Pico Pulse)
 
-Os preços calculados e as métricas de viabilidade são armazenados em campos ACF dedicados:
-- `pricing_cost_b2b`: Custo de fábrica.
-- `pricing_meli_classico`: Preço sugerido MeLi Clássico.
-- `pricing_meli_premium`: Preço sugerido MeLi Premium (10x sem juros).
-- `pricing_loja_virtual`: Preço de venda em `casosex.com.br`.
-- `pricing_landing_page`: Preço de ancoragem para tráfego pago com margem de CPA.
-- `pricing_dataforseo_cpc`: CPC estimado no Google Ads.
-- `pricing_google_shopping_parity`: Status de paridade no Google Shopping.
+Cada um dos 680 produtos passa a ter um **Dossiê Comercial Executivo**, acessível diretamente pelo painel administrativo do WooCommerce (`/wp-admin/post.php?post=ID&action=edit` ou link público assinado):
 
-Todos os campos possuem `show_in_rest = true` para consumo instantâneo pelo **Easy MCP AI** e automações de atendimento.
+### Estrutura do Dossiê:
+1. **Design & Identidade Visual:**
+   - Layout Mobile-First escuro com tipografia moderna (`Outfit` + `Plus Jakarta Sans`), paleta neon roxo/verde, backdrop blur e badges de alta visibilidade.
+2. **Painel de KPIs Comerciais:**
+   - *Custo de Fábrica B2B:* R$ [Valor INTT]
+   - *Preço MeLi Clássico:* R$ [Preço] (Margem Líquida R$)
+   - *Preço MeLi Premium (10x sem juros):* R$ [Preço] (Margem Líquida R$)
+   - *Preço Loja Virtual (`casosex.com.br`):* R$ [Preço]
+   - *Preço Landing Page:* R$ [Preço] (Margem com CPA Ads Absorvido)
+3. **Benchmarking & Concorrência:**
+   - Menor Preço Concorrente no MeLi e BuyBox Golden Price.
+   - Volume de Vendas histórico do anúncio concorrente.
+4. **Inteligência de Tráfego & SEO (DataForSEO):**
+   - Palavra-chave primária e secundária.
+   - Volume mensal de buscas no Google Brasil e CPC estimado.
+5. **Mineração de Objeções (Copy & FAQ):**
+   - Top 3 elogios extraídos de reviews reais de clientes.
+   - Top 3 dúvidas e pontos de atenção para quebra de objeções na copy da Landing Page.
 
 ---
 
-## 5. Matriz de Benefícios (`medido=verdade`)
+## 6. Persistência & REST API (ACF)
 
-| Dimensão | Cenário Anterior | Novo Cenário (ADR-0240) | Benefício Mensurado |
-| :--- | :--- | :--- | :--- |
-| **Governança de Preço** | Markup estático cego de 1.8x em banco | Motor algorítmico dinâmico em `wc_dropship_settings` | Margem garantida contra prejuízos em taxas de canais |
-| **Vendas no Mercado Livre** | Preço único ignorando regras de parcelamento | Preços separados para Clássico, Premium e BuyBox | Vence a concorrência sem queimar margem líquida |
-| **Tráfego Pago (LPs)** | Precificação sem considerar custo de clique | Precificação com CPA integrado via DataForSEO | Sustentabilidade no investimento de Google/Meta Ads |
-| **Google Merchant** | Feed manual desatualizado | Sincronização automatizada via MCP Soberano | Presença em leilões de alta conversão no Shopping |
+Os dados calculados pelo Second Brain são expostos na REST API do WordPress (`/wp-json/wp/v2/product/<id>`) com `show_in_rest = true`:
+- `pricing_cost_b2b`
+- `pricing_meli_classico`
+- `pricing_meli_premium`
+- `pricing_loja_virtual`
+- `pricing_landing_page`
+- `pricing_cpa_ads_target`
+- `pricing_hard_floor_price`
+- `pricing_dossier_url`
 
 ---
 
-## 6. Próximos Passos de Implementação
+## 7. Matriz de Benefícios Factualizados (`medido=verdade`)
 
-1. Criar o extender de settings para injetar o formulário do Motor Dinâmico em `wc_dropship_settings`.
-2. Implementar a classe de cálculo `CasoSex_Dynamic_Pricing_Engine`.
-3. Criar os endpoints e bridges com o DataForSEO e Google Merchant MCP.
-4. Adicionar colunas e metaboxes visuais na listagem de produtos do WooCommerce.
+| Dimensão | Antes | Com a ADR-0240 & Second Brain |
+| :--- | :--- | :--- |
+| **Margem por Canal** | Cega (1.8x fixo) | Preços calibrados individualmente para MeLi Clássico, Premium, Loja e LP |
+| **Risco de Prejuízo** | Alto (taxa fixa e frete MeLi comiam a margem) | Zero (Trava de Piso Rígido $C_{\text{fabrica}} \times 1.25 + \text{taxas}$) |
+| **Gasto com Nuvem/APIs** | Alto e desordenado | Otimizado via Cache TTL no Second Brain (0ms e $0 no dia a dia) |
+| **Decisão de Tráfego** | No escuro sem saber CPC | Dossiê Comercial completo indicando viabilidade de Google Ads |
+| **IA de Vendas (Easy MCP)** | Sem contexto de taxas e concorrência | Agente de IA sabe em tempo real o teto de desconto e margem por canal |
+
+---
+
+## 8. Cronograma de Implementação
+
+1. **Fase 1:** Atualização da classe de settings em `class-wc-dropshipping-product-extra-fields.php` para renderizar o Cockpit de Taxas em `wc_dropship_settings`.
+2. **Fase 2:** Ativação dos módulos do `wp-adsentice-second-brain` com a classe de cálculo de preços multicanal e transients com TTL.
+3. **Fase 3:** Implementação do gerador de template HTML do **Dossiê Comercial Vivo** (renderizando o modelo Pico Pulse para qualquer produto por ID).
+4. **Fase 4:** Integração pontual com DataForSEO para produtos `HIGH_MARGIN` e sincronização do feed com Google Merchant.
