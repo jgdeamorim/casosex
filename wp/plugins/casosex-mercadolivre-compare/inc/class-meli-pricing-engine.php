@@ -87,10 +87,23 @@ class CasoSex_MeLi_Pricing_Engine {
         $price_kit2 = round(($cost_kit2 + $cfg['packaging_cost'] + $cpa_kit2 + $shipping_kit2) / max($denom_lp, 0.1), 2);
         $net_profit_kit2 = round($price_kit2 - $cost_kit2 - $cfg['packaging_cost'] - $cpa_kit2 - $shipping_kit2 - ($price_kit2 * ($cfg['tax_percent'] + $cfg['gateway_fee']) / 100), 2);
 
-        // Ponto de Equilíbrio (Break-Even): quantas unidades vendidas pagam a caixa fechada ou pedido mínimo
-        $total_box_investment = round($cost_b2b * $box_units, 2);
-        $investment_to_pay = max($total_box_investment, $cfg['b2b_min_order']);
-        $break_even_units = ($net_profit_store > 0) ? ceil($investment_to_pay / $price_store) : $box_units;
+        // Ponto de Equilíbrio Real (Break-Even - ADR-0246):
+        // 1. Custo de 1 Caixa Fechada
+        $single_box_cost = round($cost_b2b * $box_units, 2);
+
+        // 2. Caixas necessárias para atingir o Pedido Mínimo da Fábrica (R$ 450,00)
+        $boxes_required = ($single_box_cost < $cfg['b2b_min_order']) ? intval(ceil($cfg['b2b_min_order'] / max($single_box_cost, 0.01))) : 1;
+        $lot_units = $box_units * $boxes_required;
+        $lot_investment = round($single_box_cost * $boxes_required, 2);
+
+        // 3. Margem de Contribuição Líquida Unitária (Sobra de caixa por venda antes de abater o custo de estoque)
+        $unit_contrib_margin = round($price_store - $cfg['packaging_cost'] - ($price_store * ($cfg['tax_percent'] + $cfg['gateway_fee']) / 100), 2);
+
+        // 4. Ponto de Equilíbrio (Quantas unidades vendidas pagam 100% do boleto faturado da fábrica)
+        $break_even_units = ($unit_contrib_margin > 0) ? intval(ceil($lot_investment / $unit_contrib_margin)) : $lot_units;
+        $break_even_units = min($break_even_units, $lot_units);
+        $profit_units = max(0, $lot_units - $break_even_units);
+        $lot_net_profit = round($lot_units * $net_profit_store, 2);
 
         // Se concorrente MeLi for muito agressivo
         $opportunity_status = 'BALANCED';
@@ -106,8 +119,12 @@ class CasoSex_MeLi_Pricing_Engine {
             'cost_b2b'              => $cost_b2b,
             'hard_floor_limit'      => $hard_floor,
             'box_units'             => $box_units,
-            'box_investment'        => $total_box_investment,
+            'boxes_required'        => $boxes_required,
+            'lot_units'             => $lot_units,
+            'box_investment'        => $lot_investment,
             'break_even_units'      => $break_even_units,
+            'profit_units'          => $profit_units,
+            'lot_net_profit'        => $lot_net_profit,
             'price_store'           => $price_store,
             'net_profit_store'      => $net_profit_store,
             'price_meli_classic'    => $price_classic,
