@@ -119,9 +119,14 @@ class CasoSex_MeLi_Matcher {
         }
 
         // Atualização dos campos ACF / PostMeta
+        $catalog_url = !empty($catalog_id) ? "https://www.mercadolivre.com.br/p/{$catalog_id}" : '';
+        $lowest_permalink = (!empty($top5_bench['competitors'][0]['permalink'])) ? $top5_bench['competitors'][0]['permalink'] : '';
+
         $fields_to_update = [
             'meli_matching_score'       => $score,
             'meli_catalog_id'           => $catalog_id,
+            'meli_catalog_url'          => $catalog_url,
+            'meli_permalink'            => $lowest_permalink,
             'meli_market_price'         => $market_price,
             'meli_lowest_competitor'    => $lowest_competitor,
             'meli_top5_avg_price'       => !empty($top5_bench['avg_price']) ? $top5_bench['avg_price'] : $market_price,

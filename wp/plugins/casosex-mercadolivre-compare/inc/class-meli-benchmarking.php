@@ -85,10 +85,13 @@ class CasoSex_MeLi_Benchmarking {
 
             $seller_id = $it['seller_id'] ?? null;
             $seller_info = self::fetch_seller_reputation($seller_id, $token);
+            $item_id = $it['item_id'] ?? ($it['id'] ?? '');
+            $permalink = !empty($it['permalink']) ? $it['permalink'] : ($item_id ? "https://produto.mercadolivre.com.br/{$item_id}" : '');
 
             $top5_competitors[] = [
                 'rank'           => $rank + 1,
-                'item_id'        => $it['item_id'] ?? '',
+                'item_id'        => $item_id,
+                'permalink'      => $permalink,
                 'price'          => $price,
                 'listing_type'   => ($it['listing_type_id'] ?? '') === 'gold_pro' ? 'Premium (10x)' : 'Clássico',
                 'is_pro'         => ($it['listing_type_id'] ?? '') === 'gold_pro',
@@ -105,9 +108,11 @@ class CasoSex_MeLi_Benchmarking {
 
         $count = count($top5_raw);
         $avg_price = $count > 0 ? round($sum_prices / $count, 2) : 0.0;
+        $catalog_url = !empty($catalog_id) ? "https://www.mercadolivre.com.br/p/{$catalog_id}" : '';
 
         $benchmark_data = [
             'catalog_id'     => $catalog_id,
+            'catalog_url'    => $catalog_url,
             'total_sellers'  => count($valid_items),
             'top5_count'     => $count,
             'lowest_price'   => $lowest_price,
