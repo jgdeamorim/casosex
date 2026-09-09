@@ -57,6 +57,10 @@ Para interoperabilidade máxima com o servidor MCP (`http://localhost:8085/wp-js
 | `meli_reviews_count` | Number | Quantidade total de reviews de compradores reais. |
 | `meli_active_days` | Number | Dias em que o produto está ativo em catálogo desde a criação. |
 | `meli_opportunity_index` | Select | Viabilidade estratégica (`HIGH_MARGIN`, `ORDER_BUMP`, `SEO_ONLY`). |
+| `meli_golden_price` | Number | Preço sugerido de alta conversão para Landing Page (R$). |
+| `meli_customer_insights` | Textarea | Síntese de dores e desejos extraídos dos reviews reais do MeLi. |
+| `meli_faq_schema` | Repeater / Textarea | FAQ gerado a partir das dúvidas reais dos compradores. |
+| `meli_suggested_order_bump` | Text | Sugestão de produto correlato do catálogo INTT para upsell. |
 | `meli_last_sync` | Date Time | Timestamp da última checagem de dados na API. |
 
 - Qualquer agente autônomo Antigravity pode auditar ou enriquecer os produtos via tool nativa MCP `wp_acf_update_fields` em tempo real.
@@ -68,6 +72,12 @@ Mapeamento dos 29 atributos do catálogo MeLi para os atributos globais do WooCo
 - `WATER_RESISTANCE_TYPE` ➔ `pa_resistencia-agua`
 - `POWER_SUPPLY_TYPE` ➔ `pa_alimentacao`
 
+### 2.3.1. Motores de Inteligência Avançada & Otimização de Conversão
+1. **Mineração de Dores & Desejos (Customer Voice):** Extração e sumarização de reviews para alimentar headlines persuasivas de Landing Pages (ex: ênfase em embalagem 100% discreta e sigilosa).
+2. **FAQ Blindado:** Identificação das perguntas mais frequentes no MeLi para alimentar o bloco de quebra de objeções da LP e dados estruturados FAQPage Schema para SEO.
+3. **Associação Inteligente de Order Bump:** Cruzamento dos itens frequentemente comprados juntos no MeLi com o catálogo regional da INTT ES (ex: Satisfyer + Gel Hidratante + Higienizador de Silicone), elevando o ticket médio.
+4. **Cálculo do Preço de Ouro (Golden Pricing):** Fórmula estratégica que posiciona a oferta da LP ligeiramente abaixo do MeLi com a adição de brinde exclusivo da INTT, tornando a comparação direta desfavorável ao marketplace.
+
 ### 2.4. Estrutura de Arquivos do Plugin
 ```
 wp-content/plugins/casosex-mercadolivre-compare/
@@ -77,6 +87,7 @@ wp-content/plugins/casosex-mercadolivre-compare/
 │   ├── class-meli-matcher.php            # Algoritmo de cálculo do Matching Score
 │   ├── class-meli-acf-fields.php         # Registro do Local Field Group ACF com show_in_rest
 │   ├── class-meli-enricher.php           # Ingestão de atributos MeLi -> pa_*
+│   ├── class-meli-intelligence.php       # Mineração de Reviews, FAQ e Order Bumps
 │   ├── class-meli-metabox.php            # Metabox no editor do produto (post.php)
 │   └── class-meli-admin-columns.php      # Coluna de inteligência competitiva na listagem
 └── assets/
