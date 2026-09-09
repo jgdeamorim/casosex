@@ -42,9 +42,14 @@ class CasoSex_MeLi_Matcher {
         // Se não achou por catálogo direto, faz a busca
         if (!$catalog_data) {
             $search_res = self::search_meli($clean_query, $token);
-            if (!empty($search_res['catalog_product_id'])) {
-                $catalog_id = $search_res['catalog_product_id'];
-                $catalog_data = self::fetch_catalog_product($catalog_id, $token);
+            if (!empty($search_res)) {
+                $catalog_id = !empty($search_res['id']) ? $search_res['id'] : (!empty($search_res['catalog_product_id']) ? $search_res['catalog_product_id'] : null);
+                if ($catalog_id) {
+                    $catalog_data = self::fetch_catalog_product($catalog_id, $token);
+                    if (!$catalog_data) {
+                        $catalog_data = $search_res; // Se /products/{id} falhar, usa os dados da própria busca
+                    }
+                }
             }
         }
 
@@ -56,11 +61,10 @@ class CasoSex_MeLi_Matcher {
         $meli_name = isset($catalog_data['name']) ? $catalog_data['name'] : '';
         $score = self::calculate_score($title, $meli_name, $cost_price);
 
-        // Preço de mercado (Buy box ou referência de mercado)
-        // No caso do MLB41352084 o preço validado em tela é 939.90
-        $market_price = 939.90;
-        if (!empty($catalog_data['buy_box_winner']['price'])) {
-            $market_price = floatval($catalog_data['buy_box_winner']['price']);
+        // Preço de mercado real obtido dos itens concorrentes do catálogo
+        $market_price = self::fetch_market_price($catalog_id, $token);
+        if ($market_price <= 0) {
+            $market_price = round($cost_price * 1.8, 2);
         }
 
         // Análise de inteligência
@@ -133,22 +137,65 @@ class CasoSex_MeLi_Matcher {
         return json_decode(wp_remote_retrieve_body($resp), true);
     }
 
+    private static function fetch_market_price($catalog_id, $token) {
+        $url = "https://api.mercadolibre.com/products/{$catalog_id}/items";
+        $resp = wp_remote_get($url, [
+            'timeout' => 15,
+            'headers' => ['Authorization' => "Bearer {$token}"]
+        ]);
+
+        if (!is_wp_error($resp) && wp_remote_retrieve_response_code($resp) === 200) {
+            $data = json_decode(wp_remote_retrieve_body($resp), true);
+            if (!empty($data['results']) && is_array($data['results'])) {
+                $prices = [];
+                foreach ($data['results'] as $it) {
+                    if (!empty($it['price'])) {
+                        $prices[] = floatval($it['price']);
+                    }
+                }
+                if (!empty($prices)) {
+                    return min($prices); // Menor preço concorrente
+                }
+            }
+        }
+        return 0.0;
+    }
+
     private static function search_meli($query, $token) {
-        // Fallback para pesquisa textual quando permitido
+        $encoded = urlencode($query);
+        $url = "https://api.mercadolibre.com/products/search?status=active&site_id=MLB&q={$encoded}";
+        $resp = wp_remote_get($url, [
+            'timeout' => 15,
+            'headers' => ['Authorization' => "Bearer {$token}"]
+        ]);
+
+        if (is_wp_error($resp) || wp_remote_retrieve_response_code($resp) !== 200) {
+            return null;
+        }
+
+        $data = json_decode(wp_remote_retrieve_body($resp), true);
+        if (!empty($data['results']) && is_array($data['results'])) {
+            return $data['results'][0]; // Melhor candidato retornado pelo MeLi
+        }
+
         return null;
     }
 
     private static function calculate_score($wc_title, $meli_title, $cost) {
-        // Normalização
-        $w1 = strtolower($wc_title);
-        $w2 = strtolower($meli_title);
+        $w1 = mb_strtolower(trim($wc_title), 'UTF-8');
+        $w2 = mb_strtolower(trim($meli_title), 'UTF-8');
 
-        $brand_match = (strpos($w1, 'satisfyer') !== false && strpos($w2, 'satisfyer') !== false) ? 1.0 : 0.5;
-        $model_match = (strpos($w1, 'pro 2') !== false && strpos($w2, 'pro 2') !== false) ? 1.0 : 0.3;
-        $gen_match   = (strpos($w1, 'generation 3') !== false || strpos($w1, 'gen 3') !== false) && 
-                       (strpos($w2, 'generation 3') !== false || strpos($w2, '3 generation') !== false) ? 1.0 : 0.4;
+        // Similaridade de texto base
+        similar_text($w1, $w2, $percent);
 
-        $final_score = ($brand_match * 25) + ($model_match * 35) + ($gen_match * 30) + 10;
-        return min(intval($final_score), 100);
+        // Correspondência de tokens chave
+        $tokens1 = array_filter(explode(' ', preg_replace('/[^\p{L}\p{N}]/u', ' ', $w1)));
+        $tokens2 = array_filter(explode(' ', preg_replace('/[^\p{L}\p{N}]/u', ' ', $w2)));
+
+        $intersection = array_intersect($tokens1, $tokens2);
+        $token_score = count($tokens1) > 0 ? (count($intersection) / count($tokens1)) * 100 : 0;
+
+        $final_score = intval(($percent * 0.4) + ($token_score * 0.6));
+        return max(50, min($final_score, 100));
     }
 }
