@@ -42,6 +42,12 @@ O plugin armazena no `wp_postmeta` do produto:
 - `_meli_market_active_days`: Tempo de produto ativo em catálogo desde a criação.
 - `_meli_opportunity_index`: Classificação de viabilidade para Landing Page (`HIGH_MARGIN`, `ORDER_BUMP`, `SEO_ONLY`).
 
+### 2.2.1. Integração Soberana com ACF / Secure Custom Fields & Easy MCP AI
+Para interoperabilidade máxima com o servidor MCP (`easy-mcp-ai/v1/mcp`) e as 6 ferramentas ativas de ACF (`wp_acf_get_fields`, `wp_acf_update_fields`, etc.):
+- O plugin registra um **ACF Local Field Group** (`group_casosex_meli_intelligence`) com `show_in_rest => true`.
+- Todos os campos de inteligência de mercado aparecem nativamente na chave `"acf"` nas respostas da REST API do WordPress (`/wp-json/wp/v2/product/{id}`).
+- Qualquer agente autônomo Antigravity pode inspecionar ou atualizar o matching score diretamente via MCP REST API sem necessidade de comandos de baixo nível.
+
 ### 2.3. Enriquecimento de Atributos Globais (`pa_*`)
 Mapeamento dos 29 atributos do catálogo MeLi para os atributos globais do WooCommerce:
 - `QUANTITY_OF_VIBRATION_MODES` ➔ `pa_modos-vibracao`
