@@ -153,4 +153,30 @@ Incorporação no modelo de landing page das 3 barreiras psicológicas mineradas
 - **Auditoria Transparente:** O Dossiê Comercial (`/?casosex_dossier={id}`) renderiza os KPIs, a tabela de Top 5 MeLi e os cenários de Kits idênticos ao Pico Pulse.
 - **Alinhamento com a Doutrina Mãe:** Respeita integralmente `medido=verdade` e preserva os tokens e saldos de APIs via cache determinístico.
 
+---
+
+## 8. Diretrizes Universais de Matching e Paridade Algorítmica (560 Produtos do Catálogo)
+
+Para assegurar que o benchmarking com o Mercado Livre e Google Shopping seja auditável e não distorça a margem do catálogo (560 SKUs da INTT), o motor `CasoSex_MeLi_Matcher` e `CasoSex_MeLi_Benchmarking` deve aplicar 5 filtros universais mandatórios em lote:
+
+1. **Purga Internacional & Validação de Origem Local (Zero Cross-Border):**
+   - Descarte sumário de anúncios com tag de envio internacional / remessa da China (`shipping: international`).
+   - Todos os produtos da operação CASOSEX possuem pronta entrega física no Espírito Santo com emissão de NF-e. Concorrentes internacionais que demoram 20 a 40 dias para entrega não constituem paridade de mercado.
+2. **Paridade Dimensional e Volumétrica Estrita:**
+   - Extração por regex de grandezas físicas no título do SKU WooCommerce (`17g`, `50ml`, `15ml`, `120ml`, `caixa com X un`).
+   - Rejeição de anúncios concorrentes com volumetrias discrepantes (ex: comparar pote de 17g com sachê promocional de 3g ou refil de 50g).
+3. **Paridade de Versão Tecnológica (Toys & Hardware):**
+   - Diferenciação estrita entre modelos `Com App / Bluetooth / Connect` vs `Sem App / Manual`.
+   - Diferenciação entre produtos `Recarregável Magnético / USB` vs `A Pilha (AAA)`.
+   - Produtos de tecnologia superior nunca podem ter seu preço ancorado em variações inferiores ou descontinuadas.
+4. **Filtro Estatístico Anti-Outlier (Piso de Sanidade de 70% do Custo B2B):**
+   - Anúncios com preço de venda abaixo de 70% do nosso custo B2B direto de fábrica da INTT representam:
+     - Peças sobressalentes avulsas (cabos USB, bocais de silicone, tampas);
+     - Réplicas ou falsificações sem homologação;
+     - Contas novas sem histórico de reputação.
+   - Esses ruídos são purgados automaticamente do cálculo da média dos Top 5 concorrentes.
+5. **Corte por Reputação, Histórico e Termos Permitidos:**
+   - Priorização exclusiva de vendedores com reputação consolidada (`5_green`, `power_seller` ou Loja Oficial) com volume de vendas medido.
+   - Aplicação dos filtros do nicho de bem-estar íntimo (`MLB2818` / `adult_content: true`), respeitando o limite máximo de 60 caracteres no título e banindo termos vulgares que ativem a moderação punitiva do marketplace.
+
 

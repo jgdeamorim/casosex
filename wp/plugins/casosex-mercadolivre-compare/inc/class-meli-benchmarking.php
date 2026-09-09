@@ -13,12 +13,12 @@ class CasoSex_MeLi_Benchmarking {
     /**
      * Extrai e calcula métricas dos Top 5 concorrentes de um catálogo do MeLi
      */
-    public static function get_top5_benchmark($catalog_id, $token) {
+    public static function get_top5_benchmark($catalog_id, $token, $cost_price = 0.0) {
         if (empty($catalog_id) || empty($token)) {
             return null;
         }
 
-        $transient_key = 'casosex_top5_' . $catalog_id;
+        $transient_key = 'casosex_top5_' . $catalog_id . '_' . round($cost_price);
         $cached = get_transient($transient_key);
         if ($cached !== false) {
             return $cached;
@@ -41,12 +41,26 @@ class CasoSex_MeLi_Benchmarking {
             return null;
         }
 
-        // 1. Filtrar itens com preço válido
+        // 1. Filtrar itens com preço válido, purga internacional e piso anti-outlier (ADR-0241 § 8)
+        // Piso de sanidade: descarta peças avulsas/acessórios abaixo de 70% do custo de fábrica da INTT
+        $min_sanity_price = ($cost_price > 0) ? ($cost_price * 0.70) : 10.0;
+
         $valid_items = [];
         foreach ($items as $it) {
-            if (!empty($it['price']) && floatval($it['price']) > 0) {
-                $valid_items[] = $it;
+            $price = floatval($it['price'] ?? 0);
+            if ($price <= 0 || $price < $min_sanity_price) {
+                continue; // Descarta outliers, cabos USB avulsos ou amostras
             }
+
+            // Purga Internacional (China / Cross-Border)
+            $is_international = !empty($it['international_delivery_mode']) || 
+                                (!empty($it['tags']) && in_array('international_seller', (array)$it['tags'])) ||
+                                (!empty($it['shipping']['tags']) && in_array('cbt', (array)$it['shipping']['tags']));
+            if ($is_international) {
+                continue; // Descarta concorrente da China com 30 dias de prazo
+            }
+
+            $valid_items[] = $it;
         }
 
         if (empty($valid_items)) {

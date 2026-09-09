@@ -70,9 +70,9 @@ class CasoSex_MeLi_Matcher {
             }
         }
 
-        // Benchmarking Avançado dos Top 5 Concorrentes (ADR-0240 § 2.5)
-        $top5_bench = CasoSex_MeLi_Benchmarking::get_top5_benchmark($catalog_id, $token);
-        $market_price = !empty($top5_bench['avg_price']) ? $top5_bench['avg_price'] : self::fetch_market_price($catalog_id, $token);
+        // Benchmarking Avançado dos Top 5 Concorrentes com Filtro Anti-Outlier e Purga Internacional (ADR-0240 § 2.5 / ADR-0241 § 8)
+        $top5_bench = CasoSex_MeLi_Benchmarking::get_top5_benchmark($catalog_id, $token, $cost_price);
+        $market_price = !empty($top5_bench['avg_price']) ? $top5_bench['avg_price'] : self::fetch_market_price($catalog_id, $token, $cost_price);
         $lowest_competitor = !empty($top5_bench['lowest_price']) ? $top5_bench['lowest_price'] : $market_price;
         
         // Sensor DataForSEO: Volume de Busca & CPA Real (ADR-0241)
@@ -155,7 +155,7 @@ class CasoSex_MeLi_Matcher {
     }
 
     private static function sanitize_query($title) {
-        $stop_words = ['com/app', 'dark grey', 'preto', 'rosa', 'azul', 'original', 'intt-es', 'intt'];
+        $stop_words = ['com/app', 'dark grey', 'preto', 'rosa', 'azul', 'original', 'intt-es', 'intt', 'lancamento', 'promocao'];
         $clean = preg_replace('/[^\p{L}\p{N}\s]/u', ' ', $title);
         foreach ($stop_words as $w) {
             $clean = preg_replace('/\b' . preg_quote($w, '/') . '\b/i', '', $clean);
@@ -177,24 +177,33 @@ class CasoSex_MeLi_Matcher {
         return json_decode(wp_remote_retrieve_body($resp), true);
     }
 
-    private static function fetch_market_price($catalog_id, $token) {
+    private static function fetch_market_price($catalog_id, $token, $cost_price = 0.0) {
         $url = "https://api.mercadolibre.com/products/{$catalog_id}/items";
         $resp = wp_remote_get($url, [
             'timeout' => 15,
             'headers' => ['Authorization' => "Bearer {$token}"]
         ]);
 
+        $min_sanity_price = ($cost_price > 0) ? ($cost_price * 0.70) : 10.0;
+
         if (!is_wp_error($resp) && wp_remote_retrieve_response_code($resp) === 200) {
             $data = json_decode(wp_remote_retrieve_body($resp), true);
             if (!empty($data['results']) && is_array($data['results'])) {
                 $prices = [];
                 foreach ($data['results'] as $it) {
-                    if (!empty($it['price'])) {
-                        $prices[] = floatval($it['price']);
+                    $p = floatval($it['price'] ?? 0);
+                    if ($p <= 0 || $p < $min_sanity_price) {
+                        continue; // Descarta outliers e acessórios
                     }
+                    $is_international = !empty($it['international_delivery_mode']) || 
+                                        (!empty($it['tags']) && in_array('international_seller', (array)$it['tags']));
+                    if ($is_international) {
+                        continue;
+                    }
+                    $prices[] = $p;
                 }
                 if (!empty($prices)) {
-                    return min($prices); // Menor preço concorrente
+                    return min($prices); // Menor preço concorrente válido e nacional
                 }
             }
         }
@@ -225,10 +234,10 @@ class CasoSex_MeLi_Matcher {
         $w1 = mb_strtolower(trim($wc_title), 'UTF-8');
         $w2 = mb_strtolower(trim($meli_title), 'UTF-8');
 
-        // Similaridade de texto base
+        // 1. Similaridade de texto base
         similar_text($w1, $w2, $percent);
 
-        // Correspondência de tokens chave
+        // 2. Correspondência de tokens chave
         $tokens1 = array_filter(explode(' ', preg_replace('/[^\p{L}\p{N}]/u', ' ', $w1)));
         $tokens2 = array_filter(explode(' ', preg_replace('/[^\p{L}\p{N}]/u', ' ', $w2)));
 
@@ -236,6 +245,29 @@ class CasoSex_MeLi_Matcher {
         $token_score = count($tokens1) > 0 ? (count($intersection) / count($tokens1)) * 100 : 0;
 
         $final_score = intval(($percent * 0.4) + ($token_score * 0.6));
-        return max(50, min($final_score, 100));
+
+        // 3. Paridade Dimensional e Volumétrica Estrita (ADR-0241 § 8.2)
+        // Extrai gramas ou ml (ex: 17g, 50ml, 120g)
+        if (preg_match('/(\d+)\s*(g|gr|gramas|ml)/i', $w1, $m1)) {
+            $val1 = $m1[1];
+            if (preg_match('/(\d+)\s*(g|gr|gramas|ml)/i', $w2, $m2)) {
+                $val2 = $m2[1];
+                if ($val1 !== $val2) {
+                    $final_score -= 30; // Penalidade severa por volumetria divergente (ex: sachê vs pote)
+                }
+            } else {
+                $final_score -= 15;
+            }
+        }
+
+        // 4. Paridade de Versão Tecnológica (ADR-0241 § 8.3)
+        // Se o produto é Com App / Bluetooth, penaliza candidato Sem App
+        $has_app1 = (stripos($w1, 'app') !== false || stripos($w1, 'bluetooth') !== false || stripos($w1, 'connect') !== false);
+        $has_app2 = (stripos($w2, 'app') !== false || stripos($w2, 'bluetooth') !== false || stripos($w2, 'connect') !== false);
+        if ($has_app1 && !$has_app2) {
+            $final_score -= 25; // Penaliza tentar igualar produto com App a um sem App
+        }
+
+        return max(40, min($final_score, 100));
     }
 }
