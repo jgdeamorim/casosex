@@ -23,15 +23,17 @@ class CasoSex_MeLi_Intelligence {
         // 3. Sugestão Inteligente de Order Bump
         $order_bump = self::suggest_order_bump($title_lower);
 
-        // 4. Preço de Ouro (Golden Pricing) para Landing Page
-        // Estratégia: Margem de R$ 30 a R$ 50 abaixo do MeLi + Inclusão de Brinde
-        $golden_price = $market_price > 0 ? round($market_price * 0.95, 2) : round($cost_price * 1.8, 2);
+        // 4. Preço de Ouro (Golden Pricing) e Engenharia de Lucro Líquido Real (ADR-0243)
+        $pricing = class_exists('CasoSex_MeLi_Pricing_Engine') ? CasoSex_MeLi_Pricing_Engine::calculate_all_channels($cost_price, 1, $market_price) : null;
+        $golden_price = $market_price > 0 ? round($market_price * 0.95, 2) : (!empty($pricing['price_store']) ? $pricing['price_store'] : round($cost_price * 1.8, 2));
 
-        // 5. Índice de Viabilidade
-        $margin = $golden_price - $cost_price;
-        if ($margin >= 150) {
+        // Lucro Líquido Real Limpo no Caixa (Dedução de Impostos, Embalagem R$ 3.50 e Comissões do Canal)
+        $net_profit = !empty($pricing['net_profit_premium']) ? $pricing['net_profit_premium'] : (!empty($pricing['net_profit_store']) ? $pricing['net_profit_store'] : max(0, round($golden_price - $cost_price, 2)));
+
+        // 5. Índice de Viabilidade Baseado no Lucro Líquido Real
+        if ($net_profit >= 50.00) {
             $opportunity = 'HIGH_MARGIN';
-        } elseif ($margin >= 50) {
+        } elseif ($net_profit >= 15.00) {
             $opportunity = 'ORDER_BUMP';
         } else {
             $opportunity = 'SEO_ONLY';
@@ -43,7 +45,7 @@ class CasoSex_MeLi_Intelligence {
             'faq_schema'          => $faq,
             'suggested_order_bump'=> $order_bump,
             'opportunity_index'   => $opportunity,
-            'margin_real'         => $margin
+            'margin_real'         => $net_profit
         ];
     }
 
