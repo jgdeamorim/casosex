@@ -31,6 +31,7 @@ require_once plugin_dir_path(__FILE__) . 'inc/class-meli-matcher.php';
 require_once plugin_dir_path(__FILE__) . 'inc/class-meli-metabox.php';
 require_once plugin_dir_path(__FILE__) . 'inc/class-meli-admin-columns.php';
 require_once plugin_dir_path(__FILE__) . 'inc/class-meli-cron.php';
+require_once plugin_dir_path(__FILE__) . 'inc/class-meli-batch-sync.php';
 
 // Inicialização
 add_action('plugins_loaded', function() {
@@ -39,5 +40,6 @@ add_action('plugins_loaded', function() {
     if (is_admin()) {
         CasoSex_MeLi_Metabox::init();
         CasoSex_MeLi_Admin_Columns::init();
+        CasoSex_MeLi_Batch_Sync::init();
     }
 });
