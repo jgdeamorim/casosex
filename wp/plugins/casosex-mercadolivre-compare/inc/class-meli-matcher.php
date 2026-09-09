@@ -70,8 +70,10 @@ class CasoSex_MeLi_Matcher {
             }
         }
 
-        // Preço de mercado real obtido dos itens concorrentes do catálogo
-        $market_price = self::fetch_market_price($catalog_id, $token);
+        // Benchmarking Avançado dos Top 5 Concorrentes (ADR-0240 § 2.5)
+        $top5_bench = CasoSex_MeLi_Benchmarking::get_top5_benchmark($catalog_id, $token);
+        $market_price = !empty($top5_bench['avg_price']) ? $top5_bench['avg_price'] : self::fetch_market_price($catalog_id, $token);
+        $lowest_competitor = !empty($top5_bench['lowest_price']) ? $top5_bench['lowest_price'] : $market_price;
         
         // Motor Algorítmico Multicanal (ADR-0240) - ZERO 1.8x cego
         $pricing = CasoSex_MeLi_Pricing_Engine::calculate_all_channels($cost_price, $box_units, $market_price);
@@ -94,6 +96,9 @@ class CasoSex_MeLi_Matcher {
             'meli_matching_score'       => $score,
             'meli_catalog_id'           => $catalog_id,
             'meli_market_price'         => $market_price,
+            'meli_lowest_competitor'    => $lowest_competitor,
+            'meli_top5_avg_price'       => !empty($top5_bench['avg_price']) ? $top5_bench['avg_price'] : $market_price,
+            'meli_top5_competitors_json'=> !empty($top5_bench['competitors']) ? wp_json_encode($top5_bench['competitors']) : '',
             'meli_sales_tier'           => '+1000 vendidos',
             'meli_rating'               => 4.5,
             'meli_reviews_count'        => 13,

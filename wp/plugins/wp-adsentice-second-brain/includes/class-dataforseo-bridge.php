@@ -25,7 +25,11 @@ class Adsentice_DataForSEO_Bridge {
             return $cached;
         }
 
-        // Verifica se o client do Easy MCP AI existe
+        // Garante carregamento do client do Easy MCP AI se necessário
+        if (!class_exists('Easy_MCP_AI\DFS\DataforSEO_Client') && defined('WP_PLUGIN_DIR') && file_exists(WP_PLUGIN_DIR . '/easy-mcp-ai/includes/dfs/class-dataforseo-client.php')) {
+            require_once WP_PLUGIN_DIR . '/easy-mcp-ai/includes/dfs/class-dataforseo-client.php';
+        }
+
         if (!class_exists('Easy_MCP_AI\DFS\DataforSEO_Client')) {
             return null;
         }
@@ -40,7 +44,7 @@ class Adsentice_DataForSEO_Bridge {
                 ]
             ];
 
-            $response = $client->post('/v3/keywords_data/google_ads/search_volume/live', $payload);
+            $response = $client->post('https://api.dataforseo.com/v3/keywords_data/google_ads/search_volume/live', $payload);
 
             if (!empty($response['tasks'][0]['result'][0])) {
                 $item = $response['tasks'][0]['result'][0];

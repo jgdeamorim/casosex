@@ -105,6 +105,13 @@ class Adsentice_Commercial_Dossier {
 
         $insights = get_post_meta($pid, 'meli_customer_insights', true);
         $faq = get_post_meta($pid, 'meli_faq_schema', true);
+        
+        $top5_avg_price = floatval(get_post_meta($pid, 'meli_top5_avg_price', true));
+        if ($top5_avg_price <= 0) {
+            $top5_avg_price = $meli_market_price;
+        }
+        $top5_json = get_post_meta($pid, 'meli_top5_competitors_json', true);
+        $top5_competitors = !empty($top5_json) ? json_decode($top5_json, true) : [];
         ?>
         <!DOCTYPE html>
         <html lang="pt-BR">
@@ -258,6 +265,53 @@ class Adsentice_Commercial_Dossier {
                         </tbody>
                     </table>
                 </div>
+
+                <!-- TABELA BENCHMARKING TOP 5 VENDEDORES MERCADO LIVRE -->
+                <?php if (!empty($top5_competitors) && is_array($top5_competitors)): ?>
+                <div class="section-box">
+                    <h2 class="section-title">🏆 Benchmarking Top 5 Concorrentes (Mercado Livre Buy Box)</h2>
+                    <div style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 12px;">
+                        Média de Preço dos Líderes: <strong style="color: var(--green-bright);">R$ <?php echo number_format($top5_avg_price, 2, ',', '.'); ?></strong> 
+                        · Menor Concorrente Ativo: <strong style="color: #60a5fa;">R$ <?php echo number_format($meli_market_price, 2, ',', '.'); ?></strong>
+                        · Auditado via API oficial do Mercado Livre
+                    </div>
+                    <table class="channel-table">
+                        <thead>
+                            <tr>
+                                <th>Posição</th>
+                                <th>Vendedor / Loja</th>
+                                <th>Preço Concorrente</th>
+                                <th>Modalidade</th>
+                                <th>Logística & Frete</th>
+                                <th>Histórico Vendedor</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php foreach ($top5_competitors as $c): ?>
+                            <tr>
+                                <td><span style="background: rgba(161, 225, 74, 0.15); border: 1px solid var(--green-bright); padding: 2px 8px; border-radius: 12px; font-weight: bold; font-size: 0.8rem;">#<?php echo esc_html($c['rank']); ?></span></td>
+                                <td>
+                                    <strong><?php echo esc_html($c['seller_name']); ?></strong>
+                                    <?php if (!empty($c['is_official'])): ?>
+                                        <span style="background: #3b82f6; color: #fff; font-size: 0.65rem; padding: 2px 6px; border-radius: 8px; margin-left: 4px;">OFICIAL</span>
+                                    <?php endif; ?>
+                                </td>
+                                <td style="font-weight: bold; color: #60a5fa;">R$ <?php echo number_format($c['price'], 2, ',', '.'); ?></td>
+                                <td><?php echo esc_html($c['listing_type']); ?></td>
+                                <td>
+                                    <?php echo !empty($c['free_shipping']) ? '<span style="color: #4ade80;">Frete Grátis</span>' : '<span style="color: var(--text-muted);">Frete Normal</span>'; ?>
+                                    <div style="font-size: 0.75rem; color: var(--text-muted);"><?php echo esc_html($c['logistic_type']); ?></div>
+                                </td>
+                                <td>
+                                    <span style="color: #e2e8f0;"><?php echo number_format($c['seller_sales'], 0, ',', '.'); ?> vendas</span>
+                                    <div style="font-size: 0.75rem; color: #4ade80;"><?php echo esc_html($c['seller_level']); ?></div>
+                                </td>
+                            </tr>
+                            <?php endforeach; ?>
+                        </tbody>
+                    </table>
+                </div>
+                <?php endif; ?>
 
                 <?php if ($insights || $faq): ?>
                 <div class="section-box">

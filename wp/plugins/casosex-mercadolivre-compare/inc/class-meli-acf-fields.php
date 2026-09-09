@@ -158,6 +158,22 @@ class CasoSex_MeLi_ACF_Fields {
                     'step' => '0.01',
                 ],
                 [
+                    'key' => 'field_meli_top5_avg_price',
+                    'label' => 'Preço Médio dos Top 5 Vendedores (R$)',
+                    'name' => 'meli_top5_avg_price',
+                    'type' => 'number',
+                    'step' => '0.01',
+                    'instructions' => 'Média aritmética dos 5 menores concorrentes qualificados da 1ª página.',
+                ],
+                [
+                    'key' => 'field_meli_lowest_competitor',
+                    'label' => 'Menor Preço Ativo Top 5 (R$)',
+                    'name' => 'meli_lowest_competitor',
+                    'type' => 'number',
+                    'step' => '0.01',
+                    'instructions' => 'Preço do concorrente mais agressivo da 1ª página.',
+                ],
+                [
                     'key' => 'field_meli_last_sync',
                     'label' => 'Última Sincronização MeLi',
                     'name' => 'meli_last_sync',
