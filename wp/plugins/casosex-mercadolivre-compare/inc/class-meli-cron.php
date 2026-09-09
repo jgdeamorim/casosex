@@ -67,7 +67,7 @@ class CasoSex_MeLi_Cron {
         foreach ($product_ids as $pid) {
             CasoSex_MeLi_Matcher::match_product($pid);
             $processed++;
-            usleep(200000); // 200ms de pausa para respeitar o rate-limit da API MeLi
+            usleep(400000); // 400ms de pausa para respeitar o rate-limit da API MeLi
         }
 
         update_option('casosex_meli_cron_last_run', current_time('Y-m-d H:i:s'));

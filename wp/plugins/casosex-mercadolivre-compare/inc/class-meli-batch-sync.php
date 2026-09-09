@@ -157,10 +157,10 @@ class CasoSex_MeLi_Batch_Sync {
                     var consoleDiv = document.getElementById('sync-console-log');
                     consoleDiv.scrollTop = consoleDiv.scrollHeight;
 
-                    setTimeout(processNext, 200); // 200ms anti rate-limit
+                    setTimeout(processNext, 400); // 400ms anti rate-limit blindado
                 }).fail(function() {
                     processed++;
-                    setTimeout(processNext, 200);
+                    setTimeout(processNext, 400);
                 });
             }
         });
