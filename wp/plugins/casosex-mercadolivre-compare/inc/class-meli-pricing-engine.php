@@ -122,4 +122,84 @@ class CasoSex_MeLi_Pricing_Engine {
             'opportunity_status'    => $opportunity_status,
         ];
     }
+
+    /**
+     * Retorna a decomposição financeira detalhada linha a linha para um Custo B2B de Teste (ADR-0243)
+     */
+    public static function simulate_breakdown($cost_b2b) {
+        $cost_b2b = max(floatval($cost_b2b), 1.0);
+        $res = self::calculate_all_channels($cost_b2b);
+        $cfg = self::get_settings();
+
+        if (!$res) {
+            return null;
+        }
+
+        return [
+            'store' => [
+                'name'         => 'Loja Virtual Própria',
+                'badge'        => 'casosex.com.br',
+                'price'        => $res['price_store'],
+                'cost_b2b'     => $cost_b2b,
+                'packaging'    => $cfg['packaging_cost'],
+                'fixed_fee'    => 0.00,
+                'tax_percent'  => $cfg['tax_percent'],
+                'tax_brl'      => round($res['price_store'] * ($cfg['tax_percent'] / 100), 2),
+                'fee_percent'  => $cfg['gateway_fee'],
+                'fee_brl'      => round($res['price_store'] * ($cfg['gateway_fee'] / 100), 2),
+                'cpa_ads'      => 0.00,
+                'net_profit'   => $res['net_profit_store'],
+                'net_margin'   => round(($res['net_profit_store'] / $res['price_store']) * 100, 1),
+                'markup'       => round($res['price_store'] / $cost_b2b, 2)
+            ],
+            'meli_classic' => [
+                'name'         => 'Mercado Livre Clássico',
+                'badge'        => 'Comissão 13%',
+                'price'        => $res['price_meli_classic'],
+                'cost_b2b'     => $cost_b2b,
+                'packaging'    => $cfg['packaging_cost'],
+                'fixed_fee'    => ($res['price_meli_classic'] < 79) ? 6.50 : 0.00,
+                'tax_percent'  => $cfg['tax_percent'],
+                'tax_brl'      => round($res['price_meli_classic'] * ($cfg['tax_percent'] / 100), 2),
+                'fee_percent'  => $cfg['meli_classic_fee'],
+                'fee_brl'      => round($res['price_meli_classic'] * ($cfg['meli_classic_fee'] / 100), 2),
+                'cpa_ads'      => 0.00,
+                'net_profit'   => $res['net_profit_classic'],
+                'net_margin'   => round(($res['net_profit_classic'] / $res['price_meli_classic']) * 100, 1),
+                'markup'       => round($res['price_meli_classic'] / $cost_b2b, 2)
+            ],
+            'meli_premium' => [
+                'name'         => 'Mercado Livre Premium',
+                'badge'        => '18% + 10x s/ juros',
+                'price'        => $res['price_meli_premium'],
+                'cost_b2b'     => $cost_b2b,
+                'packaging'    => $cfg['packaging_cost'],
+                'fixed_fee'    => ($res['price_meli_premium'] < 79) ? 6.50 : 0.00,
+                'tax_percent'  => $cfg['tax_percent'],
+                'tax_brl'      => round($res['price_meli_premium'] * ($cfg['tax_percent'] / 100), 2),
+                'fee_percent'  => $cfg['meli_premium_fee'],
+                'fee_brl'      => round($res['price_meli_premium'] * ($cfg['meli_premium_fee'] / 100), 2),
+                'cpa_ads'      => 0.00,
+                'net_profit'   => $res['net_profit_premium'],
+                'net_margin'   => round(($res['net_profit_premium'] / $res['price_meli_premium']) * 100, 1),
+                'markup'       => round($res['price_meli_premium'] / $cost_b2b, 2)
+            ],
+            'landing_page' => [
+                'name'         => 'Landing Page (Pico Pulse)',
+                'badge'        => 'Tráfego Pago + Ads',
+                'price'        => $res['price_landing_page'],
+                'cost_b2b'     => $cost_b2b,
+                'packaging'    => $cfg['packaging_cost'],
+                'fixed_fee'    => 0.00,
+                'tax_percent'  => $cfg['tax_percent'],
+                'tax_brl'      => round($res['price_landing_page'] * ($cfg['tax_percent'] / 100), 2),
+                'fee_percent'  => $cfg['gateway_fee'],
+                'fee_brl'      => round($res['price_landing_page'] * ($cfg['gateway_fee'] / 100), 2),
+                'cpa_ads'      => $res['cpa_ads_estimated'],
+                'net_profit'   => $res['net_profit_lp'],
+                'net_margin'   => round(($res['net_profit_lp'] / $res['price_landing_page']) * 100, 1),
+                'markup'       => round($res['price_landing_page'] / $cost_b2b, 2)
+            ]
+        ];
+    }
 }

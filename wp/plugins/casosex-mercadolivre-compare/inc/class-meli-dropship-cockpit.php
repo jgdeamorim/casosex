@@ -115,6 +115,119 @@ class CasoSex_MeLi_Dropship_Cockpit {
                     </div>
                 </div>
 
+                <!-- SIMULADOR INTERATIVO DE ENGENHARIA FINANCEIRA & DECOMPOSIÇÃO DE MARKUP (ADR-0243) -->
+                <?php
+                $sample_cost = 50.00;
+                $sim = CasoSex_MeLi_Pricing_Engine::simulate_breakdown($sample_cost);
+                ?>
+                <div style="background: rgba(15, 23, 42, 0.9); border: 1px solid #3b82f6; border-radius: 10px; padding: 20px; margin-bottom: 25px; box-shadow: 0 4px 15px rgba(59, 130, 246, 0.1);">
+                    <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 15px; margin-bottom: 15px; border-bottom: 1px solid #334155; padding-bottom: 12px;">
+                        <div>
+                            <h3 style="color: #60a5fa; font-size: 16px; font-weight: 800; margin: 0 0 4px 0;">📊 Simulador de Engenharia Financeira & Decomposição de Markup (ADR-0243)</h3>
+                            <p style="color: #94a3b8; margin: 0; font-size: 12px;">Visualize como o valor de compra da fábrica INTT vira o Preço de Venda Final e o Lucro Líquido Real nos 4 canais de venda.</p>
+                        </div>
+                        <div style="display: flex; align-items: center; gap: 10px; background: #1e293b; padding: 6px 12px; border-radius: 6px; border: 1px solid #475569;">
+                            <label style="color: #cbd5e1; font-size: 12px; font-weight: bold;">Simular Custo B2B INTT (R$):</label>
+                            <input type="number" id="casosex-sim-cost-input" value="50.00" step="5.00" min="1.00" style="width: 90px; background: #0f172a; color: #38bdf8; border: 1px solid #3b82f6; padding: 4px 8px; border-radius: 4px; font-weight: bold; text-align: center;">
+                        </div>
+                    </div>
+
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 15px;" id="casosex-sim-grid">
+                        <?php foreach ($sim as $ch_key => $c): ?>
+                        <div style="background: rgba(30, 41, 59, 0.8); border: 1px solid #475569; border-radius: 8px; padding: 15px; display: flex; flex-direction: column; justify-content: space-between;">
+                            <div>
+                                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+                                    <strong style="color: #f8fafc; font-size: 14px;"><?php echo esc_html($c['name']); ?></strong>
+                                    <span style="background: rgba(59, 130, 246, 0.2); color: #93c5fd; border: 1px solid #3b82f6; font-size: 10px; padding: 2px 6px; border-radius: 4px; font-weight: bold;"><?php echo esc_html($c['badge']); ?></span>
+                                </div>
+                                <div style="margin-bottom: 12px; padding-bottom: 10px; border-bottom: 1px solid #334155;">
+                                    <div style="color: #94a3b8; font-size: 11px;">Preço de Venda Final Sugerido</div>
+                                    <div style="color: #38bdf8; font-size: 24px; font-weight: 800; margin: 2px 0;">R$ <span class="sim-price-val" data-ch="<?php echo esc_attr($ch_key); ?>"><?php echo number_format($c['price'], 2, ',', '.'); ?></span></div>
+                                    <div style="display: flex; gap: 10px; font-size: 11px; font-weight: bold; margin-top: 4px;">
+                                        <span style="color: #a78bfa;">Markup: <span class="sim-markup-val" data-ch="<?php echo esc_attr($ch_key); ?>"><?php echo esc_html($c['markup']); ?></span>x</span>
+                                        <span style="color: #4ade80;">Lucro: R$ <span class="sim-profit-val" data-ch="<?php echo esc_attr($ch_key); ?>"><?php echo number_format($c['net_profit'], 2, ',', '.'); ?></span> (<span class="sim-margin-val" data-ch="<?php echo esc_attr($ch_key); ?>"><?php echo esc_html($c['net_margin']); ?></span>%)</span>
+                                    </div>
+                                </div>
+                                <div style="font-size: 11px; color: #cbd5e1; display: flex; flex-direction: column; gap: 4px;">
+                                    <div style="display: flex; justify-content: space-between;"><span>(+) Custo Fábrica INTT:</span><strong style="color: #f8fafc;">R$ <span class="sim-cost-val"><?php echo number_format($c['cost_b2b'], 2, ',', '.'); ?></span></strong></div>
+                                    <div style="display: flex; justify-content: space-between;"><span>(+) Embalagem Sigilosa:</span><span>R$ <?php echo number_format($c['packaging'], 2, ',', '.'); ?></span></div>
+                                    <?php if ($c['fixed_fee'] > 0): ?>
+                                    <div style="display: flex; justify-content: space-between; color: #fbbf24;"><span>(+) Fee Fixa MeLi (< R$ 79):</span><span>R$ <?php echo number_format($c['fixed_fee'], 2, ',', '.'); ?></span></div>
+                                    <?php endif; ?>
+                                    <div style="display: flex; justify-content: space-between;"><span>(-) Imposto Simples (<?php echo esc_html($c['tax_percent']); ?>%):</span><span style="color: #f87171;">R$ <span class="sim-tax-val" data-ch="<?php echo esc_attr($ch_key); ?>"><?php echo number_format($c['tax_brl'], 2, ',', '.'); ?></span></span></div>
+                                    <div style="display: flex; justify-content: space-between;"><span>(-) Taxa Canal (<?php echo esc_html($c['fee_percent']); ?>%):</span><span style="color: #f87171;">R$ <span class="sim-fee-val" data-ch="<?php echo esc_attr($ch_key); ?>"><?php echo number_format($c['fee_brl'], 2, ',', '.'); ?></span></span></div>
+                                    <?php if ($c['cpa_ads'] > 0): ?>
+                                    <div style="display: flex; justify-content: space-between; color: #fb7185;"><span>(-) CPA Ads Estimado:</span><span>R$ <?php echo number_format($c['cpa_ads'], 2, ',', '.'); ?></span></div>
+                                    <?php endif; ?>
+                                </div>
+                            </div>
+                        </div>
+                        <?php endforeach; ?>
+                    </div>
+                </div>
+
+                <script>
+                jQuery(document).ready(function($) {
+                    var pkgCost = <?php echo floatval($cfg['packaging_cost']); ?>;
+                    var taxPct = <?php echo floatval($cfg['tax_percent']); ?>;
+                    var classicFee = <?php echo floatval($cfg['meli_classic_fee']); ?>;
+                    var premiumFee = <?php echo floatval($cfg['meli_premium_fee']); ?>;
+                    var gatewayFee = <?php echo floatval($cfg['gateway_fee']); ?>;
+                    var marginStore = <?php echo floatval($cfg['target_margin_store']); ?>;
+                    var marginMeli = <?php echo floatval($cfg['target_margin_meli']); ?>;
+                    var marginLp = <?php echo floatval($cfg['target_margin_lp']); ?>;
+
+                    $('#casosex-sim-cost-input').on('input change', function() {
+                        var cost = parseFloat($(val = $(this).val())) || 50.00;
+                        if (cost <= 0) cost = 1.00;
+
+                        $('.sim-cost-val').text(cost.toFixed(2).replace('.', ','));
+
+                        function calcChannel(denomPct, targetMarginPct, feePct, isMeli) {
+                            var denom = 1 - (denomPct / 100);
+                            var price = (cost + pkgCost) / Math.max(denom, 0.1);
+                            var fixedFee = (isMeli && price < 79) ? 6.50 : 0;
+                            if (fixedFee > 0) {
+                                price = (cost + pkgCost + fixedFee) / Math.max(denom, 0.1);
+                            }
+                            price = Math.round(price * 100) / 100;
+                            var taxBrl = Math.round((price * (taxPct / 100)) * 100) / 100;
+                            var feeBrl = Math.round((price * (feePct / 100)) * 100) / 100;
+                            var profit = Math.round((price - cost - pkgCost - fixedFee - taxBrl - feeBrl) * 100) / 100;
+                            var margin = Math.round((profit / price) * 1000) / 10;
+                            var markup = Math.round((price / cost) * 100) / 100;
+
+                            return { price: price, tax: taxBrl, fee: feeBrl, profit: profit, margin: margin, markup: markup };
+                        }
+
+                        var store = calcChannel(taxPct + gatewayFee + marginStore, marginStore, gatewayFee, false);
+                        var classic = calcChannel(taxPct + classicFee + marginMeli, marginMeli, classicFee, true);
+                        var premium = calcChannel(taxPct + premiumFee + marginMeli, marginMeli, premiumFee, true);
+                        
+                        var cpa = Math.round((cost * 0.05 + 15.00) * 100) / 100;
+                        var lpDenom = 1 - ((taxPct + gatewayFee + marginLp) / 100);
+                        var lpPrice = Math.round(((cost + pkgCost + cpa) / Math.max(lpDenom, 0.1)) * 100) / 100;
+                        var lpTax = Math.round((lpPrice * (taxPct / 100)) * 100) / 100;
+                        var lpFee = Math.round((lpPrice * (gatewayFee / 100)) * 100) / 100;
+                        var lpProfit = Math.round((lpPrice - cost - pkgCost - cpa - lpTax - lpFee) * 100) / 100;
+                        var lpMargin = Math.round((lpProfit / lpPrice) * 1000) / 10;
+                        var lpMarkup = Math.round((lpPrice / cost) * 100) / 100;
+                        var lp = { price: lpPrice, tax: lpTax, fee: lpFee, profit: lpProfit, margin: lpMargin, markup: lpMarkup };
+
+                        var data = { store: store, meli_classic: classic, meli_premium: premium, landing_page: lp };
+
+                        $.each(data, function(key, val) {
+                            $('.sim-price-val[data-ch="' + key + '"]').text(val.price.toFixed(2).replace('.', ','));
+                            $('.sim-markup-val[data-ch="' + key + '"]').text(val.markup.toFixed(2));
+                            $('.sim-profit-val[data-ch="' + key + '"]').text(val.profit.toFixed(2).replace('.', ','));
+                            $('.sim-margin-val[data-ch="' + key + '"]').text(val.margin.toFixed(1));
+                            $('.sim-tax-val[data-ch="' + key + '"]').text(val.tax.toFixed(2).replace('.', ','));
+                            $('.sim-fee-val[data-ch="' + key + '"]').text(val.fee.toFixed(2).replace('.', ','));
+                        });
+                    });
+                });
+                </script>
+
                 <!-- FORMULÁRIO DE GOVERNANÇA DE TAXAS -->
                 <form method="post" action="">
                     <?php wp_nonce_field('casosex_pricing_cockpit_nonce'); ?>
