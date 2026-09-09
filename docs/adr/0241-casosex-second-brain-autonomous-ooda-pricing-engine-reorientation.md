@@ -113,11 +113,44 @@ Para a expedição e entrega ao cliente final nos diferentes canais de venda, a 
 
 ---
 
-## 6. Consequências & Ganhos
+---
+
+## 6. Estratégias Comerciais Avançadas: Matriz Pico Pulse (Kits D2C & Escala por Lotes)
+
+Inspirado na modelagem de unit economics validada no relatório comercial [`relatorio-comercial-pico-pulse.html`](file:///home/jeffer/Downloads/relatorio-comercial-pico-pulse.html), a ADR-0241 incorpora formalmente três alavancas de alta conversão ao motor multicanal da CASOSEX:
+
+### 6.1. Superação da Armadilha do Unitário via "Kits D2C" (Kit Duplo & Combos)
+* **A Armadilha do Unitário em Marketplace:** Vender 1 unidade isolada de produtos de ticket baixo/médio (géis, lubrificantes, estimuladores) em marketplaces gera compressão severa de margem (devido a taxas fixas de frete e comissão de ~16-18%).
+* **Alavanca Kit Duplo / Combo na Landing Page:**
+  * O motor calcula automaticamente a oferta **Kit Duplo (2 unidades)** e o **Combo Estratégico (Produto Principal + Order Bump INTT)**.
+  * O frete único do Melhor Envio e o CPA de Google Ads (DataForSEO) são diluídos no mesmo envio.
+  * A margem líquida real salta para patamares superiores a **24% a 35% NET livre**, gerando um lucro em Reais ($R\$$) muito mais robusto por transação.
+
+### 6.2. Matriz de Escala e Retorno por Lote (Batch Investment Model)
+O Dossiê Comercial e o motor passam a projetar 3 níveis de retorno sobre o capital investido na fábrica local (INTT ES):
+1. **Lote 1: Caixa Fechada da Fábrica (Ex: 36 ou 72 un):**
+   * Ponto de equilíbrio de vendas (*Break-Even*): cálculo exato de quantas unidades pagam 100% da caixa.
+   * Lucro Líquido Real gerado nas unidades excedentes (+40% a +50% NET sobre o investimento).
+2. **Lote 2: Operação em Tração (100 Pedidos D2C):**
+   * Projeção de faturamento bruto e resultado líquido limpo após dedução de todos os custos fiscais, embalagem e CPA de Ads.
+3. **Lote 3: Escala Atacadista / Distribuição (500+ un):**
+   * Retorno expandido e poder de negociação de bonificação direta com a diretoria da INTT.
+
+### 6.3. Blindagem de Conversão: Copywriting & FAQ de Três Níveis
+Incorporação no modelo de landing page das 3 barreiras psicológicas mineradas do nicho de bem-estar íntimo:
+1. **Quebra de Objeção #1 (Privacidade Absoluta):** Garantia de embalagem kraft neutra, sem qualquer menção à sex shop na etiqueta de envio.
+2. **Quebra de Objeção #2 (Originalidade & Garantia):** Origem homologada direta de fábrica com nota fiscal eletrônica.
+3. **Quebra de Objeção #3 (Velocidade de Entrega):** Despacho prioritário via Melhor Envio no mesmo dia para pedidos efetuados até as 14h.
+
+---
+
+## 7. Consequências & Ganhos
 
 - **Zero Esforço Operacional:** O founder nunca precisa abrir um produto no admin para digitar preço ou calcular margem.
-- **Competitividade Extrema na Landing Page:** O preço da LP passa a ser agressivo (R$ 912 a R$ 989 em vez de R$ 1.691), permitindo conversões em escala com CPA baixo medido no Google Ads.
-- **Logística Profissional & Sigilosa:** Integração fluida entre o estoque local no ES, frete barato pelo Melhor Envio e rastreamento automático para o comprador.
-- **Auditoria Transparente:** O Dossiê Comercial (`/?casosex_dossier={id}`) permanece como a tela de visualização dos dados consolidados gerados pela IA.
+- **Maximização do Ticket Médio (AOV):** A criação de Kits Duplos e Combos na Landing Page viabiliza frete grátis via Melhor Envio com margem líquida preservada.
+- **Competitividade Extrema na Landing Page:** Preço balizado pelo CPA real da DataForSEO (R$ 23,60) elimina valores inflados e viabiliza escala de tráfego pago.
+- **Logística Profissional & Sigilosa:** Despacho rápido a partir do estoque no ES com rastreamento integrado Melhor Envio.
+- **Auditoria Transparente:** O Dossiê Comercial (`/?casosex_dossier={id}`) renderiza os KPIs, a tabela de Top 5 MeLi e os cenários de Kits idênticos ao Pico Pulse.
 - **Alinhamento com a Doutrina Mãe:** Respeita integralmente `medido=verdade` e preserva os tokens e saldos de APIs via cache determinístico.
+
 
