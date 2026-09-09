@@ -2,8 +2,10 @@
 """
 mercos_intt_es_ingest.py — Esteira Soberana CASOSEX (ADR-0237 & ADR-0238)
 Sincronização Automática do Catálogo Regional INTT ES via Mercos B2B API (meuspedidos.com.br).
-Ingestão de ~2.400 produtos com Metadados Ricos (Fotos HD, Descrição, Dimensões, Custo Atacado e Supplier ID 70).
-Versão Batch Turbo: Processa páginas de 48 itens em 1 única execução de PHP in-process (< 1s por página).
+Ingestão de ~2.400 produtos com Metadados Ricos:
+- Consulta do endpoint de detalhe (/api_b2b/v1/produtos/{pid}/) para obter descrição completa (modo de uso, precauções, composição).
+- Importação das fotos HD para a Biblioteca de Mídia do WordPress com set_post_thumbnail.
+- Associação de categorias e atributos.
 """
 
 import json
@@ -15,6 +17,7 @@ import os
 import subprocess
 import time
 import argparse
+from concurrent.futures import ThreadPoolExecutor
 
 WOOCOMMERCE_URL = os.environ.get("CASOSEX_WC_URL", "http://localhost:8085")
 MERCOS_LOGIN_URL = "https://app.mercos.com/api_b2b/v1/login"
@@ -60,16 +63,43 @@ def authenticate_mercos() -> str:
     return ""
 
 
-def upsert_batch_in_woocommerce(products: list, dry_run: bool = False) -> list:
+def fetch_product_detail(token: str, pid: int) -> dict:
     """
-    Cria ou atualiza um LOTE de produtos no WooCommerce via 1 única execução de PHP in-process.
+    Busca o detalhe completo de um produto no Mercos (/api_b2b/v1/produtos/{pid}/)
+    para extrair a descrição completa (informacoes_adicionais), imagens e categorias.
+    """
+    url = f"{MERCOS_PRODUCTS_URL}{pid}/"
+    headers = {
+        "User-Agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36",
+        "Authorization": f"Bearer {token}",
+        "Accept": "application/json",
+        "Origin": f"https://{MERCOS_SUBDOMAIN}.meuspedidos.com.br"
+    }
+    req = urllib.request.Request(url, headers=headers)
+    try:
+        ctx = ssl.create_default_context()
+        ctx.check_hostname = False
+        ctx.verify_mode = ssl.CERT_NONE
+        with urllib.request.urlopen(req, timeout=10, context=ctx) as resp:
+            return json.loads(resp.read().decode("utf-8"))
+    except Exception as e:
+        print(f"[DETAIL FETCH ERR] PID {pid}: {e}")
+        return {}
+
+
+def upsert_batch_in_woocommerce(products_details: list, dry_run: bool = False) -> list:
+    """
+    Cria ou atualiza um LOTE de produtos enriquecidos no WooCommerce via 1 execução PHP com media_sideload_image.
     """
     items = []
-    for prod in products:
+    for prod in products_details:
+        if not prod:
+            continue
         sku = f"INTT-ES-{prod.get('codigo', '').strip()}"
         title = prod.get("nome", "").strip()
-        description = prod.get("informacoes_adicionais", "").strip()
+        description = (prod.get("informacoes_adicionais") or "").strip()
         images = prod.get("imagens", [])
+        categories = [c.get("nome") for c in prod.get("categorias", []) if c.get("nome")]
         weight = float(prod.get("peso_bruto") or 0.0)
         height = float(prod.get("altura") or 0.0)
         width = float(prod.get("largura") or 0.0)
@@ -81,6 +111,7 @@ def upsert_batch_in_woocommerce(products: list, dry_run: bool = False) -> list:
             "title": title,
             "description": description,
             "images": images,
+            "categories": categories,
             "weight": weight,
             "height": height,
             "width": width,
@@ -91,13 +122,17 @@ def upsert_batch_in_woocommerce(products: list, dry_run: bool = False) -> list:
 
     if dry_run:
         for it in items:
-            print(f"[DRY-RUN] SKU: {it['sku']} | Nome: {it['title']} | Custo: R${it['cost_price']} | Fotos: {len(it['images'])}")
+            print(f"[DRY-RUN] SKU: {it['sku']} | Nome: {it['title']} | Desc LOC: {len(it['description'])} | Fotos: {len(it['images'])}")
         return [{"sku": it["sku"], "status": "dry-run"} for it in items]
 
     payload_data = json.dumps(items)
 
     php_script = """
     require_once('/var/www/html/wp-load.php');
+    require_once(ABSPATH . 'wp-admin/includes/media.php');
+    require_once(ABSPATH . 'wp-admin/includes/file.php');
+    require_once(ABSPATH . 'wp-admin/includes/image.php');
+
     $raw = file_get_contents('php://stdin');
     $items = json_decode($raw, true);
     if (!$items || !is_array($items)) {
@@ -111,6 +146,7 @@ def upsert_batch_in_woocommerce(products: list, dry_run: bool = False) -> list:
         $title = $data['title'];
         $desc = $data['description'];
         $images = $data['images'];
+        $categories = $data['categories'];
         $weight = $data['weight'];
         $height = $data['height'];
         $width = $data['width'];
@@ -126,7 +162,7 @@ def upsert_batch_in_woocommerce(products: list, dry_run: bool = False) -> list:
         } else {
             $product = new WC_Product_Simple();
             $product->set_sku($sku);
-            $product->set_status('pending');
+            $product->set_status('pending'); // Rascunho para curadoria
             $is_new = true;
         }
 
@@ -149,15 +185,41 @@ def upsert_batch_in_woocommerce(products: list, dry_run: bool = False) -> list:
         if ($width > 0) $product->set_width($width);
         if ($length > 0) $product->set_length($length);
 
+        // Mapeia categorias no WooCommerce
+        if (!empty($categories) && is_array($categories)) {
+            $cat_ids = array();
+            foreach ($categories as $cat_name) {
+                $term = get_term_by('name', $cat_name, 'product_cat');
+                if (!$term) {
+                    $new_term = wp_insert_term($cat_name, 'product_cat');
+                    if (!is_wp_error($new_term)) {
+                        $cat_ids[] = $new_term['term_id'];
+                    }
+                } else {
+                    $cat_ids[] = $term->term_id;
+                }
+            }
+            if (!empty($cat_ids)) {
+                $product->set_category_ids($cat_ids);
+            }
+        }
+
         $product_id = $product->save();
 
+        // Metadados Soberanos CASOSEX
         update_post_meta($product_id, '_casosex_cost_price', $cost_price);
         update_post_meta($product_id, '_casosex_supplier_id', $supplier_id);
         update_post_meta($product_id, '_casosex_stock_type', 'dropshipping_intt_es');
 
-        if (!empty($images) && is_array($images) && $is_new) {
-            foreach ($images as $idx => $img_url) {
-                update_post_meta($product_id, '_casosex_remote_img_' . $idx, $img_url);
+        // Sideload de Imagens para a Biblioteca de Mídia do WordPress
+        if (!empty($images) && is_array($images)) {
+            $existing_thumb = get_post_thumbnail_id($product_id);
+            if (empty($existing_thumb)) {
+                $first_img = $images[0];
+                $attach_id = media_sideload_image($first_img, $product_id, $title, 'id');
+                if (!is_wp_error($attach_id)) {
+                    set_post_thumbnail($product_id, $attach_id);
+                }
             }
         }
 
@@ -171,22 +233,22 @@ def upsert_batch_in_woocommerce(products: list, dry_run: bool = False) -> list:
     try:
         results = json.loads(res.stdout.strip())
         for out in results:
-            print(f"[UPSERT OK] ID: {out.get('id')} | SKU: {out.get('sku')} | Novo: {out.get('is_new')} | Status: {out.get('status')}")
+            print(f"[ENRICH OK] ID: {out.get('id')} | SKU: {out.get('sku')} | Novo: {out.get('is_new')} | Status: {out.get('status')}")
         return results
     except Exception as e:
-        print(f"[BATCH UPSERT ERR] stdout={res.stdout} stderr={res.stderr} err={e}")
+        print(f"[ENRICH ERR] stdout={res.stdout} stderr={res.stderr} err={e}")
         return [{"sku": it["sku"], "status": "error"} for it in items]
 
 
 def fetch_and_sync_mercos_catalog(token: str, max_pages: int = 100, limit: int = 0, dry_run: bool = False):
     """
-    Itera sobre o catálogo B2B do Mercos INTT ES e sincroniza no WooCommerce em Lotes Turbo.
+    Itera sobre o catálogo B2B do Mercos INTT ES, busca o detalhe completo via multithreading e sincroniza no WooCommerce.
     """
     page = 1
     total_synced = 0
     total_new = 0
 
-    print(f"=== INICIANDO SINCRONIZAÇÃO INTT ES (MERCOS API - BATCH TURBO) ===")
+    print(f"=== INICIANDO ENRIQUECIMENTO COMPLETO INTT ES (DESCRICAO + FOTOS HD) ===")
     print(f"Target WC: {WOOCOMMERCE_URL} | Supplier ID: {INTT_ES_SUPPLIER_ID} | Dry-run: {dry_run}\n")
 
     while page <= max_pages:
@@ -204,16 +266,27 @@ def fetch_and_sync_mercos_catalog(token: str, max_pages: int = 100, limit: int =
             ctx.check_hostname = False
             ctx.verify_mode = ssl.CERT_NONE
             with urllib.request.urlopen(req, timeout=15, context=ctx) as resp:
-                products = json.loads(resp.read().decode("utf-8"))
-                if not products:
+                products_summary = json.loads(resp.read().decode("utf-8"))
+                if not products_summary:
                     print(f"Fim do catálogo atingido na página {page}.")
                     break
 
-                if limit > 0 and (total_synced + len(products)) > limit:
-                    products = products[:(limit - total_synced)]
+                if limit > 0 and (total_synced + len(products_summary)) > limit:
+                    products_summary = products_summary[:(limit - total_synced)]
 
-                print(f"--- Processando Lote Página {page} ({len(products)} produtos) ---")
-                results = upsert_batch_in_woocommerce(products, dry_run=dry_run)
+                print(f"--- Buscando Detalhes Ricos da Página {page} ({len(products_summary)} produtos) ---")
+                
+                # Fetch multi-threaded dos detalhes de cada produto
+                details = []
+                with ThreadPoolExecutor(max_workers=8) as executor:
+                    futures = [executor.submit(fetch_product_detail, token, p["produto_id"]) for p in products_summary]
+                    for fut in futures:
+                        res_det = fut.result()
+                        if res_det:
+                            details.append(res_det)
+
+                print(f"--- Sincronizando Lote Página {page} no WooCommerce ({len(details)} itens enriquecidos) ---")
+                results = upsert_batch_in_woocommerce(details, dry_run=dry_run)
                 
                 for r in results:
                     total_synced += 1
@@ -230,12 +303,12 @@ def fetch_and_sync_mercos_catalog(token: str, max_pages: int = 100, limit: int =
             print(f"[FETCH ERR] Erro na página {page}: {e}")
             break
 
-    print(f"\n✅ SINCRONIZAÇÃO BATCH CONCLUÍDA!")
+    print(f"\n✅ SINCRONIZAÇÃO COMPLETA & ENRIQUECIMENTO CONCLUÍDO!")
     print(f"Total Processado: {total_synced} produtos | Novos Criados: {total_new}\n")
 
 
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser(description="Ingestão de Catálogo INTT ES (Mercos B2B API) -> WooCommerce")
+    parser = argparse.ArgumentParser(description="Ingestão Rica de Catálogo INTT ES (Mercos B2B API) -> WooCommerce")
     parser.add_argument("--pages", type=int, default=100, help="Número máximo de páginas a buscar (48 itens/pág)")
     parser.add_argument("--limit", type=int, default=0, help="Limite máximo de produtos a processar (0 = sem limite)")
     parser.add_argument("--dry-run", action="store_true", help="Executa sem alterar o banco de dados do WooCommerce")
