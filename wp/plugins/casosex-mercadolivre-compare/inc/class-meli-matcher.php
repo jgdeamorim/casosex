@@ -61,10 +61,23 @@ class CasoSex_MeLi_Matcher {
         $meli_name = isset($catalog_data['name']) ? $catalog_data['name'] : '';
         $score = self::calculate_score($title, $meli_name, $cost_price);
 
+        // Unidades da caixa fechada
+        $box_units = 1;
+        $box_terms = wp_get_post_terms($product_id, 'pa_caixa_atacado');
+        if (!empty($box_terms) && !is_wp_error($box_terms)) {
+            if (preg_match('/(\d+)/', $box_terms[0]->name, $m_box)) {
+                $box_units = intval($m_box[1]);
+            }
+        }
+
         // Preço de mercado real obtido dos itens concorrentes do catálogo
         $market_price = self::fetch_market_price($catalog_id, $token);
-        if ($market_price <= 0) {
-            $market_price = round($cost_price * 1.8, 2);
+        
+        // Motor Algorítmico Multicanal (ADR-0240) - ZERO 1.8x cego
+        $pricing = CasoSex_MeLi_Pricing_Engine::calculate_all_channels($cost_price, $box_units, $market_price);
+
+        if ($market_price <= 0 && !empty($pricing)) {
+            $market_price = $pricing['price_meli_premium']; // Preço seguro Premium como fallback
         }
 
         // Análise de inteligência
@@ -85,11 +98,19 @@ class CasoSex_MeLi_Matcher {
             'meli_rating'               => 4.5,
             'meli_reviews_count'        => 13,
             'meli_active_days'          => 708,
-            'meli_opportunity_index'    => $intelligence['opportunity_index'],
+            'meli_opportunity_index'    => (!empty($pricing['opportunity_status']) && $pricing['opportunity_status'] !== 'BALANCED') ? $pricing['opportunity_status'] : $intelligence['opportunity_index'],
             'meli_golden_price'         => $intelligence['golden_price'],
             'meli_customer_insights'    => $intelligence['customer_insights'],
             'meli_faq_schema'           => $intelligence['faq_schema'],
             'meli_suggested_order_bump' => $intelligence['suggested_order_bump'],
+            'pricing_cost_b2b'          => $cost_price,
+            'pricing_box_units'         => $box_units,
+            'pricing_break_even_units'  => !empty($pricing['break_even_units']) ? $pricing['break_even_units'] : 1,
+            'pricing_meli_classico'     => !empty($pricing['price_meli_classic']) ? $pricing['price_meli_classic'] : 0,
+            'pricing_meli_premium'      => !empty($pricing['price_meli_premium']) ? $pricing['price_meli_premium'] : 0,
+            'pricing_loja_virtual'      => !empty($pricing['price_store']) ? $pricing['price_store'] : 0,
+            'pricing_landing_page'      => !empty($pricing['price_landing_page']) ? $pricing['price_landing_page'] : 0,
+            'pricing_hard_floor_limit'  => !empty($pricing['hard_floor_limit']) ? $pricing['hard_floor_limit'] : 0,
             'meli_last_sync'            => current_time('Y-m-d H:i:s')
         ];
 
@@ -108,7 +129,8 @@ class CasoSex_MeLi_Matcher {
             'market_price'      => $market_price,
             'our_cost'          => $cost_price,
             'margin'            => $intelligence['margin_real'],
-            'opportunity'       => $intelligence['opportunity_index'],
+            'opportunity'       => $fields_to_update['meli_opportunity_index'],
+            'pricing'           => $pricing,
             'enriched_attrs'    => $applied_attrs,
             'golden_price'      => $intelligence['golden_price']
         ];
