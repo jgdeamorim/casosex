@@ -30,10 +30,12 @@ require_once plugin_dir_path(__FILE__) . 'inc/class-meli-intelligence.php';
 require_once plugin_dir_path(__FILE__) . 'inc/class-meli-matcher.php';
 require_once plugin_dir_path(__FILE__) . 'inc/class-meli-metabox.php';
 require_once plugin_dir_path(__FILE__) . 'inc/class-meli-admin-columns.php';
+require_once plugin_dir_path(__FILE__) . 'inc/class-meli-cron.php';
 
 // Inicialização
 add_action('plugins_loaded', function() {
     CasoSex_MeLi_ACF_Fields::init();
+    CasoSex_MeLi_Cron::init();
     if (is_admin()) {
         CasoSex_MeLi_Metabox::init();
         CasoSex_MeLi_Admin_Columns::init();
