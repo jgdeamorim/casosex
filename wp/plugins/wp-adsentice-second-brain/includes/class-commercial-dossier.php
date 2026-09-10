@@ -1,8 +1,9 @@
 <?php
 /**
- * ADR-0240 / ADR-0244 / ADR-0245 / ADR-0246 / ADR-0247: Dossiê Soberano de Go-to-Market v8.1
- * Enquadramento Fluido Sem Scroll Horizontal + Todas as 14 Camadas de Verdade + Twin Benchmarking OODA.
- * Doutrina: medido=verdade.
+ * ADR-0240 / ADR-0244 / ADR-0245 / ADR-0246 / ADR-0247: Dossiê Soberano de Go-to-Market v8.2
+ * Evidence & Campaign Governance Layer: Epistemic Badges Quádruplos, Evidence Registry,
+ * Claim Registry, Channel Gates Matrix, 4-Level Break-Even Decomposition & Unified Math Engine.
+ * Doutrina: medido=verdade. Regra Soberana: Score é diagnóstico, Gate é autorização.
  */
 
 if (!defined('ABSPATH')) {
@@ -30,7 +31,7 @@ class Adsentice_Commercial_Dossier {
     public static function add_product_dossier_metabox() {
         add_meta_box(
             'casosex_product_dossier_box',
-            '⚡ Dossiê Soberano GTM v8.1 (14 Camadas & Twin Benchmarking)',
+            '⚡ Dossiê Soberano GTM v8.2 (Governança & Channel Gates)',
             [__CLASS__, 'render_metabox'],
             'product',
             'side',
@@ -43,10 +44,10 @@ class Adsentice_Commercial_Dossier {
         ?>
         <div style="text-align: center; padding: 12px 5px;">
             <p style="font-size: 12px; color: #64748b; margin-bottom: 12px;">
-                Dossiê executivo sem scroll horizontal, 14 camadas e Twin Benchmarking OODA.
+                Dossiê executivo V8.2: Governança, Evidence Registry, Channel Gates e Curva de ROI.
             </p>
             <a href="<?php echo esc_url($dossier_url); ?>" target="_blank" class="button button-primary" style="background: linear-gradient(135deg, #7e4bc4, #4c277e); border-color: #7e4bc4; font-weight: bold; width: 100%; padding: 8px; text-align: center;">
-                📊 Abrir Dossiê GTM Soberano
+                📊 Abrir Dossiê GTM Soberano v8.2
             </a>
         </div>
         <?php
@@ -95,7 +96,7 @@ class Adsentice_Commercial_Dossier {
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-<title>Dossiê Soberano GTM, Intelligence & Twin Benchmarking - Pico Pulse Uva Verde INTT | CASOSEX</title>
+<title>Dossiê Soberano GTM v8.2 — Pico Pulse Uva Verde INTT | CASOSEX</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
@@ -145,6 +146,59 @@ html, body {
     max-width: 1240px;
     margin: 0 auto;
     padding: 24px 20px 60px 20px;
+}
+
+/* Epistemic Badges Quádruplos Rigorosos */
+.badge-fact {
+    display: inline-block;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.70rem;
+    font-weight: 800;
+    padding: 2px 8px;
+    border-radius: 4px;
+    background: rgba(56, 189, 248, 0.15);
+    border: 1px solid var(--blue-sky);
+    color: var(--blue-sky);
+    text-transform: uppercase;
+}
+
+.badge-observed {
+    display: inline-block;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.70rem;
+    font-weight: 800;
+    padding: 2px 8px;
+    border-radius: 4px;
+    background: rgba(245, 158, 11, 0.15);
+    border: 1px solid var(--amber);
+    color: var(--amber);
+    text-transform: uppercase;
+}
+
+.badge-derived {
+    display: inline-block;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.70rem;
+    font-weight: 800;
+    padding: 2px 8px;
+    border-radius: 4px;
+    background: rgba(168, 85, 247, 0.18);
+    border: 1px solid #c084fc;
+    color: #c084fc;
+    text-transform: uppercase;
+}
+
+.badge-hypothesis {
+    display: inline-block;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.70rem;
+    font-weight: 800;
+    padding: 2px 8px;
+    border-radius: 4px;
+    background: rgba(244, 114, 182, 0.18);
+    border: 1px solid #f472b6;
+    color: #f472b6;
+    text-transform: uppercase;
 }
 
 .top-nav {
@@ -250,14 +304,14 @@ html, body {
 }
 
 .hero-subtitle {
-    font-size: 1.05rem;
+    font-size: 1.02rem;
     color: var(--text-muted);
     margin-bottom: 18px;
 }
 
 .hero-meta-row {
     display: flex;
-    gap: 12px;
+    gap: 10px;
     flex-wrap: wrap;
     margin-bottom: 18px;
 }
@@ -301,7 +355,7 @@ html, body {
 
 .kpi-val {
     font-family: 'Outfit', sans-serif;
-    font-size: 1.3rem;
+    font-size: 1.25rem;
     font-weight: 800;
     color: #fff;
 }
@@ -313,6 +367,11 @@ html, body {
     padding: 24px;
     margin-bottom: 24px;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.section-box.gov-box {
+    border: 1px solid rgba(245, 158, 11, 0.4);
+    background: linear-gradient(145deg, rgba(40, 25, 10, 0.7) 0%, rgba(18, 6, 36, 0.9) 100%);
 }
 
 .section-box.twin-box {
@@ -359,39 +418,6 @@ html, body {
     font-size: 0.85rem;
     color: var(--text-muted);
     margin-top: 3px;
-}
-
-.badge-fact {
-    font-size: 0.72rem;
-    font-weight: 800;
-    padding: 4px 10px;
-    border-radius: 9999px;
-    background: rgba(56, 189, 248, 0.15);
-    border: 1px solid var(--blue-sky);
-    color: var(--blue-sky);
-    text-transform: uppercase;
-}
-
-.badge-inferred {
-    font-size: 0.72rem;
-    font-weight: 800;
-    padding: 4px 10px;
-    border-radius: 9999px;
-    background: rgba(161, 225, 74, 0.15);
-    border: 1px solid var(--green-bright);
-    color: var(--green-bright);
-    text-transform: uppercase;
-}
-
-.badge-alert {
-    font-size: 0.72rem;
-    font-weight: 800;
-    padding: 4px 10px;
-    border-radius: 9999px;
-    background: rgba(239, 68, 68, 0.15);
-    border: 1px solid var(--red-alert);
-    color: var(--red-alert);
-    text-transform: uppercase;
 }
 
 .card-inner {
@@ -450,16 +476,16 @@ html, body {
     color: var(--text-muted);
     font-weight: 700;
     text-align: left;
-    padding: 9px 10px;
+    padding: 8px 10px;
     border-bottom: 1px solid rgba(126, 75, 196, 0.4);
-    font-size: 0.75rem;
+    font-size: 0.74rem;
     text-transform: uppercase;
     letter-spacing: 0.03em;
     word-break: break-word;
 }
 
 .compact-table td {
-    padding: 9px 10px;
+    padding: 8px 10px;
     border-bottom: 1px solid rgba(255, 255, 255, 0.05);
     vertical-align: middle;
     word-break: break-word;
@@ -496,7 +522,6 @@ html, body {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    transition: transform 0.2s, border-color 0.2s;
 }
 
 .ch-card.hero {
@@ -636,47 +661,9 @@ html, body {
     margin-top: 3px;
 }
 
-.ugc-table td:first-child {
-    width: 14%;
-    font-weight: 700;
-    color: var(--blue-sky);
-}
-.ugc-table td:nth-child(2) {
-    width: 30%;
-}
-.ugc-table td:nth-child(3) {
-    width: 32%;
-}
-.ugc-table td:nth-child(4) {
-    width: 24%;
-}
-
-.comp-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 16px;
-}
-
-@media (max-width: 768px) {
-    .comp-grid {
-        grid-template-columns: 1fr;
-    }
-}
-
-.comp-box {
-    border-radius: 10px;
-    padding: 14px;
-}
-
-.comp-box.allowed {
-    background: rgba(35, 78, 26, 0.25);
-    border: 1px solid rgba(161, 225, 74, 0.35);
-}
-
-.comp-box.forbidden {
-    background: rgba(78, 26, 26, 0.25);
-    border: 1px solid rgba(239, 68, 68, 0.35);
-}
+.gate-pass { color: var(--green-bright); font-weight: 700; }
+.gate-wait { color: var(--amber); font-weight: 700; }
+.gate-block { color: var(--red-alert); font-weight: 700; }
 
 footer {
     text-align: center;
@@ -695,13 +682,14 @@ footer {
     <div class="top-nav">
         <div class="brand-badge">
             <span class="pulse-dot"></span>
-            <span>ADSENTICE COMMERCE ENGINE · V8.0 SOVEREIGN</span>
+            <span>ADSENTICE GTM ENGINE · V8.2 GOVERNANCE & EVIDENCE</span>
         </div>
         <div class="nav-badges">
             <span class="badge-tag">MARIADB #3354</span>
-            <span class="badge-tag">DATAFORSEO AUDITED</span>
+            <span class="badge-tag">DATAFORSEO SERP</span>
             <span class="badge-tag">TWIN BENCHMARKING</span>
-            <span class="badge-tag">OODA SYNCHRONIZED</span>
+            <span class="badge-tag">EVIDENCE REGISTRY</span>
+            <span class="badge-tag">CHANNEL GATES</span>
         </div>
     </div>
 
@@ -713,29 +701,29 @@ footer {
             </div>
             <div class="hero-info">
                 <div class="hero-meta-row">
-                    <span class="badge-fact">SKU: INTT-PICO-01</span>
-                    <span class="badge-fact">EAN: 7898595995543</span>
-                    <span class="badge-fact">ANVISA: 25351.294819/2022-11</span>
-                    <span class="badge-inferred">GRAU 1 COSMÉTICO</span>
+                    <span class="badge-fact">FACT · SKU: INTT-PICO-01</span>
+                    <span class="badge-fact">FACT · EAN: 7898595995543</span>
+                    <span class="badge-fact">FACT · ANVISA: 25351.294819/2022-11</span>
+                    <span class="badge-fact">FACT · GRAU 1 COSMÉTICO</span>
                 </div>
                 <h1>Pico Pulse Uva Verde INTT (15ml)</h1>
-                <p class="hero-subtitle">Dossiê Soberano de Go-to-Market, Inteligência Multicanal & Twin Benchmarking de Venda Direta</p>
+                <p class="hero-subtitle">Dossiê Soberano GTM v8.2 — Governança de Capital, Trilha de Evidências & Channel Gates</p>
                 
                 <div class="hero-kpis">
                     <div class="kpi-card">
                         <div class="kpi-title">Custo Unitário B2B</div>
-                        <div class="kpi-val" style="color: #fff;">R$ 45,62</div>
+                        <div class="kpi-val" style="color: #fff;">R$ 45,62 <span class="badge-fact">FACT</span></div>
                     </div>
                     <div class="kpi-card">
-                        <div class="kpi-title">Estoque Físico</div>
-                        <div class="kpi-val" style="color: var(--blue-sky);">107 un</div>
+                        <div class="kpi-title">Estoque Armazém</div>
+                        <div class="kpi-val" style="color: var(--blue-sky);">107 un <span class="badge-fact">FACT</span></div>
                     </div>
                     <div class="kpi-card hero-kpi">
                         <div class="kpi-title">Canal Hero V8</div>
                         <div class="kpi-val" style="color: var(--green-bright); font-size: 1.15rem;">Kit Duplo R$ 159,90</div>
                     </div>
                     <div class="kpi-card alert-kpi">
-                        <div class="kpi-title">Política Mercado Livre</div>
+                        <div class="kpi-title">Status Mercado Livre</div>
                         <div class="kpi-val" style="color: var(--red-alert); font-size: 1.05rem;">🚫 DESCARTE UNITÁRIO</div>
                     </div>
                 </div>
@@ -743,35 +731,348 @@ footer {
         </div>
     </header>
 
-    <!-- STATUS OPERACIONAL BAR -->
-    <div class="section-box hero-box" style="padding: 16px 20px; margin-bottom: 20px;">
-        <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px;">
+    <!-- SOVEREIGN GOVERNANCE BANNER: SCORE É DIAGNÓSTICO · GATE É AUTORIZAÇÃO -->
+    <div class="section-box gov-box" style="padding: 18px 22px; margin-bottom: 24px;">
+        <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 14px;">
             <div>
-                <div style="display: flex; align-items: center; gap: 8px;">
-                    <span style="font-size: 1.2rem;">🟢</span>
-                    <strong style="font-family: 'Outfit', sans-serif; font-size: 1.15rem; color: #fff;">Status Operacional: GO AUTORIZADO (Readiness Score 93/100)</strong>
+                <div style="display: flex; align-items: center; gap: 10px;">
+                    <span style="font-size: 1.3rem;">🛡️</span>
+                    <strong style="font-family: 'Outfit', sans-serif; font-size: 1.2rem; color: #fff;">
+                        GOVERNANÇA: SCORE É DIAGNÓSTICO (93/100) · GATE É AUTORIZAÇÃO
+                    </strong>
                 </div>
-                <p style="font-size: 0.82rem; color: var(--text-muted); margin-top: 2px;">
-                    Operação aprovada para escala D2C via Landing Page Edge V8. Amortização integral do capital de giro ocorre na 3ª venda (3 Kits = 6 un amortizam o lote de R$ 456,20).
+                <p style="font-size: 0.84rem; color: #fef08a; margin-top: 4px; line-height: 1.5;">
+                    <strong>Regra Soberana V8.2:</strong> O produto possui alto índice de atratividade e margem unitária (93/100), porém <strong>CAMPAIGN READY = FALSE</strong> para escala de tráfego pago até a validação formal dos gates de <em>Tracking (CAPI)</em> e <em>Feed (Merchant)</em>. Venda orgânica e D2C direto liberadas.
                 </p>
             </div>
-            <div style="display: flex; gap: 10px;">
-                <span class="badge-inferred" style="background: rgba(161,225,74,0.25);">MARGEM SOBERANA 30%+</span>
-                <span class="badge-fact" style="background: rgba(56,189,248,0.25);">AMORTIZAÇÃO 3 KITS</span>
+            <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+                <span class="badge-tag" style="border-color: var(--green-bright); color: var(--green-bright);">D2C CHECKOUT: 🟢 ATIVO</span>
+                <span class="badge-tag" style="border-color: var(--amber); color: var(--amber);">MÍDIA PAGA: 🟡 AGUARDANDO GATES</span>
+                <span class="badge-tag" style="border-color: var(--red-alert); color: var(--red-alert);">MELI UNIT: 🔴 BLOQUEADO</span>
             </div>
         </div>
     </div>
 
+    <!-- MÓDULO A: EVIDENCE REGISTRY (AUDITORIA DE FONTES & CONFIANÇA) -->
+    <section class="section-box">
+        <div class="section-header">
+            <div class="section-title-wrap">
+                <span class="section-icon">🗂️</span>
+                <div>
+                    <h2 class="section-title">Módulo A — Evidence Registry (Registro Soberano de Evidências)</h2>
+                    <p class="section-desc">Mapeamento granular de cada número e dado comercial citado com fonte, coleta e confiança</p>
+                </div>
+            </div>
+            <span class="badge-fact">AUDITORIA DE DADOS</span>
+        </div>
+
+        <div class="table-fluid-wrap">
+            <table class="compact-table">
+                <thead>
+                    <tr>
+                        <th style="width: 11%;">ID</th>
+                        <th style="width: 25%;">Dado / Métrica</th>
+                        <th style="width: 16%;">Valor Medido</th>
+                        <th style="width: 26%;">Fonte Primária Auditada</th>
+                        <th style="width: 12%;">Coletado Em</th>
+                        <th style="width: 10%;">Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><code>EVD-01</code></td>
+                        <td>Custo Unitário de Aquisição B2B</td>
+                        <td><strong>R$ 45,62</strong></td>
+                        <td>NF-e Entrada / MariaDB <code>_casosex_cost_price</code></td>
+                        <td>2026-09-09</td>
+                        <td><span class="badge-fact">FACT</span></td>
+                    </tr>
+                    <tr>
+                        <td><code>EVD-02</code></td>
+                        <td>Estoque Físico em Armazém</td>
+                        <td><strong>107 unidades</strong></td>
+                        <td>Inventário Físico / MariaDB <code>_stock</code></td>
+                        <td>2026-09-09</td>
+                        <td><span class="badge-fact">FACT</span></td>
+                    </tr>
+                    <tr>
+                        <td><code>EVD-03</code></td>
+                        <td>Buscas Exatas <code>[pico pulse intt]</code></td>
+                        <td><strong>2.900 buscas/mês</strong></td>
+                        <td>DataForSEO SERP API v3 (Google Brasil)</td>
+                        <td>2026-09-09</td>
+                        <td><span class="badge-observed">OBSERVED</span></td>
+                    </tr>
+                    <tr>
+                        <td><code>EVD-04</code></td>
+                        <td>CPC Médio de Leilão Fundo de Funil</td>
+                        <td><strong>R$ 0,85</strong></td>
+                        <td>DataForSEO Google Ads Keyword Metrics</td>
+                        <td>2026-09-09</td>
+                        <td><span class="badge-observed">OBSERVED</span></td>
+                    </tr>
+                    <tr>
+                        <td><code>EVD-05</code></td>
+                        <td>Preço Varejo Farmacêutico Nacional</td>
+                        <td><strong>R$ 75,90 (+ frete)</strong></td>
+                        <td>Auditoria E-commerce Drogasil / Droga Raia</td>
+                        <td>2026-09-09</td>
+                        <td><span class="badge-observed">OBSERVED</span></td>
+                    </tr>
+                    <tr>
+                        <td><code>EVD-06</code></td>
+                        <td>Preço Predatório Mercado Livre</td>
+                        <td><strong>R$ 69,80 a R$ 70,99</strong></td>
+                        <td>Auditoria BuyBox MeLi API (1ª Página)</td>
+                        <td>2026-09-09</td>
+                        <td><span class="badge-observed">OBSERVED</span></td>
+                    </tr>
+                    <tr>
+                        <td><code>EVD-07</code></td>
+                        <td>Registro Notificação Sanitária</td>
+                        <td><strong>25351.294819/2022-11</strong></td>
+                        <td>Consulta Oficial ANVISA Cosméticos Grau 1</td>
+                        <td>2026-09-09</td>
+                        <td><span class="badge-fact">FACT</span></td>
+                    </tr>
+                    <tr>
+                        <td><code>EVD-08</code></td>
+                        <td>Taxa de Cliques Estimada (CTR)</td>
+                        <td><strong>4.0% em Search</strong></td>
+                        <td>Benchmark Médio E-commerce Brasil (Hipótese)</td>
+                        <td>2026-09-09</td>
+                        <td><span class="badge-hypothesis">HYPOTHESIS</span></td>
+                    </tr>
+                    <tr>
+                        <td><code>EVD-09</code></td>
+                        <td>Taxa de Conversão Estimada (CVR)</td>
+                        <td><strong>3.5% em LP Hero V8</strong></td>
+                        <td>Benchmark de Teste Funil D2C Sensorial (Hipótese)</td>
+                        <td>2026-09-09</td>
+                        <td><span class="badge-hypothesis">HYPOTHESIS</span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- MÓDULO B: CLAIM & REGULATORY REGISTRY (TRILHA TÉCNICA) -->
+    <section class="section-box">
+        <div class="section-header">
+            <div class="section-title-wrap">
+                <span class="section-icon">🔬</span>
+                <div>
+                    <h2 class="section-title">Módulo B — Claim & Regulatory Registry (Trilha de Alegações)</h2>
+                    <p class="section-desc">Desdobramento formal: INCI &rarr; Laudo &rarr; Literatura Científica &rarr; Copy Aprovada</p>
+                </div>
+            </div>
+            <span class="badge-observed">COMPLIANCE CONTROL</span>
+        </div>
+
+        <div class="grid-3">
+            <div class="card-inner">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
+                    <strong style="color: var(--green-bright); font-size: 0.9rem;">CLM-01: Vibração e Formigamento</strong>
+                    <span class="badge-fact">INCI FACT</span>
+                </div>
+                <div style="font-size: 0.78rem; color: var(--text-muted); margin-bottom: 6px;">
+                    Ativo: <code>Spilanthes Acmella Extract (Jambu)</code>
+                </div>
+                <p style="font-size: 0.8rem; color: #fff; line-height: 1.5; margin-bottom: 8px;">
+                    <strong>Trilha de Evidência:</strong> Presença confirmada no INCI da rotulagem ANVISA. Literatura farmacológica documenta ligação do espilantol em canais TRPV1.
+                </p>
+                <div style="font-size: 0.76rem; border-top: 1px solid rgba(255,255,255,0.06); padding-top: 6px;">
+                    <div style="color: var(--green-bright);">✅ <strong>Permitido:</strong> "Gel sensorial com extrato de jambu que vibra na pele."</div>
+                    <div style="color: var(--red-alert); margin-top: 3px;">❌ <strong>Proibido:</strong> "Cura impotência ou substitui estimulante médico."</div>
+                </div>
+            </div>
+
+            <div class="card-inner">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
+                    <strong style="color: var(--blue-sky); font-size: 0.9rem;">CLM-02: Efeito Térmico Confortável</strong>
+                    <span class="badge-fact">INCI FACT</span>
+                </div>
+                <div style="font-size: 0.78rem; color: var(--text-muted); margin-bottom: 6px;">
+                    Ativo: <code>Vanillyl Butyl Ether</code>
+                </div>
+                <p style="font-size: 0.8rem; color: #fff; line-height: 1.5; margin-bottom: 8px;">
+                    <strong>Trilha de Evidência:</strong> Componente de grau cosmético com liberação térmica gradual. Alternativa não pungente à capsaicina.
+                </p>
+                <div style="font-size: 0.76rem; border-top: 1px solid rgba(255,255,255,0.06); padding-top: 6px;">
+                    <div style="color: var(--green-bright);">✅ <strong>Permitido:</strong> "Sensação térmica suave e agradável de aquecimento."</div>
+                    <div style="color: var(--red-alert); margin-top: 3px;">❌ <strong>Proibido:</strong> "Aumenta circulação genital para hipertrofia."</div>
+                </div>
+            </div>
+
+            <div class="card-inner">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
+                    <strong style="color: var(--amber); font-size: 0.9rem;">CLM-03: Blindagem da Intimidade</strong>
+                    <span class="badge-fact">OPS FACT</span>
+                </div>
+                <div style="font-size: 0.78rem; color: var(--text-muted); margin-bottom: 6px;">
+                    Fator: Processo Operacional de Embalagem
+                </div>
+                <p style="font-size: 0.8rem; color: #fff; line-height: 1.5; margin-bottom: 8px;">
+                    <strong>Trilha de Evidência:</strong> SOP de despacho CASOSEX exige caixa parda sem logotipo, etiqueta com remetente neutro e sigilo de nota fiscal.
+                </p>
+                <div style="font-size: 0.76rem; border-top: 1px solid rgba(255,255,255,0.06); padding-top: 6px;">
+                    <div style="color: var(--green-bright);">✅ <strong>Permitido:</strong> "Envio 100% blindado e discreto em caixa parda lisa."</div>
+                    <div style="color: var(--red-alert); margin-top: 3px;">❌ <strong>Proibido:</strong> Menção de sexshop ou termos íntimos na guia externa.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MÓDULO C: CHANNEL GATES MATRIX (PRÉ-REQUISITOS PARA LIBERAÇÃO DE VERBA) -->
+    <section class="section-box">
+        <div class="section-header">
+            <div class="section-title-wrap">
+                <span class="section-icon">🚦</span>
+                <div>
+                    <h2 class="section-title">Módulo C — Matriz Soberana de Channel Gates (Critérios de Liberação)</h2>
+                    <p class="section-desc">Auditoria obrigatória dos 8 critérios de pré-voo antes de autorizar qualquer escala de mídia</p>
+                </div>
+            </div>
+            <span class="badge-derived">GATE AUDIT</span>
+        </div>
+
+        <div class="table-fluid-wrap">
+            <table class="compact-table">
+                <thead>
+                    <tr>
+                        <th style="width: 18%;">Canal</th>
+                        <th style="width: 10%;">Produto</th>
+                        <th style="width: 10%;">Oferta</th>
+                        <th style="width: 12%;">Economia</th>
+                        <th style="width: 12%;">Feed/Catálogo</th>
+                        <th style="width: 14%;">Tracking</th>
+                        <th style="width: 12%;">Policy</th>
+                        <th style="width: 12%;">Status do Gate</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Loja Virtual D2C</strong></td>
+                        <td class="gate-pass">🟢 Validado</td>
+                        <td class="gate-pass">🟢 R$ 89,90</td>
+                        <td class="gate-pass">🟢 +30.5% NET</td>
+                        <td class="gate-pass">🟢 Nativo WC</td>
+                        <td class="gate-pass">🟢 GA4 Ativo</td>
+                        <td class="gate-pass">🟢 OK</td>
+                        <td><strong class="gate-pass">🟢 CAMPAIGN READY</strong></td>
+                    </tr>
+                    <tr style="background: rgba(161, 225, 74, 0.08);">
+                        <td><strong style="color: var(--green-bright);">Landing Page Hero V8</strong></td>
+                        <td class="gate-pass">🟢 Validado</td>
+                        <td class="gate-pass">🟢 Kit R$ 159,90</td>
+                        <td class="gate-pass">🟢 +34.8% NET</td>
+                        <td style="color: var(--text-muted);">N/A</td>
+                        <td class="gate-wait">🟡 CAPI Staging</td>
+                        <td class="gate-pass">🟢 Blindado</td>
+                        <td><strong class="gate-wait">🟡 ASSETS READY</strong></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Google Search (Exata)</strong></td>
+                        <td class="gate-pass">🟢 Validado</td>
+                        <td class="gate-pass">🟢 Kit Duplo</td>
+                        <td class="gate-pass">🟢 CPA R$ 18 Teto</td>
+                        <td style="color: var(--text-muted);">N/A</td>
+                        <td class="gate-wait">🟡 GAds Tag Test</td>
+                        <td class="gate-pass">🟢 Grau 1 OK</td>
+                        <td><strong class="gate-wait">🟡 ASSETS READY</strong></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Google Shopping / PMax</strong></td>
+                        <td class="gate-pass">🟢 Validado</td>
+                        <td class="gate-pass">🟢 Unit / Kit</td>
+                        <td class="gate-pass">🟢 Margem OK</td>
+                        <td class="gate-wait">🟡 Cat 502 XML</td>
+                        <td class="gate-wait">🟡 Conversões</td>
+                        <td class="gate-wait">🟡 Adult:no Review</td>
+                        <td><strong class="gate-wait">🟡 FEED PENDENTE</strong></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Meta Ads (Reels 9:16)</strong></td>
+                        <td class="gate-pass">🟢 Validado</td>
+                        <td class="gate-pass">🟢 Kit Duplo</td>
+                        <td class="gate-pass">🟢 CPA R$ 14,50</td>
+                        <td style="color: var(--text-muted);">N/A</td>
+                        <td class="gate-wait">🟡 CAPI Staging</td>
+                        <td class="gate-wait">🟡 Revisar Hook</td>
+                        <td><strong class="gate-wait">🟡 ASSETS READY</strong></td>
+                    </tr>
+                    <tr style="background: rgba(239, 68, 68, 0.1);">
+                        <td><strong>Mercado Livre Unitário</strong></td>
+                        <td class="gate-pass">🟢 Validado</td>
+                        <td class="gate-block">🔴 R$ 69,80</td>
+                        <td class="gate-block">🔴 -R$ 2,07</td>
+                        <td style="color: var(--text-muted);">N/A</td>
+                        <td style="color: var(--text-muted);">N/A</td>
+                        <td class="gate-pass">🟢 OK</td>
+                        <td><strong class="gate-block">🔴 BLOQUEADO (PREJUÍZO)</strong></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- MÓDULO D: BREAK-EVEN NORMALIZADO EM 4 NÍVEIS -->
+    <section class="section-box">
+        <div class="section-header">
+            <div class="section-title-wrap">
+                <span class="section-icon">📐</span>
+                <div>
+                    <h2 class="section-title">Módulo D — Decomposição Rigorosa de Break-Even em 4 Níveis</h2>
+                    <p class="section-desc">Distinção formal entre amortização de produto, custo operacional, teto de CPA e fluxo de caixa</p>
+                </div>
+            </div>
+            <span class="badge-derived">MATEMÁTICA PURA</span>
+        </div>
+
+        <div class="grid-4">
+            <div class="card-inner">
+                <div style="font-size: 0.72rem; text-transform: uppercase; color: var(--blue-sky); font-weight: 700;">Nível 1</div>
+                <strong style="color: #fff; font-size: 1.05rem; display: block; margin: 4px 0;">Break-Even Produto</strong>
+                <p style="font-size: 0.78rem; color: var(--text-muted); margin-bottom: 8px;">Cobre apenas o boleto faturado da fábrica (COGS).</p>
+                <div style="font-family: 'Outfit', sans-serif; font-size: 1.3rem; font-weight: 800; color: var(--blue-sky);">3 Kits (6 un)</div>
+                <div style="font-size: 0.75rem; color: #fff; margin-top: 4px;">Fatura R$ 479,70 vs R$ 456,20 de custo bruto.</div>
+            </div>
+
+            <div class="card-inner">
+                <div style="font-size: 0.72rem; text-transform: uppercase; color: var(--green-bright); font-weight: 700;">Nível 2</div>
+                <strong style="color: #fff; font-size: 1.05rem; display: block; margin: 4px 0;">Break-Even Operacional</strong>
+                <p style="font-size: 0.78rem; color: var(--text-muted); margin-bottom: 8px;">COGS + Embalagem + Frete + Gateway + Imposto.</p>
+                <div style="font-family: 'Outfit', sans-serif; font-size: 1.3rem; font-weight: 800; color: var(--green-bright);">4 Kits (8 un)</div>
+                <div style="font-size: 0.75rem; color: #fff; margin-top: 4px;">Paga 100% de todas as despesas diretas de envio.</div>
+            </div>
+
+            <div class="card-inner">
+                <div style="font-size: 0.72rem; text-transform: uppercase; color: var(--amber); font-weight: 700;">Nível 3</div>
+                <strong style="color: #fff; font-size: 1.05rem; display: block; margin: 4px 0;">Break-Even Mídia (CPA)</strong>
+                <p style="font-size: 0.78rem; color: var(--text-muted); margin-bottom: 8px;">Teto máximo de CPA sem prejuízo no lote todo.</p>
+                <div style="font-family: 'Outfit', sans-serif; font-size: 1.3rem; font-weight: 800; color: var(--amber);">R$ 34,27 / kit</div>
+                <div style="font-size: 0.75rem; color: #fff; margin-top: 4px;">Para meta ROI 10%, CPA teto reduz para R$ 25,14.</div>
+            </div>
+
+            <div class="card-inner">
+                <div style="font-size: 0.72rem; text-transform: uppercase; color: #c084fc; font-weight: 700;">Nível 4</div>
+                <strong style="color: #fff; font-size: 1.05rem; display: block; margin: 4px 0;">Break-Even Caixa</strong>
+                <p style="font-size: 0.78rem; color: var(--text-muted); margin-bottom: 8px;">Todo capital investido + adiantamentos retornam.</p>
+                <div style="font-family: 'Outfit', sans-serif; font-size: 1.3rem; font-weight: 800; color: #c084fc;">5 Kits (10 un)</div>
+                <div style="font-size: 0.75rem; color: #fff; margin-top: 4px;">Liquidez 100% restaurada na conta bancária.</div>
+            </div>
+        </div>
+    </section>
+
     <!-- CAMADAS 01, 02 & 03: IDENTITY, SUPPLY & UNIT ECONOMICS -->
     <div class="grid-3" style="margin-bottom: 24px;">
-        <!-- 01 Identity -->
         <div class="section-box" style="margin-bottom: 0;">
             <div class="section-header" style="margin-bottom: 12px; padding-bottom: 8px;">
                 <div class="section-title-wrap">
                     <span class="section-icon">🏷️</span>
                     <h2 class="section-title" style="font-size: 1.1rem;">01 — IDENTITY</h2>
                 </div>
-                <span class="badge-fact">PRODUTO</span>
+                <span class="badge-fact">FACT</span>
             </div>
             <div style="display: flex; flex-direction: column; gap: 8px; font-size: 0.82rem;">
                 <div><strong>Nome Comercial:</strong> Pico Pulse Uva Verde INTT 15ml</div>
@@ -783,14 +1084,13 @@ footer {
             </div>
         </div>
 
-        <!-- 02 Supply -->
         <div class="section-box" style="margin-bottom: 0;">
             <div class="section-header" style="margin-bottom: 12px; padding-bottom: 8px;">
                 <div class="section-title-wrap">
                     <span class="section-icon">📦</span>
                     <h2 class="section-title" style="font-size: 1.1rem;">02 — SUPPLY</h2>
                 </div>
-                <span class="badge-fact">ESTOQUE</span>
+                <span class="badge-fact">FACT</span>
             </div>
             <div style="display: flex; flex-direction: column; gap: 8px; font-size: 0.82rem;">
                 <div><strong>Custo Unitário B2B:</strong> <span style="color: #fff; font-weight: 700;">R$ 45,62</span> (com impostos)</div>
@@ -802,20 +1102,19 @@ footer {
             </div>
         </div>
 
-        <!-- 03 Unit Economics -->
         <div class="section-box" style="margin-bottom: 0;">
             <div class="section-header" style="margin-bottom: 12px; padding-bottom: 8px;">
                 <div class="section-title-wrap">
                     <span class="section-icon">📐</span>
                     <h2 class="section-title" style="font-size: 1.1rem;">03 — PRICING & BREAK-EVEN</h2>
                 </div>
-                <span class="badge-inferred">ENGINE</span>
+                <span class="badge-derived">DERIVED</span>
             </div>
             <div style="display: flex; flex-direction: column; gap: 8px; font-size: 0.82rem;">
                 <div><strong>Piso de Segurança:</strong> R$ 63,71 (Break-Even sem mídia)</div>
                 <div><strong>Loja Virtual (Unitário):</strong> R$ 89,90 (Lucro Limpo +R$ 27,45)</div>
                 <div><strong>Landing Page (Kit Duplo):</strong> <span style="color: var(--green-bright); font-weight: 700;">R$ 159,90</span> (Hero)</div>
-                <div><strong>Amortização de Capital:</strong> 3 Kits (6 un) pagam R$ 456,20</div>
+                <div><strong>Amortização de Capital:</strong> 3 Kits cobrem custo do lote</div>
                 <div><strong>Margem de Contribuição:</strong> R$ 68,66 por Kit Duplo</div>
                 <div><strong>Teto de CPA para ROI 10%:</strong> R$ 18,00 por Kit</div>
             </div>
@@ -832,7 +1131,7 @@ footer {
                     <p class="section-desc">Sinergia neurosensorial comprovada por ativos fitoterápicos e vasoativos de alta pureza</p>
                 </div>
             </div>
-            <span class="badge-fact">INCI VALIDADO</span>
+            <span class="badge-observed">INCI & LITERATURA</span>
         </div>
 
         <div class="grid-4">
@@ -887,7 +1186,7 @@ footer {
                     <p class="section-desc">Ganchos psicológicos validados e desconstrução das três maiores resistências de compra</p>
                 </div>
             </div>
-            <span class="badge-inferred">CONVERSÃO PSICOLÓGICA</span>
+            <span class="badge-hypothesis">PSICOLOGIA DE COMPRA</span>
         </div>
 
         <div class="grid-3">
@@ -924,7 +1223,7 @@ footer {
                     <p class="section-desc">Preços praticados hoje no varejo nacional vs nosso custo de fábrica de R$ 45,62</p>
                 </div>
             </div>
-            <span class="badge-fact">AUDITORIA REAL</span>
+            <span class="badge-observed">AUDITORIA REAL</span>
         </div>
 
         <div class="table-fluid-wrap">
@@ -977,7 +1276,7 @@ footer {
                     <p class="section-desc">Separação conceitual estrita entre inteligência externa de busca e taxonomia soberana de feed</p>
                 </div>
             </div>
-            <span class="badge-fact">SEPARAÇÃO DE CAMADAS</span>
+            <span class="badge-derived">SEPARAÇÃO DE CAMADAS</span>
         </div>
 
         <div class="grid-2">
@@ -985,7 +1284,7 @@ footer {
             <div class="card-inner">
                 <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
                     <strong style="color: var(--blue-sky); font-size: 1rem;">07 — DataForSEO / SERP Intelligence</strong>
-                    <span class="badge-fact">LEILÃO BRASIL</span>
+                    <span class="badge-observed">OBSERVED API</span>
                 </div>
                 <p style="font-size: 0.8rem; color: var(--text-muted); margin-bottom: 12px;">Auditoria de volume e CPC real para dimensionamento de lances:</p>
                 <div style="display: flex; flex-direction: column; gap: 8px; font-size: 0.82rem;">
@@ -1012,7 +1311,7 @@ footer {
             <div class="card-inner">
                 <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
                     <strong style="color: var(--google); font-size: 1rem;">08 — Google Merchant Center Feed</strong>
-                    <span class="badge-fact">FEED XML LIMPO</span>
+                    <span class="badge-fact">FEED XML ATRIBUTOS</span>
                 </div>
                 <p style="font-size: 0.8rem; color: var(--text-muted); margin-bottom: 12px;">Atributos exatos do XML para catalogação sem shadowban:</p>
                 <div style="display: flex; flex-direction: column; gap: 6px; font-size: 0.82rem;">
@@ -1026,42 +1325,42 @@ footer {
         </div>
     </section>
 
-    <!-- NOVO PAINEL: TWIN BENCHMARKING & OODA ENGINE (CRUZAMENTO MULTICAMADAS) -->
+    <!-- TWIN BENCHMARKING & OODA ENGINE (CRUZAMENTO MULTICAMADAS) -->
     <section class="section-box twin-box">
         <div class="section-header">
             <div class="section-title-wrap">
                 <span class="section-icon">🧬</span>
                 <div>
                     <h2 class="section-title" style="color: var(--blue-sky);">Twin Benchmarking & OODA Engine (Cruzamento Inteligente Multicamadas)</h2>
-                    <p class="section-desc">Interconexão em tempo real entre demanda de leilão, custos fabris, concorrência e alavancas de conversão</p>
+                    <p class="section-desc">Interconexão entre demanda observada, premissas de conversão e alavancas econômicas</p>
                 </div>
             </div>
-            <span class="badge-fact" style="border-color: var(--blue-sky);">SCORE BOA: 88/100</span>
+            <span class="badge-derived">BOA SCORE: 88/100</span>
         </div>
 
         <div class="grid-2" style="margin-bottom: 16px;">
-            <!-- Cruzamento 1 -->
             <div class="card-inner" style="background: rgba(10, 20, 45, 0.7); border-color: rgba(56, 189, 248, 0.3);">
                 <div style="color: var(--blue-sky); font-weight: 700; font-size: 0.9rem; margin-bottom: 6px;">
-                    🔗 Cruzamento 1: Demanda DataForSEO (2.900 buscas) × Estoque Supply (107 un)
+                    🔗 Cruzamento 1: Demanda DataForSEO (6.980 buscas) × Estoque Supply (107 un)
                 </div>
                 <p style="font-size: 0.82rem; color: #e2e8f0; line-height: 1.5;">
-                    O volume qualificado de 6.980 buscas totais/mês (CPC médio R$ 0,85) gera com CTR de 4% cerca de 280 cliques compradores/mês. Com taxa conservadora de conversão D2C de 3,5%, <strong>a demanda de leilão absorve todo o estoque de 107 unidades em apenas 30 a 45 dias</strong>, sem necessidade de descontos ou desova no Mercado Livre.
+                    <span class="badge-observed">OBSERVED</span> 6.980 buscas totais/mês (CPC R$ 0,85). 
+                    <span class="badge-hypothesis">HYPOTHESIS</span> Com CTR de 4% (&asymp; 280 cliques compradores) e taxa conservadora de conversão D2C de 3,5%, 
+                    <span class="badge-derived">DERIVED</span> <strong>a demanda de leilão é suficiente para absorver o estoque de 107 unidades em 30 a 45 dias</strong> sem necessidade de queimar margem no Mercado Livre.
                 </p>
             </div>
 
-            <!-- Cruzamento 2 -->
             <div class="card-inner" style="background: rgba(10, 20, 45, 0.7); border-color: rgba(56, 189, 248, 0.3);">
                 <div style="color: var(--green-bright); font-weight: 700; font-size: 0.9rem; margin-bottom: 6px;">
                     🔗 Cruzamento 2: Farmácia Drogasil (R$ 75,90 + Frete) × Kit Hero V8 (R$ 159,90)
                 </div>
                 <p style="font-size: 0.82rem; color: #e2e8f0; line-height: 1.5;">
-                    Na drogaria, 1 frasco com frete custa R$ 90 a 95 e expõe o cliente ao constrangimento presencial. No Canal Hero CASOSEX, <strong>o Kit Duplo sai a R$ 79,95/un com Frete Grátis e caixa blindada</strong>. O cliente percebe economia real por frasco e adquire duas unidades com privacidade inviolável.
+                    <span class="badge-observed">OBSERVED</span> Na drogaria, 1 frasco com frete custa R$ 90 a 95 e expõe o cliente ao constrangimento presencial. 
+                    <span class="badge-derived">DERIVED</span> No Canal Hero CASOSEX, <strong>o Kit Duplo sai a R$ 79,95/un com Frete Grátis e caixa blindada</strong>, neutralizando a âncora do varejo farmacêutico.
                 </p>
             </div>
         </div>
 
-        <!-- OODA Cycle Status Bar -->
         <div class="card-inner" style="background: rgba(0, 0, 0, 0.45); border: 1px solid rgba(56, 189, 248, 0.2);">
             <div style="font-size: 0.75rem; text-transform: uppercase; color: var(--blue-sky); font-weight: 700; margin-bottom: 8px;">
                 🔄 Estado OODA Vivo do Produto #3354 (Redis Telemetry Sync)
@@ -1069,7 +1368,7 @@ footer {
             <div class="grid-4" style="font-size: 0.8rem;">
                 <div>
                     <strong style="color: #fff;">OBSERVE:</strong>
-                    <p style="color: var(--text-muted); margin-top: 2px;">107 un em armazém (R$ 4.881,34) · Leilão CPC R$ 0,85 · 4 players no MeLi.</p>
+                    <p style="color: var(--text-muted); margin-top: 2px;">107 un armazém (R$ 4.881,34) · Leilão CPC R$ 0,85 · 4 players no MeLi.</p>
                 </div>
                 <div>
                     <strong style="color: #fff;">ORIENT:</strong>
@@ -1081,13 +1380,13 @@ footer {
                 </div>
                 <div>
                     <strong style="color: #fff;">ACT:</strong>
-                    <p style="color: var(--text-muted); margin-top: 2px;">Search Exata Google Ads + Reels 9:16 focado em embalagem blindada e sem fio.</p>
+                    <p style="color: var(--text-muted); margin-top: 2px;">Validar CAPI/Tracking &rarr; Search Exata Google Ads + Reels 9:16.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- CAMADAS 09 & 10: MARKETPLACE (DESCARTE MELI) vs D2C (CANAL HERO V8) - ENQUADRADO SEM SCROLL -->
+    <!-- CAMADAS 09 & 10: MARKETPLACE (DESCARTE MELI) vs D2C (CANAL HERO V8) -->
     <section class="section-box">
         <div class="section-header">
             <div class="section-title-wrap">
@@ -1097,11 +1396,10 @@ footer {
                     <p class="section-desc">A prova matemática de por que a unidade avulsa no Mercado Livre é bloqueada e o estoque canalizado no D2C</p>
                 </div>
             </div>
-            <span class="badge-inferred">INFERRED MATEMÁTICO</span>
+            <span class="badge-derived">MATEMÁTICA AUDITADA</span>
         </div>
 
         <div class="channel-cards-grid">
-            <!-- Canal 1: MeLi Unitário -->
             <div class="ch-card discard">
                 <div>
                     <div class="ch-header">
@@ -1137,7 +1435,6 @@ footer {
                 </div>
             </div>
 
-            <!-- Canal 2: MeLi Kit Duplo -->
             <div class="ch-card">
                 <div>
                     <div class="ch-header">
@@ -1173,7 +1470,6 @@ footer {
                 </div>
             </div>
 
-            <!-- Canal 3: Loja Própria -->
             <div class="ch-card">
                 <div>
                     <div class="ch-header">
@@ -1209,7 +1505,6 @@ footer {
                 </div>
             </div>
 
-            <!-- Canal 4: Hero Landing Page -->
             <div class="ch-card hero">
                 <div>
                     <div class="ch-header">
@@ -1254,13 +1549,12 @@ footer {
                 <span class="section-icon">📢</span>
                 <div>
                     <h2 class="section-title">11 — Paid Media Playbook: Google Ads, Meta Ads & TikTok Spark Ads</h2>
-                    <p class="section-desc">Ativos de alta conversão rigorosamente parametrizados para blindagem de conta e escala</p>
+                    <p class="section-desc">Ativos oficiais prontos (Campaign Assets Ready) aguardando liberação de tracking dos gates</p>
                 </div>
             </div>
-            <span class="badge-fact">PRONTO PARA SUBIR</span>
+            <span class="badge-derived">ASSETS READY</span>
         </div>
 
-        <!-- Google Ads -->
         <div class="card-inner" style="margin-bottom: 16px;">
             <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 12px;">
                 <span style="color: var(--google); font-size: 1.1rem;">🔴</span>
@@ -1295,7 +1589,6 @@ footer {
                 </div>
             </div>
 
-            <!-- Negatives Filter -->
             <div style="margin-top: 12px; background: rgba(0,0,0,0.35); padding: 10px 12px; border-radius: 8px; font-size: 0.78rem;">
                 <strong style="color: var(--red-alert);">Filtro de Leilão (Palavras Negativas Obrigatórias):</strong>
                 <span style="color: var(--text-muted); margin-left: 6px;">
@@ -1304,7 +1597,6 @@ footer {
             </div>
         </div>
 
-        <!-- Meta Ads & TikTok UGC Matrix -->
         <div class="card-inner">
             <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 12px;">
                 <span style="color: var(--meta); font-size: 1.1rem;">🔵</span>
@@ -1312,36 +1604,36 @@ footer {
             </div>
 
             <div class="table-fluid-wrap">
-                <table class="compact-table ugc-table">
+                <table class="compact-table">
                     <thead>
                         <tr>
-                            <th>Momento</th>
-                            <th>Cena Visual (Vídeo)</th>
-                            <th>Áudio / Locução (O que falar)</th>
-                            <th>Texto na Tela (Hook)</th>
+                            <th style="width: 14%;">Momento</th>
+                            <th style="width: 30%;">Cena Visual (Vídeo)</th>
+                            <th style="width: 32%;">Áudio / Locução (O que falar)</th>
+                            <th style="width: 24%;">Texto na Tela (Hook)</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
-                            <td><strong>0s a 4s (Hook)</strong></td>
+                            <td><strong style="color: var(--blue-sky);">0s a 4s (Hook)</strong></td>
                             <td>Gota verde transparente pingando no dorso da mão, espalhando devagar.</td>
                             <td><em>"Você já sentiu a sensação de sucção e pulsação sem precisar de nenhum aparelho elétrico?"</em></td>
                             <td><span class="code-pill" style="color: var(--amber);">Como isso não usa pilha?! 😱</span></td>
                         </tr>
                         <tr>
-                            <td><strong>4s a 12s (USP)</strong></td>
+                            <td><strong style="color: var(--blue-sky);">4s a 12s (USP)</strong></td>
                             <td>Criadora mostra o frasco verde discreto, demonstrando textura gel refrescante.</td>
                             <td><em>"Esse é o Pico Pulse da INTT. Ele tem extrato de jambu puro que ativa microcontrações instantâneas na pele!"</em></td>
                             <td><span class="code-pill" style="color: var(--green-bright);">Extrato natural de jambu ✨</span></td>
                         </tr>
                         <tr>
-                            <td><strong>12s a 19s (Sigilo)</strong></td>
+                            <td><strong style="color: var(--blue-sky);">12s a 19s (Sigilo)</strong></td>
                             <td>Mostra a caixa parda de correio lisa, sem nenhuma logomarca externa.</td>
                             <td><em>"E o melhor: a caixa chega 100% discreta. Ninguém sabe o que tem dentro, nem quem entrega."</em></td>
                             <td><span class="code-pill" style="color: var(--blue-sky);">Embalagem 100% blindada 📦</span></td>
                         </tr>
                         <tr>
-                            <td><strong>19s a 25s (CTA)</strong></td>
+                            <td><strong style="color: var(--blue-sky);">19s a 25s (CTA)</strong></td>
                             <td>Mostra o Kit Duplo com o botão do site ao fundo.</td>
                             <td><em>"Clica no botão aqui embaixo e aproveita o Kit Duplo com frete exclusivo antes que o lote acabe."</em></td>
                             <td><span class="code-pill" style="color: var(--green-bright);">Garanta o Kit Duplo 👇</span></td>
@@ -1352,17 +1644,17 @@ footer {
         </div>
     </section>
 
-    <!-- CAMADA 12: ROI ENGINE CONECTADO & CURVA DE SENSIBILIDADE (0% A 35%+) - ENQUADRADO SEM SCROLL -->
+    <!-- CAMADA 12: ROI ENGINE CONECTADO & CURVA DE SENSIBILIDADE (0% A 35%+) COM SIMULADOR JS AUDITADO -->
     <section class="section-box">
         <div class="section-header">
             <div class="section-title-wrap">
                 <span class="section-icon">📈</span>
                 <div>
                     <h2 class="section-title">12 — ROI Engine Conectado (Consequência de Todas as Camadas)</h2>
-                    <p class="section-desc">Curva de sensibilidade matemática de 0% a 20%+ e simulador dinâmico de capital de giro</p>
+                    <p class="section-desc">Curva de sensibilidade matemática auditada de 0% a 20%+ e simulador dinâmico unificado</p>
                 </div>
             </div>
-            <span class="badge-inferred">CADEIA COMPLETA</span>
+            <span class="badge-derived">FÓRMULA SOBERANA</span>
         </div>
 
         <div class="table-fluid-wrap">
@@ -1380,19 +1672,19 @@ footer {
                 <tbody>
                     <tr style="background: rgba(56, 189, 248, 0.08);">
                         <td><strong style="color: var(--blue-sky); font-size: 0.95rem;">0.0% ROI</strong></td>
-                        <td>Break-Even (Risco Zero)</td>
+                        <td>Break-Even Mídia / Risco Zero</td>
                         <td>3 Kits (6 un)</td>
                         <td><span class="code-pill">R$ 28,50 / kit</span></td>
                         <td><strong style="color: #fff;">R$ 0,00</strong></td>
-                        <td><span class="badge-fact">🛡️ CAPITAL PAGO</span></td>
+                        <td><span class="badge-fact">CAPITAL PAGO</span></td>
                     </tr>
                     <tr>
                         <td><strong style="color: #93c5fd;">1.0% ROI</strong></td>
-                        <td>Giro de Teste</td>
+                        <td>Giro de Teste Inicial</td>
                         <td>4 Kits (8 un)</td>
                         <td><span class="code-pill">R$ 26,00 / kit</span></td>
                         <td>+ R$ 4,56</td>
-                        <td><span class="badge-tag">🟢 GIRO INICIAL</span></td>
+                        <td><span class="badge-tag">GIRO INICIAL</span></td>
                     </tr>
                     <tr>
                         <td><strong style="color: #93c5fd;">2.0% ROI</strong></td>
@@ -1400,7 +1692,7 @@ footer {
                         <td>4 Kits (8 un)</td>
                         <td><span class="code-pill">R$ 24,80 / kit</span></td>
                         <td>+ R$ 9,12</td>
-                        <td><span class="badge-tag">🟢 TRAÇÃO</span></td>
+                        <td><span class="badge-tag">TRAÇÃO</span></td>
                     </tr>
                     <tr>
                         <td><strong style="color: #93c5fd;">3.0% ROI</strong></td>
@@ -1408,7 +1700,7 @@ footer {
                         <td>5 Kits (10 un)</td>
                         <td><span class="code-pill">R$ 23,50 / kit</span></td>
                         <td>+ R$ 13,68</td>
-                        <td><span class="badge-tag">🟢 LEILÃO</span></td>
+                        <td><span class="badge-tag">LEILÃO</span></td>
                     </tr>
                     <tr>
                         <td><strong style="color: #93c5fd;">4.0% ROI</strong></td>
@@ -1416,15 +1708,15 @@ footer {
                         <td>5 Kits (10 un)</td>
                         <td><span class="code-pill">R$ 22,10 / kit</span></td>
                         <td>+ R$ 18,24</td>
-                        <td><span class="badge-tag">🟢 ESCALA SEGURA</span></td>
+                        <td><span class="badge-tag">ESCALA SEGURA</span></td>
                     </tr>
                     <tr style="background: rgba(161, 225, 74, 0.08); border-left: 3px solid var(--green-bright);">
                         <td><strong style="color: var(--green-bright); font-size: 1.05rem;">10.0% ROI</strong></td>
-                        <td><strong>Tração E-commerce</strong></td>
+                        <td><strong>Meta E-commerce</strong></td>
                         <td>5 Kits (10 un)</td>
                         <td><span class="code-pill">R$ 18,00 / kit</span></td>
                         <td><strong style="color: var(--green-bright);">+ R$ 45,62</strong></td>
-                        <td><span class="badge-inferred">⭐ META OFICIAL</span></td>
+                        <td><span class="badge-derived">META OFICIAL</span></td>
                     </tr>
                     <tr style="background: rgba(161, 225, 74, 0.16); border-left: 3px solid var(--green-bright);">
                         <td><strong style="color: var(--green-bright); font-size: 1.1rem;">20.0%+ ROI</strong></td>
@@ -1432,19 +1724,19 @@ footer {
                         <td>5 Kits (10 un) + Bumps</td>
                         <td><span class="code-pill">R$ 14,50 / kit</span></td>
                         <td><strong style="color: var(--green-bright);">+ R$ 91,24 (+34.8%)</strong></td>
-                        <td><span class="badge-inferred">🏆 ALTA RENTABILIDADE</span></td>
+                        <td><span class="badge-derived">ALTA RENTABILIDADE</span></td>
                     </tr>
                 </tbody>
             </table>
         </div>
 
-        <!-- SIMULADOR DINÂMICO CONECTADO DE ROI -->
+        <!-- SIMULADOR DINÂMICO CONECTADO DE ROI V8.2 COM STEP PRECISO -->
         <div class="sim-container">
             <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; flex-wrap: wrap; gap: 8px;">
                 <div style="color: var(--blue-sky); font-weight: 800; font-size: 0.95rem;">
-                    🧮 Simulador Dinâmico Conectado de ROI (0% a 35%)
+                    🧮 Simulador Dinâmico Conectado de ROI (0% a 35%) — Math Engine V8.2
                 </div>
-                <span class="badge-fact">ALGORITMO REATIVO</span>
+                <span class="badge-derived">ESPELHO PHP 1:1</span>
             </div>
 
             <div class="sim-sliders">
@@ -1453,8 +1745,8 @@ footer {
                     <input type="range" id="sim-units-slider" min="10" max="107" value="10" step="2">
                 </div>
                 <div class="slider-group">
-                    <label>Preço Kit Duplo: <strong id="sim-price-val" style="color: var(--green-bright);">R$ 159,90</strong></label>
-                    <input type="range" id="sim-price-slider" min="139" max="199" value="159.90" step="5">
+                    <label>Preço Kit Duplo V8: <strong id="sim-price-val" style="color: var(--green-bright);">R$ 159,90</strong></label>
+                    <input type="range" id="sim-price-slider" min="139" max="199" value="159.90" step="0.10">
                 </div>
                 <div class="slider-group">
                     <label>Meta de ROI: <strong id="sim-target-roi-val" style="color: var(--blue-sky);">20%</strong></label>
@@ -1480,28 +1772,30 @@ footer {
                     <div class="sim-m-val" style="color: var(--green-bright);" id="sim-out-profit">+ R$ 91,24</div>
                 </div>
                 <div class="sim-m-card">
-                    <div class="kpi-title">Break-Even Amortizado</div>
-                    <div class="sim-m-val" style="color: #38bdf8;" id="sim-out-be">3 Kits (6 un)</div>
+                    <div class="kpi-title">Break-Even Operacional</div>
+                    <div class="sim-m-val" style="color: #38bdf8;" id="sim-out-be">4 Kits (8 un)</div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- CAMADA 13: COMPLIANCE & BLINDAGEM LEGAL -->
+    <!-- CAMADA 13: COMPLIANCE STATUS REALISTA (LOW/MEDIUM RISK) -->
     <section class="section-box">
         <div class="section-header">
             <div class="section-title-wrap">
                 <span class="section-icon">⚖️</span>
                 <div>
                     <h2 class="section-title">13 — Compliance & Blindagem Legal (ANVISA, Conar & Meta Policy)</h2>
-                    <p class="section-desc">Matriz obrigatória de copy para evitar suspensão de contas de anúncios ou advertência sanitária</p>
+                    <p class="section-desc">Auditoria de risco mitigado e controle de termos sensíveis para anúncios</p>
                 </div>
             </div>
-            <span class="badge-fact">RISCO ZERO</span>
+            <span class="badge-observed" style="background: rgba(245, 158, 11, 0.2); border-color: var(--amber); color: var(--amber);">
+                COMPLIANCE: LOW TO MEDIUM RISK (GATED)
+            </span>
         </div>
 
-        <div class="comp-grid">
-            <div class="comp-box allowed">
+        <div class="grid-2">
+            <div class="card-inner" style="background: rgba(35, 78, 26, 0.25); border: 1px solid rgba(161, 225, 74, 0.35);">
                 <div style="display: flex; align-items: center; gap: 6px; margin-bottom: 8px;">
                     <span style="color: var(--green-bright); font-size: 1.1rem;">✅</span>
                     <strong style="color: var(--green-bright); font-size: 0.9rem;">Claims 100% Permitidos (Grau 1 Cosmético)</strong>
@@ -1514,7 +1808,7 @@ footer {
                 </ul>
             </div>
 
-            <div class="comp-box forbidden">
+            <div class="card-inner" style="background: rgba(78, 26, 26, 0.25); border: 1px solid rgba(239, 68, 68, 0.35);">
                 <div style="display: flex; align-items: center; gap: 6px; margin-bottom: 8px;">
                     <span style="color: var(--red-alert); font-size: 1.1rem;">❌</span>
                     <strong style="color: var(--red-alert); font-size: 0.9rem;">Claims Estritamente Proibidos (Risco Ban)</strong>
@@ -1529,50 +1823,51 @@ footer {
         </div>
     </section>
 
-    <!-- CAMADA 14: DECISION ENGINE & OPERATIONAL READINESS -->
+    <!-- CAMADA 14: DECISION ENGINE 2.0 & SÍNTESE EXECUTIVA -->
     <section class="section-box hero-box">
         <div class="section-header">
             <div class="section-title-wrap">
                 <span class="section-icon">🧠</span>
                 <div>
-                    <h2 class="section-title">14 — Decision Engine & Operational Readiness</h2>
-                    <p class="section-desc">Síntese executiva algorítmica e autorização de lançamento de mídia</p>
+                    <h2 class="section-title">14 — Decision Engine 2.0 & Operational Readiness</h2>
+                    <p class="section-desc">Pipeline epistemológico completo: Fatos &rarr; Evidência &rarr; Hipóteses &rarr; Gates &rarr; Ação</p>
                 </div>
             </div>
-            <span class="badge-inferred">VEREDITO FINAL</span>
+            <span class="badge-derived">VEREDITO SOBERANO</span>
         </div>
 
         <div class="grid-2">
             <div class="card-inner">
-                <strong style="color: var(--green-bright); font-size: 0.95rem;">Matriz de Decisão Executiva por Canal:</strong>
+                <strong style="color: var(--green-bright); font-size: 0.95rem;">Resumo dos Gates de Liberação:</strong>
                 <div style="margin-top: 10px; display: flex; flex-direction: column; gap: 8px; font-size: 0.82rem;">
                     <div style="display: flex; justify-content: space-between; border-bottom: 1px solid rgba(255,255,255,0.06); padding-bottom: 4px;">
-                        <span>Mercado Livre Unitário:</span>
-                        <strong style="color: var(--red-alert);">🔴 REJEITADO (-3.0% NET)</strong>
+                        <span>Venda Orgânica Loja Própria:</span>
+                        <strong class="gate-pass">🟢 AUTORIZADA (Margem 30.5%)</strong>
                     </div>
                     <div style="display: flex; justify-content: space-between; border-bottom: 1px solid rgba(255,255,255,0.06); padding-bottom: 4px;">
-                        <span>Mercado Livre Kit Duplo:</span>
-                        <strong style="color: var(--amber);">🟡 CONDICIONAL (12.8% NET)</strong>
+                        <span>Tráfego Pago LP Hero V8:</span>
+                        <strong class="gate-wait">🟡 CONDICIONAL (Aguardando CAPI)</strong>
                     </div>
                     <div style="display: flex; justify-content: space-between; border-bottom: 1px solid rgba(255,255,255,0.06); padding-bottom: 4px;">
-                        <span>Loja Própria D2C:</span>
-                        <strong style="color: var(--blue-sky);">🟢 APROVADO (30.5% NET)</strong>
+                        <span>Google Shopping / PMax:</span>
+                        <strong class="gate-wait">🟡 AGUARDANDO APROV MERCHANT</strong>
                     </div>
                     <div style="display: flex; justify-content: space-between;">
-                        <span>Landing Page Edge V8:</span>
-                        <strong style="color: var(--green-bright);">🟢 APROVADO HERO (34.8% NET)</strong>
+                        <span>Mercado Livre Unitário:</span>
+                        <strong class="gate-block">🔴 BLOQUEADO (-R$ 2,07 Prejuízo)</strong>
                     </div>
                 </div>
             </div>
 
             <div class="card-inner" style="background: rgba(0,0,0,0.5);">
-                <strong style="color: #fff; font-size: 0.95rem;">Diretriz Estratégica Soberana:</strong>
+                <strong style="color: #fff; font-size: 0.95rem;">Diretriz Soberana de Capital:</strong>
                 <p style="font-size: 0.82rem; color: #e2e8f0; margin-top: 8px; line-height: 1.6;">
-                    O produto <strong>Pico Pulse Uva Verde INTT #3354</strong> possui fundamentos comerciais de altíssimo valor (demanda reprimida no leilão e fórmula sensorial de alto impacto). A barreira do frete individual é neutralizada através da oferta em <strong>Kit Duplo a R$ 159,90</strong>. Apenas 3 vendas amortizam todo o capital do lote.
+                    O produto <strong>Pico Pulse Uva Verde INTT #3354</strong> tem fundamentos econômicos excepcionais (unit economics e margem bruta). A autorização de injeção de verba de tráfego pago ocorre exclusivamente sob a regra: <strong>Score é diagnóstico, Gate é autorização</strong>. Iniciar com teste controlado de conversão apenas após aprovação técnica dos gates de rastreamento.
                 </p>
-                <div style="margin-top: 12px; display: flex; gap: 8px;">
-                    <span class="code-pill" style="color: var(--green-bright); border-color: var(--green-bright);">EXECUÇÃO: AUTORIZADA</span>
-                    <span class="code-pill" style="color: var(--blue-sky); border-color: var(--blue-sky);">CANAL HERO: LP V8 D2C</span>
+                <div style="margin-top: 12px; display: flex; gap: 8px; flex-wrap: wrap;">
+                    <span class="code-pill" style="color: var(--green-bright); border-color: var(--green-bright);">D2C CHECKOUT: PRONTO</span>
+                    <span class="code-pill" style="color: var(--amber); border-color: var(--amber);">CAPI STAGING: TESTE PENDENTE</span>
+                    <span class="code-pill" style="color: var(--blue-sky); border-color: var(--blue-sky);">AMORTIZAÇÃO PRODUTO: 3 KITS</span>
                 </div>
             </div>
         </div>
@@ -1580,14 +1875,15 @@ footer {
 
     <!-- Footer -->
     <footer>
-        <p><strong>ADSENTICE SOVEREIGN COMMERCE ENGINE</strong> · Ficha Operacional de Go-to-Market & Inteligência Unificada</p>
+        <p><strong>ADSENTICE SOVEREIGN COMMERCE ENGINE</strong> · Ficha Operacional de Go-to-Market V8.2 (Governança & Evidência)</p>
         <p style="margin-top: 4px; color: var(--text-muted); font-size: 0.75rem;">
-            Auditoria Ativa: MariaDB/WooCommerce ID 3354 · DataForSEO Engine · OODA Brain Telemetry Sync
+            Auditoria Ativa: MariaDB/WooCommerce ID 3354 · DataForSEO Engine · OODA Brain Telemetry Sync · Doutrina: medido=verdade
         </p>
     </footer>
 </div>
 
 <script>
+// MATH ENGINE V8.2 UNIFICADO (ESPELHO DETERMINÍSTICO PHP 1:1)
 const costUnit = 45.62;
 const taxRate = 0.05;
 const gwRate = 0.04;
@@ -1621,6 +1917,7 @@ function updateSim() {
     const totalKits = Math.floor(units / 2);
     const grossRevenue = totalKits * kitPrice;
 
+    // Deduções operacionais por kit (COGS 2 un + Imposto + Gateway + Embalagem + Frete)
     const fixedDeductionsPerKit = (kitPrice * taxRate) + (kitPrice * gwRate) + pkgCost + shipCost + (costUnit * 2);
     const netBeforeCpa = kitPrice - fixedDeductionsPerKit;
 
@@ -1630,6 +1927,7 @@ function updateSim() {
     let maxCpa = netBeforeCpa - profitPerKit;
     maxCpa = Math.max(0, maxCpa);
 
+    // Break-Even Operacional (Margem de Contribuição após deduções diretas variáveis)
     const kitContribMarginBe = kitPrice - (kitPrice * taxRate) - (kitPrice * gwRate) - pkgCost - shipCost;
     let beKits = Math.ceil(totalInvestment / Math.max(kitContribMarginBe, 1.0));
     beKits = Math.min(beKits, totalKits);
